@@ -9,6 +9,7 @@ This document tracks priority excavations and research directions. Status indica
 ### Core Architecture & Hardware
 - [Analog Computing](../excavations/analog-computing.md)
 - [Balanced Ternary](../excavations/balanced-ternary.md)
+- [Cellular Automata Hardware](../excavations/cellular-automata-hardware.md)
 - [Connection Machine](../excavations/connection-machine.md)
 - [Dataflow Computing](../excavations/dataflow-computing.md)
 - [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
@@ -16,6 +17,7 @@ This document tracks priority excavations and research directions. Status indica
 - [Reversible Computing](../excavations/reversible-computing.md)
 - [Stack Machines](../excavations/stack-machines.md)
 - [Transputers](../excavations/transputers.md)
+- [Wafer-Scale Integration](../excavations/wafer-scale-integration.md)
 
 ### Systems, Security & Operating Systems
 - [Capability Systems](../excavations/capability-systems.md)
@@ -33,9 +35,9 @@ This document tracks priority excavations and research directions. Status indica
 
 ## Near Term
 
-- Cellular Architectures / Cellular Automata Hardware
 - Molecular & Biocomputing Logic
-- Wafer-Scale Integration (WSI) Historical Precursors
+- Superconducting & Cryogenic Microarchitectures (SFQ / RSFQ Logic)
+- Systolic Arrays & Spatial Architecture Lineage
 
 ---
 
@@ -43,7 +45,7 @@ This document tracks priority excavations and research directions. Status indica
 
 - DNA Computing
 - Quantum Precursors & Early Hybrid Logic
-- Superconducting & Cryogenic Microarchitectures
+- Microcode-Driven Custom CISC Engines
 
 ---
 
