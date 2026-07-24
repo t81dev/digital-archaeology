@@ -1,174 +1,107 @@
+# Digital Archaeology
+
+> Excavating forgotten ideas. Recovering lost innovations. Reconstructing alternate futures.
+
+Digital Archaeology is an open research project dedicated to studying the forgotten, abandoned, and overlooked ideas that shaped the history of computing.
+
+Many technologies disappear not because they were incorrect, but because economics, manufacturing, software ecosystems, or historical timing prevented their adoption. As computing evolves—particularly through AI, specialized hardware, and modern fabrication—some of these ideas deserve a second examination.
+
+This repository documents those discoveries, analyzes why they succeeded or failed, and evaluates whether modern technology changes their viability.
+
+---
+
+## Mission
+
+Digital Archaeology exists to answer a simple question:
+
+> *If this idea were invented today, would we build it differently?*
+
+Rather than treating computing history as a museum, we approach it as an active research discipline.
+
+Every excavation attempts to reconstruct both the technology and the circumstances surrounding it before evaluating its relevance to modern computing.
+
+---
+
+## Research Areas
+
+- Computer Architectures
+- Operating Systems
+- Programming Languages
+- Artificial Intelligence
+- Human–Computer Interaction
+- Networking
+- Hardware Design
+- Storage Systems
+- Security
+- Mathematics
+- Visualization
+- Robotics
+- Simulation
+- Distributed Systems
+
+---
+
+## Methodology
+
+Each excavation follows the same research process.
+
+1. Discover
+2. Reconstruct
+3. Analyze
+4. Evaluate
+5. Synthesize
+
+The objective is not historical preservation.
+
+The objective is technological rediscovery.
+
+---
+
 ## Repository Structure
 
-```text
-digital-archaeology/
-│
-├── README.md
-├── CONTRIBUTING.md
-├── LICENSE
-│
-├── excavations/
-│   ├── README.md
-│   ├── balanced-ternary.md
-│   ├── capability-systems.md
-│   ├── dataflow-computing.md
-│   ├── lisp-machines.md
-│   ├── transputers.md
-│   └── ...
-│
-├── patterns/
-│   ├── README.md
-│   ├── forgotten-abstractions.md
-│   ├── economic-failures.md
-│   ├── ecosystem-lockin.md
-│   └── recurring-ideas.md
-│
-├── modern-relevance/
-│   ├── ai.md
-│   ├── fpga.md
-│   ├── mixed-radix.md
-│   ├── coprocessors.md
-│   └── symbolic-computing.md
-│
-├── timelines/
-│   ├── computing.md
-│   ├── ai.md
-│   └── hardware.md
-│
-└── bibliography/
-    ├── books.md
-    ├── papers.md
-    └── archives.md
-```
+(excavations)
 
-## Standard Excavation Format
+Detailed investigations into historical technologies.
 
-Every topic should follow the same structure.
+(patterns)
 
-```markdown
-# Project Name
+Recurring engineering themes discovered across multiple excavations.
 
-## Summary
+(timelines)
 
-Two or three paragraphs describing what it was.
+Historical context and chronological evolution.
+
+(bibliography)
+
+Books, papers, archives, patents, and primary sources.
+
+(templates)
+
+Research templates for contributors.
 
 ---
 
-## Historical Context
+## Guiding Principles
 
-When?
-Who?
-Why?
-
----
-
-## Technical Overview
-
-Architecture
-
-Strengths
-
-Weaknesses
-
-Innovations
+- Historical accuracy before speculation.
+- Primary sources whenever possible.
+- Distinguish facts from interpretation.
+- Explain why technologies succeeded or failed.
+- Evaluate historical ideas using modern engineering constraints.
+- Remain technology neutral.
 
 ---
 
-## Why It Didn't Win
+## Contributing
 
-Economic?
+Contributions are welcome.
 
-Manufacturing?
+Whether you uncover a forgotten operating system, recover an obscure research paper, reverse engineer abandoned hardware, or identify recurring design patterns, every excavation helps build a richer understanding of computing history.
 
-Software?
-
-Timing?
-
-Politics?
+See CONTRIBUTING.md for guidelines.
 
 ---
 
-## Modern Relevance
+## License
 
-Could AI change this?
-
-Would GPUs help?
-
-Would FPGAs help?
-
-Could custom silicon help?
-
----
-
-## Lessons Learned
-
-Bullet list
-
----
-
-## References
-```
-
-That consistency makes it easy to compare very different technologies.
-
-## A Taxonomy of Discoveries
-
-Instead of organizing by year, organize by *what was discovered*.
-
-* Architectures
-* Operating Systems
-* Programming Languages
-* AI
-* Hardware
-* Mathematics
-* Human-Computer Interaction
-* Networking
-* Security
-* Storage
-* Visualization
-* Robotics
-* Simulation
-
-People tend to think chronologically, but researchers often ask conceptual questions.
-
-## A Rating System
-
-Every excavation could end with a scorecard.
-
-| Category               | Rating |
-| ---------------------- | ------ |
-| Historical Importance  | ★★★★★  |
-| Technical Innovation   | ★★★★★  |
-| Commercial Success     | ★☆☆☆☆  |
-| Modern Potential       | ★★★★★  |
-| AI Synergy             | ★★★★★  |
-| Difficulty to Recreate | ★★★☆☆  |
-
-That would make cross-comparisons much easier.
-
-## An "Unearthed Artifacts" Section
-
-This is where the project becomes more than a wiki.
-
-For every excavation, identify:
-
-* Forgotten algorithms
-* Lost design patterns
-* Elegant abstractions
-* Interesting engineering trade-offs
-* Ideas worth reviving
-* Ideas worth avoiding
-
-This turns history into a source of actionable engineering insights.
-
-## Long-Term Vision
-
-Over time, the repository could evolve into a curated knowledge base that answers questions such as:
-
-* Which ideas failed only because hardware wasn't ready?
-* Which concepts deserve reimplementation with modern tools?
-* Which architectural patterns keep reappearing across decades?
-* Which abandoned systems anticipated today's AI workloads?
-* What can we still learn from paths computing didn't take?
-
-The result would be more than a collection of Markdown files. It would become a map of computing's unrealized possibilities—a place where historical artifacts are examined not just for what they were, but for what they might still become.
+See LICENSE.
