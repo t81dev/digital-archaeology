@@ -49,8 +49,60 @@ Success breeds more developers, more software, more users, and more investment �
 
 ---
 
+## Deep Dive: The Trilogy Systems WSI Disaster (1980–1985)
+
+Perhaps no single venture in computing history better illustrates the extreme risks of **High Capital Requirements**, **Unforgiving Silicon Economics**, and **Scale Disadvantages** than Gene Amdahl’s **Trilogy Systems**.
+
+
+```
+
+```
+                       +---------------------------------+
+                       |     Trilogy Systems Venture     |
+                       | ($230M+ Capital Investment)     |
+                       +---------------------------------+
+                                        |
+              +-------------------------+-------------------------+
+              |                                                   |
+              v                                                   v
+
+```
+
+[Architectural Ambition]                                [Economic Realities]
+
+* Monolithic 2.5" ECL WSI Mainframe                     * Zero-yield defect rates
+* Triple-Modular Redundancy (TMR)                       * High pin-count packaging cost
+* 100x interconnect density                             * 1200W+ thermal dissipation
+|                                                   |
++-------------------------+-------------------------+
+|
+v
++---------------------------------+
+|   Complete Commercial Collapse  |
+| (Zero functional systems sold)  |
++---------------------------------+
+
+```
+
+### The Premise
+In 1980, IBM mainframe pioneer Gene Amdahl raised over **$230 million**—the largest tech venture capital raise of its era—to construct a revolutionary mainframe processor built around **Wafer-Scale Integration (WSI)**. By printing an entire system on a single continuous $2.5\text{-inch}$ Emitter-Coupled Logic (ECL) silicon wafer, Trilogy aimed to bypass off-chip delay, achieving speeds $5\times$ faster than IBM mainframes at half the power.
+
+### The Economic & Physical Pitfalls
+
+1. **Unforgiving Yield Physics:** Standard semiconductor manufacturing assumes a non-zero density of microscopic defects on every wafer. Slicing wafers into individual dies isolates these defects, yielding $70–90\%$ usable chips. By attempting a zero-defect monolithic wafer, Trilogy was exposed to exponential yield decay.
+2. **The Redundancy Cost Death Spiral:** To offset defect rates, Trilogy implemented on-chip **Triple-Modular Redundancy (TMR)**—duplicating every logic path three times with majority-voting logic. This expanded the wafer's physical area by $300\%$, which exponentially increased the statistical likelihood of catching a fatal defect, completely neutralizing the yield buffer TMR was meant to provide.
+3. **ECL Power & Packaging Disasters:** Emitter-Coupled Logic drew constant static current. A single Trilogy wafer dissipated over **1,200 Watts**, requiring exotic, costly water-cooling jackets and ultra-complex high-pin packaging that destroyed any cost advantage over traditional multi-chip boards.
+
+### The Collapse
+By 1984, after burning through hundreds of millions of dollars without delivering a single functional, commercially viable wafer-scale system, Trilogy abandoned its hardware manufacturing plans. 
+
+> **The Lesson:** Trilogy tried to out-engineer fundamental silicon economics using sheer capital investment. Modern wafer-scale engines (such as Cerebras) succeed where Trilogy failed because they abandoned zero-defect monolithic assumptions, deploying **software-driven dynamic defect-bypass routing** across modular spatial core grids rather than brute-force TMR.
+
+---
+
 ## Case Studies from This Repository
 
+- **[Wafer-Scale Integration](../excavations/wafer-scale-integration.md)** — Early attempts (Trilogy Systems) defeated by zero-defect yield mathematics and thermal densities; resurrected today via dynamic routing and AI workloads.
 - **[Balanced Ternary](../excavations/balanced-ternary.md)** — Superior mathematical properties and symmetry defeated by simpler binary circuits and massive semiconductor investment.
 - **[Lisp Machines](../excavations/lisp-machines.md)** — Extraordinary productivity and symbolic computing power lost to cheaper general-purpose workstations + Moore’s Law.
 - **[Transputers](../excavations/transputers.md)** — Elegant, scalable parallel building blocks overtaken by commodity microprocessors and Ethernet-based clusters.
@@ -65,7 +117,7 @@ Economic conditions are shifting in ways that may weaken (or at least alter) thi
 - **Lower barriers to experimentation** — FPGAs, open-source toolchains, cloud resources, and AI-assisted design dramatically reduce prototyping costs.
 - **Domain-specific acceleration** — Extremely high value in AI, scientific computing, and edge devices can justify specialized hardware despite ecosystem challenges.
 - **Open source and standardization** — Easier to build portable software layers atop novel hardware.
-- **Large-player moonshots** — Companies (e.g., Google, xAI) and governments can fund high-risk architectures at scale.
+- **Large-player moonshots** — Companies (e.g., Google, xAI, Meta) and governments can fund high-risk architectures at scale.
 
 ---
 
@@ -91,3 +143,4 @@ Understanding economic failures helps us avoid romanticizing lost technologies w
 - [Dataflow Computing](../excavations/dataflow-computing.md)
 - [Lisp Machines](../excavations/lisp-machines.md)
 - [Transputers](../excavations/transputers.md)
+- [Wafer-Scale Integration](../excavations/wafer-scale-integration.md)
