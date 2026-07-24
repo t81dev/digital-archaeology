@@ -7,33 +7,35 @@ This document tracks priority excavations and research directions. Status indica
 ## Completed / Polished
 
 ### Core Architecture & Hardware
+- [Analog Computing](../excavations/analog-computing.md)
 - [Balanced Ternary](../excavations/balanced-ternary.md)
+- [Connection Machine](../excavations/connection-machine.md)
 - [Dataflow Computing](../excavations/dataflow-computing.md)
 - [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
+- [Optical Computing](../excavations/optical-computing.md)
 - [Reversible Computing](../excavations/reversible-computing.md)
 - [Stack Machines](../excavations/stack-machines.md)
 - [Transputers](../excavations/transputers.md)
-- [Connection Machine](../excavations/connection-machine.md)
 
 ### Systems, Security & Operating Systems
 - [Capability Systems](../excavations/capability-systems.md)
+- [Inferno](../excavations/inferno.md)
 - [Lisp Machines](../excavations/lisp-machines.md)
 - [Plan 9](../excavations/plan-9.md)
-- [Inferno](../excavations/inferno.md)
 - [Project Xanadu](../excavations/project-xanadu.md)
 
 ### Programming Languages & Paradigms
-- [Symbolic AI](../excavations/symbolic-ai.md)
-- [Smalltalk](../excavations/smalltalk.md)
 - [Occam](../excavations/occam.md)
+- [Smalltalk](../excavations/smalltalk.md)
+- [Symbolic AI](../excavations/symbolic-ai.md)
 
 ---
 
 ## Near Term
 
-- Analog Computing
-- Optical Computing
 - Cellular Architectures / Cellular Automata Hardware
+- Molecular & Biocomputing Logic
+- Wafer-Scale Integration (WSI) Historical Precursors
 
 ---
 
@@ -41,8 +43,7 @@ This document tracks priority excavations and research directions. Status indica
 
 - DNA Computing
 - Quantum Precursors & Early Hybrid Logic
-- Wafer-Scale Integration (WSI) Historical Precursors
-- Molecular & Biocomputing Logic
+- Superconducting & Cryogenic Microarchitectures
 
 ---
 
