@@ -6,71 +6,71 @@
 
 ## Summary
 
-The Connection Machine (CM-1, CM-2, CM-5) was a series of supercomputers developed by Thinking Machines Corporation in the 1980s and early 1990s. Founded by Danny Hillis, it represented one of the most ambitious attempts to build a truly massively parallel computer using thousands of simple processors.
+The Connection Machine (CM-1, CM-2, and later CM-5) was a series of supercomputers developed by Thinking Machines Corporation in the 1980s and early 1990s. Founded by Danny Hillis, it represented one of the most ambitious attempts to build a truly massively parallel computer using thousands of simple processors interconnected in a flexible network.
 
-The machines were particularly strong at symbolic AI, scientific simulation, and data-parallel algorithms. Despite technical brilliance and cultural impact (featured in films and popular science), the Connection Machine ultimately lost to more conventional vector supercomputers and later commodity clusters.
+Particularly strong at symbolic AI, scientific simulation, and data-parallel algorithms, the machines achieved cultural prominence as symbols of futuristic computing. Despite technical brilliance, the Connection Machine ultimately lost to more conventional vector supercomputers and, later, commodity clusters.
 
 ---
 
 ## Historical Context
 
-In the 1980s, parallel computing was seen as the future for breaking through the limits of single-processor performance. Danny Hillis designed the Connection Machine as a graduate student at MIT, inspired by biological brains and cellular automata. Thinking Machines Corporation commercialized the design, delivering the CM-1 in 1986 and the more successful CM-2 in 1987. The CM-5 (a different but related architecture) followed in the early 1990s.
+In the 1980s, parallel computing was viewed as the path to overcoming single-processor limits. Danny Hillis conceived the Connection Machine as a graduate student at MIT, drawing inspiration from biological brains and cellular automata. Thinking Machines Corporation commercialized the design, delivering the CM-1 in 1986 and the more successful CM-2 in 1987. The CM-5 followed in the early 1990s.
 
-The machines were used for AI research, fluid dynamics, molecular modeling, and database operations at institutions like MIT, Los Alamos, and NASA.
+The systems were used for AI research, fluid dynamics, molecular modeling, database operations, and other grand-challenge problems at institutions including MIT, Los Alamos, and NASA.
 
 ---
 
 ## Technical Overview
 
 - **Massive parallelism** — CM-1/CM-2 featured up to 65,536 one-bit processors.
-- **Hypercube / dynamic network** — Processors connected in a hypercube topology with hardware support for routing messages efficiently.
-- **Data-parallel model** — All processors execute the same instruction on different data (SIMD), controlled by a front-end computer.
+- **Hypercube topology with dynamic routing** — Processors connected in a high-dimensional network with hardware support for efficient message passing.
+- **Data-parallel (SIMD) model** — A front-end computer broadcast instructions; all processors executed the same operation on different data.
 - **Virtual processors** — The system could simulate far more processors than physically present.
-- **Memory** — Each processor had a small amount of local memory; the CM-2 added floating-point accelerators.
+- **Memory and accelerators** — Local memory per processor; the CM-2 added floating-point units.
 
-The architecture was optimized for problems with high degrees of data parallelism and irregular communication patterns.
+The architecture excelled at problems with high data parallelism and irregular communication patterns.
 
 ---
 
 ## Innovations
 
 - **Scalable message-passing network** — Efficient routing across thousands of nodes.
-- **Data-parallel programming model** (via *Lisp or C*) — Made massive parallelism accessible to programmers.
-- **Hardware support for virtual processors and global operations**.
-- **Elegant physical design** — Iconic blinking lights and cube-like structure became a symbol of futuristic computing.
-- **Influence on later systems** — Concepts fed into modern GPU architectures, massively parallel simulators, and graph processing engines.
+- **Accessible data-parallel programming** (via *Lisp and C* extensions) — Made massive parallelism usable by non-specialists.
+- **Hardware support for global operations and virtual processors**.
+- **Iconic physical design** — The blinking-light cube became a cultural symbol of advanced computing.
+- **Lasting conceptual influence** — Ideas fed into modern GPUs, graph engines, and massively parallel simulators.
 
 ---
 
 ## Why It Didn’t Win
 
-- **High cost and complexity** — Extremely expensive machines with limited software ecosystem.
-- **Competition from vector supercomputers** (Cray) and later commodity clusters (Beowulf).
-- **Programming difficulty** — Data-parallel model was powerful but required a different mindset than sequential programming.
-- **Economic realities** — Moore’s Law made clusters of commodity processors cheaper and more flexible.
-- **Company fate** — Thinking Machines faced financial difficulties and shifted focus; the company eventually pivoted and declined.
+- **High cost and complexity** — Extremely expensive machines with a limited software ecosystem.
+- **Competition** — Vector supercomputers (Cray) offered easier migration paths; commodity clusters later proved more cost-effective.
+- **Programming model shift** — Data-parallel thinking required a different mindset than traditional sequential programming.
+- **Economic realities** — Moore’s Law + clusters delivered better price/performance for most users.
+- **Company challenges** — Thinking Machines faced financial difficulties and eventually pivoted.
 
 ---
 
 ## Modern Relevance
 
-Connection Machine ideas live on in:
-- **GPU computing** — Massive SIMD/data-parallel execution is a direct descendant.
+Connection Machine concepts live on strongly in:
+- **GPU computing** — Massive SIMD/data-parallel execution is a clear descendant.
 - **AI accelerators and tensor processors** — Handle highly parallel workloads efficiently.
-- **Graph and scientific computing frameworks** — Many modern tools echo the data-parallel approach.
+- **Graph processing and scientific computing frameworks** — Many tools echo the data-parallel approach.
 - **Massively parallel simulations** — Used in climate modeling, particle physics, and agent-based systems.
-- **Research into unconventional architectures** — Inspiration for neuromorphic and cellular computing.
+- **Research into unconventional architectures** — Inspiration for neuromorphic, cellular, and spatial computing.
 
-In the age of exascale computing and specialized hardware, the vision of massive, interconnected simple processors feels relevant again.
+In the era of exascale and specialized AI hardware, the vision of thousands of interconnected simple processors feels remarkably relevant again.
 
 ---
 
 ## Lessons Learned
 
-- Bold, radically parallel designs can achieve remarkable results on suitable problems but struggle against incremental commodity improvements.
-- Software ecosystem and programmability are as critical as hardware innovation.
-- Visual and cultural impact can outlast commercial success (the Connection Machine became an icon of AI and supercomputing).
-- Many “failed” parallel architectures contributed key ideas to today’s dominant approaches.
+- Bold, radically parallel designs can deliver breakthrough performance on suitable workloads but struggle against incremental commodity improvements.
+- Software ecosystem, programmability, and cost are often more decisive than raw hardware innovation.
+- Visual and cultural impact can outlast commercial success — the Connection Machine became an enduring icon of the AI and supercomputing era.
+- Many “failed” parallel architectures contributed foundational ideas to today’s dominant systems.
 
 ---
 
@@ -99,7 +99,6 @@ In the age of exascale computing and specialized hardware, the vision of massive
 ---
 
 ## References (Selected)
-- Hillis, W. Daniel — *The Connection Machine* (book and papers).
-- Thinking Machines Corporation technical documentation.
-- CM-2 Technical Summary and user manuals.
-- Modern retrospectives on parallel computing history.
+- Hillis, W. Daniel. *The Connection Machine* (book and papers).
+- Thinking Machines Corporation technical documentation and CM-2 manuals.
+- Modern retrospectives on the history of parallel computing.
