@@ -67,12 +67,3 @@
 
 > *Track active research directions and roadmap progress in [ROADMAP.md](ROADMAP.md).*
 ---
-
-## Timelines & Bibliography
-
-- **Timelines:** [Computing](timelines/computing.md) | [Hardware](timelines/hardware.md) | [AI](timelines/ai.md)
-- **Bibliography:** [Books](bibliography/books.md) | [Papers](bibliography/papers.md) | [Archives](bibliography/archives.md)
-
----
-
-> *Items marked (In Progress) are actively tracked in [ROADMAP.md](ROADMAP.md).*
