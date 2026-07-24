@@ -4,7 +4,7 @@
 
 Digital Archaeology is an open research project dedicated to studying the forgotten, abandoned, and overlooked ideas that shaped the history of computing.
 
-Many technologies disappear not because they were incorrect, but because economics, manufacturing, software ecosystems, or historical timing prevented their adoption. As computing evolves—particularly through AI, specialized hardware, and modern fabrication—some of these ideas deserve a second examination.
+Many technologies disappear not because they were incorrect, but because economics, manufacturing, software ecosystems, or historical timing prevented their adoption. As computing evolves—particularly through AI, specialized hardware, non-von Neumann spatial acceleration, and modern silicon fabrication—some of these ideas deserve a second examination.
 
 This repository documents those discoveries, analyzes why they succeeded or failed, and evaluates whether modern technology changes their viability.
 
@@ -41,7 +41,7 @@ Rather than treating computing history as a museum, we approach it as an active 
 
 ## Current Progress
 
-- **Excavations**: Balanced Ternary, Capability Systems, Lisp Machines, Transputers, Dataflow Computing (and more in progress).
+- **Completed Excavations**: Analog Computing, Balanced Ternary, Capability Systems, Cellular Automata Hardware, Connection Machine, Dataflow Computing, Inferno, Lisp Machines, Neuromorphic Hardware, Occam, Optical Computing, Plan 9, Project Xanadu, Reversible Computing, Smalltalk, Stack Machines, Symbolic AI, Transputers, and Wafer-Scale Integration.
 - **Patterns**: Economic Failures, Ecosystem Lock-In, Recurring Ideas, Forgotten Abstractions.
 - Strong cross-linking between excavations and patterns for deeper synthesis.
 
