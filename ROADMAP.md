@@ -22,7 +22,7 @@ This document tracks priority excavations and research directions. Status indica
 
 ## In Progress / High Priority
 
-- Inferno
+- [Inferno](../excavations/inferno.md)
 
 ---
 
