@@ -10,32 +10,32 @@ This document tracks priority excavations and research directions. Status indica
 - [Capability Systems](../excavations/capability-systems.md)
 - [Lisp Machines](../excavations/lisp-machines.md)
 - [Transputers](../excavations/transputers.md)
+- [Dataflow Computing](../excavations/dataflow-computing.md)
+- [Plan 9](../excavations/plan-9.md)
+- [Smalltalk](../excavations/smalltalk.md)
+- [Occam](../excavations/occam.md)
+- [Connection Machine](../excavations/connection-machine.md)
+- [Stack Machines](../excavations/stack-machines.md)
 
 ---
 
 ## In Progress / High Priority
 
-- Dataflow Architectures
-- Plan 9
-- Smalltalk
-- Occam (deepen ties to Transputers)
+- Inferno
+- Project Xanadu
 
 ---
 
 ## Near Term
 
-- Connection Machine
-- Project Xanadu
-- Inferno
-- Stack Machines
+- Neuromorphic Hardware
+- Symbolic AI
 
 ---
 
 ## Future / Exploratory
 
 - Optical Computing
-- Neuromorphic Hardware
-- Symbolic AI
 - Analog Computing
 - DNA Computing
 - Reversible Computing
@@ -48,6 +48,6 @@ This document tracks priority excavations and research directions. Status indica
 
 - **Focus**: Prioritize items that create strong cross-links with existing excavations and patterns (especially Recurring Ideas, Ecosystem Lock-In, and Forgotten Abstractions).
 - New contributions should follow the [excavation template](../excavations/excavation-template.md) and link generously to related work.
-- After core excavations, we will expand patterns, add reconstructions/simulations, and improve timelines/modern-relevance sections.
+- After core excavations, we will expand remaining patterns, add reconstructions/simulations, improve timelines, and enrich modern-relevance sections.
 
 Contributions welcome on any item — start with an issue or draft PR.
