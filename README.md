@@ -14,11 +14,9 @@ This repository documents those discoveries, analyzes why they succeeded or fail
 
 Digital Archaeology exists to answer a simple question:
 
-> *If this idea were invented today, would we build it differently?*
+> **If this idea were invented today, would we build it differently?**
 
-Rather than treating computing history as a museum, we approach it as an active research discipline.
-
-Every excavation attempts to reconstruct both the technology and the circumstances surrounding it before evaluating its relevance to modern computing.
+Rather than treating computing history as a museum, we approach it as an active research discipline. Every excavation attempts to reconstruct both the technology and the circumstances surrounding it before evaluating its relevance to modern computing.
 
 ---
 
@@ -41,9 +39,30 @@ Every excavation attempts to reconstruct both the technology and the circumstanc
 
 ---
 
+## Current Progress
+
+- **Excavations**: Balanced Ternary, Capability Systems, Lisp Machines, Transputers, Dataflow Computing (and more in progress).
+- **Patterns**: Economic Failures, Ecosystem Lock-In, Recurring Ideas, Forgotten Abstractions.
+- Strong cross-linking between excavations and patterns for deeper synthesis.
+
+See [INDEX.md](INDEX.md) for a full map and [ROADMAP.md](ROADMAP.md) for priorities.
+
+---
+
+## Repository Structure
+
+- **excavations/** — Detailed investigations into historical technologies.
+- **patterns/** — Recurring engineering themes and dynamics discovered across excavations.
+- **modern-relevance/** — How these ideas connect to today’s hardware, AI, and systems.
+- **timelines/** — Historical context and chronological evolution.
+- **bibliography/** — Books, papers, archives, patents, and primary sources.
+- **templates/** — Research templates for contributors.
+
+---
+
 ## Methodology
 
-Each excavation follows the same research process.
+Each excavation follows the same research process:
 
 1. Discover
 2. Reconstruct
@@ -51,33 +70,7 @@ Each excavation follows the same research process.
 4. Evaluate
 5. Synthesize
 
-The objective is not historical preservation.
-
-The objective is technological rediscovery.
-
----
-
-## Repository Structure
-
-(excavations)
-
-Detailed investigations into historical technologies.
-
-(patterns)
-
-Recurring engineering themes discovered across multiple excavations.
-
-(timelines)
-
-Historical context and chronological evolution.
-
-(bibliography)
-
-Books, papers, archives, patents, and primary sources.
-
-(templates)
-
-Research templates for contributors.
+The objective is **technological rediscovery**, not mere historical preservation.
 
 ---
 
@@ -94,14 +87,14 @@ Research templates for contributors.
 
 ## Contributing
 
-Contributions are welcome.
+Contributions are welcome and highly valued.
 
-Whether you uncover a forgotten operating system, recover an obscure research paper, reverse engineer abandoned hardware, or identify recurring design patterns, every excavation helps build a richer understanding of computing history.
+Whether you uncover a forgotten operating system, recover an obscure research paper, reverse engineer abandoned hardware, identify recurring design patterns, or add reconstructions/simulations — every piece helps build a richer understanding of computing’s unrealized possibilities.
 
-See CONTRIBUTING.md for guidelines.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
 ## License
 
-See LICENSE.
+See [LICENSE](LICENSE).
