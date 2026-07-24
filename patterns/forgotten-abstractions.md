@@ -1,24 +1,23 @@
 # Forgotten Abstractions
 
-> *Powerful ideas and mental models that were once central to computing but have faded from mainstream practice, even though they still hold deep value.*
+> Powerful ideas and mental models that were once central to computing but have faded from mainstream practice, even though they still hold deep value.
 
 ---
 
 ## Summary
 
-Throughout computing history, certain abstractions, programming models, and architectural concepts achieved elegance and power but were later sidelined by simpler, more practical, or more commercially successful alternatives. These “forgotten abstractions” often represent elegant solutions to problems we still struggle with today.
+Throughout computing history, certain abstractions, programming models, and architectural concepts achieved remarkable elegance and power but were later sidelined by simpler, more practical, or more commercially successful alternatives. These “forgotten abstractions” often represent elegant solutions to problems we still grapple with today.
 
-Digital Archaeology seeks not only to document these ideas but to understand whether modern technology makes them newly viable.
+Digital Archaeology seeks not only to document these ideas but to evaluate whether modern technology (specialized hardware, AI tools, abundant resources) makes them newly viable.
 
 ---
 
 ## Common Characteristics
 
 Forgotten abstractions typically share these traits:
-
-- They offered superior elegance, safety, or expressive power.
-- They required more sophisticated implementation or a shift in thinking.
-- They were overtaken by “good enough” alternatives that scaled faster.
+- They offered superior elegance, safety, expressiveness, or composability.
+- They required more sophisticated implementation or a significant shift in thinking.
+- They were overtaken by “good enough” alternatives that scaled faster or fit existing ecosystems better.
 - They continue to reappear in new forms or niche domains.
 
 ---
@@ -26,62 +25,61 @@ Forgotten abstractions typically share these traits:
 ## Notable Examples
 
 ### From This Repository
-
-- **Balanced Ternary** — A more symmetric and mathematically elegant number system than binary.
-- **Dataflow programming** — Execution driven by data availability rather than a program counter.
-- **Tagged architectures** (Lisp Machines) — Hardware support for dynamic typing, garbage collection, and symbolic computation.
-- **Communicating Sequential Processes (CSP)** — The Transputer/occam model of concurrency through message passing.
-- **Capability-based security** — Fine-grained, unforgeable rights instead of ACLs or Unix-style permissions.
+- **[Balanced Ternary](../excavations/balanced-ternary.md)** — A more symmetric and mathematically elegant number system than binary.
+- **[Dataflow Computing](../excavations/dataflow-computing.md)** — Execution driven by data availability rather than a program counter.
+- **[Lisp Machines](../excavations/lisp-machines.md)** — Tagged architectures with hardware support for dynamic typing, garbage collection, and symbolic computation.
+- **[Transputers](../excavations/transputers.md)** — Communicating Sequential Processes (CSP) and lightweight message-passing concurrency.
+- **[Capability Systems](../excavations/capability-systems.md)** — Fine-grained, unforgeable rights instead of ACLs or ambient permissions.
 
 ### Other Classic Cases
-- Persistent object stores (vs. filesystems + databases)
-- Single-level stores (memory + storage unification)
-- Generational garbage collection techniques (pioneered on Lisp machines)
-- Homoiconicity (code as data) taken to its logical extreme
-- Pure functional programming models in hardware
+- Persistent / single-level object stores (vs. filesystems + databases)
+- Homoiconicity taken to its logical extreme (code as data)
+- Advanced live coding and incremental development environments
+- Pure functional models in hardware
+- Generational and hardware-assisted garbage collection techniques
 
 ---
 
 ## Why They Were Forgotten
 
-- **Implementation complexity** at the time of invention.
-- **Performance trade-offs** on then-current hardware.
-- **Education and developer inertia** — simpler mental models won.
-- **Economic and ecosystem pressure** — see related patterns *Economic Failures* and *Ecosystem Lock-In*.
-- **Lack of immediate killer applications**.
+- **Implementation complexity** on the hardware and software of their era.
+- **Performance trade-offs** on then-current technology.
+- **Education and developer inertia** — simpler mental models won out.
+- **Economic and ecosystem pressure** — see [Economic Failures](../patterns/economic-failures.md) and [Ecosystem Lock-In](../patterns/ecosystem-lockin.md).
+- **Lack of immediate killer applications** at the time.
 
 ---
 
 ## Modern Relevance
 
-Many forgotten abstractions are finding new life because constraints have changed:
-
-- **Hardware is abundant** — We can afford more sophisticated abstractions in silicon.
-- **AI assistance** — Tools can help manage complexity that was previously unmanageable.
-- **Specialization** — Domain-specific accelerators can revive powerful abstractions for narrow workloads.
-- **Safety and correctness** — As systems grow more complex and critical, abstractions that reduce errors become more valuable.
-- **New application domains** — Distributed systems, multi-agent AI, scientific computing, and edge devices often benefit from these older ideas.
+Many forgotten abstractions are finding new life because the constraints have shifted:
+- **Hardware abundance** — We can now afford more sophisticated abstractions in silicon or specialized accelerators.
+- **AI-assisted tools** — Can help manage complexity that was previously prohibitive.
+- **Specialization** — Domain-specific hardware (AI, signal processing, security) benefits from richer abstractions.
+- **Safety and correctness demands** — As systems grow more complex and critical, abstractions that reduce errors become highly valuable.
+- **New domains** — Distributed systems, multi-agent AI, scientific computing, and edge devices often align well with these older ideas.
 
 ---
 
 ## Lessons Learned
 
-1. “Forgotten” does not mean “inferior.” Many abstractions were simply ahead of their time.
-2. The best abstractions often feel *more* complex initially but yield massive long-term leverage.
-3. Hardware evolution periodically makes old abstractions newly practical (e.g., tagged memory is cheap now; fine-grained concurrency is more feasible).
-4. Studying forgotten abstractions expands our design vocabulary and helps us avoid reinventing solutions poorly.
+1. “Forgotten” does not mean “inferior.” Many abstractions were simply ahead of their time or mismatched to contemporary constraints.
+2. The best abstractions often feel more complex initially but deliver massive long-term leverage and clarity.
+3. Hardware and tool evolution periodically makes old abstractions newly practical (e.g., tagged memory and fine-grained concurrency are far more feasible today).
+4. Studying forgotten abstractions expands our design vocabulary and helps us avoid poorly reinventing old solutions.
 
-The goal is not nostalgia, but technological optionality — keeping powerful ideas alive so they can be reconsidered when conditions change.
+The goal is not nostalgia, but **technological optionality** — keeping powerful ideas alive so they can be reconsidered when conditions change.
 
 ---
 
+## Related Patterns
+- [Recurring Ideas](../patterns/recurring-ideas.md)
+- [Economic Failures](../patterns/economic-failures.md)
+- [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)
+
 ## Related Excavations
 - [Balanced Ternary](../excavations/balanced-ternary.md)
+- [Capability Systems](../excavations/capability-systems.md)
 - [Dataflow Computing](../excavations/dataflow-computing.md)
 - [Lisp Machines](../excavations/lisp-machines.md)
 - [Transputers](../excavations/transputers.md)
-
-## Related Patterns
-- [Economic Failures](../patterns/economic-failures.md)
-- [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)
-- Recurring Ideas
