@@ -1,62 +1,119 @@
 # Capability Systems
 
-> *A fundamentally different approach to security and access control based on unforgeable tokens of authority rather than ambient permission checks.*
+> A fundamentally different approach to security and access control based on unforgeable tokens of authority rather than ambient permission checks.
 
 ---
 
 ## Summary
 
-Capability-based security represents a powerful alternative to traditional ACL (Access Control List) and Unix-style permission models. In a capability system, possessing an unforgeable reference (a “capability”) to a resource *is* the authority to use it. Capabilities combine designation with permission in a single mechanism.
+Capability-based security offers a powerful alternative to traditional ACL (Access Control List) and Unix-style permission models. In a capability system, possessing an unforgeable reference (a “capability”) to a resource *is* the authority to use it. Capabilities tightly combine designation (“this resource”) with permission (“you may do these operations”) in a single mechanism.
 
-Pioneered in the 1960s and implemented in several influential systems, capability architectures offer elegant solutions to many persistent security problems — yet they remain largely outside the mainstream.
+Pioneered in the 1960s and implemented in several influential systems, capability architectures provide elegant solutions to persistent security problems such as privilege escalation, confused deputy attacks, and ambient authority. Despite their strengths, they have remained largely outside the mainstream operating system ecosystem.
 
 ---
 
 ## Historical Context
 
-The idea originated in the 1960s:
+The formal concept was introduced by **Dennis and Van Horn** (1966) in their work on multiprogrammed computations. Early and influential implementations include:
+- **HYDRA** (Carnegie Mellon University, 1970s)
+- **CAP** computer (University of Cambridge)
+- **KeyKOS** (1980s) — A commercial microkernel-based OS built entirely around capabilities, used in production banking environments with remarkable reliability and security.
+- **EROS** (Extremely Reliable Operating System, 1990s–2000s) — A formally verified capability system.
+- Later microkernel work in the **L4** family and derivatives incorporated capability-like mechanisms.
 
-- **Dennis and Van Horn** (1966) — Formalized the concept of capabilities.
-- **HYDRA** (Carnegie Mellon, 1970s)
-- **CAP** computer (Cambridge University)
-- **KeyKOS** (1980s) — A commercial microkernel OS built entirely around capabilities.
-- **EROS** (1990s–2000s) — Highly secure, formally verified capability OS.
-- **L4** microkernel family and later derivatives explored capability-like mechanisms.
-
-The most ambitious implementation was probably **KeyKOS**, which ran for years in production banking environments with exceptional reliability and security.
+KeyKOS stands out as one of the most ambitious and practical demonstrations, running for years in real-world high-security settings.
 
 ---
 
 ## Technical Overview
 
 In a pure capability system:
+- Every resource (file, device, memory segment, service, or even a procedure) is represented exclusively by a **capability** — an unforgeable token.
+- Capabilities are passed explicitly between processes; they cannot be guessed or forged.
+- Rights can be **attenuated** (reduced privileges) when delegating a capability.
+- There are no global namespaces granting ambient authority (in contrast to Unix UIDs/GIDs, filesystem paths, or Windows ACLs).
 
-- Every resource (file, device, memory region, service) is represented by a **capability** — an unforgeable token.
-- Capabilities can be passed between processes but cannot be guessed or forged.
-- Rights can be attenuated (reduced) when passing capabilities.
-- No global namespaces with ambient authority (contrast with Unix `uid`/`gid` or filesystem paths).
-
-This model eliminates many classes of vulnerabilities common in traditional systems, such as confused deputy problems and confused aliasing.
+This model naturally eliminates many classes of vulnerabilities, including the confused deputy problem. Capabilities can be implemented in software (via cryptographic tokens or kernel-mediated references) or directly in hardware.
 
 ---
 
 ## Innovations
 
-- **Principle of Least Authority (POLA)** — Enforced by design rather than discipline.
-- **Fine-grained delegation** — Easy and safe to grant limited rights.
-- **No ambient authority** — Reduces attack surface dramatically.
-- **Object-capability model** — Natural fit for object-oriented and distributed systems.
-- **Strong confinement** — Easier to reason about security boundaries.
+- **Principle of Least Authority (POLA)** — Enforced by architecture rather than programmer discipline.
+- **Fine-grained, safe delegation** — Easy to grant temporary or limited access.
+- **No ambient authority** — Dramatically reduces the attack surface.
+- **Object-capability model** — Natural fit for object-oriented, distributed, and concurrent systems.
+- **Strong confinement and composability** — Security boundaries are easier to reason about and verify.
+
+These ideas influenced later systems even when full capability OSes did not dominate.
 
 ---
 
 ## Why It Didn’t Win
 
-- **Incompatibility** with existing Unix/Windows models.
-- **Ecosystem lock-in** — Vast software assumed ACL-style permissions.
-- **Performance concerns** (mostly mitigated in later designs).
-- **Conceptual shift** — Developers found capabilities unfamiliar compared to simple `chmod` or file paths.
-- **Timing** — Arrived during the rise of commodity operating systems that prioritized compatibility over security fundamentals.
+- **Incompatibility** with dominant Unix and Windows models and the massive existing software base.
+- **Ecosystem lock-in** — Applications and tools were built around ACL-style and path-based permissions.
+- **Perceived performance overhead** (largely addressed in later designs such as EROS and CHERI).
+- **Conceptual and cultural shift** — Capabilities felt unfamiliar compared to familiar `chmod`, file paths, or global permissions.
+- **Timing** — Emerged during the rapid rise of commodity operating systems that prioritized compatibility and developer familiarity over foundational security improvements.
+
+---
+
+## Modern Relevance
+
+Capability systems are seeing a significant revival:
+- **CHERI** (Capability Hardware Enhanced RISC Instructions, University of Cambridge) — Adds hardware capability support to ARM and RISC-V, enabling memory-safe and capability-secure software with modest overhead.
+- **Google Fuchsia** — Uses Zircon kernel handles with capability-like semantics.
+- **WebAssembly**, sandboxing frameworks, and cloud-native security models increasingly adopt object-capability principles.
+- **Blockchain and smart contract platforms** — Function essentially as global, distributed capability systems (tokens as capabilities).
+- Research operating systems such as **seL4** and others continue exploring formally verified capability models.
+
+With hardware support (CHERI), distributed/zero-trust computing demands, and growing dissatisfaction with traditional permission models, capabilities are far more practical today than in the 1980s.
+
+---
+
+## Lessons Learned
+
+- Security models are exceptionally “sticky” — replacing them requires both technical excellence and ecosystem momentum.
+- Elegant, mathematically clean designs can lose to “good enough” incumbents with better compatibility.
+- Hardware acceleration (e.g., CHERI) can dramatically lower the barrier to adopting superior abstractions.
+- Many long-standing security problems (privilege escalation, confused deputy, over-privileged code) have known, elegant solutions that were sidelined for non-technical reasons.
+
+Capability systems exemplify how some of computing’s best ideas were abandoned not because they were flawed, but because they challenged established ways of thinking at the wrong historical moment.
+
+---
+
+## Rating Scorecard
+
+| Category              | Rating     | Notes |
+|-----------------------|------------|-------|
+| Historical Importance | ★★★★☆     | Influential in OS research |
+| Technical Innovation  | ★★★★★     | Foundational security model |
+| Commercial Success    | ★★☆☆☆     | Limited but impactful deployments |
+| Modern Potential      | ★★★★★     | Strong revival via hardware |
+| AI / Specialized HW Synergy | ★★★★☆ | Excellent fit with secure enclaves and formal methods |
+
+---
+
+## Related Excavations
+- [Lisp Machines](../excavations/lisp-machines.md) (tagged architectures)
+- Transputers (message-passing and isolation philosophy)
+- Balanced Ternary (alternative foundational designs)
+
+## Related Patterns
+- [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
+- [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)
+- [Economic Failures](../patterns/economic-failures.md)
+- [Recurring Ideas](../patterns/recurring-ideas.md)
+
+---
+
+## References (Selected)
+- Dennis, J.B. and Van Horn, E.C. “Programming Semantics for Multiprogrammed Computations” (1966).
+- KeyKOS technical papers and documentation.
+- CHERI technical reports and papers (University of Cambridge).
+- Miller, Mark S., Shapiro, Jonathan S., et al. — Foundational object-capability model literature.
+- seL4 and EROS project publications.
 
 ---
 
