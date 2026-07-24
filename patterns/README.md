@@ -1,10 +1,10 @@
 # Patterns
 
-> *Recurring themes, dynamics, and forces discovered across multiple excavations.*
+> Recurring themes, dynamics, and forces discovered across multiple excavations.
 
 While individual excavations focus on specific technologies, the **Patterns** directory identifies deeper, cross-cutting insights that explain why certain ideas succeeded or failed — and which may still hold value today.
 
-These patterns help transform isolated historical case studies into a coherent framework for understanding technological evolution.
+These patterns help transform isolated historical case studies into a coherent framework for understanding technological evolution and rediscovery.
 
 ---
 
@@ -24,6 +24,7 @@ These patterns help transform isolated historical case studies into a coherent f
 - **[Economic Failures](./economic-failures.md)** — Technically sound ideas defeated by economic and scaling realities rather than fundamental flaws.
 - **[Ecosystem Lock-In](./ecosystem-lockin.md)** — The self-reinforcing cycle of compatibility, tools, skills, and investment that entrenches dominant solutions.
 - **[Forgotten Abstractions](./forgotten-abstractions.md)** — Elegant concepts and mental models that faded from mainstream use but retain significant potential.
+- **[Recurring Ideas](./recurring-ideas.md)** — Concepts and architectural patterns that reappear across decades in new forms.
 
 ---
 
@@ -61,5 +62,3 @@ These patterns are living documents — they will evolve as more excavations are
 ---
 
 **This directory is central to the project’s goal**: moving beyond isolated histories toward a deeper theory of technological evolution and rediscovery.
-
----
