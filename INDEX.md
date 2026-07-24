@@ -6,34 +6,36 @@
 
 ## Architectures
 
+- [Analog Computing](excavations/analog-computing.md) — *Continuous physical modeling via wave, power, and operational amplifier dynamics.*
 - [Balanced Ternary](excavations/balanced-ternary.md) — *Ternary logic, arithmetic, and power efficiency advantages over binary.*
 - [Capability Systems](excavations/capability-systems.md) — *Fine-grained memory protection and unforgeable object references.*
+- [Cellular Automata Hardware](excavations/cellular-automata-hardware.md) — *Decentralized, spatial grid arrays executing local interaction rules.*
+- [Connection Machine](excavations/connection-machine.md) — *Fine-grained SIMD massively parallel hypercube processing.*
 - [Dataflow Computing](excavations/dataflow-computing.md) — *Non-von Neumann, event-driven, token-matching spatial execution.*
 - [Lisp Machines](excavations/lisp-machines.md) — *Tagged architecture hardware optimized for dynamic symbolic computation.*
 - [Neuromorphic Hardware](excavations/neuromorphic-hardware.md) — *Asynchronous, event-driven spiking neural networks and in-memory compute.*
+- [Optical Computing](excavations/optical-computing.md) — *Photonic interference, spatial WDM, and sub-nanosecond matrix processing.*
+- [Reversible Computing](excavations/reversible-computing.md) — *Information-preserving logic gates bypassing Landauer's thermodynamic limit.*
+- [Stack Machines](excavations/stack-machines.md) — *Hardware zero-operand evaluation stack execution architectures.*
 - [Transputers](excavations/transputers.md) — *Massively parallel microprocessors with native channel-based CSP messaging.*
-- Connection Machine — *Fine-grained SIMD massively parallel hypercube processing (In Progress).*
-- Stack Machines — *Hardware zero-operand execution architectures (In Progress).*
 
 ---
 
 ## Operating Systems & Environments
 
-- [Lisp Machines](excavations/lisp-machines.md) — *Single-user, hardware-integrated dynamic environment.*
 - [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models (KeyKOS, EROS, CHERI).*
-- Plan 9 — *Distributed UNIX successor ("Everything is a 9P service") (In Progress).*
-- Inferno — *Dis-distributed VM OS using Limbo and 9P protocol (In Progress).*
-- Multics — *Pioneering segmented memory and ring-based OS security (In Progress).*
+- [Inferno](excavations/inferno.md) — *Distributed VM OS utilizing Limbo and the Styx/9P protocol.*
+- [Lisp Machines](excavations/lisp-machines.md) — *Single-user, hardware-integrated dynamic environment.*
+- [Plan 9](excavations/plan-9.md) — *Distributed UNIX successor ("Everything is a 9P service").*
+- [Project Xanadu](excavations/project-xanadu.md) — *Bi-directional hypermedia network and deep versioning system.*
 
 ---
 
 ## Programming Languages & AI Paradigms
 
+- [Occam](excavations/occam.md) — *Concurrent language based on Communicating Sequential Processes (CSP).*
+- [Smalltalk](excavations/smalltalk.md) — *Pure image-based object-oriented environment and dynamic messaging.*
 - [Symbolic AI](excavations/symbolic-ai.md) — *Logic programming, inference engines, and formal knowledge representation.*
-- Smalltalk — *Pure image-based object-oriented environment and dynamic messaging (In Progress).*
-- Occam — *Concurrent language based on Communicating Sequential Processes (CSP), built for Transputers.*
-- APL — *Array-oriented array programming and vector primitives (In Progress).*
-- Forth — *Minimalist dual-stack language and interactive system (In Progress).*
 
 ---
 
@@ -48,12 +50,22 @@
 
 ## Modern Relevance & Perspectives
 
-- [FPGA Prototyping & Reconfigurable Computing](modern-relevance/fpga.md) — *Modern programmable logic as a time machine for architectural experimentation.*
 - [AI & Hardware Bottlenecks](modern-relevance/ai.md) — *Applying non-von Neumann models to the memory wall and matrix acceleration.*
-- [Symbolic Computing](modern-relevance/symbolic-computing.md) — *Neuro-symbolic integration, automated theorem proving, and deterministic guardrails.*
-- [Mixed-Radix & Alternative Number Systems](modern-relevance/mixed-radix.md) — *Evaluating ternary, posits, and log number systems in modern silicon.*
 - [Coprocessors](modern-relevance/coprocessors.md) — *Offloading domain-specific execution from general-purpose CPUs.*
+- [FPGA Prototyping & Reconfigurable Computing](modern-relevance/fpga.md) — *Modern programmable logic as a time machine for architectural experimentation.*
+- [Mixed-Radix & Alternative Number Systems](modern-relevance/mixed-radix.md) — *Evaluating ternary, posits, and log number systems in modern silicon.*
+- [Symbolic Computing](modern-relevance/symbolic-computing.md) — *Neuro-symbolic integration, automated theorem proving, and deterministic guardrails.*
 
+---
+
+## Timelines & Bibliography
+
+- **Timelines:** [Computing](timelines/computing.md) | [Hardware](timelines/hardware.md) | [AI](timelines/ai.md)
+- **Bibliography:** [Books](bibliography/books.md) | [Papers](bibliography/papers.md) | [Archives](bibliography/archives.md)
+
+---
+
+> *Track active research directions and roadmap progress in [ROADMAP.md](ROADMAP.md).*
 ---
 
 ## Timelines & Bibliography
