@@ -39,4 +39,68 @@ The system includes a complete user environment (including the Acme editor, whic
 - **Dynamic namespaces** — Allows sophisticated sandboxing, union mounts, and per-user/per-process customization.
 - **Protocol-based distribution** — 9P makes remote resources indistinguishable from local ones.
 - **Research-first design** — Prioritizes elegance and flexibility over backward compatibility.
-- **Influence on later systems** — Concepts live on in Linux
+- **Influence on later systems** — Concepts live on in Linux (namespaces, 9P support), Inferno, and various distributed systems.
+
+---
+
+## Why It Didn’t Win
+
+- **Ecosystem lock-in** — The world had already standardized on Unix/Linux/Windows APIs, POSIX, and existing toolchains.
+- **Lack of commercial backing** — Bell Labs’ focus shifted away from operating systems research.
+- **Perception as a research system** — Excellent for experimentation but seen as lacking the applications and hardware support of mainstream platforms.
+- **Timing** — Arrived as Linux was gaining momentum through open-source collaboration and commodity hardware.
+
+---
+
+## Modern Relevance
+
+Plan 9 ideas are experiencing a quiet renaissance:
+- **Containerization and orchestration** (Docker, Kubernetes) use namespace and isolation concepts similar to Plan 9.
+- **9P protocol** support exists in many modern systems and is used in virtual machine and cloud environments.
+- **Distributed systems and microservices** benefit from Plan 9’s clean separation of concerns.
+- **Research OSes and hobbyist communities** continue active development (9front, Harvey, etc.).
+- **Influence on Inferno** (a descendant) and various embedded/distributed projects.
+
+In an era of cloud-native computing and heterogeneous systems, Plan 9’s philosophy of simplicity, distribution, and uniform interfaces feels increasingly prescient.
+
+---
+
+## Lessons Learned
+
+- Clean, coherent design from first principles can produce beautiful systems, but ecosystem momentum is extremely difficult to overcome.
+- Research systems can have outsized long-term influence even without commercial success.
+- “Everything is a file” and per-process namespaces remain powerful abstractions worth revisiting.
+- Sometimes the most impactful contribution is showing a better path, even if the world takes a different route.
+
+---
+
+## Rating Scorecard
+
+| Category              | Rating     | Notes |
+|-----------------------|------------|-------|
+| Historical Importance | ★★★★☆     | Major influence on OS research |
+| Technical Innovation  | ★★★★★     | Coherent rethinking of OS design |
+| Commercial Success    | ★☆☆☆☆     | Limited adoption |
+| Modern Potential      | ★★★★☆     | Concepts live on in containers/cloud |
+| AI / Specialized HW Synergy | ★★★☆☆ | Indirect benefits |
+
+---
+
+## Related Excavations
+- [Transputers](../excavations/transputers.md)
+- [Capability Systems](../excavations/capability-systems.md)
+- [Lisp Machines](../excavations/lisp-machines.md)
+
+## Related Patterns
+- [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)
+- [Economic Failures](../patterns/economic-failures.md)
+- [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
+- [Recurring Ideas](../patterns/recurring-ideas.md)
+
+---
+
+## References (Selected)
+- Pike, Rob et al. — Original Plan 9 papers and manuals from Bell Labs.
+- “Plan 9 from Bell Labs” — Official documentation and source.
+- Inferno OS (descendant) papers.
+- Modern discussions in OS research communities and 9front/Harvey projects.
