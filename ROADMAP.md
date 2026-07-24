@@ -16,13 +16,13 @@ This document tracks priority excavations and research directions. Status indica
 - [Occam](../excavations/occam.md)
 - [Connection Machine](../excavations/connection-machine.md)
 - [Stack Machines](../excavations/stack-machines.md)
+- [Project Xanadu](../excavations/project-xanadu.md)
 
 ---
 
 ## In Progress / High Priority
 
 - Inferno
-- Project Xanadu
 
 ---
 
