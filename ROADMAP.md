@@ -1,68 +1,136 @@
 # ROADMAP
 
-This document tracks priority excavations and research directions. Status indicators help contributors see what is active.
+This roadmap tracks the evolution of **Digital Archaeology** as both a growing body of excavations and a comparative research framework for recovering, analyzing, and re-evaluating abandoned computing paradigms.
 
 ---
 
-## Completed / Polished
+# Phase I — Core Excavations ✅
 
-### Core Architecture & Hardware
-- [Analog Computing](../excavations/analog-computing.md)
-- [Balanced Ternary](../excavations/balanced-ternary.md)
-- [Cellular Automata Hardware](../excavations/cellular-automata-hardware.md)
-- [Connection Machine](../excavations/connection-machine.md)
-- [Dataflow Computing](../excavations/dataflow-computing.md)
-- [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
-- [Optical Computing](../excavations/optical-computing.md)
-- [Reversible Computing](../excavations/reversible-computing.md)
-- [Stack Machines](../excavations/stack-machines.md)
-- [Systolic Arrays](../excavations/systolic-arrays.md)
-- [Transputers](../excavations/transputers.md)
-- [Wafer-Scale Integration](../excavations/wafer-scale-integration.md)
+## Architectures & Hardware
+- [x] Analog Computing
+- [x] Balanced Ternary
+- [x] Cellular Automata Hardware
+- [x] Connection Machine
+- [x] Dataflow Computing
+- [x] Neuromorphic Hardware
+- [x] Optical Computing
+- [x] Reversible Computing
+- [x] Stack Machines
+- [x] Systolic Arrays
+- [x] Transputers
+- [x] Vector Supercomputing
+- [x] VLIW / EPIC Architectures
+- [x] Wafer-Scale Integration
+- [x] Molecular & Biocomputing
+- [x] Superconducting & Cryogenic Microarchitectures
 
-### Systems, Security & Operating Systems
-- [Burroughs Large Systems](../excavations/burroughs-large-systems.md) *(new)*
-- [Capability Systems](../excavations/capability-systems.md)
-- [Inferno](../excavations/inferno.md)
-- [Intel iAPX 432](../excavations/intel-iapx-432.md) *(new)*
-- [Lisp Machines](../excavations/lisp-machines.md)
-- [Multics](../excavations/multics.md) *(new)*
-- [Plan 9](../excavations/plan-9.md)
-- [Project Xanadu](../excavations/project-xanadu.md)
+## Systems & Operating Environments
+- [x] BeOS / Haiku
+- [x] Burroughs Large Systems
+- [x] Capability Systems
+- [x] Inferno
+- [x] Intel iAPX 432
+- [x] Lisp Machines
+- [x] Multics
+- [x] Plan 9
+- [x] Project Xanadu
 
-### Programming Languages & Paradigms
-- [Occam](../excavations/occam.md)
-- [Smalltalk](../excavations/smalltalk.md)
-- [Symbolic AI](../excavations/symbolic-ai.md)
-
----
-
-## Near Term (High Priority)
-
-- **Molecular & Biocomputing Logic**
-- **Superconducting & Cryogenic Microarchitectures (SFQ / RSFQ Logic)**
-- **VLIW / EPIC Architectures** (e.g., Itanium lineage) — *strong links to microcode and compiler co-design*
-- **Vector Supercomputing** (Cray-style architectures) — *complements Connection Machine and Systolic Arrays*
+## Languages & AI
+- [x] Occam
+- [x] Smalltalk
+- [x] Symbolic AI
 
 ---
 
-## Future / Exploratory
+# Phase II — Comparative Analysis (Current Priority)
 
-- DNA Computing
-- Quantum Precursors & Early Hybrid Logic
-- Microcode-Driven Custom CISC Engines
-- Actor Model Hardware / Erlang-inspired designs
-- BeOS / Haiku (advanced desktop OS concepts) — *ecosystem lock-in case study*
+With a substantial excavation corpus established, focus shifts toward extracting broader architectural principles.
+
+## Cross-Excavation Studies
+
+- Compare execution models across architectures.
+- Compare memory and protection systems.
+- Compare concurrency and communication models.
+- Compare commercial successes and failures.
+- Compare modern AI relevance across excavations.
+
+## Pattern Expansion
+
+Continue refining:
+
+- Economic Failures
+- Ecosystem Lock-In
+- Forgotten Abstractions
+- Recurring Ideas
+
+Potential future patterns:
+
+- Architectural Distillation
+- Constraint Migration
+- Hardware / Software Co-Evolution
+- Semantic Compression
+- Heterogeneous Revival
 
 ---
 
-## Notes
+# Phase III — Modern Reconstruction
 
-- **Focus**: Prioritize items that create strong cross-links with existing excavations and patterns (especially Recurring Ideas, Ecosystem Lock-In, Forgotten Abstractions, and Economic Failures). New excavations should reference 3+ related works.
-- New contributions **must** follow the [excavation template](../excavations/excavation-template.md) and include a modern relevance + lessons section.
-- Continue expanding **Patterns**, **Modern Relevance**, FPGA reconstructions/simulations, timelines, and bibliography in parallel with new excavations.
-- Aim for depth over breadth: Each new item should meaningfully advance synthesis across the map.
+Evaluate historical ideas under contemporary constraints.
 
-Contributions welcome on any item — start with an issue or draft PR. Recent additions (Systolic Arrays, Burroughs, iAPX 432, Multics) have significantly strengthened our coverage of stack/descriptor architectures and capability-like systems.
+Priority topics:
+
+- FPGA prototypes
+- Mixed-radix architectures
+- AI coprocessors
+- Capability-enhanced processors
+- Dataflow execution engines
+- Spatial computing fabrics
+- Neuro-symbolic architectures
+
+---
+
+# Phase IV — Research Infrastructure
+
+Expand the repository as a reference work.
+
+## Knowledge Base
+
+- Improve bibliography
+- Expand timelines
+- Add glossary
+- Build abstraction taxonomy
+- Cross-reference every excavation
+
+## Comparative Indexes
+
+Create indexes by:
+
+- Execution model
+- Memory model
+- Communication model
+- Security model
+- Arithmetic model
+- Programming paradigm
+- Commercial outcome
+- Modern applicability
+
+---
+
+# Long-Term Vision
+
+Digital Archaeology seeks to become a comparative reference for abandoned and underexplored computing paradigms.
+
+Rather than asking only *"What happened?"*, the project asks:
+
+- What abstraction was introduced?
+- Why did it disappear?
+- Which forces selected against it?
+- Which parts survived?
+- Which constraints have changed?
+- Should we build it differently today?
+
+The long-term goal is to help engineers, researchers, and AI systems recover valuable ideas from computing history and evaluate them within modern technological and economic constraints.
+
+---
 
 Last updated: July 26, 2026
