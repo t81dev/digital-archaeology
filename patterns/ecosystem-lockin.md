@@ -1,81 +1,95 @@
 # Ecosystem Lock-In
 
-> The powerful self-reinforcing cycle where compatibility, tools, skills, and investment accumulate around a dominant solution, making alternatives increasingly difficult to adopt.
+> The powerful self-reinforcing cycle where compatibility, tools, skills, investment, and social momentum accumulate around a dominant solution, making alternatives increasingly difficult to adopt.
 
 ---
 
 ## Summary
 
-Ecosystem lock-in occurs when a technology becomes the de-facto standard not primarily because it is technically superior, but because the surrounding network of software, hardware, knowledge, standards, and economic incentives makes switching prohibitively expensive or risky.
+Ecosystem lock-in occurs when a technology becomes the de-facto standard not primarily because it is technically superior, but because the surrounding network of software, hardware, knowledge, standards, libraries, and economic incentives makes switching prohibitively expensive or risky.
 
-This pattern explains why many technically elegant computing ideas ultimately failed to displace incumbents, even when they offered measurable advantages in performance, elegance, or security.
+This pattern explains why many technically elegant computing ideas ultimately failed to displace incumbents, even when they offered measurable advantages in performance, elegance, security, or productivity.
 
 ---
 
 ## Core Dynamics
 
 Ecosystem lock-in typically emerges through these reinforcing loops:
-1. **Adoption** → More users, developers, and companies.
+
+1. **Adoption** → More users, developers, and companies invest in the platform.
 2. **Investment** → Better tools, libraries, documentation, peripherals, and infrastructure.
-3. **Skill concentration** → Education, expertise, and hiring focus on the standard.
+3. **Skill concentration** → Education, hiring, and expertise focus on the standard.
 4. **Compatibility pressure** → New systems must interoperate with the dominant ecosystem.
 5. **Further adoption** → The cycle strengthens, raising barriers for alternatives.
 
-Breaking the cycle usually requires either massive disruption (e.g., a killer application or platform shift) or a long period of coexistence.
+Breaking the cycle usually requires either massive disruption (a killer application or platform shift) or a long period of careful coexistence/hybridization.
 
 ---
 
 ## Common Manifestations
 
-- **Instruction Set Architectures** — x86 dominance despite cleaner RISC alternatives.
+- **Instruction Set Architectures** — x86 dominance despite cleaner alternatives.
 - **Programming Languages & Runtimes** — C/Unix → C++ → modern dominant frameworks.
-- **Software Platforms** — Windows, Linux distributions, CUDA, TensorFlow/PyTorch.
+- **Software Platforms** — Windows, Linux distributions, CUDA, PyTorch/TensorFlow.
 - **Data Formats & Protocols** — ASCII/UTF-8, Ethernet, USB, PDF.
-- **Hardware Interfaces** — Binary compatibility expectations, memory models, and I/O standards.
+- **Hardware Interfaces & ABIs** — Binary compatibility expectations and memory models.
 
 ---
 
-## Case Studies from This Repository
+## Case Studies from This Repository (Updated)
 
-- **[Balanced Ternary](../excavations/balanced-ternary.md)** — Even with superior arithmetic properties, the entire software stack, compilers, OSes, and peripherals assumed binary representations.
-- **[Lisp Machines](../excavations/lisp-machines.md)** — Extraordinary hardware/software integration lost to the vast ecosystem built around Unix, C, and commodity workstations.
-- **[Transputers](../excavations/transputers.md)** — The elegant occam/CSP model could not overcome the momentum of C/Fortran + MPI on commodity clusters.
-- **[Dataflow Computing](../excavations/dataflow-computing.md)** — Required fundamentally new programming models and toolchains in a world optimized for imperative control flow.
-- **[Capability Systems](../excavations/capability-systems.md)** — Elegant security model hindered by deep incompatibility with existing ACL/permission-based software ecosystems.
+* **Balanced Ternary** — Superior arithmetic properties could not overcome the entire binary software stack, compilers, OSes, and peripherals.
+* **Burroughs Large Systems** *(new)* — High-level hardware integration and descriptors offered strong safety/productivity, but lost to the vast x86/Unix-compatible commodity ecosystem.
+* **Intel iAPX 432** *(new)* — Object-oriented capability architecture failed partly due to incompatibility with existing x86 software and developer expectations.
+* **Lisp Machines** — Extraordinary hardware/software integration lost to the massive ecosystem built around Unix, C, and commodity workstations.
+* **Transputers** — The elegant occam/CSP model could not overcome the momentum of C/Fortran + MPI on commodity clusters.
+* **Dataflow Computing** — Required fundamentally new programming models and toolchains in a world optimized for imperative control flow.
+* **Capability Systems** — Elegant security model hindered by deep incompatibility with existing permission/ACL-based software ecosystems.
+* **Vector Supercomputing** *(new)* — Superior per-node efficiency displaced by the scalability and software ecosystem of commodity clusters (Beowulf) + MPI.
 
 ---
 
 ## Modern Implications
 
-Ecosystem lock-in remains one of the strongest forces in computing, but cracks are appearing:
-- **Open source** lowers some switching costs and enables hybrid or multi-arch systems.
-- **Domain-specific accelerators** (AI, networking, graphics) can succeed by targeting narrow, high-value workloads where performance justifies integration effort.
-- **Cloud computing** abstracts hardware details, potentially easing adoption of novel backends.
-- **AI-assisted development** may reduce the human cost of porting, maintaining, or supporting multiple architectures.
+Ecosystem lock-in remains one of the strongest forces in computing, but meaningful cracks are appearing:
 
-Nevertheless, lock-in around x86/ARM, CUDA, and major frameworks (PyTorch/TensorFlow) continues to be formidable.
+* **Open source and modular tooling** lower some switching and integration costs.
+* **Domain-specific accelerators** (AI, networking, graphics, security) can succeed by targeting narrow, high-value workloads where performance justifies the integration effort.
+* **Cloud and virtualization** abstract hardware details, potentially easing adoption of novel backends.
+* **AI-assisted development** may dramatically reduce the human cost of porting, maintaining, or supporting multiple architectures.
+* **Heterogeneous computing** is becoming normalized — future systems may combine a dominant general-purpose core with many specialized accelerators.
+
+Nevertheless, lock-in around x86/ARM, CUDA, and major ML frameworks continues to be formidable.
 
 ---
 
 ## Lessons Learned
 
 1. Never underestimate the power of an established ecosystem — it frequently outweighs raw technical merit.
-2. Technologies that demand simultaneous changes across hardware, software, languages, tools, and education face an almost insurmountable challenge.
-3. The most successful “revivals” or new ideas usually find ways to **coexist with or incrementally extend** the dominant ecosystem rather than replace it outright.
-4. When designing or evaluating new systems, prioritize interoperability and gradual adoption paths.
-
-Ecosystem lock-in is a dominant force in computing history. Understanding it helps us realistically assess which forgotten ideas have viable paths forward versus those best appreciated as intellectual inspiration.
+2. Technologies that demand simultaneous changes across hardware, software, languages, tools, **and** education face an almost insurmountable challenge.
+3. The most successful “revivals” or new ideas usually **coexist with or incrementally extend** the dominant ecosystem rather than replace it outright (see: vector extensions in CPUs, capabilities in CHERI).
+4. When designing or evaluating new systems, prioritize interoperability, gradual adoption paths, and compatibility layers.
+5. Ecosystem lock-in is not invincible — it can be eroded by new constraints (energy, security, specialized workloads) or platform shifts.
 
 ---
 
 ## Related Patterns
+
 - [Economic Failures](../patterns/economic-failures.md)
 - [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
 - [Recurring Ideas](../patterns/recurring-ideas.md)
 
 ## Related Excavations
+
 - [Balanced Ternary](../excavations/balanced-ternary.md)
+- [Burroughs Large Systems](../excavations/burroughs-large-systems.md)
 - [Capability Systems](../excavations/capability-systems.md)
 - [Dataflow Computing](../excavations/dataflow-computing.md)
+- [Intel iAPX 432](../excavations/intel-iapx-432.md)
 - [Lisp Machines](../excavations/lisp-machines.md)
 - [Transputers](../excavations/transputers.md)
+- [Vector Supercomputing](../excavations/vector-supercomputing.md)
+
+---
+
+**Last updated**: July 26, 2026
