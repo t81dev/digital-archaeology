@@ -8,24 +8,31 @@
 
 - [Analog Computing](excavations/analog-computing.md) — *Continuous physical modeling via wave, power, and operational amplifier dynamics.*
 - [Balanced Ternary](excavations/balanced-ternary.md) — *Ternary logic, arithmetic, and power efficiency advantages over binary.*
-- [Capability Systems](excavations/capability-systems.md) — *Fine-grained memory protection and unforgeable object references.*
 - [Cellular Automata Hardware](excavations/cellular-automata-hardware.md) — *Decentralized, spatial grid arrays executing local interaction rules.*
 - [Connection Machine](excavations/connection-machine.md) — *Fine-grained SIMD massively parallel hypercube processing.*
 - [Dataflow Computing](excavations/dataflow-computing.md) — *Non-von Neumann, event-driven, token-matching spatial execution.*
-- [Lisp Machines](excavations/lisp-machines.md) — *Tagged architecture hardware optimized for dynamic symbolic computation.*
 - [Neuromorphic Hardware](excavations/neuromorphic-hardware.md) — *Asynchronous, event-driven spiking neural networks and in-memory compute.*
 - [Optical Computing](excavations/optical-computing.md) — *Photonic interference, spatial WDM, and sub-nanosecond matrix processing.*
 - [Reversible Computing](excavations/reversible-computing.md) — *Information-preserving logic gates bypassing Landauer's thermodynamic limit.*
 - [Stack Machines](excavations/stack-machines.md) — *Hardware zero-operand evaluation stack execution architectures.*
+- [Superconducting & Cryogenic Microarchitectures](excavations/superconducting-cryogenic.md) — *SFQ/RSFQ logic at cryogenic temperatures for ultra-high speed and efficiency.*
+- [Systolic Arrays](excavations/systolic-arrays.md) — *Regular, pipelined grids of processing elements for dense compute-bound workloads.*
 - [Transputers](excavations/transputers.md) — *Massively parallel microprocessors with native channel-based CSP messaging.*
+- [Vector Supercomputing](excavations/vector-supercomputing.md) — *Cray-style vector processors optimized for scientific and high-throughput workloads.*
+- [VLIW / EPIC Architectures](excavations/vliw-epic.md) — *Compiler-driven explicit instruction-level parallelism (Itanium and predecessors).*
+- [Molecular & Biocomputing](excavations/molecular-biocomputing.md) — *Computation using molecules, DNA strands, chemical reactions, and synthetic biology.*
 
 ---
 
 ## Operating Systems & Environments
 
+- [BeOS / Haiku](excavations/beos-haiku.md) — *Media-optimized, responsive OS with modern design (revived as open-source Haiku).*
+- [Burroughs Large Systems](excavations/burroughs-large-systems.md) — *High-level language hardware integration with descriptors and stack architecture.*
 - [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models (KeyKOS, EROS, CHERI).*
 - [Inferno](excavations/inferno.md) — *Distributed VM OS utilizing Limbo and the Styx/9P protocol.*
+- [Intel iAPX 432](excavations/intel-iapx-432.md) — *Capability-based object-oriented architecture.*
 - [Lisp Machines](excavations/lisp-machines.md) — *Single-user, hardware-integrated dynamic environment.*
+- [Multics](excavations/multics.md) — *Influential secure, multi-user timesharing system with segmentation and rings.*
 - [Plan 9](excavations/plan-9.md) — *Distributed UNIX successor ("Everything is a 9P service").*
 - [Project Xanadu](excavations/project-xanadu.md) — *Bi-directional hypermedia network and deep versioning system.*
 
@@ -43,7 +50,7 @@
 
 - [Economic Failures](patterns/economic-failures.md) — *Why technically superior ideas fail due to manufacturing economics and cost dynamics.*
 - [Ecosystem Lock-In](patterns/ecosystem-lockin.md) — *How developer tooling, compilers, and legacy API momentum favor established norms.*
-- [Forgotten Abstractions](patterns/forgotten-abstractions.md) — *Elevating low-level hardware concepts into software abstractions (and vice versa).*
+- [Forgotten Abstractions](patterns/forgotten-abstractions.md) — *Elegant concepts and mental models that faded from mainstream use but retain significant potential.*
 - [Recurring Ideas](patterns/recurring-ideas.md) — *How abandoned computing paradigms re-emerge under new physical constraints.*
 
 ---
@@ -66,4 +73,7 @@
 ---
 
 > *Track active research directions and roadmap progress in [ROADMAP.md](ROADMAP.md).*
+
 ---
+
+**Last updated**: July 26, 2026
