@@ -12,53 +12,34 @@ These patterns help transform isolated historical case studies into a coherent f
 
 - Extract reusable lessons from computing history
 - Identify why technically strong ideas were abandoned
-- Highlight dynamics that may have changed under modern conditions
-- Guide evaluation of future architectures and research directions
+- Highlight dynamics that may have changed under modern conditions (AI, specialized hardware, energy constraints, security)
+- Guide evaluation of future architectures
 
 ---
 
-## Current Patterns
+## Core Patterns (Updated July 2026)
 
-### Core Patterns
-
-- **[Economic Failures](./economic-failures.md)** — Technically sound ideas defeated by economic and scaling realities rather than fundamental flaws.
-- **[Ecosystem Lock-In](./ecosystem-lockin.md)** — The self-reinforcing cycle of compatibility, tools, skills, and investment that entrenches dominant solutions.
-- **[Forgotten Abstractions](./forgotten-abstractions.md)** — Elegant concepts and mental models that faded from mainstream use but retain significant potential.
-- **[Recurring Ideas](./recurring-ideas.md)** — Concepts and architectural patterns that reappear across decades in new forms.
+- **[Economic Failures](../patterns/economic-failures.md)** — Technically sound ideas defeated by manufacturing economics, scale, or timing.
+- **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)** — Self-reinforcing cycles of compatibility, tools, skills, and investment.
+- **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)** — Elegant concepts and mental models that faded but retain power.
+- **[Recurring Ideas](../patterns/recurring-ideas.md)** — Architectural patterns that reappear under new constraints.
 
 ---
 
-## Additional Patterns (Planned / In Progress)
+## Key Insights from Recent Excavations
 
-- First-Mover Advantage
-- Hardware Constraints
-- Memory Scarcity
-- Compiler Limitations
-- Software Ecosystems
-- Network Effects
-- Human Factors (education, psychology, developer preferences)
-- Premature Optimization
-- Manufacturing Cost and Scale
-- Academic Success vs. Commercial Failure
-- Open vs. Proprietary Dynamics
+- **Spatial & Data-Parallel Thinking** (Systolic Arrays, Vector Supercomputing, Connection Machine) continues to recur in AI accelerators.
+- **High-Level Hardware Integration** (Burroughs, Lisp Machines, iAPX 432) shows the tension between safety/abstraction and raw performance.
+- **Capability & Protection Models** (Burroughs descriptors, Multics, Capability Systems) remain highly relevant to modern security needs.
+- Many failures were **not technical** but economic/ecosystem-driven, reinforcing our core patterns.
 
 ---
 
-## Usage
+## Usage & Contribution
 
-Each pattern file links back to relevant excavations and other patterns. When writing new excavations, contributors should reference applicable patterns to build a richer, interconnected understanding of computing history.
+Link generously from excavations. These documents are **living** — update them as new excavations add evidence.
 
-These patterns are living documents — they will evolve as more excavations are completed and new insights emerge.
-
----
-
-## Contribution Guidelines
-
-- Focus on **recurring** dynamics visible across multiple technologies
-- Maintain historical accuracy while highlighting modern relevance
-- Clearly distinguish observed patterns from speculation
-- Link generously to excavations and related patterns
-
+**This directory is the intellectual core of the project.**
 ---
 
 **This directory is central to the project’s goal**: moving beyond isolated histories toward a deeper theory of technological evolution and rediscovery.
