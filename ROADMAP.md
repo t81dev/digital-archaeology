@@ -7,7 +7,7 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 # Phase I — Core Excavations ✅ (Complete)
 
 ## Architectures & Hardware (16)
-- [x] Analog Computing, Balanced Ternary, Cellular Automata, Connection Machine, Dataflow, Molecular & Biocomputing, Neuromorphic, Optical, Reversible, Stack Machines, Superconducting & Cryogenic, Systolic Arrays, Transputers, Vector Supercomputing, VLIW/EPIC, Wafer-Scale Integration
+- [x] Analog Computing, Balanced Ternary, Cellular Automata Hardware, Connection Machine, Dataflow Computing, Molecular & Biocomputing, Neuromorphic Hardware, Optical Computing, Reversible Computing, Stack Machines, Superconducting & Cryogenic Microarchitectures, Systolic Arrays, Transputers, Vector Supercomputing, VLIW/EPIC Architectures, Wafer-Scale Integration
 
 ## Systems & Operating Environments (9)
 - [x] BeOS / Haiku, Burroughs Large Systems, Capability Systems, Inferno, Intel iAPX 432, Lisp Machines, Multics, Plan 9, Project Xanadu
@@ -15,7 +15,7 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 ## Languages & AI Paradigms (3)
 - [x] Occam, Smalltalk, Symbolic AI
 
-**Total Excavations: 28**
+**Total Excavations**: 28
 
 ---
 
@@ -34,7 +34,7 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 - Forgotten Abstractions
 - Recurring Ideas
 
-**New / Emerging Patterns**:
+**Emerging Patterns**:
 - Architectural Distillation
 - Constraint Migration
 - Hardware-Software Co-Evolution
@@ -42,6 +42,7 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 
 ### Synthesis Documents (In Progress)
 - [architectural-distillation.md](../synthesis/architectural-distillation.md)
+- [return-of-spatial-computing.md](../synthesis/return-of-spatial-computing.md)
 
 ---
 
@@ -79,6 +80,8 @@ Rather than asking only *"What happened?"*, the project systematically asks:
 - Which parts survived in disguise?
 - Which constraints have changed?
 - Should we build it differently today?
+
+The goal is to help engineers, researchers, and future AI systems recover valuable ideas from computing history and evaluate them under modern technological and economic constraints.
 
 ---
 
