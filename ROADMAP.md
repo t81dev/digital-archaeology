@@ -4,133 +4,82 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 
 ---
 
-# Phase I — Core Excavations ✅
+# Phase I — Core Excavations ✅ (Complete)
 
-## Architectures & Hardware
-- [x] Analog Computing
-- [x] Balanced Ternary
-- [x] Cellular Automata Hardware
-- [x] Connection Machine
-- [x] Dataflow Computing
-- [x] Neuromorphic Hardware
-- [x] Optical Computing
-- [x] Reversible Computing
-- [x] Stack Machines
-- [x] Systolic Arrays
-- [x] Transputers
-- [x] Vector Supercomputing
-- [x] VLIW / EPIC Architectures
-- [x] Wafer-Scale Integration
-- [x] Molecular & Biocomputing
-- [x] Superconducting & Cryogenic Microarchitectures
+## Architectures & Hardware (16)
+- [x] Analog Computing, Balanced Ternary, Cellular Automata, Connection Machine, Dataflow, Molecular & Biocomputing, Neuromorphic, Optical, Reversible, Stack Machines, Superconducting & Cryogenic, Systolic Arrays, Transputers, Vector Supercomputing, VLIW/EPIC, Wafer-Scale Integration
 
-## Systems & Operating Environments
-- [x] BeOS / Haiku
-- [x] Burroughs Large Systems
-- [x] Capability Systems
-- [x] Inferno
-- [x] Intel iAPX 432
-- [x] Lisp Machines
-- [x] Multics
-- [x] Plan 9
-- [x] Project Xanadu
+## Systems & Operating Environments (9)
+- [x] BeOS / Haiku, Burroughs Large Systems, Capability Systems, Inferno, Intel iAPX 432, Lisp Machines, Multics, Plan 9, Project Xanadu
 
-## Languages & AI
-- [x] Occam
-- [x] Smalltalk
-- [x] Symbolic AI
+## Languages & AI Paradigms (3)
+- [x] Occam, Smalltalk, Symbolic AI
+
+**Total Excavations: 28**
 
 ---
 
-# Phase II — Comparative Analysis (Current Priority)
+# Phase II — Comparative Analysis & Synthesis (Current Focus)
 
-With a substantial excavation corpus established, focus shifts toward extracting broader architectural principles.
+### Cross-Excavation Studies (Active)
+- Execution models (stack, dataflow, vector, spatial, etc.)
+- Memory & protection models (capabilities, descriptors, tagging)
+- Concurrency & communication models
+- Economic & ecosystem failure patterns
+- Modern AI / hardware relevance mapping
 
-## Cross-Excavation Studies
-
-- Compare execution models across architectures.
-- Compare memory and protection systems.
-- Compare concurrency and communication models.
-- Compare commercial successes and failures.
-- Compare modern AI relevance across excavations.
-
-## Pattern Expansion
-
-Continue refining:
-
+### Pattern Expansion (Ongoing)
 - Economic Failures
 - Ecosystem Lock-In
 - Forgotten Abstractions
 - Recurring Ideas
 
-Potential future patterns:
-
+**New / Emerging Patterns**:
 - Architectural Distillation
 - Constraint Migration
-- Hardware / Software Co-Evolution
-- Semantic Compression
+- Hardware-Software Co-Evolution
 - Heterogeneous Revival
 
+### Synthesis Documents (In Progress)
+- [architectural-distillation.md](../synthesis/architectural-distillation.md)
+
 ---
 
-# Phase III — Modern Reconstruction
-
-Evaluate historical ideas under contemporary constraints.
+# Phase III — Modern Reconstruction & Prototyping
 
 Priority topics:
-
-- FPGA prototypes
-- Mixed-radix architectures
-- AI coprocessors
+- FPGA / reconfigurable prototypes of key ideas
+- Mixed-radix and alternative number systems
 - Capability-enhanced processors
-- Dataflow execution engines
-- Spatial computing fabrics
+- Dataflow / spatial execution engines
 - Neuro-symbolic architectures
+- Cryogenic / molecular hybrids (speculative)
 
 ---
 
-# Phase IV — Research Infrastructure
+# Phase IV — Research Infrastructure & Dissemination
 
-Expand the repository as a reference work.
-
-## Knowledge Base
-
-- Improve bibliography
-- Expand timelines
-- Add glossary
-- Build abstraction taxonomy
-- Cross-reference every excavation
-
-## Comparative Indexes
-
-Create indexes by:
-
-- Execution model
-- Memory model
-- Communication model
-- Security model
-- Arithmetic model
-- Programming paradigm
-- Commercial outcome
-- Modern applicability
+- Enhanced bibliography and timelines
+- Glossary and abstraction taxonomy
+- Comparative indexes (by execution model, memory model, etc.)
+- Static site / better navigation (future)
+- Public essays and "idea revival" case studies
 
 ---
 
 # Long-Term Vision
 
-Digital Archaeology seeks to become a comparative reference for abandoned and underexplored computing paradigms.
+Digital Archaeology seeks to become the premier comparative reference for abandoned and underexplored computing paradigms.
 
-Rather than asking only *"What happened?"*, the project asks:
+Rather than asking only *"What happened?"*, the project systematically asks:
 
-- What abstraction was introduced?
+- What powerful abstraction was introduced?
 - Why did it disappear?
 - Which forces selected against it?
-- Which parts survived?
+- Which parts survived in disguise?
 - Which constraints have changed?
 - Should we build it differently today?
 
-The long-term goal is to help engineers, researchers, and AI systems recover valuable ideas from computing history and evaluate them within modern technological and economic constraints.
-
 ---
 
-Last updated: July 26, 2026
+**Last updated**: July 27, 2026
