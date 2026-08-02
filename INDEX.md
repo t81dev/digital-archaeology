@@ -24,6 +24,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Cellular Automata Hardware](excavations/cellular-automata-hardware.md) — *Decentralized, spatial grid arrays executing local interaction rules.*
 - [Connection Machine](excavations/connection-machine.md) — *Fine-grained SIMD massively parallel hypercube processing.*
 - [Dataflow Computing](excavations/dataflow-computing.md) — *Non-von Neumann, event-driven, token-matching spatial execution.*
+- [Molecular & Biocomputing](excavations/molecular-biocomputing.md) — *Computation using molecules, DNA strands, chemical reactions, and synthetic biology.*
 - [Neuromorphic Hardware](excavations/neuromorphic-hardware.md) — *Asynchronous, event-driven spiking neural networks and in-memory compute.*
 - [Optical Computing](excavations/optical-computing.md) — *Photonic interference, spatial WDM, and sub-nanosecond matrix processing.*
 - [Reversible Computing](excavations/reversible-computing.md) — *Information-preserving logic gates bypassing Landauer's thermodynamic limit.*
@@ -33,7 +34,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Transputers](excavations/transputers.md) — *Massively parallel microprocessors with native channel-based CSP messaging.*
 - [Vector Supercomputing](excavations/vector-supercomputing.md) — *Cray-style vector processors optimized for scientific and high-throughput workloads.*
 - [VLIW / EPIC Architectures](excavations/vliw-epic.md) — *Compiler-driven explicit instruction-level parallelism (Itanium and predecessors).*
-- [Molecular & Biocomputing](excavations/molecular-biocomputing.md) — *Computation using molecules, DNA strands, chemical reactions, and synthetic biology.*
+- [Wafer-Scale Integration](excavations/wafer-scale-integration.md) — *Eliminating the package boundary by integrating entire digital systems monolithically across silicon wafers.*
 
 ---
 
@@ -67,6 +68,15 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Recurring Ideas](patterns/recurring-ideas.md) — *How abandoned computing paradigms re-emerge under new physical constraints.*
 - [Constraint Migration](patterns/constraint-migration.md) — *How shifting physical, technological, and economic limits resurrect discarded abstractions.*
 - [Heterogeneous Revival](patterns/heterogeneous-revival.md) — *How historical architectures return as specialized hardware engines inside general systems.*
+
+---
+
+## Synthesis
+
+- [Architectural Distillation](synthesis/architectural-distillation.md) — *How failed computing systems leave behind enduring abstractions that shape modern architectures.*
+- [Capability-Based Security](synthesis/capability-based-security.md) — *The revival of fine-grained, unforgeable hardware-level rights in the zero-trust and AI era.*
+- [Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md) — *Why the modern performance frontier relies on treating compilers and custom silicon as a single unified system.*
+- [The Return of Spatial Computing](synthesis/return-of-spatial-computing.md) — *How sidelined parallel, grid, and dataflow execution models are reclaiming dominance in AI hardware.*
 
 ---
 
