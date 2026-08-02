@@ -65,6 +65,8 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Ecosystem Lock-In](patterns/ecosystem-lockin.md) — *How developer tooling, compilers, and legacy API momentum favor established norms.*
 - [Forgotten Abstractions](patterns/forgotten-abstractions.md) — *Elegant concepts and mental models that faded from mainstream use but retain significant potential.*
 - [Recurring Ideas](patterns/recurring-ideas.md) — *How abandoned computing paradigms re-emerge under new physical constraints.*
+- [Constraint Migration](patterns/constraint-migration.md) — *How shifting physical, technological, and economic limits resurrect discarded abstractions.*
+- [Heterogeneous Revival](patterns/heterogeneous-revival.md) — *How historical architectures return as specialized hardware engines inside general systems.*
 
 ---
 
@@ -89,4 +91,4 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 
 ---
 
-**Last updated**: July 26, 2026
+**Last updated**: August 2, 2026

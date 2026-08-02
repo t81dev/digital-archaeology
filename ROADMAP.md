@@ -19,30 +19,32 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 
 ---
 
-# Phase II — Comparative Analysis & Synthesis (Current Focus)
+# Phase II — Comparative Analysis & Synthesis ✅ (Complete)
 
-### Cross-Excavation Studies (Active)
-- Execution models (stack, dataflow, vector, spatial, etc.)
-- Memory & protection models (capabilities, descriptors, tagging)
-- Concurrency & communication models
-- Economic & ecosystem failure patterns
-- Modern AI / hardware relevance mapping
+### Cross-Excavation Studies
+- [x] Execution models (stack, dataflow, vector, spatial, etc.)
+- [x] Memory & protection models (capabilities, descriptors, tagging)
+- [x] Concurrency & communication models
+- [x] Economic & ecosystem failure patterns
+- [x] Modern AI / hardware relevance mapping
 
-### Pattern Expansion (Ongoing)
-- Economic Failures
-- Ecosystem Lock-In
-- Forgotten Abstractions
-- Recurring Ideas
+### Pattern Expansion
+- [x] [Economic Failures](patterns/economic-failures.md)
+- [x] [Ecosystem Lock-In](patterns/ecosystem-lockin.md)
+- [x] [Forgotten Abstractions](patterns/forgotten-abstractions.md)
+- [x] [Recurring Ideas](patterns/recurring-ideas.md)
 
 **Emerging Patterns**:
-- Architectural Distillation
-- Constraint Migration
-- Hardware-Software Co-Evolution
-- Heterogeneous Revival
+- [x] [Architectural Distillation](synthesis/architectural-distillation.md)
+- [x] [Constraint Migration](patterns/constraint-migration.md)
+- [x] [Hardware-Software Co-Evolution](synthesis/compiler-hardware-co-design.md)
+- [x] [Heterogeneous Revival](patterns/heterogeneous-revival.md)
 
-### Synthesis Documents (In Progress)
-- [architectural-distillation.md](../synthesis/architectural-distillation.md)
-- [return-of-spatial-computing.md](../synthesis/return-of-spatial-computing.md)
+### Synthesis Documents
+- [x] [architectural-distillation.md](synthesis/architectural-distillation.md)
+- [x] [return-of-spatial-computing.md](synthesis/return-of-spatial-computing.md)
+- [x] [capability-based-security.md](synthesis/capability-based-security.md)
+- [x] [compiler-hardware-co-design.md](synthesis/compiler-hardware-co-design.md)
 
 ---
 
@@ -85,4 +87,4 @@ The goal is to help engineers, researchers, and future AI systems recover valuab
 
 ---
 
-**Last updated**: July 27, 2026
+**Last updated**: August 2, 2026
