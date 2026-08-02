@@ -62,13 +62,13 @@ We have transitioned from theoretical comparisons to dynamic execution models, i
 
 ---
 
-# Phase IV — Research Infrastructure & Dissemination
+# Phase IV — Research Infrastructure & Dissemination ✅ (Complete)
 
-- Enhanced bibliography and timelines
-- Glossary and abstraction taxonomy
-- Comparative indexes (by execution model, memory model, etc.)
-- Static site / better navigation (future)
-- Public essays and "idea revival" case studies
+- [x] [Enhanced bibliography and timelines](timelines/): Categorized reference timelines for [computing history](timelines/computing.md), [hardware milestones](timelines/hardware.md), and [AI development](timelines/ai.md), backed by a comprehensive [bibliography of primary and secondary sources](bibliography/).
+- [x] [Glossary and abstraction taxonomy](GLOSSARY.md): Defined a clear terminology base for 21 historically rich concepts and structured them into a 3-part taxonomy (Execution, Memory, Concurrency).
+- [x] [Comparative indexes (by execution, memory, and concurrency models)](COMPARATIVE_INDEX.md): Constructed dynamic matrices grouping all 28 excavations across different core technical archetypes.
+- [x] [Static site / better navigation (future)](INDEX.md): Enhanced repo-wide index and cross-linking as a foundation for future static site generation.
+- [x] [Public essays and "idea revival" case studies](synthesis/): Published synthesis essays including [Architectural Distillation](synthesis/architectural-distillation.md), [The Return of Spatial Computing](synthesis/return-of-spatial-computing.md), [Capability-Based Security](synthesis/capability-based-security.md), and [Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md).
 
 ---
 

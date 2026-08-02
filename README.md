@@ -48,6 +48,8 @@ See [INDEX.md](INDEX.md) for the full map and [ROADMAP.md](ROADMAP.md) for prior
 - **synthesis/** — Comparative essays and architectural distillation.
 - **timelines/** — Historical context and chronological evolution.
 - **bibliography/** — Books, papers, archives, patents, and primary sources.
+- **[GLOSSARY.md](GLOSSARY.md)** — A comprehensive glossary of terms and abstraction taxonomy.
+- **[COMPARATIVE_INDEX.md](COMPARATIVE_INDEX.md)** — A multi-dimensional index mapping excavations by execution, memory, and concurrency models.
 
 ---
 

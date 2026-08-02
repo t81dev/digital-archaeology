@@ -99,8 +99,10 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 
 ---
 
-## Timelines & Bibliography
+## Timelines, Bibliography, & Indexes
 
+- **Glossary & Taxonomy:** [Glossary & Abstraction Taxonomy](GLOSSARY.md)
+- **Comparative Indexes:** [Index by Execution, Memory, and Concurrency Models](COMPARATIVE_INDEX.md)
 - **Timelines:** [Computing](timelines/computing.md) | [Hardware](timelines/hardware.md) | [AI](timelines/ai.md)
 - **Bibliography:** [Books](bibliography/books.md) | [Papers](bibliography/papers.md) | [Archives](bibliography/archives.md)
 
