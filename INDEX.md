@@ -90,6 +90,15 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 
 ---
 
+## Reconstructions & Simulators
+
+- [Balanced Ternary & Mixed-Radix Simulator](reconstructions/mixed-radix-sim/) — *Multi-trit arithmetic logic, logic gate suite, and decimal-ternary conversions.*
+- [Dynamic Tagged-Token Dataflow Engine](reconstructions/dataflow-engine/) — *Parallel execution engine with dynamic token-tag matching and asynchronous scheduling.*
+- [Capability-Based Memory Protection Emulator](reconstructions/capability-security/) — *Register-level CPU and Tagged RAM simulating hardware capabilities and domain transitions.*
+- [Neuro-Symbolic Logic Solver](reconstructions/neuro-symbolic/) — *Hybrid AI decision system combining neural network outputs with forward-chaining rules.*
+
+---
+
 ## Timelines & Bibliography
 
 - **Timelines:** [Computing](timelines/computing.md) | [Hardware](timelines/hardware.md) | [AI](timelines/ai.md)

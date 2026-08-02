@@ -48,15 +48,17 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 
 ---
 
-# Phase III — Modern Reconstruction & Prototyping
+# Phase III — Modern Reconstruction & Prototyping ✅ (Complete)
 
-Priority topics:
-- FPGA / reconfigurable prototypes of key ideas
-- Mixed-radix and alternative number systems
-- Capability-enhanced processors
-- Dataflow / spatial execution engines
-- Neuro-symbolic architectures
-- Cryogenic / molecular hybrids (speculative)
+We have transitioned from theoretical comparisons to dynamic execution models, implementing fully-functional, interactive software emulators and simulation engines for key historical architectures.
+
+### Executable Reconstructions & Simulators
+- [x] [Balanced Ternary & Mixed-Radix Simulator](reconstructions/mixed-radix-sim/): Complete multi-trit arithmetic logic, logic gate suite, and decimal-ternary conversions.
+- [x] [Dynamic Tagged-Token Dataflow Engine](reconstructions/dataflow-engine/): Out-of-order dataflow processor simulator with dynamic token-tag matching and parallel execution pipeline.
+- [x] [Capability-Based Memory Protection Emulator](reconstructions/capability-security/): Register-level CPU and Tagged RAM emulator implementing unforgeable capability registers, automatic bounds checking, and cross-domain transitions.
+- [x] [Neuro-Symbolic Logic Solver](reconstructions/neuro-symbolic/): Hybrid AI pipeline combining statistical neural classification outputs with forward-chaining symbolic logic reasoning.
+
+**Reconstruction Index**: [reconstructions/README.md](reconstructions/README.md)
 
 ---
 
