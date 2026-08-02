@@ -153,7 +153,7 @@ Capability systems demonstrate that some of the best ideas in computing were aba
 - [Economic Failures](../patterns/economic-failures.md)
 
 ## Related Modern Relevance
-- [Security](../modern-relevance/security.md) (planned)
+- [Capability-Based Security](../synthesis/capability-based-security.md)
 
 ---
 

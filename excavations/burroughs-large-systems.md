@@ -73,11 +73,11 @@ In an era of Rust, formal verification, and security concerns, the Burroughs phi
 
 ## Related Technologies
 
-- [Stack Machines](/excavations/stack-machines.md)
-- [Capability Systems](/excavations/capability-systems.md)
-- [Lisp Machines](/excavations/lisp-machines.md)
-- [Multics](/excavations/multics.md)
-- [Smalltalk](/excavations/smalltalk.md)
+- [Stack Machines](stack-machines.md)
+- [Capability Systems](capability-systems.md)
+- [Lisp Machines](lisp-machines.md)
+- [Multics](multics.md)
+- [Smalltalk](smalltalk.md)
 
 ---
 
