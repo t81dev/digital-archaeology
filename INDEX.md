@@ -1,5 +1,18 @@
 # Digital Archaeology Index
 
+                 Digital Archaeology
+                        │
+        ┌───────────────┼───────────────┐
+        │               │               │
+   Architectures    Operating      Languages
+        │            Systems            │
+        │               │               │
+  ┌─────┼─────┐     ┌───┼───┐      ┌────┼────┐
+  │     │     │     │   │   │      │    │    │
+Stack  Ternary Data  Plan Inferno Small Lisp Occam
+        │      │
+        └───Modern AI──────FPGA────Mixed-Radix
+        
 > **A high-level map connecting excavations, patterns, and modern architectural relevance.**
 
 ---
