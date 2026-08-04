@@ -7,6 +7,10 @@
   },
   "glossary": [
     {
+      "term": "9P Protocol",
+      "definition": "A distributed resource sharing protocol designed for Plan 9 where every system resource (including files, devices, memory, and processes) is represented as a file and accessed via a standardized, network-transparent set of message transactions."
+    },
+    {
       "term": "Actor Model",
       "definition": "A mathematical model of concurrent computation where the universal primitive is the *actor*. Actors can make local decisions, create more actors, send messages, and designate how to respond to the next message. Unlike the Von Neumann model, communication is asynchronous and there is no shared state."
     },
@@ -17,6 +21,10 @@
     {
       "term": "Balanced Ternary",
       "definition": "A base-3 positional numeral system using the trits $-1$ (represented as `T`), $0$, and $+1$ (represented as `1`). It eliminates the need for a separate sign bit, simplifies arithmetic circuits, and possesses a superior radix economy compared to binary."
+    },
+    {
+      "term": "Bi-Directional Hypermedia",
+      "definition": "A network publishing and hypertext model where hyperlinks are inherently two-way and un-breakable, enabling side-by-side visual comparison, micro-transactions, and deep version tracking."
     },
     {
       "term": "Capability-Based Security",
@@ -55,12 +63,28 @@
       "definition": "A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \\ln 2$)."
     },
     {
+      "term": "Massively Parallel Processing (MPP)",
+      "definition": "A computer architecture that coordinates thousands of independent, single-bit processors in a tightly integrated network to perform highly fine-grained parallel computation."
+    },
+    {
       "term": "Mixed-Radix Arithmetic",
       "definition": "Positional numeral systems where the base (radix) varies from one digit position to another."
     },
     {
+      "term": "Molecular/Biocomputing",
+      "definition": "A non-silicon hardware paradigm that utilizes biological molecules, DNA strands, or enzymatic chemical reactions to store data and execute highly parallel combinatorial logic."
+    },
+    {
       "term": "Neuromorphic Hardware",
       "definition": "Silicon architectures designed to mimic the neural structures of the brain, utilizing asynchronous, event-driven spiking neural networks and in-memory computation."
+    },
+    {
+      "term": "Optical Computing",
+      "definition": "A hardware paradigm using light waves (photons) instead of electrical currents (electrons) to perform logic operations, leveraging wave interference, spatial division multiplexing, and sub-nanosecond matrix-vector multiplication."
+    },
+    {
+      "term": "Pervasive Multithreading",
+      "definition": "An operating system design featuring granular, per-thread scheduling, heavy optimization for symmetric multiprocessing (SMP), and pervasive multi-threading across both the kernel and media-rich user-space applications."
     },
     {
       "term": "Object-Capability Model",
@@ -83,6 +107,18 @@
       "definition": "Architectures where software logic is mapped directly onto a physical grid of processing elements with localized communication channels (e.g., FPGAs, Systolic Arrays, Cellular Automata), removing global bus bottlenecks."
     },
     {
+      "term": "Stack Machine",
+      "definition": "A processor architecture that uses a hardware evaluation stack rather than general-purpose registers to execute zero-operand instructions."
+    },
+    {
+      "term": "Styx Protocol",
+      "definition": "A network protocol derived from 9P, serving as the universal communication interface in the Inferno operating system to expose system services, devices, and files transparently over public networks."
+    },
+    {
+      "term": "Superconducting / Cryogenic Computing",
+      "definition": "A high-performance hardware paradigm operating at cryogenic temperatures, using Josephson junctions and Single Flux Quantum (SFQ) logic to achieve ultra-high clock frequencies and near-zero power dissipation."
+    },
+    {
       "term": "Symbolic AI",
       "definition": "An approach to artificial intelligence based on high-level, human-readable symbols, formal logic, and rule-based inference engines."
     },
@@ -95,12 +131,20 @@
       "definition": "A hardware mechanism where every word in memory is accompanied by a few extra non-addressable bits (tags) indicating its data type (e.g., integer, float, code pointer, capability), allowing hardware to prevent type safety violations and unauthorized execution."
     },
     {
+      "term": "Vector Processing",
+      "definition": "A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads."
+    },
+    {
       "term": "Very Long Instruction Word (VLIW)",
       "definition": "A processor design where the compiler groups independent, parallel operations into a single, very wide instruction word, relying on compile-time analysis rather than dynamic out-of-order execution hardware."
     },
     {
       "term": "Von Neumann Bottleneck",
       "definition": "The throughput limitation on computer systems caused by the physical separation of the central processing unit and memory, requiring all instruction and data transfers to share a single bus."
+    },
+    {
+      "term": "Wafer-Scale Integration (WSI)",
+      "definition": "An advanced semiconductor manufacturing paradigm that builds an entire digital system (incorporating multiple processor nodes, memory blocks, and interconnect networks) on a single, uncut silicon wafer, completely bypassing chip-packaging boundaries."
     },
     {
       "term": "Dataflow / Token Matching",
