@@ -8,6 +8,10 @@ This document provides a conceptual glossary of terms from across the excavation
 
 ## Part 1: Glossary of Forgotten Computing Terms
 
+### #
+* **9P Protocol**: A distributed resource sharing protocol designed for Plan 9 where every system resource (including files, devices, memory, and processes) is represented as a file and accessed via a standardized, network-transparent set of message transactions.
+  * *See excavation*: [Plan 9](excavations/plan-9.md)
+
 ### A
 * **Actor Model**: A mathematical model of concurrent computation where the universal primitive is the *actor*. Actors can make local decisions, create more actors, send messages, and designate how to respond to the next message. Unlike the Von Neumann model, communication is asynchronous and there is no shared state.
   * *See excavation*: [Smalltalk](excavations/smalltalk.md)
@@ -17,6 +21,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### B
 * **Balanced Ternary**: A base-3 positional numeral system using the trits $-1$ (represented as `T`), $0$, and $+1$ (represented as `1`). It eliminates the need for a separate sign bit, simplifies arithmetic circuits, and possesses a superior radix economy compared to binary.
   * *See excavation*: [Balanced Ternary](excavations/balanced-ternary.md)
+* **Bi-Directional Hypermedia**: A network publishing and hypertext model where hyperlinks are inherently two-way and un-breakable, enabling side-by-side visual comparison, micro-transactions, and deep version tracking.
+  * *See excavation*: [Project Xanadu](excavations/project-xanadu.md)
 
 ### C
 * **Capability-Based Security**: An access control model where processors or operating systems reference unforgeable keys called *capabilities*. A capability contains both a memory range (bounds) and specific permissions (read, write, execute), preventing buffer overflows and enforcing micro-segmentation at the hardware level.
@@ -45,14 +51,25 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
 
 ### M
+* **Massively Parallel Processing (MPP)**: A computer architecture that coordinates thousands of independent, single-bit processors in a tightly integrated network to perform highly fine-grained parallel computation.
+  * *See excavation*: [Connection Machine](excavations/connection-machine.md)
 * **Mixed-Radix Arithmetic**: Positional numeral systems where the base (radix) varies from one digit position to another.
   * *See modern relevance*: [Mixed-Radix & Alternative Number Systems](modern-relevance/mixed-radix.md)
+* **Molecular/Biocomputing**: A non-silicon hardware paradigm that utilizes biological molecules, DNA strands, or enzymatic chemical reactions to store data and execute highly parallel combinatorial logic.
+  * *See excavation*: [Molecular & Biocomputing](excavations/molecular-biocomputing.md)
 
 ### N
 * **Neuromorphic Hardware**: Silicon architectures designed to mimic the neural structures of the brain, utilizing asynchronous, event-driven spiking neural networks and in-memory computation.
   * *See excavation*: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)
 
 ### O
+* **Optical Computing**: A hardware paradigm using light waves (photons) instead of electrical currents (electrons) to perform logic operations, leveraging wave interference, spatial division multiplexing, and sub-nanosecond matrix-vector multiplication.
+  * *See excavation*: [Optical Computing](excavations/optical-computing.md)
+
+### P
+* **Pervasive Multithreading**: An operating system design featuring granular, per-thread scheduling, heavy optimization for symmetric multiprocessing (SMP), and pervasive multi-threading across both the kernel and media-rich user-space applications.
+  * *See excavation*: [BeOS / Haiku](excavations/beos-haiku.md)
+
 * **Object-Capability Model**: A software design pattern that combines object-oriented encapsulation with capability-based security. An object reference *is* the unforgeable authority to perform actions on that object.
   * *See excavation*: [Intel iAPX 432](excavations/intel-iapx-432.md)
 
@@ -67,6 +84,12 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Multics](excavations/multics.md)
 * **Spatial Computing (Hardware)**: Architectures where software logic is mapped directly onto a physical grid of processing elements with localized communication channels (e.g., FPGAs, Systolic Arrays, Cellular Automata), removing global bus bottlenecks.
   * *See excavation*: [Systolic Arrays](excavations/systolic-arrays.md)
+* **Stack Machine**: A processor architecture that uses a hardware evaluation stack rather than general-purpose registers to execute zero-operand instructions.
+  * *See excavation*: [Stack Machines](excavations/stack-machines.md)
+* **Styx Protocol**: A network protocol derived from 9P, serving as the universal communication interface in the Inferno operating system to expose system services, devices, and files transparently over public networks.
+  * *See excavation*: [Inferno](excavations/inferno.md)
+* **Superconducting / Cryogenic Computing**: A high-performance hardware paradigm operating at cryogenic temperatures, using Josephson junctions and Single Flux Quantum (SFQ) logic to achieve ultra-high clock frequencies and near-zero power dissipation.
+  * *See excavation*: [Superconducting & Cryogenic Microarchitectures](excavations/superconducting-cryogenic.md)
 * **Symbolic AI**: An approach to artificial intelligence based on high-level, human-readable symbols, formal logic, and rule-based inference engines.
   * *See excavation*: [Symbolic AI](excavations/symbolic-ai.md)
 * **Systolic Array**: A network of homogeneous, tightly-coupled processing elements that rhythmically compute and pass data through the system, optimizing matrix multiplication and other highly structured, compute-bound workloads.
@@ -77,10 +100,16 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Lisp Machines](excavations/lisp-machines.md)
 
 ### V
+* **Vector Processing**: A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads.
+  * *See excavation*: [Vector Supercomputing](excavations/vector-supercomputing.md)
 * **Very Long Instruction Word (VLIW)**: A processor design where the compiler groups independent, parallel operations into a single, very wide instruction word, relying on compile-time analysis rather than dynamic out-of-order execution hardware.
   * *See excavation*: [VLIW / EPIC Architectures](excavations/vliw-epic.md)
 * **Von Neumann Bottleneck**: The throughput limitation on computer systems caused by the physical separation of the central processing unit and memory, requiring all instruction and data transfers to share a single bus.
   * *See modern relevance*: [AI & Hardware Bottlenecks](modern-relevance/ai.md)
+
+### W
+* **Wafer-Scale Integration (WSI)**: An advanced semiconductor manufacturing paradigm that builds an entire digital system (incorporating multiple processor nodes, memory blocks, and interconnect networks) on a single, uncut silicon wafer, completely bypassing chip-packaging boundaries.
+  * *See excavation*: [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
 
 ---
 
