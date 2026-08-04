@@ -61,6 +61,7 @@ Advanced thematic essays analyzing how failed physical systems leave behind endu
 
 ### 4. [Modern Relevance](modern-relevance/) (Practical Application)
 Direct mapping of historical concepts to contemporary engineering challenges:
+* **[Academic Research & Hardware Partnerships](modern-relevance/partnerships.md)** — Connecting key excavations to active academic labs, zero-trust security initiatives, and open-source FPGA/ASIC hardware toolchains.
 * **[AI & Hardware Bottlenecks](modern-relevance/ai.md)** — Tackling the memory wall and matrix acceleration using non-von Neumann models.
 * **[Coprocessors](modern-relevance/coprocessors.md)** — Domain-specific coprocessing offloaded from general-purpose CPUs.
 * **[FPGA Prototyping](modern-relevance/fpga.md)** — Reconfigurable logic as a high-fidelity sandbox for architectural experimentation.
@@ -148,6 +149,7 @@ Every excavation follows a strict, comparative research format to ensure objecti
 ## 🗺️ Project Navigation
 
 * **[INDEX.md](INDEX.md)** — The central directory and conceptual mapping of all files in this repository.
+* **[Interactive Taxonomy Explorer](explorer.html)** — A dynamic, client-side visual web page mapping all excavations, paradigms, and execution-safety-concurrency models.
 * **[ROADMAP.md](ROADMAP.md)** — Current project milestones, track progress, and view upcoming areas of exploration.
 * **[GLOSSARY.md](GLOSSARY.md)** — Deep definitions of obscure concepts and our Abstraction Taxonomy.
 * **[COMPARATIVE_INDEX.md](COMPARATIVE_INDEX.md)** — Multi-dimensional mapping of all excavations across Execution, Memory, and Concurrency models.

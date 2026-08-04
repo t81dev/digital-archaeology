@@ -84,6 +84,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 
 - [AI & Hardware Bottlenecks](modern-relevance/ai.md) — *Applying non-von Neumann models to the memory wall and matrix acceleration.*
 - [Coprocessors](modern-relevance/coprocessors.md) — *Offloading domain-specific execution from general-purpose CPUs.*
+- [Academic Research & Hardware Partnerships](modern-relevance/partnerships.md) — *Connecting key excavations to active academic labs, zero-trust security initiatives, and open-source FPGA/ASIC hardware toolchains.*
 - [FPGA Prototyping & Reconfigurable Computing](modern-relevance/fpga.md) — *Modern programmable logic as a time machine for architectural experimentation.*
 - [Mixed-Radix & Alternative Number Systems](modern-relevance/mixed-radix.md) — *Evaluating ternary, posits, and log number systems in modern silicon.*
 - [Symbolic Computing](modern-relevance/symbolic-computing.md) — *Neuro-symbolic integration, automated theorem proving, and deterministic guardrails.*
@@ -102,6 +103,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 
 ## Timelines, Bibliography, & Indexes
 
+- **Interactive Explorer:** [Interactive Visual Taxonomy Explorer](explorer.html)
 - **Glossary & Taxonomy:** [Glossary & Abstraction Taxonomy](GLOSSARY.md)
 - **Comparative Indexes:** [Index by Execution, Memory, and Concurrency Models](COMPARATIVE_INDEX.md)
 - **Timelines:** [Computing](timelines/computing.md) | [Hardware](timelines/hardware.md) | [AI](timelines/ai.md)
