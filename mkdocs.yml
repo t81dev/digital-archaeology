@@ -1,0 +1,124 @@
+site_name: Digital Archaeology
+site_description: A comparative research framework and simulator suite for recovering and evaluating abandoned computing paradigms.
+site_author: Digital Archaeology Initiative
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+
+docs_dir: docs_source
+site_dir: site
+
+exclude_docs: |
+  **/.*
+  *.py
+  *.html
+  *.json
+  tools/**
+  reconstructions/**/*.py
+  reconstructions/**/*.txt
+  LICENSE
+  NOTES.md
+
+nav:
+  - Home: index.md
+  - INDEX: INDEX.md
+  - Core Documents:
+    - Manifesto: MANIFESTO.md
+    - Roadmap: ROADMAP.md
+    - Glossary & Taxonomy: GLOSSARY.md
+    - Comparative Index: COMPARATIVE_INDEX.md
+    - Contribution Guide: CONTRIBUTING.md
+  - Excavations:
+    - Overview: excavations/README.md
+    - Analog Computing: excavations/analog-computing.md
+    - Balanced Ternary: excavations/balanced-ternary.md
+    - BeOS & Haiku: excavations/beos-haiku.md
+    - Burroughs Large Systems: excavations/burroughs-large-systems.md
+    - Capability Systems: excavations/capability-systems.md
+    - Cellular Automata: excavations/cellular-automata-hardware.md
+    - Connection Machine: excavations/connection-machine.md
+    - Dataflow Computing: excavations/dataflow-computing.md
+    - Inferno: excavations/inferno.md
+    - Intel iAPX 432: excavations/intel-iapx-432.md
+    - Lisp Machines: excavations/lisp-machines.md
+    - Molecular Biocomputing: excavations/molecular-biocomputing.md
+    - Multics: excavations/multics.md
+    - Neuromorphic Hardware: excavations/neuromorphic-hardware.md
+    - Occam: excavations/occam.md
+    - Optical Computing: excavations/optical-computing.md
+    - Plan 9: excavations/plan-9.md
+    - Project Xanadu: excavations/project-xanadu.md
+    - Reversible Computing: excavations/reversible-computing.md
+    - Smalltalk: excavations/smalltalk.md
+    - Stack Machines: excavations/stack-machines.md
+    - Superconducting & Cryogenic: excavations/superconducting-cryogenic.md
+    - Symbolic AI: excavations/symbolic-ai.md
+    - Systolic Arrays: excavations/systolic-arrays.md
+    - Transputers: excavations/transputers.md
+    - Vector Supercomputing: excavations/vector-supercomputing.md
+    - VLIW & EPIC: excavations/vliw-epic.md
+    - Wafer-Scale Integration: excavations/wafer-scale-integration.md
+  - Architectural Patterns:
+    - Overview: patterns/README.md
+    - Constraint Migration: patterns/constraint-migration.md
+    - Economic Failures: patterns/economic-failures.md
+    - Ecosystem Lock-in: patterns/ecosystem-lockin.md
+    - Forgotten Abstractions: patterns/forgotten-abstractions.md
+    - Heterogeneous Revival: patterns/heterogeneous-revival.md
+    - Recurring Ideas: patterns/recurring-ideas.md
+  - Comparative Synthesis:
+    - Architectural Distillation: synthesis/architectural-distillation.md
+    - Capability-Based Security: synthesis/capability-based-security.md
+    - Compiler-Hardware Co-Design: synthesis/compiler-hardware-co-design.md
+    - Return of Spatial Computing: synthesis/return-of-spatial-computing.md
+  - Modern Relevance:
+    - AI & Hardware Bottlenecks: modern-relevance/ai.md
+    - Coprocessors: modern-relevance/coprocessors.md
+    - Academic Partnerships: modern-relevance/partnerships.md
+    - FPGA Prototyping: modern-relevance/fpga.md
+    - Mixed-Radix Arithmetic: modern-relevance/mixed-radix.md
+    - Symbolic Computing: modern-relevance/symbolic-computing.md
+  - Interactive Simulators:
+    - Overview: reconstructions/README.md
+  - Timelines & Bibliography:
+    - Computing Timeline: timelines/computing.md
+    - Hardware Timeline: timelines/hardware.md
+    - AI Timeline: timelines/ai.md
+    - Archive Sources: bibliography/archives.md
+    - Recommended Books: bibliography/books.md
+    - Academic Papers: bibliography/papers.md

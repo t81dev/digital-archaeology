@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Archaeology — Interactive Knowledge Graph & Visual Taxonomy</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        archaeo: {
+                            bg: '#0b0f19',
+                            card: '#161f30',
+                            accent: '#10b981',
+                            blue: '#3b82f6',
+                            purple: '#8b5cf6',
+                            text: '#f3f4f6',
+                            muted: '#9ca3af'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #e5e7eb;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            overflow: hidden;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+        /* D3 Node styles */
+        .node {
+            cursor: pointer;
+            transition: stroke 0.3s, r 0.3s;
+        }
+        .link {
+            stroke-opacity: 0.25;
+            transition: stroke-opacity 0.3s, stroke 0.3s, stroke-width 0.3s;
+        }
+        .node-active {
+            filter: drop-shadow(0px 0px 8px currentColor);
+        }
+        .link-highlighted {
+            stroke-opacity: 0.8 !important;
+            stroke-width: 2.5px !important;
+        }
+        .node-dimmed {
+            opacity: 0.15;
+        }
+        .link-dimmed {
+            stroke-opacity: 0.05 !important;
+        }
+    </style>
+</head>
+<body class="h-screen w-screen flex flex-col">
+
+    <!-- Top Navigation Header -->
+    <header class="h-16 border-b border-gray-800 bg-slate-900/80 backdrop-blur-md flex items-center justify-between px-6 z-10">
+        <div class="flex items-center space-x-3">
+            <div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-400">
+                <i data-lucide="binary" class="w-6 h-6"></i>
+            </div>
+            <div>
+                <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                    Digital Archaeology
+                    <span class="text-xs font-normal px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Explorer v1.0</span>
+                </h1>
+                <p class="text-xs text-gray-400">Interactive Visual Taxonomy & Knowledge Graph</p>
+            </div>
+        </div>
+
+        <!-- Quick Info / Controls -->
+        <div class="flex items-center space-x-4">
+            <div class="flex items-center bg-slate-950/60 border border-gray-800 rounded-lg px-3 py-1.5 text-xs text-gray-400 space-x-2">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>Database Loaded: 28 Excavations</span>
+            </div>
+            <button onclick="resetVisualization()" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 bg-slate-800 hover:bg-slate-700 border border-gray-700 rounded-lg transition-colors">
+                <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Reset Layout
+            </button>
+            <a href="INDEX.md" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 bg-slate-800 hover:bg-slate-700 border border-gray-700 rounded-lg transition-colors">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Repo
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Workspace Layout -->
+    <div class="flex-1 flex overflow-hidden relative">
+
+        <!-- Left Panel: Search, Filters & Excavation Directory -->
+        <aside class="w-80 border-r border-gray-800 bg-slate-900/40 backdrop-blur-sm flex flex-col h-full z-10 relative">
+            <!-- Search Section -->
+            <div class="p-4 border-b border-gray-800">
+                <label for="search-input" class="sr-only">Search excavations or concepts...</label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                    </span>
+                    <input type="text" id="search-input" onkeyup="handleSearch(this.value)"
+                        placeholder="Search excavations, terms..."
+                        class="w-full bg-slate-950/80 border border-gray-800 rounded-lg pl-9 pr-4 py-2 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 transition-all">
+                </div>
+
+                <!-- Fast Filters -->
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                    <span class="text-[10px] text-gray-500 uppercase tracking-wider block w-full mb-1">Filter by Scorecard:</span>
+                    <button onclick="filterHighRating('modern_potential')" class="px-2 py-1 bg-slate-950/50 hover:bg-slate-800 border border-gray-800 rounded text-[11px] text-gray-400 hover:text-emerald-400 transition-colors flex items-center gap-1">
+                        <i data-lucide="zap" class="w-3 h-3 text-emerald-400"></i> High Potential
+                    </button>
+                    <button onclick="filterHighRating('ai_synergy')" class="px-2 py-1 bg-slate-950/50 hover:bg-slate-800 border border-gray-800 rounded text-[11px] text-gray-400 hover:text-purple-400 transition-colors flex items-center gap-1">
+                        <i data-lucide="cpu" class="w-3 h-3 text-purple-400"></i> High AI Synergy
+                    </button>
+                    <button onclick="clearFilters()" id="clear-filter-btn" class="hidden px-2 py-1 bg-red-950/20 border border-red-900/30 text-red-400 rounded text-[11px] hover:bg-red-950/40 transition-colors">
+                        Clear Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- List of Excavations -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-4">
+                <div>
+                    <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                        <span>Excavations Directory</span>
+                        <span id="excavation-count" class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-gray-300">28</span>
+                    </h3>
+                    <div id="excavations-list" class="space-y-1">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-800/60 pt-4">
+                    <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                        <span>Taxonomy Glossary</span>
+                        <span id="glossary-count" class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-gray-300"></span>
+                    </h3>
+                    <div id="glossary-list" class="space-y-2 max-h-60 overflow-y-auto pr-1">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Footer / Methodology Reference -->
+            <div class="p-4 border-t border-gray-800 bg-slate-950/40 text-xs text-gray-500 flex items-center justify-between">
+                <span>6-Category Assessment</span>
+                <span class="flex items-center gap-1 text-amber-500"><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i> Standardized Score</span>
+            </div>
+        </aside>
+
+        <!-- Center Area: Interactive Graph Visualizer -->
+        <main class="flex-1 bg-[#090d16] relative flex flex-col">
+            <!-- Instruction overlay -->
+            <div class="absolute top-4 left-4 bg-slate-950/80 border border-gray-800/80 rounded-lg p-3 text-xs text-gray-400 max-w-xs pointer-events-none z-10 shadow-lg backdrop-blur">
+                <div class="font-semibold text-white mb-1 flex items-center gap-1.5">
+                    <i data-lucide="info" class="w-3.5 h-3.5 text-blue-400"></i> Interaction Guide
+                </div>
+                <ul class="list-disc pl-4 space-y-1">
+                    <li>Drag nodes to reposition them in space</li>
+                    <li>Scroll to zoom in/out, drag empty space to pan</li>
+                    <li>Hover nodes to highlight direct connections</li>
+                    <li>Click nodes to open in-depth scorecard/details</li>
+                </ul>
+            </div>
+
+            <!-- Legend Overlay -->
+            <div class="absolute bottom-4 left-4 bg-slate-950/80 border border-gray-800/80 rounded-lg p-3 text-xs text-gray-400 pointer-events-none z-10 shadow-lg backdrop-blur flex flex-col space-y-1.5">
+                <div class="font-semibold text-white mb-0.5">Legend</div>
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-indigo-500 inline-block shadow-[0_0_6px_#6366f1]"></span> Core Root</div>
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-blue-500 inline-block shadow-[0_0_6px_#3b82f6]"></span> Paradigm Category</div>
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-teal-400 inline-block shadow-[0_0_6px_#2dd4bf]"></span> Technical Model</div>
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block shadow-[0_0_6px_#10b981]"></span> Excavation (Artifact)</div>
+            </div>
+
+            <!-- SVG Container for D3 -->
+            <div id="graph-container" class="w-full flex-1 relative overflow-hidden select-none">
+                <svg id="visualizer-svg" class="w-full h-full"></svg>
+            </div>
+        </main>
+
+        <!-- Right Panel: Collapsible Side-Drawer Detail View -->
+        <aside id="detail-drawer" class="w-96 border-l border-gray-800 bg-slate-900/90 backdrop-blur-md flex flex-col h-full transform translate-x-0 transition-transform duration-300 z-20 shadow-2xl relative">
+
+            <!-- Drawer Header (No selection) -->
+            <div id="drawer-empty-state" class="flex-1 flex flex-col items-center justify-center p-8 text-center text-gray-500">
+                <div class="p-4 bg-slate-950/40 rounded-full border border-gray-800 mb-4 text-gray-600">
+                    <i data-lucide="network" class="w-10 h-10"></i>
+                </div>
+                <h3 class="text-sm font-semibold text-gray-300">Select an Artifact or Model</h3>
+                <p class="text-xs mt-1 max-w-xs">Click on any node in the visualizer graph, or select an item from the sidebar directory to explore deep architectural insights, scorecard grades, and modern hardware-AI relevance.</p>
+            </div>
+
+            <!-- Drawer Content (When populated) -->
+            <div id="drawer-content" class="hidden flex-1 flex flex-col h-full overflow-hidden">
+                <!-- Header with Title & Action -->
+                <div class="p-5 border-b border-gray-800 bg-slate-950/40 flex justify-between items-start">
+                    <div class="flex-1">
+                        <span id="detail-badge" class="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">Excavation</span>
+                        <h2 id="detail-title" class="text-xl font-bold text-white mt-1.5 leading-tight">Excavation Title</h2>
+                        <p id="detail-id" class="text-xs text-gray-500 font-mono mt-0.5">ID: tag-system</p>
+                    </div>
+                    <button onclick="closeDrawer()" class="p-1 hover:bg-slate-800 rounded-lg text-gray-400 hover:text-white transition-colors">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- Tabable Content -->
+                <div class="flex-1 overflow-y-auto p-5 space-y-6">
+                    <!-- Standard Section: Summary -->
+                    <div id="section-summary">
+                        <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <i data-lucide="align-left" class="w-3.5 h-3.5 text-emerald-400"></i> Summary
+                        </h3>
+                        <p id="detail-summary" class="text-sm text-gray-300 leading-relaxed bg-slate-950/40 p-3.5 rounded-lg border border-gray-800/40">
+                            Summary goes here...
+                        </p>
+                    </div>
+
+                    <!-- Scorecard Section -->
+                    <div id="section-scorecard" class="space-y-3">
+                        <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider flex items-center justify-between">
+                            <span class="flex items-center gap-1.5">
+                                <i data-lucide="gauge" class="w-3.5 h-3.5 text-amber-400"></i> Scorecard Performance
+                            </span>
+                            <span id="scorecard-average" class="text-amber-400 font-bold bg-amber-500/10 px-2 py-0.5 rounded text-[10px] border border-amber-500/20">Avg: 4.2★</span>
+                        </h3>
+                        <div id="detail-scorecard-list" class="space-y-2.5">
+                            <!-- Populated with score categories -->
+                        </div>
+                    </div>
+
+                    <!-- Modern Relevance Section -->
+                    <div id="section-relevance">
+                        <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <i data-lucide="lightbulb" class="w-3.5 h-3.5 text-blue-400"></i> Modern Relevance & Future ASICs
+                        </h3>
+                        <p id="detail-relevance" class="text-sm text-gray-300 leading-relaxed bg-slate-950/40 p-3.5 rounded-lg border border-gray-800/40 whitespace-pre-line">
+                            Modern relevance analysis goes here...
+                        </p>
+                    </div>
+
+                    <!-- Connections Section (When model node is selected) -->
+                    <div id="section-connections" class="hidden">
+                        <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <i data-lucide="link" class="w-3.5 h-3.5 text-teal-400"></i> Mapping Excavations
+                        </h3>
+                        <div id="detail-connections-list" class="flex flex-wrap gap-2">
+                            <!-- Model connections -->
+                        </div>
+                    </div>
+
+                    <!-- References Section -->
+                    <div id="section-references" class="space-y-2">
+                        <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="book-open" class="w-3.5 h-3.5 text-indigo-400"></i> Primary References
+                        </h3>
+                        <ul id="detail-references-list" class="list-disc pl-4 space-y-1.5 text-xs text-gray-400">
+                            <!-- References -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Footer with view repository file button -->
+                <div class="p-4 border-t border-gray-800 bg-slate-950/60">
+                    <a id="detail-repo-link" href="#" target="_blank" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg shadow-lg hover:shadow-emerald-500/10 transition-all">
+                        <i data-lucide="file-text" class="w-4 h-4"></i> View Source Excavation File
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Main Visualizer Application Core -->
+    <script>
+        // Global State variables
+        let graphData = null;
+        let originalNodes = [];
+        let originalLinks = [];
+        let activeNodes = [];
+        let activeLinks = [];
+
+        let svg, containerGroup, simulation;
+        let width, height;
+        let linkElement, nodeElement, labelElement;
+        let selectedNodeId = null;
+
+        // Colors mapping for node types
+        const colorPalette = {
+            root: '#8b5cf6',      // Purple
+            category: '#3b82f6',  // Blue
+            model: '#14b8a6',     // Teal
+            excavation: '#10b981' // Emerald/Green
+        };
+
+        const radiusPalette = {
+            root: 18,
+            category: 14,
+            model: 11,
+            excavation: 8
+        };
+
+        // Window load setup
+        window.addEventListener('load', () => {
+            initSvg();
+            loadKnowledgeGraph();
+            window.addEventListener('resize', handleResize);
+        });
+
+        // Initialize SVG dimensions and zoom behaviors
+        function initSvg() {
+            const container = document.getElementById('graph-container');
+            width = container.clientWidth;
+            height = container.clientHeight;
+
+            svg = d3.select('#visualizer-svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            // Add zooming/panning capability
+            const zoomBehavior = d3.zoom()
+                .scaleExtent([0.15, 4])
+                .on('zoom', (event) => {
+                    containerGroup.attr('transform', event.transform);
+                });
+
+            svg.call(zoomBehavior);
+
+            // Inner viewport container
+            containerGroup = svg.append('g').attr('id', 'viewport-group');
+        }
+
+        function handleResize() {
+            const container = document.getElementById('graph-container');
+            width = container.clientWidth;
+            height = container.clientHeight;
+            svg.attr('width', width).attr('height', height);
+            if (simulation) {
+                simulation.force('center', d3.forceCenter(width / 2, height / 2));
+                simulation.alpha(0.3).restart();
+            }
+        }
+
+        // Load JSON database compiled by Python script
+        function loadKnowledgeGraph() {
+            fetch('./modern-relevance/knowledge_graph.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("HTTP error " + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    graphData = data;
+                    processGraphData(data);
+                    renderSidebar(data);
+                    initSimulation();
+                    lucide.createIcons();
+                })
+                .catch(err => {
+                    console.error("Failed to fetch knowledge graph:", err);
+                    showErrorMessage();
+                });
+        }
+
+        // Show a helpful error message if CORS blocks fetching or file missing
+        function showErrorMessage() {
+            const container = document.getElementById('graph-container');
+            container.innerHTML = `
+                <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-slate-950/95 z-50">
+                    <div class="p-4 bg-red-500/10 rounded-full border border-red-500/20 text-red-400 mb-4 animate-bounce">
+                        <i data-lucide="alert-triangle" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-white mb-2">Knowledge Graph JSON Not Found / CORS Blocked</h2>
+                    <p class="text-sm text-gray-400 max-w-md mb-6 leading-relaxed">
+                        To visualize the taxonomy, the explorer requires <code>knowledge_graph.json</code>. This file is loaded dynamically.
+                        Due to browser CORS restrictions, opening this HTML directly via <code>file://</code> protocol can be blocked by Chrome/Safari/Firefox.
+                    </p>
+                    <div class="bg-slate-900 border border-gray-800 rounded-lg p-4 text-left font-mono text-xs text-emerald-400 max-w-md mb-6 shadow-inner">
+                        <span class="text-gray-500"># Start a simple python web server locally:</span><br>
+                        python3 -m http.server 3000 --bind 0.0.0.0<br><br>
+                        <span class="text-gray-500"># Then open this url in your browser:</span><br>
+                        http://localhost:3000/explorer.html
+                    </div>
+                    <p class="text-xs text-gray-500">Alternatively, ensure <code>python tools/generate_knowledge_graph.py</code> has been run.</p>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        // Process flat JSON list into a nodes and links network structure
+        function processGraphData(data) {
+            originalNodes = [];
+            originalLinks = [];
+
+            // 1. Root Node
+            const rootNode = {
+                id: 'root-archaeology',
+                title: 'Digital Archaeology',
+                type: 'root',
+                x: width / 2,
+                y: height / 2,
+                fixed: true
+            };
+            originalNodes.push(rootNode);
+
+            // 2. Categories
+            const categories = [
+                { id: 'cat-execution', title: 'Execution Models', type: 'category' },
+                { id: 'cat-memory', title: 'Memory Protection', type: 'category' },
+                { id: 'cat-concurrency', title: 'Concurrency Models', type: 'category' }
+            ];
+            categories.forEach(cat => {
+                originalNodes.push(cat);
+                originalLinks.push({ source: rootNode.id, target: cat.id, value: 3 });
+            });
+
+            // 3. Technical Models mapping
+            const executionMap = data.comparative_index.execution_models;
+            const memoryMap = data.comparative_index.memory_protection_models;
+            const concurrencyMap = data.comparative_index.concurrency_models;
+
+            // Map standard keys to category IDs
+            const modelsMapping = [
+                { map: executionMap, catId: 'cat-execution', type: 'execution' },
+                { map: memoryMap, catId: 'cat-memory', type: 'memory' },
+                { map: concurrencyMap, catId: 'cat-concurrency', type: 'concurrency' }
+            ];
+
+            const modelIdLookup = {};
+
+            modelsMapping.forEach(({ map, catId, type }) => {
+                Object.keys(map).forEach(modelName => {
+                    const modelId = `model-${modelName.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+                    modelIdLookup[modelName] = modelId;
+
+                    if (!originalNodes.find(n => n.id === modelId)) {
+                        originalNodes.push({
+                            id: modelId,
+                            title: modelName,
+                            type: 'model',
+                            description: map[modelName].description,
+                            rawName: modelName,
+                            categoryType: type
+                        });
+                        originalLinks.push({ source: catId, target: modelId, value: 2 });
+                    }
+                });
+            });
+
+            // 4. Excavations
+            data.excavations.forEach(ex => {
+                const node = {
+                    id: ex.id,
+                    title: ex.title,
+                    type: 'excavation',
+                    summary: ex.summary,
+                    scorecard: ex.scorecard,
+                    modern_relevance: ex.modern_relevance,
+                    references: ex.references,
+                    path: ex.path
+                };
+                originalNodes.push(node);
+
+                // Find connected models and construct links
+                modelsMapping.forEach(({ map, catId }) => {
+                    Object.keys(map).forEach(modelName => {
+                        const info = map[modelName];
+                        if (info.mapped_excavations.includes(ex.id)) {
+                            const modelId = modelIdLookup[modelName];
+                            originalLinks.push({ source: modelId, target: ex.id, value: 1 });
+                        }
+                    });
+                });
+            });
+
+            // Create initial active copies
+            activeNodes = JSON.parse(JSON.stringify(originalNodes));
+            activeLinks = JSON.parse(JSON.stringify(originalLinks));
+        }
+
+        // Render lists of excavations & glossary in sidebar
+        function renderSidebar(data) {
+            const listContainer = document.getElementById('excavations-list');
+            listContainer.innerHTML = '';
+
+            // Render all 28 excavations
+            data.excavations.forEach(ex => {
+                // Calculate average rating to show on list item
+                let avg = 0;
+                let count = 0;
+                Object.keys(ex.scorecard).forEach(cat => {
+                    avg += ex.scorecard[cat].numeric;
+                    count++;
+                });
+                const avgStars = count > 0 ? (avg / count).toFixed(1) : '0';
+
+                const div = document.createElement('div');
+                div.id = `sidebar-item-${ex.id}`;
+                div.className = "flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-gray-800/50 hover:bg-slate-800/40 hover:border-emerald-500/30 cursor-pointer transition-all";
+                div.onclick = () => selectNode(ex.id);
+                div.innerHTML = `
+                    <div class="min-w-0 pr-2">
+                        <div class="text-xs font-semibold text-gray-200 truncate">${ex.title}</div>
+                        <div class="text-[10px] text-gray-500 font-mono">ID: ${ex.id}</div>
+                    </div>
+                    <div class="flex items-center gap-1 text-[10px] bg-slate-900 border border-gray-800 px-1.5 py-0.5 rounded text-amber-500 font-bold shrink-0">
+                        <span>${avgStars}</span>
+                        <i data-lucide="star" class="w-2.5 h-2.5 fill-current"></i>
+                    </div>
+                `;
+                listContainer.appendChild(div);
+            });
+
+            // Render Glossary Terms
+            const glossContainer = document.getElementById('glossary-list');
+            glossContainer.innerHTML = '';
+            document.getElementById('glossary-count').textContent = data.glossary.length;
+
+            data.glossary.forEach(item => {
+                const div = document.createElement('div');
+                div.className = "bg-slate-950/20 hover:bg-slate-950/40 border border-gray-900 p-2.5 rounded-lg text-[11px] transition-colors";
+                div.innerHTML = `
+                    <div class="font-bold text-gray-300 hover:text-emerald-400 cursor-pointer flex items-center justify-between" onclick="handleGlossaryClick('${item.term}')">
+                        <span>${item.term}</span>
+                        <i data-lucide="arrow-up-right" class="w-3 h-3 text-gray-500"></i>
+                    </div>
+                    <div class="text-gray-500 mt-1 leading-normal truncate-3-lines">${item.definition}</div>
+                `;
+                glossContainer.appendChild(div);
+            });
+        }
+
+        // Clicking a glossary term triggers highlight of related technical model
+        function handleGlossaryClick(term) {
+            // Find a technical model that matches the term
+            const normalizedTerm = term.toLowerCase().trim();
+            const matchingModelNode = activeNodes.find(n =>
+                n.type === 'model' && (
+                    n.title.toLowerCase().includes(normalizedTerm) ||
+                    normalizedTerm.includes(n.title.toLowerCase())
+                )
+            );
+
+            if (matchingModelNode) {
+                selectNode(matchingModelNode.id);
+            } else {
+                // Search term directly
+                document.getElementById('search-input').value = term;
+                handleSearch(term);
+            }
+        }
+
+        // Initialize D3 Force Directed Network Simulator
+        function initSimulation() {
+            // Setup forces
+            simulation = d3.forceSimulation(activeNodes)
+                .force('link', d3.forceLink(activeLinks).id(d => d.id).distance(d => {
+                    if (d.value === 3) return 180; // Root to Category
+                    if (d.value === 2) return 120; // Category to Model
+                    return 80; // Model to Excavation
+                }))
+                .force('charge', d3.forceManyBody().strength(-250))
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('collide', d3.forceCollide(d => radiusPalette[d.type] + 25))
+                .on('tick', ticked);
+
+            updateGraphElements();
+        }
+
+        // Render links and nodes onto SVG
+        function updateGraphElements() {
+            // Bind Links
+            linkElement = containerGroup.selectAll('.link')
+                .data(activeLinks, d => `${d.source.id || d.source}-${d.target.id || d.target}`)
+                .join(
+                    enter => enter.append('line')
+                        .attr('class', 'link')
+                        .attr('stroke', '#475569')
+                        .attr('stroke-width', 1.5)
+                        .attr('stroke-opacity', 0.25),
+                    update => update,
+                    exit => exit.remove()
+                );
+
+            // Bind Nodes
+            nodeElement = containerGroup.selectAll('.node')
+                .data(activeNodes, d => d.id)
+                .join(
+                    enter => {
+                        const nodeG = enter.append('g')
+                            .attr('class', 'node-group')
+                            .call(dragBehavior(simulation));
+
+                        nodeG.append('circle')
+                            .attr('class', 'node')
+                            .attr('r', d => radiusPalette[d.type])
+                            .attr('fill', d => colorPalette[d.type])
+                            .attr('stroke', '#020617')
+                            .attr('stroke-width', 1.5)
+                            .on('mouseover', handleMouseOver)
+                            .on('mouseout', handleMouseOut)
+                            .on('click', (event, d) => selectNode(d.id));
+
+                        // Labels for prominent nodes
+                        nodeG.append('text')
+                            .attr('class', 'node-label')
+                            .attr('dx', d => radiusPalette[d.type] + 4)
+                            .attr('dy', 4)
+                            .attr('font-size', d => d.type === 'root' ? '12px' : d.type === 'category' ? '11px' : '9.5px')
+                            .attr('font-weight', d => d.type === 'excavation' ? 'normal' : 'bold')
+                            .attr('fill', d => d.type === 'excavation' ? '#cbd5e1' : '#ffffff')
+                            .text(d => d.title)
+                            .style('pointer-events', 'none')
+                            .style('opacity', d => d.type === 'excavation' ? 0.45 : 1); // Hovering shows label clearly
+
+                        return nodeG;
+                    },
+                    update => update,
+                    exit => exit.remove()
+                );
+        }
+
+        // Drag node behavior
+        function dragBehavior(sim) {
+            function dragstarted(event, d) {
+                if (!event.active) sim.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+
+            function dragended(event, d) {
+                if (!event.active) sim.alphaTarget(0);
+                if (d.type !== 'root') {
+                    d.fx = null;
+                    d.fy = null;
+                }
+            }
+
+            return d3.drag()
+                .on('start', dragstarted)
+                .on('drag', dragged)
+                .on('end', dragended);
+        }
+
+        // Ticked coordinate update loop
+        function ticked() {
+            linkElement
+                .attr('x1', d => d.source.x)
+                .attr('y1', d => d.source.y)
+                .attr('x2', d => d.target.x)
+                .attr('y2', d => d.target.y);
+
+            nodeElement.attr('transform', d => `translate(${d.x},${d.y})`);
+        }
+
+        // Hover Highlight system
+        function handleMouseOver(event, d) {
+            // Find directly connected links and nodes
+            const connectedNodeIds = new Set([d.id]);
+
+            linkElement.each(l => {
+                const sourceId = l.source.id || l.source;
+                const targetId = l.target.id || l.target;
+                if (sourceId === d.id) {
+                    connectedNodeIds.add(targetId);
+                } else if (targetId === d.id) {
+                    connectedNodeIds.add(sourceId);
+                }
+            });
+
+            // Highlight links and nodes
+            linkElement.classed('link-highlighted', l => {
+                const s = l.source.id || l.source;
+                const t = l.target.id || l.target;
+                return s === d.id || t === d.id;
+            });
+            linkElement.classed('link-dimmed', l => {
+                const s = l.source.id || l.source;
+                const t = l.target.id || l.target;
+                return s !== d.id && t !== d.id;
+            });
+
+            nodeElement.each(function(n) {
+                const g = d3.select(this.parentNode);
+                if (connectedNodeIds.has(n.id)) {
+                    g.select('.node-label').style('opacity', 1).attr('fill', '#ffffff');
+                    g.select('circle').classed('node-active', true).attr('stroke', '#ffffff');
+                } else {
+                    g.select('.node-label').style('opacity', 0.1);
+                    g.select('circle').classed('node-dimmed', true);
+                }
+            });
+        }
+
+        function handleMouseOut() {
+            // Clear hover highlight states
+            linkElement.classed('link-highlighted', false).classed('link-dimmed', false);
+
+            nodeElement.each(function(n) {
+                const g = d3.select(this.parentNode);
+                g.select('.node-label')
+                    .style('opacity', n.type === 'excavation' ? 0.45 : 1)
+                    .attr('fill', n.type === 'excavation' ? '#cbd5e1' : '#ffffff');
+                g.select('circle')
+                    .classed('node-dimmed', false)
+                    .classed('node-active', false)
+                    .attr('stroke', '#020617');
+            });
+
+            // Keep selected node with high visibility
+            if (selectedNodeId) {
+                nodeElement.each(function(n) {
+                    if (n.id === selectedNodeId) {
+                        d3.select(this.parentNode).select('circle').classed('node-active', true).attr('stroke', '#ffffff');
+                        d3.select(this.parentNode).select('.node-label').style('opacity', 1);
+                    }
+                });
+            }
+        }
+
+        // Selection Action - Opens Drawer and loads precise details
+        function selectNode(id) {
+            selectedNodeId = id;
+            handleMouseOut(); // refresh highlights
+
+            const node = activeNodes.find(n => n.id === id);
+            if (!node) return;
+
+            // Handle UI elements transitions
+            document.getElementById('drawer-empty-state').classList.add('hidden');
+            const content = document.getElementById('drawer-content');
+            content.classList.remove('hidden');
+
+            const title = document.getElementById('detail-title');
+            const idLabel = document.getElementById('detail-id');
+            const badge = document.getElementById('detail-badge');
+            const summary = document.getElementById('detail-summary');
+            const relevance = document.getElementById('detail-relevance');
+            const repoLink = document.getElementById('detail-repo-link');
+
+            // Populate generic details
+            title.textContent = node.title;
+            idLabel.textContent = `ID: ${node.id}`;
+
+            // Reset and configure specific sections
+            document.getElementById('section-scorecard').classList.add('hidden');
+            document.getElementById('section-relevance').classList.add('hidden');
+            document.getElementById('section-summary').classList.add('hidden');
+            document.getElementById('section-connections').classList.add('hidden');
+            document.getElementById('section-references').classList.add('hidden');
+            repoLink.parentNode.classList.add('hidden');
+
+            if (node.type === 'excavation') {
+                badge.textContent = 'Excavation';
+                badge.className = "text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+
+                document.getElementById('section-summary').classList.remove('hidden');
+                summary.textContent = node.summary || "No summary available.";
+
+                document.getElementById('section-relevance').classList.remove('hidden');
+                relevance.textContent = node.modern_relevance || "No modern relevance analysis listed.";
+
+                // Scorecard mapping
+                document.getElementById('section-scorecard').classList.remove('hidden');
+                renderScorecard(node.scorecard);
+
+                // References
+                if (node.references && node.references.length > 0) {
+                    document.getElementById('section-references').classList.remove('hidden');
+                    const refList = document.getElementById('detail-references-list');
+                    refList.innerHTML = '';
+                    node.references.forEach(ref => {
+                        const li = document.createElement('li');
+                        li.textContent = ref;
+                        refList.appendChild(li);
+                    });
+                }
+
+                // GitHub Source code relative redirection path
+                repoLink.parentNode.classList.remove('hidden');
+                repoLink.href = node.path;
+
+            } else if (node.type === 'model') {
+                badge.textContent = 'Technical Model';
+                badge.className = "text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded bg-teal-500/10 text-teal-400 border border-teal-500/20";
+
+                document.getElementById('section-summary').classList.remove('hidden');
+                summary.textContent = node.description || "No description provided for this architectural model.";
+
+                // Connections
+                document.getElementById('section-connections').classList.remove('hidden');
+                const connList = document.getElementById('detail-connections-list');
+                connList.innerHTML = '';
+
+                // Find excavations mapped under this specific model
+                const connections = originalLinks.filter(l =>
+                    (l.source === node.id || l.source.id === node.id) && l.value === 1
+                );
+
+                connections.forEach(l => {
+                    const targetId = l.target.id || l.target;
+                    const connectedNode = originalNodes.find(n => n.id === targetId);
+                    if (connectedNode) {
+                        const pill = document.createElement('button');
+                        pill.className = "px-2 py-1 bg-emerald-950/30 border border-emerald-900/40 text-emerald-400 text-xs rounded-full hover:bg-emerald-900/30 transition-colors";
+                        pill.textContent = connectedNode.title;
+                        pill.onclick = () => selectNode(connectedNode.id);
+                        connList.appendChild(pill);
+                    }
+                });
+
+            } else {
+                badge.textContent = 'Category';
+                badge.className = "text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20";
+
+                document.getElementById('section-summary').classList.remove('hidden');
+                summary.textContent = `This node organizes digital archaeological artifacts under a core model of computing architecture.`;
+            }
+
+            // Sync visual active sidebar highlight
+            document.querySelectorAll('#excavations-list > div').forEach(el => {
+                el.classList.remove('border-emerald-500', 'bg-slate-800/40');
+            });
+            const selectedSidebar = document.getElementById(`sidebar-item-${id}`);
+            if (selectedSidebar) {
+                selectedSidebar.classList.add('border-emerald-500', 'bg-slate-800/40');
+                selectedSidebar.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            // Slide drawer into view smoothly
+            const drawer = document.getElementById('detail-drawer');
+            drawer.style.transform = "translateX(0)";
+
+            lucide.createIcons();
+        }
+
+        // Render standard stars on scorecard
+        function renderScorecard(scorecard) {
+            const list = document.getElementById('detail-scorecard-list');
+            list.innerHTML = '';
+
+            let sum = 0;
+            let count = 0;
+
+            Object.keys(scorecard).forEach(cat => {
+                const info = scorecard[cat];
+                sum += info.numeric;
+                count++;
+
+                // Make star representation
+                let starsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= info.numeric) {
+                        starsHtml += `<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-current"></i>`;
+                    } else {
+                        starsHtml += `<i data-lucide="star" class="w-3.5 h-3.5 text-gray-700"></i>`;
+                    }
+                }
+
+                const cardRow = document.createElement('div');
+                cardRow.className = "bg-slate-950/40 p-3 rounded-lg border border-gray-800/60";
+                cardRow.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div class="text-xs font-semibold text-gray-200">${cat}</div>
+                        <div class="flex items-center space-x-0.5">${starsHtml}</div>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-1 leading-normal">${info.rationale}</div>
+                `;
+                list.appendChild(cardRow);
+            });
+
+            // Set average star count badge
+            const average = count > 0 ? (sum / count).toFixed(1) : '0';
+            document.getElementById('scorecard-average').textContent = `Avg: ${average} ★`;
+        }
+
+        // Handle Search and Filter highlights
+        function handleSearch(query) {
+            const cleanQuery = query.toLowerCase().trim();
+            if (!cleanQuery) {
+                resetSearchHighlight();
+                return;
+            }
+
+            // Filter nodes in visualizer
+            nodeElement.each(function(n) {
+                const g = d3.select(this.parentNode);
+                const isMatch = n.title.toLowerCase().includes(cleanQuery) ||
+                                (n.summary && n.summary.toLowerCase().includes(cleanQuery)) ||
+                                (n.modern_relevance && n.modern_relevance.toLowerCase().includes(cleanQuery)) ||
+                                (n.id.toLowerCase().includes(cleanQuery));
+
+                if (isMatch) {
+                    g.select('circle').classed('node-dimmed', false).attr('stroke', '#ffffff').attr('r', radiusPalette[n.type] + 3);
+                    g.select('.node-label').style('opacity', 1).attr('fill', '#ffffff');
+                } else {
+                    g.select('circle').classed('node-dimmed', true).attr('r', radiusPalette[n.type]);
+                    g.select('.node-label').style('opacity', 0.1);
+                }
+            });
+
+            // Highlight connections for matching paths
+            linkElement.classed('link-dimmed', true);
+
+            // Hide non-matching excavations in sidebar
+            const excavations = document.getElementById('excavations-list').children;
+            let matchCount = 0;
+            for (let item of excavations) {
+                const id = item.id.replace('sidebar-item-', '');
+                const node = activeNodes.find(n => n.id === id);
+                const text = item.textContent.toLowerCase();
+                const nodeMatch = text.includes(cleanQuery) ||
+                                  (node && node.summary && node.summary.toLowerCase().includes(cleanQuery));
+
+                if (nodeMatch) {
+                    item.classList.remove('hidden');
+                    matchCount++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            }
+            document.getElementById('excavation-count').textContent = matchCount;
+        }
+
+        function resetSearchHighlight() {
+            nodeElement.each(function(n) {
+                const g = d3.select(this.parentNode);
+                g.select('circle').classed('node-dimmed', false).attr('stroke', '#020617').attr('r', radiusPalette[n.type]);
+                g.select('.node-label')
+                    .style('opacity', n.type === 'excavation' ? 0.45 : 1)
+                    .attr('fill', n.type === 'excavation' ? '#cbd5e1' : '#ffffff');
+            });
+            linkElement.classed('link-dimmed', false).classed('link-highlighted', false);
+
+            const excavations = document.getElementById('excavations-list').children;
+            for (let item of excavations) {
+                item.classList.remove('hidden');
+            }
+            document.getElementById('excavation-count').textContent = '28';
+        }
+
+        // Filtering excavations with extreme ratings
+        function filterHighRating(categoryKey) {
+            document.getElementById('clear-filter-btn').classList.remove('hidden');
+
+            // Map category standard key to human-readable scorecard keys
+            const keyMap = {
+                modern_potential: 'Modern Potential',
+                ai_synergy: 'AI Synergy'
+            };
+            const scorecardCategory = keyMap[categoryKey];
+
+            // Filter nodes in visualizer
+            nodeElement.each(function(n) {
+                const g = d3.select(this.parentNode);
+                let isMatch = false;
+
+                if (n.type === 'excavation' && n.scorecard && n.scorecard[scorecardCategory]) {
+                    isMatch = n.scorecard[scorecardCategory].numeric >= 4;
+                } else if (n.type === 'root' || n.type === 'category') {
+                    isMatch = true; // Always display container nodes
+                } else if (n.type === 'model') {
+                    // Check if connected to any matched excavations
+                    isMatch = originalLinks.some(l => {
+                        const targetId = l.target.id || l.target;
+                        const sourceId = l.source.id || l.source;
+                        if (sourceId === n.id) {
+                            const leaf = originalNodes.find(node => node.id === targetId);
+                            return leaf && leaf.scorecard && leaf.scorecard[scorecardCategory] && leaf.scorecard[scorecardCategory].numeric >= 4;
+                        }
+                        return false;
+                    });
+                }
+
+                if (isMatch) {
+                    g.select('circle').classed('node-dimmed', false);
+                    g.select('.node-label').style('opacity', n.type === 'excavation' ? 0.8 : 1);
+                } else {
+                    g.select('circle').classed('node-dimmed', true);
+                    g.select('.node-label').style('opacity', 0.1);
+                }
+            });
+
+            // Sidebar filtering
+            const excavations = document.getElementById('excavations-list').children;
+            let matchCount = 0;
+            for (let item of excavations) {
+                const id = item.id.replace('sidebar-item-', '');
+                const node = activeNodes.find(n => n.id === id);
+                const hasHighScore = node && node.scorecard && node.scorecard[scorecardCategory] && node.scorecard[scorecardCategory].numeric >= 4;
+
+                if (hasScorecardCategory(node, scorecardCategory) && hasHighScore) {
+                    item.classList.remove('hidden');
+                    matchCount++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            }
+            document.getElementById('excavation-count').textContent = matchCount;
+        }
+
+        function hasScorecardCategory(node, cat) {
+            return node && node.scorecard && node.scorecard[cat];
+        }
+
+        function clearFilters() {
+            document.getElementById('clear-filter-btn').classList.add('hidden');
+            document.getElementById('search-input').value = '';
+            resetSearchHighlight();
+        }
+
+        function closeDrawer() {
+            const drawer = document.getElementById('detail-drawer');
+            drawer.style.transform = "translateX(100%)";
+            selectedNodeId = null;
+            handleMouseOut();
+        }
+
+        function resetVisualization() {
+            if (simulation) {
+                simulation.alpha(1).restart();
+                // Reset zoom to default
+                svg.transition().duration(750).call(
+                    d3.zoom().transform,
+                    d3.zoomIdentity
+                );
+            }
+        }
+    </script>
+</body>
+</html>

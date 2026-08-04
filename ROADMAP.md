@@ -72,13 +72,13 @@ We have transitioned from theoretical comparisons to dynamic execution models, i
 
 ---
 
-# Phase V — Interactive Dissemination & Executable Artifact Expansion ⏳ (In Progress)
+# Phase V — Interactive Dissemination & Executable Artifact Expansion ✅ (Complete)
 
 To scale the research initiative and expand from descriptive analysis into active engineering leverage, Phase V focuses on three core pillars: interactive discoverability, expanding our executable simulator footprint, and establishing developer engagement pipelines.
 
 ### 1. Interactive Knowledge Graphs & Discoverability
-- [ ] **Interactive Visual Taxonomy and Search**: Shift from a static `INDEX.md` and `GLOSSARY.md` to an interactive, client-side visual web (using D3.js or similar) mapping excavations by taxonomy, paradigms, and execution-safety-concurrency models.
-- [ ] **Static Site Generation & Docs Site**: Establish an automated static site build pipeline (using MkDocs, Jekyll, or Astro) to publish the complete comparative knowledge base under a clean, searchable user interface (`archaeology.t81.io` or similar).
+- [x] **Interactive Visual Taxonomy and Search**: Shift from a static `INDEX.md` and `GLOSSARY.md` to an interactive, client-side visual web page (`explorer.html`) using D3.js and Tailwind CSS mapping all 28 excavations across execution, safety, and concurrency models with custom detail drawers and real-time filtering.
+- [x] **Static Site Generation & Docs Site**: Establish an automated static site build pipeline using MkDocs with the Material theme (`mkdocs.yml` configured with strict compiling) to publish the complete comparative knowledge base under a clean, searchable user interface.
 
 ### 2. Executable Reconstruction Footprint Expansion
 - [x] **Expansion of Simulators to WebAssembly**: Compile or wrap existing Python-based emulators into interactive web applications so readers can execute alternative arithmetic, token-matching, and capability logic directly inside the documentation browser.
@@ -89,7 +89,7 @@ To scale the research initiative and expand from descriptive analysis into activ
 ### 3. Developer Onboarding, Tooling, & Community Integration
 - [x] **Automated Excavation Checklists & Templates**: Improve the standardization of contributions with automated pull request action checks that validate markdown link integrity, scorecard range compliance, and GLOSSARY referencing.
 - [x] **AI-Assisted Knowledge Ingestion**: Provide an API/schema (JSON/JSON-LD) format of the index and comparative matrices, allowing LLM-based autonomous agents to ingest, reference, and evaluate these historical architectural patterns.
-- [ ] **Academic & Hardware Partnerships**: Connect historical architectures (e.g., CHERI, Neuromorphic, Spatial) to active academic research programs, zero-trust security initiatives, and modern open-source FPGA toolchains.
+- [x] **Academic & Hardware Partnerships**: Connect historical architectures (e.g., CHERI, Neuromorphic, Spatial) to active academic research programs, zero-trust security initiatives, and modern open-source FPGA toolchains (documented in `modern-relevance/partnerships.md`).
 
 ---
 
