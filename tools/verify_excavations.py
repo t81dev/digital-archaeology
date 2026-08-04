@@ -63,6 +63,9 @@ class RepoLinter:
         # 2. Check Scorecards in Excavations
         self.check_scorecards()
 
+        # 3. Check GLOSSARY Referencing & Completeness
+        self.check_glossary_referencing()
+
         # Print report
         print("\n" + "=" * 50)
         print("                VERIFICATION REPORT")
@@ -80,7 +83,7 @@ class RepoLinter:
             print(f"\n{RED}Verification FAILED with {len(self.errors)} errors.{RESET}\n")
             return False
         else:
-            log_success("All repository integrity and scorecard checks passed successfully!\n")
+            log_success("All repository integrity, scorecard, and glossary checks passed successfully!\n")
             return True
 
     def check_links(self, md_files):
@@ -175,6 +178,50 @@ class RepoLinter:
                         filepath,
                         f"Invalid scorecard rating format for '{cat}': '{rating}'. Must be exactly 5 characters of ★ and ☆."
                     )
+
+    def check_glossary_referencing(self):
+        print("3. Verifying GLOSSARY Referencing & Completeness...")
+        glossary_path = os.path.join(self.root_dir, "GLOSSARY.md")
+        if not os.path.exists(glossary_path):
+            self.report_error(self.root_dir, "GLOSSARY.md is missing from the repository root!")
+            return
+
+        with open(glossary_path, 'r', encoding='utf-8') as f:
+            glossary_content = f.read()
+
+        # Parse all "See excavation" or "See modern relevance" links from GLOSSARY.md
+        # Format: [Link Text](path)
+        see_links = re.findall(r'\*\s*\*See (?:excavation|modern relevance)\*:\s*(.+)', glossary_content)
+        referenced_paths = set()
+        for link_line in see_links:
+            matches = re.findall(r'\[[^\]]+\]\(([^)]+)\)', link_line)
+            for path in matches:
+                # Resolve relative path
+                clean_path = path.split('#')[0].split('?')[0].strip()
+                abs_path = os.path.abspath(os.path.join(os.path.dirname(glossary_path), clean_path))
+                referenced_paths.add(abs_path)
+
+        # Let's get the list of actual excavations
+        excavations_dir = os.path.join(self.root_dir, "excavations")
+        if not os.path.exists(excavations_dir):
+            return
+
+        all_excavations = []
+        for file in os.listdir(excavations_dir):
+            if file.endswith(".md") and file not in ("README.md", "excavation-template.md"):
+                abs_path = os.path.abspath(os.path.join(excavations_dir, file))
+                all_excavations.append(abs_path)
+
+        # Verify that all excavations have corresponding references in GLOSSARY.md
+        # This prevents "dangling" excavations that aren't integrated into the taxonomy!
+        for exc_path in all_excavations:
+            if exc_path not in referenced_paths:
+                rel_exc = os.path.relpath(exc_path, self.root_dir)
+                self.report_warning(
+                    glossary_path,
+                    f"Excavation file '{rel_exc}' is not referenced under any term in GLOSSARY.md. "
+                    "Consider adding a glossary entry linking to this excavation."
+                )
 
 
 if __name__ == "__main__":

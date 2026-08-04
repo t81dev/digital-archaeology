@@ -44,6 +44,12 @@ Each subdirectory here contains an interactive, fully-functional simulator or em
 * **What it does**: Implements a cooperative scheduler running parallel processes communicating over synchronous unbuffered channels. Demonstrates rendezvous-based concurrency, alternative channel selection (ALT), and real-time structural deadlock analysis.
 * **Entry point**: `reconstructions/csp-messaging/csp_sim.py`
 
+### 6. [Continuous Analog & Optical Wave Accelerator Simulator](analog-optical/)
+* **Focus**: Continuous-physical computation, matrix-vector multiplication via wave interference, op-amp differential solver.
+* **Paradigm**: [Analog Computing](../excavations/analog-computing.md) & [Optical Computing](../excavations/optical-computing.md).
+* **What it does**: Models a continuous physical electronic op-amp computer (solving mass-spring-damper dynamics with noise, drift, and saturation) alongside a Mach-Zehnder Interferometer (MZI) photonic tensor core performing coherent wave propagation and matrix-vector multiplication.
+* **Entry point**: `reconstructions/analog-optical/analog_optical_sim.py`
+
 ---
 
 ## Running the Simulators
@@ -69,6 +75,9 @@ python3 reconstructions/neuro-symbolic/neuro_symbolic_sim.py
 
 # Run the CSP Synchronous Messaging Simulator
 python3 reconstructions/csp-messaging/csp_sim.py
+
+# Run the Continuous Analog & Optical Wave Accelerator Simulator
+python3 reconstructions/analog-optical/analog_optical_sim.py
 ```
 
 Each simulator includes built-in interactive menus, step-by-step traces, or test programs that print detailed execution paths to the console.
