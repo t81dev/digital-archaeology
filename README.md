@@ -1,8 +1,8 @@
 # Digital Archaeology
 
 [![Research Phase: Active](https://img.shields.io/badge/Research--Phase-Active-success.svg)](#roadmap)
-[![Reconstructions: 4 Python Simulators](https://img.shields.io/badge/Reconstructions-4%20Simulators-blue.svg)](#-interactive-reconstructions--simulators)
-[![Completed Excavations: 28](https://img.shields.io/badge/Completed--Excavations-28-orange.svg)](#-project-pillars)
+[![Reconstructions: 9 Simulators & Models](https://img.shields.io/badge/Reconstructions-9%20Simulators-blue.svg)](#-interactive-reconstructions--simulators)
+[![Completed Excavations: 32](https://img.shields.io/badge/Completed--Excavations-32-orange.svg)](#-project-pillars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > *Excavating forgotten ideas. Recovering lost innovations. Reconstructing alternate futures.*
@@ -21,8 +21,8 @@ Rather than treating computing history as a passive museum, we approach it as an
         ┌───────────────────────────────┼───────────────────────────────┐
         ▼                               ▼                               ▼
   [EXCAVATIONS]                    [SYNTHESIS]                   [RECONSTRUCTIONS]
- 28 deep dives into              Comparative and                Interactive Python
- historical paradigms.          architectural essays.           functional simulators.
+ 32 deep dives into              Comparative and                9 executable models
+ historical paradigms.          architectural essays.           and simulators.
         │                               │                               │
         └───────────────────────────────┼───────────────────────────────┘
                                         ▼
@@ -33,15 +33,59 @@ Rather than treating computing history as a passive museum, we approach it as an
 
 ---
 
+## 👁️ Philosophical Framework: Explanatory Density
+
+The core mission of the **Digital Archaeology** initiative is not merely to catalog historical computing curiosities, but to **increase the explanatory power** of the repository by unearthing and synthesizing the underlying abstractions that govern architectural evolution.
+
+Every technology—whether a clockless asynchronous processor or a hardware-enforced object capability system—is treated not as an isolated dead-end, but as **evidence of a deeper computational idea** that evolves across decades, hardware generations, and software ecosystems.
+
+To achieve this, our research framework operates across six deeply interconnected layers:
+
+```text
+               [1. PRESERVE HISTORICAL ARTIFACTS]
+                                │
+                                ▼
+               [2. EXTRACT ENDURING ABSTRACTIONS]
+                                │
+                                ▼
+              [3. RECONSTRUCT PHYSICAL MECHANISMS]
+                                │
+                                ▼
+               [4. WEAVE THE KNOWLEDGE GRAPH]
+                                │
+                                ▼
+               [5. CONNECT TO MODERN ENGINEERING]
+                                │
+                                ▼
+               [6. DERIVE EVIDENCE-BASED HYPOTHESES]
+```
+
+1. **Preserving Historical Artifacts**: Documenting the primary-source-backed designs, specific socio-economic constraints, and physical limitations that led to the sidelining of critical historical systems.
+2. **Extracting Enduring Abstractions**: Isolating elegant logical principles (e.g., capability bounds, dataflow routing, coordinate-free coordination) from the transient hardware limits that originally bound them.
+3. **Reconstructing Historical Mechanisms**: Building executable, zero-dependency software simulators and synthesizable SystemVerilog RTL cores to prove and verify the physical mechanics of alternative architectures.
+4. **Connecting Concepts through the Knowledge Graph**: Structuring a dense network of multi-dimensional relationships using machine-readable schemas (`modern-relevance/knowledge_graph.json`) and interactive D3 force-directed visualizations (`explorer.html`) to expose cross-cutting architectural dynamics.
+5. **Relating to Modern Engineering Practice**: Directly mapping forgotten paradigms to contemporary frontiers—such as utilizing analog and optical models for sub-nanosecond AI tensor cores, or CHERI-style tagged memory for cloud-native zero-trust networks.
+6. **Deriving Evidence-Based Hypotheses**: Formulating predictive models for future computing transitions (e.g., non-von Neumann co-processors, compile-time hardware-compiler co-design) based on how physical constraints migrate over time.
+
+### Non-Linear Evolution & The Sparsity-to-Density Imperative
+Computing history is non-linear. Abstractions do not die; they migrate under shifting engineering and economic limits. When physical boundaries (such as the end of Dennard scaling or the Von Neumann memory wall) change, previously discarded designs are resurrected.
+
+Therefore, any expansion of this repository must favor **dense networks of relationships over isolated documents**. Success is measured not by the quantity of articles written, but by the repository's ability to explain why computing evolved as it did—and where those evolutionary forces are likely to lead next. Before proposing or contributing a new excavation, we systematically:
+* **Identify Missing Abstractions**: Pinpoint structural gaps in the execution, memory protection, and concurrency taxonomy.
+* **Map Weak Connections**: Cross-reference the new concept with existing excavations to trace how similar ideas evolved concurrently.
+* **Synthesize Recurring Patterns**: Connect the new technology to economic, ecosystem, and constraint-migration dynamics to explain *why* it was sidelined and *how* it might return.
+
+---
+
 ## 🏛️ Project Pillars
 
 The project structure is organized to bridge historical research with modern execution:
 
 ### 1. [Excavations](excavations/) (Historical Deep Dives)
-Comprehensive, primary-source-backed investigations of 28 landmark computing paradigms, evaluated using a standardized evaluation format and rating system.
-* **Architectures**: [Analog Computing](excavations/analog-computing.md) • [Balanced Ternary](excavations/balanced-ternary.md) • [Cellular Automata](excavations/cellular-automata-hardware.md) • [Connection Machine](excavations/connection-machine.md) • [Dataflow Computing](excavations/dataflow-computing.md) • [Molecular/Biocomputing](excavations/molecular-biocomputing.md) • [Neuromorphic](excavations/neuromorphic-hardware.md) • [Optical Computing](excavations/optical-computing.md) • [Reversible Computing](excavations/reversible-computing.md) • [Stack Machines](excavations/stack-machines.md) • [Superconducting/Cryogenic](excavations/superconducting-cryogenic.md) • [Systolic Arrays](excavations/systolic-arrays.md) • [Transputers](excavations/transputers.md) • [Vector Supercomputing](excavations/vector-supercomputing.md) • [VLIW/EPIC](excavations/vliw-epic.md) • [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
+Comprehensive, primary-source-backed investigations of 32 landmark computing paradigms, evaluated using a standardized evaluation format and rating system.
+* **Architectures**: [Analog Computing](excavations/analog-computing.md) • [Associative Processors](excavations/associative-processors.md) • [Asynchronous Processors](excavations/asynchronous-processors.md) • [Balanced Ternary](excavations/balanced-ternary.md) • [Cellular Automata](excavations/cellular-automata-hardware.md) • [Connection Machine](excavations/connection-machine.md) • [Dataflow Computing](excavations/dataflow-computing.md) • [Graph Reduction Machines](excavations/graph-reduction-machines.md) • [Molecular/Biocomputing](excavations/molecular-biocomputing.md) • [Neuromorphic](excavations/neuromorphic-hardware.md) • [Optical Computing](excavations/optical-computing.md) • [Reversible Computing](excavations/reversible-computing.md) • [Stack Machines](excavations/stack-machines.md) • [Superconducting/Cryogenic](excavations/superconducting-cryogenic.md) • [Systolic Arrays](excavations/systolic-arrays.md) • [Transputers](excavations/transputers.md) • [Vector Supercomputing](excavations/vector-supercomputing.md) • [VLIW/EPIC](excavations/vliw-epic.md) • [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
 * **Operating Systems**: [BeOS / Haiku](excavations/beos-haiku.md) • [Burroughs Large Systems](excavations/burroughs-large-systems.md) • [Capability Systems](excavations/capability-systems.md) • [Inferno](excavations/inferno.md) • [Intel iAPX 432](excavations/intel-iapx-432.md) • [Lisp Machines](excavations/lisp-machines.md) • [Multics](excavations/multics.md) • [Plan 9](excavations/plan-9.md) • [Project Xanadu](excavations/project-xanadu.md)
-* **Languages & AI**: [Occam](excavations/occam.md) • [Smalltalk](excavations/smalltalk.md) • [Symbolic AI](excavations/symbolic-ai.md)
+* **Languages, Concurrency & AI**: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) • [Occam](excavations/occam.md) • [Smalltalk](excavations/smalltalk.md) • [Symbolic AI](excavations/symbolic-ai.md)
 
 ### 2. [Patterns](patterns/) (Architectural Dynamics)
 Identifying the underlying economic, technical, and ecological forces that select for or against computing paradigms.
@@ -72,7 +116,7 @@ Direct mapping of historical concepts to contemporary engineering challenges:
 
 ## 💻 Interactive Reconstructions & Simulators
 
-Moving from historical theory to active software prototyping, we maintain a suite of four **zero-dependency interactive Python simulators** that let you execute and study these paradigms directly.
+Moving from historical theory to active software and hardware prototyping, we maintain a suite of **nine zero-dependency executable models and simulators** that let you execute and study these paradigms directly.
 
 | Simulator / Emulator | Target Historical Paradigm | Key Architectural Highlight | Entry Point |
 | :--- | :--- | :--- | :--- |
@@ -81,6 +125,10 @@ Moving from historical theory to active software prototyping, we maintain a suit
 | 🛡️ **[Capability Memory Protection Emulator](reconstructions/capability-security/)** | [Burroughs Systems / CHERI](excavations/capability-systems.md) | CPU & Tagged RAM emulator simulating hardware-enforced memory bounds and secure domain gates. | `reconstructions/capability-security/capability_sim.py` |
 | 🧠 **[Neuro-Symbolic Inference Solver](reconstructions/neuro-symbolic/)** | [Symbolic AI / Expert Systems](excavations/symbolic-ai.md) | Hybrid pipeline mapping probabilistic neural classifier confidences into deterministic logic. | `reconstructions/neuro-symbolic/neuro_symbolic_sim.py` |
 | 📞 **[CSP Synchronous Messaging Simulator](reconstructions/csp-messaging/)** | [Occam](excavations/occam.md) • [Transputers](excavations/transputers.md) | Cooperative generator scheduler implementing synchronous rendezvous, ALT choice, and deadlock reporting. | `reconstructions/csp-messaging/csp_sim.py` |
+| 🌊 **[Analog & Optical Wave Accelerator](reconstructions/analog-optical/)** | [Analog Computing](excavations/analog-computing.md) • [Optical Computing](excavations/optical-computing.md) | Continuous-physical electronic op-amp solver paired with a Mach-Zehnder Interferometer photonic tensor core. | `reconstructions/analog-optical/analog_optical_sim.py` |
+| 🛠️ **[Synthesizable Hardware Blueprints](reconstructions/synthesizable-hardware/)** | [Balanced Ternary](excavations/balanced-ternary.md) • [Capability Systems](excavations/capability-systems.md) | Synthesizable SystemVerilog models of a 3-trit Balanced Ternary ALU and a Tagged RAM Capability Bounds Checker. | `reconstructions/synthesizable-hardware/` |
+| 🔀 **[Co-Simulation Interoperability Fabric](reconstructions/co-simulation/)** | Hybrid AI • CSP Concurrency • Spatial Dataflow | Sandbox orchestrator running multiple reconstructed engines simultaneously and coordinating cross-paradigm messaging. | `reconstructions/co-simulation/orchestrator.py` |
+| 🗃️ **[Linda Tuple Space Simulator](reconstructions/tuple-space/)** | [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) | Thread-safe, associative coordinate-free generative communication engine with pattern-matching. | `reconstructions/tuple-space/tuple_space_sim.py` |
 
 ### Quick Start: Running the Simulators
 You can run all simulators locally out-of-the-box. They are written in standard Python 3 and require no third-party libraries:
@@ -104,6 +152,15 @@ python3 reconstructions/neuro-symbolic/neuro_symbolic_sim.py
 
 # Run the CSP Synchronous Messaging Simulator
 python3 reconstructions/csp-messaging/csp_sim.py
+
+# Run the Continuous Analog & Optical Wave Accelerator Simulator
+python3 reconstructions/analog-optical/analog_optical_sim.py
+
+# Run the Multi-Architecture Co-Simulation Orchestrator
+python3 reconstructions/co-simulation/orchestrator.py
+
+# Run the Linda Tuple Space Simulator
+python3 reconstructions/tuple-space/tuple_space_sim.py
 ```
 
 ---
@@ -128,7 +185,7 @@ Digital Archaeology categorizes forgotten concepts not by their historical date,
          └─ Continuous Analog         └─ Concentric Rings          └─ Distributed 9P
 ```
 
-*For definitions and details of these concepts, explore the [GLOSSARY.md](GLOSSARY.md) and our [COMPARATIVE_INDEX.md](COMPARATIVE_INDEX.md) which maps all 28 excavations across this matrix.*
+*For definitions and details of these concepts, explore the [GLOSSARY.md](GLOSSARY.md) and our [COMPARATIVE_INDEX.md](COMPARATIVE_INDEX.md) which maps all 32 excavations across this matrix.*
 
 ---
 
