@@ -53,6 +53,7 @@ How do independent execution units coordinate and share information?
 | **Massively Parallel SIMD / Lock-Step** | Synchronous, centralized clock-driven step-by-step broadcast of instruction execution to an array. | - [Connection Machine](excavations/connection-machine.md)<br>- [Vector Supercomputing](excavations/vector-supercomputing.md)<br>- [Systolic Arrays](excavations/systolic-arrays.md) |
 | **Decentralized Local Interaction** | No global communication or clock synchronization; grid updates are entirely local and parallel. | - [Cellular Automata Hardware](excavations/cellular-automata-hardware.md) |
 | **Shared Memory Multiprocessing** | Synchronous access to global memory segments managed by semaphores, lock instructions, or segment attributes. | - [Multics](excavations/multics.md) |
+| **Generative Communication** | Coordinate-free, associative, time-and-space decoupled communication via a shared multi-set pool. | - [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) |
 
 ---
 

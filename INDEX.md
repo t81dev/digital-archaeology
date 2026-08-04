@@ -55,6 +55,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 
 ## Programming Languages & AI Paradigms
 
+- [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) — *Coordinate-free parallel coordination, generative communication, and associative pattern-matching.*
 - [Occam](excavations/occam.md) — *Concurrent language based on Communicating Sequential Processes (CSP).*
 - [Smalltalk](excavations/smalltalk.md) — *Pure image-based object-oriented environment and dynamic messaging.*
 - [Symbolic AI](excavations/symbolic-ai.md) — *Logic programming, inference engines, and formal knowledge representation.*
@@ -102,6 +103,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Continuous Analog & Optical Wave Accelerator Simulator](reconstructions/analog-optical/) — *Photonic tensor core wave interference and op-amp mass-spring solvers.*
 - [Synthesizable Hardware IP Core Blueprints](reconstructions/synthesizable-hardware/) — *Synthesizable SystemVerilog models of Balanced Ternary ALUs and tagged RAM bounds checkers.*
 - [Multi-Architecture Co-Simulation Orchestrator](reconstructions/co-simulation/) — *A cross-paradigm execution fabric linking hybrid AI, concurrent CSP, and spatial dataflow.*
+- [Linda Tuple Space Simulator](reconstructions/tuple-space/) — *An interactive generative communication engine implementing associative pattern-matching and coordinate-free parallel processing.*
 
 ---
 
