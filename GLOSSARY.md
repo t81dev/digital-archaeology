@@ -63,8 +63,6 @@ This document provides a conceptual glossary of terms from across the excavation
 ### L
 * **Landauer's Limit**: A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \ln 2$).
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
-* **Linear Feedback Shift Register (LFSR)**: A hardware-efficient shift register whose input bit is a linear function (typically XOR) of its previous states. In alternative architectures like Stochastic Computing, LFSRs serve as compact, high-speed pseudo-random number generators.
-  * *See excavation*: [Stochastic Computing](excavations/stochastic-computing.md)
 
 ### M
 * **Massively Parallel Processing (MPP)**: A computer architecture that coordinates thousands of independent, single-bit processors in a tightly integrated network to perform highly fine-grained parallel computation.
@@ -106,8 +104,6 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Systolic Arrays](excavations/systolic-arrays.md)
 * **Stack Machine**: A processor architecture that uses a hardware evaluation stack rather than general-purpose registers to execute zero-operand instructions.
   * *See excavation*: [Stack Machines](excavations/stack-machines.md)
-* **Stochastic Computing**: A computing paradigm where continuous values are encoded as randomized binary bitstreams, mapping complex arithmetic operations (like multiplication) onto simple logic gates (like AND/XNOR) at the cost of execution time.
-  * *See excavation*: [Stochastic Computing](excavations/stochastic-computing.md)
 * **Styx Protocol**: A network protocol derived from 9P, serving as the universal communication interface in the Inferno operating system to expose system services, devices, and files transparently over public networks.
   * *See excavation*: [Inferno](excavations/inferno.md)
 * **Superconducting / Cryogenic Computing**: A high-performance hardware paradigm operating at cryogenic temperatures, using Josephson junctions and Single Flux Quantum (SFQ) logic to achieve ultra-high clock frequencies and near-zero power dissipation.
@@ -174,7 +170,7 @@ These models depart from standard sequential, instruction-pointer-driven (von Ne
 * **Spatial & Grid Routing**: Processing is mapped onto physical coordinate grids of simple ALUs. Software is compiled as spatial configurations and data routing pathways rather than sequential code.
   * *Example*: [Systolic Arrays](excavations/systolic-arrays.md), [Cellular Automata Hardware](excavations/cellular-automata-hardware.md)
 * **Continuous Analog Scaling**: Solving mathematical systems through continuous physical interactions (voltages, light waves, chemical concentrations) rather than discrete digital clock cycles.
-  * *Example*: [Analog Computing](excavations/analog-computing.md), [Optical Computing](excavations/optical-computing.md), [Molecular & Biocomputing](excavations/molecular-biocomputing.md), [Stochastic Computing](excavations/stochastic-computing.md)
+  * *Example*: [Analog Computing](excavations/analog-computing.md), [Optical Computing](excavations/optical-computing.md), [Molecular & Biocomputing](excavations/molecular-biocomputing.md)
 * **Self-Timed & Asynchronous Control**: Operations and pipeline stages synchronize locally via request-acknowledge handshake signals, executing at the natural physical speed of physical gates rather than relying on a global clock tree.
   * *Example*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md), [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)
 

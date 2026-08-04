@@ -32,7 +32,6 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Optical Computing](excavations/optical-computing.md) — *Photonic interference, spatial WDM, and sub-nanosecond matrix processing.*
 - [Reversible Computing](excavations/reversible-computing.md) — *Information-preserving logic gates bypassing Landauer's thermodynamic limit.*
 - [Stack Machines](excavations/stack-machines.md) — *Hardware zero-operand evaluation stack evaluation architectures.*
-- [Stochastic Computing](excavations/stochastic-computing.md) — *Trading execution latency for extreme structural simplicity and noise tolerance by computing mathematically with random binary bitstreams.*
 - [Superconducting & Cryogenic Microarchitectures](excavations/superconducting-cryogenic.md) — *SFQ/RSFQ logic at cryogenic temperatures for ultra-high speed and efficiency.*
 - [Systolic Arrays](excavations/systolic-arrays.md) — *Regular, pipelined grids of processing elements for dense compute-bound workloads.*
 - [Transputers](excavations/transputers.md) — *Massively parallel microprocessors with native channel-based CSP messaging.*
@@ -107,7 +106,6 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Synthesizable Hardware IP Core Blueprints](reconstructions/synthesizable-hardware/) — *Synthesizable SystemVerilog models of Balanced Ternary ALUs and tagged RAM bounds checkers.*
 - [Multi-Architecture Co-Simulation Orchestrator](reconstructions/co-simulation/) — *A cross-paradigm execution fabric linking hybrid AI, concurrent CSP, and spatial dataflow.*
 - [Linda Tuple Space Simulator](reconstructions/tuple-space/) — *An interactive generative communication engine implementing associative pattern-matching and coordinate-free parallel processing.*
-- [Stochastic Computing Simulator](reconstructions/stochastic-computing/) — *An interactive probabilistic execution engine implementing unipolar/bipolar logic gate arithmetic, saturating FSM-based activations, and LFSR random generation.*
 
 ---
 

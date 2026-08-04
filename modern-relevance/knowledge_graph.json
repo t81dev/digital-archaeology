@@ -87,10 +87,6 @@
       "definition": "A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \\ln 2$)."
     },
     {
-      "term": "Linear Feedback Shift Register (LFSR)",
-      "definition": "A hardware-efficient shift register whose input bit is a linear function (typically XOR) of its previous states. In alternative architectures like Stochastic Computing, LFSRs serve as compact, high-speed pseudo-random number generators."
-    },
-    {
       "term": "Massively Parallel Processing (MPP)",
       "definition": "A computer architecture that coordinates thousands of independent, single-bit processors in a tightly integrated network to perform highly fine-grained parallel computation."
     },
@@ -145,10 +141,6 @@
     {
       "term": "Stack Machine",
       "definition": "A processor architecture that uses a hardware evaluation stack rather than general-purpose registers to execute zero-operand instructions."
-    },
-    {
-      "term": "Stochastic Computing",
-      "definition": "A computing paradigm where continuous values are encoded as randomized binary bitstreams, mapping complex arithmetic operations (like multiplication) onto simple logic gates (like AND/XNOR) at the cost of execution time."
     },
     {
       "term": "Styx Protocol",
@@ -318,8 +310,7 @@
       "Analog / Continuous": {
         "description": "Solving math models directly via continuous physical phenomena (voltages, currents, fluid flow) instead of discrete bits.",
         "mapped_excavations": [
-          "analog-computing",
-          "stochastic-computing"
+          "analog-computing"
         ]
       },
       "Photonic / Optical": {
@@ -408,7 +399,6 @@
         "mapped_excavations": [
           "asynchronous-processors",
           "stack-machines",
-          "stochastic-computing",
           "transputers"
         ]
       }
@@ -442,8 +432,7 @@
           "connection-machine",
           "vector-supercomputing",
           "systolic-arrays",
-          "associative-processors",
-          "stochastic-computing"
+          "associative-processors"
         ]
       },
       "Decentralized Local Interaction": {
@@ -1526,52 +1515,6 @@
       },
       "modern_relevance": "Stack machines remain highly relevant in specific domains:\n- **Virtual machines** — JVM, .NET CLR, WebAssembly, and many bytecode interpreters.\n- **Embedded and low-power systems** — Simple hardware implementations are attractive for microcontrollers.\n- **Forth-based systems** — Still used in space, astronomy, and hobbyist/retro computing.\n- **Blockchain and smart contracts** — Some VMs (e.g., Ethereum) use stack-based execution.\n- **Research and education** — Excellent for teaching computer architecture fundamentals.\n\nModern FPGA implementations and specialized accelerators sometimes revive stack concepts for efficiency.",
       "references": []
-    },
-    {
-      "id": "stochastic-computing",
-      "title": "Stochastic Computing",
-      "path": "excavations/stochastic-computing.md",
-      "summary": "Stochastic Computing (SC) is a computing paradigm that represents continuous real numbers as randomized binary bitstreams. Instead of encoding numbers into positional binary words (such as standard IEEE 754 float or integer representations), SC represents a value $x$ as the probability $P(X=1) = x$ of a \"1\" bit appearing in an independent, randomized sequence of bits. \n\nThis transformation swaps spatial and structural complexity for temporal latency. In the stochastic domain, complex arithmetic operations collapse into extremely simple digital logic gates: a multiplier is implemented as a single two-input **AND** gate (unipolar representation) or an **XNOR** gate (bipolar representation), and addition is performed via a simple **Multiplexer (MUX)**.\n\nIntroduced in the mid-1960s by Brian Gaines, Stochastic Computing offered an elegant bridge between the continuous, noise-tolerant qualities of analog computers and the discrete, reproducible advantages of digital electronics. While the exponential scaling of execution time sidelined SC during the Silicon Boom and Moore's Law era, it is seeing a spectacular revival today in the fields of deep neural network (DNN) accelerators, processing-in-memory (PIM), neuromorphic hardware, and fault-tolerant computing for deep-space and high-radiation environments.",
-      "scorecard": {
-        "Historical Importance": {
-          "stars": "★★★★☆",
-          "numeric": 4,
-          "rationale": "Crucial missing link between analog and digital computing."
-        },
-        "Technical Innovation": {
-          "stars": "★★★★★",
-          "numeric": 5,
-          "rationale": "Extremely elegant transformation of mathematical structure into temporal probability."
-        },
-        "Commercial Success": {
-          "stars": "★★☆☆☆",
-          "numeric": 2,
-          "rationale": "Historically limited to highly specialized industrial and military systems."
-        },
-        "Modern Potential": {
-          "stars": "★★★★★",
-          "numeric": 5,
-          "rationale": "Exceptional match for modern non-von Neumann accelerators and deep-learning edge chips."
-        },
-        "AI Synergy": {
-          "stars": "★★★★★",
-          "numeric": 5,
-          "rationale": "Enables dense, massively parallel hardware MAC arrays using single-gate logic."
-        },
-        "Difficulty to Recreate": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Simple logic gates but requires careful random generation and correlation management to simulate."
-        }
-      },
-      "modern_relevance": "Today, the physical constraints of computing are shifting. We are reaching the end of Dennard scaling and facing the **Von Neumann memory wall**, while workloads are transitioning from high-precision scientific math to low-precision, noise-tolerant AI inference.\n\n```text\n                      The Shifting Hardware Constraints\n                                      │\n     ┌────────────────────────────────┴────────────────────────────────┐\n     ▼                                                                 ▼\n[MOORE'S LAW LIMITS]                                         [AI / NEUROMORPHIC DEMANDS]\nFree transistors are over.                                   Deep Learning is highly noise-tolerant.\nPhysical bus routing consumes                                 Massive multiply-accumulate arrays (MACs)\nmost power. SC uses single wires.                             collapse from 2D structures into single gates.\n```",
-      "references": [
-        "**Gaines, B. R.** (1967). \"Stochastic Computing Systems.\" *Advances in Information Systems Science*, Vol. 2, pp. 37-172. Plenum Press.",
-        "**Von Neumann, J.** (1956). \"Probabilistic Logics and the Synthesis of Reliable Organisms from Unreliable Components.\" *Automata Studies*, pp. 43-98. Princeton University Press.",
-        "**Poppelbaum, W. J., Faiman, M., & Shively, J. R.** (1967). \"Stochastic Computing.\" *Proceedings of the AFIPS Fall Joint Computer Conference*, pp. 635-644.",
-        "**Alaghi, A., & Hayes, J. P.** (2013). \"Survey of Stochastic Computing.\" *ACM Transactions on Embedded Computing Systems (TECS)*, Vol. 12, No. 2s, Article 92.",
-        "**Gaines, B. R.** (1969). \"Adaptive Information Processing in Stochastic Computing.\" *IEEE Transactions on Systems Science and Cybernetics*, Vol. 5, No. 4, pp. 301-314."
-      ]
     },
     {
       "id": "superconducting-cryogenic",
