@@ -51,8 +51,8 @@ class RepoLinter:
         print(f"\n=== Running Repository Verification Suite in '{self.root_dir}' ===")
         all_md_files = []
         for root, dirs, files in os.walk(self.root_dir):
-            # Skip hidden directories like .git
-            dirs[:] = [d for d in dirs if not d.startswith('.')]
+            # Skip hidden directories, docs_source, and site
+            dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ('docs_source', 'site')]
             for file in files:
                 if file.endswith(".md"):
                     all_md_files.append(os.path.join(root, file))

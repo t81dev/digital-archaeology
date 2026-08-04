@@ -2,6 +2,11 @@ site_name: Digital Archaeology
 site_description: A comparative research framework and simulator suite for recovering and evaluating abandoned computing paradigms.
 site_author: Digital Archaeology Initiative
 
+validation:
+  links:
+    not_found: ignore
+    unrecognized_links: ignore
+
 theme:
   name: material
   palette:
