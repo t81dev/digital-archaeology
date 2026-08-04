@@ -20,6 +20,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 ## Architectures
 
 - [Analog Computing](excavations/analog-computing.md) — *Continuous physical modeling via wave, power, and operational amplifier dynamics.*
+- [Asynchronous Microprocessors](excavations/asynchronous-processors.md) — *Self-timed micropipelines and clockless processor architectures bypassing global clock constraints.*
 - [Balanced Ternary](excavations/balanced-ternary.md) — *Ternary logic, arithmetic, and power efficiency advantages over binary.*
 - [Cellular Automata Hardware](excavations/cellular-automata-hardware.md) — *Decentralized, spatial grid arrays executing local interaction rules.*
 - [Connection Machine](excavations/connection-machine.md) — *Fine-grained SIMD massively parallel hypercube processing.*
