@@ -79,6 +79,7 @@ Moving from historical theory to active software prototyping, we maintain a suit
 | 🔄 **[Dynamic Token Dataflow Engine](reconstructions/dataflow-engine/)** | [MIT Tagged-Token Dataflow](excavations/dataflow-computing.md) | Out-of-order, asynchronous spatial execution using token-tag match scheduling. | `reconstructions/dataflow-engine/dataflow_sim.py` |
 | 🛡️ **[Capability Memory Protection Emulator](reconstructions/capability-security/)** | [Burroughs Systems / CHERI](excavations/capability-systems.md) | CPU & Tagged RAM emulator simulating hardware-enforced memory bounds and secure domain gates. | `reconstructions/capability-security/capability_sim.py` |
 | 🧠 **[Neuro-Symbolic Inference Solver](reconstructions/neuro-symbolic/)** | [Symbolic AI / Expert Systems](excavations/symbolic-ai.md) | Hybrid pipeline mapping probabilistic neural classifier confidences into deterministic logic. | `reconstructions/neuro-symbolic/neuro_symbolic_sim.py` |
+| 📞 **[CSP Synchronous Messaging Simulator](reconstructions/csp-messaging/)** | [Occam](excavations/occam.md) • [Transputers](excavations/transputers.md) | Cooperative generator scheduler implementing synchronous rendezvous, ALT choice, and deadlock reporting. | `reconstructions/csp-messaging/csp_sim.py` |
 
 ### Quick Start: Running the Simulators
 You can run all simulators locally out-of-the-box. They are written in standard Python 3 and require no third-party libraries:
@@ -99,6 +100,9 @@ python3 reconstructions/capability-security/capability_sim.py
 
 # Run the Neuro-Symbolic Logic Solver
 python3 reconstructions/neuro-symbolic/neuro_symbolic_sim.py
+
+# Run the CSP Synchronous Messaging Simulator
+python3 reconstructions/csp-messaging/csp_sim.py
 ```
 
 ---

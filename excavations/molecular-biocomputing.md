@@ -95,17 +95,16 @@ They are strong candidates for domain-specific, highly parallel, or bio-integrat
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating    | Notes |
-|-----------------------|-----------|-------|
-| Historical Importance | ★★★☆☆    | Pioneering unconventional computing |
-| Technical Innovation  | ★★★★★    | Radical change of substrate |
-| Commercial Success    | ★☆☆☆☆    | Still mostly research |
-| Modern Potential      | ★★★★☆    | Growing in bioengineering & storage |
-| Pattern Cross-links   | ★★★★★    | Ties to Analog, Neuromorphic, and Recurring Ideas |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Pioneering unconventional computing |
+| Technical Innovation | ★★★★★ | Radical change of substrate |
+| Commercial Success | ★☆☆☆☆ | Still mostly research |
+| Modern Potential | ★★★★☆ | Growing in bioengineering & storage |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
 
 ## References (Selected)
 

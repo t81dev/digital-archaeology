@@ -74,17 +74,16 @@ In an era of massive parallelism, distributed systems, and multicore challenges,
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating     | Notes |
-|-----------------------|------------|-------|
-| Historical Importance | ★★★★☆     | Influential in parallel computing |
-| Technical Innovation  | ★★★★★     | Clean CSP implementation |
-| Commercial Success    | ★☆☆☆☆     | Limited to Transputer ecosystem |
-| Modern Potential      | ★★★★☆     | Strong legacy in modern languages |
-| AI / Specialized HW Synergy | ★★★★☆ | Excellent for concurrent AI workloads |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★☆ | Influential in parallel computing |
+| Technical Innovation | ★★★★★ | Clean CSP implementation |
+| Commercial Success | ★☆☆☆☆ | Limited to Transputer ecosystem |
+| Modern Potential | ★★★★☆ | Strong legacy in modern languages |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★☆☆ | Medium complexity to simulate or rebuild on modern software/hardware platforms. |
 
 ## Related Excavations
 - [Transputers](../excavations/transputers.md)

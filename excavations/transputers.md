@@ -96,6 +96,18 @@ The Transputer remains one of the cleanest expressions of scalable parallelism e
 
 ---
 
+## Scorecard
+
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Brief justification |
+| Technical Innovation | ★★★☆☆ | Brief justification |
+| Commercial Success | ★★★☆☆ | Brief justification |
+| Modern Potential | ★★★☆☆ | Brief justification |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
+
+
 ## References (Selected)
 
 - INMOS Technical Manuals — *The Transputer Instruction Set*, *occam Programming Manual*.

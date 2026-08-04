@@ -83,7 +83,7 @@ To scale the research initiative and expand from descriptive analysis into activ
 ### 2. Executable Reconstruction Footprint Expansion
 - [ ] **Expansion of Simulators to WebAssembly**: Compile or wrap existing Python-based emulators into interactive web applications so readers can execute alternative arithmetic, token-matching, and capability logic directly inside the documentation browser.
 - [ ] **Next-Generation Simulators**: Develop zero-dependency simulators/reconstructions for additional critical, underexplored areas of the 3-part taxonomy:
-  - *CSP Messaging Engine*: Visualizing occam-style synchronized channel execution and structural deadlock avoidance.
+  - [x] **[CSP Messaging Engine](reconstructions/csp-messaging/)**: Visualizing occam-style synchronized channel execution and structural deadlock avoidance.
   - *Continuous Analog / Optical Wave Accelerator*: A functional simulator modeling matrix-vector multiplication via optical interference or continuous differential integration.
 
 ### 3. Developer Onboarding, Tooling, & Community Integration

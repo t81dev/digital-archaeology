@@ -101,17 +101,16 @@ In a world concerned with memory safety vulnerabilities and secure execution, th
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating    | Notes |
-|-----------------------|-----------|-------|
-| Historical Importance | ★★★★☆    | Major capability hardware experiment |
-| Technical Innovation  | ★★★★★    | Extremely ambitious for its time |
-| Commercial Success    | ★☆☆☆☆    | Commercial failure |
-| Modern Potential      | ★★★★★    | Ideas highly relevant today |
-| AI / Specialized HW Synergy | ★★★★☆ | Strong for secure/deterministic systems |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★☆ | Major capability hardware experiment |
+| Technical Innovation | ★★★★★ | Extremely ambitious for its time |
+| Commercial Success | ★☆☆☆☆ | Commercial failure |
+| Modern Potential | ★★★★★ | Ideas highly relevant today |
+| AI Synergy | ★★☆☆☆ | Low direct synergy with neural models, but provides secure or distributed runtimes. |
+| Difficulty to Recreate | ★★★★☆ | Requires extensive systems-level implementation and emulation efforts. |
 
 ## References (Selected)
 

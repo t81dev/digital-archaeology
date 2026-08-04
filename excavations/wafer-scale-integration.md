@@ -145,6 +145,18 @@ WSI principles have transitioned from an architectural pipe dream into a corners
 
 ---
 
+## Scorecard
+
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Brief justification |
+| Technical Innovation | ★★★☆☆ | Brief justification |
+| Commercial Success | ★★★☆☆ | Brief justification |
+| Modern Potential | ★★★☆☆ | Brief justification |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
+
+
 ## References
 
 * Amdahl, G. M. (1984). *Scoring the Trilogy Strategy*. IEEE Spectrum, 21(11), 34–39.

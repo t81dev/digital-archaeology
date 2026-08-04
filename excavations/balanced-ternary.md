@@ -104,17 +104,16 @@ Balanced ternary is unlikely to displace binary broadly, but hybrid or component
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating     | Notes |
-|-----------------------|------------|-------|
-| Historical Importance | ★★★☆☆     | Influential niche example |
-| Technical Innovation  | ★★★★★     | Elegant symmetry |
-| Commercial Success    | ★☆☆☆☆     | Limited production |
-| Modern Potential      | ★★★★☆     | Strong in niches |
-| AI / Specialized HW Synergy | ★★★★☆ | Good fit for emerging hardware |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Influential niche example |
+| Technical Innovation | ★★★★★ | Elegant symmetry |
+| Commercial Success | ★☆☆☆☆ | Limited production |
+| Modern Potential | ★★★★☆ | Strong in niches |
+| AI Synergy | ★★★★☆ | High utility for specific execution paths in machine learning workloads. |
+| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
 
 ## Related Excavations
 - Dataflow Computing

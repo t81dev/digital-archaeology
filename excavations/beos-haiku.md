@@ -92,17 +92,16 @@ The Haiku project demonstrates the enduring appeal of BeOS’s vision:
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating    | Notes |
-|-----------------------|-----------|-------|
-| Historical Importance | ★★★★☆    | Bold alternative in the 90s OS wars |
-| Technical Innovation  | ★★★★★    | Remarkably advanced for its time |
-| Commercial Success    | ★☆☆☆☆    | Failed to gain market share |
-| Modern Potential      | ★★★☆☆    | Haiku keeps the vision alive |
-| Pattern Cross-links   | ★★★★★    | Textbook Ecosystem Lock-In + Economic Failure |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★☆ | Bold alternative in the 90s OS wars |
+| Technical Innovation | ★★★★★ | Remarkably advanced for its time |
+| Commercial Success | ★☆☆☆☆ | Failed to gain market share |
+| Modern Potential | ★★★☆☆ | Haiku keeps the vision alive |
+| AI Synergy | ★★☆☆☆ | Low direct synergy with neural models, but provides secure or distributed runtimes. |
+| Difficulty to Recreate | ★★★★☆ | Requires extensive systems-level implementation and emulation efforts. |
 
 ## References (Selected)
 

@@ -100,6 +100,18 @@ While dedicated Lisp Machines are gone, their ideas remain influential:
 
 ---
 
+## Scorecard
+
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Brief justification |
+| Technical Innovation | ★★★☆☆ | Brief justification |
+| Commercial Success | ★★★☆☆ | Brief justification |
+| Modern Potential | ★★★☆☆ | Brief justification |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★☆☆ | Medium complexity to simulate or rebuild on modern software/hardware platforms. |
+
+
 ## References (Selected)
 
 - Knight, Tom. *The CONS and CADR Lisp Machines* — MIT AI Lab.

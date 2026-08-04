@@ -157,6 +157,18 @@ While pure GOFAI is no longer used for perception tasks, symbolic logic is seein
 
 ---
 
+## Scorecard
+
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Brief justification |
+| Technical Innovation | ★★★☆☆ | Brief justification |
+| Commercial Success | ★★★☆☆ | Brief justification |
+| Modern Potential | ★★★☆☆ | Brief justification |
+| AI Synergy | ★★★★★ | Direct structural mapping to deep learning and neural network acceleration. |
+| Difficulty to Recreate | ★★★☆☆ | Medium complexity to simulate or rebuild on modern software/hardware platforms. |
+
+
 ## References
 
 * Newell, A., & Simon, H. A. (1976). *Computer Science as Empirical Inquiry: Symbols and Search*. Communications of the ACM, 19(3), 113–126.

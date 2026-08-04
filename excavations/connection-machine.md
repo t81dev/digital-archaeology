@@ -74,17 +74,16 @@ In the era of exascale and specialized AI hardware, the vision of thousands of i
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating     | Notes |
-|-----------------------|------------|-------|
-| Historical Importance | ★★★★☆     | Icon of 1980s parallel computing |
-| Technical Innovation  | ★★★★★     | Ambitious scale and networking |
-| Commercial Success    | ★★☆☆☆     | Limited market penetration |
-| Modern Potential      | ★★★★☆     | Strong influence on GPUs/AI hardware |
-| AI / Specialized HW Synergy | ★★★★★ | Highly relevant to modern AI workloads |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★☆ | Icon of 1980s parallel computing |
+| Technical Innovation | ★★★★★ | Ambitious scale and networking |
+| Commercial Success | ★★☆☆☆ | Limited market penetration |
+| Modern Potential | ★★★★☆ | Strong influence on GPUs/AI hardware |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
 
 ## Related Excavations
 - [Dataflow Computing](../excavations/dataflow-computing.md)

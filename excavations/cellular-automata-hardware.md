@@ -146,6 +146,18 @@ While stand-alone "Cellular Automata Machines" vanished as commercial products, 
 
 ---
 
+## Scorecard
+
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Brief justification |
+| Technical Innovation | ★★★☆☆ | Brief justification |
+| Commercial Success | ★★★☆☆ | Brief justification |
+| Modern Potential | ★★★☆☆ | Brief justification |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
+
+
 ## References
 
 * von Neumann, J. (1966). *Theory of Self-Reproducing Automata* (Edited and completed by A. W. Burks). University of Illinois Press.

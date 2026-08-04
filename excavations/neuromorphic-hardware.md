@@ -128,6 +128,18 @@ While neuromorphic hardware did not displace general-purpose GPUs in cloud data 
 
 ---
 
+## Scorecard
+
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Brief justification |
+| Technical Innovation | ★★★☆☆ | Brief justification |
+| Commercial Success | ★★★☆☆ | Brief justification |
+| Modern Potential | ★★★☆☆ | Brief justification |
+| AI Synergy | ★★★★★ | Direct structural mapping to deep learning and neural network acceleration. |
+| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
+
+
 ## References
 
 * Mead, C. (1989). *Analog VLSI and Neural Systems*. Addison-Wesley.
