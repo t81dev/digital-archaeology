@@ -73,17 +73,16 @@ Modern FPGA implementations and specialized accelerators sometimes revive stack 
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating     | Notes |
-|-----------------------|------------|-------|
-| Historical Importance | ★★★☆☆     | Influential in Forth and VMs |
-| Technical Innovation  | ★★★★☆     | Elegant simplicity |
-| Commercial Success    | ★★☆☆☆     | Niche adoption |
-| Modern Potential      | ★★★★☆     | Strong in VMs and embedded |
-| AI / Specialized HW Synergy | ★★★☆☆ | Useful for certain interpreters |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Influential in Forth and VMs |
+| Technical Innovation | ★★★★☆ | Elegant simplicity |
+| Commercial Success | ★★☆☆☆ | Niche adoption |
+| Modern Potential | ★★★★☆ | Strong in VMs and embedded |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★☆☆ | Medium complexity to simulate or rebuild on modern software/hardware platforms. |
 
 ## Related Excavations
 - [Lisp Machines](../excavations/lisp-machines.md)

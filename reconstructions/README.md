@@ -38,6 +38,12 @@ Each subdirectory here contains an interactive, fully-functional simulator or em
 * **What it does**: Connects a statistical classifier (mocked with confidence scores) with a formal forward-chaining symbolic engine. Demonstrates how to compile probabilistic inputs into logical propositions, execute deterministic rules, and produce explainable, guardrailed decisions.
 * **Entry point**: `reconstructions/neuro-symbolic/neuro_symbolic_sim.py`
 
+### 5. [CSP Synchronous Messaging Simulator](csp-messaging/)
+* **Focus**: Rendezvous communication, ALT-based multiplexing, deadlock detection.
+* **Paradigm**: [Occam](../excavations/occam.md) & [Transputers](../excavations/transputers.md).
+* **What it does**: Implements a cooperative scheduler running parallel processes communicating over synchronous unbuffered channels. Demonstrates rendezvous-based concurrency, alternative channel selection (ALT), and real-time structural deadlock analysis.
+* **Entry point**: `reconstructions/csp-messaging/csp_sim.py`
+
 ---
 
 ## Running the Simulators
@@ -60,6 +66,9 @@ python3 reconstructions/capability-security/capability_sim.py
 
 # Run the Neuro-Symbolic Solver
 python3 reconstructions/neuro-symbolic/neuro_symbolic_sim.py
+
+# Run the CSP Synchronous Messaging Simulator
+python3 reconstructions/csp-messaging/csp_sim.py
 ```
 
 Each simulator includes built-in interactive menus, step-by-step traces, or test programs that print detailed execution paths to the console.

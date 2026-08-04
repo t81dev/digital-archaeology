@@ -74,17 +74,16 @@ In the age of information overload and broken links, Xanadu’s deeper vision fe
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating     | Notes |
-|-----------------------|------------|-------|
-| Historical Importance | ★★★★★     | Foundational to hypertext |
-| Technical Innovation  | ★★★★★     | Extremely ambitious |
-| Commercial Success    | ★☆☆☆☆     | Never fully realized |
-| Modern Potential      | ★★★★★     | Many concepts being rediscovered |
-| AI / Specialized HW Synergy | ★★★★☆ | Relevant to knowledge management and AI |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★★ | Foundational to hypertext |
+| Technical Innovation | ★★★★★ | Extremely ambitious |
+| Commercial Success | ★☆☆☆☆ | Never fully realized |
+| Modern Potential | ★★★★★ | Many concepts being rediscovered |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★☆☆ | Medium complexity to simulate or rebuild on modern software/hardware platforms. |
 
 ## Related Excavations
 - [Plan 9](../excavations/plan-9.md)

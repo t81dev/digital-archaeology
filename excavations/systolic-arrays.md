@@ -113,17 +113,16 @@ In an era of specialized hardware and the memory wall, systolic designs offer pr
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating    | Notes |
-|-----------------------|-----------|-------|
-| Historical Importance | ★★★★☆    | Influential in parallel/VLSI research |
-| Technical Innovation  | ★★★★★    | Elegant spatial dataflow model |
-| Commercial Success    | ★★☆☆☆    | Niche adoption, broad conceptual impact |
-| Modern Potential      | ★★★★★    | Core to today's AI hardware |
-| AI / Specialized HW Synergy | ★★★★★ | Direct ancestor of tensor accelerators |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★☆ | Influential in parallel/VLSI research |
+| Technical Innovation | ★★★★★ | Elegant spatial dataflow model |
+| Commercial Success | ★★☆☆☆ | Niche adoption, broad conceptual impact |
+| Modern Potential | ★★★★★ | Core to today's AI hardware |
+| AI Synergy | ★★★★☆ | High utility for specific execution paths in machine learning workloads. |
+| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
 
 ## References (Selected)
 

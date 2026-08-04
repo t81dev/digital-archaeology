@@ -91,17 +91,16 @@ In an era of Rust, formal verification, and security concerns, the Burroughs phi
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating    | Notes |
-|-----------------------|-----------|-------|
-| Historical Importance | ★★★★☆    | Pioneering high-level design |
-| Technical Innovation  | ★★★★★    | Extraordinary for its era |
-| Commercial Success    | ★★★☆☆    | Strong in niches, lost mainstream |
-| Modern Potential      | ★★★★☆    | Relevant to secure/managed computing |
-| Pattern Cross-links   | ★★★★★    | Excellent ties to multiple patterns |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★☆ | Pioneering high-level design |
+| Technical Innovation | ★★★★★ | Extraordinary for its era |
+| Commercial Success | ★★★☆☆ | Strong in niches, lost mainstream |
+| Modern Potential | ★★★★☆ | Relevant to secure/managed computing |
+| AI Synergy | ★★☆☆☆ | Low direct synergy with neural models, but provides secure or distributed runtimes. |
+| Difficulty to Recreate | ★★★★☆ | Requires extensive systems-level implementation and emulation efforts. |
 
 ## References (Selected)
 

@@ -75,17 +75,16 @@ In an era of AI-assisted development and interactive computing, Smalltalk’s ph
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating     | Notes |
-|-----------------------|------------|-------|
-| Historical Importance | ★★★★★     | Foundational influence on OO and UIs |
-| Technical Innovation  | ★★★★★     | Revolutionary environment |
-| Commercial Success    | ★★☆☆☆     | Limited direct adoption |
-| Modern Potential      | ★★★★☆     | Strong in interactive/educational tools |
-| AI / Specialized HW Synergy | ★★★★☆ | Excellent for exploratory AI work |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★★ | Foundational influence on OO and UIs |
+| Technical Innovation | ★★★★★ | Revolutionary environment |
+| Commercial Success | ★★☆☆☆ | Limited direct adoption |
+| Modern Potential | ★★★★☆ | Strong in interactive/educational tools |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★☆☆ | Medium complexity to simulate or rebuild on modern software/hardware platforms. |
 
 ## Related Excavations
 - [Lisp Machines](../excavations/lisp-machines.md)

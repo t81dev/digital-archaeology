@@ -106,17 +106,16 @@ In many ways, modern computing is slowly rediscovering Multics principles in the
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating    | Notes |
-|-----------------------|-----------|-------|
-| Historical Importance | ★★★★★    | Massive influence on OS research |
-| Technical Innovation  | ★★★★★    | Extremely advanced for its time |
-| Commercial Success    | ★★☆☆☆    | Limited market success |
-| Modern Potential      | ★★★★☆    | Concepts still relevant |
-| AI / Specialized HW Synergy | ★★★☆☆ | Indirect via security & reliability |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★★ | Massive influence on OS research |
+| Technical Innovation | ★★★★★ | Extremely advanced for its time |
+| Commercial Success | ★★☆☆☆ | Limited market success |
+| Modern Potential | ★★★★☆ | Concepts still relevant |
+| AI Synergy | ★★☆☆☆ | Low direct synergy with neural models, but provides secure or distributed runtimes. |
+| Difficulty to Recreate | ★★★★☆ | Requires extensive systems-level implementation and emulation efforts. |
 
 ## References (Selected)
 

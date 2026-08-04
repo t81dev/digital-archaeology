@@ -72,17 +72,16 @@ Inferno’s philosophy is highly relevant today:
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating     | Notes |
-|-----------------------|------------|-------|
-| Historical Importance | ★★★☆☆     | Influential in distributed OS research |
-| Technical Innovation  | ★★★★★     | Clean, secure, portable design |
-| Commercial Success    | ★☆☆☆☆     | Limited adoption |
-| Modern Potential      | ★★★★☆     | Strong for edge/IoT/security |
-| AI / Specialized HW Synergy | ★★★☆☆ | Good for distributed AI edge |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Influential in distributed OS research |
+| Technical Innovation | ★★★★★ | Clean, secure, portable design |
+| Commercial Success | ★☆☆☆☆ | Limited adoption |
+| Modern Potential | ★★★★☆ | Strong for edge/IoT/security |
+| AI Synergy | ★★☆☆☆ | Low direct synergy with neural models, but provides secure or distributed runtimes. |
+| Difficulty to Recreate | ★★★★☆ | Requires extensive systems-level implementation and emulation efforts. |
 
 ## Related Excavations
 - [Plan 9](../excavations/plan-9.md)

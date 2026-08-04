@@ -154,6 +154,18 @@ While discarded for general computing, Analog Computing is making a historic com
 
 ---
 
+## Scorecard
+
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Brief justification |
+| Technical Innovation | ★★★☆☆ | Brief justification |
+| Commercial Success | ★★★☆☆ | Brief justification |
+| Modern Potential | ★★★☆☆ | Brief justification |
+| AI Synergy | ★★★★☆ | High utility for specific execution paths in machine learning workloads. |
+| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
+
+
 ## References
 
 * Bush, V. (1931). *The Differential Analyzer. A New Machine for Solving Differential Equations*. Journal of the Franklin Institute, 212(4), 447-488.

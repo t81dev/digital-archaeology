@@ -93,17 +93,16 @@ VLIW/EPIC ideas are alive and influential today:
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating    | Notes |
-|-----------------------|-----------|-------|
-| Historical Importance | ★★★★☆    | Major industry bet on a new paradigm |
-| Technical Innovation  | ★★★★★    | Predication, bundling, explicit ILP |
-| Commercial Success    | ★☆☆☆☆    | Itanium largely failed in market |
-| Modern Potential      | ★★★★☆    | Ideas live on in accelerators |
-| Pattern Cross-links   | ★★★★★    | Strong ties to compiler co-design and recurring spatial ideas |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★☆ | Major industry bet on a new paradigm |
+| Technical Innovation | ★★★★★ | Predication, bundling, explicit ILP |
+| Commercial Success | ★☆☆☆☆ | Itanium largely failed in market |
+| Modern Potential | ★★★★☆ | Ideas live on in accelerators |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★☆☆ | Medium complexity to simulate or rebuild on modern software/hardware platforms. |
 
 ## References (Selected)
 

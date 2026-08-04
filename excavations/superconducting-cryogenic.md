@@ -95,17 +95,16 @@ Superconducting logic is a strong candidate for specialized accelerators rather 
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating    | Notes |
-|-----------------------|-----------|-------|
-| Historical Importance | ★★★☆☆    | Long research lineage, limited commercial impact |
-| Technical Innovation  | ★★★★★    | Revolutionary speed and energy characteristics |
-| Commercial Success    | ★☆☆☆☆    | Mostly research/prototype stage |
-| Modern Potential      | ★★★★☆    | Strong in quantum-era and energy-constrained niches |
-| Pattern Cross-links   | ★★★★★    | Excellent ties to Reversible, Energy, and Recurring Ideas |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★☆☆ | Long research lineage, limited commercial impact |
+| Technical Innovation | ★★★★★ | Revolutionary speed and energy characteristics |
+| Commercial Success | ★☆☆☆☆ | Mostly research/prototype stage |
+| Modern Potential | ★★★★☆ | Strong in quantum-era and energy-constrained niches |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
 
 ## References (Selected)
 

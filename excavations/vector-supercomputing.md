@@ -92,17 +92,16 @@ In the age of specialized hardware and AI, the Cray philosophy — build balance
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating    | Notes |
-|-----------------------|-----------|-------|
-| Historical Importance | ★★★★★    | Defined an era of supercomputing |
-| Technical Innovation  | ★★★★★    | Vector model and chaining |
-| Commercial Success    | ★★★★☆    | Dominant in HPC for ~20 years |
-| Modern Potential      | ★★★★★    | Lives on in GPUs and vector ISAs |
-| Pattern Cross-links   | ★★★★★    | Excellent ties to spatial/data-parallel themes |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★★ | Defined an era of supercomputing |
+| Technical Innovation | ★★★★★ | Vector model and chaining |
+| Commercial Success | ★★★★☆ | Dominant in HPC for ~20 years |
+| Modern Potential | ★★★★★ | Lives on in GPUs and vector ISAs |
+| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
+| Difficulty to Recreate | ★★★☆☆ | Medium complexity to simulate or rebuild on modern software/hardware platforms. |
 
 ## References (Selected)
 

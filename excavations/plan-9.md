@@ -74,17 +74,16 @@ In an era of cloud-native computing and heterogeneous systems, Plan 9’s philos
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating     | Notes |
-|-----------------------|------------|-------|
-| Historical Importance | ★★★★☆     | Major influence on OS research |
-| Technical Innovation  | ★★★★★     | Coherent rethinking of OS design |
-| Commercial Success    | ★☆☆☆☆     | Limited adoption |
-| Modern Potential      | ★★★★☆     | Concepts live on in containers/cloud |
-| AI / Specialized HW Synergy | ★★★☆☆ | Indirect benefits |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★☆ | Major influence on OS research |
+| Technical Innovation | ★★★★★ | Coherent rethinking of OS design |
+| Commercial Success | ★☆☆☆☆ | Limited adoption |
+| Modern Potential | ★★★★☆ | Concepts live on in containers/cloud |
+| AI Synergy | ★★☆☆☆ | Low direct synergy with neural models, but provides secure or distributed runtimes. |
+| Difficulty to Recreate | ★★★★☆ | Requires extensive systems-level implementation and emulation efforts. |
 
 ## Related Excavations
 - [Transputers](../excavations/transputers.md)

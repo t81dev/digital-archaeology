@@ -96,6 +96,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Dynamic Tagged-Token Dataflow Engine](reconstructions/dataflow-engine/) — *Parallel execution engine with dynamic token-tag matching and asynchronous scheduling.*
 - [Capability-Based Memory Protection Emulator](reconstructions/capability-security/) — *Register-level CPU and Tagged RAM simulating hardware capabilities and domain transitions.*
 - [Neuro-Symbolic Logic Solver](reconstructions/neuro-symbolic/) — *Hybrid AI decision system combining neural network outputs with forward-chaining rules.*
+- [CSP Synchronous Messaging Simulator](reconstructions/csp-messaging/) — *Synchronous channel rendezvous messaging, ALT-based multiplexing, and deadlock reporting.*
 
 ---
 

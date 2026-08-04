@@ -86,17 +86,16 @@ Pure dataflow machines remain uncommon, but dataflow ideas are thriving as compo
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating     | Notes |
-|-----------------------|------------|-------|
-| Historical Importance | ★★★★☆     | Major influence on parallel computing research |
-| Technical Innovation  | ★★★★★     | Elegant alternative to control-flow |
-| Commercial Success    | ★☆☆☆☆     | Limited hardware adoption |
-| Modern Potential      | ★★★★★     | Strong in specialized/hybrid forms |
-| AI / Specialized HW Synergy | ★★★★★ | Core to modern ML and streaming systems |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★☆ | Major influence on parallel computing research |
+| Technical Innovation | ★★★★★ | Elegant alternative to control-flow |
+| Commercial Success | ★☆☆☆☆ | Limited hardware adoption |
+| Modern Potential | ★★★★★ | Strong in specialized/hybrid forms |
+| AI Synergy | ★★★★☆ | High utility for specific execution paths in machine learning workloads. |
+| Difficulty to Recreate | ★★★☆☆ | Medium complexity to simulate or rebuild on modern software/hardware platforms. |
 
 ## Related Excavations
 - [Lisp Machines](../excavations/lisp-machines.md)

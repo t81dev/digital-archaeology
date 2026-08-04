@@ -83,17 +83,16 @@ Capability systems exemplify how some of computing’s best ideas were abandoned
 
 ---
 
-## Rating Scorecard
+## Scorecard
 
-| Category              | Rating     | Notes |
-|-----------------------|------------|-------|
-| Historical Importance | ★★★★☆     | Influential in OS research |
-| Technical Innovation  | ★★★★★     | Foundational security model |
-| Commercial Success    | ★★☆☆☆     | Limited but impactful deployments |
-| Modern Potential      | ★★★★★     | Strong revival via hardware |
-| AI / Specialized HW Synergy | ★★★★☆ | Excellent fit with secure enclaves and formal methods |
-
----
+| Category | Rating | Rationale |
+| --- | --- | --- |
+| Historical Importance | ★★★★☆ | Influential in OS research |
+| Technical Innovation | ★★★★★ | Foundational security model |
+| Commercial Success | ★★☆☆☆ | Limited but impactful deployments |
+| Modern Potential | ★★★★★ | Strong revival via hardware |
+| AI Synergy | ★★☆☆☆ | Low direct synergy with neural models, but provides secure or distributed runtimes. |
+| Difficulty to Recreate | ★★★★☆ | Requires extensive systems-level implementation and emulation efforts. |
 
 ## Related Excavations
 - [Lisp Machines](../excavations/lisp-machines.md) (tagged architectures)
