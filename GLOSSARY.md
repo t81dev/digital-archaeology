@@ -17,12 +17,16 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Smalltalk](excavations/smalltalk.md)
 * **Analog Computing**: Computation that utilizes continuous physical phenomena (e.g., electrical voltage, mechanical rotation, fluid flow) to model the problem being solved, bypassing the discretization of binary systems.
   * *See excavation*: [Analog Computing](excavations/analog-computing.md)
+* **Associative Processing**: A parallel computing paradigm where data is accessed and operated on by content (associative matching of data values) rather than by hardware memory addresses.
+  * *See excavation*: [Associative Processors](excavations/associative-processors.md)
 
 ### B
 * **Balanced Ternary**: A base-3 positional numeral system using the trits $-1$ (represented as `T`), $0$, and $+1$ (represented as `1`). It eliminates the need for a separate sign bit, simplifies arithmetic circuits, and possesses a superior radix economy compared to binary.
   * *See excavation*: [Balanced Ternary](excavations/balanced-ternary.md)
 * **Bi-Directional Hypermedia**: A network publishing and hypertext model where hyperlinks are inherently two-way and un-breakable, enabling side-by-side visual comparison, micro-transactions, and deep version tracking.
   * *See excavation*: [Project Xanadu](excavations/project-xanadu.md)
+* **Bit-Serial Word-Parallel Execution**: An execution technique where operations are performed on one bit-slice of all words in memory simultaneously in parallel, typical of early associative processors like STARAN.
+  * *See excavation*: [Associative Processors](excavations/associative-processors.md)
 
 ### C
 * **Capability-Based Security**: An access control model where processors or operating systems reference unforgeable keys called *capabilities*. A capability contains both a memory range (bounds) and specific permissions (read, write, execute), preventing buffer overflows and enforcing micro-segmentation at the hardware level.
@@ -31,6 +35,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Cellular Automata Hardware](excavations/cellular-automata-hardware.md)
 * **Communicating Sequential Processes (CSP)**: A formal language and mathematical model (introduced by Tony Hoare) for concurrent systems where processes communicate solely through synchronous, unbuffered/buffered channels.
   * *See excavation*: [Occam](excavations/occam.md), [Transputers](excavations/transputers.md)
+* **Content-Addressable Memory (CAM)**: A specialized computer memory that searches its entire contents in a single clock cycle and returns the address(es) where matching data is found.
+  * *See excavation*: [Associative Processors](excavations/associative-processors.md)
 * **Continuous Physical Modeling**: Solving differential equations by mapping physical system variables (e.g., fluid dynamics, acoustics) directly onto equivalent physical currents or voltages in analog circuits.
   * *See excavation*: [Analog Computing](excavations/analog-computing.md)
 
@@ -153,6 +159,8 @@ Digital Archaeology categorizes forgotten concepts not by their historical date,
 
 These models depart from standard sequential, instruction-pointer-driven (von Neumann) execution.
 
+* **Associative / Content-Addressable Execution**: Computing directly on matched data fields in parallel without address decoding, driven by associative matching of data content.
+  * *Example*: [Associative Processors](excavations/associative-processors.md)
 * **Dataflow / Token Matching**: Execution is purely event-driven and parallel. Operations execute as soon as their inputs are physically routed to them.
   * *Example*: [Dataflow Computing](excavations/dataflow-computing.md)
 * **Demand-Driven Graph Reduction**: Programs are represented as directed acyclic graphs (DAGs) in a node-based heap, and execution proceeds by dynamically rewriting active reducible expressions (redexes) until a terminal normal form is reached.
@@ -170,6 +178,8 @@ These models depart from standard sequential, instruction-pointer-driven (von Ne
 
 These abstractions define how memory is organized, addressed, and secured against unauthorized access or structural corruption.
 
+* **Content-Addressable / Associative Memory**: Memory is queried and written by content matching rather than address decoders, bypassing the address-space barrier entirely.
+  * *Example*: [Associative Processors](excavations/associative-processors.md)
 * **Object Capabilities & Descriptors**: Moving access control from software operating system layers to hardware unforgeable tokens. If a processor does not possess the physical capability token, it is physically impossible to construct the memory address.
   * *Example*: [Capability Systems](excavations/capability-systems.md), [Intel iAPX 432](excavations/intel-iapx-432.md)
 * **Tagged Memory**: Enforcing data type safety in hardware. An integer can never be executed as instruction code, and a data word can never be treated as a pointer, eliminating entire classes of exploit vectors.
