@@ -47,6 +47,10 @@
       "definition": "A non-von Neumann computer architecture where the execution order of instructions is not controlled by a program counter, but is determined dynamically by the availability of data (tokens) at instruction inputs."
     },
     {
+      "term": "Demand-Driven Evaluation",
+      "definition": "An execution paradigm (also known as lazy evaluation or call-by-need) where an expression is evaluated only when its result is strictly required by another operation or output device, contrasting with data-driven (dataflow) or control-driven (von Neumann) execution."
+    },
+    {
       "term": "Descriptor-Based Memory",
       "definition": "A precursor to capabilities where memory addresses are accessed indirectly through a hardware-recognized data structure (descriptor) containing base, limit, and type information."
     },
@@ -61,6 +65,10 @@
     {
       "term": "Generative Communication",
       "definition": "A parallel coordination model pioneered by Linda where processes communicate asynchronously and anonymously by depositing un-addressed, typed data tuples into a globally shared, associative space, which other processes can query by structural pattern matching."
+    },
+    {
+      "term": "Graph Reduction Machine",
+      "definition": "A non-von Neumann computer architecture designed to natively execute pure functional programming languages. Instead of sequentially executing compiled assembly instructions, it represents programs as directed acyclic graphs in memory and executes them by repeatedly simplifying and rewriting reducible expressions (redexes) in-place."
     },
     {
       "term": "Landauer's Limit",
@@ -171,6 +179,10 @@
       "definition": "Execution is purely event-driven and parallel. Operations execute as soon as their inputs are physically routed to them."
     },
     {
+      "term": "Demand-Driven Graph Reduction",
+      "definition": "Programs are represented as directed acyclic graphs (DAGs) in a node-based heap, and execution proceeds by dynamically rewriting active reducible expressions (redexes) until a terminal normal form is reached."
+    },
+    {
       "term": "Zero-Operand Stack Evaluation",
       "definition": "Instructions operate implicitly on a hardware evaluation stack, eliminating register specifiers from the instruction set encoding and simplifying compiler code generation."
     },
@@ -248,6 +260,12 @@
           "dataflow-computing"
         ]
       },
+      "Demand-Driven (Graph Reduction)": {
+        "description": "Non-sequential expression evaluation driven by evaluation demand (lazy evaluation). Execution proceeds by physically rewriting active nodes (redexes) in a graph.",
+        "mapped_excavations": [
+          "graph-reduction-machines"
+        ]
+      },
       "Spatial / Grid Computing": {
         "description": "Hardware logic and routing paths mapped physically to a static grid. No global ALU or instruction fetch bottleneck.",
         "mapped_excavations": [
@@ -319,6 +337,7 @@
         "description": "Extra hardware metadata bits on every word in RAM indicating data type, restricting invalid pointer arithmetic or data execution.",
         "mapped_excavations": [
           "burroughs-large-systems",
+          "graph-reduction-machines",
           "lisp-machines",
           "intel-iapx-432"
         ]
@@ -393,6 +412,12 @@
         "description": "Synchronous access to global memory segments managed by semaphores, lock instructions, or segment attributes.",
         "mapped_excavations": [
           "multics"
+        ]
+      },
+      "Parallel Graph Reduction": {
+        "description": "Concurrent rewriting of a shared expression graph using distributed active packet/node pools and lock-free synchronization.",
+        "mapped_excavations": [
+          "graph-reduction-machines"
         ]
       },
       "Generative Communication": {
@@ -782,6 +807,53 @@
       "references": []
     },
     {
+      "id": "graph-reduction-machines",
+      "title": "Graph Reduction Architectures & Functional Hardware",
+      "path": "excavations/graph-reduction-machines.md",
+      "summary": "In traditional von Neumann architectures, computation is **control-driven**: a program counter steps sequentially through instructions, modifying a flat, addressable memory space. While highly efficient for imperative programs, this model is a poor fit for pure functional languages (like Haskell, Miranda, or Lisp), which express computation as the nested application and evaluation of mathematical functions.\n\n**Graph Reduction Architectures** (or **Functional Hardware**) emerged in the late 1970s and 1980s as a radically alternative execution model. Instead of compiling code into serial machine instructions, these machines represented programs as **directed acyclic graphs (DAGs)** directly in physical memory. Execution proceeded by **graph reduction**—physically rewriting active branches of the graph (called *redexes*, or reducible expressions) into simplified, evaluated states until a terminal normal form was reached.\n\nSeveral landmark architectures were prototyped to realize this paradigm natively:\n* **Turner's Combinator Machine** (1979): Compiled SASL programs into variable-free SKI combinators, executing them via a hardware-assisted graph reducer.\n* **ALICE (Applicative Language Idealized Common Evaluation)** (Imperial College London, 1980s): A parallel machine using transputer nodes to perform graph reduction on packets via a high-speed network.\n* **GRIP (Graph Reduction In Parallel)** (University College London, 1980s): A multiprocessor architecture optimized for parallel graph reduction, featuring specialized intelligent memory units.\n* **Rediflow** (University of Utah): A hybrid dataflow/graph-reduction architecture designed to dynamically balance load across a grid of processors.\n\nDespite their conceptual elegance and the natural parallelization of referentially transparent functional code, these machines were commercial failures. They were sidelined by two factors: the rapid, exponential performance scaling of standard RISC microprocessors, and the invention of abstract machines (such as the **G-Machine** and **Spineless Tagless G-machine**) which allowed lazy functional programs to compile into highly efficient conventional assembly code, eliminating the need for specialized graph-reduction hardware.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Funded heavily in the 1980s; drove the development of the STG machine, compiling theory, garbage collection algorithms, and modern functional language execution."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "A radical non-von Neumann paradigm that redefined memory as an active, self-rewriting mathematical graph and eliminated variables via combinatory logic."
+        },
+        "Commercial Success": {
+          "stars": "★☆☆☆☆",
+          "numeric": 1,
+          "rationale": "Prototypes remained confined to academic research labs; swept away by the rapid performance scaling of RISC CPUs and compiling advances."
+        },
+        "Modern Potential": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Highly relevant to specialized spatial accelerators, processing-in-memory (PIM), and custom graph processors designed to tackle modern AI Graph Neural Networks."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Direct structural synergy with Graph Neural Networks (GNNs), symbolic-neural graph evaluation pipelines, and dynamic computational graph execution in machine learning."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Recreating a functional compiler and single-threaded software graph reduction emulator is straightforward; simulating a parallel, multi-node hardware-level graph rewriting fabric is highly complex."
+        }
+      },
+      "modern_relevance": "While dedicated graph-reduction processors are no longer built, the abstractions unearthed by functional hardware are finding profound modern applications:\n\n* **Graph Neural Network (GNN) Accelerators**: GNNs represent a massive shift in modern AI, operating on irregular, non-Euclidean graph datasets. Standard GPUs struggle with GNNs due to the exact same pointer-chasing and irregular memory access problems that plagued GRIP and ALICE. Modern startups and researchers are designing custom ASIC graph processing units (such as Graphcore’s IPU or specialized GNN accelerators) that feature massive in-memory SRAM tiles and high-speed routing networks, functionally reviving the spatial, parallel graph-traversal architectures of the 1980s.\n* **Lazy Stream Processing & Reactive Pipelines**: Modern declarative frameworks (such as Apache Flink, RxJS, or React's fiber reconciliation engine) use dynamic DAG-rewriting and node evaluation scheduling to update user interfaces and process streaming telemetry.\n* **Immutable & Purely Functional Compilation**: The STG model remains the execution engine of Haskell’s GHC compiler. Furthermore, modern language runtimes (like JVM, CLR, and Javascript engines) have heavily adopted techniques pioneered by functional hardware research, such as generational garbage collection and escape analysis.\n* **Hardware-Software Co-Design for DSLs**: With the end of Moore's Law, custom domain-specific compilers compile functional high-level languages directly into spatial FPGA pipelines, bypassing sequential execution blocks entirely to achieve orders-of-magnitude energy efficiency improvements.",
+      "references": [
+        "Turner, D. A. (1979). *A new technique for the implementation of non-strict functional languages*. Software: Practice and Experience, 9(1), 31-49. (The seminal paper compiling SASL to SKI combinators).",
+        "Peyton Jones, S. L. (1987). *The Implementation of Functional Programming Languages*. Prentice-Hall. (The classic, comprehensive textbook detailing graph reduction and G-machine compiling).",
+        "Darlington, J., & Reeve, M. (1981). *ALICE: A multi-processor reduction machine for the parallel evaluation of applicative languages*. proceedings of the 1981 conference on Functional programming languages and computer architecture, 65-75.",
+        "Peyton Jones, S. L., Clack, C., Salkild, J., & Hardie, M. (1987). *GRIP—a high-performance architecture for parallel graph reduction*. Conference on Functional Programming Languages and Computer Architecture, 98-112.",
+        "Keller, R. M., Lin, F. C., & Tanaka, J. (1984). *Rediflow multicomputer*. Compcon84, 410-417.",
+        "Johnsson, T. (1984). *Efficient compilation of lazy functional languages*. Proceedings of the 1984 ACM SIGPLAN symposium on Compiler construction, 268-287. (The foundational paper introducing the G-Machine)."
+      ]
+    },
+    {
       "id": "inferno",
       "title": "Inferno",
       "path": "excavations/inferno.md",
@@ -865,7 +937,7 @@
       "id": "linda-tuple-spaces",
       "title": "Linda Tuple Spaces (Generative Communication)",
       "path": "excavations/linda-tuple-spaces.md",
-      "summary": "In parallel and distributed computing, processes must coordinate to share data and synchronize execution. Historically, this has been achieved through two primary models: **shared memory** (which requires explicit locks, semaphores, and is spatially coupled to a single physical machine) or **message passing** (such as MPI or actor systems, which are temporally coupled and require processes to know each other's explicit network addresses or IDs). \n\n**Linda** is a non-von Neumann parallel programming model introduced in 1982 by **David Gelernter** that pioneered a radically different paradigm known as **Generative Communication**. Instead of sending messages directly to one another, processes interact anonymously and asynchronously through a globally shared, associative memory pool called a **Tuple Space**. \n\nA process coordinates with others by performing three primary operations on the Tuple Space:\n* `out(t)`: Generates a tuple $t$ and deposits it into the Tuple Space. The tuple exists independently of the process that created it.\n* `in(p)`: Associatively searches the Tuple Space for a tuple matching the pattern $p$, withdraws it from the space, and returns it to the calling process. If no matching tuple exists, the calling process blocks until one becomes available.\n* `rd(p)`: Performs the same associative search as `in`, but returns a copy of the matching tuple, leaving the original tuple in the Tuple Space.\n\nBy replacing explicit sender-recipient links with associative, content-addressable retrieval, Linda achieved complete spatial and temporal decoupling. Although highly influential and used in early high-performance scientific and financial computing, Linda was ultimately sidelined by the massive momentum of the Message Passing Interface (MPI) and standard socket-based networking due to the high performance overhead of implementing distributed associative matching on early hardware.",
+      "summary": "In parallel and distributed computing, processes must coordinate to share data and synchronize execution. Historically, this has been achieved through two primary models: **shared memory** (which requires explicit locks, semaphores, and is spatially coupled to a single physical machine) or **message passing** (such as MPI or actor systems, which are temporally coupled and require processes to know each other's explicit network addresses or IDs).\n\n**Linda** is a non-von Neumann parallel programming model introduced in 1982 by **David Gelernter** that pioneered a radically different paradigm known as **Generative Communication**. Instead of sending messages directly to one another, processes interact anonymously and asynchronously through a globally shared, associative memory pool called a **Tuple Space**.\n\nA process coordinates with others by performing three primary operations on the Tuple Space:\n* `out(t)`: Generates a tuple $t$ and deposits it into the Tuple Space. The tuple exists independently of the process that created it.\n* `in(p)`: Associatively searches the Tuple Space for a tuple matching the pattern $p$, withdraws it from the space, and returns it to the calling process. If no matching tuple exists, the calling process blocks until one becomes available.\n* `rd(p)`: Performs the same associative search as `in`, but returns a copy of the matching tuple, leaving the original tuple in the Tuple Space.\n\nBy replacing explicit sender-recipient links with associative, content-addressable retrieval, Linda achieved complete spatial and temporal decoupling. Although highly influential and used in early high-performance scientific and financial computing, Linda was ultimately sidelined by the massive momentum of the Message Passing Interface (MPI) and standard socket-based networking due to the high performance overhead of implementing distributed associative matching on early hardware.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",

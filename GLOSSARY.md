@@ -37,6 +37,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### D
 * **Dataflow Architecture**: A non-von Neumann computer architecture where the execution order of instructions is not controlled by a program counter, but is determined dynamically by the availability of data (tokens) at instruction inputs.
   * *See excavation*: [Dataflow Computing](excavations/dataflow-computing.md)
+* **Demand-Driven Evaluation**: An execution paradigm (also known as lazy evaluation or call-by-need) where an expression is evaluated only when its result is strictly required by another operation or output device, contrasting with data-driven (dataflow) or control-driven (von Neumann) execution.
+  * *See excavation*: [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md)
 * **Descriptor-Based Memory**: A precursor to capabilities where memory addresses are accessed indirectly through a hardware-recognized data structure (descriptor) containing base, limit, and type information.
   * *See excavation*: [Burroughs Large Systems](excavations/burroughs-large-systems.md)
 * **Dynamic Token-Matching**: An execution model in dataflow processors where data packets (tokens) carry tag headers specifying their destination, iteration context, and call frame, allowing out-of-order, parallel execution of loops and functions.
@@ -49,6 +51,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### G
 * **Generative Communication**: A parallel coordination model pioneered by Linda where processes communicate asynchronously and anonymously by depositing un-addressed, typed data tuples into a globally shared, associative space, which other processes can query by structural pattern matching.
   * *See excavation*: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)
+* **Graph Reduction Machine**: A non-von Neumann computer architecture designed to natively execute pure functional programming languages. Instead of sequentially executing compiled assembly instructions, it represents programs as directed acyclic graphs in memory and executes them by repeatedly simplifying and rewriting reducible expressions (redexes) in-place.
+  * *See excavation*: [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md)
 
 ### L
 * **Landauer's Limit**: A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \ln 2$).
@@ -151,6 +155,8 @@ These models depart from standard sequential, instruction-pointer-driven (von Ne
 
 * **Dataflow / Token Matching**: Execution is purely event-driven and parallel. Operations execute as soon as their inputs are physically routed to them.
   * *Example*: [Dataflow Computing](excavations/dataflow-computing.md)
+* **Demand-Driven Graph Reduction**: Programs are represented as directed acyclic graphs (DAGs) in a node-based heap, and execution proceeds by dynamically rewriting active reducible expressions (redexes) until a terminal normal form is reached.
+  * *Example*: [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md)
 * **Zero-Operand Stack Evaluation**: Instructions operate implicitly on a hardware evaluation stack, eliminating register specifiers from the instruction set encoding and simplifying compiler code generation.
   * *Example*: [Stack Machines](excavations/stack-machines.md), [Burroughs Large Systems](excavations/burroughs-large-systems.md)
 * **Spatial & Grid Routing**: Processing is mapped onto physical coordinate grids of simple ALUs. Software is compiled as spatial configurations and data routing pathways rather than sequential code.
