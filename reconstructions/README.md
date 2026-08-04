@@ -6,9 +6,11 @@
 
 ## Overview
 
-Welcome to the **Digital Archaeology Reconstructions & Simulators** directory. While Phase I (Excavations) focused on historical research and Phase II (Synthesis) mapped conceptual connections, **Phase III** moves from theory to execution.
+Welcome to the **Digital Archaeology Reconstructions & Simulators** directory. While Phase I (Excavations) focused on historical research and Phase II (Synthesis) mapped conceptual connections, **Phase III** moved from theory to execution. Continuing into Phase V, we expanded this footprint to multi-paradigm simulators and compiled them to WebAssembly.
 
 Each subdirectory here contains an interactive, fully-functional simulator or emulator written in Python. These software models are designed to be educational, self-contained, and interactive—allowing you to experiment directly with the core abstractions that defined these historical paradigms.
+
+Looking forward, **Phase VI** is designed to map these software-defined simulators to synthesizable RTL hardware blocks, design multi-paradigm co-simulation fabrics, and build browser-native interactive playgrounds using WebAssembly/Pyodide.
 
 ---
 
