@@ -1,6 +1,6 @@
 # Modern Reconstructions & Simulators
 
-> *Active software reconstructions and executable models translating historical computing paradigms into modern, runnable environments.*
+> *Active software reconstructions, synthesizable hardware blueprints, and executable models translating historical computing paradigms into modern, runnable environments.*
 
 ---
 
@@ -8,13 +8,13 @@
 
 Welcome to the **Digital Archaeology Reconstructions & Simulators** directory. While Phase I (Excavations) focused on historical research and Phase II (Synthesis) mapped conceptual connections, **Phase III** moved from theory to execution. Continuing into Phase V, we expanded this footprint to multi-paradigm simulators and compiled them to WebAssembly.
 
-Each subdirectory here contains an interactive, fully-functional simulator or emulator written in Python. These software models are designed to be educational, self-contained, and interactive—allowing you to experiment directly with the core abstractions that defined these historical paradigms.
+In **Phase VI**, we successfully mapped these software-defined simulators to synthesizable RTL hardware blocks, designed multi-paradigm co-simulation fabrics, and built browser-native interactive playgrounds using WebAssembly/Pyodide, supported by an academic lab manual.
 
-Looking forward, **Phase VI** is designed to map these software-defined simulators to synthesizable RTL hardware blocks, design multi-paradigm co-simulation fabrics, and build browser-native interactive playgrounds using WebAssembly/Pyodide.
+Each subdirectory here contains an interactive, fully-functional simulator, synthesizable hardware module, or orchestrator.
 
 ---
 
-## Table of Reconstructions
+## Table of Reconstructions & Hardware Blueprints
 
 ### 1. [Balanced Ternary & Mixed-Radix Simulator](mixed-radix-sim/)
 * **Focus**: Alternative arithmetic, non-binary logic.
@@ -52,17 +52,38 @@ Looking forward, **Phase VI** is designed to map these software-defined simulato
 * **What it does**: Models a continuous physical electronic op-amp computer (solving mass-spring-damper dynamics with noise, drift, and saturation) alongside a Mach-Zehnder Interferometer (MZI) photonic tensor core performing coherent wave propagation and matrix-vector multiplication.
 * **Entry point**: `reconstructions/analog-optical/analog_optical_sim.py`
 
+### 7. [Synthesizable Hardware IP Core Blueprints](synthesizable-hardware/) (New in Phase VI)
+* **Focus**: Synthesizable soft-cores and hardware-enforced microarchitectural security.
+* **Paradigm**: [Balanced Ternary](../excavations/balanced-ternary.md) and [Capability Systems](../excavations/capability-systems.md).
+* **What it does**: Contains synthesizable SystemVerilog models: a 3-trit Balanced Ternary ALU (`ternary_alu.sv`) and an inline Tagged RAM Capability Bounds Checker (`capability_bounds_checker.sv`), complete with golden functional tests.
+* **Entry point**: `reconstructions/synthesizable-hardware/`
+
+### 8. [Multi-Architecture Co-Simulation & Interoperability Fabric](co-simulation/) (New in Phase VI)
+* **Focus**: Cross-paradigm sandbox routing and multi-architecture co-simulation.
+* **Paradigm**: Concurrent actor messaging (CSP), Spatial Dataflow, and Hybrid AI.
+* **What it does**: Implements a pipeline that routes raw statistical neural inputs to a symbolic logic decision solver, schedules incident alerts over synchronous CSP concurrent processes, and triggers parallel dataflow graphs.
+* **Entry point**: `reconstructions/co-simulation/orchestrator.py`
+
+---
+
+## Interactive Playgrounds & Academic Materials
+
+### 🖥️ [Interactive WebAssembly & Pyodide Playground](../playground.html)
+A browser-native IDE and terminal console executing all python simulators, allowing you to edit scripts, inject hardware faults, and evaluate security exceptions instantly in your browser.
+
+### 📚 [Academic Lab Manual & Pedagogical Sandboxes](LAB_MANUAL.md)
+A curated academic manual hosting four university-level computer systems architecture labs, exercises, and clean-slate design challenges.
+
 ---
 
 ## Running the Simulators
 
 All simulators are written in pure Python 3 without external dependencies, making them fully portable and easy to run in any terminal.
 
-### Quick Start
-
-To run any of the simulators, navigate to the respective directory and execute the Python file:
-
 ```bash
+# Run the Multi-Architecture Co-Simulation Orchestrator
+python3 reconstructions/co-simulation/orchestrator.py
+
 # Run the Balanced Ternary Simulator
 python3 reconstructions/mixed-radix-sim/ternary_sim.py
 
@@ -81,15 +102,3 @@ python3 reconstructions/csp-messaging/csp_sim.py
 # Run the Continuous Analog & Optical Wave Accelerator Simulator
 python3 reconstructions/analog-optical/analog_optical_sim.py
 ```
-
-Each simulator includes built-in interactive menus, step-by-step traces, or test programs that print detailed execution paths to the console.
-
----
-
-## Why Code-Based Archaeology?
-
-Reconstructing these architectures in software provides three crucial insights:
-
-1. **Abstractions vs. Constraints**: By removing the physical manufacturing limits of the 1960s–1980s (e.g., discrete transistors, magnetic core memory, packaging wire limits), we can isolate the core *logical elegance* of the design.
-2. **Modern Tooling Integration**: We can explore how easily these historical concepts map to modern high-level languages, compilers, and async execution models.
-3. **Execution Clarity**: Step-by-step traces make abstract concepts—such as token-matching in dataflow or domain transitions in capability hardware—immediately tangible.

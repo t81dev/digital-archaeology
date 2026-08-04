@@ -120,6 +120,7 @@ nav:
     - Symbolic Computing: modern-relevance/symbolic-computing.md
   - Interactive Simulators:
     - Overview: reconstructions/README.md
+    - Academic Lab Manual: reconstructions/LAB_MANUAL.md
   - Timelines & Bibliography:
     - Computing Timeline: timelines/computing.md
     - Hardware Timeline: timelines/hardware.md

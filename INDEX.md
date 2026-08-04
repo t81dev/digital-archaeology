@@ -28,7 +28,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Neuromorphic Hardware](excavations/neuromorphic-hardware.md) — *Asynchronous, event-driven spiking neural networks and in-memory compute.*
 - [Optical Computing](excavations/optical-computing.md) — *Photonic interference, spatial WDM, and sub-nanosecond matrix processing.*
 - [Reversible Computing](excavations/reversible-computing.md) — *Information-preserving logic gates bypassing Landauer's thermodynamic limit.*
-- [Stack Machines](excavations/stack-machines.md) — *Hardware zero-operand evaluation stack execution architectures.*
+- [Stack Machines](excavations/stack-machines.md) — *Hardware zero-operand evaluation stack evaluation architectures.*
 - [Superconducting & Cryogenic Microarchitectures](excavations/superconducting-cryogenic.md) — *SFQ/RSFQ logic at cryogenic temperatures for ultra-high speed and efficiency.*
 - [Systolic Arrays](excavations/systolic-arrays.md) — *Regular, pipelined grids of processing elements for dense compute-bound workloads.*
 - [Transputers](excavations/transputers.md) — *Massively parallel microprocessors with native channel-based CSP messaging.*
@@ -63,7 +63,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 ## Patterns
 
 - [Economic Failures](patterns/economic-failures.md) — *Why technically superior ideas fail due to manufacturing economics and cost dynamics.*
-- [Ecosystem Lock-In](patterns/ecosystem-lockin.md) — *How developer tooling, compilers, and legacy API momentum favor established norms.*
+- [Ecosystem Lock-In](patterns/ecosystem-lockin.md) — *How developer tooling, compilers, and legacy momentum favor established norms.*
 - [Forgotten Abstractions](patterns/forgotten-abstractions.md) — *Elegant concepts and mental models that faded from mainstream use but retain significant potential.*
 - [Recurring Ideas](patterns/recurring-ideas.md) — *How abandoned computing paradigms re-emerge under new physical constraints.*
 - [Constraint Migration](patterns/constraint-migration.md) — *How shifting physical, technological, and economic limits resurrect discarded abstractions.*
@@ -98,11 +98,16 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Capability-Based Memory Protection Emulator](reconstructions/capability-security/) — *Register-level CPU and Tagged RAM simulating hardware capabilities and domain transitions.*
 - [Neuro-Symbolic Logic Solver](reconstructions/neuro-symbolic/) — *Hybrid AI decision system combining neural network outputs with forward-chaining rules.*
 - [CSP Synchronous Messaging Simulator](reconstructions/csp-messaging/) — *Synchronous channel rendezvous messaging, ALT-based multiplexing, and deadlock reporting.*
+- [Continuous Analog & Optical Wave Accelerator Simulator](reconstructions/analog-optical/) — *Photonic tensor core wave interference and op-amp mass-spring solvers.*
+- [Synthesizable Hardware IP Core Blueprints](reconstructions/synthesizable-hardware/) — *Synthesizable SystemVerilog models of Balanced Ternary ALUs and tagged RAM bounds checkers.*
+- [Multi-Architecture Co-Simulation Orchestrator](reconstructions/co-simulation/) — *A cross-paradigm execution fabric linking hybrid AI, concurrent CSP, and spatial dataflow.*
 
 ---
 
-## Timelines, Bibliography, & Indexes
+## Interactive Playgrounds & Academic Materials
 
+- **Interactive Playground:** [Interactive Pyodide & WebAssembly Simulator Playground](playground.html)
+- **Academic Lab Manual:** [Pedagogical Lab Modules & Clean-Slate Architecture Challenges](reconstructions/LAB_MANUAL.md)
 - **Interactive Explorer:** [Interactive Visual Taxonomy Explorer](explorer.html)
 - **Glossary & Taxonomy:** [Glossary & Abstraction Taxonomy](GLOSSARY.md)
 - **Comparative Indexes:** [Index by Execution, Memory, and Concurrency Models](COMPARATIVE_INDEX.md)

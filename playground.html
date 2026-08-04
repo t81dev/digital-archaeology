@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Archaeology — Interactive WebAssembly & Pyodide Playground</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        archaeo: {
+                            bg: '#0b0f19',
+                            card: '#161f30',
+                            accent: '#10b981',
+                            blue: '#3b82f6',
+                            purple: '#8b5cf6',
+                            text: '#f3f4f6',
+                            muted: '#9ca3af'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Pyodide Loader -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.26.1/full/pyodide.js"></script>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #e5e7eb;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="h-screen w-screen flex flex-col overflow-hidden">
+
+    <!-- Top Navigation Header -->
+    <header class="h-16 border-b border-gray-800 bg-slate-900/80 backdrop-blur-md flex items-center justify-between px-6 z-10">
+        <div class="flex items-center space-x-3">
+            <div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-400">
+                <i data-lucide="play" class="w-6 h-6"></i>
+            </div>
+            <div>
+                <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                    Digital Archaeology Playgrounds
+                    <span class="text-xs font-normal px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Wasm Engine v1.0</span>
+                </h1>
+                <p class="text-xs text-gray-400">Browser-Native Python Simulator Sandboxes</p>
+            </div>
+        </div>
+
+        <!-- System Status & Links -->
+        <div class="flex items-center space-x-4">
+            <div id="pyodide-status" class="flex items-center bg-slate-950/60 border border-gray-800 rounded-lg px-3 py-1.5 text-xs text-gray-400 space-x-2">
+                <span class="flex h-2 w-2 relative">
+                    <span id="ping-indicator" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                    <span id="dot-indicator" class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                </span>
+                <span id="status-text">Pyodide: Initializing WebAssembly Core...</span>
+            </div>
+            <a href="explorer.html" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 bg-slate-800 hover:bg-slate-700 border border-gray-700 rounded-lg transition-colors">
+                <i data-lucide="network" class="w-3.5 h-3.5"></i> Explorer Graph
+            </a>
+            <a href="INDEX.md" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 bg-slate-800 hover:bg-slate-700 border border-gray-700 rounded-lg transition-colors">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Repo
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Playground Workspace -->
+    <div class="flex-1 flex overflow-hidden">
+
+        <!-- Left Controls Column -->
+        <aside class="w-80 border-r border-gray-800 bg-slate-900/40 backdrop-blur-sm flex flex-col h-full overflow-y-auto p-4 space-y-6">
+
+            <!-- Simulator Selector -->
+            <div>
+                <label for="simulator-select" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Select Architecture</label>
+                <select id="simulator-select" onchange="loadSimulator(this.value)" class="w-full bg-slate-950/80 border border-gray-800 rounded-lg px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-emerald-500/50 transition-all">
+                    <option value="balanced-ternary">Balanced Ternary Arithmetic</option>
+                    <option value="tagged-dataflow">Tagged-Token Dataflow Engine</option>
+                    <option value="capability-security">Capability Memory Protection</option>
+                    <option value="neuro-symbolic">Neuro-Symbolic Logic Solver</option>
+                    <option value="csp-messaging">CSP Synchronous Messaging</option>
+                    <option value="analog-optical">Analog & Optical Wave Accelerator</option>
+                    <option value="co-simulation">Multi-Architecture Co-Simulation</option>
+                </select>
+            </div>
+
+            <!-- Predefined Scenarios & Challenges -->
+            <div>
+                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Scenario Presets & Fault Injection</h3>
+                <div id="presets-container" class="space-y-2">
+                    <!-- Loaded dynamically based on selected simulator -->
+                </div>
+            </div>
+
+            <!-- Quick Description Info Drawer -->
+            <div class="flex-1 bg-slate-950/40 border border-gray-800/40 rounded-lg p-4 flex flex-col justify-between">
+                <div>
+                    <h4 id="sim-info-title" class="text-sm font-bold text-white mb-1">Ternary Simulator</h4>
+                    <p id="sim-info-desc" class="text-xs text-gray-400 leading-relaxed">
+                        Implements signed ternary digit arithmetic without separate sign bits. Explains why radix 3 maximizes representation economy.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-gray-800/60 mt-4 text-[10px] text-gray-500">
+                    <span class="flex items-center gap-1"><i data-lucide="shield" class="w-3.5 h-3.5 text-blue-400"></i> Pure local client sandbox.</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Code/Console Split Area -->
+        <main class="flex-1 flex flex-col overflow-hidden bg-slate-950">
+
+            <!-- Code Editor Segment -->
+            <div class="flex-1 flex flex-col border-b border-gray-800 min-h-0">
+                <div class="h-10 bg-slate-900 border-b border-gray-800 flex items-center justify-between px-4 text-xs font-mono">
+                    <span class="text-gray-400 flex items-center gap-2">
+                        <i data-lucide="file-code" class="w-4 h-4 text-emerald-400"></i>
+                        <span id="editor-filename">sandbox.py</span>
+                    </span>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="resetEditorCode()" class="flex items-center gap-1 bg-slate-800 hover:bg-slate-700 px-2.5 py-1 rounded transition-colors text-gray-300">
+                            <i data-lucide="rotate-ccw" class="w-3 h-3"></i> Reset Preset
+                        </button>
+                        <button id="run-btn" disabled onclick="executePythonCode()" class="flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 disabled:text-gray-600 px-3 py-1 rounded transition-colors text-white font-bold">
+                            <i data-lucide="play" class="w-3.5 h-3.5"></i> Run Sandbox (F5)
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex-1 relative flex">
+                    <!-- Simulated Editor Line Numbers -->
+                    <div class="w-12 bg-slate-900 border-r border-gray-800/60 select-none text-right pr-3 pt-4 text-xs font-mono text-gray-600 space-y-1">
+                        <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+                        <div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div>
+                        <div>21</div><div>22</div><div>23</div><div>24</div><div>25</div>
+                    </div>
+                    <textarea id="code-editor" class="flex-1 bg-[#090d16] font-mono text-sm p-4 text-gray-200 outline-none resize-none overflow-y-auto border-none focus:ring-0 leading-relaxed" placeholder="# Loading simulator source code..."></textarea>
+                </div>
+            </div>
+
+            <!-- Terminal Output Segment -->
+            <div class="h-64 bg-[#05070c] border-t border-gray-800 flex flex-col min-h-0">
+                <div class="h-9 bg-slate-900 flex items-center justify-between px-4 text-xs font-mono text-gray-400 border-b border-gray-800">
+                    <span class="flex items-center gap-1.5">
+                        <i data-lucide="terminal" class="w-3.5 h-3.5 text-blue-400"></i> Execution Terminal Console
+                    </span>
+                    <button onclick="clearConsole()" class="flex items-center gap-1 text-gray-500 hover:text-white transition-colors">
+                        <i data-lucide="trash-2" class="w-3 h-3"></i> Clear Console
+                    </button>
+                </div>
+                <div id="console-output" class="flex-1 p-4 overflow-y-auto font-mono text-xs text-green-400 leading-normal whitespace-pre-wrap select-text selection:bg-slate-800">
+                    Welcome to the Digital Archaeology Browser-Native Execution Console.
+                    Pyodide WebAssembly system is currently starting. Please wait...
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Application Script -->
+    <script>
+        let pyodideInstance = null;
+        let currentSimulator = 'balanced-ternary';
+        let presetCodeCache = {};
+
+        // Definitions of simulators, presets, descriptions
+        const simulatorConfigs = {
+            'balanced-ternary': {
+                title: 'Balanced Ternary Simulator',
+                desc: 'Models Setun-style signed radix-3 logic. Operations use three values (-1, 0, 1) to build more radix-efficient computing units than binary.',
+                file: 'ternary_sim.py',
+                path: 'reconstructions/mixed-radix-sim/ternary_sim.py',
+                presets: [
+                    {
+                        name: 'Ternary Arithmetic Demo',
+                        desc: 'Perform balanced ternary addition and multiplication, showing trit registers.',
+                        code: `from ternary_sim import main\nprint("--- Running Standard Ternary Demo ---")\nmain()`
+                    },
+                    {
+                        name: 'Tritwise Min/Max Logic',
+                        desc: 'Demonstrate non-binary logic gates like tritwise Minimum and Maximum.',
+                        code: `from ternary_sim import Trit, parse_ternary, format_ternary\n\na = parse_ternary("1T0") # 1*9 + -1*3 + 0*1 = 6\nb = parse_ternary("011") # 0*9 + 1*3 + 1*1 = 4\n\nprint(f"A = {a} ({format_ternary(a)})")\nprint(f"B = {b} ({format_ternary(b)})")\n\n# Perform addition\nsum_ab = a + b\nprint(f"A + B = {sum_ab} ({format_ternary(sum_ab)})")`
+                    }
+                ]
+            },
+            'tagged-dataflow': {
+                title: 'Tagged-Token Dataflow',
+                desc: 'An asynchronous spatial data-driven execution pipeline. Nodes fire when all input tokens with matching context tags are present.',
+                file: 'dataflow_sim.py',
+                path: 'reconstructions/dataflow-engine/dataflow_sim.py',
+                presets: [
+                    {
+                        name: 'Parallel Quadratic',
+                        desc: 'Evaluate (x^2 + y^2) * (x - y) in parallel across asynchronous dataflow nodes.',
+                        code: `from dataflow_sim import run_parallel_quadratic\nrun_parallel_quadratic()`
+                    },
+                    {
+                        name: 'Iterative Factorial',
+                        desc: 'Compute factorial of N using tag increments inside a pipelined dataflow loop.',
+                        code: `from dataflow_sim import run_iterative_factorial\nrun_iterative_factorial(5)`
+                    }
+                ]
+            },
+            'capability-security': {
+                title: 'Capability Protection',
+                desc: 'Hardware-enforced fine-grained capability descriptors distinguishing normal data from unforgeable tagged capability values.',
+                file: 'capability_sim.py',
+                path: 'reconstructions/capability-security/capability_sim.py',
+                presets: [
+                    {
+                        name: 'Standard Safe Run',
+                        desc: 'Runs memory writes, reads and secure domain method transitions successfully.',
+                        code: `from capability_sim import main\nmain()`
+                    },
+                    {
+                        name: 'Inject OOB Exception',
+                        desc: 'Attempts to forge address or perform out-of-bounds write to trigger a hardware exception.',
+                        code: `from capability_sim import TaggedCPU, TaggedRAM, Capability\n\ncpu = TaggedCPU()\nram = TaggedRAM()\n\n# Allocate segment from address 100 to 110\ncap = Capability(base=100, limit=110, permissions={"READ", "WRITE"})\nprint("Created Capability:", cap)\n\n# Attempt to access address 115 (Out of bounds!)\ntry:\n    cpu.write_memory(ram, cap, addr=115, value=999)\nexcept Exception as e:\n    print(f"\\n[VIOLATION EXCEPTION TRIGGERED]: {e}")`
+                    }
+                ]
+            },
+            'neuro-symbolic': {
+                title: 'Neuro-Symbolic Solver',
+                desc: 'Combines probabilistic deep neural network classifiers with deterministic forward-chaining symbolic logic engines.',
+                file: 'neuro_symbolic_sim.py',
+                path: 'reconstructions/neuro-symbolic/neuro_symbolic_sim.py',
+                presets: [
+                    {
+                        name: 'Nominal Smart-Home Guard',
+                        desc: 'Runs full security guard decision audits on various standard sensor inputs.',
+                        code: `from neuro_symbolic_sim import main\nmain()`
+                    },
+                    {
+                        name: 'Noisy Sensor Guardrail',
+                        desc: 'Evaluates neural camera feed with extreme noise to activate ambiguity confirmation.',
+                        code: `from neuro_symbolic_sim import run_scenario\n\n# Cam detects person but Authorized Resident match is highly ambiguous (74% confidence)\nnoisy_data = {\n    'package_detected': 0.02,\n    'person_present': 0.92,\n    'authorized_resident': 0.74, # below default 80% threshold\n    'unknown_person': 0.35,\n    'threat_detected': 0.02\n}\n\nrun_scenario("High Noise Camera Feed", noisy_data, threshold=0.80)`
+                    }
+                ]
+            },
+            'csp-messaging': {
+                title: 'CSP Messaging Scheduler',
+                desc: 'Cooperative synchronous rendezvous process scheduler modeling channel multiplexing (occam ALT) and deadlocks.',
+                file: 'csp_sim.py',
+                path: 'reconstructions/csp-messaging/csp_sim.py',
+                presets: [
+                    {
+                        name: 'Rendezvous & ALT Multiplex',
+                        desc: 'Executes Producer-Consumer synchronous rendezvous and ALT channel selectors.',
+                        code: `from csp_sim import run_producer_consumer_demo, run_alt_multiplexer_demo\n\nrun_producer_consumer_demo()\nrun_alt_multiplexer_demo()`
+                    },
+                    {
+                        name: 'Deadlock Detection',
+                        desc: 'Injects cyclic wait to verify the scheduler automatically reports structural deadlocks.',
+                        code: `from csp_sim import run_deadlock_demo\nrun_deadlock_demo()`
+                    }
+                ]
+            },
+            'analog-optical': {
+                title: 'Analog/Optical Accelerator',
+                desc: 'Simulates analog operational-amplifier differential equation solvers and photonic tensor coherent wave interferometers.',
+                file: 'analog_optical_sim.py',
+                path: 'reconstructions/analog-optical/analog_optical_sim.py',
+                presets: [
+                    {
+                        name: 'MZI Photonic Core & Mass-Spring',
+                        desc: 'Solves physical mass-spring system equations and photonic matrix multiplications.',
+                        code: `from analog_optical_sim import main\nmain()`
+                    }
+                ]
+            },
+            'co-simulation': {
+                title: 'Multi-Architecture Orchestrator',
+                desc: 'Bridges continuous AI perception, symbolic logic decisioning, CSP synchronized messaging, and dataflow execution into one co-simulation.',
+                file: 'orchestrator.py',
+                path: 'reconstructions/co-simulation/orchestrator.py',
+                presets: [
+                    {
+                        name: 'Complete Incident Response Flow',
+                        desc: 'Full threat pipeline: neural detection -> symbolic rule -> CSP route -> dataflow math calculation.',
+                        code: `from orchestrator import main\nmain()`
+                    }
+                ]
+            }
+        };
+
+        // Initialize Pyodide on page load
+        window.addEventListener('load', async () => {
+            initIcons();
+            try {
+                pyodideInstance = await loadPyodide({
+                    stdout: (text) => writeToConsole(text),
+                    stderr: (text) => writeToConsole("ERROR: " + text)
+                });
+
+                // Update system status UI
+                document.getElementById('ping-indicator').className = "animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75";
+                document.getElementById('dot-indicator').className = "relative inline-flex rounded-full h-2 w-2 bg-emerald-500";
+                document.getElementById('status-text').textContent = "Pyodide Wasm Engine: Ready";
+                document.getElementById('run-btn').removeAttribute('disabled');
+
+                // Fetch and write the python simulator sources into Pyodide virtual file system
+                await importAllPythonModules();
+
+                // Load default simulator ternary
+                loadSimulator('balanced-ternary');
+            } catch (err) {
+                console.error("Pyodide loading failed:", err);
+                writeToConsole("ERROR: Pyodide failed to load. Check console/network.");
+                document.getElementById('status-text').textContent = "Pyodide Status: Loading Failed";
+            }
+        });
+
+        function initIcons() {
+            lucide.createIcons();
+        }
+
+        function writeToConsole(text) {
+            const consoleEl = document.getElementById('console-output');
+            // If default startup text is there, clear it first
+            if (consoleEl.textContent.includes("Pyodide WebAssembly system is currently starting")) {
+                consoleEl.textContent = '';
+            }
+            consoleEl.textContent += text + "\n";
+            consoleEl.scrollTop = consoleEl.scrollHeight;
+        }
+
+        function clearConsole() {
+            document.getElementById('console-output').textContent = '';
+        }
+
+        // Fetch python source from the server and dump into Pyodide FS
+        async function importAllPythonModules() {
+            writeToConsole("System: Mount and register all pure Python simulators in browser filesystem...");
+
+            for (let [key, config] of Object.entries(simulatorConfigs)) {
+                try {
+                    const response = await fetch(config.path);
+                    if (!response.ok) {
+                        throw new Error("HTTP status " + response.status);
+                    }
+                    const text = await response.text();
+
+                    // Write to pyodide virtual filesystem
+                    pyodideInstance.FS.writeFile(config.file, text);
+                    writeToConsole(`  ✓ Registered module: ${config.file}`);
+                } catch (e) {
+                    writeToConsole(`  ✗ Failed to preload module ${config.file}: ${e.message}`);
+                }
+            }
+            writeToConsole("System: All module registrations complete. Ready to run sandboxes.\n");
+        }
+
+        // Handle switching simulators
+        function loadSimulator(key) {
+            currentSimulator = key;
+            const config = simulatorConfigs[key];
+
+            document.getElementById('sim-info-title').textContent = config.title;
+            document.getElementById('sim-info-desc').textContent = config.desc;
+            document.getElementById('editor-filename').textContent = `test_${config.file}`;
+
+            // Build preset buttons
+            const presetsContainer = document.getElementById('presets-container');
+            presetsContainer.innerHTML = '';
+
+            config.presets.forEach((preset, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-2.5 bg-slate-950/60 hover:bg-slate-800/60 border border-gray-800/80 hover:border-blue-500/30 rounded-lg transition-colors flex flex-col";
+                btn.onclick = () => selectPreset(preset);
+                btn.innerHTML = `
+                    <span class="text-xs font-semibold text-gray-200">${preset.name}</span>
+                    <span class="text-[10px] text-gray-500 mt-1 leading-normal">${preset.desc}</span>
+                `;
+                presetsContainer.appendChild(btn);
+            });
+
+            // Load the first preset by default
+            if (config.presets.length > 0) {
+                selectPreset(config.presets[0]);
+            }
+        }
+
+        // Click a preset configuration to load its code string
+        function selectPreset(preset) {
+            document.getElementById('code-editor').value = preset.code;
+            clearConsole();
+            writeToConsole(`System: Loaded Scenario Preset: '${preset.name}'. Click 'Run Sandbox' to execute.\n`);
+        }
+
+        function resetEditorCode() {
+            const config = simulatorConfigs[currentSimulator];
+            if (config.presets.length > 0) {
+                selectPreset(config.presets[0]);
+            }
+        }
+
+        // Execute Pyodide interpreter run
+        async function executePythonCode() {
+            if (!pyodideInstance) {
+                writeToConsole("ERROR: Pyodide is not loaded yet.");
+                return;
+            }
+
+            const code = document.getElementById('code-editor').value;
+            writeToConsole(">>> Running user code script...\n");
+
+            const runBtn = document.getElementById('run-btn');
+            runBtn.setAttribute('disabled', 'true');
+            runBtn.innerHTML = `<i data-lucide="loader" class="w-3.5 h-3.5 animate-spin"></i> Running...`;
+            initIcons();
+
+            // Give browser a frame to update UI
+            setTimeout(async () => {
+                try {
+                    await pyodideInstance.runPythonAsync(code);
+                } catch (err) {
+                    writeToConsole("\n[INTERPRETER RUNTIME ERROR]:\n" + err.message);
+                } finally {
+                    runBtn.removeAttribute('disabled');
+                    runBtn.innerHTML = `<i data-lucide="play" class="w-3.5 h-3.5"></i> Run Sandbox (F5)`;
+                    initIcons();
+                }
+            }, 50);
+        }
+
+        // Bind keyboard F5 key for fast execution mapping
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'F5') {
+                e.preventDefault();
+                executePythonCode();
+            }
+        });
+    </script>
+</body>
+</html>
