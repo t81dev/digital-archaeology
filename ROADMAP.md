@@ -6,8 +6,8 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 
 # Phase I — Core Excavations ✅ (Complete)
 
-## Architectures & Hardware (16)
-- [x] Analog Computing, Balanced Ternary, Cellular Automata Hardware, Connection Machine, Dataflow Computing, Molecular & Biocomputing, Neuromorphic Hardware, Optical Computing, Reversible Computing, Stack Machines, Superconducting & Cryogenic Microarchitectures, Systolic Arrays, Transputers, Vector Supercomputing, VLIW/EPIC Architectures, Wafer-Scale Integration
+## Architectures & Hardware (17)
+- [x] Analog Computing, Balanced Ternary, Cellular Automata Hardware, Connection Machine, Dataflow Computing, Molecular & Biocomputing, Neuromorphic Hardware, Optical Computing, Reversible Computing, Stack Machines, Stochastic Computing, Superconducting & Cryogenic Microarchitectures, Systolic Arrays, Transputers, Vector Supercomputing, VLIW/EPIC Architectures, Wafer-Scale Integration
 
 ## Systems & Operating Environments (9)
 - [x] BeOS / Haiku, Burroughs Large Systems, Capability Systems, Inferno, Intel iAPX 432, Lisp Machines, Multics, Plan 9, Project Xanadu
@@ -85,6 +85,7 @@ To scale the research initiative and expand from descriptive analysis into activ
 - [x] **Next-Generation Simulators**: Develop zero-dependency simulators/reconstructions for additional critical, underexplored areas of the 3-part taxonomy:
   - [x] **[CSP Messaging Engine](reconstructions/csp-messaging/)**: Visualizing occam-style synchronized channel execution and structural deadlock avoidance.
   - [x] **[Continuous Analog / Optical Wave Accelerator](reconstructions/analog-optical/)**: A functional simulator modeling matrix-vector multiplication via optical interference or continuous differential integration.
+  - [x] **[Stochastic Computing Simulator](reconstructions/stochastic-computing/)**: An interactive probabilistic execution engine implementing unipolar/bipolar logic gate arithmetic, saturating FSM-based activations, and LFSR random generation.
 
 ### 3. Developer Onboarding, Tooling, & Community Integration
 - [x] **Automated Excavation Checklists & Templates**: Improve the standardization of contributions with automated pull request action checks that validate markdown link integrity, scorecard range compliance, and GLOSSARY referencing.
