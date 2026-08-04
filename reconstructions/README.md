@@ -64,6 +64,12 @@ Each subdirectory here contains an interactive, fully-functional simulator, synt
 * **What it does**: Implements a pipeline that routes raw statistical neural inputs to a symbolic logic decision solver, schedules incident alerts over synchronous CSP concurrent processes, and triggers parallel dataflow graphs.
 * **Entry point**: `reconstructions/co-simulation/orchestrator.py`
 
+### 9. [Linda Tuple Space Simulator](tuple-space/)
+* **Focus**: Coordinate-free parallel coordination, generative communication.
+* **Paradigm**: [Linda Tuple Spaces](../excavations/linda-tuple-spaces.md).
+* **What it does**: Implements a thread-safe, associative Tuple Space supporting blocking/non-blocking out, in, rd, and active process evaluation (eval). Demonstrates coordinate-free master-worker task allocation.
+* **Entry point**: `reconstructions/tuple-space/tuple_space_sim.py`
+
 ---
 
 ## Interactive Playgrounds & Academic Materials
@@ -101,4 +107,7 @@ python3 reconstructions/csp-messaging/csp_sim.py
 
 # Run the Continuous Analog & Optical Wave Accelerator Simulator
 python3 reconstructions/analog-optical/analog_optical_sim.py
+
+# Run the Linda Tuple Space Simulator
+python3 reconstructions/tuple-space/tuple_space_sim.py
 ```

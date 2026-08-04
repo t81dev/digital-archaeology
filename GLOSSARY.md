@@ -46,6 +46,10 @@ This document provides a conceptual glossary of terms from across the excavation
 * **Explicitly Parallel Instruction Computing (EPIC)**: An instruction set philosophy (co-developed by HP and Intel for Itanium) where the compiler explicitly bundles instructions that can be executed in parallel, moving the complex scheduling logic from hardware to the compiler.
   * *See excavation*: [VLIW / EPIC Architectures](excavations/vliw-epic.md)
 
+### G
+* **Generative Communication**: A parallel coordination model pioneered by Linda where processes communicate asynchronously and anonymously by depositing un-addressed, typed data tuples into a globally shared, associative space, which other processes can query by structural pattern matching.
+  * *See excavation*: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)
+
 ### L
 * **Landauer's Limit**: A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \ln 2$).
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
@@ -104,6 +108,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Lisp Machines](excavations/lisp-machines.md)
 * **Transition Signaling (2-Phase Handshaking)**: A clockless communication protocol where any voltage transition (either low-to-high or high-to-low) represents a control event, enabling high-speed handshake transactions with minimal signal lines and state changes.
   * *See excavation*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)
+* **Tuple Space**: A persistent, associative, multi-set memory pool serving as the central coordination medium in generative communication. It stores both passive data tuples and active process tuples.
+  * *See excavation*: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)
 
 ### V
 * **Vector Processing**: A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads.
@@ -179,3 +185,5 @@ These abstractions define how parallel computational threads or systems coordina
   * *Example*: [Plan 9](excavations/plan-9.md), [Inferno](excavations/inferno.md)
 * **Massively Parallel SIMD Hypercubes**: Structuring tens of thousands of single-bit processors in a hypercube network, executing operations in lock-step to solve massive-scale parallel data problems.
   * *Example*: [Connection Machine](excavations/connection-machine.md)
+* **Generative Tuple Spaces**: Decoupling communication completely in both space (anonymous) and time (asynchronous) via a shared, content-addressable multi-set data pool.
+  * *Example*: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)
