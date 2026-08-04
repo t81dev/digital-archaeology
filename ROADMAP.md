@@ -72,6 +72,27 @@ We have transitioned from theoretical comparisons to dynamic execution models, i
 
 ---
 
+# Phase V — Interactive Dissemination & Executable Artifact Expansion ⏳ (In Progress)
+
+To scale the research initiative and expand from descriptive analysis into active engineering leverage, Phase V focuses on three core pillars: interactive discoverability, expanding our executable simulator footprint, and establishing developer engagement pipelines.
+
+### 1. Interactive Knowledge Graphs & Discoverability
+- [ ] **Interactive Visual Taxonomy and Search**: Shift from a static `INDEX.md` and `GLOSSARY.md` to an interactive, client-side visual web (using D3.js or similar) mapping excavations by taxonomy, paradigms, and execution-safety-concurrency models.
+- [ ] **Static Site Generation & Docs Site**: Establish an automated static site build pipeline (using MkDocs, Jekyll, or Astro) to publish the complete comparative knowledge base under a clean, searchable user interface (`archaeology.t81.io` or similar).
+
+### 2. Executable Reconstruction Footprint Expansion
+- [ ] **Expansion of Simulators to WebAssembly**: Compile or wrap existing Python-based emulators into interactive web applications so readers can execute alternative arithmetic, token-matching, and capability logic directly inside the documentation browser.
+- [ ] **Next-Generation Simulators**: Develop zero-dependency simulators/reconstructions for additional critical, underexplored areas of the 3-part taxonomy:
+  - *CSP Messaging Engine*: Visualizing occam-style synchronized channel execution and structural deadlock avoidance.
+  - *Continuous Analog / Optical Wave Accelerator*: A functional simulator modeling matrix-vector multiplication via optical interference or continuous differential integration.
+
+### 3. Developer Onboarding, Tooling, & Community Integration
+- [ ] **Automated Excavation Checklists & Templates**: Improve the standardization of contributions with automated pull request action checks that validate markdown link integrity, scorecard range compliance, and GLOSSARY referencing.
+- [ ] **AI-Assisted Knowledge Ingestion**: Provide an API/schema (JSON/JSON-LD) format of the index and comparative matrices, allowing LLM-based autonomous agents to ingest, reference, and evaluate these historical architectural patterns.
+- [ ] **Academic & Hardware Partnerships**: Connect historical architectures (e.g., CHERI, Neuromorphic, Spatial) to active academic research programs, zero-trust security initiatives, and modern open-source FPGA toolchains.
+
+---
+
 # Long-Term Vision
 
 Digital Archaeology seeks to become the premier comparative reference for abandoned and underexplored computing paradigms.
