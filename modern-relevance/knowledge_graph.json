@@ -67,12 +67,20 @@
       "definition": "A computer architecture that coordinates thousands of independent, single-bit processors in a tightly integrated network to perform highly fine-grained parallel computation."
     },
     {
+      "term": "Micropipelines",
+      "definition": "A modular, clockless architecture framework that utilizes localized transition-signaling handshakes to synchronize data flow between pipeline stages."
+    },
+    {
       "term": "Mixed-Radix Arithmetic",
       "definition": "Positional numeral systems where the base (radix) varies from one digit position to another."
     },
     {
       "term": "Molecular/Biocomputing",
       "definition": "A non-silicon hardware paradigm that utilizes biological molecules, DNA strands, or enzymatic chemical reactions to store data and execute highly parallel combinatorial logic."
+    },
+    {
+      "term": "Muller C-element",
+      "definition": "A fundamental state-retaining logical component in asynchronous control circuits that acts as an \"event AND-gate\"—its output transitions only when all of its inputs have transitioned to match."
     },
     {
       "term": "Neuromorphic Hardware",
@@ -131,6 +139,10 @@
       "definition": "A hardware mechanism where every word in memory is accompanied by a few extra non-addressable bits (tags) indicating its data type (e.g., integer, float, code pointer, capability), allowing hardware to prevent type safety violations and unauthorized execution."
     },
     {
+      "term": "Transition Signaling (2-Phase Handshaking)",
+      "definition": "A clockless communication protocol where any voltage transition (either low-to-high or high-to-low) represents a control event, enabling high-speed handshake transactions with minimal signal lines and state changes."
+    },
+    {
       "term": "Vector Processing",
       "definition": "A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads."
     },
@@ -161,6 +173,10 @@
     {
       "term": "Continuous Analog Scaling",
       "definition": "Solving mathematical systems through continuous physical interactions (voltages, light waves, chemical concentrations) rather than discrete digital clock cycles."
+    },
+    {
+      "term": "Self-Timed & Asynchronous Control",
+      "definition": "Operations and pipeline stages synchronize locally via request-acknowledge handshake signals, executing at the natural physical speed of physical gates rather than relying on a global clock tree."
     },
     {
       "term": "Object Capabilities & Descriptors",
@@ -200,6 +216,7 @@
       "Control-Flow (von Neumann)": {
         "description": "Sequential instruction execution guided by a program counter. Includes traditional stack-based and register-based architectures.",
         "mapped_excavations": [
+          "asynchronous-processors",
           "beos-haiku",
           "burroughs-large-systems",
           "capability-systems",
@@ -317,8 +334,9 @@
       "Flat / Unprotected Memory": {
         "description": "Minimal or no hardware separation between processes or kernel. Designed for absolute raw speed or embedded simplicity.",
         "mapped_excavations": [
-          "transputers",
-          "stack-machines"
+          "asynchronous-processors",
+          "stack-machines",
+          "transputers"
         ]
       }
     },
@@ -412,6 +430,52 @@
         "Truitt, T. D. (1964). *A Discussion of the Hybrid Computer - A Broad New Tool for Industry*. IEEE Transactions on Electronic Computers, EC-13(4), 297-304.",
         "Ielmini, D., & Waser, R. (2018). *Non-volatile Memory-based Devices and Circuits for In-Memory Computing*. Advanced Electronic Materials, 4(7), 1700494.",
         "Verma, N., et al. (2019). *In-Memory Computing: Advancing AI Applications with Energy-Efficient Hardware*. IEEE Signal Processing Magazine, 36(6), 33-47."
+      ]
+    },
+    {
+      "id": "asynchronous-processors",
+      "title": "Asynchronous Microprocessors & Micropipelines",
+      "path": "excavations/asynchronous-processors.md",
+      "summary": "Asynchronous microprocessors represent a profound departure from traditional synchronous digital logic design. Since the dawn of microcomputing, virtually all mainstream processors have relied on a global, central synchronization signal—the **clock**—to regulate the movement of data between register boundaries. While highly predictable, global clock distribution imposes severe penalties in power consumption, electromagnetic interference, and clock skew as silicon feature sizes scale down.\n\nIn contrast, asynchronous microprocessors utilize **self-timed logic**. Instead of waiting for a periodic clock pulse to register data, individual execution stages and processing blocks communicate locally via direct handshake protocols. When a pipeline stage completes its operation, it signals the next stage that data is valid, and receives an acknowledgment once the data has been consumed. Execution occurs at the natural physical speed of the underlying transistors, depending on temperature, voltage, and material properties.\n\nThis paradigm achieved a major historical milestone in 1989 when Turing Award winner **Ivan Sutherland** introduced the **Micropipelining** framework, providing a formal engineering methodology for clockless elastic pipelines. Inspired by this work, the **AMULET Group** at the University of Manchester, led by ARM co-architect **Steve Furber**, designed a series of fully asynchronous microprocessors (AMULET1, AMULET2e, and AMULET3) that implemented the commercial ARM instruction set. Although technically triumphant, proving that complex general-purpose processors could operate without any global clock while saving significant energy and emitting near-zero electromagnetic noise, asynchronous processors were ultimately sidelined by the massive economic momentum of synchronous CAD design suites, advanced EDA toolchains, and the rapid rise of clock-gating inside synchronous designs.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Sutherland's Micropipelines and AMULET established that commercially viable ISAs could run completely clockless."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Pioneered elastic pipelines, event-driven control, and delay-insensitive dual-rail logic."
+        },
+        "Commercial Success": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Sidelined in mainstream CPUs but highly successful in specialized niches like smart cards and secured enclaves."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Vital for sub-nanometer chips, wafer-scale systems, and ultra-low-power edge AI."
+        },
+        "AI Synergy": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Naturally maps to sparse temporal spiking networks (Neuromorphic) and asynchronous spatial tensor grids."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Requires specialized asynchronous HDL synthesis tools, custom layout cells, and hazard/glitch verification."
+        }
+      },
+      "modern_relevance": "While synchronous control remains dominant in standard CPU cores, the physical limits of sub-nanometer silicon have triggered a powerful revival of asynchronous techniques across specialized high-performance domains:\n\n* **Wafer-Scale Integration (WSI) & Cerebras Systems:** As chips grow to the size of an entire silicon wafer (e.g., Cerebras Wafer-Scale Engine), distributing a unified, synchronized gigahertz clock across centimeters of silicon is physically impossible due to massive wire propagation delay and clock skew. Cerebras utilizes a Globally Asynchronous, Locally Synchronous (GALS) spatial array, routing operands asynchronously via self-timed Network-on-Chip (NoC) switches.\n* **Neuromorphic Edge AI Processors:** Spiking neural network (SNN) chips, such as **Intel's Loihi** and IBM's TrueNorth, are fundamentally asynchronous. Spikes propagate between core clusters using asynchronous Address-Event Representation (AER) protocols. Because biological signals are highly sparse in time, event-driven, clockless logic is the only way to achieve the sub-milliwatt power budgets required for edge deployments.\n* **Hardware Security & Smart Cards:** Modern secure enclaves, hardware security modules (HSMs), and contactless smart cards (like those based on ARM's SecurCore or specialized chips from Infineon) employ asynchronous cores to prevent hackers from reconstructing cryptographic keys via electromagnetic or power-analysis side-channel attacks.\n* **Energy-Harvesting IoT Nodes:** Wearable medical sensors and environmental monitoring nodes run on extremely low and unpredictable harvested energy (solar, thermal, or vibration). Asynchronous processors can operate under widely fluctuating voltage levels, slowing down dynamically when voltage drops and speeding up when energy is abundant, without ever crashing due to timing violations.",
+      "references": [
+        "Sutherland, I. E. (1989). *Micropipelines*. Communications of the ACM, 32(6), 720-738. (Sutherland's seminal Turing Award lecture introducing the micropipelining framework).",
+        "Furber, S. B., Edwards, D. A., & Garside, J. D. (1994). *AMULET1: An asynchronous ARM microprocessor*. IEEE Transactions on Very Large Scale Integration (VLSI) Systems, 2(2), 205-215.",
+        "Furber, S. B., Garside, J. D., Gilbert, P., & Temple, S. (1997). *AMULET2e: An asynchronous embedded controller*. Proceedings of the IEEE, 85(2), 211-222.",
+        "Garside, J. D., et al. (2000). *AMULET3: A high-performance self-timed ARM microprocessor*. In Proceedings of the IEEE International Conference on Computer Design (ICCD), 356-361.",
+        "Muller, D. E., & Bartky, W. S. (1959). *A theory of asynchronous circuits*. Proceedings of an International Symposium on the Theory of Switching, 204-243."
       ]
     },
     {

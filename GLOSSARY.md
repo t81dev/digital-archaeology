@@ -53,10 +53,14 @@ This document provides a conceptual glossary of terms from across the excavation
 ### M
 * **Massively Parallel Processing (MPP)**: A computer architecture that coordinates thousands of independent, single-bit processors in a tightly integrated network to perform highly fine-grained parallel computation.
   * *See excavation*: [Connection Machine](excavations/connection-machine.md)
+* **Micropipelines**: A modular, clockless architecture framework that utilizes localized transition-signaling handshakes to synchronize data flow between pipeline stages.
+  * *See excavation*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)
 * **Mixed-Radix Arithmetic**: Positional numeral systems where the base (radix) varies from one digit position to another.
   * *See modern relevance*: [Mixed-Radix & Alternative Number Systems](modern-relevance/mixed-radix.md)
 * **Molecular/Biocomputing**: A non-silicon hardware paradigm that utilizes biological molecules, DNA strands, or enzymatic chemical reactions to store data and execute highly parallel combinatorial logic.
   * *See excavation*: [Molecular & Biocomputing](excavations/molecular-biocomputing.md)
+* **Muller C-element**: A fundamental state-retaining logical component in asynchronous control circuits that acts as an "event AND-gate"—its output transitions only when all of its inputs have transitioned to match.
+  * *See excavation*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)
 
 ### N
 * **Neuromorphic Hardware**: Silicon architectures designed to mimic the neural structures of the brain, utilizing asynchronous, event-driven spiking neural networks and in-memory computation.
@@ -98,6 +102,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### T
 * **Tagged Memory**: A hardware mechanism where every word in memory is accompanied by a few extra non-addressable bits (tags) indicating its data type (e.g., integer, float, code pointer, capability), allowing hardware to prevent type safety violations and unauthorized execution.
   * *See excavation*: [Lisp Machines](excavations/lisp-machines.md)
+* **Transition Signaling (2-Phase Handshaking)**: A clockless communication protocol where any voltage transition (either low-to-high or high-to-low) represents a control event, enabling high-speed handshake transactions with minimal signal lines and state changes.
+  * *See excavation*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)
 
 ### V
 * **Vector Processing**: A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads.
@@ -145,6 +151,8 @@ These models depart from standard sequential, instruction-pointer-driven (von Ne
   * *Example*: [Systolic Arrays](excavations/systolic-arrays.md), [Cellular Automata Hardware](excavations/cellular-automata-hardware.md)
 * **Continuous Analog Scaling**: Solving mathematical systems through continuous physical interactions (voltages, light waves, chemical concentrations) rather than discrete digital clock cycles.
   * *Example*: [Analog Computing](excavations/analog-computing.md), [Optical Computing](excavations/optical-computing.md), [Molecular & Biocomputing](excavations/molecular-biocomputing.md)
+* **Self-Timed & Asynchronous Control**: Operations and pipeline stages synchronize locally via request-acknowledge handshake signals, executing at the natural physical speed of physical gates rather than relying on a global clock tree.
+  * *Example*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md), [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)
 
 ### 2. Memory & Protection Abstractions
 
