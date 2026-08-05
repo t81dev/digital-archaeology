@@ -58,6 +58,9 @@ exclude_docs: |
   reconstructions/**/*.txt
   LICENSE
   NOTES.md
+  excavations/excavation-template.md
+  bibliography/README.md
+  reconstructions/*/README.md
 
 nav:
   - Home: index.md
@@ -115,6 +118,7 @@ nav:
     - Recurring Ideas: patterns/recurring-ideas.md
   - Comparative Synthesis:
     - Architectural Distillation: synthesis/architectural-distillation.md
+    - Alternative Mathematical Execution Paradigms: synthesis/alternative-mathematical-execution-paradigms.md
     - Capability-Based Security: synthesis/capability-based-security.md
     - Compiler-Hardware Co-Design: synthesis/compiler-hardware-co-design.md
     - The Evolution of Coordination Abstractions: synthesis/evolution-of-coordination-abstractions.md

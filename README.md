@@ -1,8 +1,8 @@
 # Digital Archaeology
 
-[![Research Phase: Active](https://img.shields.io/badge/Research--Phase-Active-success.svg)](#roadmap)
-[![Reconstructions: 10 Simulators & Models](https://img.shields.io/badge/Reconstructions-10%20Simulators-blue.svg)](#-interactive-reconstructions--simulators)
-[![Completed Excavations: 35](https://img.shields.io/badge/Completed--Excavations-35-orange.svg)](#-project-pillars)
+[![Research Phase: Active](https://img.shields.io/badge/Research--Phase-Active-success.svg)](ROADMAP.md)
+[![Reconstructions: 10 Simulators & Models](https://img.shields.io/badge/Reconstructions-10%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
+[![Completed Excavations: 35](https://img.shields.io/badge/Completed--Excavations-35-orange.svg)](#project-pillars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > *Excavating forgotten ideas. Recovering lost innovations. Reconstructing alternate futures.*

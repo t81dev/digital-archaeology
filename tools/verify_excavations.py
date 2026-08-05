@@ -7,6 +7,7 @@ Validates repository link integrity, scorecard compliance, and taxonomy checks.
 import os
 import re
 import sys
+import collections
 
 # Color formatting
 GREEN = "\033[92m"
@@ -65,6 +66,9 @@ class RepoLinter:
 
         # 3. Check GLOSSARY Referencing & Completeness
         self.check_glossary_referencing()
+
+        # 4. Check Comparative Index Integration Mapping
+        self.check_comparative_index_mapping()
 
         # Print report
         print("\n" + "=" * 50)
@@ -177,6 +181,40 @@ class RepoLinter:
                     self.report_error(
                         filepath,
                         f"Invalid scorecard rating format for '{cat}': '{rating}'. Must be exactly 5 characters of ★ and ☆."
+                    )
+
+    def check_comparative_index_mapping(self):
+        print("4. Verifying Comparative Index Integration...")
+        comp_path = os.path.join(self.root_dir, "COMPARATIVE_INDEX.md")
+        if not os.path.exists(comp_path):
+            self.report_error(self.root_dir, "COMPARATIVE_INDEX.md is missing from the repository root!")
+            return
+
+        with open(comp_path, 'r', encoding='utf-8') as f:
+            comp_content = f.read()
+
+        # Find all relative excavation links
+        mapped_paths = set()
+        link_pattern = re.compile(r'\[[^\]]+\]\((excavations/[^)]+\.md)\)')
+        matches = link_pattern.findall(comp_content)
+        for rel_link in matches:
+            abs_path = os.path.abspath(os.path.join(self.root_dir, rel_link))
+            mapped_paths.add(abs_path)
+
+        # Get list of actual excavations
+        excavations_dir = os.path.join(self.root_dir, "excavations")
+        if not os.path.exists(excavations_dir):
+            return
+
+        for file in os.listdir(excavations_dir):
+            if file.endswith(".md") and file not in ("README.md", "excavation-template.md"):
+                abs_path = os.path.abspath(os.path.join(excavations_dir, file))
+                if abs_path not in mapped_paths:
+                    rel_exc = os.path.relpath(abs_path, self.root_dir)
+                    self.report_error(
+                        comp_path,
+                        f"Excavation file '{rel_exc}' is not integrated or mapped anywhere in COMPARATIVE_INDEX.md! "
+                        "Every excavation must be classified in our multi-dimensional comparative taxonomy to maintain high-density explanation."
                     )
 
     def check_glossary_referencing(self):
