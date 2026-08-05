@@ -116,25 +116,56 @@
 
         <!-- Left Panel: Search, Filters & Excavation Directory -->
         <aside class="w-80 border-r border-gray-800 bg-slate-900/40 backdrop-blur-sm flex flex-col h-full z-10 relative">
-            <!-- Search Section -->
+            <!-- Semantic Query Console -->
             <div class="p-4 border-b border-gray-800">
+                <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Semantic Query Console</span>
+                    <button onclick="toggleSyntaxHelp()" class="text-[11px] text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-0.5 transition-colors">
+                        <i data-lucide="help-circle" class="w-3 h-3"></i> Query Syntax
+                    </button>
+                </div>
+
+                <!-- Query syntax help popover -->
+                <div id="syntax-help-box" class="hidden mb-3 p-3 bg-slate-950 border border-emerald-500/20 rounded-lg text-[10px] text-gray-400 leading-relaxed shadow-lg">
+                    <p class="font-semibold text-white mb-1.5 flex items-center gap-1">
+                        <i data-lucide="terminal" class="w-3 h-3 text-emerald-400"></i> Supported Filter Syntax:
+                    </p>
+                    <ul class="space-y-1 list-disc pl-3">
+                        <li><code class="text-emerald-300 font-mono bg-slate-900 px-1 py-0.5 rounded">synergy:high</code> (AI Synergy &ge; 4)</li>
+                        <li><code class="text-emerald-300 font-mono bg-slate-900 px-1 py-0.5 rounded">potential:high</code> (Potential &ge; 4)</li>
+                        <li><code class="text-emerald-300 font-mono bg-slate-900 px-1 py-0.5 rounded">stars:&gt;=4</code> (Avg scorecard rating)</li>
+                        <li><code class="text-emerald-300 font-mono bg-slate-900 px-1 py-0.5 rounded">type:excavation</code> (or <code class="text-emerald-300 font-mono">model</code>, <code class="text-emerald-300 font-mono">category</code>)</li>
+                        <li><code class="text-emerald-300 font-mono bg-slate-900 px-1 py-0.5 rounded">model:dataflow</code> (or <code class="text-emerald-300 font-mono">capability</code>, etc.)</li>
+                        <li>Plain text keywords filter matches any content.</li>
+                    </ul>
+                    <p class="mt-1 text-slate-500 font-mono">Example: <code class="text-slate-300">synergy:high potential:high ternary</code></p>
+                </div>
+
                 <label for="search-input" class="sr-only">Search excavations or concepts...</label>
                 <div class="relative">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
                         <i data-lucide="search" class="w-4 h-4"></i>
                     </span>
                     <input type="text" id="search-input" onkeyup="handleSearch(this.value)"
-                        placeholder="Search excavations, terms..."
-                        class="w-full bg-slate-950/80 border border-gray-800 rounded-lg pl-9 pr-4 py-2 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 transition-all">
+                        placeholder="Type semantic query or keywords..."
+                        class="w-full bg-slate-950/80 border border-gray-800 rounded-lg pl-9 pr-4 py-2 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 transition-all font-mono text-xs">
+                </div>
+
+                <!-- Parsed Active Filters Display -->
+                <div id="active-filters-container" class="hidden mt-2.5">
+                    <span class="text-[9px] text-gray-500 uppercase tracking-wider block mb-1">Parsed Filter Constraints:</span>
+                    <div id="active-filters-chips" class="flex flex-wrap gap-1">
+                        <!-- Populated by JS parser -->
+                    </div>
                 </div>
 
                 <!-- Fast Filters -->
                 <div class="flex flex-wrap gap-1.5 mt-3">
-                    <span class="text-[10px] text-gray-500 uppercase tracking-wider block w-full mb-1">Filter by Scorecard:</span>
-                    <button onclick="filterHighRating('modern_potential')" class="px-2 py-1 bg-slate-950/50 hover:bg-slate-800 border border-gray-800 rounded text-[11px] text-gray-400 hover:text-emerald-400 transition-colors flex items-center gap-1">
+                    <span class="text-[10px] text-gray-500 uppercase tracking-wider block w-full mb-1">Fast Scorecard Presets:</span>
+                    <button onclick="applyFastPreset('potential:high')" class="px-2 py-1 bg-slate-950/50 hover:bg-slate-800 border border-gray-800 rounded text-[11px] text-gray-400 hover:text-emerald-400 transition-colors flex items-center gap-1">
                         <i data-lucide="zap" class="w-3 h-3 text-emerald-400"></i> High Potential
                     </button>
-                    <button onclick="filterHighRating('ai_synergy')" class="px-2 py-1 bg-slate-950/50 hover:bg-slate-800 border border-gray-800 rounded text-[11px] text-gray-400 hover:text-purple-400 transition-colors flex items-center gap-1">
+                    <button onclick="applyFastPreset('synergy:high')" class="px-2 py-1 bg-slate-950/50 hover:bg-slate-800 border border-gray-800 rounded text-[11px] text-gray-400 hover:text-purple-400 transition-colors flex items-center gap-1">
                         <i data-lucide="cpu" class="w-3 h-3 text-purple-400"></i> High AI Synergy
                     </button>
                     <button onclick="clearFilters()" id="clear-filter-btn" class="hidden px-2 py-1 bg-red-950/20 border border-red-900/30 text-red-400 rounded text-[11px] hover:bg-red-950/40 transition-colors">
@@ -909,23 +940,133 @@
             document.getElementById('scorecard-average').textContent = `Avg: ${average} ★`;
         }
 
-        // Handle Search and Filter highlights
+        function toggleSyntaxHelp() {
+            const box = document.getElementById('syntax-help-box');
+            box.classList.toggle('hidden');
+            initIcons();
+        }
+
+        function applyFastPreset(query) {
+            const input = document.getElementById('search-input');
+            input.value = query;
+            handleSearch(query);
+        }
+
+        function parseSemanticQuery(queryString) {
+            const keyFilters = [];
+            // Regex to match filters like synergy:high, potential:high, stars:>=4, type:excavation, model:dataflow
+            const regex = /(\w+)\s*:\s*(?:([>=<]+)?\s*([^\s"]+)|"([^"]+)")/g;
+            let match;
+            let cleanQuery = queryString;
+
+            while ((match = regex.exec(queryString)) !== null) {
+                const key = match[1].toLowerCase().trim();
+                const operator = match[2] || "=";
+                const val = (match[3] || match[4]).toLowerCase().trim();
+
+                keyFilters.push({ key, operator, val, raw: match[0] });
+                cleanQuery = cleanQuery.replace(match[0], ' ');
+            }
+
+            const plainWords = cleanQuery.split(/\s+/).map(w => w.trim().toLowerCase()).filter(w => w.length > 0);
+            return { keyFilters, plainWords };
+        }
+
+        // Handle Semantic Query parsing & dynamic network querying
         function handleSearch(query) {
-            const cleanQuery = query.toLowerCase().trim();
+            const cleanQuery = query.trim();
             if (!cleanQuery) {
                 resetSearchHighlight();
+                const container = document.getElementById('active-filters-container');
+                if (container) container.classList.add('hidden');
                 return;
             }
 
+            document.getElementById('clear-filter-btn').classList.remove('hidden');
+
+            // Parse semantic terms
+            const { keyFilters, plainWords } = parseSemanticQuery(cleanQuery);
+
+            // Render filter chips
+            renderFilterChips(keyFilters, plainWords);
+
             // Filter nodes in visualizer
+            const matchedNodeIds = new Set();
             nodeElement.each(function(n) {
                 const g = d3.select(this.parentNode);
-                const isMatch = n.title.toLowerCase().includes(cleanQuery) ||
-                                (n.summary && n.summary.toLowerCase().includes(cleanQuery)) ||
-                                (n.modern_relevance && n.modern_relevance.toLowerCase().includes(cleanQuery)) ||
-                                (n.id.toLowerCase().includes(cleanQuery));
+                let isMatch = true;
+
+                // 1. Evaluate key:value constraints
+                for (let filter of keyFilters) {
+                    const { key, operator, val } = filter;
+                    if (key === 'type') {
+                        isMatch = isMatch && (n.type === val);
+                    } else if (key === 'model') {
+                        if (n.type === 'model') {
+                            isMatch = isMatch && n.title.toLowerCase().includes(val);
+                        } else if (n.type === 'excavation') {
+                            // Check if this excavation belongs to the matching model
+                            const modelId = `model-${val.replace(/[^a-z0-9]/g, '-')}`;
+                            const isConnected = originalLinks.some(l =>
+                                (l.source === modelId || l.source.id === modelId) &&
+                                (l.target === n.id || l.target.id === n.id)
+                            );
+                            isMatch = isMatch && isConnected;
+                        } else {
+                            isMatch = false;
+                        }
+                    } else if (key === 'synergy') {
+                        if (n.type === 'excavation' && n.scorecard && n.scorecard['AI Synergy']) {
+                            const score = n.scorecard['AI Synergy'].numeric;
+                            if (val === 'high') {
+                                isMatch = isMatch && (score >= 4);
+                            } else if (val === 'low') {
+                                isMatch = isMatch && (score <= 2);
+                            } else {
+                                const num = parseInt(val);
+                                if (!isNaN(num)) isMatch = isMatch && compareValues(score, operator, num);
+                            }
+                        } else {
+                            isMatch = false; // Category/Model/Root nodes don't have scorecard
+                        }
+                    } else if (key === 'potential') {
+                        if (n.type === 'excavation' && n.scorecard && n.scorecard['Modern Potential']) {
+                            const score = n.scorecard['Modern Potential'].numeric;
+                            if (val === 'high') {
+                                isMatch = isMatch && (score >= 4);
+                            } else if (val === 'low') {
+                                isMatch = isMatch && (score <= 2);
+                            } else {
+                                const num = parseInt(val);
+                                if (!isNaN(num)) isMatch = isMatch && compareValues(score, operator, num);
+                            }
+                        } else {
+                            isMatch = false;
+                        }
+                    } else if (key === 'stars' || key === 'score') {
+                        if (n.type === 'excavation' && n.scorecard) {
+                            let sum = 0, cnt = 0;
+                            Object.keys(n.scorecard).forEach(k => { sum += n.scorecard[k].numeric; cnt++; });
+                            const avg = cnt > 0 ? (sum / cnt) : 0;
+                            const num = parseFloat(val);
+                            if (!isNaN(num)) isMatch = isMatch && compareValues(avg, operator, num);
+                        } else {
+                            isMatch = false;
+                        }
+                    }
+                }
+
+                // 2. Evaluate free-text keywords (plainWords)
+                for (let word of plainWords) {
+                    const textMatch = n.title.toLowerCase().includes(word) ||
+                                      (n.summary && n.summary.toLowerCase().includes(word)) ||
+                                      (n.modern_relevance && n.modern_relevance.toLowerCase().includes(word)) ||
+                                      (n.id.toLowerCase().includes(word));
+                    isMatch = isMatch && textMatch;
+                }
 
                 if (isMatch) {
+                    matchedNodeIds.add(n.id);
                     g.select('circle').classed('node-dimmed', false).attr('stroke', '#ffffff').attr('r', radiusPalette[n.type] + 3);
                     g.select('.node-label').style('opacity', 1).attr('fill', '#ffffff');
                 } else {
@@ -934,20 +1075,23 @@
                 }
             });
 
-            // Highlight connections for matching paths
+            // Dim links, highlight only matching paths
             linkElement.classed('link-dimmed', true);
+            linkElement.classed('link-highlighted', false);
+            linkElement.each(function(l) {
+                const s = l.source.id || l.source;
+                const t = l.target.id || l.target;
+                if (matchedNodeIds.has(s) && matchedNodeIds.has(t)) {
+                    d3.select(this).classed('link-dimmed', false).classed('link-highlighted', true);
+                }
+            });
 
-            // Hide non-matching excavations in sidebar
+            // Filter sidebar list
             const excavations = document.getElementById('excavations-list').children;
             let matchCount = 0;
             for (let item of excavations) {
                 const id = item.id.replace('sidebar-item-', '');
-                const node = activeNodes.find(n => n.id === id);
-                const text = item.textContent.toLowerCase();
-                const nodeMatch = text.includes(cleanQuery) ||
-                                  (node && node.summary && node.summary.toLowerCase().includes(cleanQuery));
-
-                if (nodeMatch) {
+                if (matchedNodeIds.has(id)) {
                     item.classList.remove('hidden');
                     matchCount++;
                 } else {
@@ -955,6 +1099,41 @@
                 }
             }
             document.getElementById('excavation-count').textContent = matchCount;
+        }
+
+        function compareValues(score, operator, target) {
+            if (operator === '>=') return score >= target;
+            if (operator === '<=') return score <= target;
+            if (operator === '>') return score > target;
+            if (operator === '<') return score < target;
+            return score === target;
+        }
+
+        function renderFilterChips(keyFilters, plainWords) {
+            const container = document.getElementById('active-filters-container');
+            const chipsBox = document.getElementById('active-filters-chips');
+            chipsBox.innerHTML = '';
+
+            if (keyFilters.length === 0 && plainWords.length === 0) {
+                container.classList.add('hidden');
+                return;
+            }
+
+            container.classList.remove('hidden');
+
+            keyFilters.forEach(f => {
+                const span = document.createElement('span');
+                span.className = "px-2 py-0.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-full text-[9px] font-mono flex items-center gap-1";
+                span.innerHTML = `<span>${f.key}:${f.operator}${f.val}</span>`;
+                chipsBox.appendChild(span);
+            });
+
+            plainWords.forEach(w => {
+                const span = document.createElement('span');
+                span.className = "px-2 py-0.5 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-[9px] font-mono flex items-center gap-1";
+                span.innerHTML = `<span>keyword:${w}</span>`;
+                chipsBox.appendChild(span);
+            });
         }
 
         function resetSearchHighlight() {
@@ -1041,6 +1220,8 @@
         function clearFilters() {
             document.getElementById('clear-filter-btn').classList.add('hidden');
             document.getElementById('search-input').value = '';
+            const container = document.getElementById('active-filters-container');
+            if (container) container.classList.add('hidden');
             resetSearchHighlight();
         }
 

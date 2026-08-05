@@ -130,6 +130,21 @@ To elevate the repository from a decoupled database into a highly cohesive, non-
 
 ---
 
+# Phase VIII — Semantic Navigation & Browser-Native Hardware-in-the-Loop Co-Simulation ✅ (Complete)
+
+To transition our comparative research network into a dynamically queryable and physically interactive environment, Phase VIII introduces advanced browser-native semantic routing, interactive hardware panels, and cycle-accurate co-simulation visualization.
+
+### 1. Multi-Dimensional Semantic Query Engine
+- [x] **Smart Query Console**: Implemented an advanced client-side semantic query and constraint parser inside `explorer.html`, allowing readers to execute queries like `synergy:high potential:high ternary` or `type:excavation stars:>=4`.
+- [x] **Relational Highlighting**: Highlights shortest connection paths and dims non-matching clusters on the D3.js force-directed knowledge graph based on query constraints, keeping navigational results highly relational.
+
+### 2. Browser-Native Hardware-in-the-Loop Sandbox
+- [x] **Interactive Peripherals Board**: Integrated physical sliders and fault-injection toggle switches in `playground.html` representing continuous sensor feeds, active-low reset lines, and bounds protection tags.
+- [x] **Live Digital Logic Analyzer**: Engineered a canvas-based waveform viewer displaying synchronized transitions of `CLK`, `SEN_TRIG`, `LOGIC_DEC`, `CSP_RDV`, `DF_OP`, `EDGE_WR`, and `HW_EXC` logic signals.
+- [x] **Inter-Paradigm Fault Injection**: Toggles like `FORCE_EXCEPTION` dynamically override soft-core bounds rules to manually trigger hardware capability violations or ternary carry overflows live in the Wasm sandbox.
+
+---
+
 # Long-Term Vision
 
 Digital Archaeology seeks to become the premier comparative reference for abandoned and underexplored computing paradigms.
