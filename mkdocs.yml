@@ -110,6 +110,7 @@ nav:
     - Architectural Distillation: synthesis/architectural-distillation.md
     - Capability-Based Security: synthesis/capability-based-security.md
     - Compiler-Hardware Co-Design: synthesis/compiler-hardware-co-design.md
+    - The Evolution of Coordination Abstractions: synthesis/evolution-of-coordination-abstractions.md
     - Return of Spatial Computing: synthesis/return-of-spatial-computing.md
   - Modern Relevance:
     - AI & Hardware Bottlenecks: modern-relevance/ai.md
