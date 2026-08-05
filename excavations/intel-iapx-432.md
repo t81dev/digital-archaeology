@@ -82,12 +82,16 @@ In a world concerned with memory safety vulnerabilities and secure execution, th
 
 ---
 
-## Related Technologies
+## Related Technologies & Lineages
 
-- Capability Systems
-- Lisp Machines (high-level architecture support)
-- Plan 9 and Inferno (clean system design)
-- Stack Machines (stack-oriented execution)
+* **[Capability Systems](capability-systems.md)** — Core lineage of unforgeable token-based hardware and operating systems security.
+* **[Lisp Machines](lisp-machines.md)** — High-level language and dynamic typing runtime hardware-software co-design.
+* **[Stack Machines](stack-machines.md)** — Stack-oriented evaluation models and compact instructions.
+* **[Burroughs Large Systems](burroughs-large-systems.md)** — Landmark descriptor-based memory safety and HLL integration.
+* **[Capability-Based Security](../synthesis/capability-based-security.md)** — The modern revival of unforgeable bounds and permissions in CHERI and ARM MTE.
+* **[Economic Failures](../patterns/economic-failures.md)** — Why technically superior concepts fail due to silicon yields and business models.
+* **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)** — How legacy assembly APIs and standard minicomputers crushed complex custom processors.
+* **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)** — Powerful object safety models integrated directly into instruction sets.
 
 ---
 

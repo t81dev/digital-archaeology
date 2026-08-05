@@ -24,11 +24,12 @@ This is fundamentally different from traditional access control lists (ACLs), wh
 
 Capability systems appeared in several ambitious projects:
 
-- **Multics** (1960s) — Early segmentation and ring-based protection
-- **Burroughs Large Systems** — Descriptor-based memory protection
+- **[Multics](../excavations/multics.md)** (1960s) — Early segmentation and ring-based protection
+- **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)** — Descriptor-based memory protection
 - **CAP Computer** and **HYDRA** (1970s) — Pure capability architectures
 - **KeyKOS** and **EROS** (1980s–90s) — High-performance capability operating systems
-- **Intel iAPX 432** — Attempted to bring capabilities into mainstream microprocessors
+- **[Intel iAPX 432](../excavations/intel-iapx-432.md)** — Attempted to bring capabilities into mainstream microprocessors
+- **[Capability Systems](../excavations/capability-systems.md)** — Hardware-enforced compartmentalization and unforgeable rights
 
 Most of these efforts failed commercially due to performance overhead, complexity, and strong ecosystem lock-in around simpler permission models.
 
@@ -92,10 +93,10 @@ The threat landscape and system complexity have finally caught up with the abstr
 
 The return of capability-based security suggests that several other “forgotten” abstractions in this repository may also be due for reconsideration:
 
-- Fine-grained concurrency models (Transputers/Occam)
-- High-level language/hardware integration (Lisp Machines, Burroughs)
-- Alternative number systems for efficiency
-- Pure dataflow execution for AI workloads
+- Fine-grained concurrency models (**[Transputers](../excavations/transputers.md)** / **[Occam](../excavations/occam.md)**)
+- High-level language/hardware integration (**[Lisp Machines](../excavations/lisp-machines.md)**, **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)**)
+- Alternative number systems for efficiency (**[Balanced Ternary](../excavations/balanced-ternary.md)**, **[Stochastic Computing](../excavations/stochastic-computing.md)**)
+- Pure dataflow execution for AI workloads (**[Dataflow Computing](../excavations/dataflow-computing.md)**)
 
 We are entering an era where **security, energy efficiency, and specialization** are creating openings for many previously sidelined ideas.
 
@@ -105,6 +106,6 @@ Capabilities are not just coming back — they are becoming infrastructure.
 
 **Last updated**: July 27, 2026
 
-**Related Excavations**: Capability Systems, Burroughs Large Systems, Intel iAPX 432, Multics
+**Related Excavations**: **[Capability Systems](../excavations/capability-systems.md)**, **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)**, **[Intel iAPX 432](../excavations/intel-iapx-432.md)**, **[Multics](../excavations/multics.md)**
 
-**Related Patterns**: Recurring Ideas, Forgotten Abstractions, Economic Failures, Ecosystem Lock-In
+**Related Patterns**: **[Recurring Ideas](../patterns/recurring-ideas.md)**, **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)**, **[Economic Failures](../patterns/economic-failures.md)**, **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)**

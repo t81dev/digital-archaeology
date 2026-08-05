@@ -136,6 +136,19 @@ As modern silicon scaling hits physical limits—specifically the **Von Neumann 
 
 ---
 
+## Related Technologies & Lineages
+
+* **[Dataflow Computing](dataflow-computing.md)** — Shared lineage in data-driven, asynchronous execution models.
+* **[Analog Computing](analog-computing.md)** — Solving continuous systems through physical behaviors.
+* **[Connection Machine](connection-machine.md)** — Early massive SIMD parallelism using fine-grained processing nodes.
+* **[Stochastic Computing](stochastic-computing.md)** — Probabilistic, single-gate computation models.
+* **[The Return of Spatial Computing](../synthesis/return-of-spatial-computing.md)** — The modern migration of systolic, vector, and content-addressable computing into AI tensor accelerators.
+* **[Alternative Mathematical Execution Paradigms](../synthesis/alternative-mathematical-execution-paradigms.md)** — How content-addressable computing, balanced ternary, and stochastic bitstreams offer non-von Neumann execution.
+* **[Architectural Distillation](../synthesis/architectural-distillation.md)** — How lost paradigms leave behind enduring abstractions (like associative matching in modern high-speed TCAM internet routers and database PIM search engines).
+* **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)** — Elegant paradigms (like associative content-addressing) that faded but retain significant utility.
+
+---
+
 ## Scorecard
 
 | Category | Rating | Rationale |

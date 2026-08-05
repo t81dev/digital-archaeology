@@ -116,6 +116,16 @@ While dedicated graph-reduction processors are no longer built, the abstractions
 
 ---
 
+## Related Technologies & Lineages
+
+* **[Lisp Machines](lisp-machines.md)** — Hardware designed around Lisp dynamic environments, dynamic typing, and automated memory management.
+* **[Dataflow Computing](dataflow-computing.md)** — Data-driven executing units triggering dynamically compared to demand-driven graph execution.
+* **[Compiler-Hardware Co-Design](../synthesis/compiler-hardware-co-design.md)** — The ultimate hardware-compiler partnership, executing lazy expressions directly on an active silicon heap.
+* **[Architectural Distillation](../synthesis/architectural-distillation.md)** — How graph reduction machines left behind STG compiler mechanisms and reference-counting GC abstractions.
+* **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)** — Evaluating pure mathematical expressions natively in silicon without sequential environment registers.
+
+---
+
 ## Scorecard
 
 | Category | Rating | Rationale |
