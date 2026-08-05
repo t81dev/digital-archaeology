@@ -13,6 +13,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Plan 9](excavations/plan-9.md)
 
 ### A
+* **Active Messages**: A communication paradigm for high-performance parallel systems where each message packet contains in its header the address of an execution handler. Upon arrival, the handler executes immediately using the packet's payload as arguments, bypassing operating system scheduling and context-switching overhead.
+  * *See excavation*: [The MIT J-Machine](excavations/j-machine.md)
 * **Actor Model**: A mathematical model of concurrent computation where the universal primitive is the *actor*. Actors can make local decisions, create more actors, send messages, and designate how to respond to the next message. Unlike the Von Neumann model, communication is asynchronous and there is no shared state.
   * *See excavation*: [Smalltalk](excavations/smalltalk.md)
 * **Analog Computing**: Computation that utilizes continuous physical phenomena (e.g., electrical voltage, mechanical rotation, fluid flow) to model the problem being solved, bypassing the discretization of binary systems.
@@ -59,6 +61,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)
 * **Graph Reduction Machine**: A non-von Neumann computer architecture designed to natively execute pure functional programming languages. Instead of sequentially executing compiled assembly instructions, it represents programs as directed acyclic graphs in memory and executes them by repeatedly simplifying and rewriting reducible expressions (redexes) in-place.
   * *See excavation*: [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md)
+
+### J
+* **J-Machine (Jellybean Machine)**: A fine-grained, massively parallel computer architecture that integrated a 3D wormhole-routing network, on-chip SRAM, and a message-driven processor on a single monolithic die to support low-latency active messages.
+  * *See excavation*: [The MIT J-Machine](excavations/j-machine.md)
 
 ### L
 * **Landauer's Limit**: A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \ln 2$).
@@ -172,7 +178,7 @@ These models depart from standard sequential, instruction-pointer-driven (von Ne
 * **Zero-Operand Stack Evaluation**: Instructions operate implicitly on a hardware evaluation stack, eliminating register specifiers from the instruction set encoding and simplifying compiler code generation.
   * *Example*: [Stack Machines](excavations/stack-machines.md), [Burroughs Large Systems](excavations/burroughs-large-systems.md)
 * **Spatial & Grid Routing**: Processing is mapped onto physical coordinate grids of simple ALUs. Software is compiled as spatial configurations and data routing pathways rather than sequential code.
-  * *Example*: [Systolic Arrays](excavations/systolic-arrays.md), [Cellular Automata Hardware](excavations/cellular-automata-hardware.md)
+  * *Example*: [Systolic Arrays](excavations/systolic-arrays.md), [Cellular Automata Hardware](excavations/cellular-automata-hardware.md), [The MIT J-Machine](excavations/j-machine.md)
 * **Continuous Analog Scaling**: Solving mathematical systems through continuous physical interactions (voltages, light waves, chemical concentrations) rather than discrete digital clock cycles.
   * *Example*: [Analog Computing](excavations/analog-computing.md), [Optical Computing](excavations/optical-computing.md), [Molecular & Biocomputing](excavations/molecular-biocomputing.md), [Stochastic Computing](excavations/stochastic-computing.md)
 * **Self-Timed & Asynchronous Control**: Operations and pipeline stages synchronize locally via request-acknowledge handshake signals, executing at the natural physical speed of physical gates rather than relying on a global clock tree.
@@ -187,7 +193,7 @@ These abstractions define how memory is organized, addressed, and secured agains
 * **Object Capabilities & Descriptors**: Moving access control from software operating system layers to hardware unforgeable tokens. If a processor does not possess the physical capability token, it is physically impossible to construct the memory address.
   * *Example*: [Capability Systems](excavations/capability-systems.md), [Intel iAPX 432](excavations/intel-iapx-432.md)
 * **Tagged Memory**: Enforcing data type safety in hardware. An integer can never be executed as instruction code, and a data word can never be treated as a pointer, eliminating entire classes of exploit vectors.
-  * *Example*: [Lisp Machines](excavations/lisp-machines.md), [Burroughs Large Systems](excavations/burroughs-large-systems.md)
+  * *Example*: [Lisp Machines](excavations/lisp-machines.md), [Burroughs Large Systems](excavations/burroughs-large-systems.md), [The MIT J-Machine](excavations/j-machine.md)
 * **Single-Level Store (SLS)**: Removing the mental and structural wall between volatile memory (RAM) and non-volatile storage (Disk). Everything exists inside a singular, persistent, universally addressable space.
   * *Example*: [Multics](excavations/multics.md)
 * **Hierarchical Ring Protection**: Defining access control as concentric rings of privilege. Inner rings (e.g., Ring 0) have full access, while outer rings must cross formal gates to request services, preventing privilege escalation.
@@ -200,7 +206,7 @@ These abstractions define how parallel computational threads or systems coordina
 * **Synchronous CSP Channels**: Processes synchronize and communicate exclusively via unbuffered, blocking channels. This forces deterministic execution and prevents race conditions without relying on locks or semaphores.
   * *Example*: [Transputers](excavations/transputers.md), [Occam](excavations/occam.md)
 * **Asynchronous Actor Messaging**: Independent processes that communicate exclusively via dynamic, asynchronous messages, avoiding shared-state corruption and making distributed computing identical to local computing.
-  * *Example*: [Smalltalk](excavations/smalltalk.md)
+  * *Example*: [Smalltalk](excavations/smalltalk.md), [The MIT J-Machine](excavations/j-machine.md)
 * **Distributed Service Protocols (Everything is a File/Service)**: Standardizing all system resources (CPUs, screens, networks, configurations) under a unified, simple representation protocol (9P) accessed over a network.
   * *Example*: [Plan 9](excavations/plan-9.md), [Inferno](excavations/inferno.md)
 * **Massively Parallel SIMD Hypercubes**: Structuring tens of thousands of single-bit processors in a hypercube network, executing operations in lock-step to solve massive-scale parallel data problems.

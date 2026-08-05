@@ -11,6 +11,10 @@
       "definition": "A distributed resource sharing protocol designed for Plan 9 where every system resource (including files, devices, memory, and processes) is represented as a file and accessed via a standardized, network-transparent set of message transactions."
     },
     {
+      "term": "Active Messages",
+      "definition": "A communication paradigm for high-performance parallel systems where each message packet contains in its header the address of an execution handler. Upon arrival, the handler executes immediately using the packet's payload as arguments, bypassing operating system scheduling and context-switching overhead."
+    },
+    {
       "term": "Actor Model",
       "definition": "A mathematical model of concurrent computation where the universal primitive is the *actor*. Actors can make local decisions, create more actors, send messages, and designate how to respond to the next message. Unlike the Von Neumann model, communication is asynchronous and there is no shared state."
     },
@@ -81,6 +85,10 @@
     {
       "term": "Graph Reduction Machine",
       "definition": "A non-von Neumann computer architecture designed to natively execute pure functional programming languages. Instead of sequentially executing compiled assembly instructions, it represents programs as directed acyclic graphs in memory and executes them by repeatedly simplifying and rewriting reducible expressions (redexes) in-place."
+    },
+    {
+      "term": "J-Machine (Jellybean Machine)",
+      "definition": "A fine-grained, massively parallel computer architecture that integrated a 3D wormhole-routing network, on-chip SRAM, and a message-driven processor on a single monolithic die to support low-latency active messages."
     },
     {
       "term": "Landauer's Limit",
@@ -279,6 +287,7 @@
           "plan-9",
           "smalltalk",
           "stack-machines",
+          "j-machine",
           "transputers"
         ]
       },
@@ -305,6 +314,7 @@
         "mapped_excavations": [
           "cellular-automata-hardware",
           "systolic-arrays",
+          "j-machine",
           "wafer-scale-integration"
         ]
       },
@@ -374,7 +384,8 @@
           "burroughs-large-systems",
           "graph-reduction-machines",
           "lisp-machines",
-          "intel-iapx-432"
+          "intel-iapx-432",
+          "j-machine"
         ]
       },
       "Associative / Content-Addressable Memory": {
@@ -426,7 +437,8 @@
         "mapped_excavations": [
           "beos-haiku",
           "plan-9",
-          "inferno"
+          "inferno",
+          "j-machine"
         ]
       },
       "Object-Oriented Dynamic Messaging": {
@@ -1024,6 +1036,52 @@
       "references": []
     },
     {
+      "id": "j-machine",
+      "title": "The MIT J-Machine",
+      "path": "excavations/j-machine.md",
+      "summary": "The J-Machine (Jellybean Machine) was a landmark, fine-grained, massively parallel computer architecture developed in the late 1980s and early 1990s by the Concurrent VLSI Architecture Group at MIT, led by parallel-computing pioneer **William Dally**, in collaboration with Intel. \n\nThe machine was called a \"jellybean\" machine because its design philosophy argued that high-performance computing should not be built from expensive, specialized processors, but from massive arrays of cheap, single-chip commodity nodes—like jellybeans—that integrated a processor, memory, and a fast routing network on a single die. \n\nThe J-Machine's fundamental innovation was its **Message-Driven Processor (MDP)**. Rather than treating communication as a high-latency software OS intervention, the MDP implemented communication mechanisms directly in the silicon. Through **Active Messages**, a message arrival instantly triggered the creation of a hardware-scheduled task and executed the message's target code in a few clock cycles. Coupled with a 3D **wormhole-routing** network, the J-Machine operated as a hardware-enforced, single-level global object namespace, eliminating the distinction between local and remote object references.\n\nUltimately eclipsed by the rapid performance scaling of standard commodity workstation clusters (Beowulf clusters) and the complexity of partitioning software compilers, the J-Machine's architectural concepts live on as the primary infrastructure of modern **Networks-on-Chip (NoCs)**, GPU interconnects, and exascale AI accelerators like the Cerebras Wafer-Scale Engine.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Formulated the concept of Active Messages, wormhole routing, and early Network-on-Chip integration."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Successfully integrated processor, SRAM, routing, and message handlers in a single chip (MDP)."
+        },
+        "Commercial Success": {
+          "stars": "★☆☆☆☆",
+          "numeric": 1,
+          "rationale": "Confined to academic prototypes; failed to compete with the commodity PC/workstation clusters."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Directly underpins modern AI tensor cores, many-core GPUs, wafer-scale processors, and distributed actor systems."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Essential for modern distributed LLM training, where low-overhead, asynchronous state routing is the primary bottleneck."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Simulating a multi-node message-driven 3D routing fabric requires custom asynchronous parallel simulators."
+        }
+      },
+      "modern_relevance": "As silicon scaling reaches its physical limits and the **Von Neumann memory wall** chokes general-purpose performance, the core principles of the J-Machine are undergoing a major renaissance:\n\n* **Networks-on-Chip (NoCs) in Many-Core Chips:** Modern GPUs, Google TPUs, and multi-core CPUs are no longer structured as a single monolithic processor. Instead, they are composed of a grid of independent execution cores connected via a highly optimized, on-silicon 2D/3D packet-routing network—structurally identical to the J-Machine’s MDP integration.\n* **Cerebras Wafer-Scale Engine (WSE):** The WSE is the ultimate physical realization of the \"jellybean\" philosophy. By building hundreds of thousands of AI-optimized cores on a single, uncut silicon wafer, Cerebras avoids chip packaging and PCB traces entirely. Cores communicate asynchronously via a fine-grained, localized spatial routing fabric that echoes the J-Machine's wormhole-routing network.\n* **Distributed Actor Frameworks (Ray & Akka):** Modern distributed computing workloads (such as scaling large language models across thousands of GPUs) utilize software-implemented Active Messages. In **Ray**, tasks and objects are routed dynamically across a cluster using global object identifiers and executed asynchronously, mirroring the J-Machine's execution model.\n* **Neuromorphic Spike Routing:** Spiking neuromorphic architectures (like Intel Loihi) route events (spikes) across distributed, asynchronous neural cores using on-chip routers, inheriting the J-Machine's fine-grained, event-driven message dispatch mechanisms.",
+      "references": [
+        "Dally, W. J., et al. (1989). *The J-Machine: A fine-grain concurrent computer*. In Proceedings of the IFIP 11th World Computer Congress, 1147-1153.",
+        "Dally, W. J., & Wills, D. S. (1989). *Universal mechanisms for concurrency*. In Proceedings of the 16th Annual International Symposium on Computer Architecture (ISCA), 19-26.",
+        "von Eicken, T., Culler, D. E., Goldstein, S. C., & Schauser, K. E. (1992). *Active messages: a mechanism for integrated communication and computation*. In Proceedings of the 19th Annual International Symposium on Computer Architecture (ISCA), 256-266.",
+        "Noakes, M. D., Wallach, D. A., & Dally, W. J. (1993). *The J-Machine multicomputer: Architecture and multicomputer performance*. In Proceedings of the 20th Annual International Symposium on Computer Architecture (ISCA), 224-235.",
+        "Dally, W. J. (1990). *Network and Node Architecture for Massively Parallel Computers*. In Organick, E. I. (Ed.), *New Frontiers in Computer Architecture*. Prentice Hall."
+      ]
+    },
+    {
       "id": "linda-tuple-spaces",
       "title": "Linda Tuple Spaces (Generative Communication)",
       "path": "excavations/linda-tuple-spaces.md",
@@ -1531,7 +1589,7 @@
       "id": "stochastic-computing",
       "title": "Stochastic Computing",
       "path": "excavations/stochastic-computing.md",
-      "summary": "Stochastic Computing (SC) is a computing paradigm that represents continuous real numbers as randomized binary bitstreams. Instead of encoding numbers into positional binary words (such as standard IEEE 754 float or integer representations), SC represents a value $x$ as the probability $P(X=1) = x$ of a \"1\" bit appearing in an independent, randomized sequence of bits. \n\nThis transformation swaps spatial and structural complexity for temporal latency. In the stochastic domain, complex arithmetic operations collapse into extremely simple digital logic gates: a multiplier is implemented as a single two-input **AND** gate (unipolar representation) or an **XNOR** gate (bipolar representation), and addition is performed via a simple **Multiplexer (MUX)**.\n\nIntroduced in the mid-1960s by Brian Gaines, Stochastic Computing offered an elegant bridge between the continuous, noise-tolerant qualities of analog computers and the discrete, reproducible advantages of digital electronics. While the exponential scaling of execution time sidelined SC during the Silicon Boom and Moore's Law era, it is seeing a spectacular revival today in the fields of deep neural network (DNN) accelerators, processing-in-memory (PIM), neuromorphic hardware, and fault-tolerant computing for deep-space and high-radiation environments.",
+      "summary": "Stochastic Computing (SC) is a computing paradigm that represents continuous real numbers as randomized binary bitstreams. Instead of encoding numbers into positional binary words (such as standard IEEE 754 float or integer representations), SC represents a value $x$ as the probability $P(X=1) = x$ of a \"1\" bit appearing in an independent, randomized sequence of bits.\n\nThis transformation swaps spatial and structural complexity for temporal latency. In the stochastic domain, complex arithmetic operations collapse into extremely simple digital logic gates: a multiplier is implemented as a single two-input **AND** gate (unipolar representation) or an **XNOR** gate (bipolar representation), and addition is performed via a simple **Multiplexer (MUX)**.\n\nIntroduced in the mid-1960s by Brian Gaines, Stochastic Computing offered an elegant bridge between the continuous, noise-tolerant qualities of analog computers and the discrete, reproducible advantages of digital electronics. While the exponential scaling of execution time sidelined SC during the Silicon Boom and Moore's Law era, it is seeing a spectacular revival today in the fields of deep neural network (DNN) accelerators, processing-in-memory (PIM), neuromorphic hardware, and fault-tolerant computing for deep-space and high-radiation environments.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
