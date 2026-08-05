@@ -1,5 +1,11 @@
 import pytest
-from dataflow_sim import DataflowEngine, Node, Token
+from dataflow_sim import (
+    DataflowEngine,
+    Node,
+    Token,
+    run_vector_dot_product,
+    run_matrix_multiply_2x2,
+)
 
 def test_token_creation():
     t = Token(value=42, dest_node=5, port='left', tag=1)
@@ -82,3 +88,31 @@ def test_tag_incrementing():
     engine.run_until_empty()
 
     assert any("FINAL OUTPUT: 123 at Node 2 (Tag: 6)" in log for log in engine.execution_log)
+
+
+# ==========================================
+# Benchmark tests
+# ==========================================
+
+def test_vector_dot_product_benchmark():
+    v1 = [1, 2, 3]
+    v2 = [4, 5, 6]
+    # Expected: 1*4 + 2*5 + 3*6 = 4 + 10 + 18 = 32
+    res, stats = run_vector_dot_product(v1, v2)
+    assert res == 32
+    assert stats["tokens_injected"] == 11 # 6 inputs + 3 (MUL outputs) + 2 (ADD outputs)
+    assert stats["tokens_matched"] == 5   # 3 MUL nodes matched, 2 ADD nodes matched
+
+
+def test_matrix_multiply_2x2_benchmark():
+    m1 = [[2, 3], [4, 5]]
+    m2 = [[1, 2], [3, 4]]
+    # Expected:
+    # r00 = 2*1 + 3*3 = 11
+    # r01 = 2*2 + 3*4 = 16
+    # r10 = 4*1 + 5*3 = 19
+    # r11 = 4*2 + 5*4 = 28
+    res, stats = run_matrix_multiply_2x2(m1, m2)
+    assert res == [[11, 16], [19, 28]]
+    assert stats["tokens_matched"] == 12  # 8 multiplications + 4 additions matched
+    assert stats["cycles_steps"] > 0
