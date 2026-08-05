@@ -131,6 +131,17 @@ While the original Linda implementations faded, the core abstraction of generati
 
 ---
 
+## Related Technologies & Lineages
+
+* **[Occam](occam.md)** & **[Transputers](transputers.md)** — Channel-based synchronous CSP messaging concurrency paradigms.
+* **[Smalltalk](smalltalk.md)** — Dynamic object-oriented environments and asynchronous actor messaging.
+* **[Plan 9](plan-9.md)** — Distributed filesystem-based resource coordination protocols.
+* **[The Evolution of Coordination Abstractions](../synthesis/evolution-of-coordination-abstractions.md)** — The direct comparative essay tracing coordination models from shared memory to decoupled blackboards and tuple spaces.
+* **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)** — Sidelined abstractions that retain significant power under modern constraints.
+* **[Constraint Migration](../patterns/constraint-migration.md)** — How cloud-scale serverless and multi-agent AI blackboards have resurrected anonymous generative communication.
+
+---
+
 ## Scorecard
 
 | Category | Rating | Rationale |

@@ -36,32 +36,32 @@ Modern Reintegration (often hybridized)
 
 ## Examples from the Repository
 
-### Dataflow Computing
-- **Original**: Dedicated dataflow machines
-- **What Survived**: Computation graphs, dependency-driven execution, streaming
+### [Dataflow Computing](../excavations/dataflow-computing.md)
+- **Original**: Dedicated dataflow machines and **[EDGE Architecture](../excavations/edge-architecture.md)**
+- **What Survived**: Computation graphs, dependency-driven execution, streaming (see **[The Return of Spatial Computing](../synthesis/return-of-spatial-computing.md)**)
 - **Modern Forms**: TensorFlow/PyTorch graphs, GPU execution models, AI accelerators
 
-### Lisp Machines
-- **Original**: Tagged hardware for symbolic computing
-- **What Survived**: Garbage collection, dynamic typing, interactive environments
+### [Lisp Machines](../excavations/lisp-machines.md)
+- **Original**: Tagged hardware for symbolic computing (see **[Symbolic AI](../excavations/symbolic-ai.md)**)
+- **What Survived**: Garbage collection, dynamic typing, interactive environments (see **[Compiler-Hardware Co-Design](../synthesis/compiler-hardware-co-design.md)**)
 - **Modern Forms**: Managed runtimes, REPL-driven development, neuro-symbolic systems
 
-### Transputers & Occam
-- **Original**: Hardware message-passing with CSP
+### [Transputers](../excavations/transputers.md) & [Occam](../excavations/occam.md)
+- **Original**: Hardware message-passing with CSP (see **[The Evolution of Coordination Abstractions](../synthesis/evolution-of-coordination-abstractions.md)**)
 - **What Survived**: Channels, lightweight concurrency primitives
 - **Modern Forms**: Go channels, Erlang actors, distributed systems
 
-### Capability Systems & iAPX 432
-- **Original**: Fine-grained, unforgeable rights in hardware/OS
-- **What Survived**: Capability-based security, memory tagging
+### [Capability Systems](../excavations/capability-systems.md) & [Intel iAPX 432](../excavations/intel-iapx-432.md)
+- **Original**: Fine-grained, unforgeable rights in hardware/OS and **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)** / **[Multics](../excavations/multics.md)**
+- **What Survived**: Capability-based security, memory tagging (see **[Capability-Based Security](../synthesis/capability-based-security.md)**)
 - **Modern Forms**: CHERI, ARM MTE, secure compartmentalization
 
-### Balanced Ternary
+### [Balanced Ternary](../excavations/balanced-ternary.md)
 - **Original**: Symmetric ternary hardware
-- **What Survived**: Alternative number system thinking
+- **What Survived**: Alternative number system thinking and **[Stochastic Computing](../excavations/stochastic-computing.md)** / **[Alternative Mathematical Execution Paradigms](../synthesis/alternative-mathematical-execution-paradigms.md)**
 - **Modern Forms**: Posits, mixed-radix, logarithmic formats in AI
 
-*(Similar distillation visible in Vector Supercomputing → SIMD/tensor cores, Plan 9 → modern distributed resource models, etc.)*
+*(Similar distillation visible in **[Vector Supercomputing](../excavations/vector-supercomputing.md)** $\rightarrow$ SIMD/tensor cores, **[Plan 9](../excavations/plan-9.md)** $\rightarrow$ modern distributed resource models, **[Associative Processors](../excavations/associative-processors.md)** $\rightarrow$ high-speed TCAM internet routers and database PIM search engines, etc.)*
 
 ---
 

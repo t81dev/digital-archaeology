@@ -30,11 +30,12 @@ They stand in contrast to traditional control-flow processors that rely on compl
 
 Several ambitious spatial systems were developed:
 
-- **Connection Machine** — Fine-grained SIMD with hypercube interconnect
-- **Systolic Arrays** — Rhythmic, pipelined grids optimized for matrix operations
-- **Transputers** — Massively parallel processors with hardware channels
-- **Vector Supercomputers** (Cray) — Long vector pipelines with high memory bandwidth
-- **Dataflow Machines** — Execution driven purely by data availability
+- **[Connection Machine](../excavations/connection-machine.md)** — Fine-grained SIMD with hypercube interconnect
+- **[Systolic Arrays](../excavations/systolic-arrays.md)** — Rhythmic, pipelined grids optimized for matrix operations
+- **[Transputers](../excavations/transputers.md)** — Massively parallel processors with hardware channels
+- **[Vector Supercomputing](../excavations/vector-supercomputing.md)** (Cray) — Long vector pipelines with high memory bandwidth
+- **[Dataflow Computing](../excavations/dataflow-computing.md)** — Execution driven purely by data availability
+- **[Associative Processors](../excavations/associative-processors.md)** — Content-addressable parallel computation and vertical bit-slicing
 
 Most struggled commercially due to programming difficulty, ecosystem lock-in, and the continued success of general-purpose CPUs.
 
@@ -87,10 +88,10 @@ The economics and constraints that killed these architectures in the 90s have la
 ## Implications
 
 The return of spatial computing suggests that many other “failed” ideas in the repository may also be due for reconsideration:
-- Capability-based protection (security needs)
-- Alternative number systems (precision & efficiency needs)
-- Dataflow execution (AI graph workloads)
-- Reversible and adiabatic logic (energy limits)
+- Capability-based protection (**[Capability Systems](../excavations/capability-systems.md)** / **[Capability-Based Security](../synthesis/capability-based-security.md)**)
+- Alternative number systems (**[Balanced Ternary](../excavations/balanced-ternary.md)**, **[Stochastic Computing](../excavations/stochastic-computing.md)**)
+- Dataflow execution (**[Dataflow Computing](../excavations/dataflow-computing.md)**, **[EDGE Architecture](../excavations/edge-architecture.md)**)
+- Reversible and adiabatic logic (**[Reversible Computing](../excavations/reversible-computing.md)**)
 
 We are entering an era of **architectural pluralism** — not one dominant model, but a collection of specialized, spatially-oriented engines working together.
 
@@ -104,6 +105,6 @@ It is a cycle of distillation, constraint change, and revival.
 
 **Last updated**: July 27, 2026
 
-**Related Excavations**: Connection Machine, Systolic Arrays, Vector Supercomputing, Dataflow Computing, Transputers
+**Related Excavations**: **[Connection Machine](../excavations/connection-machine.md)**, **[Systolic Arrays](../excavations/systolic-arrays.md)**, **[Vector Supercomputing](../excavations/vector-supercomputing.md)**, **[Dataflow Computing](../excavations/dataflow-computing.md)**, **[Transputers](../excavations/transputers.md)**, **[Associative Processors](../excavations/associative-processors.md)**
 
-**Related Patterns**: Recurring Ideas, Forgotten Abstractions, Economic Failures
+**Related Patterns**: **[Recurring Ideas](../patterns/recurring-ideas.md)**, **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)**, **[Economic Failures](../patterns/economic-failures.md)**

@@ -16,11 +16,12 @@ The most powerful modern architectures — especially in AI, GPUs, and domain-sp
 
 Several early systems pushed hard on co-design:
 
-- **Lisp Machines** — Hardware deeply integrated with the language runtime (tagged memory, garbage collection support, dynamic typing).
-- **Burroughs Large Systems** — Designed from the ground up around ALGOL and block-structured programming.
-- **VLIW / EPIC Architectures** (Itanium) — Explicitly gave the compiler control over instruction scheduling and parallelism.
-- **Transputers & Occam** — Hardware channels and CSP concurrency designed together with the programming language.
-- **Systolic Arrays & Vector Machines** — Required specialized "systolic algorithms" and vectorizing compilers.
+- **[Lisp Machines](../excavations/lisp-machines.md)** — Hardware deeply integrated with the language runtime (tagged memory, garbage collection support, dynamic typing).
+- **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)** — Designed from the ground up around ALGOL and block-structured programming.
+- **[VLIW / EPIC Architectures](../excavations/vliw-epic.md)** (Itanium) — Explicitly gave the compiler control over instruction scheduling and parallelism.
+- **[Transputers](../excavations/transputers.md)** & **[Occam](../excavations/occam.md)** — Hardware channels and CSP concurrency designed together with the programming language.
+- **[Systolic Arrays](../excavations/systolic-arrays.md)** & **[Vector Supercomputing](../excavations/vector-supercomputing.md)** — Required specialized "systolic algorithms" and vectorizing compilers.
+- **[Graph Reduction Machines](../excavations/graph-reduction-machines.md)** — Compiled lazy expressions executing directly on custom self-rewriting memory heaps.
 
 Most of these efforts faced significant commercial challenges, often due to ecosystem lock-in and the difficulty of building a full software stack.
 
@@ -79,10 +80,10 @@ Several constraints have shifted:
 
 Compiler-hardware co-design suggests that many other historical ideas may become newly viable:
 
-- Dataflow execution models (if compilers can reliably target them)
-- Capability-based protection (if hardware + compiler enforce it efficiently)
-- Alternative number systems (if compilers can manage precision trade-offs)
-- Spatial and reconfigurable fabrics (if programming models improve)
+- Dataflow execution models (if compilers can reliably target them — see **[Dataflow Computing](../excavations/dataflow-computing.md)** and **[EDGE Architecture](../excavations/edge-architecture.md)**)
+- Capability-based protection (if hardware + compiler enforce it efficiently — see **[Capability-Based Security](../synthesis/capability-based-security.md)** and **[Capability Systems](../excavations/capability-systems.md)**)
+- Alternative number systems (if compilers can manage precision trade-offs — see **[Balanced Ternary](../excavations/balanced-ternary.md)** and **[Stochastic Computing](../excavations/stochastic-computing.md)**)
+- Spatial and reconfigurable fabrics (if programming models improve — see **[The Return of Spatial Computing](../synthesis/return-of-spatial-computing.md)**)
 
 The future of computing will likely be defined less by raw hardware innovation and more by **how well hardware and compilers collaborate**.
 
@@ -92,6 +93,6 @@ The most powerful systems will be those where the boundary between software and 
 
 **Last updated**: July 27, 2026
 
-**Related Excavations**: Lisp Machines, Burroughs Large Systems, VLIW/EPIC Architectures, Systolic Arrays, Transputers
+**Related Excavations**: **[Lisp Machines](../excavations/lisp-machines.md)**, **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)**, **[VLIW / EPIC Architectures](../excavations/vliw-epic.md)**, **[Systolic Arrays](../excavations/systolic-arrays.md)**, **[Transputers](../excavations/transputers.md)**, **[Graph Reduction Machines](../excavations/graph-reduction-machines.md)**
 
-**Related Patterns**: Recurring Ideas, Forgotten Abstractions, Economic Failures
+**Related Patterns**: **[Recurring Ideas](../patterns/recurring-ideas.md)**, **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)**, **[Economic Failures](../patterns/economic-failures.md)**
