@@ -71,6 +71,8 @@ nav:
   - Excavations:
     - Overview: excavations/README.md
     - Analog Computing: excavations/analog-computing.md
+    - Associative Processors: excavations/associative-processors.md
+    - Asynchronous Processors: excavations/asynchronous-processors.md
     - Balanced Ternary: excavations/balanced-ternary.md
     - BeOS & Haiku: excavations/beos-haiku.md
     - Burroughs Large Systems: excavations/burroughs-large-systems.md
@@ -78,9 +80,13 @@ nav:
     - Cellular Automata: excavations/cellular-automata-hardware.md
     - Connection Machine: excavations/connection-machine.md
     - Dataflow Computing: excavations/dataflow-computing.md
+    - Explicit Data Graph Execution (EDGE): excavations/edge-architecture.md
+    - Graph Reduction Machines: excavations/graph-reduction-machines.md
     - Inferno: excavations/inferno.md
     - Intel iAPX 432: excavations/intel-iapx-432.md
+    - MIT J-Machine: excavations/j-machine.md
     - Lisp Machines: excavations/lisp-machines.md
+    - Linda Tuple Spaces: excavations/linda-tuple-spaces.md
     - Molecular Biocomputing: excavations/molecular-biocomputing.md
     - Multics: excavations/multics.md
     - Neuromorphic Hardware: excavations/neuromorphic-hardware.md
@@ -91,6 +97,7 @@ nav:
     - Reversible Computing: excavations/reversible-computing.md
     - Smalltalk: excavations/smalltalk.md
     - Stack Machines: excavations/stack-machines.md
+    - Stochastic Computing: excavations/stochastic-computing.md
     - Superconducting & Cryogenic: excavations/superconducting-cryogenic.md
     - Symbolic AI: excavations/symbolic-ai.md
     - Systolic Arrays: excavations/systolic-arrays.md
