@@ -140,9 +140,9 @@ While discarded for general computing, Analog Computing is making a historic com
 
 ## Related Technologies
 
-* **[Neuromorphic Hardware](https://www.google.com/search?q=neuromorphic-hardware.md):** Utilizes subthreshold analog circuits and continuous temporal dynamics to model biological neural spiking mechanisms.
-* **[Reversible Computing](https://www.google.com/search?q=reversible-computing.md):** Shares a focus on physical energy conservation, utilizing continuous adiabatic charge recovery to bypass thermal limits.
-* **[Mixed-Radix / Alternative Number Systems](https://www.google.com/search?q=../modern-relevance/mixed-radix.md):** Explores non-standard signal encodings to maximize information density per wire.
+* **[Neuromorphic Hardware](neuromorphic-hardware.md):** Utilizes subthreshold analog circuits and continuous temporal dynamics to model biological neural spiking mechanisms.
+* **[Reversible Computing](reversible-computing.md):** Shares a focus on physical energy conservation, utilizing continuous adiabatic charge recovery to bypass thermal limits.
+* **[Mixed-Radix / Alternative Number Systems](../modern-relevance/mixed-radix.md):** Explores non-standard signal encodings to maximize information density per wire.
 
 ---
 

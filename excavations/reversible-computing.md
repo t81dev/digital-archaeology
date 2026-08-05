@@ -127,8 +127,8 @@ As conventional CMOS fabrication approaches 1-nanometer quantum tunneling thresh
 
 ## Related Technologies
 
-* **[Balanced Ternary](https://www.google.com/search?q=balanced-ternary.md):** Alternative non-binary logic system exploring non-standard physical state encodings and arithmetic efficiency.
-* **[Analog Computing](https://www.google.com/search?q=../future/analog-computing.md):** Shares continuous state physical dynamics and energy-efficient computational primitives with adiabatic charge-recovery systems.
+* **[Balanced Ternary](balanced-ternary.md):** Alternative non-binary logic system exploring non-standard physical state encodings and arithmetic efficiency.
+* **[Analog Computing](analog-computing.md):** Shares continuous state physical dynamics and energy-efficient computational primitives with adiabatic charge-recovery systems.
 * **Quantum Gate Models:** Physical realization of reversible unitary operations ($\text{CCNOT}$, $\text{CNOT}$, $\text{Hadamard}$) executed on coherent quantum states.
 
 ---

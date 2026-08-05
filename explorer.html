@@ -100,7 +100,7 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span>Database Loaded: 28 Excavations</span>
+                <span id="loaded-database-text">Database Loaded: -- Excavations</span>
             </div>
             <button onclick="resetVisualization()" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 bg-slate-800 hover:bg-slate-700 border border-gray-700 rounded-lg transition-colors">
                 <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Reset Layout
@@ -148,7 +148,7 @@
                 <div>
                     <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 flex items-center justify-between">
                         <span>Excavations Directory</span>
-                        <span id="excavation-count" class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-gray-300">28</span>
+                        <span id="excavation-count" class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-gray-300">--</span>
                     </h3>
                     <div id="excavations-list" class="space-y-1">
                         <!-- Populated by JavaScript -->
@@ -381,6 +381,10 @@
                     renderSidebar(data);
                     initSimulation();
                     lucide.createIcons();
+
+                    // Update dynamic counts
+                    document.getElementById('loaded-database-text').textContent = `Database Loaded: ${data.excavations.length} Excavations`;
+                    document.getElementById('excavation-count').textContent = data.excavations.length;
                 })
                 .catch(err => {
                     console.error("Failed to fetch knowledge graph:", err);
@@ -509,7 +513,7 @@
             const listContainer = document.getElementById('excavations-list');
             listContainer.innerHTML = '';
 
-            // Render all 28 excavations
+            // Render all excavations
             data.excavations.forEach(ex => {
                 // Calculate average rating to show on list item
                 let avg = 0;
@@ -967,7 +971,7 @@
             for (let item of excavations) {
                 item.classList.remove('hidden');
             }
-            document.getElementById('excavation-count').textContent = '28';
+            document.getElementById('excavation-count').textContent = graphData ? graphData.excavations.length : '--';
         }
 
         // Filtering excavations with extreme ratings

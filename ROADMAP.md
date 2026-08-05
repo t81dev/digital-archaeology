@@ -6,16 +6,16 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 
 # Phase I — Core Excavations ✅ (Complete)
 
-## Architectures & Hardware (17)
-- [x] Analog Computing, Balanced Ternary, Cellular Automata Hardware, Connection Machine, Dataflow Computing, Molecular & Biocomputing, Neuromorphic Hardware, Optical Computing, Reversible Computing, Stack Machines, Stochastic Computing, Superconducting & Cryogenic Microarchitectures, Systolic Arrays, Transputers, Vector Supercomputing, VLIW/EPIC Architectures, Wafer-Scale Integration
+## Architectures & Hardware (21)
+- [x] Analog Computing, Associative Processors, Asynchronous Processors, Balanced Ternary, Cellular Automata Hardware, Connection Machine, Dataflow Computing, Graph Reduction Machines, The MIT J-Machine, Molecular & Biocomputing, Neuromorphic Hardware, Optical Computing, Reversible Computing, Stack Machines, Stochastic Computing, Superconducting & Cryogenic Microarchitectures, Systolic Arrays, Transputers, Vector Supercomputing, VLIW/EPIC Architectures, Wafer-Scale Integration
 
 ## Systems & Operating Environments (9)
 - [x] BeOS / Haiku, Burroughs Large Systems, Capability Systems, Inferno, Intel iAPX 432, Lisp Machines, Multics, Plan 9, Project Xanadu
 
-## Languages & AI Paradigms (3)
-- [x] Occam, Smalltalk, Symbolic AI
+## Languages & AI Paradigms (4)
+- [x] Linda Tuple Spaces, Occam, Smalltalk, Symbolic AI
 
-**Total Excavations**: 28
+**Total Excavations**: 34
 
 ---
 
@@ -66,7 +66,7 @@ We have transitioned from theoretical comparisons to dynamic execution models, i
 
 - [x] [Enhanced bibliography and timelines](timelines/): Categorized reference timelines for [computing history](timelines/computing.md), [hardware milestones](timelines/hardware.md), and [AI development](timelines/ai.md), backed by a comprehensive [bibliography of primary and secondary sources](bibliography/).
 - [x] [Glossary and abstraction taxonomy](GLOSSARY.md): Defined a clear terminology base for 21 historically rich concepts and structured them into a 3-part taxonomy (Execution, Memory, Concurrency).
-- [x] [Comparative indexes (by execution, memory, and concurrency models)](COMPARATIVE_INDEX.md): Constructed dynamic matrices grouping all 28 excavations across different core technical archetypes.
+- [x] [Comparative indexes (by execution, memory, and concurrency models)](COMPARATIVE_INDEX.md): Constructed dynamic matrices grouping all 34 excavations across different core technical archetypes.
 - [x] [Static site / better navigation (future)](INDEX.md): Enhanced repo-wide index and cross-linking as a foundation for future static site generation.
 - [x] [Public essays and "idea revival" case studies](synthesis/): Published synthesis essays including [Architectural Distillation](synthesis/architectural-distillation.md), [The Return of Spatial Computing](synthesis/return-of-spatial-computing.md), [Capability-Based Security](synthesis/capability-based-security.md), and [Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md).
 
@@ -77,7 +77,7 @@ We have transitioned from theoretical comparisons to dynamic execution models, i
 To scale the research initiative and expand from descriptive analysis into active engineering leverage, Phase V focuses on three core pillars: interactive discoverability, expanding our executable simulator footprint, and establishing developer engagement pipelines.
 
 ### 1. Interactive Knowledge Graphs & Discoverability
-- [x] **Interactive Visual Taxonomy and Search**: Shift from a static `INDEX.md` and `GLOSSARY.md` to an interactive, client-side visual web page (`explorer.html`) using D3.js and Tailwind CSS mapping all 28 excavations across execution, safety, and concurrency models with custom detail drawers and real-time filtering.
+- [x] **Interactive Visual Taxonomy and Search**: Shift from a static `INDEX.md` and `GLOSSARY.md` to an interactive, client-side visual web page (`explorer.html`) using D3.js and Tailwind CSS mapping all 34 excavations across execution, safety, and concurrency models with custom detail drawers and real-time filtering.
 - [x] **Static Site Generation & Docs Site**: Establish an automated static site build pipeline using MkDocs with the Material theme (`mkdocs.yml` configured with strict compiling) to publish the complete comparative knowledge base under a clean, searchable user interface.
 
 ### 2. Executable Reconstruction Footprint Expansion

@@ -143,8 +143,8 @@ While pure GOFAI is no longer used for perception tasks, symbolic logic is seein
 
 ## Related Technologies
 
-* **[Lisp Machines](https://www.google.com/search?q=lisp-machines.md):** Purpose-built hardware microarchitectures designed to execute symbolic Lisp environments directly in silicon.
-* **[Capability Systems](https://www.google.com/search?q=capability-systems.md):** Object-oriented fine-grained security architectures heavily influenced by early dynamic symbolic computing environments.
+* **[Lisp Machines](lisp-machines.md):** Purpose-built hardware microarchitectures designed to execute symbolic Lisp environments directly in silicon.
+* **[Capability Systems](capability-systems.md):** Object-oriented fine-grained security architectures heavily influenced by early dynamic symbolic computing environments.
 * **Knowledge Representation (OWL / RDF / SMT Solvers):** Modern logical formats directly descendant from frame systems and predicate logic.
 
 ---

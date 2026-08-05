@@ -131,9 +131,9 @@ WSI principles have transitioned from an architectural pipe dream into a corners
 
 ## Related Technologies
 
-* **[Cellular Automata Hardware](https://www.google.com/search?q=cellular-automata-hardware.md):** Provides the decentralized, spatial local-mesh routing algorithms ideal for wafer-scale defect bypass.
-* **[Dataflow Computing](https://www.google.com/search?q=dataflow-computing.md):** The execution model used by wafer-scale accelerators to route tensor operands asynchronously across massive core arrays.
-* **[Economic Failures](https://www.google.com/search?q=../patterns/economic-failures.md):** Analyzes how yield dynamics and packaging economics historically doomed early WSI projects.
+* **[Cellular Automata Hardware](cellular-automata-hardware.md):** Provides the decentralized, spatial local-mesh routing algorithms ideal for wafer-scale defect bypass.
+* **[Dataflow Computing](dataflow-computing.md):** The execution model used by wafer-scale accelerators to route tensor operands asynchronously across massive core arrays.
+* **[Economic Failures](../patterns/economic-failures.md):** Analyzes how yield dynamics and packaging economics historically doomed early WSI projects.
 
 ---
 

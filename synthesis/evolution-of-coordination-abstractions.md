@@ -138,12 +138,12 @@ The namespace isolation and file-as-a-service abstractions of Plan 9’s 9P prot
 
 ## Related Excavations
 
-* **[Linda Tuple Spaces](https://www.google.com/search?q=linda-tuple-spaces.md)** — *The foundational model of generative communication and associative coordinate-free coordination.*
-* **[Occam](https://www.google.com/search?q=occam.md)** — *The direct language-level implementation of Communicating Sequential Processes.*
-* **[Transputers](https://www.google.com/search?q=transputers.md)** — *Silicon hardware co-designed for native, multi-node CSP channel messaging.*
-* **[Smalltalk](https://www.google.com/search?q=smalltalk.md)** — *The pioneer of active object isolation and dynamic, asynchronous message dispatch.*
-* **[Plan 9](https://www.google.com/search?q=plan-9.md)** — *The operating system that unified distributed network coordination under the 9P file protocol.*
-* **[Inferno](https://www.google.com/search?q=inferno.md)** — *A virtual machine OS bringing 9P/Styx to heterogeneous embedded nodes.*
+* **[Linda Tuple Spaces](../excavations/linda-tuple-spaces.md)** — *The foundational model of generative communication and associative coordinate-free coordination.*
+* **[Occam](../excavations/occam.md)** — *The direct language-level implementation of Communicating Sequential Processes.*
+* **[Transputers](../excavations/transputers.md)** — *Silicon hardware co-designed for native, multi-node CSP channel messaging.*
+* **[Smalltalk](../excavations/smalltalk.md)** — *The pioneer of active object isolation and dynamic, asynchronous message dispatch.*
+* **[Plan 9](../excavations/plan-9.md)** — *The operating system that unified distributed network coordination under the 9P file protocol.*
+* **[Inferno](../excavations/inferno.md)** — *A virtual machine OS bringing 9P/Styx to heterogeneous embedded nodes.*
 
 ## Related Patterns
 
