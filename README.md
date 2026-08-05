@@ -2,7 +2,7 @@
 
 [![Research Phase: Active](https://img.shields.io/badge/Research--Phase-Active-success.svg)](#roadmap)
 [![Reconstructions: 10 Simulators & Models](https://img.shields.io/badge/Reconstructions-10%20Simulators-blue.svg)](#-interactive-reconstructions--simulators)
-[![Completed Excavations: 33](https://img.shields.io/badge/Completed--Excavations-33-orange.svg)](#-project-pillars)
+[![Completed Excavations: 34](https://img.shields.io/badge/Completed--Excavations-34-orange.svg)](#-project-pillars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > *Excavating forgotten ideas. Recovering lost innovations. Reconstructing alternate futures.*

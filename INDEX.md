@@ -35,6 +35,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Stochastic Computing](excavations/stochastic-computing.md) — *Trading execution latency for extreme structural simplicity and noise tolerance by computing mathematically with random binary bitstreams.*
 - [Superconducting & Cryogenic Microarchitectures](excavations/superconducting-cryogenic.md) — *SFQ/RSFQ logic at cryogenic temperatures for ultra-high speed and efficiency.*
 - [Systolic Arrays](excavations/systolic-arrays.md) — *Regular, pipelined grids of processing elements for dense compute-bound workloads.*
+- [The MIT J-Machine](excavations/j-machine.md) — *Fine-grained message-driven 3D routing fabric executing active messages in hardware.*
 - [Transputers](excavations/transputers.md) — *Massively parallel microprocessors with native channel-based CSP messaging.*
 - [Vector Supercomputing](excavations/vector-supercomputing.md) — *Cray-style vector processors optimized for scientific and high-throughput workloads.*
 - [VLIW / EPIC Architectures](excavations/vliw-epic.md) — *Compiler-driven explicit instruction-level parallelism (Itanium and predecessors).*
