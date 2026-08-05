@@ -75,6 +75,10 @@
       "definition": "An execution model in dataflow processors where data packets (tokens) carry tag headers specifying their destination, iteration context, and call frame, allowing out-of-order, parallel execution of loops and functions."
     },
     {
+      "term": "Explicit Data Graph Execution (EDGE)",
+      "definition": "An alternative class of microprocessors that partition instructions into logically atomic blocks. Within each block, execution is dataflow-driven, with instructions routing operand tokens directly to their consumers over a physical spatial grid, completely bypassing centralized registers and rename tables."
+    },
+    {
       "term": "Explicitly Parallel Instruction Computing (EPIC)",
       "definition": "An instruction set philosophy (co-developed by HP and Intel for Itanium) where the compiler explicitly bundles instructions that can be executed in parallel, moving the complex scheduling logic from hardware to the compiler."
     },
@@ -294,7 +298,8 @@
       "Dataflow (Non-von Neumann)": {
         "description": "Non-sequential, asynchronous execution driven entirely by input operand availability (tokens).",
         "mapped_excavations": [
-          "dataflow-computing"
+          "dataflow-computing",
+          "edge-architecture"
         ]
       },
       "Demand-Driven (Graph Reduction)": {
@@ -313,6 +318,7 @@
         "description": "Hardware logic and routing paths mapped physically to a static grid. No global ALU or instruction fetch bottleneck.",
         "mapped_excavations": [
           "cellular-automata-hardware",
+          "edge-architecture",
           "systolic-arrays",
           "j-machine",
           "wafer-scale-integration"
@@ -907,6 +913,51 @@
       },
       "modern_relevance": "Many dataflow principles have resurfaced in more pragmatic forms:\n- **GPUs and tensor processors** — Highly data-parallel execution models that are closer to dataflow than traditional CPUs.\n- **Streaming and big-data frameworks** (Apache Spark, Flink, Kafka Streams) — Explicit dataflow graphs at scale.\n- **Reactive programming** (RxJS, Elm, modern UI frameworks) — Dataflow-inspired event propagation.\n- **Machine learning frameworks** (TensorFlow, JAX, PyTorch) — Computation graphs with dataflow scheduling.\n- **Spatial computing & CGRA** (Coarse-Grained Reconfigurable Arrays) and AI accelerators — Hardware that directly maps dataflow graphs.\n- Hybrid dataflow/control-flow designs in modern compilers and runtimes.\n\nPure dataflow machines remain uncommon, but dataflow ideas are thriving as components in heterogeneous systems.",
       "references": []
+    },
+    {
+      "id": "edge-architecture",
+      "title": "Explicit Data Graph Execution (EDGE) & The TRIPS Architecture",
+      "path": "excavations/edge-architecture.md",
+      "summary": "**Explicit Data Graph Execution (EDGE)** is an alternative class of microprocessor architectures designed to replace standard Instruction Set Architectures (ISAs) like x86, ARM, and RISC. Developed in the early 2000s, EDGE was created to resolve the physical scalability walls of conventional Out-of-Order (OoO) superscalar processors—namely, the high power consumption and wire-delay bottlenecks associated with instruction decode, rename registers, and centralized reservation stations.\n\nThe primary hardware realization of the EDGE paradigm was the **TRIPS (Tera-op Reliable Intellectually Protorecursive System)** processor, developed by the University of Texas at Austin in collaboration with DARPA, IBM, and Intel between 2001 and 2007.\n\nRather than processing a continuous stream of sequential instructions, an EDGE compiler partitions programs into coarse-grained, logically atomic **blocks** of instructions. Within each block, instruction execution is fully **dataflow-driven**: instructions do not read or write a centralized register file to pass intermediate operands. Instead, instructions explicitly declare their consumers, routing data tokens directly from one execution node's output to another's input over a physical spatial grid of execution units. By combining block-structured control flow with instruction-level spatial routing, EDGE architectures achieve massive instruction-level parallelism (ILP) with minimal microarchitectural overhead.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Pioneered instruction-level spatial routing and block-structured ISA design."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Successfully replaced register renaming and bypass networks with direct operand routing in physical silicon."
+        },
+        "Commercial Success": {
+          "stars": "★☆☆☆☆",
+          "numeric": 1,
+          "rationale": "Academic research project funded by DARPA; never commercialized as general-purpose hardware."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Foundational paradigm for CGRAs, reconfigurable dataflow accelerators, and modern AI silicon architectures."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Unparalleled alignment with deep learning workloads where computation graphs can be mapped directly to spatial hardware grids."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Simulating block-structured, spatial grid routing with concurrent operand delivery requires complex asynchronous schedulers."
+        }
+      },
+      "modern_relevance": "While TRIPS did not succeed as a general-purpose processor, its core principles have become the dominant architecture of modern high-throughput computing:\n\n* **Coarse-Grained Reconfigurable Arrays (CGRAs):** Modern AI accelerators (such as SambaNova’s Cardinal SN30 or Wave Computing’s DPU) directly inherit the EDGE execution model. Rather than fetching instructions sequentially, they compile machine learning graphs and map them spatially onto massive grids of reconfigurable ALUs and memory blocks, routing activations directly from node to node.\n* **Spatial Dataflow in AI Tensor Cores:** AI workloads (dense matrix multiplications) are highly regular and lack complex branching. This makes them perfectly suited for the spatial, predicated, block-structured execution models pioneered by TRIPS, completely bypassing the sequential program counter.\n* **Asynchronous Networks-on-Chip (NoCs):** Modern multi-die and chiplet architectures use packet-switched routing schemes to exchange data between IP blocks, utilizing the same wormhole-routing and network-on-chip paradigms validated in the TRIPS grid.",
+      "references": [
+        "Burger, D., Keckler, S. W., McKinley, K. S., Dahlin, M., Alvisi, L., Lin, C., ... & Moore, C. R. (2004). *Scaling to the end of silicon with EDGE architectures*. IEEE Micro, 24(6), 46-55.",
+        "Sankaralingam, K., Nagarajan, R., Liu, H., Kim, C., Huh, J., Burger, D., ... & Keckler, S. W. (2003). *TRIPS: A polymorphous clustered VLIW-system-on-a-chip architecture*. In Proceedings of the 36th Annual IEEE/ACM International Symposium on Microarchitecture (MICRO), 251-262.",
+        "Nagarajan, R., Sankaralingam, K., Burger, D., & Keckler, S. W. (2001). *A class of single-instruction-multiple-dataholder processor architectures*. In Proceedings of the 28th Annual International Symposium on Computer Architecture (ISCA), 282-293.",
+        "Keckler, S. W., Burger, D., Moore, C. R., Sankaralingam, K., Nagarajan, R., Liu, H., ... & McDonald, R. (2009). *The TRIPS processor: A polymorphous EDGE architecture*. IEEE Micro, 29(1), 18-32."
+      ]
     },
     {
       "id": "graph-reduction-machines",

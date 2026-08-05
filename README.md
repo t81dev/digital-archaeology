@@ -2,7 +2,7 @@
 
 [![Research Phase: Active](https://img.shields.io/badge/Research--Phase-Active-success.svg)](#roadmap)
 [![Reconstructions: 10 Simulators & Models](https://img.shields.io/badge/Reconstructions-10%20Simulators-blue.svg)](#-interactive-reconstructions--simulators)
-[![Completed Excavations: 34](https://img.shields.io/badge/Completed--Excavations-34-orange.svg)](#-project-pillars)
+[![Completed Excavations: 35](https://img.shields.io/badge/Completed--Excavations-35-orange.svg)](#-project-pillars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > *Excavating forgotten ideas. Recovering lost innovations. Reconstructing alternate futures.*
@@ -21,7 +21,7 @@ Rather than treating computing history as a passive museum, we approach it as an
         ┌───────────────────────────────┼───────────────────────────────┐
         ▼                               ▼                               ▼
   [EXCAVATIONS]                    [SYNTHESIS]                   [RECONSTRUCTIONS]
- 34 deep dives into              Comparative and                10 executable models
+ 35 deep dives into              Comparative and                10 executable models
  historical paradigms.          architectural essays.           and simulators.
         │                               │                               │
         └───────────────────────────────┼───────────────────────────────┘
@@ -82,8 +82,8 @@ Therefore, any expansion of this repository must favor **dense networks of relat
 The project structure is organized to bridge historical research with modern execution:
 
 ### 1. [Excavations](excavations/) (Historical Deep Dives)
-Comprehensive, primary-source-backed investigations of 34 landmark computing paradigms, evaluated using a standardized evaluation format and rating system.
-* **Architectures**: [Analog Computing](excavations/analog-computing.md) • [Associative Processors](excavations/associative-processors.md) • [Asynchronous Processors](excavations/asynchronous-processors.md) • [Balanced Ternary](excavations/balanced-ternary.md) • [Cellular Automata Hardware](excavations/cellular-automata-hardware.md) • [Connection Machine](excavations/connection-machine.md) • [Dataflow Computing](excavations/dataflow-computing.md) • [Graph Reduction Machines](excavations/graph-reduction-machines.md) • [Molecular/Biocomputing](excavations/molecular-biocomputing.md) • [Neuromorphic](excavations/neuromorphic-hardware.md) • [Optical Computing](excavations/optical-computing.md) • [Reversible Computing](excavations/reversible-computing.md) • [Stack Machines](excavations/stack-machines.md) • [Stochastic Computing](excavations/stochastic-computing.md) • [Superconducting/Cryogenic](excavations/superconducting-cryogenic.md) • [Systolic Arrays](excavations/systolic-arrays.md) • [Transputers](excavations/transputers.md) • [Vector Supercomputing](excavations/vector-supercomputing.md) • [VLIW/EPIC](excavations/vliw-epic.md) • [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
+Comprehensive, primary-source-backed investigations of 35 landmark computing paradigms, evaluated using a standardized evaluation format and rating system.
+* **Architectures**: [Analog Computing](excavations/analog-computing.md) • [Associative Processors](excavations/associative-processors.md) • [Asynchronous Processors](excavations/asynchronous-processors.md) • [Balanced Ternary](excavations/balanced-ternary.md) • [Cellular Automata Hardware](excavations/cellular-automata-hardware.md) • [Connection Machine](excavations/connection-machine.md) • [Dataflow Computing](excavations/dataflow-computing.md) • [Explicit Data Graph Execution (EDGE)](excavations/edge-architecture.md) • [Graph Reduction Machines](excavations/graph-reduction-machines.md) • [Molecular/Biocomputing](excavations/molecular-biocomputing.md) • [Neuromorphic](excavations/neuromorphic-hardware.md) • [Optical Computing](excavations/optical-computing.md) • [Reversible Computing](excavations/reversible-computing.md) • [Stack Machines](excavations/stack-machines.md) • [Stochastic Computing](excavations/stochastic-computing.md) • [Superconducting/Cryogenic](excavations/superconducting-cryogenic.md) • [Systolic Arrays](excavations/systolic-arrays.md) • [Transputers](excavations/transputers.md) • [Vector Supercomputing](excavations/vector-supercomputing.md) • [VLIW/EPIC](excavations/vliw-epic.md) • [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
 * **Operating Systems**: [BeOS / Haiku](excavations/beos-haiku.md) • [Burroughs Large Systems](excavations/burroughs-large-systems.md) • [Capability Systems](excavations/capability-systems.md) • [Inferno](excavations/inferno.md) • [Intel iAPX 432](excavations/intel-iapx-432.md) • [Lisp Machines](excavations/lisp-machines.md) • [Multics](excavations/multics.md) • [Plan 9](excavations/plan-9.md) • [Project Xanadu](excavations/project-xanadu.md)
 * **Languages, Concurrency & AI**: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) • [Occam](excavations/occam.md) • [Smalltalk](excavations/smalltalk.md) • [Symbolic AI](excavations/symbolic-ai.md)
 

@@ -53,6 +53,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Dataflow Computing](excavations/dataflow-computing.md)
 
 ### E
+* **Explicit Data Graph Execution (EDGE)**: An alternative class of microprocessors that partition instructions into logically atomic blocks. Within each block, execution is dataflow-driven, with instructions routing operand tokens directly to their consumers over a physical spatial grid, completely bypassing centralized registers and rename tables.
+  * *See excavation*: [Explicit Data Graph Execution (EDGE) & The TRIPS Architecture](excavations/edge-architecture.md)
 * **Explicitly Parallel Instruction Computing (EPIC)**: An instruction set philosophy (co-developed by HP and Intel for Itanium) where the compiler explicitly bundles instructions that can be executed in parallel, moving the complex scheduling logic from hardware to the compiler.
   * *See excavation*: [VLIW / EPIC Architectures](excavations/vliw-epic.md)
 

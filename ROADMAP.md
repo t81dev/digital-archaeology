@@ -6,8 +6,8 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 
 # Phase I — Core Excavations ✅ (Complete)
 
-## Architectures & Hardware (21)
-- [x] Analog Computing, Associative Processors, Asynchronous Processors, Balanced Ternary, Cellular Automata Hardware, Connection Machine, Dataflow Computing, Graph Reduction Machines, The MIT J-Machine, Molecular & Biocomputing, Neuromorphic Hardware, Optical Computing, Reversible Computing, Stack Machines, Stochastic Computing, Superconducting & Cryogenic Microarchitectures, Systolic Arrays, Transputers, Vector Supercomputing, VLIW/EPIC Architectures, Wafer-Scale Integration
+## Architectures & Hardware (22)
+- [x] Analog Computing, Associative Processors, Asynchronous Processors, Balanced Ternary, Cellular Automata Hardware, Connection Machine, Dataflow Computing, Explicit Data Graph Execution (EDGE), Graph Reduction Machines, The MIT J-Machine, Molecular & Biocomputing, Neuromorphic Hardware, Optical Computing, Reversible Computing, Stack Machines, Stochastic Computing, Superconducting & Cryogenic Microarchitectures, Systolic Arrays, Transputers, Vector Supercomputing, VLIW/EPIC Architectures, Wafer-Scale Integration
 
 ## Systems & Operating Environments (9)
 - [x] BeOS / Haiku, Burroughs Large Systems, Capability Systems, Inferno, Intel iAPX 432, Lisp Machines, Multics, Plan 9, Project Xanadu
@@ -15,7 +15,7 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 ## Languages & AI Paradigms (4)
 - [x] Linda Tuple Spaces, Occam, Smalltalk, Symbolic AI
 
-**Total Excavations**: 34
+**Total Excavations**: 35
 
 ---
 
