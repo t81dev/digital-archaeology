@@ -18,6 +18,7 @@ try:
     from neuro_symbolic_sim import KnowledgeBase, Rule, NeuralPerceptionModel, setup_smart_home_rules
     from csp_sim import CSPScheduler, Channel, Process, alt_wait
     from dataflow_sim import DataflowEngine, Node, Token
+    from edge_sim import EDGEBlock, EDGEInstruction, EDGESpatialGrid
 except ImportError as e:
     # Fallback to direct python imports if run from root with python path setup
     print(f"Import warning: {e}. Resolving with relative directory appending...")
@@ -29,6 +30,7 @@ class CoSimulationOrchestrator:
       1. Neuro-Symbolic Logic Decisioning
       2. CSP synchronous message passing scheduler
       3. Tagged-Token Dataflow parallel execution
+      4. EDGE spatial block-structured hardware grid commit
     """
     def __init__(self, verbose=True):
         self.verbose = verbose
@@ -45,6 +47,7 @@ class CoSimulationOrchestrator:
         1. Translates continuous sensor data to symbolic facts and runs Neuro-Symbolic Logic Solver.
         2. Routes the deduced action via synchronous CSP channels.
         3. Spawns parallel Tagged-Token Dataflow execution to calculate the response threat value.
+        4. Launches block-structured EDGE spatial grid for transactional commit writeback.
         Returns the final calculated threat risk value from the dataflow engine.
         """
         self.log("=== Initializing Co-Simulation Pipeline ===")
@@ -156,6 +159,32 @@ class CoSimulationOrchestrator:
                     final_threat_score = float(val_str)
 
         self.log(f"Dataflow Execution finished. Final Calculated Threat Risk Score: {final_threat_score:.3f}")
+
+        # --- Phase D: EDGE Spatial Block-Structured Writeback ---
+        self.log("Phase D: Launching EDGE block-structured spatial grid for transactional commit...")
+        edge_block = EDGEBlock("writeback_block")
+
+        # Inst 0: CONST triggers on left. Routes threat score to Inst 1 (STORE) and Inst 2 (WRITE_REG)
+        inst0 = EDGEInstruction(0, 'CONST', (0, 0), targets=[(1, 'left'), (2, 'left')], constant=final_threat_score)
+        # Inst 1: STORE on (1, 2) writes threat score to secure memory address 0xDEAD
+        inst1 = EDGEInstruction(1, 'STORE', (1, 2), constant=0xDEAD)
+        # Inst 2: WRITE_REG on (3, 3) commits threat score to register R5
+        inst2 = EDGEInstruction(2, 'WRITE_REG', (3, 3), constant='R5')
+
+        edge_block.add_instruction(inst0)
+        edge_block.add_instruction(inst1)
+        edge_block.add_instruction(inst2)
+
+        edge_grid = EDGESpatialGrid()
+        edge_grid.load_block(edge_block, register_inputs={})
+
+        # Inject trigger token to CONST node
+        edge_grid.inject_input_token(0, 'left', 1)
+
+        # Run spatial simulation cycle loop
+        edge_grid.run_block()
+
+        self.log(f"EDGE commit complete. R5 value = {edge_grid.registers['R5']}, Memory[0xDEAD] = {edge_grid.memory[0xDEAD]}")
         return final_threat_score
 
 

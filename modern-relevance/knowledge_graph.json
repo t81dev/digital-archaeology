@@ -335,7 +335,8 @@
         "description": "Solving math models directly via continuous physical phenomena (voltages, currents, fluid flow) instead of discrete bits.",
         "mapped_excavations": [
           "analog-computing",
-          "stochastic-computing"
+          "stochastic-computing",
+          "balanced-ternary"
         ]
       },
       "Photonic / Optical": {
@@ -348,6 +349,18 @@
         "description": "Leveraging DNA hybridization, enzymatic reactions, or bacterial states for massively parallel computing.",
         "mapped_excavations": [
           "molecular-biocomputing"
+        ]
+      },
+      "Logical & Inference Engine": {
+        "description": "Evaluating rules, forward/backward chaining, and symbolic facts natively.",
+        "mapped_excavations": [
+          "symbolic-ai"
+        ]
+      },
+      "Associative Hypertext": {
+        "description": "Graph-structured, bi-directional versioned information retrieval.",
+        "mapped_excavations": [
+          "project-xanadu"
         ]
       },
       "VLIW / EPIC": {
@@ -391,7 +404,8 @@
           "graph-reduction-machines",
           "lisp-machines",
           "intel-iapx-432",
-          "j-machine"
+          "j-machine",
+          "symbolic-ai"
         ]
       },
       "Associative / Content-Addressable Memory": {
@@ -426,7 +440,14 @@
           "asynchronous-processors",
           "stack-machines",
           "stochastic-computing",
-          "transputers"
+          "transputers",
+          "balanced-ternary"
+        ]
+      },
+      "Bi-Directional Graph Address Space": {
+        "description": "Graph-structured document fragments addressed via un-breakable dynamic spans.",
+        "mapped_excavations": [
+          "project-xanadu"
         ]
       }
     },
@@ -486,6 +507,24 @@
         "description": "Coordinate-free, associative, time-and-space decoupled communication via a shared multi-set pool.",
         "mapped_excavations": [
           "linda-tuple-spaces"
+        ]
+      },
+      "Bi-Directional Hyperlink Coordination": {
+        "description": "Structuring parallel synchronization as bidirectional links over versioned publication graphs.",
+        "mapped_excavations": [
+          "project-xanadu"
+        ]
+      },
+      "Rule-Based Inference": {
+        "description": "Concurrency controlled by logical implication and dynamic resolution trees.",
+        "mapped_excavations": [
+          "symbolic-ai"
+        ]
+      },
+      "Symmetric Math Logic": {
+        "description": "Balancing concurrency through sign-bit-free, self-balancing mathematical trits.",
+        "mapped_excavations": [
+          "balanced-ternary"
         ]
       }
     }
