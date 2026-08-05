@@ -139,9 +139,9 @@ Optical computing has pivoted from trying to build general-purpose "optical CPUs
 
 ## Related Technologies
 
-* **[Analog Computing](https://www.google.com/search?q=analog-computing.md):** Uses continuous physical physical phenomena (such as wave interference and power levels) to perform continuous mathematical operations.
-* **[Neuromorphic Hardware](https://www.google.com/search?q=neuromorphic-hardware.md):** Co-designed alongside photonic waveguides to create photonic spiking neural networks that emulate biological synaptic plasticity at optical speeds.
-* **[Dataflow Computing](https://www.google.com/search?q=dataflow-computing.md):** Shares an execution philosophy where data flows continuously through spatial processing arrays without a central clock step.
+* **[Analog Computing](analog-computing.md):** Uses continuous physical physical phenomena (such as wave interference and power levels) to perform continuous mathematical operations.
+* **[Neuromorphic Hardware](neuromorphic-hardware.md):** Co-designed alongside photonic waveguides to create photonic spiking neural networks that emulate biological synaptic plasticity at optical speeds.
+* **[Dataflow Computing](dataflow-computing.md):** Shares an execution philosophy where data flows continuously through spatial processing arrays without a central clock step.
 
 ---
 

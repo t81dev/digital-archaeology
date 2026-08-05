@@ -132,9 +132,9 @@ While stand-alone "Cellular Automata Machines" vanished as commercial products, 
 
 ## Related Technologies
 
-* **[Dataflow Computing](https://www.google.com/search?q=dataflow-computing.md):** Pushes data spatially through execution graphs based on operand availability rather than centralized instruction pointer stepping.
-* **[Transputers](https://www.google.com/search?q=transputers.md):** Multi-processor arrays utilizing localized channel messaging across physical spatial grid topologies.
-* **[Reversible Computing](https://www.google.com/search?q=reversible-computing.md):** Utilizes reversible cellular logic (such as Margolus neighborhood block automata) to compute without physical heat generation.
+* **[Dataflow Computing](dataflow-computing.md):** Pushes data spatially through execution graphs based on operand availability rather than centralized instruction pointer stepping.
+* **[Transputers](transputers.md):** Multi-processor arrays utilizing localized channel messaging across physical spatial grid topologies.
+* **[Reversible Computing](reversible-computing.md):** Utilizes reversible cellular logic (such as Margolus neighborhood block automata) to compute without physical heat generation.
 
 ---
 

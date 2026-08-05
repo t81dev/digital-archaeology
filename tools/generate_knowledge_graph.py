@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Dynamic Knowledge Graph Generator for AI-Assisted Ingestion.
-Parses all 28 excavations, the glossary, and the comparative index to compile
+Parses all 34 excavations, the glossary, and the comparative index to compile
 a fully structured machine-readable JSON database for LLMs and autonomous agents.
 """
 

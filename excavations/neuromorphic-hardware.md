@@ -113,9 +113,9 @@ While neuromorphic hardware did not displace general-purpose GPUs in cloud data 
 
 ## Related Technologies
 
-* **[Dataflow Computing](https://www.google.com/search?q=dataflow-computing.md):** Shared lineage in data-driven, asynchronous execution models where operations execute only when operands arrive.
-* **[Analog Computing](https://www.google.com/search?q=../future/analog-computing.md):** Mead's early subthreshold analog neuromorphic systems were a specialized form of continuous-time analog computing.
-* **[Connection Machine](https://www.google.com/search?q=connection-machine.md):** Early massive parallelism using simple processing nodes linked via a hypercube mesh topology.
+* **[Dataflow Computing](dataflow-computing.md):** Shared lineage in data-driven, asynchronous execution models where operations execute only when operands arrive.
+* **[Analog Computing](analog-computing.md):** Mead's early subthreshold analog neuromorphic systems were a specialized form of continuous-time analog computing.
+* **[Connection Machine](connection-machine.md):** Early massive parallelism using simple processing nodes linked via a hypercube mesh topology.
 * **Event-Based Vision (DVS):** Silicon retinas designed specifically to feed asynchronous AER spike streams directly to neuromorphic processors.
 
 ---
