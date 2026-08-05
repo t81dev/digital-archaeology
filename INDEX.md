@@ -81,6 +81,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 ## Synthesis
 
 - [Architectural Distillation](synthesis/architectural-distillation.md) — *How failed computing systems leave behind enduring abstractions that shape modern architectures.*
+- [Alternative Mathematical Execution Paradigms](synthesis/alternative-mathematical-execution-paradigms.md) — *How symmetric balanced ternary, probabilistic stochastic bitstreams, and symbolic logic resolution trees bypass the memory wall and density constraints of modern AI.*
 - [Capability-Based Security](synthesis/capability-based-security.md) — *The revival of fine-grained, unforgeable hardware-level rights in the zero-trust and AI era.*
 - [Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md) — *Why the modern performance frontier relies on treating compilers and custom silicon as a single unified system.*
 - [The Evolution of Coordination Abstractions](synthesis/evolution-of-coordination-abstractions.md) — *The evolution of process communication and concurrency models from shared-memory to decoupled coordination.*
