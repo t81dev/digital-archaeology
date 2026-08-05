@@ -177,6 +177,117 @@
                 </div>
             </div>
         </main>
+
+        <!-- Right Column: Hardware-in-the-Loop Simulator Board -->
+        <aside id="hil-panel" class="w-96 border-l border-gray-800 bg-slate-900/40 backdrop-blur-md flex flex-col h-full overflow-y-auto p-4 space-y-4 z-10 shrink-0">
+            <div>
+                <h2 class="text-sm font-bold tracking-tight text-white flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse inline-block"></span>
+                    HIL Simulator Board
+                </h2>
+                <p class="text-[11px] text-gray-400">Interactive Physical Peripherals & Live Logic Analyzer</p>
+            </div>
+
+            <!-- PERIPHERAL INPUT CONTROLS -->
+            <div class="bg-slate-950 border border-gray-800 rounded-lg p-3.5 space-y-4">
+                <h3 class="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1">
+                    <i data-lucide="sliders" class="w-3.5 h-3.5 text-blue-400"></i> Physical Peripherals
+                </h3>
+
+                <!-- Sensor 1: Threat Level confidence -->
+                <div class="space-y-1.5">
+                    <div class="flex justify-between text-[11px]">
+                        <span class="text-gray-400 font-mono">SENSOR_THREAT (Camera)</span>
+                        <span id="val-threat" class="text-emerald-400 font-bold font-mono">0.88</span>
+                    </div>
+                    <input type="range" id="input-threat" min="0" max="100" value="88" oninput="updateHILInputs()" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                </div>
+
+                <!-- Sensor 2: Resident Match Confidence -->
+                <div class="space-y-1.5">
+                    <div class="flex justify-between text-[11px]">
+                        <span class="text-gray-400 font-mono">SENSOR_RESIDENT (RF Tag)</span>
+                        <span id="val-resident" class="text-emerald-400 font-bold font-mono">0.03</span>
+                    </div>
+                    <input type="range" id="input-resident" min="0" max="100" value="3" oninput="updateHILInputs()" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                </div>
+
+                <!-- Sensor 3: Proximity Factor -->
+                <div class="space-y-1.5">
+                    <div class="flex justify-between text-[11px]">
+                        <span class="text-gray-400 font-mono">PROX_FACTOR (LiDAR)</span>
+                        <span id="val-prox" class="text-emerald-400 font-bold font-mono">4</span>
+                    </div>
+                    <input type="range" id="input-prox" min="1" max="10" value="4" oninput="updateHILInputs()" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                </div>
+            </div>
+
+            <!-- HARDWARE FAULT INJECTION SWITCHES -->
+            <div class="bg-slate-950 border border-gray-800 rounded-lg p-3.5 space-y-3.5">
+                <h3 class="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1">
+                    <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-amber-500"></i> Fault Injection & Controls
+                </h3>
+
+                <!-- Switch 1: Force Exception -->
+                <div class="flex items-center justify-between text-xs">
+                    <div class="flex flex-col">
+                        <span class="text-gray-300 font-mono">FORCE_EXCEPTION</span>
+                        <span class="text-[10px] text-gray-500">Trigger Hardware Capability bounds fault</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="switch-exception" onchange="updateHILInputs()" class="sr-only peer">
+                        <div class="w-9 h-5 bg-gray-850 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-gray-300 after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-amber-600"></div>
+                    </label>
+                </div>
+
+                <!-- Switch 2: Force Ternary Carry Overflow -->
+                <div class="flex items-center justify-between text-xs border-t border-gray-800/60 pt-3">
+                    <div class="flex flex-col">
+                        <span class="text-gray-300 font-mono">ALU_OVERFLOW</span>
+                        <span class="text-[10px] text-gray-500">Force Ternary adder carry overflow</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="switch-overflow" onchange="updateHILInputs()" class="sr-only peer">
+                        <div class="w-9 h-5 bg-gray-850 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-gray-300 after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-amber-600"></div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- SIMULATOR CONTROL STEPPING -->
+            <div class="bg-slate-950 border border-gray-800 rounded-lg p-3.5 space-y-3">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1">
+                        <i data-lucide="cpu" class="w-3.5 h-3.5 text-purple-400"></i> Clock Stepper
+                    </h3>
+                    <div class="flex items-center gap-1.5">
+                        <span id="clk-led" class="w-2 h-2 rounded-full bg-red-600 transition-colors duration-75 inline-block animate-pulse"></span>
+                        <span class="text-[10px] font-mono text-gray-500 uppercase">SYS_CLK</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <button id="btn-single-step" onclick="stepHILSimulation()" class="flex items-center justify-center gap-1 bg-slate-800 hover:bg-slate-700 text-white font-bold py-1.5 px-3 rounded text-xs transition-colors border border-gray-700">
+                        <i data-lucide="corner-down-right" class="w-3.5 h-3.5"></i> Single CLK
+                    </button>
+                    <button id="btn-autorun" onclick="toggleHILAutoRun()" class="flex items-center justify-center gap-1 bg-emerald-600/80 hover:bg-emerald-600 text-white font-bold py-1.5 px-3 rounded text-xs transition-colors">
+                        <i id="autorun-icon" data-lucide="play" class="w-3.5 h-3.5"></i> <span id="autorun-text">Auto-CLK</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- LIVE WAVEFORM DIGITAL LOGIC ANALYZER -->
+            <div class="flex-1 bg-slate-950 border border-gray-800 rounded-lg p-3.5 flex flex-col space-y-2 min-h-[260px]">
+                <h3 class="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center justify-between">
+                    <span class="flex items-center gap-1"><i data-lucide="activity" class="w-3.5 h-3.5 text-emerald-400"></i> Logic Analyzer</span>
+                    <span class="text-[9px] text-gray-500 font-mono">TIME_UNIT: CYCLES</span>
+                </h3>
+
+                <!-- Waveforms Grid -->
+                <div id="wave-container" class="flex-1 bg-[#06090e] border border-gray-900 rounded p-2 overflow-hidden relative min-h-[160px]">
+                    <canvas id="waveform-canvas" class="w-full h-full"></canvas>
+                </div>
+            </div>
+        </aside>
     </div>
 
     <!-- Application Script -->
@@ -184,6 +295,23 @@
         let pyodideInstance = null;
         let currentSimulator = 'balanced-ternary';
         let presetCodeCache = {};
+
+        // Hardware-in-the-Loop Co-Simulation variables
+        let hilCycle = 0;
+        const maxHilCycles = 30;
+        let isHILAutoRunning = false;
+        let hilInterval = null;
+
+        // Trace arrays initialized to 0
+        const signals = {
+            'CLK': Array(maxHilCycles).fill(0),
+            'SEN_TRIG': Array(maxHilCycles).fill(0),
+            'LOGIC_DEC': Array(maxHilCycles).fill(0),
+            'CSP_RDV': Array(maxHilCycles).fill(0),
+            'DF_OP': Array(maxHilCycles).fill(0),
+            'EDGE_WR': Array(maxHilCycles).fill(0),
+            'HW_EXC': Array(maxHilCycles).fill(0)
+        };
 
         // Definitions of simulators, presets, descriptions
         const simulatorConfigs = {
@@ -325,6 +453,10 @@
 
                 // Load default simulator ternary
                 loadSimulator('balanced-ternary');
+
+                // Initialize HIL Waveforms
+                initWaveforms();
+                window.addEventListener('resize', drawWaveforms);
             } catch (err) {
                 console.error("Pyodide loading failed:", err);
                 writeToConsole("ERROR: Pyodide failed to load. Check console/network.");
@@ -400,6 +532,9 @@
             if (config.presets.length > 0) {
                 selectPreset(config.presets[0]);
             }
+
+            // Sync interactive HIL peripherals
+            updateHILInputs();
         }
 
         // Click a preset configuration to load its code string
@@ -443,6 +578,196 @@
                     initIcons();
                 }
             }, 50);
+        }
+
+        // HIL Peripherals and Live Waveform logic
+        function initWaveforms() {
+            for (let sig in signals) {
+                signals[sig] = Array(maxHilCycles).fill(0);
+            }
+            drawWaveforms();
+        }
+
+        function drawWaveforms() {
+            const canvas = document.getElementById('waveform-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            // Sync pixel dimensions
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw background logic timing grid
+            ctx.strokeStyle = '#111827';
+            ctx.lineWidth = 1;
+            const numTicks = 12;
+            for (let i = 0; i <= numTicks; i++) {
+                const x = (canvas.width / numTicks) * i;
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+
+            const sigNames = Object.keys(signals);
+            const traceHeight = canvas.height / sigNames.length;
+
+            sigNames.forEach((sig, index) => {
+                const yOffset = traceHeight * index;
+
+                // Draw separator line
+                ctx.strokeStyle = '#1e293b';
+                ctx.lineWidth = 0.75;
+                ctx.beginPath();
+                ctx.moveTo(0, yOffset + traceHeight);
+                ctx.lineTo(canvas.width, yOffset + traceHeight);
+                ctx.stroke();
+
+                // Signal text labels
+                ctx.fillStyle = '#6b7280';
+                ctx.font = '9px monospace';
+                ctx.fillText(sig, 6, yOffset + 12);
+
+                // Digital square waves logic line
+                const values = signals[sig];
+                ctx.strokeStyle = sig === 'HW_EXC' ? '#ef4444' : sig === 'CLK' ? '#a78bfa' : '#34d399';
+                ctx.lineWidth = 1.75;
+                ctx.beginPath();
+
+                for (let i = 0; i < maxHilCycles; i++) {
+                    const x = (canvas.width / maxHilCycles) * i;
+                    const val = values[i];
+                    // high logic vs low logic coordinate placement
+                    const y = yOffset + traceHeight - 3 - val * (traceHeight - 14);
+
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        const prevX = (canvas.width / maxHilCycles) * (i - 1);
+                        const prevVal = values[i - 1];
+                        const prevY = yOffset + traceHeight - 3 - prevVal * (traceHeight - 14);
+
+                        ctx.lineTo(prevX, prevY);
+                        ctx.lineTo(prevX, y);
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+            });
+        }
+
+        function updateHILInputs() {
+            const threatVal = (parseFloat(document.getElementById('input-threat').value) / 100).toFixed(2);
+            const residentVal = (parseFloat(document.getElementById('input-resident').value) / 100).toFixed(2);
+            const proxVal = parseInt(document.getElementById('input-prox').value);
+            const forceEx = document.getElementById('switch-exception').checked;
+            const forceOverflow = document.getElementById('switch-overflow').checked;
+
+            document.getElementById('val-threat').textContent = threatVal;
+            document.getElementById('val-resident').textContent = residentVal;
+            document.getElementById('val-prox').textContent = proxVal;
+
+            // Dynamically update the editor template if user is in co-simulation
+            if (currentSimulator === 'co-simulation') {
+                const generatedCode = `from orchestrator import CoSimulationOrchestrator\n\norchestrator = CoSimulationOrchestrator(verbose=True)\n\n# HIL Peripheral Real-Time Slider Feeds\nraw_data = {\n    'package_detected': 0.12,\n    'person_present': 0.97,\n    'authorized_resident': ${residentVal},\n    'unknown_person': 0.94,\n    'threat_detected': ${threatVal}\n}\n\n# HIL Control Toggles\n# Proximity: ${proxVal}\n# Fault Injection Force Exception: ${forceEx ? 'True' : 'False'}\n\ntry:\n    if ${forceEx}:\n        print("HIL Board [FAULT INJECTION]: Asserting hardware exceptions!")\n        raise Exception("Hardware Protection Fault: Capability segment address boundary violation!")\n    \n    result_score = orchestrator.execute_pipeline(raw_data)\n    print(f"\\n[HIL Pipeline Complete] Threat Score: {result_score:.3f}")\nexcept Exception as e:\n    print(f"\\n[HIL CRITICAL EXCEPTION] {e}")`;
+
+                document.getElementById('code-editor').value = generatedCode;
+            } else if (currentSimulator === 'capability-security') {
+                if (forceEx) {
+                    document.getElementById('code-editor').value = `from capability_sim import TaggedCPU, TaggedRAM, Capability\n\ncpu = TaggedCPU()\nram = TaggedRAM()\n\n# HIL Fault Active: Read-Only capability allocated\ncap = Capability(base=100, limit=110, permissions={"READ"})\nprint("Created Capability:", cap)\n\ntry:\n    print("Attempting memory write operation to Read-Only capability segment...")\n    cpu.write_memory(ram, cap, addr=105, value=999)\nexcept Exception as e:\n    print(f"\\n[VIOLATION EXCEPTION TRIGGERED]: {e}")`;
+                } else {
+                    document.getElementById('code-editor').value = `from capability_sim import TaggedCPU, TaggedRAM, Capability\n\ncpu = TaggedCPU()\nram = TaggedRAM()\n\n# HIL Safe Run: Full permissions allocated\ncap = Capability(base=100, limit=110, permissions={"READ", "WRITE"})\nprint("Created Capability:", cap)\n\ncpu.write_memory(ram, cap, addr=105, value=999)\nprint("\\nWrite successful! Memory address 105 contains:", cpu.read_memory(ram, cap, addr=105))`;
+                }
+            } else if (currentSimulator === 'balanced-ternary') {
+                if (forceOverflow) {
+                    document.getElementById('code-editor').value = `from ternary_sim import main\nprint("HIL Ternary Board: Forcing operand overflow!")\n# Perform max values addition to force carry\nfrom ternary_sim import Trit, parse_ternary, format_ternary\na = parse_ternary("111") # +13\nb = parse_ternary("111") # +13\nprint(f"Max operand A = {a} + B = {b} triggers overflow:")\ntry:\n    s = a + b\n    print(f"Sum = {s} (Overflow!)")\nexcept Exception as e:\n    print(f"Arithmetic Carry Exception: {e}")`;
+                } else {
+                    document.getElementById('code-editor').value = `from ternary_sim import main\nmain()`;
+                }
+            }
+        }
+
+        function stepHILSimulation() {
+            // Flash LED indicator
+            const clkLed = document.getElementById('clk-led');
+            clkLed.className = "w-2 h-2 rounded-full bg-emerald-500 transition-colors duration-75 inline-block";
+            setTimeout(() => {
+                clkLed.className = "w-2 h-2 rounded-full bg-red-600 transition-colors duration-75 inline-block";
+            }, 100);
+
+            // Increment cycle state
+            hilCycle = (hilCycle + 1) % 20;
+
+            const forceEx = document.getElementById('switch-exception').checked;
+            const forceOverflow = document.getElementById('switch-overflow').checked;
+
+            // Shift signals left by 1
+            for (let sig in signals) {
+                signals[sig].shift();
+            }
+
+            // Determine next signal levels
+            const nextSignals = {
+                'CLK': (hilCycle % 2 === 0) ? 1 : 0,
+                'SEN_TRIG': (hilCycle >= 1 && hilCycle <= 4) ? 1 : 0,
+                'LOGIC_DEC': (hilCycle >= 5 && hilCycle <= 8) ? 1 : 0,
+                'CSP_RDV': (hilCycle === 9) ? 1 : 0,
+                'DF_OP': (hilCycle >= 10 && hilCycle <= 13) ? 1 : 0,
+                'EDGE_WR': (hilCycle >= 14 && hilCycle <= 16 && !forceEx) ? 1 : 0,
+                'HW_EXC': (forceEx && hilCycle >= 15) || (forceOverflow && hilCycle >= 10) ? 1 : 0
+            };
+
+            // Push next logic states
+            for (let sig in signals) {
+                signals[sig].push(nextSignals[sig]);
+            }
+
+            // Draw updated trace
+            drawWaveforms();
+
+            // Print descriptive digital event traces
+            if (hilCycle === 1) {
+                writeToConsole("HIL Trace: Raw sensor streams initialized. SENSOR_THREAT active.");
+            } else if (hilCycle === 5) {
+                writeToConsole("HIL Trace: Neuro-symbolic perception complete. Decided ACTION_trigger_incident_response.");
+            } else if (hilCycle === 9) {
+                writeToConsole("HIL Trace: CSP rendezvous complete. Synced 'ThreatAlert' Channel rendezvous pulse.");
+            } else if (hilCycle === 10) {
+                if (forceOverflow) {
+                    writeToConsole("HIL Trace [CRITICAL FAULT]: Ternary adder carry overflow detected on high operand sum!");
+                } else {
+                    writeToConsole("HIL Trace: Parallel Tagged-Token Dataflow executing assessment math.");
+                }
+            } else if (hilCycle === 14) {
+                if (forceEx) {
+                    writeToConsole("HIL Trace [CRITICAL FAULT]: Capability boundary violation flag asserted on register commit address!");
+                } else {
+                    writeToConsole("HIL Trace: Direct Spatial EDGE block writing back transactional results.");
+                }
+            } else if (hilCycle === 17 && !forceEx && !forceOverflow) {
+                writeToConsole("HIL Trace: Co-simulation commit successful. Registers updated. standby.");
+            }
+        }
+
+        function toggleHILAutoRun() {
+            const btn = document.getElementById('btn-autorun');
+            const icon = document.getElementById('autorun-icon');
+            const text = document.getElementById('autorun-text');
+
+            if (isHILAutoRunning) {
+                isHILAutoRunning = false;
+                clearInterval(hilInterval);
+                text.textContent = "Auto-CLK";
+                icon.setAttribute('data-lucide', 'play');
+            } else {
+                isHILAutoRunning = true;
+                hilInterval = setInterval(stepHILSimulation, 350);
+                text.textContent = "Stop-CLK";
+                icon.setAttribute('data-lucide', 'square');
+            }
+            initIcons();
         }
 
         // Bind keyboard F5 key for fast execution mapping

@@ -2,6 +2,7 @@
 """
 Multi-Architecture Co-Simulation & Interoperability Fabric
 Bridges Statistical/Symbolic AI, CSP synchronized messaging, and Dataflow spatial execution.
+Integrates with Phase VIII Browser-Native Hardware-in-the-Loop (HIL) physical co-simulation.
 """
 
 import os
