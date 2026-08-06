@@ -9,6 +9,8 @@
 
 **Digital Archaeology** is an open-source, multi-disciplinary research initiative and execution sandbox dedicated to the rediscovery, simulation, and hardware-reconstruction of historically sidelined computing paradigms. As modern Silicon scaling hits the Von Neumann memory wall, Dennard scaling limits, and the "security wall," these forgotten architectures offer elegant, proven blueprints for domain-specific acceleration, hardware-enforced security, and distributed coordination.
 
+> 🎓 **Academic Entry Point & Research Reference**: If you are an external researcher, academic, or computer architect, please review and cite our **[Academic Overview & Research Entry Point](synthesis/digital-archaeology-overview.md)**, which compiles our six core lineages, core methodological claims on constraint migration and explanatory density, and a standard BibTeX citation block.
+
 ---
 
 ### ⚡ Project in <60 Seconds
@@ -261,6 +263,7 @@ Every excavation follows a strict, comparative research format to ensure objecti
 
 ## 🗺️ Project Navigation
 
+* **[Academic Overview & Research Entry Point](synthesis/digital-archaeology-overview.md)** — A short, dense, citable reference introducing our lineages, methodology, and BibTeX citation block.
 * **[INDEX.md](INDEX.md)** — The central directory and conceptual mapping of all files in this repository.
 * **[Interactive Taxonomy Explorer](explorer.html)** — A dynamic, client-side visual web page mapping all excavations, paradigms, and execution-safety-concurrency models.
 * **[ROADMAP.md](ROADMAP.md)** — Current project milestones, track progress, and view upcoming areas of exploration.

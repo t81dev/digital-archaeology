@@ -415,3 +415,91 @@ def test_stochastic_multiplier_behavior():
         stream_out_trace.append(stream_out)
 
     assert stream_out_trace == [1, 1, 0, 0, 0, 0, 0]
+
+
+# ==========================================
+# 6. Advanced/Hardened Coverage Tests
+# ==========================================
+
+def test_lfsr_maximal_period_and_stochastic_ratios():
+    """Verify that the 8-bit LFSR has maximal period and generates correct stochastic densities."""
+    state = 0x01
+    visited = set()
+
+    # 8-bit LFSR primitive polynomial feedback logic:
+    # lfsr_state <= {lfsr_state[6:0], lfsr_state[7] ^ lfsr_state[5] ^ lfsr_state[4] ^ lfsr_state[3]}
+    for _ in range(255):
+        visited.add(state)
+        # Compute feedback bit (indexes are 0-based, so [7] is bit 7, etc.)
+        bit = ((state >> 7) & 1) ^ ((state >> 5) & 1) ^ ((state >> 4) & 1) ^ ((state >> 3) & 1)
+        state = ((state & 0x7F) << 1) | bit
+
+    # A maximal-period 8-bit LFSR must visit exactly 255 unique non-zero states
+    assert len(visited) == 255, f"LFSR did not achieve maximal period! Visited only {len(visited)} states."
+    assert 0 not in visited, "LFSR locked up/entered the forbidden 0 state."
+
+    # Validate unipolar probability densities across a full cycle for key values
+    # For a binary value target in [0, 255], the number of cycles where state < target should be exactly target - 1 (except for target=0)
+    # as the LFSR state spans from 1 to 255.
+    for target in [0, 1, 64, 128, 192, 255]:
+        stream_ones = sum(1 for s in visited if s < target)
+        expected = max(0, target - 1)
+        assert stream_ones == expected, f"Expected {expected} ones for target {target}, got {stream_ones}"
+
+
+def test_reversible_gates_bijectivity():
+    """Verify that both Toffoli and Fredkin reversible gates are strictly bijective (invertible)."""
+    # For any input triplet (A, B, C) -> (X, Y, Z) -> applying the gate again must restore (A, B, C)
+    for op in [0, 1]:  # 0: Toffoli, 1: Fredkin
+        for a in [0, 1]:
+            for b in [0, 1]:
+                for c in [0, 1]:
+                    # Forward pass
+                    x, y, z = golden_reversible_gates(op, a, b, c)
+                    # Backward/Inverse pass (both Toffoli and Fredkin are self-inverse gates!)
+                    a_back, b_back, c_back = golden_reversible_gates(op, x, y, z)
+
+                    assert (a, b, c) == (a_back, b_back, c_back), \
+                        f"Gate op={op} failed self-inverse property at inputs ({a},{b},{c})!"
+
+
+def test_ternary_alu_exhaustive_trit_multiplication():
+    """Verify the 1-trit multiplier logic exhaustively across all 9 combinations."""
+    # In Balanced Ternary: trit A in [-1, 0, 1], trit B in [-1, 0, 1]
+    # Represented in 2-bit PN: -1 = 2'b10, 0 = 2'b00, 1 = 2'b01
+    pn_values = [0b10, 0b00, 0b01]
+
+    for a_bin in pn_values:
+        for b_bin in pn_values:
+            val_a = pn_to_int(a_bin)
+            val_b = pn_to_int(b_bin)
+            expected_product_val = val_a * val_b
+
+            prod_bin = golden_ternary_mul_trit(a_bin, b_bin)
+            prod_val = pn_to_int(prod_bin)
+
+            assert prod_val == expected_product_val, \
+                f"1-trit multiplication failed for {val_a} * {val_b}! Got {prod_val}, expected {expected_product_val}"
+
+
+def test_ternary_alu_overflow_underflow_scenarios():
+    """Verify overflow and underflow detection for 3-trit Balanced Ternary arithmetic."""
+    # 3-trit Balanced Ternary range: [-13, 13]
+    # 13 is represented as +1, +1, +1 = 0b010101 (since 1 + 3 + 9 = 13)
+    # -13 is represented as -1, -1, -1 = 0b101010 (since -1 - 3 - 9 = -13)
+    max_val_pn = 0b010101  # +13
+    min_val_pn = 0b101010  # -13
+    one_pn = 0b000001      # +1
+    neg_one_pn = 0b000010  # -1
+
+    # Scenario A: Overflow (+13 + 1)
+    # In ternary math: 13 + 1 = 14 = 0b000110 (out = -13, carry = +1)
+    out, cout = golden_ternary_alu(max_val_pn, one_pn, 0)
+    assert out == min_val_pn, f"Expected output to overflow and wrap to -13 (0b{min_val_pn:06b}), got 0b{out:06b}"
+    assert cout == 0b01, f"Expected CarryOut +1 (0b01) for overflow, got 0b{cout:02b}"
+
+    # Scenario B: Underflow (-13 - 1)
+    # In ternary math: -13 - 1 = -14 = 0b010101 (out = +13, carry = -1)
+    out, cout = golden_ternary_alu(min_val_pn, neg_one_pn, 0)
+    assert out == max_val_pn, f"Expected output to underflow and wrap to +13 (0b{max_val_pn:06b}), got 0b{out:06b}"
+    assert cout == 0b10, f"Expected CarryOut -1 (0b10) for underflow, got 0b{cout:02b}"

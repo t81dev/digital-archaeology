@@ -61,6 +61,84 @@ Our SystemVerilog designs strictly avoid unsynthesizable behavioral structures. 
 
 ---
 
+## Microarchitectural Integration Notes
+
+These soft-cores are fully synthesizable and designed for integration with standard SoC architectures or FPGA wrappers. Below are the minimal microarchitectural connection patterns and testbench sequences for each module:
+
+### 1. Balanced Ternary ALU (`ternary_alu`)
+* **wrapper Integration**:
+  - `A` and `B` carry 3-trit balanced ternary operands in 2-bit dual-rail Pos-Neg (PN) format (6 bits total per operand).
+  - Tie `en` to your instruction decoder's execution strobe.
+  - outputs `Out` and `CarryOut` are registered. Ensure the receiving pipeline registers or accumulator captures them exactly one clock cycle after asserting `en`.
+* **Minimal Testbench Sequence**:
+  ```systemverilog
+  // Reset and initialization
+  rst_n = 0; en = 0; A = 6'b000000; B = 6'b000000; Op = 3'b000;
+  #20 rst_n = 1;
+  // Perform ADD: +1 (0b000001) + +1 (0b000001)
+  @(posedge clk);
+  A = 6'b000001; B = 6'b000001; Op = 3'b000; en = 1;
+  @(posedge clk);
+  en = 0; // Deassert strobe
+  @(posedge clk);
+  // Out is now registered as +2 (0b000110: T0 = -1, T1 = +1, T2 = 0)
+  assert(Out == 6'b000110 && CarryOut == 2'b00);
+  ```
+
+### 2. Capability & Descriptor Bounds Checker (`capability_bounds_checker`)
+* **wrapper Integration**:
+  - Place inline between the CPU address generator unit (AGU) and the physical or virtual memory bus.
+  - Inputs `cap_base` (inclusive) and `cap_limit` (exclusive) should be wired directly to the active hardware capability registers.
+  - The `resp_violation_flag` and `resp_page_fault` outputs are registered on `clk`. Wire them directly to the CPU's asynchronous trap/exception logic (e.g. triggering an M-mode interrupt or page fault exception in RISC-V).
+* **Minimal Testbench Sequence**:
+  ```systemverilog
+  rst_n = 0; req_valid = 0; desc_mode = 0;
+  cap_base = 16'h1000; cap_limit = 16'h2000; cap_perms = 3'b111; cap_tag = 1; cap_present = 1;
+  #20 rst_n = 1;
+  // Authorized read at 16'h1500
+  @(posedge clk);
+  req_addr = 16'h1500; req_op = 2'b00; req_valid = 1;
+  @(posedge clk);
+  req_valid = 0;
+  // Access is allowed on the next cycle
+  assert(resp_allowed == 1 && resp_violation_flag == 0);
+  ```
+
+### 3. Reversible Logic Gates Block (`reversible_gates`)
+* **wrapper Integration**:
+  - Reversible gates operate on standard digital rails.
+  - Set `op` to `1'b0` for Toffoli (CCNOT) or `1'b1` for Fredkin (CSWAP).
+  - Strobe `en` high to register the computed state into outputs `X`, `Y`, and `Z`.
+* **Minimal Testbench Sequence**:
+  ```systemverilog
+  rst_n = 0; en = 0; op = 0; A = 1; B = 1; C = 0;
+  #20 rst_n = 1;
+  @(posedge clk);
+  en = 1; // Trigger CCNOT calculation
+  @(posedge clk);
+  en = 0;
+  // Output Z is XORed with (A & B): 0 ^ (1 & 1) = 1
+  assert(X == 1 && Y == 1 && Z == 1);
+  ```
+
+### 4. Stochastic Multiplier (`stochastic_multiplier`)
+* **wrapper Integration**:
+  - Maintain the binary input `bin_val` stable throughout the stochastic evaluation window (typically 256 cycles for 8-bit precision).
+  - Connect `stream_b` to your incoming stochastic source (such as a second LFSR stream or an optical noise channel).
+  - The product stream `stream_out` is synchronous. Accumulate or count the number of high pulses on `stream_out` over the window to read the output value.
+* **Minimal Testbench Sequence**:
+  ```systemverilog
+  rst_n = 0; enable = 0; bin_val = 8'd128; stream_b = 1;
+  #20 rst_n = 1;
+  @(posedge clk);
+  enable = 1;
+  // Cycle the clock for 256 periods to collect the bitstream product
+  repeat(256) @(posedge clk);
+  enable = 0;
+  ```
+
+---
+
 ## Superconducting & Cryogenic Hardware Mapping Path
 
 Unlike traditional CMOS logic where logical states are mapped to steady-state voltage levels (e.g., $V_{DD}$ and $GND$), Rapid Single Flux Quantum (RSFQ) superconducting logic represents information as transient, picosecond-wide voltage pulses ($\approx 2.07 \text{ mV}\cdot\text{ps}$). Because of this fundamental physical divergence, compiling standard synthesizable SystemVerilog directly into physical superconducting cells requires a highly specialized microarchitectural mapping path:

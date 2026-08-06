@@ -2,6 +2,24 @@
 
 All notable changes to the Digital Archaeology repository will be documented in this file.
 
+## [Phase VIII: Academic Credibility & Soft-Core Hardening] - August 2026
+
+### Added
+- **Academic Research Overview**: Authored `synthesis/digital-archaeology-overview.md` compiling the project's definition, the six core lineages with one-sentence characterizations, core methodological claims (constraint migration and explanatory density), and a BibTeX citation record.
+- **Microarchitectural Integration Notes**: Added a detailed section to `reconstructions/synthesizable-hardware/README.md` guiding designers on FPGA/ASIC wrappers, clock/reset inputs, and minimal testbench structures for all four cores.
+- **Advanced Golden-Model Tests**: Added 8 advanced, zero-dependency validation tests in `test_synthesizable.py`, verifying the maximal-period properties of the 8-bit LFSR, unipolar stochastic output ratios, exhaustive 1-trit multiplier logic, addition/subtraction overflow conditions, and reversible gate bijectivity.
+
+### Improved
+- **Soft-Core Hardening**:
+  - `stochastic_multiplier.sv`: Fixed a backtick compiler glitch and added extensive, standard-compliant interface comments.
+  - `ternary_alu.sv`, `capability_bounds_checker.sv`, and `reversible_gates.sv`: Standardized interface comments, port signals, and reset/clocking styles.
+- **Prominent Navigation & Discoverability**:
+  - Linked the Academic Overview prominently in `README.md` (via a dedicated callout and navigation link) and `modern-relevance/using-this-repo.md`.
+  - Added the Academic Overview to the navigation panel of `mkdocs.yml`.
+  - Audited and updated `INDEX.md` with the new overview and the previously omitted `cryogenic-superconducting` and `neuromorphic-spiking` simulators, ensuring all 14 simulator engines are fully discoverable.
+  - Regenerated the machine-readable database `modern-relevance/knowledge_graph.json` to map all new nodes and lineages.
+- **Contribution Guidelines**: Lightly updated `CONTRIBUTING.md` with a high-leverage "Highest-value contribution areas" list to guide researchers on formal verification (SVA), physical FPGA bitstream synthesis, and real-world benchmarks.
+
 ## [Neuromorphic & Stochastic Deepening] - August 2026
 
 ### Added

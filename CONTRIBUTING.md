@@ -11,6 +11,17 @@ We welcome contributions of all types:
 
 ---
 
+## Highest-Value Contribution Areas
+
+As the repository has reached a mature, feature-complete state with 35 excavations, 14 interactive simulators, and synthesizable RTL cores, we are pivoting from bulk content generation to **credibility, robustness, and physical verification**. We encourage contributions focused on the following high-leverage areas:
+
+1. **Formal Verification of Soft-Cores**: Writing formal properties (SVA/SystemVerilog Assertions) or utilizing model-checking tools (such as SymbiYosys) to mathematically prove the correctness, safety, and bounds-checking guarantees of our synthesizable cores (`capability_bounds_checker.sv`, `ternary_alu.sv`, `stochastic_multiplier.sv`).
+2. **Additional Primary-Source Depth**: Adding high-fidelity archival references, patents, and technical schematic data to our lighter excavations to ensure academic-grade historical accuracy.
+3. **Physical FPGA Bitstreams & Demos**: Compiling, synthesizing, and placing-and-routing our SystemVerilog cores onto target hardware boards (such as the Lattice iCE40 UltraPlus / iCEbreaker or Tiny-Tapeout) and sharing the resulting PCFs, bitstreams, and oscilloscope traces.
+4. **Real-World Case Studies & Benchmarks**: Porting or benchmarking modern domain-specific workloads (e.g., lightweight convolutional neural network layers or cryptographic micro-segments) onto our simulators to quantify energy and speed advantages against traditional x86/ARM baselines.
+
+---
+
 ## Code of Conduct & Contribution Philosophy
 
 1. **Historical Accuracy First**: Ground your claims in primary sources (manuals, patents, contemporary papers, oral histories) rather than speculation. Distinguish historical facts from your own modern evaluations.

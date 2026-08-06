@@ -80,6 +80,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 
 ## Synthesis
 
+- [Academic Overview & Research Entry Point](synthesis/digital-archaeology-overview.md) — *A short, dense, and citable reference introducing our six core lineages, methodology, and BibTeX records.*
 - [Architectural Distillation](synthesis/architectural-distillation.md) — *How failed computing systems leave behind enduring abstractions that shape modern architectures.*
 - [Alternative Mathematical Execution Paradigms](synthesis/alternative-mathematical-execution-paradigms.md) — *How symmetric balanced ternary, probabilistic stochastic bitstreams, and symbolic logic resolution trees bypass the memory wall and density constraints of modern AI.*
 - [Capability-Based Security](synthesis/capability-based-security.md) — *The revival of fine-grained, unforgeable hardware-level rights in the zero-trust and AI era.*
@@ -116,6 +117,8 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Multi-Architecture Co-Simulation Orchestrator](reconstructions/co-simulation/) — *A cross-paradigm execution fabric linking hybrid AI, concurrent CSP, and spatial dataflow.*
 - [Linda Tuple Space Simulator](reconstructions/tuple-space/) — *An interactive generative communication engine implementing associative pattern-matching and coordinate-free parallel processing.*
 - [Stochastic Computing Simulator](reconstructions/stochastic-computing/) — *An interactive probabilistic execution engine implementing unipolar/bipolar logic gate arithmetic, saturating FSM-based activations, and LFSR random generation.*
+- [Cryogenic Superconducting Simulator](reconstructions/cryogenic-superconducting/) — *Picosecond-accurate Rapid Single Flux Quantum (RSFQ) pulse logic timing and thermodynamic cooling penalty simulator.*
+- [Neuromorphic Spiking Simulator](reconstructions/neuromorphic-spiking/) — *An event-driven SNN routing simulator modeling Leaky Integrate-and-Fire (LIF) dynamics and STDP learning rules.*
 
 ---
 

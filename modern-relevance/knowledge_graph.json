@@ -2062,6 +2062,12 @@
       "summary": "How the most successful modern computing systems are built by treating the compiler and hardware as a single co-designed system — a lesson learned from both failure and survival in computing history."
     },
     {
+      "id": "digital-archaeology-overview",
+      "title": "Digital Archaeology: An Open-Source Research Framework and Simulation Suite for Sidelined Computing Paradigms",
+      "path": "synthesis/digital-archaeology-overview.md",
+      "summary": "**An academic overview and citation reference for researchers, computer architects, and systems historians studying constraint migration, alternative execution models, and physical-security hardware revival.**"
+    },
+    {
       "id": "evolution-of-coordination-abstractions",
       "title": "The Evolution of Coordination Abstractions: From Shared Memory to Decoupled Concurrency",
       "path": "synthesis/evolution-of-coordination-abstractions.md",

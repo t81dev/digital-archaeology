@@ -2,6 +2,8 @@
 
 > **An engineering guide mapping excavated architectural abstractions to the design and implementation of modern hardware accelerators, hardware security features, and distributed runtimes.**
 
+> 🎓 **Academic Citation Note**: Researchers and architects referencing our methodologies, lineages, or simulator designs should consult our dedicated **[Academic Overview & Research Entry Point](../synthesis/digital-archaeology-overview.md)** for standardized BibTeX records and a dense conceptual breakdown.
+
 This repository is designed as an **executable ontology**. It does not merely document computer history; it preserves, models, and scores forgotten computing concepts so contemporary engineers can integrate them into modern designs.
 
 If you are currently designing a new accelerator, security processor, or distributed systems runtime, this document outlines how to leverage the data, simulators, and RTL blueprints in this repository.
