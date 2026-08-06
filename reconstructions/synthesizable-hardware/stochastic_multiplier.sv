@@ -1,16 +1,29 @@
-`/*
+/*
  * Stochastic Computing Multiplier
- * Represents a synthesizable stochastic multiplier with an integrated LFSR.
+ * Synthesizable unipolar stochastic multiplier with integrated 8-bit LFSR.
  * Multiplies an input 8-bit binary value with a stochastic bitstream.
+ *
+ * FPGA / Tiny-Tapeout Readiness Notes:
+ * - Output stream_out is registered to avoid logic-cone delays and glitching.
+ * - LFSR state-register uses synchronous enable clocking with active-low async reset.
+ * - Clock speed target: 300 MHz+ on common open-source toolchains.
+ *
+ * Interface Definition:
+ * - clk: System reference clock.
+ * - rst_n: Active-low asynchronous reset.
+ * - enable: Clock enable for LFSR state transitions and multiplier registration.
+ * - bin_val: Unipolar 8-bit binary value [0, 255] representing target probability.
+ * - stream_b: Incoming external stochastic bitstream (unipolar probability).
+ * - stream_out: Outgoing synchronized product stochastic bitstream (Y = A * B).
  */
 
 module stochastic_multiplier (
-    input  logic       clk,
-    input  logic       rst_n,
-    input  logic       enable,
-    input  logic [7:0] bin_val,       // Unipolar binary target value [0, 255]
-    input  logic       stream_b,      // External stochastic stream (e.g. from weight)
-    output logic       stream_out     // Output product stream
+    input  logic       clk,           // Master system clock
+    input  logic       rst_n,         // Active-low asynchronous reset
+    input  logic       enable,        // High-active clock enable
+    input  logic [7:0] bin_val,       // 8-bit unipolar binary value
+    input  logic       stream_b,      // External stochastic bitstream B
+    output logic       stream_out     // Output product stochastic bitstream
 );
 
     logic [7:0] lfsr_state;
