@@ -38,6 +38,7 @@ class Node:
 class DataflowEngine:
     """
     The main execution engine that houses nodes, matches tokens, and executes instructions.
+    Tracks statistics including steps (cycles), token injections, and dynamic token matches.
     """
     def __init__(self):
         self.nodes = {}
@@ -47,11 +48,17 @@ class DataflowEngine:
         self.matching_store = {}
         self.execution_log = []
         self.step_count = 0
+        self.outputs = {}  # Capture node_id -> list of (val, tag)
+
+        # Performance and Token Metrics
+        self.tokens_injected = 0
+        self.tokens_matched = 0
 
     def add_node(self, node):
         self.nodes[node.node_id] = node
 
     def inject_token(self, token):
+        self.tokens_injected += 1
         self.token_queue.append(token)
 
     def step(self) -> bool:
@@ -89,6 +96,7 @@ class DataflowEngine:
             match_key = (node_id, tag)
             if match_key in self.matching_store:
                 # Found a partner!
+                self.tokens_matched += 1
                 partner = self.matching_store.pop(match_key)
 
                 # Determine which is left and which is right
@@ -122,6 +130,9 @@ class DataflowEngine:
             # Increments the iteration/context tag
             self.route_output(node, val, tag + 1)
         elif node.op == 'OUTPUT':
+            if node.node_id not in self.outputs:
+                self.outputs[node.node_id] = []
+            self.outputs[node.node_id].append((val, tag))
             print(f">>> [OUTPUT NODE {node.node_id}] Result: {val} (Tag: {tag})")
             self.execution_log.append(f"*** FINAL OUTPUT: {val} at Node {node.node_id} (Tag: {tag}) ***")
 
@@ -177,7 +188,127 @@ class DataflowEngine:
 
 
 # ==========================================
-# Test Programs Setup
+# Parallel Benchmark Suites
+# ==========================================
+
+def run_vector_dot_product(vector_a, vector_b):
+    """
+    Computes parallel vector dot product of two 3-element vectors: A . B = a0*b0 + a1*b1 + a2*b2.
+    Returns (result, engine_statistics)
+    """
+    engine = DataflowEngine()
+
+    # Dynamic Multiplication nodes
+    engine.add_node(Node(node_id=1, op='MUL', destinations=[(4, 'left')]))
+    engine.add_node(Node(node_id=2, op='MUL', destinations=[(4, 'right')]))
+    engine.add_node(Node(node_id=3, op='MUL', destinations=[(5, 'right')]))
+
+    # Addition tree
+    engine.add_node(Node(node_id=4, op='ADD', destinations=[(5, 'left')]))
+    engine.add_node(Node(node_id=5, op='ADD', destinations=[(6, 'unconditional')]))
+
+    # Output Node
+    engine.add_node(Node(node_id=6, op='OUTPUT'))
+
+    # Inject input elements
+    engine.inject_token(Token(vector_a[0], dest_node=1, port='left'))
+    engine.inject_token(Token(vector_b[0], dest_node=1, port='right'))
+
+    engine.inject_token(Token(vector_a[1], dest_node=2, port='left'))
+    engine.inject_token(Token(vector_b[1], dest_node=2, port='right'))
+
+    engine.inject_token(Token(vector_a[2], dest_node=3, port='left'))
+    engine.inject_token(Token(vector_b[2], dest_node=3, port='right'))
+
+    engine.run_until_empty()
+
+    final_res = engine.outputs.get(6, [(0, 0)])[0][0]
+    stats = {
+        "cycles_steps": engine.step_count,
+        "tokens_injected": engine.tokens_injected,
+        "tokens_matched": engine.tokens_matched
+    }
+    return final_res, stats
+
+
+def run_matrix_multiply_2x2(m1, m2):
+    """
+    Computes a fully parallel 2x2 matrix multiplication: R = m1 * m2
+    Input matrices are 2D arrays:
+      m1 = [[w, x], [y, z]]
+      m2 = [[a, b], [c, d]]
+    Returns (result_matrix, engine_statistics)
+    """
+    engine = DataflowEngine()
+
+    # Duplicate inputs to their respective arithmetic targets
+    engine.add_node(Node(node_id=1, op='DUP', destinations=[(11, 'left'), (12, 'left')]))   # w
+    engine.add_node(Node(node_id=2, op='DUP', destinations=[(21, 'left'), (22, 'left')]))   # x
+    engine.add_node(Node(node_id=3, op='DUP', destinations=[(31, 'left'), (32, 'left')]))   # y
+    engine.add_node(Node(node_id=4, op='DUP', destinations=[(41, 'left'), (42, 'left')]))   # z
+    engine.add_node(Node(node_id=5, op='DUP', destinations=[(11, 'right'), (31, 'right')])) # a
+    engine.add_node(Node(node_id=6, op='DUP', destinations=[(12, 'right'), (32, 'right')])) # b
+    engine.add_node(Node(node_id=7, op='DUP', destinations=[(21, 'right'), (41, 'right')])) # c
+    engine.add_node(Node(node_id=8, op='DUP', destinations=[(22, 'right'), (42, 'right')])) # d
+
+    # Arithmetic processors
+    # Cell 0,0: r00 = w*a + x*c
+    engine.add_node(Node(node_id=11, op='MUL', destinations=[(51, 'left')]))
+    engine.add_node(Node(node_id=21, op='MUL', destinations=[(51, 'right')]))
+    engine.add_node(Node(node_id=51, op='ADD', destinations=[(101, 'unconditional')]))
+    engine.add_node(Node(node_id=101, op='OUTPUT'))
+
+    # Cell 0,1: r01 = w*b + x*d
+    engine.add_node(Node(node_id=12, op='MUL', destinations=[(52, 'left')]))
+    engine.add_node(Node(node_id=22, op='MUL', destinations=[(52, 'right')]))
+    engine.add_node(Node(node_id=52, op='ADD', destinations=[(102, 'unconditional')]))
+    engine.add_node(Node(node_id=102, op='OUTPUT'))
+
+    # Cell 1,0: r10 = y*a + z*c
+    engine.add_node(Node(node_id=31, op='MUL', destinations=[(53, 'left')]))
+    engine.add_node(Node(node_id=41, op='MUL', destinations=[(53, 'right')]))
+    engine.add_node(Node(node_id=53, op='ADD', destinations=[(103, 'unconditional')]))
+    engine.add_node(Node(node_id=103, op='OUTPUT'))
+
+    # Cell 1,1: r11 = y*b + z*d
+    engine.add_node(Node(node_id=32, op='MUL', destinations=[(54, 'left')]))
+    engine.add_node(Node(node_id=42, op='MUL', destinations=[(54, 'right')]))
+    engine.add_node(Node(node_id=54, op='ADD', destinations=[(104, 'unconditional')]))
+    engine.add_node(Node(node_id=104, op='OUTPUT'))
+
+    # Inject matrix elements
+    engine.inject_token(Token(m1[0][0], dest_node=1)) # w
+    engine.inject_token(Token(m1[0][1], dest_node=2)) # x
+    engine.inject_token(Token(m1[1][0], dest_node=3)) # y
+    engine.inject_token(Token(m1[1][1], dest_node=4)) # z
+
+    engine.inject_token(Token(m2[0][0], dest_node=5)) # a
+    engine.inject_token(Token(m2[0][1], dest_node=6)) # b
+    engine.inject_token(Token(m2[1][0], dest_node=7)) # c
+    engine.inject_token(Token(m2[1][1], dest_node=8)) # d
+
+    engine.run_until_empty(limit=1000)
+
+    # Harvest final values
+    r00 = engine.outputs.get(101, [(0, 0)])[0][0]
+    r01 = engine.outputs.get(102, [(0, 0)])[0][0]
+    r10 = engine.outputs.get(103, [(0, 0)])[0][0]
+    r11 = engine.outputs.get(104, [(0, 0)])[0][0]
+
+    res_matrix = [
+        [r00, r01],
+        [r10, r11]
+    ]
+    stats = {
+        "cycles_steps": engine.step_count,
+        "tokens_injected": engine.tokens_injected,
+        "tokens_matched": engine.tokens_matched
+    }
+    return res_matrix, stats
+
+
+# ==========================================
+# Original Test Programs Setup
 # ==========================================
 
 def run_parallel_quadratic():
@@ -317,6 +448,18 @@ def run_iterative_factorial(n_val=5):
 def main():
     run_parallel_quadratic()
     run_iterative_factorial(5)
+
+    # Run Benchmark
+    print("\n" + "="*50)
+    print("Running 2x2 Matrix Multiplication Benchmark")
+    print("="*50)
+    m1 = [[2, 3], [4, 5]]
+    m2 = [[1, 2], [3, 4]]
+    res, stats = run_matrix_multiply_2x2(m1, m2)
+    print(f"Result Matrix: {res}")
+    print("Engine Performance Stats:")
+    for k, v in stats.items():
+        print(f"  {k}: {v}")
 
 if __name__ == "__main__":
     main()

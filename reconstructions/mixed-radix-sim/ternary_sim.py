@@ -182,6 +182,125 @@ def ternary_multiply(s1: str, s2: str, show_trace: bool = False) -> str:
     accum = accum.lstrip('0')
     return accum if accum else "0"
 
+
+class TernaryALU:
+    """
+    A simulated multi-trit Balanced Ternary ALU with supporting registers.
+    """
+    def __init__(self):
+        # 3 registers holding Balanced Ternary strings.
+        self.registers = {
+            "R0": "0",
+            "R1": "0",
+            "R2": "0"
+        }
+        self.history = []
+
+    def execute(self, instruction: str) -> str:
+        """
+        Executes a single assembly-like instruction.
+        Format examples:
+          "LOAD R0, 1T0"
+          "ADD R2, R0, R1"
+          "SUB R0, R1, R2"
+          "MUL R1, R0, R2"
+          "NEG R0, R1"
+          "NOT R2, R0"
+          "AND R1, R0, R2"
+          "OR R0, R1, R2"
+          "SHL R2, R1"
+          "SHR R0, R2"
+        """
+        self.history.append(instruction)
+        parts = [p.strip() for p in instruction.replace(",", " ").split() if p.strip()]
+        if not parts:
+            return "NOP"
+
+        op = parts[0].upper()
+
+        if op == "LOAD":
+            reg, val = parts[1], parts[2]
+            if reg not in self.registers:
+                raise ValueError(f"Invalid register: {reg}")
+            # Verify valid ternary string format
+            for char in val.upper():
+                if char not in CHAR_TO_TRIT:
+                    raise ValueError(f"Invalid trit value: {char}")
+            self.registers[reg] = val.upper()
+            dest = reg
+
+        elif op == "ADD":
+            dest, src1, src2 = parts[1], parts[2], parts[3]
+            v1 = self.registers[src1]
+            v2 = self.registers[src2]
+            self.registers[dest] = ternary_add(v1, v2)
+
+        elif op == "SUB":
+            dest, src1, src2 = parts[1], parts[2], parts[3]
+            v1 = self.registers[src1]
+            v2 = self.registers[src2]
+            self.registers[dest] = ternary_subtract(v1, v2)
+
+        elif op == "MUL":
+            dest, src1, src2 = parts[1], parts[2], parts[3]
+            v1 = self.registers[src1]
+            v2 = self.registers[src2]
+            self.registers[dest] = ternary_multiply(v1, v2)
+
+        elif op == "NEG":
+            dest, src = parts[1], parts[2]
+            v = self.registers[src]
+            self.registers[dest] = ternary_negate(v)
+
+        elif op == "NOT":
+            dest, src = parts[1], parts[2]
+            v = self.registers[src]
+            self.registers[dest] = "".join(TRIT_TO_CHAR[ternary_not(CHAR_TO_TRIT[c])] for c in v)
+
+        elif op == "AND":
+            dest, src1, src2 = parts[1], parts[2], parts[3]
+            v1 = self.registers[src1]
+            v2 = self.registers[src2]
+            p1, p2 = pad_strings(v1, v2)
+            res_trits = []
+            for c1, c2 in zip(p1, p2):
+                t1 = CHAR_TO_TRIT[c1]
+                t2 = CHAR_TO_TRIT[c2]
+                res_trits.append(TRIT_TO_CHAR[ternary_and(t1, t2)])
+            self.registers[dest] = "".join(res_trits).lstrip('0') or "0"
+
+        elif op == "OR":
+            dest, src1, src2 = parts[1], parts[2], parts[3]
+            v1 = self.registers[src1]
+            v2 = self.registers[src2]
+            p1, p2 = pad_strings(v1, v2)
+            res_trits = []
+            for c1, c2 in zip(p1, p2):
+                t1 = CHAR_TO_TRIT[c1]
+                t2 = CHAR_TO_TRIT[c2]
+                res_trits.append(TRIT_TO_CHAR[ternary_or(t1, t2)])
+            self.registers[dest] = "".join(res_trits).lstrip('0') or "0"
+
+        elif op == "SHL":
+            dest, src = parts[1], parts[2]
+            v = self.registers[src]
+            self.registers[dest] = (v + "0").lstrip('0') or "0"
+
+        elif op == "SHR":
+            dest, src = parts[1], parts[2]
+            v = self.registers[src]
+            # Right shift is truncating the last trit, naturally rounding to nearest integer!
+            if len(v) <= 1:
+                self.registers[dest] = "0"
+            else:
+                self.registers[dest] = v[:-1].lstrip('0') or "0"
+
+        else:
+            raise ValueError(f"Unknown operation: {op}")
+
+        return self.registers[dest]
+
+
 def run_self_test():
     """Run verification self-tests."""
     print("=== Balanced Ternary Self-Test ===")
@@ -272,10 +391,11 @@ def main():
         print("3. Add two numbers (with step-by-step trace)")
         print("4. Subtract two numbers (with step-by-step trace)")
         print("5. Multiply two numbers (with step-by-step trace)")
-        print("6. Exit")
+        print("6. Run Multi-Trit ALU Instruction Set Demo")
+        print("7. Exit")
 
         try:
-            choice = input("Enter choice (1-6): ").strip()
+            choice = input("Enter choice (1-7): ").strip()
             if choice == '1':
                 val = int(input("Enter decimal integer: ").strip())
                 tern = decimal_to_ternary(val)
@@ -312,10 +432,26 @@ def main():
                 print(f"\nResult Ternary: {res}")
                 print(f"Result Decimal: {ternary_to_decimal(res)}")
             elif choice == '6':
+                print("\nRunning Ternary ALU Demo:")
+                alu = TernaryALU()
+                # Demo instructions
+                insts = [
+                    "LOAD R0, 11",  # 4
+                    "LOAD R1, 1T",  # 2
+                    "ADD R2, R0, R1", # 4 + 2 = 6 (Ternary: 1T0)
+                    "SUB R0, R2, R1", # 6 - 2 = 4 (Ternary: 11)
+                    "MUL R1, R2, R0", # 6 * 4 = 24 (Ternary: 10T0)
+                    "SHR R2, R1",     # 24 // 3 = 8 (Ternary: 10T)
+                    "SHL R0, R2"      # 8 * 3 = 24 (Ternary: 10T0)
+                ]
+                for inst in insts:
+                    res = alu.execute(inst)
+                    print(f"  Executed: '{inst:<15}' ==> Registers: R0={alu.registers['R0']} ({ternary_to_decimal(alu.registers['R0'])}), R1={alu.registers['R1']} ({ternary_to_decimal(alu.registers['R1'])}), R2={alu.registers['R2']} ({ternary_to_decimal(alu.registers['R2'])})")
+            elif choice == '7':
                 print("Exiting Balanced Ternary Simulator. Goodbye!")
                 break
             else:
-                print("Invalid choice, please select between 1 and 6.")
+                print("Invalid choice, please select between 1 and 7.")
         except Exception as e:
             print(f"Error: {e}")
 

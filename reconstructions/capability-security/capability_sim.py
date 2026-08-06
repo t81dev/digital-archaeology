@@ -52,6 +52,20 @@ class CapabilityWord(Word):
         return f"Cap(base={self.base}, limit={self.limit}, perms={perms}{seal_str}, label='{self.label}')"
 
 
+class RevocableCapabilityWord(CapabilityWord):
+    """
+    An advanced capability that can be dynamically revoked by a parent domain
+    via an associated gate identifier.
+    """
+    def __init__(self, base: int, limit: int, permissions: set, gate_id: int, label: str = ""):
+        super().__init__(base, limit, permissions, sealed=False, label=label)
+        self.gate_id = gate_id
+
+    def __repr__(self):
+        perms = "".join(sorted(list(self.permissions)))
+        return f"RevocableCap(base={self.base}, limit={self.limit}, perms={perms}, gate={self.gate_id}, label='{self.label}')"
+
+
 class TaggedRAM:
     """
     Simulated memory where each address contains a Word.
@@ -75,6 +89,7 @@ class TaggedRAM:
 class CPU:
     """
     A virtual CPU implementing capability registers and hardware-enforced bounds checking.
+    Tracks performance counters for hardware validation operations.
     """
     def __init__(self, ram: TaggedRAM):
         self.ram = ram
@@ -89,6 +104,28 @@ class CPU:
             None
         ]
         self.domain_log = []
+        self.revoked_gates = set()
+
+        # Hardware Performance Counters
+        self.perf_counters = {
+            "memory_reads": 0,
+            "memory_writes": 0,
+            "bounds_checks": 0,
+            "domain_crossings": 0,
+            "tag_validations": 0,
+            "derivations": 0
+        }
+
+    def reset_perf_counters(self):
+        """Resets hardware performance counters to zero."""
+        for key in self.perf_counters:
+            self.perf_counters[key] = 0
+
+    def _validate_cap(self, cap: CapabilityWord):
+        """Hardware helper to verify capability validity and revocation status."""
+        self.perf_counters["tag_validations"] += 1
+        if isinstance(cap, RevocableCapabilityWord) and cap.gate_id in self.revoked_gates:
+            raise PermissionException(f"Permission Exception: Use of revoked capability (gate={cap.gate_id}).")
 
     def load_const(self, reg_idx: int, value):
         """LOAD_CONST: Load raw value into a data register."""
@@ -103,9 +140,13 @@ class CPU:
         DERIVE_CAP: Create a restricted sub-capability from an existing one.
         The CPU automatically verifies that the child range fits inside the parent.
         """
+        self.perf_counters["derivations"] += 1
+        self.perf_counters["bounds_checks"] += 1
+
         parent = self.cap_regs[src_idx]
         if not parent:
             raise TagException(f"Source register C{src_idx} is empty.")
+        self._validate_cap(parent)
         if parent.sealed:
             raise PermissionException("Cannot derive from a sealed capability.")
 
@@ -125,14 +166,52 @@ class CPU:
             label=f"Derived from C{src_idx}"
         )
 
+    def derive_revocable_cap(self, dest_idx: int, src_idx: int, offset: int, limit: int, perms: set, gate_id: int):
+        """
+        DERIVE_REVOCABLE_CAP: Create a revocable sub-capability from an existing one,
+        bound to a specific revocation gate.
+        """
+        self.perf_counters["derivations"] += 1
+        self.perf_counters["bounds_checks"] += 1
+
+        parent = self.cap_regs[src_idx]
+        if not parent:
+            raise TagException(f"Source register C{src_idx} is empty.")
+        self._validate_cap(parent)
+        if parent.sealed:
+            raise PermissionException("Cannot derive from a sealed capability.")
+
+        child_base = parent.base + offset
+        if child_base < parent.base or (child_base + limit) > (parent.base + parent.limit):
+            raise BoundsException(f"Derived capability range [{child_base}, {child_base+limit}) exceeds parent bounds.")
+
+        if not perms.issubset(parent.permissions):
+            raise PermissionException("Derived capability cannot claim permissions not possessed by parent.")
+
+        self.cap_regs[dest_idx] = RevocableCapabilityWord(
+            base=child_base,
+            limit=limit,
+            permissions=perms,
+            gate_id=gate_id,
+            label=f"Revocable Derived from C{src_idx}"
+        )
+
+    def revoke_gate(self, gate_id: int):
+        """REVOKE_GATE: Hardware/System mechanism to invalidate all capabilities bound to a gate."""
+        self.revoked_gates.add(gate_id)
+
     def load_data(self, dest_data_idx: int, cap_idx: int, offset: int):
         """
         LOAD_DATA: Load data word from memory using a capability register and offset.
         The hardware automatically performs bounds and permissions checking.
         """
+        self.perf_counters["bounds_checks"] += 1
+        self.perf_counters["memory_reads"] += 1
+
         cap = self.cap_regs[cap_idx]
         if not cap:
             raise TagException(f"Register C{cap_idx} contains no capability.")
+        self._validate_cap(cap)
         if cap.sealed:
             raise PermissionException("Cannot load data from a sealed capability.")
         if 'R' not in cap.permissions:
@@ -156,9 +235,13 @@ class CPU:
         Enforces bounds, permissions, and automatically overwrites any pre-existing capability,
         clearing the hardware tag bit for that slot.
         """
+        self.perf_counters["bounds_checks"] += 1
+        self.perf_counters["memory_writes"] += 1
+
         cap = self.cap_regs[cap_idx]
         if not cap:
             raise TagException(f"Register C{cap_idx} contains no capability.")
+        self._validate_cap(cap)
         if cap.sealed:
             raise PermissionException("Cannot write data to a sealed capability.")
         if 'W' not in cap.permissions:
@@ -177,9 +260,13 @@ class CPU:
         LOAD_CAP: Load a Capability from memory into a capability register.
         Enforces that the loaded memory slot actually has a hardware-level Capability tag.
         """
+        self.perf_counters["bounds_checks"] += 1
+        self.perf_counters["memory_reads"] += 1
+
         cap = self.cap_regs[cap_idx]
         if not cap:
             raise TagException(f"Register C{cap_idx} contains no capability.")
+        self._validate_cap(cap)
         if cap.sealed:
             raise PermissionException("Cannot load capability from a sealed capability.")
         if 'R' not in cap.permissions:
@@ -195,6 +282,7 @@ class CPU:
         if not isinstance(word, CapabilityWord):
             raise TagException(f"Tag Exception: Memory slot at address {address} does not contain a valid Capability (Tag=0).")
 
+        self._validate_cap(word)
         self.cap_regs[dest_cap_idx] = word
 
     def store_cap(self, src_cap_idx: int, cap_idx: int, offset: int):
@@ -202,9 +290,13 @@ class CPU:
         STORE_CAP: Store a Capability from a register into memory.
         The RAM preserves the capability tag bit as 1 because it's stored via specialized instruction.
         """
+        self.perf_counters["bounds_checks"] += 1
+        self.perf_counters["memory_writes"] += 1
+
         cap = self.cap_regs[cap_idx]
         if not cap:
             raise TagException(f"Register C{cap_idx} contains no capability.")
+        self._validate_cap(cap)
         if cap.sealed:
             raise PermissionException("Cannot write capability to a sealed capability.")
         if 'W' not in cap.permissions:
@@ -219,6 +311,7 @@ class CPU:
         if not src_cap:
             raise TagException(f"Source register C{src_cap_idx} is empty.")
 
+        self._validate_cap(src_cap)
         self.ram.write(address, src_cap)
 
     def print_state(self):
@@ -345,6 +438,7 @@ def run_scenarios():
 
     # Mocking CPU domain transition logic:
     def database_service_query(user_query):
+        cpu.perf_counters["domain_crossings"] += 1
         # Service runs with access to its unsealed capability
         unsealed_cap = CapabilityWord(base=50, limit=10, permissions={'R', 'W'}, label="Unsealed Database")
         # Read private key inside service domain
@@ -366,7 +460,101 @@ def run_scenarios():
     else:
         print("  [FAIL] Failed secure transition.")
 
-    print("\nAll scenarios successfully completed and verified.")
+    # -------------------------------------------------------------
+    # Scenario 4: The Confused Deputy Attack & POLA Defense
+    # -------------------------------------------------------------
+    print("\n--- Scenario 4: Confused Deputy Attack & POLA Defense ---")
+
+    # Setting up the system:
+    # Addresses [80, 90) contains highly sensitive system-wide "billing_log".
+    # Initially contains "BILL_STATUS: PAID".
+    cpu.load_const(0, "BILL_STATUS: PAID")
+    cpu.store_data(src_data_idx=0, cap_idx=0, offset=80)
+
+    # Let's define the compiler deputy function
+    def compiler_deputy_ambient_write(requested_address, payload):
+        """Simulates an ambient authority system where deputy uses its global master privileges."""
+        # The deputy has access to the full RAM via system master capability
+        # The deputy compiles user payload and writes it directly to the numeric address specified by user
+        print(f"  Deputy (Ambient): Compiling and writing to address {requested_address} using system master authority...")
+        ram.write(requested_address, DataWord(payload))
+
+    # The Attacker tries to trick the compiler to write malicious data into the secure billing log at address 80
+    print("Attacker Action (Ambient): Asking deputy to write compilation output to address 80...")
+    compiler_deputy_ambient_write(80, "MALICIOUS_OVERWRITE")
+    print(f"  Result in Memory: {ram.read(80)}  ==> [VIOLATION] Secure billing log overwritten!")
+
+    # Restore the secure status
+    cpu.load_const(0, "BILL_STATUS: PAID")
+    cpu.store_data(src_data_idx=0, cap_idx=0, offset=80)
+
+    # Now we execute the POLA (Principle of Least Authority) Defense!
+    def compiler_deputy_pola_write(dest_cap_idx, offset, payload):
+        """Simulates a capability system: compiler requires the caller to provide a destination capability."""
+        # The compiler cannot write to arbitrary addresses using its own master authority.
+        # Instead, it strictly writes using the capability passed by the caller.
+        print("  Deputy (POLA): Compiling and writing output utilizing the caller's supplied capability...")
+        cpu.load_const(0, payload)
+        # Note: the compiler writes to memory strictly via the capability supplied in dest_cap_idx
+        cpu.store_data(src_data_idx=0, cap_idx=dest_cap_idx, offset=offset)
+
+    # Attacker tries to overwrite address 80.
+    # Since the attacker's only access is to their sandbox C1 [10, 20),
+    # the attacker tries to specify offset 70 inside C1 (which points to physical address 10+70 = 80).
+    print("\nAttacker Action (POLA): Attempting to pass user sandbox C1 with offset 70 to deputy compiler...")
+    try:
+        compiler_deputy_pola_write(dest_cap_idx=1, offset=70, payload="MALICIOUS_OVERWRITE")
+    except BoundsException as e:
+        print(f"  [SUCCESS] CPU hardware blocked the write! Exception raised: {e}")
+        print("  (The deputy compiler was not confused because its write was bounded by the caller's capability C1.)")
+    else:
+        print("  [FAIL] Ambient deputy bypassed bounds check!")
+
+    # Verify that the secure billing log is completely unharmed
+    cpu.load_data(dest_data_idx=3, cap_idx=0, offset=80)
+    print(f"  Billing log remains safe in memory: {cpu.data_regs[3]}")
+
+    # -------------------------------------------------------------
+    # Scenario 5: Fine-grained Privilege Attenuation & Revocation
+    # -------------------------------------------------------------
+    print("\n--- Scenario 5: Dynamic Revocation ---")
+
+    # Parent domain creates a revocable capability for memory slot [30, 40) bound to Gate ID 404
+    print("Action: Creating revocable capability for addresses [30, 40) with Gate ID 404...")
+    cpu.derive_revocable_cap(dest_idx=2, src_idx=0, offset=30, limit=10, perms={'R', 'W'}, gate_id=404)
+    print(f"  Generated Revocable Capability in C2: {cpu.cap_regs[2]}")
+
+    # Pass capability to a plugin. The plugin writes data to it successfully.
+    print("Action: Untrusted plugin writing value 777 to offset 1 using capability C2...")
+    cpu.load_const(1, 777)
+    cpu.store_data(src_data_idx=1, cap_idx=2, offset=1)
+
+    cpu.load_data(dest_data_idx=1, cap_idx=2, offset=1)
+    print(f"  Plugin verified write: read back value {cpu.data_regs[1]} via C2.")
+
+    # Now the parent domain revokes Gate ID 404
+    print("\nParent Action: Revoking access gate 404...")
+    cpu.revoke_gate(404)
+
+    # Plugin attempts to read again using capability C2
+    print("Plugin Action: Attempting to read from C2 after revocation...")
+    try:
+        cpu.load_data(dest_data_idx=1, cap_idx=2, offset=1)
+    except PermissionException as e:
+        print(f"  [SUCCESS] CPU blocked access to revoked capability! Exception raised: {e}")
+    else:
+        print("  [FAIL] Plugin read from revoked capability!")
+
+    # -------------------------------------------------------------
+    # Performance Counters Report
+    # -------------------------------------------------------------
+    print("\n" + "="*40)
+    print("HARDWARE PERFORMANCE COUNTERS LOG")
+    print("="*40)
+    for counter, val in cpu.perf_counters.items():
+        print(f"  {counter:<20}: {val}")
+    print("="*40)
+    print("All scenarios successfully completed and verified.")
 
 if __name__ == "__main__":
     run_scenarios()

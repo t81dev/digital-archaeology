@@ -6,22 +6,64 @@
 
 ## Summary
 
-Capability-based security offers a powerful alternative to traditional ACL (Access Control List) and Unix-style permission models. In a capability system, possessing an unforgeable reference (a “capability”) to a resource *is* the authority to use it. Capabilities tightly combine designation (“this resource”) with permission (“you may do these operations”) in a single mechanism.
+Capability-based security offers a powerful alternative to traditional Access Control List (ACL) and Unix-style ambient permission models. In a capability system, possessing an unforgeable reference (a “capability”) to a resource *is* the authority to use it. Capabilities tightly combine designation (“this resource”) with permission (“you may do these operations”) in a single mechanism.
 
 Pioneered in the 1960s and implemented in several influential systems, capability architectures provide elegant solutions to persistent security problems such as privilege escalation, confused deputy attacks, and ambient authority. Despite their strengths, they have remained largely outside the mainstream operating system ecosystem.
 
 ---
 
-## Historical Context
+## Historical Context & Primary-Source Grounding
 
-The formal concept was introduced by **Dennis and Van Horn** (1966) in their work on multiprogrammed computations. Early and influential implementations include:
-- **HYDRA** (Carnegie Mellon University, 1970s)
-- **CAP** computer (University of Cambridge)
-- **KeyKOS** (1980s) — A commercial microkernel-based OS built entirely around capabilities, used in production banking environments with remarkable reliability and security.
-- **EROS** (Extremely Reliable Operating System, 1990s–2000s) — A formally verified capability system.
-- Later microkernel work in the **L4** family and derivatives incorporated capability-like mechanisms.
+The formal concept was introduced by **Dennis and Van Horn** in their seminal 1966 paper, "Programming Semantics for Multiprogrammed Computations," defining the capability as an unforgeable index into a per-process list of system objects (the "C-list").
 
-KeyKOS stands out as one of the most ambitious and practical demonstrations, running for years in real-world high-security settings.
+Early hardware-enforced and software-mediated systems evolved through distinct generations:
+
+### 1. Cambridge CAP Computer & Hydra (1970s)
+* **CAP Computer** (University of Cambridge, Wilkes and Needham, 1979): The first computer system in which the CPU directly enforced capabilities at the hardware instruction level. It utilized separate capability segments in memory, requiring hardware-enforced descriptor loading to execute memory reads or writes.
+* **Hydra** (Carnegie Mellon University, Wulf et al., 1974): A capability-based operating system designed for the C.mmp multiprocessor system. Hydra pioneered the concept of user-defined type-extension, enabling applications to declare custom resources and specify custom permissions on capabilities.
+
+### 2. KeyKOS (1983)
+* Developed by Key Systems, KeyKOS was a commercial microkernel-based OS designed for high-availability mainframe banking environments.
+* **Architecture**: KeyKOS implemented a *single-level store*, mapping disk blocks and RAM into a unified, persistent address space. Objects were represented by "keys" (capabilities).
+* **Mechanisms**: Disk pages themselves acted as capabilities (disc pages as objects), mediated securely by the microkernel. To handle performance constraints, KeyKOS utilized highly optimized kernel-mediated message passing (IPC). Despite having fewer than 100,000 lines of code, it demonstrated unprecedented reliability and security, achieving years of continuous uptime without security breaches.
+
+### 3. EROS: Extremely Reliable Operating System (1999)
+* Developed by Jonathan Shapiro et al. at the University of Pennsylvania, EROS modernized the KeyKOS single-level store and capability mechanisms.
+* **Performance**: EROS resolved long-standing criticisms regarding capability overhead. It achieved extremely fast synchronous IPC performance—taking only ~50 clock cycles on a Pentium II, which outperformed traditional microkernels like Mach by an order of magnitude.
+* **Persistence & Safety**: EROS implemented periodic, synchronous system-wide checkpointing (continuous orthogonal persistence). It provided a clean substrate for formal verification, establishing mathematical proofs of isolation and authority confinement.
+
+```
++-----------------------------------------------------------------------+
+|  TRADITIONAL POINTER / ADDRESS-BASED MODEL (AMBIENT AUTHORITY)        |
+|                                                                       |
+|  User Process ----> [ Address (e.g., 0x7FFF0012) ]                    |
+|                            |                                          |
+|                            v                                          |
+|                     [ Memory Controller ]                             |
+|                            |                                          |
+|                            +----> Read/Write allowed based on         |
+|                                   ambient process UID/GID status      |
++-----------------------------------------------------------------------+
+
++-----------------------------------------------------------------------+
+|  CHERI CAPABILITY-BASED MODEL (POLA ENFORCED BY HARDWARE)             |
+|                                                                       |
+|  User Process ----> [ CAPABILITY REGISTER: C0 ]                       |
+|                     +---------------------------------------+         |
+|                     | Base: 0x7FFF0000 | Limit: 0x00000100  |         |
+|                     +---------------------------------------+         |
+|                     | Permissions: READ, WRITE (no EXEC)    |         |
+|                     +---------------------------------------+         |
+|                            |                                          |
+|                            v                                          |
+|                     [ Memory Controller ] <---+ Hardware Tag Bit      |
+|                            |                  | (1 = Unforgeable Cap  |
+|                            |                  |  0 = Corrupt Data)    |
+|                            v                                          |
+|                     Verifies bounds & permissions                     |
+|                     within instruction pipeline                       |
++-----------------------------------------------------------------------+
+```
 
 ---
 
@@ -37,15 +79,13 @@ This model naturally eliminates many classes of vulnerabilities, including the c
 
 ---
 
-## Innovations
+## Innovations & Key Metrics
 
 - **Principle of Least Authority (POLA)** — Enforced by architecture rather than programmer discipline.
 - **Fine-grained, safe delegation** — Easy to grant temporary or limited access.
 - **No ambient authority** — Dramatically reduces the attack surface.
 - **Object-capability model** — Natural fit for object-oriented, distributed, and concurrent systems.
 - **Strong confinement and composability** — Security boundaries are easier to reason about and verify.
-
-These ideas influenced later systems even when full capability OSes did not dominate.
 
 ---
 
@@ -61,25 +101,21 @@ These ideas influenced later systems even when full capability OSes did not domi
 
 ## Modern Relevance
 
-Capability systems are seeing a significant revival:
-- **CHERI** (Capability Hardware Enhanced RISC Instructions, University of Cambridge) — Adds hardware capability support to ARM and RISC-V, enabling memory-safe and capability-secure software with modest overhead.
-- **Google Fuchsia** — Uses Zircon kernel handles with capability-like semantics.
-- **WebAssembly**, sandboxing frameworks, and cloud-native security models increasingly adopt object-capability principles.
-- **Blockchain and smart contract platforms** — Function essentially as global, distributed capability systems (tokens as capabilities).
-- Research operating systems such as **seL4** and others continue exploring formally verified capability models.
-
-With hardware support (CHERI), distributed/zero-trust computing demands, and growing dissatisfaction with traditional permission models, capabilities are far more practical today than in the 1980s.
+### CHERI Hardware
+- **CHERI (Capability Hardware Enhanced RISC Instructions)**: Pioneered by SRI International and the University of Cambridge (Woodruff et al., 2014; Watson et al., 2015), CHERI extends conventional RISC architectures (such as ARM and RISC-V) with native capability registers and instructions.
+- **Tag-Bit Integrity**: CHERI protects capabilities in physical RAM via a hardware-managed tag bit. If a capability word in memory is overwritten by any normal integer or data-manipulation instruction, the tag bit is automatically cleared, making the capability invalid for use.
+- **128-bit Compressed Capabilities**: To minimize memory bandwidth overhead, CHERI uses floating-point-style compression to compress 256-bit architectural bounds (base, limit, permissions) into a 128-bit format that fits within existing 64-bit memory spaces.
+- **Performance Overhead**: Extensive benchmarking on real-world workloads (e.g., PostgreSQL, nginx, WebKit) demonstrates that CHERI's hardware-enforced spatial and temporal memory safety incurs a performance overhead of **less than 1% to 2%**, resolving the performance penalty of earlier software-based capability implementations.
+- **Industry Adoption**: ARM has fabricated experimental CHERI silicon (the "Morello" prototype chip), demonstrating physical viability in mass-market general-purpose processors. Furthermore, OS architectures like Google's Fuchsia utilize capability-like semantics (Zircon handles), and WebAssembly employs sandboxing principles inspired directly by object-capabilities.
 
 ---
 
-## Lessons Learned
+## Lessons Learned & Constraint Migration
 
-- Security models are exceptionally “sticky” — replacing them requires both technical excellence and ecosystem momentum.
-- Elegant, mathematically clean designs can lose to “good enough” incumbents with better compatibility.
-- Hardware acceleration (e.g., CHERI) can dramatically lower the barrier to adopting superior abstractions.
-- Many long-standing security problems (privilege escalation, confused deputy, over-privileged code) have known, elegant solutions that were sidelined for non-technical reasons.
-
-Capability systems exemplify how some of computing’s best ideas were abandoned not because they were flawed, but because they challenged established ways of thinking at the wrong historical moment.
+The trajectory of capability systems highlights how changing physical and economic realities drive [Constraint Migration](../patterns/constraint-migration.md).
+1. **Security as a Primary Bottleneck**: In the 1970s and 1980s, CPU cycles and memory bandwidth were scarce, making capability-checking indirection too expensive. Today, computing is virtually free, but the economic and geopolitical cost of memory-safety vulnerabilities (composing ~70% of all major CVEs) is catastrophic. The constraint has migrated from *silicon area* to *security integrity*.
+2. **Ecosystem Stickiness**: Changing basic processor-level abstractions requires rewriting compilers and runtimes. Hardware-software co-design (as seen in CHERI) is essential to preserve existing C/C++ codebases while retrofitting fine-grained spatial memory protection.
+3. **Selective Abstraction Distillation**: The industry has begun adopting capabilities selectively rather than wholesale, incorporating capability-based principles into hypervisors, sandboxes (Wasm), and memory tagging (ARM MTE), as discussed in [Capability-Based Security](../synthesis/capability-based-security.md).
 
 ---
 
@@ -96,68 +132,26 @@ Capability systems exemplify how some of computing’s best ideas were abandoned
 
 ## Related Excavations
 - [Lisp Machines](../excavations/lisp-machines.md) (tagged architectures)
-- Transputers (message-passing and isolation philosophy)
-- Balanced Ternary (alternative foundational designs)
+- [Burroughs Large Systems](../excavations/burroughs-large-systems.md) (descriptor-based memory safety)
+- [Intel iAPX 432](../excavations/intel-iapx-432.md) (object-oriented hardware capability attempt)
 
 ## Related Patterns
 - [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
 - [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)
 - [Economic Failures](../patterns/economic-failures.md)
 - [Recurring Ideas](../patterns/recurring-ideas.md)
+- [Constraint Migration](../patterns/constraint-migration.md)
 
----
-
-## References (Selected)
-- Dennis, J.B. and Van Horn, E.C. “Programming Semantics for Multiprogrammed Computations” (1966).
-- KeyKOS technical papers and documentation.
-- CHERI technical reports and papers (University of Cambridge).
-- Miller, Mark S., Shapiro, Jonathan S., et al. — Foundational object-capability model literature.
-- seL4 and EROS project publications.
-
----
-
-## Modern Relevance
-
-Capability systems are experiencing a quiet renaissance:
-
-- **CHERI** (Cambridge) — Capability Hardware Enhanced RISC Instructions — adding capability support to ARM and RISC-V.
-- **Google’s Fuchsia** OS uses capability-like Zircon handles.
-- **WebAssembly** and cloud-native security models increasingly adopt object-capability principles.
-- **Blockchain / Smart Contracts** — Essentially global capability systems (tokens as capabilities).
-- **Operating system research** (seL4, Barrelfish, others).
-
-Modern hardware support (CHERI) and the rise of distributed, zero-trust environments make capabilities far more practical than in the 1980s.
-
----
-
-## Lessons Learned
-
-- Security models are incredibly sticky — changing them requires both technical and cultural shifts.
-- Elegant, mathematically clean designs can still lose to “good enough” incumbent systems.
-- Hardware support (like CHERI) can dramatically lower the cost of adopting better abstractions.
-- Many long-standing security problems (privilege escalation, confused deputy) have known elegant solutions that were never widely adopted.
-
-Capability systems demonstrate that some of the best ideas in computing were abandoned not for technical reasons, but because they challenged established ways of thinking at the wrong time.
-
----
-
-## Related Excavations
-- [Lisp Machines](../excavations/lisp-machines.md)
-- [Plan 9](../excavations/plan-9.md) (planned)
-- Transputers (message-passing philosophy)
-
-## Related Patterns
-- [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
-- [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)
-- [Economic Failures](../patterns/economic-failures.md)
-
-## Related Modern Relevance
+## Related Synthesis Essays
 - [Capability-Based Security](../synthesis/capability-based-security.md)
 
 ---
 
-## References (Selected)
-- Dennis & Van Horn, “Programming Semantics for Multiprogrammed Computations” (1966)
-- KeyKOS papers and documentation
-- CHERI technical reports (University of Cambridge)
-- Miller, Shapiro, et al. — Object-capability model literature
+## Primary Sources & Further Reading
+
+1. **Dennis, J. B., & Van Horn, E. C.** (1966). "Programming Semantics for Multiprogrammed Computations." *Communications of the ACM*, 9(3), 143-155.
+2. **Wulf, W. A., et al.** (1974). "HYDRA: The Kernel of a Multiprocessor Operating System." *Communications of the ACM*, 17(6), 337-345.
+3. **Hardy, N.** (1985). "The KeyKOS Architecture." *ACM SIGOPS Operating Systems Review*, 19(4), 8-25.
+4. **Shapiro, J. S., Smith, J. M., & Farber, D. J.** (1999). "EROS: A Fast Capability System." *ACM SIGOPS Operating Systems Review*, 33(5), 72-85.
+5. **Woodruff, J., et al.** (2014). "CHERI: Concentrating Capability Is Safe, Fast, and Easy." *proceedings of the 41st Annual International Symposium on Computer Architecture (ISCA)*, 487-498.
+6. **Watson, R. N. M., et al.** (2015). "CHERI: A Hybrid Capability-System Architecture for Scalable Software Compartmentalization." *IEEE Symposium on Security and Privacy*, 20-37.
