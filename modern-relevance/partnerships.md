@@ -19,7 +19,7 @@ Modern software security is dominated by memory safety vulnerabilities (such as 
 ### CHERI (Capability Hardware Enhanced RISC Instructions)
 * **Contemporary Lead:** University of Cambridge (Security Research Group) and SRI International.
 * **Core Connection:** Directly descends from the hardware-enforced capability models of the [Intel iAPX 432](../excavations/intel-iapx-432.md) and [Burroughs Large Systems](../excavations/burroughs-large-systems.md). CHERI extends modern ISAs (RISC-V and ARM v8-A, via the Morello prototype) with hardware capabilities, ensuring compartmentalization and fine-grained memory safety.
-* **Research Focus:** Investigating how compiler-enforced capabilities can achieve spatial and temporal memory safety with negligible overhead, mirroring the hardware-enforced boundaries of [Capability Systems](../excavations/capability-systems.md).
+* **Research Focus:** Investigating how compiler-enforced capabilities can achieve spatial and temporal memory safety with negligible overhead, mirroring the hardware-enforced boundaries of [Capability Systems](../excavations/capability-systems.md). Test and evaluate these boundary constraints using our [Capability Memory Protection Emulator](../reconstructions/capability-security/).
 
 ### Formal Verification & Microkernels
 * **Contemporary Lead:** Trustworthy Systems Research Group (UNSW / seL4 Foundation).
@@ -35,12 +35,12 @@ As silicon scaling slows (the end of Dennard scaling and slowing of Moore's Law)
 ### Spatial Architecture Labs
 * **Contemporary Lead:** Stanford University (Stanford Robust Systems Group / Plasticine CGRA), UC Berkeley (ADEPT Group).
 * **Core Connection:** Directly maps to [Dataflow Computing](../excavations/dataflow-computing.md) and [Systolic Arrays](../excavations/systolic-arrays.md).
-* **Research Focus:** Developing Coarse-Grained Reconfigurable Architectures (CGRAs) and hardware generators (via custom HDLs like Chisel) to dynamically route data directly between processing units, completely bypassing the Instruction Register bottleneck.
+* **Research Focus:** Developing Coarse-Grained Reconfigurable Architectures (CGRAs) and hardware generators (via custom HDLs like Chisel) to dynamically route data directly between processing units, completely bypassing the Instruction Register bottleneck. Our [Systolic Array Simulator](../reconstructions/systolic-array/) and [Dataflow Engine](../reconstructions/dataflow-engine/) provide baseline templates for modeling these networks.
 
 ### Neuromorphic & Brain-Inspired Hardware
 * **Contemporary Lead:** Institute of Neuroinformatics (ETH Zürich / University of Zürich), Human Brain Project.
 * **Core Connection:** Continues the research trajectory established by [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md).
-* **Research Focus:** Creating mixed-signal spiking neural network (SNN) hardware that utilizes analog circuits for synaptic integration and digital pulses for action potentials, reviving interest in [Analog Computing](../excavations/analog-computing.md) for ultra-low-power edge intelligence.
+* **Research Focus:** Creating mixed-signal spiking neural network (SNN) hardware that utilizes analog circuits for synaptic integration and digital pulses for action potentials, reviving interest in [Analog Computing](../excavations/analog-computing.md) for ultra-low-power edge intelligence. Compare event-driven spike timing rules against LIF membranes using our [Neuromorphic Spiking Simulator](../reconstructions/neuromorphic-spiking/).
 
 ---
 
@@ -52,7 +52,7 @@ Historically, testing a novel architecture required millions of dollars in ASIC 
 * **Ecosystem Components:** Yosys (synthesis), nextpnr (place-and-route), OpenLane (ASIC flow), and Google's Tiny Tapeout.
 * **Core Connection:** Allows rapid, physical instantiation of radical architectures—such as [Balanced Ternary](../excavations/balanced-ternary.md) arithmetic units, [Stack Machines](../excavations/stack-machines.md), or [Transputer](../excavations/transputers.md)-like communicating sequential processes (CSP) nodes.
 * **Opportunities:**
-  - **Tiny Tapeout:** Enables low-cost fabrication of custom digital circuits on the SkyWater 130nm open-source PDK, perfect for testing toy-scale reconstructions.
+  - **Tiny Tapeout:** Enables low-cost fabrication of custom digital circuits on the SkyWater 130nm open-source PDK, perfect for testing toy-scale reconstructions. We provide synthesizable SystemVerilog blocks under [Synthesizable Hardware Blueprints](../reconstructions/synthesizable-hardware/) designed directly for open layout integration.
   - **OpenHW Group & CHIPS Alliance:** Standardizing open-source, industry-grade hardware designs, paving the way for clean-slate architectures to compete with proprietary giants.
 
 ---
@@ -76,7 +76,7 @@ The following matrix maps Digital Archaeology excavations to modern research tra
 To bridge the gap between historical digital archaeology and modern hardware engineering, we propose three collaborative initiatives:
 
 1. **Academic Soft-Core Repositories:** Package our interactive simulators and conceptual reconstructions into synthesizable SystemVerilog/Chisel IP cores and make them available to academic Chipyard users.
-2. **Tiny Tapeout Submissions:** Leverage Google's Tiny Tapeout program to fabricate physical prototypes of the [Balanced Ternary](../excavations/balanced-ternary.md) arithmetic unit and the [Capability Systems](../excavations/capability-systems.md) memory bound-checker.
+2. **Tiny Tapeout Submissions:** Leverage Google's Tiny Tapeout program to fabricate physical prototypes of our synthesizable 3-trit Balanced Ternary ALU core and the inline RAM capability bounds checker.
 3. **Formal Verification Case Studies:** Partner with formal verification researchers to apply automated theorem proving to our [CSP messaging](../reconstructions/csp-messaging/README.md) and dataflow models, establishing rigorous safety standards for clean-slate systems.
 
 ---

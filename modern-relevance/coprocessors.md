@@ -42,21 +42,21 @@ The economics of silicon have changed. Transistors are effectively “free” in
 ## Opportunities for Historical Ideas as Coprocessors
 
 **Balanced Ternary**  
-Could serve as a specialized arithmetic coprocessor for low-precision inference, probabilistic computing, or certain signal-processing tasks where symmetry around zero provides advantages.
+Could serve as a specialized arithmetic coprocessor for low-precision inference, probabilistic computing, or certain signal-processing tasks where symmetry around zero provides advantages. Evaluate this arithmetic symmetry using our [Balanced Ternary Simulator](../reconstructions/mixed-radix-sim/) or adapt the synthesizable [ternary_alu.sv](../reconstructions/synthesizable-hardware/ternary_alu.sv) block as a custom RTL coprocessor.
 
 **Dataflow Computing**  
-Many modern AI accelerators are essentially dataflow coprocessors. Future designs could incorporate finer-grained dynamic dataflow for irregular or streaming AI workloads.
+Many modern AI accelerators are essentially dataflow coprocessors. Future designs could incorporate finer-grained dynamic dataflow for irregular or streaming AI workloads. Run our [Dynamic Token-Matching Dataflow Engine](../reconstructions/dataflow-engine/) to model packet execution graphs directly on spatial substrates.
 
 **Lisp Machines / Symbolic Engines**  
-Neuro-symbolic AI and knowledge-augmented systems could benefit from a symbolic coprocessor optimized for fast logical inference, pattern matching, and rule execution alongside neural accelerators.
+Neuro-symbolic AI and knowledge-augmented systems could benefit from a symbolic coprocessor optimized for fast logical inference, pattern matching, and rule execution alongside neural accelerators. Explore hybrid AI-symbolic pipeline routing via our [Neuro-Symbolic Logic Inference Solver](../reconstructions/neuro-symbolic/).
 
 **Transputers**  
-The lightweight process and message-passing model maps well to actor-based AI systems, multi-agent simulations, and distributed training frameworks. A modern “Transputer-like” network-on-chip coprocessor could excel at fine-grained parallelism.
+The lightweight process and message-passing model maps well to actor-based AI systems, multi-agent simulations, and distributed training frameworks. A modern “Transputer-like” network-on-chip coprocessor could excel at fine-grained parallelism. Check out our [CSP messaging simulator](../reconstructions/csp-messaging/) to explore channel multiplexing and Alt-based concurrent schedulers.
 
 **Other candidates**:
-- Reversible computing coprocessors for ultra-low-power edge devices
-- Analog/mixed-signal coprocessors for sensor processing
-- Capability-based security coprocessors
+- Reversible computing coprocessors for ultra-low-power edge devices, evaluated via the [Analog Optical & Reversible Simulator](../reconstructions/analog-optical/).
+- Analog/mixed-signal coprocessors for sensor processing, modeled inside our analog dynamic solvers.
+- Capability-based security coprocessors, using our synthesizable inline [capability_bounds_checker.sv](../reconstructions/synthesizable-hardware/capability_bounds_checker.sv).
 
 ---
 

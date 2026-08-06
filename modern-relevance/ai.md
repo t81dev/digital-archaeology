@@ -28,17 +28,20 @@ These shifts reopen the door for architectures and techniques that previously lo
 
 ## Relevance of Excavated Ideas
 
-### Balanced Ternary
-Ternary logic and balanced representations may offer advantages in low-precision AI inference or probabilistic computing. The natural symmetry around zero could benefit certain activation functions or signed arithmetic common in neural networks. With cheap transistors and FPGA prototyping, mixed-radix or ternary co-processors are more realistic today.
+### Spatial & Data-Parallel Lineage
+Deep learning is inherently dataflow-oriented. Modern frameworks (TensorFlow, PyTorch, JAX) compile models into dataflow graphs. Many AI accelerators (Google TPU, Groq chips, Graphcore IPUs, Cerebras) use dataflow-inspired scheduling and execution. The old dream of efficient dataflow hardware is partially realized in today’s AI silicon. You can explore these execution styles via our [Systolic Array Simulator](../reconstructions/systolic-array/) and [Dynamic Token-Matching Dataflow Engine](../reconstructions/dataflow-engine/).
 
-### Dataflow Computing
-Deep learning is inherently dataflow-oriented. Modern frameworks (TensorFlow, PyTorch, JAX) compile models into dataflow graphs. Many AI accelerators (Google TPU, Grok chips, Graphcore IPUs, Cerebras) use dataflow-inspired scheduling and execution. The old dream of efficient dataflow hardware is partially realized in today’s AI silicon.
+### Neuromorphic & Stochastic Lineage
+Pairing spiking neural models or stochastic computation with standard pipelines offers immense energy advantages. Our [Neuromorphic Spiking Simulator](../reconstructions/neuromorphic-spiking/) models event-driven temporal spikes and Hebbian learning directly, while the [Stochastic Computing Simulator](../reconstructions/stochastic-computing/) showcases single-gate multiplication of probabilistic bitstreams.
 
-### Lisp Machines
-The resurgence of interest in symbolic AI, neuro-symbolic hybrids, and differentiable programming revives demand for efficient symbolic manipulation. Lessons from Lisp Machines — tagged architectures, hardware garbage collection, seamless language-hardware integration, and powerful interactive environments — remain relevant for building next-generation AI development systems and knowledge engines.
+### Capability, Tagged & Descriptor Lineage
+Securely hosting multi-tenant LLM weights and protecting fine-tuning parameters from prompt-injection side-channel leaks is a major security challenge. As demonstrated in our [Capability Memory Protection Emulator](../reconstructions/capability-security/), unforgeable capability-bounds checkers enforce strict process isolation at the hardware level.
 
-### Transputers
-The Transputer’s emphasis on lightweight processes and efficient message passing directly prefigures modern actor models, Go’s concurrency, and distributed training systems. Network-on-chip designs and many-core AI chips (e.g., SpiNNaker for neuromorphic computing) echo Transputer philosophy. Communication remains the bottleneck in large-scale AI training — a problem the Transputer tackled head-on.
+### Physical, Thermodynamic & Optical Lineage
+Silicon Photonics and Analog In-Memory Computing (AIMC) bypass copper interconnect losses and the Memory Wall entirely. Our [Analog Optical Wave Accelerator](../reconstructions/analog-optical/) models physical op-amps and coherent Mach-Zehnder Interferometers (MZI) to compute matrix-vector products at propagation speeds. Reversible/adiabatic uncomputation also holds massive thermodynamic benefits for cryogenic memory banks.
+
+### Distributed & Single-Level-Store OS Lineage
+Autonomous AI agent swarms suffer from fragile REST/gRPC serialization and coordination overhead. Our [9P Namespace Simulator](../reconstructions/plan9-9p/) and [Linda Tuple Space Simulator](../reconstructions/tuple-space/) demonstrate network-transparent dynamic union mounts and coordinate-free generative communication, creating robust, secure, and decoupled sandboxes for agent collaboration.
 
 ---
 
@@ -46,7 +49,7 @@ The Transputer’s emphasis on lightweight processes and efficient message passi
 
 - **Alternative number systems** — Posits, logarithmic number systems, balanced ternary, and stochastic computing for more efficient low-precision AI.
 - **Neuromorphic & event-based systems** — Dataflow and asynchronous designs that align with spiking neural networks.
-- **Symbolic & hybrid architectures** — Hardware support for fast inference over knowledge graphs and logical reasoning.
+- **Symbolic & hybrid architectures** — Hardware support for fast inference over knowledge graphs and logical reasoning, modeled in our [Neuro-Symbolic Logic Inference Solver](../reconstructions/neuro-symbolic/).
 - **Reconfigurable computing** — FPGAs and CGRA for rapid experimentation with exotic architectures tailored to new AI paradigms.
 - **Massively parallel fine-grained concurrency** — Hardware support for millions of lightweight processes or agents.
 
@@ -91,5 +94,5 @@ The Transputer’s emphasis on lightweight processes and efficient message passi
 ## References
 - Surveys on alternative number systems in AI hardware (Posits, ternary, logarithmic).
 - Papers on neuro-symbolic AI and hybrid architectures.
-- Documentation from modern AI accelerators (TPU, IPU, Grok, etc.).
+- Documentation from modern AI accelerators (TPU, IPU, Groq, etc.).
 - Historical comparisons between dataflow machines and contemporary graph execution engines.

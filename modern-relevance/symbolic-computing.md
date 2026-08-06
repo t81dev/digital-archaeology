@@ -46,13 +46,13 @@ Today, symbolic computing is valuable for:
 Their tagged architectures, fast garbage collection, efficient list/tree processing, and live incremental development environments are highly relevant for modern symbolic reasoning engines and neuro-symbolic toolchains. The productivity of Genera-style environments could dramatically accelerate symbolic AI development.
 
 **Dataflow Computing**  
-Many symbolic algorithms (pattern matching, constraint propagation, logical inference) map naturally to dataflow execution models.
+Many symbolic algorithms (pattern matching, constraint propagation, logical inference) map naturally to dataflow execution models. Run our [Dynamic Token-Matching Dataflow Engine](../reconstructions/dataflow-engine/) to evaluate these execution paths.
 
 **Transputers**  
-Lightweight concurrent processes and message passing align well with multi-agent symbolic systems and distributed reasoning.
+Lightweight concurrent processes and message passing align well with multi-agent symbolic systems and distributed reasoning. Try out our [CSP messaging simulator](../reconstructions/csp-messaging/) to explore channel-based concurrency.
 
 **Balanced Ternary & Alternative Representations**  
-May offer advantages in certain symbolic or hybrid numeric-symbolic computations where symmetry or multi-valued logic provides more natural encodings.
+May offer advantages in certain symbolic or hybrid numeric-symbolic computations where symmetry or multi-valued logic provides more natural encodings. Play with three-state balanced arithmetic using our [ternary_sim.py](../reconstructions/mixed-radix-sim/ternary_sim.py).
 
 ---
 
@@ -61,8 +61,8 @@ May offer advantages in certain symbolic or hybrid numeric-symbolic computations
 - Neural networks for perception + symbolic engines for reasoning
 - Differentiable logic programming
 - Neurosymbolic program synthesis
-- Large language models as interfaces to symbolic backends
-- Knowledge-augmented LLMs with fast symbolic retrieval and verification
+- Large language models as interfaces to symbolic backends, which can be secured using our unforgeable [Capability Security Emulator](../reconstructions/capability-security/) or dynamic [9P Namespace Simulator](../reconstructions/plan9-9p/) to isolate agent workloads.
+- Knowledge-augmented LLMs with fast symbolic retrieval and verification, which you can test using our integrated **[Neuro-Symbolic Logic Inference Solver](../reconstructions/neuro-symbolic/)**.
 
 These systems often require efficient symbolic substrates — exactly what many historical architectures were optimized for.
 

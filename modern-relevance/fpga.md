@@ -35,20 +35,22 @@ FPGAs have become a bridge between forgotten ideas and practical evaluation:
 - **Rapid prototyping** — Implement Balanced Ternary, dataflow processors, or Transputer-like networks in days or weeks instead of years.
 - **Low cost experimentation** — Test radical designs without tape-out expenses.
 - **Mixed-radix and exotic arithmetic** — Easy to build custom number systems (ternary, posits, logarithmic, residue numbers).
+  - Study and adapt our synthesizable **[ternary_alu.sv](../reconstructions/synthesizable-hardware/ternary_alu.sv)** block to evaluate physical FPGA resource and gate usage directly.
 - **Fine-grained parallelism** — Natural platform for dataflow, tagged architectures, and lightweight process models.
 - **Hybrid systems** — Combine a soft-core RISC-V or ARM with custom accelerators on the same chip.
 - **Realistic performance measurement** — Obtain actual timing, power, and resource usage data.
+- **Hardware-Enforced Security** — Map unforgeable register capabilities directly to physical pipelines using our synthesizable **[capability_bounds_checker.sv](../reconstructions/synthesizable-hardware/capability_bounds_checker.sv)** module as an inline bus monitor.
 
 ---
 
 ## Promising Use Cases
 
-- **Balanced Ternary processors** — Full implementation with evaluation against binary equivalents.
-- **Dataflow architectures** — Modern reincarnations of MIT Tagged-Token or Manchester-style machines.
+- **Balanced Ternary processors** — Full implementation with evaluation against binary equivalents using our [ternary_sim.py](../reconstructions/mixed-radix-sim/ternary_sim.py) modeling logic.
+- **Dataflow architectures** — Modern reincarnations of MIT Tagged-Token or Manchester-style machines, evaluated via the [Dataflow Simulator](../reconstructions/dataflow-engine/).
 - **Lisp Machine subsets** — Hardware support for tagged memory, fast GC, and symbolic operations.
-- **Transputer-inspired networks** — Mesh or torus networks of lightweight cores with CSP-style communication.
+- **Transputer-inspired networks** — Mesh or torus networks of lightweight cores with CSP-style communication, modeled under [CSP messaging](../reconstructions/csp-messaging/).
 - **Mixed hardware** — Binary control plane + ternary/dataflow numerical plane.
-- **Neuromorphic & spiking systems** — Exploring alternatives to standard deep learning hardware.
+- **Neuromorphic & spiking systems** — Exploring alternatives to standard deep learning hardware via our [Neuromorphic Spiking Simulator](../reconstructions/neuromorphic-spiking/).
 
 ---
 
