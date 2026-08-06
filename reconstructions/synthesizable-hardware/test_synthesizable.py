@@ -22,6 +22,7 @@ def test_rtl_files_exist_and_are_valid():
         alu_content = f.read()
         assert "module ternary_alu" in alu_content
         assert "always_comb" in alu_content
+        assert "always_ff @(posedge clk or negedge rst_n)" in alu_content
         assert "function automatic" in alu_content
         assert "endmodule" in alu_content
 
@@ -164,6 +165,12 @@ def golden_ternary_alu(A, B, Op):
     elif Op == 5: # MAX (tritwise maximum)
         return make_6bit(golden_ternary_max(a0, b0), golden_ternary_max(a1, b1), golden_ternary_max(a2, b2)), 0b00
 
+    elif Op == 6: # LSH (Logical Shift Left: T0 <- 0, T1 <- T0, T2 <- T1, COUT <- T2)
+        return make_6bit(0b00, a0, a1), a2
+
+    elif Op == 7: # RSH (Logical Shift Right: T2 <- 0, T1 <- T2, T0 <- T1, COUT <- T0)
+        return make_6bit(a1, a2, 0b00), a0
+
     return 0, 0
 
 
@@ -188,6 +195,12 @@ def golden_ternary_alu(A, B, Op):
 
     # MAX: 1 (0b01) MAX -1 (0b10) = 1 (0b01)
     (0b000001, 0b000010, 5, 0b000001, 0b00),
+
+    # LSH: [1, -1, 0] (0b001001) shifted left -> [0, 1, -1] (0b100100), carry = T2 = 0
+    (0b001001, 0b000000, 6, 0b100100, 0b00),
+
+    # RSH: [1, -1, 0] (0b001001) shifted right -> [-1, 0, 0] (0b000010), carry = T0 = 1 (0b01)
+    (0b001001, 0b000000, 7, 0b000010, 0b01),
 ])
 def test_ternary_alu_golden_model(a_val, b_val, op, expected_out, expected_cout):
     out, cout = golden_ternary_alu(a_val, b_val, op)
@@ -213,7 +226,7 @@ class GoldenCapabilityChecker:
             return
 
         tag_fault = not cap_tag
-        bounds_fault = req_addr < cap_base or req_addr >= cap_limit
+        bounds_fault = req_addr < cap_base or req_addr >= cap_limit or cap_base > cap_limit
         perm_fault = False
 
         if not tag_fault and not bounds_fault:
@@ -222,6 +235,8 @@ class GoldenCapabilityChecker:
             elif req_op == 1 and not (cap_perms & 0b010): # Write
                 perm_fault = True
             elif req_op == 2 and not (cap_perms & 0b100): # Execute
+                perm_fault = True
+            elif req_op == 3: # Invalid Op
                 perm_fault = True
 
         if tag_fault:
@@ -271,6 +286,18 @@ def test_capability_bounds_checker_golden_model():
 
     # Scenario 5: Permissions fault (Write denied)
     checker.step(req_valid=True, req_addr=0x1500, req_op=1, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x5, cap_tag=True) # perms=5 is Read+Execute
+    assert checker.allowed is False
+    assert checker.violation_flag is True
+    assert checker.violation_code == 3 # PERMISSION_DENIED
+
+    # Scenario 6: Tightened Bounds Fault (Malformed bounds: base > limit)
+    checker.step(req_valid=True, req_addr=0x1500, req_op=0, cap_base=0x2000, cap_limit=0x1000, cap_perms=0x7, cap_tag=True)
+    assert checker.allowed is False
+    assert checker.violation_flag is True
+    assert checker.violation_code == 2 # OUT_OF_BOUNDS
+
+    # Scenario 7: Tightened Permissions Fault (Invalid req_op == 3)
+    checker.step(req_valid=True, req_addr=0x1500, req_op=3, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=True)
     assert checker.allowed is False
     assert checker.violation_flag is True
     assert checker.violation_code == 3 # PERMISSION_DENIED
