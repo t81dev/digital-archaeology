@@ -42,7 +42,7 @@ Modern hardware and AI workloads create fertile ground for mixed-radix designs:
 - Binary for control logic and high-precision training.
 - Ternary or multi-valued logic for low-precision inference or activation functions.
 - Logarithmic or posit formats for better dynamic range in certain layers.
-- Stochastic or approximate computing in noise-tolerant parts of the network.
+- Stochastic or approximate computing in noise-tolerant parts of the network, evaluated via our [Stochastic Computing Simulator](../reconstructions/stochastic-computing/).
 
 ### Hybrid Numerical Units
 - A CPU with binary main ALUs + attached mixed-radix coprocessors.
@@ -50,8 +50,8 @@ Modern hardware and AI workloads create fertile ground for mixed-radix designs:
 - Memory systems that store data in compressed or alternative formats while presenting binary interfaces.
 
 ### Specific Historical Revivals
-- **Balanced Ternary** as a specialized arithmetic unit for symmetric operations or certain neural computations.
-- **Dataflow engines** using non-binary representations internally.
+- **Balanced Ternary** as a specialized arithmetic unit for symmetric operations or certain neural computations. Play with three-state balanced arithmetic modeling using our [ternary_sim.py](../reconstructions/mixed-radix-sim/ternary_sim.py) simulator or study the RTL in [ternary_alu.sv](../reconstructions/synthesizable-hardware/ternary_alu.sv).
+- **Dataflow engines** using non-binary representations internally, such as the [Dataflow Simulator](../reconstructions/dataflow-engine/).
 - **Transputer-like nodes** with custom arithmetic tuned per node type.
 
 ---

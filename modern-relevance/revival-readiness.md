@@ -29,6 +29,18 @@ To determine when and how a sidelined computing lineage can successfully return 
 
 ---
 
+## Exploring "What-If" Scenarios with the Predictive Hypothesis Engine
+
+The scorecard above represents the baseline "Revival Readiness" under late-2026 standard digital silicon constraints. To explore how future bottleneck migrations or disruptive physics will alter these readiness priorities over the next 10 years (2026-2036), researchers can execute "what-if" modeling scenarios using our **[Constraint Migration Predictive Hypothesis Engine](../reconstructions/predictive-hypothesis/)**:
+
+```bash
+python3 reconstructions/predictive-hypothesis/predictive_engine.py --copper-resistance 2.0 --gate-leakage 3.0
+```
+
+By adjusting factors such as sub-threshold static gate leakage, nanoscale interconnect copper resistance delays, and security risk levels, the engine dynamically recalculates the lineage scores and outputs custom, primary-source-aligned research hypotheses. This allows system architects to model constraint-migration tipping points where alternative architectures (like analog optical or cryogenic superconducting cores) surpass standard CMOS scaling limits.
+
+---
+
 ## Deep-Dive Quantitative Analysis
 
 ### 1. Spatial & Data-Parallel Lineage
@@ -181,4 +193,4 @@ The revival readiness scores mapped here correspond directly to our synthesis es
 
 ---
 
-**Last updated**: August 2, 2026
+**Last updated**: August 26, 2026

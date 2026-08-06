@@ -17,7 +17,7 @@ class KnowledgeGraphGenerator:
                 "title": "Digital Archaeology Knowledge Graph",
                 "description": "A comparative research database of forgotten and alternative computing paradigms.",
                 "version": "1.1.0",
-                "last_updated": "2026-08-02"
+                "last_updated": "2026-08-26"
             },
             "glossary": [],
             "comparative_index": {
