@@ -123,6 +123,7 @@ nav:
     - Compiler-Hardware Co-Design: synthesis/compiler-hardware-co-design.md
     - The Evolution of Coordination Abstractions: synthesis/evolution-of-coordination-abstractions.md
     - Return of Spatial Computing: synthesis/return-of-spatial-computing.md
+    - State of Revival Synthesis: synthesis/state-of-revival.md
   - Modern Relevance:
     - How to Use This Repo: modern-relevance/using-this-repo.md
     - AI & Hardware Bottlenecks: modern-relevance/ai.md

@@ -22,6 +22,7 @@ When designing specialized silicon (ASIC/FPGA) to bypass the memory wall, tradit
    - Use the [Balanced Ternary Simulator](../reconstructions/mixed-radix-sim/) to inspect the Pos-Neg (PN) dual-rail hardware representation, and study our synthesizable SystemVerilog implementation [ternary_alu.sv](../reconstructions/synthesizable-hardware/ternary_alu.sv).
    - Assess how stochastic bitstreams trade latency for fault tolerance and error resilience in our updated [Stochastic Computing Simulator](../reconstructions/stochastic-computing/), and explore our synthesizable RTL model [stochastic_multiplier.sv](../reconstructions/synthesizable-hardware/stochastic_multiplier.sv).
    - Analyze event-driven spike propagation, Leaky Integrate-and-Fire (LIF) dynamics, and Hebbian learning in the [Neuromorphic Spiking Simulator](../reconstructions/neuromorphic-spiking/).
+   - Model and analyze picosecond-accurate RSFQ pulse propagation delays, thermal timing jitter, and cold-stage static bias power vs. ERSFQ inductor loops in our [Cryogenic Superconducting Simulator](../reconstructions/cryogenic-superconducting/).
 3. **Reference the Scores**:
    - Consult the **Spatial & Data-Parallel** and **Neuromorphic & Stochastic** categories on the [Revival-Readiness Scorecard](revival-readiness.md) (CMS: 5/5, EA: 5/5, AIS: 5/5) to review how hardware-level sparsity, event-driven temporal spikes, and single-gate multipliers offer up to $1000\times$ higher energy efficiency.
 

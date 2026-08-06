@@ -232,6 +232,8 @@ class KnowledgeGraphGenerator:
                     desc = "Cycle-accurate Weight-Stationary and Output-Stationary systolic matrix multiplier with energy proxy counters."
                 elif folder == "neuromorphic-spiking":
                     desc = "Event-driven Spiking Neural Network (SNN) simulator modeling Leaky Integrate-and-Fire (LIF) dynamics, Address-Event Representation (AER), and Spike-Timing-Dependent Plasticity (STDP) learning rules."
+                elif folder == "cryogenic-superconducting":
+                    desc = "Picosecond-accurate Rapid Single Flux Quantum (RSFQ) pulse logic timing and thermodynamic cooling penalty simulator."
 
                 recons.append({
                     "id": folder,

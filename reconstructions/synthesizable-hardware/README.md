@@ -61,6 +61,56 @@ Our SystemVerilog designs strictly avoid unsynthesizable behavioral structures. 
 
 ---
 
+## Superconducting & Cryogenic Hardware Mapping Path
+
+Unlike traditional CMOS logic where logical states are mapped to steady-state voltage levels (e.g., $V_{DD}$ and $GND$), Rapid Single Flux Quantum (RSFQ) superconducting logic represents information as transient, picosecond-wide voltage pulses ($\approx 2.07 \text{ mV}\cdot\text{ps}$). Because of this fundamental physical divergence, compiling standard synthesizable SystemVerilog directly into physical superconducting cells requires a highly specialized microarchitectural mapping path:
+
+### 1. Dual-Rail Pulse Emulation in CMOS RTL
+To emulate SFQ pulse behavior on standard CMOS FPGAs (like Lattice iCE40) or standard digital ASIC cells (like SkyWater 130nm on Tiny-Tapeout), we represent pulses as **single-cycle clock-enveloped active-high signals**:
+* **Pulse Event**: A logical pulse on channel $A$ is represented by a single-clock-cycle high value (`A_pulse == 1'b1`) on a global high-frequency clock line (e.g., running at $100\text{--}300 \text{ MHz}$ to prototype picosecond behaviors).
+* **State Loops**: Trapped magnetic flux loops are emulated using sequential D-Latches or registers that toggle high upon receiving the input event, and clear back to zero upon receiving the clock pulse.
+
+```systemverilog
+// Standard CMOS RTL Emulation of an RSFQ D-Flip-Flop Cell
+module cmos_rsfq_dff (
+    input  logic clk,       // System reference clock
+    input  logic rst_n,     // Active-low asynchronous reset
+    input  logic pulse_d,   // Emulated Data pulse (single-cycle pulse)
+    input  logic pulse_clk, // Emulated CLK pulse (single-cycle pulse)
+    output logic pulse_q    // Emulated Output Q pulse (single-cycle pulse)
+);
+    logic flux_trapped;
+
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            flux_trapped <= 1'b0;
+            pulse_q      <= 1'b0;
+        end else begin
+            pulse_q <= 1'b0; // Default: transient pulse output
+
+            if (pulse_d) begin
+                flux_trapped <= 1'b1; // Trap magnetic flux
+            end
+
+            if (pulse_clk) begin
+                if (flux_trapped) begin
+                    pulse_q      <= 1'b1; // Emit output Q pulse
+                    flux_trapped <= 1'b0; // Reset loop flux
+                end
+            end
+        end
+    end
+endmodule
+```
+
+### 2. Transitioning to Superconducting Niobium Foundries
+To manufacture physical superconducting ASICs using niobium Josephson junction processes (such as those run by **MIT Lincoln Laboratory** or **AIST (Japan)**), standard CMOS logic gates must be compiled using specialized RSFQ cell libraries:
+* **Clocked Logic Cells**: In RSFQ, almost all logic gates (including AND, OR, XOR) are inherently stateful and clocked. Designers cannot use standard combinational synthesis; instead, they synthesize designs using specialized cell libraries where each gate includes internal SQUID storage loops.
+* **Josephson Transmission Lines (JTL)**: Since standard metal wires exhibit resistance and delay at high speeds, superconducting chips connect gates using active Josephson Transmission Lines (cascaded arrays of JJs that propagate pulses without loss) or superconducting passive microstrip lines (micro-coax).
+* **Clock Distribution Networks**: At hundreds of GHz, standard clock trees suffer from clock skew. RSFQ designs utilize concurrent clocking topologies where clock and data pulses propagate in parallel through matching JTL structures, ensuring perfect local phase alignment.
+
+---
+
 ## Known Limitations
 
 1. **Precision / Scalability**:

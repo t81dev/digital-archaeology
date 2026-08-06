@@ -28,16 +28,20 @@ All notable changes to the Digital Archaeology repository will be documented in 
 - **Strict Quality Gates**: Integrated strict link and anchor checks, ensuring the complete documentation site builds flawlessly with zero warnings or errors using `mkdocs build --strict`.
 
 ### Future Gaps & Next-Iteration Targets
-The highest-value remaining gaps for the next iteration of the Digital Archaeology initiative include:
-1. **Formal Verification of Soft-Cores**: Extending our SystemVerilog verification suite with formal mathematical proofs (e.g., using SymbiYosys) to rigorously guarantee capability and bounds isolation on the capability bounds checker RTL.
-2. **Deepening Physical Lineages**: Expanding physical and alternative-mathematics excavations with deeper models of neuromorphic spike-routing mesh networks and continuous stochastic hardware coprocessors.
-3. **Academic Outreach & Lab Integration**: Developing standardized lecture slides, auto-grading harnesses, and lab companion guides to facilitate full course integration of the 6 lab modules into university systems architecture curricula.
+Now that the major physical and systems lineages are fully covered, mapped, and scored, the highest-value remaining gaps for the next iteration of the Digital Archaeology initiative include:
+1. **Formal Verification of Soft-Cores**: Extending our synthesizable SystemVerilog verification suite with formal mathematical induction and model checking proofs (e.g., using SymbiYosys) to rigorously guarantee security boundaries on our capability and bounds checker RTL.
+2. **Autonomous Multi-Agent Sandbox Demos**: Constructing a complete, runnable agent federation demo in the playground where multiple simulated LLM agents cooperate via union-mounted Plan 9 9P private directory channels, protected by inline hardware capability registers.
+3. **External Contributor Onboarding Guide**: Structuring a modular, step-by-step contribution guideline and templated automated test harness to streamline onboarding for academic and industry research experts looking to contribute custom simulators.
+4. **Lightweight Predictive Hypothesis Engine**: Designing a Python-based forecasting tool that maps historically sidelined architectural failures to emerging post-CMOS physics, predicting which forgotten abstractions will gain the highest-value revival potential within the next 10 years.
 
 ---
 
 ## [Unreleased] - August 2026
 
 ### Added
+- **Superconducting & Cryogenic Pulse Simulator**: Developed a zero-dependency, picosecond-accurate simulator under `reconstructions/cryogenic-superconducting/sfq_sim.py` modeling stateful Rapid Single Flux Quantum (RSFQ) logic (including D-Flip-Flop and AND cells), timing jitter, setup violations, and thermal noise. Features a detailed thermodynamic energy model comparing standard RSFQ bias resistors to ERSFQ zero-static loops and high-temperature superconductors, including cryocooler Carnot cooling penalties. Fully unit tested in `test_sfq_sim.py`.
+- **State of Revival Architectural Synthesis**: Authored `synthesis/state-of-revival.md` evaluating the six computer architecture lineages under modern physical, security, and AI constraints, proposing three concrete, runnable sandbox experiments.
+- **Pedagogical Superconducting Lab**: Integrated **Lab Module 8** to `reconstructions/LAB_MANUAL.md` covering RSFQ timing budgets, setup margins, and cryogenic refrigeration coefficient of performance calculations, complete with an executable model solution.
 - **9P Distributed Resource Namespace & Message Protocol Simulator**: Developed a zero-dependency, connection-oriented, stateful 9P protocol simulator under `reconstructions/plan9-9p/namespace_sim.py`. Supports standard transaction messages (`Tversion`, `Tattach`, `Twalk`, `Topen`, `Tread`, `Twrite`, `Tcreate`, `Tclunk`) mapped directly to hierarchical FileNode directories. Features dynamic per-process private namespaces and dynamic fallback union mounts. Fully unit tested in `reconstructions/plan9-9p/test_namespace_sim.py`.
 - **Pedagogical Namespace Lab Module**: Integrated **Lab Module 6** to `reconstructions/LAB_MANUAL.md` covering distributed namespaces, union directory mounts, and 9P protocol messages with a complete model solution.
 - **Reversible Logic & Thermodynamic Energy Simulator**: Developed an interactive physical simulator inside `reconstructions/analog-optical/analog_optical_sim.py` featuring Toffoli, CNOT, and Fredkin logic gates, Bennett's 3-phase uncomputation strategy tracking, and quantitative modeling of the Landauer erasure limit ($k_B T \ln 2$) vs. adiabatic dynamic charge recovery ($E = \frac{RC}{T_{\text{ramp}}} C V^2$) at 300K room temp and 4K cryogenic bounds. Fully unit tested in `test_analog_optical_sim.py`.
@@ -51,6 +55,12 @@ The highest-value remaining gaps for the next iteration of the Digital Archaeolo
 - **Advanced Capability Safety Scenarios**: Developed Scenario 4 (Confused Deputy Attack vs. POLA Capability Defense) and Scenario 5 (Fine-grained Privilege Attenuation and Revocation via Gates) inside `reconstructions/capability-security/capability_sim.py`. Added corresponding unit tests in `test_capability_sim.py` covering hardware performance counters and revocation.
 
 ### Improved
+- **Deepened Superconducting & Cryogenic Excavation**: Heavily expanded `excavations/superconducting-cryogenic.md` to include comprehensive historical context (latching vs non-latching logic), detailed ASCII diagrams of Josephson junction mechanics and D-Flip-Flop loops, primary-source citations, and clean separation between verified historical facts and forward-looking system projections.
+- **Relational Density, Indexes, & Navigation**:
+  - Integrated "Superconducting & Cryogenic" as the 6th scored lineage inside `modern-relevance/revival-readiness.md` and registered its corresponding physical/thermodynamic lineage under `COMPARATIVE_INDEX.md`.
+  - Rebuilt the complete `modern-relevance/knowledge_graph.json` using updated parser definitions for the new simulator and synthesis essay.
+  - Redesigned `README.md`, `modern-relevance/using-this-repo.md`, `patterns/constraint-migration.md`, and `modern-relevance/ai.md` with deep links and entry points referencing superconducting / cryogenic coprocessors.
+  - Added navigation references to `mkdocs.yml` for the new `state-of-revival.md` essay.
 - **Deepened Distributed OS Lineage Excavations**:
   - `excavations/plan-9.md`: Extensively expanded historical context of AT&T Bell Labs Computing Science Research releases, CPU servers, file servers (WORM), and terminal nodes. Included detailed ASCII/Mermaid dynamic routing, 9P protocol transaction sequences (Twalk, Tread, Twrite), Dynamic Union Mounts, and modern container/WSL2 evaluations.
   - `excavations/multics.md`: Fully documented Project MAC (MIT/GE/Bell Labs) historical context, PL/I systems programming, NCSC B2 Orange Book security rating, and Honeywell 6180 hardware mmus. Visualized concentric hardware ring protection (Rings 0-7), gates, and Segmented virtual memory/Single-Level Store (SLS) persistent addresses.

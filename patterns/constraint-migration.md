@@ -105,6 +105,7 @@ If the limiting constraints have migrated (e.g., if memory latency is now the bo
 ## Related Modern Perspectives
 
 - [Modern Revival Readiness Scorecard](../modern-relevance/revival-readiness.md)
+- [State of Revival: Architectural Synthesis](../synthesis/state-of-revival.md)
 
 ---
 
