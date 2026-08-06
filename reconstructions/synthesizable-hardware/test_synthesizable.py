@@ -33,6 +33,9 @@ def test_rtl_files_exist_and_are_valid():
         assert "always_ff @(posedge clk or negedge rst_n)" in checker_content
         assert "resp_violation_flag" in checker_content
         assert "resp_violation_code" in checker_content
+        assert "resp_page_fault" in checker_content
+        assert "desc_mode" in checker_content
+        assert "cap_present" in checker_content
         assert "endmodule" in checker_content
 
 
@@ -216,20 +219,23 @@ class GoldenCapabilityChecker:
     def __init__(self):
         self.allowed = False
         self.violation_flag = False
+        self.page_fault = False
         self.violation_code = 0
 
-    def step(self, req_valid, req_addr, req_op, cap_base, cap_limit, cap_perms, cap_tag):
+    def step(self, req_valid, req_addr, req_op, desc_mode, cap_base, cap_limit, cap_perms, cap_tag, cap_present):
         if not req_valid:
             self.allowed = False
             self.violation_flag = False
+            self.page_fault = False
             self.violation_code = 0
             return
 
         tag_fault = not cap_tag
+        pres_fault = desc_mode and not cap_present
         bounds_fault = req_addr < cap_base or req_addr >= cap_limit or cap_base > cap_limit
         perm_fault = False
 
-        if not tag_fault and not bounds_fault:
+        if not tag_fault and not pres_fault and not bounds_fault:
             if req_op == 0 and not (cap_perms & 0b001): # Read
                 perm_fault = True
             elif req_op == 1 and not (cap_perms & 0b010): # Write
@@ -242,62 +248,92 @@ class GoldenCapabilityChecker:
         if tag_fault:
             self.allowed = False
             self.violation_flag = True
-            self.violation_code = 1
+            self.page_fault = False
+            self.violation_code = 1 # INVALID_CAP
+        elif pres_fault:
+            self.allowed = False
+            self.violation_flag = True
+            self.page_fault = True
+            self.violation_code = 3 # PERMISSION_DENIED (or swapped out page mapping)
         elif bounds_fault:
             self.allowed = False
             self.violation_flag = True
-            self.violation_code = 2
+            self.page_fault = False
+            self.violation_code = 2 # OUT_OF_BOUNDS
         elif perm_fault:
             self.allowed = False
             self.violation_flag = True
-            self.violation_code = 3
+            self.page_fault = False
+            self.violation_code = 3 # PERMISSION_DENIED
         else:
             self.allowed = True
             self.violation_flag = False
+            self.page_fault = False
             self.violation_code = 0
 
 
 def test_capability_bounds_checker_golden_model():
     checker = GoldenCapabilityChecker()
 
-    # Scenario 1: Access allowed (Read, within bounds, tag high)
-    checker.step(req_valid=True, req_addr=0x1000, req_op=0, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=True)
+    # Scenario 1: Access allowed (Read, within bounds, tag high, capability mode)
+    checker.step(req_valid=True, req_addr=0x1000, req_op=0, desc_mode=False, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=True, cap_present=True)
     assert checker.allowed is True
     assert checker.violation_flag is False
+    assert checker.page_fault is False
     assert checker.violation_code == 0
 
     # Scenario 2: Tag fault (invalid capability)
-    checker.step(req_valid=True, req_addr=0x1000, req_op=0, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=False)
+    checker.step(req_valid=True, req_addr=0x1000, req_op=0, desc_mode=False, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=False, cap_present=True)
     assert checker.allowed is False
     assert checker.violation_flag is True
+    assert checker.page_fault is False
     assert checker.violation_code == 1 # INVALID_CAP
 
     # Scenario 3: Bounds fault (Address below base)
-    checker.step(req_valid=True, req_addr=0x0FFF, req_op=0, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=True)
+    checker.step(req_valid=True, req_addr=0x0FFF, req_op=0, desc_mode=False, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=True, cap_present=True)
     assert checker.allowed is False
     assert checker.violation_flag is True
+    assert checker.page_fault is False
     assert checker.violation_code == 2 # OUT_OF_BOUNDS
 
     # Scenario 4: Bounds fault (Address at limit)
-    checker.step(req_valid=True, req_addr=0x2000, req_op=0, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=True)
+    checker.step(req_valid=True, req_addr=0x2000, req_op=0, desc_mode=False, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=True, cap_present=True)
     assert checker.allowed is False
     assert checker.violation_flag is True
+    assert checker.page_fault is False
     assert checker.violation_code == 2 # OUT_OF_BOUNDS
 
     # Scenario 5: Permissions fault (Write denied)
-    checker.step(req_valid=True, req_addr=0x1500, req_op=1, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x5, cap_tag=True) # perms=5 is Read+Execute
+    checker.step(req_valid=True, req_addr=0x1500, req_op=1, desc_mode=False, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x5, cap_tag=True, cap_present=True) # perms=5 is Read+Execute
     assert checker.allowed is False
     assert checker.violation_flag is True
+    assert checker.page_fault is False
     assert checker.violation_code == 3 # PERMISSION_DENIED
 
     # Scenario 6: Tightened Bounds Fault (Malformed bounds: base > limit)
-    checker.step(req_valid=True, req_addr=0x1500, req_op=0, cap_base=0x2000, cap_limit=0x1000, cap_perms=0x7, cap_tag=True)
+    checker.step(req_valid=True, req_addr=0x1500, req_op=0, desc_mode=False, cap_base=0x2000, cap_limit=0x1000, cap_perms=0x7, cap_tag=True, cap_present=True)
     assert checker.allowed is False
     assert checker.violation_flag is True
+    assert checker.page_fault is False
     assert checker.violation_code == 2 # OUT_OF_BOUNDS
 
     # Scenario 7: Tightened Permissions Fault (Invalid req_op == 3)
-    checker.step(req_valid=True, req_addr=0x1500, req_op=3, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=True)
+    checker.step(req_valid=True, req_addr=0x1500, req_op=3, desc_mode=False, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=True, cap_present=True)
     assert checker.allowed is False
     assert checker.violation_flag is True
+    assert checker.page_fault is False
     assert checker.violation_code == 3 # PERMISSION_DENIED
+
+    # Scenario 8: Burroughs Descriptor Page Fault (desc_mode=True, cap_present=False)
+    checker.step(req_valid=True, req_addr=0x1000, req_op=0, desc_mode=True, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=True, cap_present=False)
+    assert checker.allowed is False
+    assert checker.violation_flag is True
+    assert checker.page_fault is True
+    assert checker.violation_code == 3 # Swapped-out page mapping
+
+    # Scenario 9: Burroughs Descriptor Allowed (desc_mode=True, cap_present=True)
+    checker.step(req_valid=True, req_addr=0x1000, req_op=0, desc_mode=True, cap_base=0x1000, cap_limit=0x2000, cap_perms=0x7, cap_tag=True, cap_present=True)
+    assert checker.allowed is True
+    assert checker.violation_flag is False
+    assert checker.page_fault is False
+    assert checker.violation_code == 0

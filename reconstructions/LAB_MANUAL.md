@@ -124,39 +124,136 @@ engine.run_until_empty()
 
 ---
 
-## Lab Module 3 — Micro-Segmentation via Capability-Based Hardware
+## Lab Module 3 — Micro-Segmentation & Tagged Architectures
 
 ### Core Theoretical Concepts
 - **The Principle of Least Privilege**: Memory segments must be strictly confined.
-- **Hardware Tagged Memory**: Memory words are accompanied by a 1-bit metadata tag. If a memory location holds a capability (base, limit, permissions), the tag is 1. If any arithmetic or user instruction attempts to rewrite or alter the capability, the hardware tag is automatically cleared to 0, rendering it unforgeable.
-- **Automatic Bounds Checks**: Every register-indirect memory read or write checks the address against the active capability register `base` and `limit`. Violations cause instant hardware CPU traps.
+- **Hardware Tagged Memory**: Memory words are accompanied by out-of-band tag bits. If a memory location holds a capability (base, limit, permissions), the tag is active. If any instruction attempts to write or alter the capability via standard arithmetic, the hardware tag is automatically cleared, rendering it unforgeable.
+- **Lisp-Machine Dynamic Type Tagging**: Operations inspect metadata type tags (e.g., `Fixnum`, `Flonum`, `Symbol`) on every clock cycle. An instruction like `lisp_add` automatically triggers an exception if types are mismatched or if an operand is non-numeric, preventing semantic memory corruption.
+- **Burroughs-Style Descriptor Virtualization**: Memory access is mediated by descriptors with a `Presence Bit`. If the requested block is swapped to disk (presence bit is low), the hardware triggers a Page Fault exception, allowing the OS to load the block and resume execution.
 
-### Hands-On Challenge: Implementing Secure Domain Transitions
-In a secure system, a user program must transfer control to a trusted system routine (e.g., to write a file or allocate memory) without exposing secret kernel keys. This is achieved using a **Domain Transition Gate**.
+---
 
-### Exercise Problem
+### Challenge 3A: Secure Domain Transitions & Bounds Confines
+
+#### Exercise Problem
 Program a sequence of operations where a CPU attempts to access RAM outside its allocated segment, verify that the capability processor halts the execution, then call a valid registered secure service gate to retrieve a resource.
 
 #### Model Solution (Python)
 ```python
-from capability_sim import TaggedCPU, TaggedRAM, Capability, DomainTransitionGate
+from capability_sim import CPU, TaggedRAM, CapabilityWord
 
-cpu = TaggedCPU()
-ram = TaggedRAM()
+ram = TaggedRAM(100)
+cpu = CPU(ram)
 
-# Set up restricted user context
-user_cap = Capability(base=50, limit=60, permissions={"READ", "WRITE"})
+# Set up restricted user capability [50, 60) in C1
+cpu.derive_cap(dest_idx=1, src_idx=0, offset=50, limit=10, perms={"R", "W"})
 
 # Try to write within bounds (Success)
-cpu.write_memory(ram, user_cap, addr=55, value=42)
-print("Safe access written:", cpu.read_memory(ram, user_cap, addr=55))
+cpu.load_const(0, 42)
+cpu.store_data(src_data_idx=0, cap_idx=1, offset=5) # Address 55
+print("Safe access written.")
 
 # Try to write out of bounds (Fails)
 try:
     print("Attempting OOB write to address 65...")
-    cpu.write_memory(ram, user_cap, addr=65, value=99)
+    cpu.store_data(src_data_idx=0, cap_idx=1, offset=15) # Out of bounds!
 except Exception as e:
     print(f"✓ Security Violation Caught: {e}")
+```
+
+---
+
+### Challenge 3B: Lisp Machine Type-Safety & CDR-Coding
+
+#### Exercise Problem
+Simulate a Lisp-Machine-style dynamic execution environment:
+1. Load two typed `Fixnum` numbers into registers and execute a hardware type-checked addition (`lisp_add`).
+2. Attempt to add a `Fixnum` to a `Symbol` string, and verify that the hardware throws a `TagException` type mismatch.
+3. Traverse a packed CDR-coded sequential list in memory using the `lisp_cdr_next_traverse` interface.
+
+#### Model Solution (Python)
+```python
+from capability_sim import CPU, TaggedRAM, LispWord, TagException
+
+ram = TaggedRAM(100)
+cpu = CPU(ram)
+
+# 1. Set up Fixnum and Symbol words
+cpu.data_regs[0] = LispWord("Fixnum", 42)
+cpu.data_regs[1] = LispWord("Fixnum", 58)
+cpu.data_regs[2] = LispWord("Symbol", "MAPPED_TOKEN")
+
+# Perform type-safe addition
+cpu.lisp_add(dest_idx=3, src1_idx=0, src2_idx=1)
+print(f"✓ Tagged Addition Result: {cpu.data_regs[3]}") # Should be LispWord(tag=Fixnum, val=100)
+
+# 2. Attempt addition with a Symbol (Mismatched type tag)
+try:
+    print("Attempting invalid addition (Fixnum + Symbol)...")
+    cpu.lisp_add(dest_idx=3, src1_idx=0, src2_idx=2)
+except TagException as e:
+    print(f"✓ Tag Violation Caught Successfully: {e}")
+
+# 3. Simulate CDR-coded list traversal: List = (100, 200, 300)
+# Use CDR-NEXT tag to imply sequence is stored sequentially without explicit pointers
+ram.write(30, LispWord("Fixnum", 100, cdr_code="CDR-NEXT"))
+ram.write(31, LispWord("Fixnum", 200, cdr_code="CDR-NEXT"))
+ram.write(32, LispWord("Fixnum", 300, cdr_code="CDR-NIL"))
+
+# Traverse using C0 Master Cap starting at address 30
+traversed_vals = cpu.lisp_cdr_next_traverse(cap_idx=0, start_offset=30)
+print(f"✓ Traversed CDR-Coded sequence: {traversed_vals}") # Should be [100, 200, 300]
+```
+
+---
+
+### Challenge 3C: Burroughs Descriptor Page Faults & Virtual Memory
+
+#### Exercise Problem
+Construct a Burroughs B5000-style descriptor-driven memory access pipeline:
+1. Declare a `DescriptorWord` covering a segment in memory. Disable the `is_present` flag to simulate a swapped-out virtual page.
+2. Attempt to read from the descriptor. Intercept the hardware `DescriptorNotPresentException` (page fault) to simulate an operating system paging routine.
+3. Page-in the descriptor (`page_in_descriptor`) and successfully execute a read and write, checking that bounds are strictly checked by the descriptor's limit field.
+
+#### Model Solution (Python)
+```python
+from capability_sim import CPU, TaggedRAM, DataWord, DescriptorWord, DescriptorNotPresentException, BoundsException
+
+ram = TaggedRAM(100)
+cpu = CPU(ram)
+
+# Write database table in memory at [40, 45)
+ram.write(40, DataWord(101))
+ram.write(41, DataWord(202))
+ram.write(42, DataWord(303))
+
+# 1. Setup a swapped-out descriptor (is_present = False) in D0
+swapped_desc = DescriptorWord(base=40, limit=3, is_present=False, read_only=False, label="DBTable")
+cpu.data_regs[0] = swapped_desc
+
+# 2. Attempt read - Should Page Fault!
+try:
+    print("Attempting to access swapped-out descriptor...")
+    cpu.load_via_descriptor(dest_data_idx=1, desc_reg_idx=0, index=1)
+except DescriptorNotPresentException as e:
+    print(f"✓ Hardware Page Fault Caught: {e}")
+
+    # OS Page-In Routine
+    print("  OS Master Control Program (MCP) loading physical block from disk...")
+    cpu.page_in_descriptor(desc_reg_idx=0)
+    print("  Descriptor successfully paged-in!")
+
+# 3. Retry access after page-in (Success!)
+cpu.load_via_descriptor(dest_data_idx=1, desc_reg_idx=0, index=1)
+print(f"✓ Value loaded post-page-in: {cpu.data_regs[1]}") # Should be 202
+
+# 4. Enforce descriptor bounds check (Index 3 is out of bounds for limit 3)
+try:
+    print("Attempting OOB descriptor read at index 3...")
+    cpu.load_via_descriptor(dest_data_idx=1, desc_reg_idx=0, index=3)
+except BoundsException as e:
+    print(f"✓ Bounds Violation Blocked by Descriptor: {e}")
 ```
 
 ---
@@ -221,5 +318,5 @@ scheduler.run()
 
 For all submissions, systems engineering students are assessed on:
 1. **Mathematical correctness**: Does the custom balanced ternary arithmetic or dataflow routing yield the exact expected value?
-2. **Robustness of constraints**: Are capability access gates protected against address overflows?
+2. **Robustness of constraints**: Are capability and descriptor access gates protected against address overflows and tag forgery?
 3. **Liveness**: Does the concurrent design avoid deadlock and satisfy the progress property?
