@@ -19,6 +19,27 @@ module reversible_gates (
     output logic        Z        // Output Z (registered)
 );
 
+    // =========================================================================
+    // FORMAL VERIFICATION PROPERTIES (SVA Friendly Comments)
+    // =========================================================================
+    //
+    // RESET BEHAVIOR:
+    // - On asynchronous active-low reset (!rst_n), all registered outputs (X, Y, Z)
+    //   must asynchronously clear to 1'b0.
+    //
+    // FORMAL INVARIANTS (Bijectivity & Self-Inversion):
+    // - Self-Inversion: Running the Toffoli or Fredkin configuration twice with
+    //   matching outputs routed back must reconstruct the original input triplet.
+    //   Since this is a synchronous pipeline, evaluating a self-inverse state
+    //   asserts that the logic maps bijective states bi-directionally without loss.
+    // - Conservation of Information: Number of high bits in inputs must equal
+    //   number of high bits in outputs (essential property of Fredkin gates).
+    //   `assert property (@(posedge clk) (en && op == 1'b1) ##1 (X + Y + Z == $past(A + B + C)));`
+    // - Control Conservatism: Under both Toffoli and Fredkin configurations, control
+    //   line A is preserved exactly.
+    //   `assert property (@(posedge clk) en ##1 (X == $past(A)));`
+    // =========================================================================
+
     logic X_comb, Y_comb, Z_comb;
 
     always_comb begin

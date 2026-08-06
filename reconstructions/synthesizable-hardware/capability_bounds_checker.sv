@@ -59,6 +59,28 @@ module capability_bounds_checker (
     output logic [1:0]  resp_violation_code
 );
 
+    // =========================================================================
+    // FORMAL VERIFICATION PROPERTIES (SVA Friendly Comments)
+    // =========================================================================
+    //
+    // RESET STATE:
+    // - On asynchronous active-low reset (!rst_n), all output signals must clear
+    //   immediately: resp_allowed -> 0, resp_violation_flag -> 0, resp_page_fault -> 0, resp_violation_code -> 2'b00.
+    //
+    // FORMAL ASSUMPTIONS:
+    // - Validity Assumption: Only evaluate accesses when `req_valid` is high.
+    //
+    // FORMAL INVARIANTS:
+    // - Unforgeability: If cap_tag is low and req_valid is high, access is ALWAYS denied.
+    //   `assert property (@(posedge clk) (req_valid && !cap_tag) ##1 (!resp_allowed && resp_violation_flag && resp_violation_code == 2'b01));`
+    // - Boundary Safety: If access is requested out of the segment range (req_addr < cap_base || req_addr >= cap_limit),
+    //   access is denied and violation code 2'b10 is raised on the next clock cycle.
+    //   `assert property (@(posedge clk) (req_valid && cap_tag && (req_addr < cap_base || req_addr >= cap_limit)) ##1 (!resp_allowed && resp_violation_flag && resp_violation_code == 2'b10));`
+    // - Page Fault Triggering: In Burroughs descriptor mode (desc_mode == 1'b1), if the presence bit is 0,
+    //   resp_page_fault must trigger on the next clock cycle.
+    //   `assert property (@(posedge clk) (req_valid && cap_tag && desc_mode && !cap_present) ##1 (resp_page_fault && resp_violation_flag && resp_violation_code == 2'b11));`
+    // =========================================================================
+
     logic tag_fault;
     logic pres_fault;
     logic bounds_fault;

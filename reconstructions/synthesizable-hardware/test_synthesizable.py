@@ -463,6 +463,49 @@ def test_reversible_gates_bijectivity():
                         f"Gate op={op} failed self-inverse property at inputs ({a},{b},{c})!"
 
 
+def test_reversible_uncomputation_alignment():
+    """Verify that reversible uncomputation in Experiment 2 is strictly modeled in our golden model gates."""
+    # Experiment 2 uncomputes to cleanly restore garbage state back to 0 without loss (Bennett uncomputation)
+    # Forward pass: compute on input x=1, helper/garbage register starts at 0, target starts at 0
+    # Let's use a Toffoli gate to compute and store in target (c)
+    a, b, c = 1, 1, 0  # control A, control B, target C
+    x, y, z = golden_reversible_gates(op=0, a=a, b=b, c=c)
+    assert z == 1, "Expected computation output to be 1"
+
+    # Uncomputation step: we execute the inverse sequence (self-inverse Toffoli) to restore the state back
+    a_back, b_back, c_back = golden_reversible_gates(op=0, a=x, b=y, c=z)
+    assert c_back == 0, "Uncomputation failed to restore state to 0!"
+
+
+def test_capability_checker_experiment_alignment():
+    """Ensure that the capability checker golden model behaves in exact alignment with the scenarios in Experiment 3."""
+    checker = GoldenCapabilityChecker()
+
+    # Scenario A: Nominal authorized read within bounds
+    # Sandbox bounds: [10, 20) (base=10, limit=20, index=0, physical address=10)
+    checker.step(req_valid=True, req_addr=10, req_op=0, desc_mode=True, cap_base=10, cap_limit=20, cap_perms=0x7, cap_tag=True, cap_present=True)
+    assert checker.allowed is True
+    assert checker.violation_flag is False
+    assert checker.page_fault is False
+    assert checker.violation_code == 0
+
+    # Scenario B: Out of Bounds read violation
+    # Sandbox bounds: [10, 20) (base=10, limit=20, index=40, physical address=50)
+    checker.step(req_valid=True, req_addr=50, req_op=0, desc_mode=True, cap_base=10, cap_limit=20, cap_perms=0x7, cap_tag=True, cap_present=True)
+    assert checker.allowed is False
+    assert checker.violation_flag is True
+    assert checker.page_fault is False
+    assert checker.violation_code == 2 # OUT_OF_BOUNDS
+
+    # Scenario C: Swapped-out descriptor page fault
+    # Secure segment bounds: [50, 60), cap_present=False
+    checker.step(req_valid=True, req_addr=50, req_op=0, desc_mode=True, cap_base=50, cap_limit=60, cap_perms=0x7, cap_tag=True, cap_present=False)
+    assert checker.allowed is False
+    assert checker.violation_flag is True
+    assert checker.page_fault is True
+    assert checker.violation_code == 3 # Swapped-out page mapping / permission denied status
+
+
 def test_ternary_alu_exhaustive_trit_multiplication():
     """Verify the 1-trit multiplier logic exhaustively across all 9 combinations."""
     # In Balanced Ternary: trit A in [-1, 0, 1], trit B in [-1, 0, 1]

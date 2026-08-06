@@ -258,6 +258,13 @@ class KnowledgeGraphGenerator:
                 "entry_point": "reconstructions/co-simulation/orchestrator.py",
                 "description": "Cross-architecture co-simulator orchestrating a hybrid AI statistical pipeline, synchronous CSP channels, and dynamic dataflow blocks."
             })
+            recons.append({
+                "id": "experiments-runner",
+                "title": "Multi-Paradigm Experiments Runner",
+                "path": "reconstructions/co-simulation/",
+                "entry_point": "reconstructions/co-simulation/experiments.py",
+                "description": "Demonstration runner executing three concrete architectural experiments: cryogenic systolic array mapping, reversible storage loops uncomputation, and 9P sandboxed capabilities enforcement."
+            })
 
         self.data["reconstructions"] = recons
 
