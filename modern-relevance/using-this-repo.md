@@ -69,4 +69,8 @@ Microservice topologies, serverless clouds, and autonomous multi-agent AI networ
 Modern advanced computing is increasingly heterogeneous. Real-world systems require coordinating multiple execution paradigms simultaneously.
 
 - Review the [Co-Simulation Interoperability Fabric](../reconstructions/co-simulation/), which provides a functional, zero-dependency model orchestrating a hybrid AI-to-symbolic solver pipeline, passing alert tokens over synchronous CSP concurrent channels, and triggering spatial dataflow graph executions.
-- Use this orchestrator as a structural template for designing heterogeneous system-level simulation boundaries in custom software-in-the-loop (SIL) modeling.
+- Run our single-command demonstration runner representing three high-impact multi-paradigm co-simulations (e.g. cryogenic systolic array mapping, reversible storage uncomputation, and 9P capabilities protection):
+  ```bash
+  python3 -m reconstructions.co-simulation.experiments --all
+  ```
+- Use this orchestrator and the experiments as structural templates for designing heterogeneous system-level simulation boundaries in custom software-in-the-loop (SIL) modeling.

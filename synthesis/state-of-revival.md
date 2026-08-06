@@ -76,14 +76,19 @@ Analyzing the intersections of these parameters reveals four specific abstractio
 
 The executable simulators and synthesizable SystemVerilog models in this repository are uniquely positioned to serve as the core prototyping sandbox for next-generation, heterogeneous architectures.
 
-To bridge the gap between architectural theory and active evaluation, we provide a complete, runnable integration driver at **`reconstructions/co-simulation/experiments.py`** that executes all three of these experiments out-of-the-box.
+To bridge the gap between architectural theory and active evaluation, we provide a complete, runnable integration driver at **`reconstructions/co-simulation/experiments.py`** that executes all three of these experiments out-of-the-box using a single clear, documented command:
+
+```bash
+# Run all three multi-paradigm experiments and print detailed metrics and summaries
+python3 -m reconstructions.co-simulation.experiments --all
+```
 
 An external researcher or architect can use this codebase to execute three high-impact, multi-paradigm experiments:
 
 ### Experiment 1: The Heterogeneous Cryogenic Systolic Coprocessor
 *   **The Concept**: Coupling the high-frequency clock speed of superconducting logic with the data-parallel throughput of systolic arrays.
 *   **How to execute**:
-    1. Run the integration driver: `python3 reconstructions/co-simulation/experiments.py` (which executes this scenario automatically).
+    1. Run the single-command integration driver: `python3 -m reconstructions.co-simulation.experiments --all` (or run individually using `--experiment 1`).
     2. The driver adapts the cycle-accurate [Systolic Array Simulator](../reconstructions/systolic-array/) to evaluate a 100 GHz Weight-Stationary matrix core.
     3. It maps the active operations (MACs and register hops) to SFQ pulse events, applying the refrigeration and static/dynamic energy coefficients from the [Cryogenic Superconducting Simulator](../reconstructions/cryogenic-superconducting/).
     4. It simulates and outputs the total utility power profile (including cryocooler coefficient of performance), proving that ERSFQ systolic tiles achieve a $>100\times$ efficiency advantage over standard CMOS GPU tiles.
@@ -91,7 +96,7 @@ An external researcher or architect can use this codebase to execute three high-
 ### Experiment 2: Reversible Uncomputation in Cryogenic Storage Loops
 *   **The Concept**: Bypassing both Landauer's thermodynamic erasure limit and the cryogenic cooling penalty by combining adiabatic charge recovery with superconducting state storage.
 *   **How to execute**:
-    1. Run the integration driver: `python3 reconstructions/co-simulation/experiments.py` (which executes this scenario automatically).
+    1. Run the single-command integration driver: `python3 -m reconstructions.co-simulation.experiments --all` (or run individually using `--experiment 2`).
     2. The driver simulates Bennett's uncomputation strategy (Phase 0 to Phase 3) for a logic bit using the bijective gates from the [Reversible Simulator](../reconstructions/analog-optical/analog_optical_sim.py).
     3. It routes these operations into the picosecond pulse-timing pipeline and scales the energy dissipation at 4.2 K through the [Cryogenic SFQ Simulator](../reconstructions/cryogenic-superconducting/sfq_sim.py) energy model.
     4. It verifies that returning the intermediate garbage state to 0 reversibly avoids the Landauer erasure limit entirely, eliminating the cryogenic cooling penalty and saving $3.6\times10^4 \text{ fJ}$ of utility grid power per uncomputed bit.
@@ -99,7 +104,7 @@ An external researcher or architect can use this codebase to execute three high-
 ### Experiment 3: 9P Sandboxed Execution for Autonomous LLM Agents
 *   **The Concept**: Preventing prompt-injection memory leaks and remote code execution in multi-agent networks using secure hardware-enforced capabilities and private namespaces.
 *   **How to execute**:
-    1. Run the integration driver: `python3 reconstructions/co-simulation/experiments.py` (which executes this scenario automatically).
+    1. Run the single-command integration driver: `python3 -m reconstructions.co-simulation.experiments --all` (or run individually using `--experiment 3`).
     2. The driver constructs a private virtual 9P directory tree for the agent using the [9P Namespace Simulator](../reconstructions/plan9-9p/).
     3. It binds address ranges to Burroughs-style memory descriptors inside the virtual [Capability Memory Protection Emulator](../reconstructions/capability-security/).
     4. It simulates a nominal sandbox read alongside two malicious prompt-injection vectors (OOB read and unauthorized page access), verifying that the hardware-enforced CPU bounds checker catches the violations, triggers a page fault exception, and securely terminates the compromised process.

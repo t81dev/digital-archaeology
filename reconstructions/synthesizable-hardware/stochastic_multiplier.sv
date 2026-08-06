@@ -26,6 +26,30 @@ module stochastic_multiplier (
     output logic       stream_out     // Output product stochastic bitstream
 );
 
+    // =========================================================================
+    // FORMAL VERIFICATION PROPERTIES (SVA Friendly Comments)
+    // =========================================================================
+    //
+    // RESET BEHAVIOR:
+    // - On asynchronous active-low reset (!rst_n), lfsr_state must clear to
+    //   non-zero initial state 8'h01 (to avoid LFSR dead state 8'h00), and stream_out
+    //   must asynchronously clear to 1'b0.
+    //
+    // FORMAL ASSUMPTIONS:
+    // - Stable Input: The unipolar binary input `bin_val` should remain stable during
+    //   the stochastic evaluation window.
+    //
+    // FORMAL INVARIANTS:
+    // - Zero Multiplication: If `bin_val` is 8'd0, stream_a is always 0, and stream_out
+    //   must be 0 on subsequent clocks regardless of stream_b.
+    //   `assert property (@(posedge clk) (enable && bin_val == 8'd0) ##1 (stream_out == 1'b0));`
+    // - Stream B Dominance: If `stream_b` is 0, stream_out must be 0 on the next clock.
+    //   `assert property (@(posedge clk) (enable && stream_b == 1'b0) ##1 (stream_out == 1'b0));`
+    // - LFSR Non-Zero State Preservation: Since state 8'h00 is forbidden, the LFSR
+    //   state must never equal 8'h00 during execution.
+    //   `assert property (@(posedge clk) (lfsr_state != 8'h00));`
+    // =========================================================================
+
     logic [7:0] lfsr_state;
     logic       stream_a;
 

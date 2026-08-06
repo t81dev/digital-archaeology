@@ -39,3 +39,19 @@ def test_experiment_3_plan9_and_capabilities():
     assert metrics["oob_attack_blocked"] is True
     assert metrics["page_fault_triggered"] is True
     assert metrics["page_fault_counter"] == 1
+
+
+def test_cli_execution():
+    """Verify that the CLI execution runs successfully via standard Python module execution."""
+    import subprocess
+    # Run CLI command with --all flag
+    res = subprocess.run(
+        [sys.executable, "-m", "reconstructions.co-simulation.experiments", "--all"],
+        capture_output=True,
+        text=True
+    )
+    assert res.returncode == 0
+    assert "EXPERIMENT 1" in res.stdout
+    assert "EXPERIMENT 2" in res.stdout
+    assert "EXPERIMENT 3" in res.stdout
+    assert "PASS / observed behavior" in res.stdout

@@ -32,6 +32,30 @@ module ternary_alu (
     output logic [1:0]  CarryOut   // 1 trit carry-out (registered)
 );
 
+    // =========================================================================
+    // FORMAL VERIFICATION PROPERTIES (SVA Friendly Comments)
+    // =========================================================================
+    //
+    // RESET BEHAVIOR:
+    // - When !rst_n is asserted, 'Out' must immediately and asynchronously
+    //   clear to 6'b000000 and 'CarryOut' to 2'b00, regardless of clk or 'en'.
+    //
+    // FORMAL ASSUMPTIONS:
+    // - Input encodings for A and B must restrict each 2-bit trit to valid
+    //   Pos-Neg dual-rail states: (trit != 2'b11).
+    //   `assume property (@(posedge clk) A[1:0] != 2'b11 && A[3:2] != 2'b11 && A[5:4] != 2'b11);`
+    //   `assume property (@(posedge clk) B[1:0] != 2'b11 && B[3:2] != 2'b11 && B[5:4] != 2'b11);`
+    //
+    // FORMAL INVARIANTS:
+    // - When 'en' is high and 'rst_n' is high, the registered 'Out' and 'CarryOut'
+    //   on the subsequent clock cycle must exactly match the combinational function
+    //   of inputs A, B, and Op evaluated during the current cycle.
+    // - Negation Involution: Op == 3'b010 (NEG) twice is equivalent to identity.
+    //   `assert property (@(posedge clk) (en && Op == 3'b010) ##1 (en && Op == 3'b010) => Out == $past(A, 2));`
+    // - Zero Element Addition: When B is zero (all trits 2'b00) and Op is ADD (3'b000), Out must equal A.
+    //   `assert property (@(posedge clk) (en && Op == 3'b000 && B == 6'b000000) ##1 Out == $past(A));`
+    // =========================================================================
+
     // Decoding helper function: convert 2-bit PN encoding to 8-bit signed integer
     function automatic integer pn_to_int(logic [1:0] trit);
         case (trit)

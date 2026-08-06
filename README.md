@@ -13,6 +13,19 @@
 
 ---
 
+### 🏃 Runnable Multi-Paradigm Experiments (One-Command Demo)
+
+We maintain three concrete cross-paradigm architectural experiments implementing synergistic connections across different sidelined lineages (systolic array + cryogenic logic; reversible uncomputation + Landauer thermal dissipation; 9P dynamic namespaces + hardware capability bounds check):
+
+```bash
+# Run all three co-simulation experiments with a single clear command
+python3 -m reconstructions.co-simulation.experiments --all
+```
+
+*For more details on the setup or to run specific experiments, see [State of Revival Synthesis](synthesis/state-of-revival.md) and our [Synthesizable Hardware Integration Guide](reconstructions/synthesizable-hardware/README.md).*
+
+---
+
 ### ⚡ Project in <60 Seconds
 
 Digital Archaeology bridges systems history with modern hardware/software co-design through four deeply-deepened architectural lineages:
