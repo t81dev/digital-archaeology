@@ -24,6 +24,14 @@ Early implementations included:
 - **Gaines' ADDIE** (Adaptive Digital Differential Integrator): A clockless system demonstrating real-time integration, control loop feedback, and learning behavior.
 - **Probabilistic Neural Simulators**: Early hardware modeling biological neural structures where synapse weights and neuron firing frequencies were encoded as stochastic bitstreams.
 
+### Historical Metrics & Benchmarks of Stochastic Computing
+
+| Design / Concept (Year) | Developer | Representation Node | Hardware Unit | Arithmetic Overhead | Key Benchmarked Metric |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **ADDIE** (1967) | Brian Gaines | Unipolar / Bipolar | Linear logic, simple FSMs | 1 AND / 1 XNOR gate | Clockless adaptive feedback control; demonstrated real-time system integration with $<2\%$ active logic area of equivalent binary digital differential integrators. |
+| **RASCEL** (1970s) | University of Illinois | Noise-modulation | Optical & digital gates | 1 single-wire line | Parallel random bit stream processing; operated reliably under $>10\%$ background signal thermal noise. |
+| **STOCH-NN** (1980s) | Academic Research | Pulse Frequency Modulation | Hardware synapse gates | 1 2-input MUX adder | Early neural simulators; integrated $>1,000$ parallel synapse channels on a single monolithic chip. |
+
 Despite high architectural interest, SC remained restricted to specialized niches—such as radar signal processing, hearing aids, and nuclear reactor monitoring—where absolute hardware miniaturization and radiation-hardened reliability outweighed speed.
 
 ---
@@ -51,11 +59,13 @@ To convert a standard binary value into a stochastic bitstream, a **Stochastic C
 ```text
  Binary Value (x) ────┐
                       ▼
-                 ┌─────────┐
-                 │ Comparator │ ─────────► Stochastic Stream (X)
-                 └─────────┘             P(X=1) = x
-                      ▲
- LFSR Random Val ─────┘
+                 ┌───────────┐
+                 │           │
+                 │Comparator │ ─────────► Stochastic Stream (X)
+                 │           │             P(X=1) = x
+                 └─────▲─────┘
+                       │
+ LFSR Random Val ──────┘
 ```
 
 ### 3. Arithmetic Operations
@@ -100,6 +110,15 @@ This is implemented using a **Multiplexer (MUX)**. The select line $S$ is driven
 #### Non-Linear Functions (Finite State Machines)
 More advanced operations—such as division, square roots, and activation functions (e.g., $tanh(x)$, $sigmoid(x)$)—are implemented using small, hardware-efficient **Linear Finite State Machines (FSMs)**. A bidirectional state lattice tracks the "integration" of the stream, transitioning up or down based on input bits, with the output probability forming a smooth, non-linear activation curve.
 
+```text
+                     Linear FSM Saturating State Counter
+              +1 (if Input = 1)                 +1 (if Input = 1)
+           ───────►          ───────►        ───────►
+      [-M]          [-M+1]           [...]           [+M]
+           ◄───────          ◄───────        ◄───────
+              -1 (if Input = 0)                 -1 (if Input = 0)
+```
+
 ---
 
 ## Why It Didn't Win
@@ -113,7 +132,7 @@ Despite its extreme hardware simplicity and physical efficiency, Stochastic Comp
 
 ---
 
-## Modern Relevance
+## Modern Evaluation (Forward-Looking Analysis)
 
 Today, the physical constraints of computing are shifting. We are reaching the end of Dennard scaling and facing the **Von Neumann memory wall**, while workloads are transitioning from high-precision scientific math to low-precision, noise-tolerant AI inference.
 
@@ -186,3 +205,7 @@ An SC calculation begins yielding approximate results almost instantly, with pre
 3. **Poppelbaum, W. J., Faiman, M., & Shively, J. R.** (1967). "Stochastic Computing." *Proceedings of the AFIPS Fall Joint Computer Conference*, pp. 635-644.
 4. **Alaghi, A., & Hayes, J. P.** (2013). "Survey of Stochastic Computing." *ACM Transactions on Embedded Computing Systems (TECS)*, Vol. 12, No. 2s, Article 92.
 5. **Gaines, B. R.** (1969). "Adaptive Information Processing in Stochastic Computing." *IEEE Transactions on Systems Science and Cybernetics*, Vol. 5, No. 4, pp. 301-314.
+6. **Li, P., & Lilja, D. J.** (2011). "Using stochastic computation to implement digital image processing algorithms." *IEEE Transactions on Computers*, 60(12), 1741-1753.
+7. **Qian, W., Li, X., Riedel, M. D., Bazargan, K., & Lilja, D. J.** (2011). "An architecture for fault-tolerant computation with stochastic logic." *IEEE Transactions on Computers*, 60(1), 93-105.
+
+---

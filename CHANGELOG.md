@@ -2,6 +2,20 @@
 
 All notable changes to the Digital Archaeology repository will be documented in this file.
 
+## [Neuromorphic & Stochastic Deepening] - August 2026
+
+### Added
+- **Neuromorphic Spiking SNN Simulator**: Developed a stateful, zero-dependency, event-driven spiking neural network simulator under `reconstructions/neuromorphic-spiking/spiking_sim.py`. Models Leaky Integrate-and-Fire (LIF) neural dynamics, Address-Event Representation (AER) packet logging, and Spike-Timing-Dependent Plasticity (STDP) learning rules.
+- **Synthesizable Stochastic Multiplier soft-core**: Added a synthesizable, sequential registered `stochastic_multiplier.sv` SystemVerilog module combining an 8-bit LFSR pseudo-random bit source, comparator-based unipolar generation, and 1-gate AND multiplication.
+- **Pedagogical Spiking & Stochastic Lab**: Integrated **Lab Module 7** to `reconstructions/LAB_MANUAL.md` covering LIF neural integration challenges and unipolar multiplier precision/latency trade-offs.
+
+### Improved
+- **Stochastic Computing Simulator Expansion**: Upgraded `reconstructions/stochastic-computing/stochastic_sim.py` with multi-input stochastic artificial neuron and 1-D moving-average smoothing filter workloads. Added a quantitative accuracy-vs-energy proxy (active CMOS logic gate transitions) trade-off evaluation comparing stochastic multipliers with standard 8-bit binary multipliers.
+- **Sourced Historical Documentation**:
+  - Deepened `excavations/neuromorphic-hardware.md` with MOSFET subthreshold exponential physics, ASCII diagrams of LIF neuron and AER routing mechanics, and a detailed comparison table of historical metrics (IBM TrueNorth, Stanford Neurogrid, Heidelberg BrainScaleS, Manchester SpiNNaker, Intel Loihi).
+  - Deepened `excavations/stochastic-computing.md` with Gaines' saturating state counter FSM activation math, unipolar/bipolar SCG comparator diagrams, and historical metrics (Gaines' ADDIE, RASCEL).
+- **Relational Density & scorecards**: Integrated the Neuromorphic & Stochastic cluster as the 5th scored lineage inside `modern-relevance/revival-readiness.md`. Strengthened bidirectional links from excavations to `patterns/constraint-migration.md`, `modern-relevance/ai.md`, and `synthesis/return-of-spatial-computing.md`. Updated the top-of-README simulator index to 13 simulators and featured new co-processor paths in `using-this-repo.md`.
+
 ## [Consolidation & Usability] - August 2026
 
 ### Added

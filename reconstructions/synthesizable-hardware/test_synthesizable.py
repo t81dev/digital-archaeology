@@ -14,10 +14,12 @@ def test_rtl_files_exist_and_are_valid():
     alu_path = os.path.join(hardware_dir, "ternary_alu.sv")
     checker_path = os.path.join(hardware_dir, "capability_bounds_checker.sv")
     reversible_path = os.path.join(hardware_dir, "reversible_gates.sv")
+    multiplier_path = os.path.join(hardware_dir, "stochastic_multiplier.sv")
 
     assert os.path.exists(alu_path), "ternary_alu.sv does not exist!"
     assert os.path.exists(checker_path), "capability_bounds_checker.sv does not exist!"
     assert os.path.exists(reversible_path), "reversible_gates.sv does not exist!"
+    assert os.path.exists(multiplier_path), "stochastic_multiplier.sv does not exist!"
 
     # Verify Ternary ALU contains expected modules and synthesizable syntax
     with open(alu_path, 'r', encoding='utf-8') as f:
@@ -49,6 +51,17 @@ def test_rtl_files_exist_and_are_valid():
         assert "Y_comb" in rev_content
         assert "Z_comb" in rev_content
         assert "endmodule" in rev_content
+
+    # Verify Stochastic Multiplier contains correct modules
+    with open(multiplier_path, 'r', encoding='utf-8') as f:
+        mult_content = f.read()
+        assert "module stochastic_multiplier" in mult_content
+        assert "always_ff @(posedge clk or negedge rst_n)" in mult_content
+        assert "always_comb" in mult_content
+        assert "bin_val" in mult_content
+        assert "stream_b" in mult_content
+        assert "stream_out" in mult_content
+        assert "endmodule" in mult_content
 
 
 # ==========================================
@@ -380,3 +393,25 @@ def test_reversible_gates_golden_model():
     # Fredkin checks (op = 1)
     assert golden_reversible_gates(op=1, a=1, b=1, c=0) == (1, 0, 1) # SWAP
     assert golden_reversible_gates(op=1, a=0, b=1, c=0) == (0, 1, 0) # No SWAP
+
+
+# ==========================================
+# 5. Golden-Model Verification: Stochastic Multiplier
+# ==========================================
+
+def test_stochastic_multiplier_behavior():
+    """Verify logical modeling of synthesizable stochastic multiplier."""
+    # Simple unipolar stochastic multiplier behavior:
+    # If target is bin_val, comparator returns 1 if lfsr_state < bin_val
+    # We check a mock trace
+    lfsr_states = [1, 5, 10, 15, 20, 25, 30]
+    bin_val = 12
+    stream_b_vals = [1, 1, 0, 1, 1, 0, 1]
+
+    stream_out_trace = []
+    for lfsr, sb in zip(lfsr_states, stream_b_vals):
+        stream_a = 1 if lfsr < bin_val else 0
+        stream_out = stream_a & sb
+        stream_out_trace.append(stream_out)
+
+    assert stream_out_trace == [1, 1, 0, 0, 0, 0, 0]

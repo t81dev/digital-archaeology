@@ -1363,43 +1363,45 @@
       "summary": "Neuromorphic hardware refers to integrated circuits designed to mimic the neuro-biological structures and computational principles of the human brain. Unlike traditional von Neumann systems, which separate the central processing unit (CPU) from memory via a shared system bus, neuromorphic chips collocate memory and processing inside distributed artificial \"neurons\" and \"synapses.\"\n\nInstead of executing clock-synchronized, sequential instructions on continuous floating-point tensors, neuromorphic hardware processes discrete, asynchronous temporal signals called **spikes**. Computation is strictly event-driven: individual core clusters consume negligible static power and wake up only when incoming electrical spikes trigger a state change.\n\nInitially pioneered by Carver Mead in the late 1980s using subthreshold analog CMOS circuits, neuromorphic architecture has evolved across analog, digital, and memristive mediums (e.g., IBM TrueNorth, Intel Loihi, BrainScaleS, and SpiNNaker). While long overshadowed by mainstream synchronous GPUs and TPUs, neuromorphic hardware is experiencing a renaissance as modern AI hits the power and bandwidth limits of von Neumann architectures—particularly in sparse, low-latency edge processing.",
       "scorecard": {
         "Historical Importance": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Re-engineered silicon around biological principles, laying foundations for non-von Neumann hardware and event-based sensor processing."
         },
         "Technical Innovation": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Completely eliminated global clocks, unified compute/memory, and pioneered subthreshold analog circuit design for continuous differential modeling."
         },
         "Commercial Success": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Consistently limited to academic labs and research prototypes due to the sheer dominance of GPU scaling and CUDA ecosystems."
         },
         "Modern Potential": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Essential for sub-watt edge AI, bio-interfaces, high-speed robotics, and neuromorphic co-processors in heterogeneous systems."
         },
         "AI Synergy": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Direct structural mapping to deep learning and neural network acceleration."
+          "rationale": "Direct structural mapping to spiking neural networks, temporal models, and sparse event-driven computing."
         },
         "Difficulty to Recreate": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "High physical fabrication or high-fidelity simulation complexity."
+          "rationale": "Extremely high design complexity, requiring mixed-signal asynchronous circuit layout or complex high-fidelity simulation models."
         }
       },
-      "modern_relevance": "While neuromorphic hardware did not displace general-purpose GPUs in cloud data center training, modern edge AI constraints have revived interest in the technology:\n\n* **Edge AI & Autonomous Systems:** Robotics, drone navigation, and biomedical wearables operate under strict power budgets ($<1\\text{ W}$). Neuromorphic processors excel at low-latency visual odometry, tactile sensing, and vibration anomaly detection.\n* **Event Camera Processing:** High-speed robotics increasingly adopt Dynamic Vision Sensors (DVS). Processing sparse microsecond-level event streams directly with neuromorphic chips avoids frame conversion latency and massive memory buffering.\n* **In-Memory Memristive Compute Arrays:** Emerging non-volatile memory devices (ReRAM, Phase-Change Memory, Spin-Torque Transfer MRAM) are being combined with spiking neuron circuits to realize true analog crossbar arrays for energy-efficient AI edge nodes.\n* **Non-Von Neumann Co-processors:** Modern heterogeneous System-on-Chips (SoCs) are exploring hybrid layouts, pairing standard CPU/GPU cores with lightweight neuromorphic blocks dedicated to continuous background keyword spotting, gesture detection, and environmental monitoring.",
+      "modern_relevance": "",
       "references": [
         "Mead, C. (1989). *Analog VLSI and Neural Systems*. Addison-Wesley.",
         "Mahowald, M. A., & Mead, C. (1991). *The Silicon Retina*. Scientific American, 264(5), 76-82.",
         "Merolla, P. A., et al. (2014). *A million spiking-neuron integrated circuit with a scalable communication network and architecture* (IBM TrueNorth). Science, 345(6197), 668-673.",
         "Davies, M., et al. (2018). *Loihi: A Neuromorphic Manycore Processor with On-Chip Learning*. IEEE Micro, 38(1), 82-99.",
-        "Furber, S. B., et al. (2014). *The SpiNNaker Project*. Proceedings of the IEEE, 102(5), 652-665."
+        "Furber, S. B., et al. (2014). *The SpiNNaker Project*. Proceedings of the IEEE, 102(5), 652-665.",
+        "Indiveri, G., et al. (2011). *Neuromorphic Silicon Neuron Circuits*. Frontiers in Neuroscience, 5, 73.",
+        "Mead, C. (1990). *Neuromorphic Electronic Systems*. Proceedings of the IEEE, 78(10), 1629-1636."
       ]
     },
     {
@@ -1731,13 +1733,15 @@
           "rationale": "Simple logic gates but requires careful random generation and correlation management to simulate."
         }
       },
-      "modern_relevance": "Today, the physical constraints of computing are shifting. We are reaching the end of Dennard scaling and facing the **Von Neumann memory wall**, while workloads are transitioning from high-precision scientific math to low-precision, noise-tolerant AI inference.\n\n```text\n                      The Shifting Hardware Constraints\n                                      │\n     ┌────────────────────────────────┴────────────────────────────────┐\n     ▼                                                                 ▼\n[MOORE'S LAW LIMITS]                                         [AI / NEUROMORPHIC DEMANDS]\nFree transistors are over.                                   Deep Learning is highly noise-tolerant.\nPhysical bus routing consumes                                 Massive multiply-accumulate arrays (MACs)\nmost power. SC uses single wires.                             collapse from 2D structures into single gates.\n```",
+      "modern_relevance": "",
       "references": [
         "**Gaines, B. R.** (1967). \"Stochastic Computing Systems.\" *Advances in Information Systems Science*, Vol. 2, pp. 37-172. Plenum Press.",
         "**Von Neumann, J.** (1956). \"Probabilistic Logics and the Synthesis of Reliable Organisms from Unreliable Components.\" *Automata Studies*, pp. 43-98. Princeton University Press.",
         "**Poppelbaum, W. J., Faiman, M., & Shively, J. R.** (1967). \"Stochastic Computing.\" *Proceedings of the AFIPS Fall Joint Computer Conference*, pp. 635-644.",
         "**Alaghi, A., & Hayes, J. P.** (2013). \"Survey of Stochastic Computing.\" *ACM Transactions on Embedded Computing Systems (TECS)*, Vol. 12, No. 2s, Article 92.",
-        "**Gaines, B. R.** (1969). \"Adaptive Information Processing in Stochastic Computing.\" *IEEE Transactions on Systems Science and Cybernetics*, Vol. 5, No. 4, pp. 301-314."
+        "**Gaines, B. R.** (1969). \"Adaptive Information Processing in Stochastic Computing.\" *IEEE Transactions on Systems Science and Cybernetics*, Vol. 5, No. 4, pp. 301-314.",
+        "**Li, P., & Lilja, D. J.** (2011). \"Using stochastic computation to implement digital image processing algorithms.\" *IEEE Transactions on Computers*, 60(12), 1741-1753.",
+        "**Qian, W., Li, X., Riedel, M. D., Bazargan, K., & Lilja, D. J.** (2011). \"An architecture for fault-tolerant computation with stochastic logic.\" *IEEE Transactions on Computers*, 60(1), 93-105."
       ]
     },
     {
@@ -2118,6 +2122,13 @@
       "path": "reconstructions/neuro-symbolic/",
       "entry_point": "reconstructions/neuro-symbolic/neuro_symbolic_sim.py",
       "description": "Executable simulator for the Neuro Symbolic paradigm."
+    },
+    {
+      "id": "neuromorphic-spiking",
+      "title": "Neuromorphic Spiking",
+      "path": "reconstructions/neuromorphic-spiking/",
+      "entry_point": "reconstructions/neuromorphic-spiking/spiking_sim.py",
+      "description": "Event-driven Spiking Neural Network (SNN) simulator modeling Leaky Integrate-and-Fire (LIF) dynamics, Address-Event Representation (AER), and Spike-Timing-Dependent Plasticity (STDP) learning rules."
     },
     {
       "id": "plan9-9p",

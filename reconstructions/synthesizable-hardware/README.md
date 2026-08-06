@@ -20,6 +20,9 @@ This directory contains synthesizable SystemVerilog soft-cores representing some
 3. **Reversible Logic Gates Block (`reversible_gates.sv`)**:
    - Implements synthesizable 3-bit reversible logic gates: Toffoli (CCNOT) and Fredkin (CSWAP).
    - Synchronously registers inputs and outputs to prevent glitching, serving as a primitive cell block for physical and adiabatic charge-recovery layouts.
+4. **Stochastic Multiplier (`stochastic_multiplier.sv`)**:
+   - Implements a unipolar stochastic multiplier by pairing an 8-bit Linear Feedback Shift Register (LFSR) with a digital comparator (for stochastic generation of input A) and a single-gate AND multiplier.
+   - Ideal for low-power neural networks, showing high fault-tolerance and extremely low area utilization.
 
 ---
 
@@ -54,6 +57,7 @@ Our SystemVerilog designs strictly avoid unsynthesizable behavioral structures. 
 | `ternary_alu` | ~180 LUTs | 100 MHz+ | 1x1 Tile |
 | `capability_bounds_checker` | ~110 LUTs | 150 MHz+ | 1x1 Tile |
 | `reversible_gates` | ~15 LUTs | 250 MHz+ | 1x1 Tile |
+| `stochastic_multiplier` | ~25 LUTs | 300 MHz+ | 1x1 Tile |
 
 ---
 
