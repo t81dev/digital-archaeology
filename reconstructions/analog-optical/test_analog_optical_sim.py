@@ -4,7 +4,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 import pytest
 import math
-from analog_optical_sim import Complex, AnalogComputer, OpticalMatrixAccelerator
+from analog_optical_sim import Complex, AnalogComputer, OpticalMatrixAccelerator, ReversibleSimulator
 
 def test_complex_math():
     """Verify standard operations on our zero-dependency complex number class."""
@@ -82,23 +82,19 @@ def test_optical_wave_accelerator():
     assert len(u_matrix[0]) == 2
 
     # Check unitary property: W_dagger * W = I
-    # Row 1, Col 1
     w00 = u_matrix[0][0]
     w01 = u_matrix[0][1]
     w10 = u_matrix[1][0]
     w11 = u_matrix[1][1]
 
-    # Conjugate elements
     w00_c = w00.conj()
     w01_c = w01.conj()
     w10_c = w10.conj()
     w11_c = w11.conj()
 
-    # (W^H * W)[0][0] = w00_c*w00 + w10_c*w10 = |w00|^2 + |w10|^2
     norm_col1 = (w00_c * w00).real + (w10_c * w10).real
     assert math.isclose(norm_col1, 1.0)
 
-    # (W^H * W)[0][1] = w00_c*w01 + w10_c*w11
     off_diag = (w00_c * w01) + (w10_c * w11)
     assert math.isclose(off_diag.real, 0.0, abs_tol=1e-7)
     assert math.isclose(off_diag.imag, 0.0, abs_tol=1e-7)
@@ -111,7 +107,67 @@ def test_optical_wave_accelerator():
     assert len(intensities) == 2
 
     # Verify constructive / destructive wave power measurements
-    # Sum of output intensities should equal input laser intensity (conservation of energy)
     input_power = 1.0**2 + 0.0**2
     output_power = intensities[0] + intensities[1]
     assert math.isclose(input_power, output_power)
+
+
+def test_reversible_and_adiabatic_simulation():
+    """Verify standard gates, Bennett uncomputation, and adiabatic vs standard CMOS limits."""
+    # Room temp simulation (300K)
+    sim = ReversibleSimulator(temp_kelvin=300.0)
+
+    # Standard gates verification
+    assert sim.gate_not(1) == 0
+    assert sim.gate_not(0) == 1
+
+    assert sim.gate_cnot(1, 0) == (1, 1)
+    assert sim.gate_cnot(0, 1) == (0, 1)
+
+    assert sim.gate_toffoli(1, 1, 0) == (1, 1, 1)
+    assert sim.gate_toffoli(1, 0, 1) == (1, 0, 1)
+
+    assert sim.gate_fredkin(1, 1, 0) == (1, 0, 1)
+    assert sim.gate_fredkin(0, 1, 0) == (0, 1, 0)
+
+    # Landauer limit math validation
+    # E_limit = kB * T * ln(2)
+    expected_limit = 1.380649e-23 * 300.0 * math.log(2.0)
+    assert math.isclose(sim.landauer_limit(), expected_limit)
+
+    # Cryogenic temperature verification (4.0 K)
+    sim_cryo = ReversibleSimulator(temp_kelvin=4.0)
+    expected_cryo_limit = 1.380649e-23 * 4.0 * math.log(2.0)
+    assert math.isclose(sim_cryo.landauer_limit(), expected_cryo_limit)
+
+    # Bennett's Uncomputation Pipeline transitions checking
+    pipeline_states = sim.simulate_bennett_uncomputation(x=1)
+    assert len(pipeline_states) == 5
+
+    # Check that in Phase 3 (Reversible Uncompute), garbage is restored to 0 and energy cost is 0.0
+    phase3 = pipeline_states[3]
+    assert phase3["phase"] == "3. Reversible Uncompute"
+    assert phase3["regs"]["garbage_G"] == 0
+    assert phase3["regs"]["copy_Y"] == 0  # NOT 1 = 0
+    assert phase3["landauer_energy"] == 0.0
+
+    # Check that comparative irreversible phase 4 shows positive energy cost equal to Landauer limit
+    phase4 = pipeline_states[4]
+    assert phase4["phase"] == "4. Irreversible Overwrite (Destructive)"
+    assert phase4["landauer_energy"] == expected_limit
+
+    # Adiabatic dynamic scaling math verification
+    # E_adi = (R * C / T_ramp) * C * V^2
+    # E_conv = 0.5 * C * V^2
+    r = 1000.0
+    c = 1e-12
+    v = 2.0
+    t_ramp = 10 * r * c
+
+    e_adi, e_conv = sim.simulate_adiabatic_dissipation(r, c, v, t_ramp)
+    expected_conv = 0.5 * c * (v**2)
+    expected_adi = (r * c / t_ramp) * c * (v**2)
+
+    assert math.isclose(e_conv, expected_conv)
+    assert math.isclose(e_adi, expected_adi)
+    assert math.isclose(e_adi, 0.2 * expected_conv)  # 5x energy reduction relative to conventional limits because T_ramp = 10 * RC

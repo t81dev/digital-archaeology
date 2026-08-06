@@ -12,7 +12,11 @@ According to **Landauer’s Principle** (formulated by Rolf Landauer in 1961), e
 
 $$E_{\text{min}} = k_B T \ln 2$$
 
-Where $k_B$ is the Boltzmann constant and $T$ is the absolute temperature in Kelvin. While negligible during the vacuum-tube and early integrated-circuit eras, modern CMOS processors operating at tens of billions of transistors now operate dangerously close to thermal dissipation limits, causing severe power density bottlenecks ("Dark Silicon").
+Where $k_B$ is the Boltzmann constant ($1.38 \times 10^{-23}$ J/K) and $T$ is the absolute temperature in Kelvin. At room temperature ($T \approx 300$ K), Landauer's limit equates to approximately:
+
+$$E_{\text{min}} \approx 2.87 \times 10^{-21} \text{ Joules (or } \approx 0.018 \text{ eV)}$$
+
+While negligible during the vacuum-tube and early integrated-circuit eras, modern CMOS processors operating at tens of billions of transistors switching at multi-gigahertz frequencies now operate dangerously close to thermal dissipation limits, causing severe power density bottlenecks ("Dark Silicon").
 
 Reversible Computing solves this fundamental physical constraint by preserving logical state throughout computation. By ensuring that every computational step can be run backward to recover previous states without information destruction, reversible architectures can theoretically reduce dynamic heat dissipation to zero—opening a path toward ultra-dense, ultra-low-power microarchitectures, adiabatic CMOS, and physical realization in quantum computing.
 
@@ -71,7 +75,7 @@ Conventional Irreversible NAND               Reversible Toffoli (CCNOT) Gate
 Standard Boolean gates are non-invertible because their output state cannot uniquely determine their input state. Reversible gates enforce a $1:1$ bijection between input vectors and output vectors:
 
 * **Toffoli Gate (Controlled-Controlled-NOT):** Takes three inputs $(A, B, C)$ and outputs $(A, B, C \oplus (A \land B))$. If $C = 0$, the output yields $A \land B$; if $C = 1$, it acts as a universal NAND gate while preserving inputs $A$ and $B$.
-* **Fredkin Gate (Controlled-SWAP):** Takes three inputs $(C, I_1, I_2)$. If control $C = 1$, it swaps inputs $I_1$ and $I_2$. Because it conserves the exact number of 1s and 0s from input to output, it is a conservative reversible gate.
+* **Fredkin Gate (Controlled-SWAP):** Takes three inputs $(C, I_1, I_2)$. If control $C = 1$, it swaps inputs $I_1$ and $I_2$, yielding output $(C, I_2, I_1)$; if $C = 0$, it passes them unchanged. Because it conserves the exact number of 1s and 0s from input to output, it is a conservative reversible gate.
 
 ### 2. The Uncomputation Principle (Bennett's Strategy)
 
@@ -79,13 +83,27 @@ To execute arbitrary algorithms without accumulating infinite intermediate ("gar
 
 $$\text{Initial State } (X, 0, 0) \xrightarrow{\quad\text{Compute } f\quad} (X, f(X), g(X)) \xrightarrow{\quad\text{Copy Result}\quad} (X, f(X), f(X)) \xrightarrow{\;\text{Uncompute } f^{-1}\;} (X, 0, f(X))$$
 
+```
+   BENNETT'S UNCOMPUTATION PIPELINE
+
+   Step 1: Compute (f)   ───► Takes input (X) and writes output f(X) and intermediate garbage g(X)
+   Step 2: Copy          ───► Reversibly copies f(X) to safe register via XOR (fan-out)
+   Step 3: Uncompute (f⁻¹)──► Runs f in reverse (f⁻¹) to restore g(X) to clean 0s, conserving energy
+```
+
 1. **Compute ($f$):** Perform computation forward, generating the desired output $f(X)$ along with temporary intermediate bits $g(X)$.
 2. **Copy:** Fan out the output $f(X)$ into a target register using reversible XOR operations.
 3. **Uncompute ($f^{-1}$):** Run the original forward computation in reverse order to return intermediate registers $g(X)$ back to clean zero states without erasing bits.
 
 ### 3. Physical Implementation: Adiabatic CMOS & Superconducting Logic
 
-At the transistor level, conventional CMOS dumps stored capacitor charge ($\frac{1}{2}CV^2$) directly to ground on every $1 \to 0$ transition. **Adiabatic logic** (charge-recovery circuits) ramps supply voltages gradually using resonant LC tanks, recovering and recycling electrical energy back into the power supply rather than dissipating it as heat.
+At the transistor level, conventional CMOS dumps stored capacitor charge ($\frac{1}{2}CV^2$) directly to ground on every $1 \to 0$ transition, dissipating that energy as heat. **Adiabatic logic** (charge-recovery circuits) ramps supply voltages gradually using resonant LC tanks, recovering and recycling electrical energy back into the power supply rather than dissipating it.
+
+For an adiabatic charge transaction running over a voltage ramp of duration $T_{\text{ramp}}$, the energy dissipated is:
+
+$$E_{\text{dissipated}} = \frac{R C}{T_{\text{ramp}}} \cdot C V^2$$
+
+Where $R$ is the transistor channel resistance, $C$ is the load capacitance, and $V$ is the supply voltage. By increasing the transition time $T_{\text{ramp}}$ relative to the intrinsic time constant $R C$, energy dissipation can be made arbitrarily small—scaling inversely with execution time ($E \propto 1/T_{\text{ramp}}$), whereas standard CMOS has a fixed energy dissipation floor of $\frac{1}{2} C V^2$ per transition regardless of clock speed.
 
 ---
 
@@ -145,13 +163,14 @@ As conventional CMOS fabrication approaches 1-nanometer quantum tunneling thresh
 
 | Category | Rating | Rationale |
 | --- | --- | --- |
-| Historical Importance | ★★★☆☆ | Brief justification |
-| Technical Innovation | ★★★☆☆ | Brief justification |
-| Commercial Success | ★★★☆☆ | Brief justification |
-| Modern Potential | ★★★☆☆ | Brief justification |
-| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
-| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
+| Historical Importance | ★★★★☆ | Foundational paradigm in statistical physics and thermodynamic computation bounds; defined the limits of modern silicon. |
+| Technical Innovation | ★★★★★ | Created uncomputation, adiabatic charge recycling, and fully bijective logic structures (Toffoli & Fredkin). |
+| Commercial Success | ★☆☆☆☆ | Confined entirely to physics laboratories and research publications; no historical commercial mass production. |
+| Modern Potential | ★★★★★ | Essential for cryogenic superconducting systems and compiling classical arithmetic blocks onto quantum computers. |
+| AI Synergy | ★★★★☆ | High long-term potential in low-power cryogenic computing arrays executing matrix operations reversibly to bypass the thermal limit. |
+| Difficulty to Recreate | ★★★★☆ | Simulating uncomputation pipelines, intermediate register state tracking, and adiabatic energy dissipation scaling requires specialized state machines. |
 
+---
 
 ## References
 

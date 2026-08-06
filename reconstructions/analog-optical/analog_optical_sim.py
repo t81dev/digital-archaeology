@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-Continuous Analog & Optical Wave Accelerator Simulator
-------------------------------------------------------
-This interactive simulator models two complementary paradigms of continuous-physical computation:
+Continuous Analog, Optical Wave, and Reversible Computing Simulator
+------------------------------------------------------------------
+This interactive simulator models three complementary paradigms of continuous-physical
+and post-CMOS computation:
 1. Continuous Analog Computing:
    Solves a dynamic second-order differential equation (mass-spring-damper system)
    using a simulated physical operational amplifier network. Simulates analog noise,
@@ -11,6 +12,10 @@ This interactive simulator models two complementary paradigms of continuous-phys
    Performs matrix-vector multiplication using coherent light wave interference
    propagating through a network of Mach-Zehnder Interferometers (MZIs). Simulates
    phase noise, laser intensity fluctuations, and photodetector noise.
+3. Reversible Logic & Adiabatic Energy Simulator:
+   Models information-preserving bijective logic gates (NOT, CNOT, Toffoli, Fredkin),
+   Bennett's three-phase uncomputation strategy, and compares the Landauer thermodynamic
+   entropy limit (kB * T * ln(2)) against dynamic adiabatic charge recovery (RC/T * C V^2).
 """
 
 import math
@@ -293,7 +298,126 @@ class OpticalMatrixAccelerator:
 
 
 # =====================================================================
-# PART 4: BEAUTIFUL CLI & ASCI PLOTTER HELPERS
+# PART 4: REVERSIBLE LOGIC & THERMODYNAMIC ENERGY SIMULATOR
+# =====================================================================
+
+class ReversibleSimulator:
+    """
+    Models information-preserving bijective logic gates (NOT, CNOT, Toffoli, Fredkin),
+    implements Bennett's three-phase uncomputation strategy, and compares Landauer
+    erasure limits against dynamic adiabatic dynamic charge recovery.
+    """
+    def __init__(self, temp_kelvin: float = 300.0):
+        self.temp = temp_kelvin
+        self.kB = 1.380649e-23  # Boltzmann constant (J/K)
+
+    def landauer_limit(self) -> float:
+        """Returns Landauer's thermodynamic limit (kB * T * ln(2)) in Joules."""
+        return self.kB * self.temp * math.log(2.0)
+
+    def gate_not(self, a: int) -> int:
+        """Reversible NOT gate: Out = ~A"""
+        return (a & 1) ^ 1
+
+    def gate_cnot(self, c: int, t: int) -> tuple[int, int]:
+        """Reversible CNOT (Feynman) gate: (C, T ^ C)"""
+        c_b = c & 1
+        t_b = t & 1
+        return c_b, t_b ^ c_b
+
+    def gate_toffoli(self, a: int, b: int, c: int) -> tuple[int, int, int]:
+        """Reversible Toffoli (CCNOT) gate: (A, B, C ^ (A & B))"""
+        a_b = a & 1
+        b_b = b & 1
+        c_b = c & 1
+        return a_b, b_b, c_b ^ (a_b & b_b)
+
+    def gate_fredkin(self, c: int, i1: int, i2: int) -> tuple[int, int, int]:
+        """Reversible Fredkin (CSWAP) gate: swaps i1 and i2 if c is 1."""
+        c_b = c & 1
+        i1_b = i1 & 1
+        i2_b = i2 & 1
+        if c_b == 1:
+            return c_b, i2_b, i1_b
+        return c_b, i1_b, i2_b
+
+    def simulate_adiabatic_dissipation(self, r: float, c: float, v: float, t_ramp: float) -> tuple[float, float]:
+        """
+        Calculates energy dissipation for an electrical state transition.
+        - Conventional CMOS dynamic dissipation: E = 0.5 * C * V^2
+        - Adiabatic logic charge-recovery dissipation: E = (R*C / T_ramp) * C * V^2
+        Returns: (adiabatic_energy, conventional_energy)
+        """
+        e_conv = 0.5 * c * (v ** 2)
+        if t_ramp <= 0:
+            t_ramp = 1e-15  # Avoid division by zero
+        e_adi = (r * c / t_ramp) * c * (v ** 2)
+        return e_adi, e_conv
+
+    def simulate_bennett_uncomputation(self, x: int) -> list[dict]:
+        """
+        Simulates Bennett's 3-phase uncomputation strategy to calculate f(x) = x ^ 1 (NOT x)
+        reversibly, tracking registered states, active garbage bits, and Landauer energy cost.
+        """
+        states = []
+        x_b = x & 1
+
+        # Phase 0: Initial
+        states.append({
+            "phase": "0. Initial State",
+            "regs": {"input_X": x_b, "garbage_G": 0, "copy_Y": 0},
+            "garbage_bits": 0,
+            "erased_bits": 0,
+            "landauer_energy": 0.0
+        })
+
+        # Phase 1: Forward compute f(x) -> y = X ^ 1.
+        # We store intermediate 'garbage' g = X to maintain bijection.
+        g = x_b
+        y = x_b ^ 1
+        states.append({
+            "phase": "1. Forward Compute",
+            "regs": {"input_X": x_b, "garbage_G": g, "copy_Y": 0},
+            "garbage_bits": 1,
+            "erased_bits": 0,
+            "landauer_energy": 0.0
+        })
+
+        # Phase 2: Copy output reversibly via CNOT to clean output target copy register
+        copy_y = y
+        states.append({
+            "phase": "2. Copy Output",
+            "regs": {"input_X": x_b, "garbage_G": g, "copy_Y": copy_y},
+            "garbage_bits": 1,
+            "erased_bits": 0,
+            "landauer_energy": 0.0
+        })
+
+        # Phase 3: Uncompute forward calculation reversibly backward (uncompute inverse f^-1)
+        # Retains copied output Y but returns garbage register cleanly back to 0.
+        states.append({
+            "phase": "3. Reversible Uncompute",
+            "regs": {"input_X": x_b, "garbage_G": 0, "copy_Y": copy_y},
+            "garbage_bits": 0,
+            "erased_bits": 0,
+            "landauer_energy": 0.0
+        })
+
+        # Phase 4: Comparative Irreversible Override (Erasing garbage bit destructively)
+        # Compares with standard non-reversible register overwrite which dumps entropy
+        states.append({
+            "phase": "4. Irreversible Overwrite (Destructive)",
+            "regs": {"input_X": x_b, "garbage_G": 0, "copy_Y": copy_y},
+            "garbage_bits": 0,
+            "erased_bits": 1,
+            "landauer_energy": self.landauer_limit()
+        })
+
+        return states
+
+
+# =====================================================================
+# PART 5: BEAUTIFUL CLI & ASCI PLOTTER HELPERS
 # =====================================================================
 
 def draw_ascii_plot(times, values, ideal_values, height=12, width=70):
@@ -371,6 +495,46 @@ def draw_wave_interference(amp1, amp2):
            f"  Combined Max Amplitude:        " + "█" * int(abs(amp1 + amp2) * 10)
 
 
+def draw_adiabatic_curve(r, c, v):
+    """Generates an ASCII visualization of energy scaling inversely with time (E vs T_ramp)."""
+    width = 65
+    height = 8
+    canvas = [[" " for _ in range(width)] for _ in range(height)]
+
+    # Draw dynamic curves
+    # Conventional energy is constant: E_conv = 0.5 * C * V^2
+    # Adiabatic curves: E_adi = (RC/T) * C * V^2
+    e_conv = 0.5 * c * (v**2)
+
+    for col in range(width):
+        t_factor = (col + 1) / (width / 5.0)  # T_ramp scale from 0.2 to 5.0 in units of RC
+        e_adi_factor = 1.0 / t_factor         # relative to conventional energy scale
+
+        row_conv = int(height * 0.5)          # middle represents conventional energy limit
+        row_adi = int(row_conv * e_adi_factor)
+
+        row_adi = max(0, min(height - 1, row_adi))
+        row_conv = max(0, min(height - 1, row_conv))
+
+        canvas[row_conv][col] = "─"
+        canvas[row_adi][col] = "█"
+
+    lines = []
+    lines.append("  [Dynamic Dissipation Curves: Energy (y) vs. Time T_ramp (x)]")
+    lines.append("  [High Energy] ──" + "─" * (width - 16))
+    for r_idx in range(height):
+        row_str = "".join(canvas[r_idx])
+        if r_idx == height * 0.5:
+            lines.append(f"   │ {row_str} <── Conventional CMOS dynamic limit (0.5 * C * V^2)")
+        elif r_idx == height - 2:
+            lines.append(f"   │ {row_str} <── Adiabatic Charge recovery slope (RC/T_ramp * C * V^2)")
+        else:
+            lines.append(f"   │ {row_str}")
+    lines.append("  [Low Energy] ───" + "─" * (width - 16))
+    lines.append("  [Fast Clock T_ramp ~ RC] ──────────────────────────► [Slow Clock T_ramp >> RC]")
+    return "\n".join(lines)
+
+
 # =====================================================================
 # SCENARIO RUNNERS
 # =====================================================================
@@ -446,21 +610,77 @@ def run_optical_tensor_scenario(theta=1.5708, phi=0.7854, x1=1.0, x2=0.5, noise=
     print(draw_wave_interference(amp1, amp2))
 
 
+def run_reversible_simulation_scenario(temp=300.0, input_bit=1):
+    print("\n" + "=" * 70)
+    print("SCENARIO: Reversible Logic, Landauer Limit & Adiabatic Energy Scaling")
+    print("=" * 70)
+    print(f"  Ambient Temperature: {temp} Kelvin")
+    print(f"  Simulation Target: Bennett's Uncomputation of f(x) = NOT x (x = {input_bit})")
+
+    sim = ReversibleSimulator(temp_kelvin=temp)
+    l_limit = sim.landauer_limit()
+
+    print(f"\n  [Thermodynamic Reference Parameters]:")
+    print(f"    Boltzmann Constant (kB): 1.380649e-23 J/K")
+    print(f"    Landauer Entropy Limit:  {l_limit:.4e} Joules per bit erasure")
+
+    # 1. Gate operations verification
+    print("\n--- Reversible Primitive Gate Verification ---")
+    print(f"    NOT({input_bit})            = {sim.gate_not(input_bit)}")
+    print(f"    CNOT(1, {input_bit})         = {sim.gate_cnot(1, input_bit)}")
+    print(f"    Toffoli(1, 1, {input_bit})   = {sim.gate_toffoli(1, 1, input_bit)}  (CCNOT)")
+    print(f"    Fredkin(1, 1, 0)        = {sim.gate_fredkin(1, 1, 0)}  (CSWAP)")
+
+    # 2. Bennett Uncomputation Pipeline State Tracker
+    print("\n--- Bennett's 3-Phase Uncomputation Simulation ---")
+    pipeline_states = sim.simulate_bennett_uncomputation(input_bit)
+    for state in pipeline_states:
+        print(f"  {state['phase']}:")
+        print(f"    Register States:     {state['regs']}")
+        print(f"    Garbage Active:      {state['garbage_bits']} bits")
+        print(f"    Erased Bits:         {state['erased_bits']} bits")
+        print(f"    Landauer Heat Loss:  {state['landauer_energy']:.4e} Joules")
+        print("    " + "-" * 40)
+
+    # 3. Adiabatic Energy recovery logic
+    print("\n--- Adiabatic Dynamic Charge Recovery Modeling ---")
+    print("  Comparing conventional digital CMOS vs. adiabatic resonant logic.")
+    print("  Parameters: Resistor R = 1.0k Ohm, Capacitor C = 1.0 pF, Supply V = 1.0 V")
+
+    r = 1000.0       # 1k Ohm
+    c = 1.0e-12      # 1 pF
+    v = 1.0          # 1.0 V
+    rc_time = r * c
+
+    print(f"    RC Charge Time Constant: {rc_time:.2e} seconds")
+    print("    Dynamic Dissipation Scaling:")
+
+    # Simulate at different clock period scales (from fast to slow)
+    for ratio in [0.5, 1.0, 5.0, 20.0, 100.0]:
+        t_ramp = ratio * rc_time
+        e_adi, e_conv = sim.simulate_adiabatic_dissipation(r, c, v, t_ramp)
+        gain = e_conv / e_adi if e_adi > 0 else float('inf')
+        print(f"      Clock Ramp: {ratio:5.1f} * RC  ({t_ramp:7.1e} s) ──► Adiabatic: {e_adi:8.2e} J  (vs. CMOS: {e_conv:.2e} J)  [{gain:6.1f}x reduction]")
+
+    print("\n--- Adiabatic Power Curve ---")
+    print(draw_adiabatic_curve(r, c, v))
+
+
 # =====================================================================
 # MAIN METHOD (CLI Entry)
 # =====================================================================
 
 def main():
-    # Run a quick demonstration automatically
+    # Run all demonstrations automatically
     print("\n" + "=" * 80)
-    print("     DIGITAL ARCHAEOLOGY: CONTINUOUS ANALOG & OPTICAL ACCELERATOR SIMULATOR")
+    print("     DIGITAL ARCHAEOLOGY: CONTINUOUS ANALOG, OPTICAL & REVERSIBLE COMPUTING")
     print("=" * 80)
-    print("  Continuous computers compute using physical phenomena (voltage, light waves)")
-    print("  rather than discrete digital logic. This enables instant O(1) operations but")
-    print("  is inherently susceptible to physical noise, drift, and calibration limits.")
+    print("  Continuous and thermodynamic physical computing bypasses standard digital limits")
+    print("  by modeling equations natively in light/voltage, and preserving information entropy.")
 
     run_analog_simulation_scenario(noise=True, drift=True)
     run_optical_tensor_scenario(noise=True)
+    run_reversible_simulation_scenario()
 
     # Interactive loop
     if sys.stdin.isatty():
@@ -471,9 +691,11 @@ def main():
             print("2. Run Analog Mass-Spring-Damper Simulation (Perfect Ideal Digital)")
             print("3. Run Optical Wave Tensor Multiplication (With Phase Noise & RIN)")
             print("4. Run Optical Wave Tensor Multiplication (Perfect Ideal)")
-            print("5. Exit")
+            print("5. Run Reversible Gate & Thermodynamic Adiabatic Simulator (Room Temp 300K)")
+            print("6. Run Reversible Gate & Thermodynamic Adiabatic Simulator (Cryogenic Temp 4K)")
+            print("7. Exit")
             try:
-                choice = input("\nEnter choice (1-5): ").strip()
+                choice = input("\nEnter choice (1-7): ").strip()
                 if choice == "1":
                     run_analog_simulation_scenario(noise=True, drift=True)
                 elif choice == "2":
@@ -483,10 +705,14 @@ def main():
                 elif choice == "4":
                     run_optical_tensor_scenario(noise=False)
                 elif choice == "5":
+                    run_reversible_simulation_scenario(temp=300.0)
+                elif choice == "6":
+                    run_reversible_simulation_scenario(temp=4.0)
+                elif choice == "7":
                     print("Exiting simulator. Goodbye!")
                     break
                 else:
-                    print("Invalid option. Please enter a number between 1 and 5.")
+                    print("Invalid option. Please enter a number between 1 and 7.")
             except (KeyboardInterrupt, EOFError):
                 print("\nExiting. Goodbye!")
                 break

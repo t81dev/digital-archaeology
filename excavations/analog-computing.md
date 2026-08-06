@@ -122,7 +122,7 @@ Weights $W_{ij}$ are stored directly as physical conductance values $G_{ij}$ at 
 ## Reasons for Decline
 
 1. **The Avalanche of Digital CMOS Scaling (Moore's Law):** As digital transistors shrank, digital speed and memory capacity surged exponentially. Digital systems provided cheap, infinite-precision computation with perfect repeatability, making analog engineering look difficult and fragile.
-2. **The Triumph of Determinism and Software Abstraction:** Digital logic provided absolute immunity to noise and component variance. Programmers could write software once in C/FORTRAN and run it on any standard microprocessor without worrying about temperature calibration or component degradation.
+2. **The Triumph of Determinism and Software Abstraction:** Logic gates provided absolute immunity to noise and component variance. Programmers could write software once in C/FORTRAN and run it on any standard microprocessor without worrying about temperature calibration or component degradation.
 3. **The Precision Requirements of the IEEE 754 Standard:** Modern scientific computing migrated toward strict 32-bit and 64-bit floating-point standards, which continuous analog systems simply could not match.
 
 ---
@@ -158,13 +158,14 @@ While discarded for general computing, Analog Computing is making a historic com
 
 | Category | Rating | Rationale |
 | --- | --- | --- |
-| Historical Importance | ★★★☆☆ | Brief justification |
-| Technical Innovation | ★★★☆☆ | Brief justification |
-| Commercial Success | ★★★☆☆ | Brief justification |
-| Modern Potential | ★★★☆☆ | Brief justification |
-| AI Synergy | ★★★★☆ | High utility for specific execution paths in machine learning workloads. |
-| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
+| Historical Importance | ★★★★☆ | Dominant paradigm for real-time military and scientific simulation from the 1940s through 1960s; solved aerospace models that chocked digital computers. |
+| Technical Innovation | ★★★★☆ | Pioneered $O(1)$ time complexity execution using fundamental electrical physical phenomena, bypassing discretization truncation. |
+| Commercial Success | ★★★★☆ | Heavily commercialized mid-century by vendors like EA, Philbrick, and Beckman; ubiquitous in Cold War laboratories. |
+| Modern Potential | ★★★★★ | Essential paradigm for non-volatile memory crossbars (AIMC) to break the digital memory and power walls. |
+| AI Synergy | ★★★★★ | Direct, perfect mapping to low-precision, high-density matrix-vector multiplications required for neural network inference. |
+| Difficulty to Recreate | ★★★★☆ | Simulating high-fidelity operational amplifier saturation, noise, and component thermal drift requires fine-grained numerical solvers. |
 
+---
 
 ## References
 

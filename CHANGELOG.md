@@ -5,6 +5,9 @@ All notable changes to the Digital Archaeology repository will be documented in 
 ## [Unreleased] - August 2026
 
 ### Added
+- **Reversible Logic & Thermodynamic Energy Simulator**: Developed an interactive physical simulator inside `reconstructions/analog-optical/analog_optical_sim.py` featuring Toffoli, CNOT, and Fredkin logic gates, Bennett's 3-phase uncomputation strategy tracking, and quantitative modeling of the Landauer erasure limit ($k_B T \ln 2$) vs. adiabatic dynamic charge recovery ($E = \frac{RC}{T_{\text{ramp}}} C V^2$) at 300K room temp and 4K cryogenic bounds. Fully unit tested in `test_analog_optical_sim.py`.
+- **Synthesizable Reversible Gate Core**: Created a synthesizable SystemVerilog module `reconstructions/synthesizable-hardware/reversible_gates.sv` defining a 3-bit Toffoli CCNOT and CSWAP Fredkin gate with sequential registered interfaces, and verified correctness via golden-model checks in `test_synthesizable.py`.
+- **Modern Revival Readiness Scorecard**: Introduced `modern-relevance/revival-readiness.md` defining a transparent scoring rubric across CMS, SR, SEF, EA, and AIS criteria to compare spatial, capability/tagged, and physical-optical post-CMOS lineages.
 - **Dynamic Type Checked Lisp Word Simulator**: Added `LispWord` to `reconstructions/capability-security/capability_sim.py` supporting dynamic type tags (`Fixnum`, `Flonum`, `Symbol`) and CDR-coding sequential list traversals, enabling realistic simulation of Lisp Machine hardware architectures.
 - **Burroughs B5000-Style Descriptor Memory Checks**: Added `DescriptorWord` and presence-bit checking to `reconstructions/capability-security/capability_sim.py`, simulating virtual memory page faults, write-protection, and descriptor-mediated bounds verification.
 - **Systolic Array Cycle-Accurate Simulator**: Added a zero-dependency spatial simulation engine at `reconstructions/systolic-array/systolic_sim.py` supporting both Weight-Stationary and Output-Stationary execution dataflows. Features cycle-by-cycle logic execution, interconnect hop counting, and customizable CMOS energy proxy reporting. Complete with full unit test coverage in `test_systolic_sim.py`.
@@ -13,6 +16,12 @@ All notable changes to the Digital Archaeology repository will be documented in 
 - **Advanced Capability Safety Scenarios**: Developed Scenario 4 (Confused Deputy Attack vs. POLA Capability Defense) and Scenario 5 (Fine-grained Privilege Attenuation and Revocation via Gates) inside `reconstructions/capability-security/capability_sim.py`. Added corresponding unit tests in `test_capability_sim.py` covering hardware performance counters and revocation.
 
 ### Improved
+- **Deepened Thermodynamic, Optical and Analog Computing Excavations**:
+  - `excavations/analog-computing.md`: Deepened historical context of differential analyzers, electronic op-amps, and modern In-Memory analog GEMM matrix accelerators. Expanded standard 6-category scorecard.
+  - `excavations/optical-computing.md`: Documented Clements and Reck MZI meshes for optical matrix acceleration, wave speed propagation limits, and co-packaged optics (CPO). Expanded standard scorecard.
+  - `excavations/reversible-computing.md`: Expanded thermodynamic limits ($E = k_B T \ln 2$), uncomputation pipeline mathematics, and adiabatic charge-recovery dynamic energy equations ($E = \frac{RC}{T_{\text{ramp}}} C V^2$). Expanded standard scorecard.
+- **Academic Lab Manual & Pedagogical Sandboxes**:
+  - Added **Lab Module 5** to `reconstructions/LAB_MANUAL.md` covering Reversible Logic, Landauer Limits, and Adiabatic Charge Recovery calculations, complete with model solution and verification checks.
 - **Deepened Security and Tagged Memory Excavations**:
   - `excavations/lisp-machines.md`: Extensively expanded historical details on MIT CONS, CADR, Symbolics 3600 (40-bit words), and Symbolics Ivory VLSI microprocessors (~110,000 transistors). Visualized word structures, CDR-coding compression, and generational write barriers for Ephemeral Garbage Collection (EGC).
   - `excavations/intel-iapx-432.md`: Documented three-chip HMOS architecture (43201/02/03), 2-level object reference mappings (Access Descriptor -> Object Table -> Segment Base/Limit), and variable-length bit-aligned instruction decoders. Mapped to CHERI and seL4 microkernels.
