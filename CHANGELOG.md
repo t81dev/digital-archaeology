@@ -5,6 +5,8 @@ All notable changes to the Digital Archaeology repository will be documented in 
 ## [Unreleased] - August 2026
 
 ### Added
+- **9P Distributed Resource Namespace & Message Protocol Simulator**: Developed a zero-dependency, connection-oriented, stateful 9P protocol simulator under `reconstructions/plan9-9p/namespace_sim.py`. Supports standard transaction messages (`Tversion`, `Tattach`, `Twalk`, `Topen`, `Tread`, `Twrite`, `Tcreate`, `Tclunk`) mapped directly to hierarchical FileNode directories. Features dynamic per-process private namespaces and dynamic fallback union mounts. Fully unit tested in `reconstructions/plan9-9p/test_namespace_sim.py`.
+- **Pedagogical Namespace Lab Module**: Integrated **Lab Module 6** to `reconstructions/LAB_MANUAL.md` covering distributed namespaces, union directory mounts, and 9P protocol messages with a complete model solution.
 - **Reversible Logic & Thermodynamic Energy Simulator**: Developed an interactive physical simulator inside `reconstructions/analog-optical/analog_optical_sim.py` featuring Toffoli, CNOT, and Fredkin logic gates, Bennett's 3-phase uncomputation strategy tracking, and quantitative modeling of the Landauer erasure limit ($k_B T \ln 2$) vs. adiabatic dynamic charge recovery ($E = \frac{RC}{T_{\text{ramp}}} C V^2$) at 300K room temp and 4K cryogenic bounds. Fully unit tested in `test_analog_optical_sim.py`.
 - **Synthesizable Reversible Gate Core**: Created a synthesizable SystemVerilog module `reconstructions/synthesizable-hardware/reversible_gates.sv` defining a 3-bit Toffoli CCNOT and CSWAP Fredkin gate with sequential registered interfaces, and verified correctness via golden-model checks in `test_synthesizable.py`.
 - **Modern Revival Readiness Scorecard**: Introduced `modern-relevance/revival-readiness.md` defining a transparent scoring rubric across CMS, SR, SEF, EA, and AIS criteria to compare spatial, capability/tagged, and physical-optical post-CMOS lineages.
@@ -16,6 +18,10 @@ All notable changes to the Digital Archaeology repository will be documented in 
 - **Advanced Capability Safety Scenarios**: Developed Scenario 4 (Confused Deputy Attack vs. POLA Capability Defense) and Scenario 5 (Fine-grained Privilege Attenuation and Revocation via Gates) inside `reconstructions/capability-security/capability_sim.py`. Added corresponding unit tests in `test_capability_sim.py` covering hardware performance counters and revocation.
 
 ### Improved
+- **Deepened Distributed OS Lineage Excavations**:
+  - `excavations/plan-9.md`: Extensively expanded historical context of AT&T Bell Labs Computing Science Research releases, CPU servers, file servers (WORM), and terminal nodes. Included detailed ASCII/Mermaid dynamic routing, 9P protocol transaction sequences (Twalk, Tread, Twrite), Dynamic Union Mounts, and modern container/WSL2 evaluations.
+  - `excavations/multics.md`: Fully documented Project MAC (MIT/GE/Bell Labs) historical context, PL/I systems programming, NCSC B2 Orange Book security rating, and Honeywell 6180 hardware mmus. Visualized concentric hardware ring protection (Rings 0-7), gates, and Segmented virtual memory/Single-Level Store (SLS) persistent addresses.
+  - `excavations/inferno.md`: Documented Lucent Technologies (1995) embedded VM push, Vita Nuova acquisitions, register-based Dis virtual machine registers, Limbo CSP concurrent channels, deterministic reference-counting memory cleanup, and modern WebAssembly evaluations.
 - **Deepened Thermodynamic, Optical and Analog Computing Excavations**:
   - `excavations/analog-computing.md`: Deepened historical context of differential analyzers, electronic op-amps, and modern In-Memory analog GEMM matrix accelerators. Expanded standard 6-category scorecard.
   - `excavations/optical-computing.md`: Documented Clements and Reck MZI meshes for optical matrix acceleration, wave speed propagation limits, and co-packaged optics (CPO). Expanded standard scorecard.

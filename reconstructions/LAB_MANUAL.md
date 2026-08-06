@@ -386,6 +386,62 @@ print(f"Thermodynamic Heat Loss: {energy} Joules")
 
 ---
 
+## Lab Module 6 — Distributed Namespaces & 9P Protocol Messages
+
+### Core Theoretical Concepts
+- **Universal File Protocol**: 9P handles resources uniformly as hierarchical file trees, translating network actions into standard byte-oriented transactions.
+- **Dynamic Namespaces**: Per-process directory views. Allows mounting remote service filesystems (like remote nets or graphic engines) locally without complex RPC APIs.
+- **Union Mounts**: Binding multiple folders to a single mountpoint, establishing a fallthrough lookup precedence that simplifies software integration.
+
+### Hands-On Challenge: Multi-Device Union Mount & Fallback Routing
+Build a private namespace containing two hardware device driver registers:
+- **DevA** (Primary, mounted at `/dev` containing `sensor`)
+- **DevB** (Backup, mounted at `/backup_dev` containing `sensor`)
+Configure `/dev` as a union mount combining `/dev` and `/backup_dev` using a `union_after` bind operation. If `/dev/sensor` is read and its primary content is blank, verify that the 9P message handler correctly falls through to return the backup device's data.
+
+### Exercise Problem
+Implement a Python simulation using `Namespace` and `NinePSession` demonstrating this fallback union-mount lookups and 9P messaging.
+
+#### Model Solution (Python)
+```python
+from namespace_sim import Namespace, NinePSession, T_VERSION, T_ATTACH, T_WALK, T_OPEN, T_READ, T_WRITE
+
+# 1. Initialize namespace
+ns = Namespace()
+session = NinePSession(ns)
+
+# Negotiate version
+session.handle_message({"type": T_VERSION, "tag": 1, "version": "9P2000"})
+# Attach root fid
+session.handle_message({"type": T_ATTACH, "tag": 2, "fid": 1})
+
+# Create primary sensor folder and file
+session.handle_message({"type": T_WALK, "tag": 3, "fid": 1, "newfid": 2, "wnames": ["dev"]})
+session.handle_message({"type": T_WRITE, "tag": 4, "fid": 2, "offset": 0, "data": ""}) # primary is empty
+
+# Create backup directory and backup sensor file
+ns.bind("/dev", "/backup_dev") # clone /dev to /backup_dev
+backup_sensor = ns._resolve_path("/backup_dev")
+# Inject direct backup sensor content
+from namespace_sim import FileNode
+sensor_backup_file = FileNode("sensor", content="BackupData_72F")
+backup_sensor.add_child(sensor_backup_file)
+
+# 2. Perform Union Bind: Union mount /backup_dev AFTER /dev
+ns.bind("/backup_dev", "/dev", flags="union_after")
+
+# 3. Retrieve sensor reading post-union-bind
+# Walk from root fid 1 to /dev/sensor
+resp = session.handle_message({"type": T_WALK, "tag": 5, "fid": 1, "newfid": 3, "wnames": ["dev", "sensor"]})
+assert resp["type"] != "Rerror", f"Walk failed: {resp}"
+
+# Read data - should resolve to the backup sensor's content via union search fallback
+resp_read = session.handle_message({"type": T_READ, "tag": 6, "fid": 3, "offset": 0, "count": 1024})
+print(f"✓ Union fallthrough data retrieved: {resp_read['data']}") # BackupData_72F
+```
+
+---
+
 ## Grading Criteria & System Verification
 
 For all submissions, systems engineering students are assessed on:
@@ -393,3 +449,4 @@ For all submissions, systems engineering students are assessed on:
 2. **Robustness of constraints**: Are capability and descriptor access gates protected against address overflows and tag forgery?
 3. **Liveness**: Does the concurrent design avoid deadlock and satisfy the progress property?
 4. **Thermodynamic Integrity**: Does the reversible logic simulation return intermediate garbage states cleanly to zero to bypass Landauer limits?
+5. **Namespace Fallthrough**: Does the union mount setup resolve search queries across both directories in the correct precedence order?
