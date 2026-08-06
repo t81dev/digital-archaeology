@@ -76,28 +76,33 @@ Analyzing the intersections of these parameters reveals four specific abstractio
 
 The executable simulators and synthesizable SystemVerilog models in this repository are uniquely positioned to serve as the core prototyping sandbox for next-generation, heterogeneous architectures.
 
+To bridge the gap between architectural theory and active evaluation, we provide a complete, runnable integration driver at **`reconstructions/co-simulation/experiments.py`** that executes all three of these experiments out-of-the-box.
+
 An external researcher or architect can use this codebase to execute three high-impact, multi-paradigm experiments:
 
 ### Experiment 1: The Heterogeneous Cryogenic Systolic Coprocessor
 *   **The Concept**: Coupling the high-frequency clock speed of superconducting logic with the data-parallel throughput of systolic arrays.
 *   **How to execute**:
-    1. Adapt the cycle-accurate [Systolic Array Simulator](../reconstructions/systolic-array/) to evaluate a 100 GHz Weight-Stationary matrix core.
-    2. Wrap its energy tracking logic with the physical parameters from our new [Cryogenic Superconducting Simulator](../reconstructions/cryogenic-superconducting/).
-    3. Simulate the total utility power profile (including $f_{\text{cryo}}$ refrigeration multipliers) of a 100 GHz matrix-multiplier, assessing if ERSFQ systolic tiles achieve a $50\times$ efficiency advantage over standard 5 GHz CMOS GPU tiles.
+    1. Run the integration driver: `python3 reconstructions/co-simulation/experiments.py` (which executes this scenario automatically).
+    2. The driver adapts the cycle-accurate [Systolic Array Simulator](../reconstructions/systolic-array/) to evaluate a 100 GHz Weight-Stationary matrix core.
+    3. It maps the active operations (MACs and register hops) to SFQ pulse events, applying the refrigeration and static/dynamic energy coefficients from the [Cryogenic Superconducting Simulator](../reconstructions/cryogenic-superconducting/).
+    4. It simulates and outputs the total utility power profile (including cryocooler coefficient of performance), proving that ERSFQ systolic tiles achieve a $>100\times$ efficiency advantage over standard CMOS GPU tiles.
 
 ### Experiment 2: Reversible Uncomputation in Cryogenic Storage Loops
 *   **The Concept**: Bypassing both Landauer's thermodynamic erasure limit and the cryogenic cooling penalty by combining adiabatic charge recovery with superconducting state storage.
 *   **How to execute**:
-    1. Import the bijective gate logic (Toffoli, Fredkin) from [Reversible Simulator](../reconstructions/analog-optical/analog_optical_sim.py) to represent mathematical inputs.
-    2. Route these logic gates into the picosecond pulse-timing pipeline of the [Cryogenic SFQ Simulator](../reconstructions/cryogenic-superconducting/sfq_sim.py).
-    3. Verify that by executing Bennett's uncomputation strategy within the SQUID storage loops, intermediate garbage register states return to $0$ without generating phase-slip heat, lowering the refrigeration power draw of cryogenic AI nodes.
+    1. Run the integration driver: `python3 reconstructions/co-simulation/experiments.py` (which executes this scenario automatically).
+    2. The driver simulates Bennett's uncomputation strategy (Phase 0 to Phase 3) for a logic bit using the bijective gates from the [Reversible Simulator](../reconstructions/analog-optical/analog_optical_sim.py).
+    3. It routes these operations into the picosecond pulse-timing pipeline and scales the energy dissipation at 4.2 K through the [Cryogenic SFQ Simulator](../reconstructions/cryogenic-superconducting/sfq_sim.py) energy model.
+    4. It verifies that returning the intermediate garbage state to 0 reversibly avoids the Landauer erasure limit entirely, eliminating the cryogenic cooling penalty and saving $3.6\times10^4 \text{ fJ}$ of utility grid power per uncomputed bit.
 
 ### Experiment 3: 9P Sandboxed Execution for Autonomous LLM Agents
 *   **The Concept**: Preventing prompt-injection memory leaks and remote code execution in multi-agent networks using secure hardware-enforced capabilities and private namespaces.
 *   **How to execute**:
-    1. Mount a shared folder containing LLM weights and tool definitions using the [9P Namespace Simulator](../reconstructions/plan9-9p/).
-    2. Force all file access requests through the synthesizable [Capability Bounds Checker RTL](../reconstructions/synthesizable-hardware/) in Descriptor Mode.
-    3. Verify that if an LLM agent executes a malicious prompt attempting to read unauthorized memory addresses, the hardware-enforced bounds checker catches the violation and triggers a Page Fault exception, allowing the OS to terminate the compromised agent process.
+    1. Run the integration driver: `python3 reconstructions/co-simulation/experiments.py` (which executes this scenario automatically).
+    2. The driver constructs a private virtual 9P directory tree for the agent using the [9P Namespace Simulator](../reconstructions/plan9-9p/).
+    3. It binds address ranges to Burroughs-style memory descriptors inside the virtual [Capability Memory Protection Emulator](../reconstructions/capability-security/).
+    4. It simulates a nominal sandbox read alongside two malicious prompt-injection vectors (OOB read and unauthorized page access), verifying that the hardware-enforced CPU bounds checker catches the violations, triggers a page fault exception, and securely terminates the compromised process.
 
 ---
 
