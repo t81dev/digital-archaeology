@@ -2157,6 +2157,13 @@
       "description": "Stateful 9P/Styx protocol and private distributed namespace simulator."
     },
     {
+      "id": "predictive-hypothesis",
+      "title": "Predictive Hypothesis",
+      "path": "reconstructions/predictive-hypothesis/",
+      "entry_point": "reconstructions/predictive-hypothesis/predictive_engine.py",
+      "description": "Executable simulator for the Predictive Hypothesis paradigm."
+    },
+    {
       "id": "stochastic-computing",
       "title": "Stochastic Computing",
       "path": "reconstructions/stochastic-computing/",

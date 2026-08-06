@@ -119,6 +119,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Stochastic Computing Simulator](reconstructions/stochastic-computing/) — *An interactive probabilistic execution engine implementing unipolar/bipolar logic gate arithmetic, saturating FSM-based activations, and LFSR random generation.*
 - [Cryogenic Superconducting Simulator](reconstructions/cryogenic-superconducting/) — *Picosecond-accurate Rapid Single Flux Quantum (RSFQ) pulse logic timing and thermodynamic cooling penalty simulator.*
 - [Neuromorphic Spiking Simulator](reconstructions/neuromorphic-spiking/) — *An event-driven SNN routing simulator modeling Leaky Integrate-and-Fire (LIF) dynamics and STDP learning rules.*
+- [Constraint Migration Predictive Hypothesis Engine](reconstructions/predictive-hypothesis/) — *A Python-based forecasting tool that maps historically sidelined architectural failures to emerging post-CMOS physical limits, predicting their revival potential.*
 
 ---
 
