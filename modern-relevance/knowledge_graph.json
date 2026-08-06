@@ -1748,40 +1748,40 @@
       "id": "superconducting-cryogenic",
       "title": "Superconducting & Cryogenic Microarchitectures (SFQ / RSFQ Logic)",
       "path": "excavations/superconducting-cryogenic.md",
-      "summary": "Superconducting electronics replace traditional CMOS transistors with Josephson junctions that switch at picosecond speeds using quantum effects. SFQ/RSFQ logic encodes information as single magnetic flux quanta, enabling clock rates in the hundreds of GHz while consuming extremely low power (thanks to zero-resistance superconductors).\n\nThese technologies promise orders-of-magnitude improvements in speed and energy efficiency for specific workloads, but require operation at cryogenic temperatures (liquid helium range). Research has continued in academia and specialized labs even as mainstream computing stayed at room temperature.",
+      "summary": "Superconducting electronics replace traditional resistive silicon-doped CMOS transistors with superconducting Josephson junctions (JJs) that switch at picosecond speeds using macroscopic quantum phase differences. Rather than charging and discharging high-capacitance metal wires with continuous voltage rails (which induces $C V^2 f$ power dissipation), Single Flux Quantum (SFQ) logic encodes, processes, and transmits binary information as discrete, ultra-fast magnetic flux quantum pulses:\n\n$$\\Phi_0 = \\frac{h}{2e} \\approx 2.0678 \\times 10^{-15} \\text{ Weber (or Volt-seconds)}$$\n\nOperating at liquid helium temperatures ($\\sim 4.2$ Kelvin), superconducting transmission lines possess zero electrical DC resistance and near-zero dispersion, enabling clock rates in the hundreds of gigahertz ($\\ge 100 \\text{ GHz}$) with switching energies on the order of a fraction of an attojoule ($E_s \\approx 10^{-19} \\text{ Joules}$).\n\nDespite these revolutionary physical parameters, the paradigm was historically sidelined due to the commercial dominance of room-temperature CMOS scaling, a lack of dense cryogenic random-access memory, and the immense energy overhead of active refrigeration systems (the cryogenic penalty). Today, the end of silicon scaling and the rise of cryogenic quantum processors have revived superconducting logic as a critical candidate for energy-efficient data centers and quantum coprocessors.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★☆☆",
           "numeric": 3,
-          "rationale": "Long research lineage, limited commercial impact"
+          "rationale": "Exceptional academic research lineage, but zero historic commercial market penetration during the silicon scaling boom."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Revolutionary speed and energy characteristics"
+          "rationale": "Revolutionary non-latching pulse logic, near speed-of-light interconnects, and sub-attojoule switching mechanics."
         },
         "Commercial Success": {
           "stars": "★☆☆☆☆",
           "numeric": 1,
-          "rationale": "Mostly research/prototype stage"
+          "rationale": "Confined entirely to national research initiatives and laboratory prototypes; no volume commercial fabrication."
         },
         "Modern Potential": {
-          "stars": "★★★★☆",
-          "numeric": 4,
-          "rationale": "Strong in quantum-era and energy-constrained niches"
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Essential for cryogenic quantum co-processors, low-power supercomputing, and high-frequency digital signal processing."
         },
         "AI Synergy": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Medium synergy; potential utility in structured or specialized coprocessing."
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Outstanding potential in ultra-dense cryogenic neural accelerator meshes performing matrix operations at hundreds of GHz."
         },
         "Difficulty to Recreate": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "High physical fabrication or high-fidelity simulation complexity."
+          "rationale": "Simulating discrete magnetic flux pulses, timing windows, Josephson phase slip events, and cryogenic refrigeration dynamics requires multi-domain simulators."
         }
       },
-      "modern_relevance": "Interest is rising again:\n- **AI / Data Center Energy Crisis** — Superconducting logic offers dramatic energy efficiency at extreme speeds.\n- **Quantum Computing Synergy** — Many quantum systems already operate at millikelvin temperatures; cryogenic classical control processors are a natural fit.\n- **High-Performance Scientific Computing** — Potential for hybrid cryo systems in simulation-heavy workloads.\n- **Beyond-CMOS Research** — Government and industry programs (e.g., IARPA, EU projects) continue investing in SFQ/RSFQ and related technologies.\n- **Reversible & Adiabatic Variants** — Could push energy efficiency even further.\n\nSuperconducting logic is a strong candidate for specialized accelerators rather than general-purpose replacement.",
+      "modern_relevance": "",
       "references": []
     },
     {
@@ -2074,6 +2074,12 @@
       "summary": "How abandoned parallel and spatial architectures from the 1980s–90s are quietly reshaping modern hardware, especially in the age of AI."
     },
     {
+      "id": "state-of-revival",
+      "title": "State of Revival: Architectural Synthesis of Sidelined Computing Lineages",
+      "path": "synthesis/state-of-revival.md",
+      "summary": "**An analytical synthesis evaluating the intersection of constraint migration, silicon readiness, and AI/energy relevance across six historically sidelined architectural lineages, and outlining concrete experiments enabled by this repository.**"
+    },
+    {
       "id": "revival-readiness",
       "title": "Modern Revival Readiness Scorecard",
       "path": "modern-relevance/revival-readiness.md",
@@ -2094,6 +2100,13 @@
       "path": "reconstructions/capability-security/",
       "entry_point": "reconstructions/capability-security/capability_sim.py",
       "description": "Executable simulator for the Capability Security paradigm."
+    },
+    {
+      "id": "cryogenic-superconducting",
+      "title": "Cryogenic Superconducting",
+      "path": "reconstructions/cryogenic-superconducting/",
+      "entry_point": "reconstructions/cryogenic-superconducting/sfq_sim.py",
+      "description": "Picosecond-accurate Rapid Single Flux Quantum (RSFQ) pulse logic timing and thermodynamic cooling penalty simulator."
     },
     {
       "id": "csp-messaging",

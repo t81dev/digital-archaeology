@@ -514,3 +514,78 @@ For all submissions, systems engineering students are assessed on:
 4. **Thermodynamic Integrity**: Does the reversible logic simulation return intermediate garbage states cleanly to zero to bypass Landauer limits?
 5. **Namespace Fallthrough**: Does the union mount setup resolve search queries across both directories in the correct precedence order?
 6. **Sparsity and Resolution**: Does the neuromorphic or stochastic design properly model accuracy resolution scaling vs. temporal bitstream latency and event sparsity?
+
+---
+
+## Lab Module 8 — Cryogenic Superconducting Logic and Refrigeration Penalty
+
+### Core Theoretical Concepts
+- **Single Flux Quantum (SFQ)**: Operating at cryogenic temperatures ($\sim 4.2\text{ K}$), standard resistive CMOS gates are replaced by superconducting Josephson junctions (JJs). Binary information is represented as discrete voltage pulses ($\approx 2\text{ mV}$, $2\text{ ps}$) carrying a single magnetic flux quantum:
+  $$\Phi_0 = \frac{h}{2e} \approx 2.07 \times 10^{-15} \text{ Weber (or Volt-seconds)}$$
+- **Microscopic Switching Energy ($E_s$)**: The physical energy to switch a single junction is governed by its critical current $I_c$:
+  $$E_s \approx I_c \cdot \Phi_0$$
+  For a junction with $I_c = 150\,\mu\text{A}$, switching dissipates only $0.3\text{ aJ}$ (attojoules) of energy—approximately $10,000\times$ lower than standard silicon CMOS.
+- **The Cryogenic Penalty ($f_{\text{cryo}}$)**: Heat dissipated at cryogenic temperatures must be extracted to room temperature ($300\text{ K}$) by active refrigeration. The thermodynamic Carnot limit dictates:
+  $$\text{COP}_{\text{Carnot}} = \frac{T_{\text{cold}}}{T_{\text{warm}} - T_{\text{cold}}} = \frac{4.2}{300 - 4.2} \approx 0.0142 \implies \text{Overhead } \approx 70.4\times$$
+  In practice, non-ideal cryogenic systems achieve only $0.5\%$ of Carnot efficiency, requiring a real **Cooling Penalty Factor $f_{\text{cryo}} \approx 1400\times$**. Dissipating $1\text{ W}$ of heat at $4.2\text{ K}$ demands drawing $1.4\text{ kW}$ of room-temperature electricity.
+
+---
+
+### Hands-On Challenge: Cryogenic Power and Timing Evaluation
+In this challenge, you will write a validation routine that:
+1. Simulates pulse arrival times at a stateful RSFQ D-Flip-Flop (DFF), verifying that data pulses arriving inside the setup-time window are rejected as timing violations.
+2. Quantifies the total cold-stage energy dissipation of a multi-million gate superconducting processor, then applies the refrigeration cooling penalty to calculate the room-temperature utility bill.
+
+### Exercise Problem
+Write a Python function that uses our `DFlipFlop` cell and `CryogenicEnergyModel` to:
+- Instantiate a DFF with a $3.0\text{ ps}$ setup time.
+- Simulate two input streams (nominal and violating) and return the outputs.
+- Calculate the total utility power (Watts) of a $100\text{ GHz}$ core with $100,000$ JJs, executing $10,000,000$ active switches per second under ERSFQ (zero static loss) vs. classic RSFQ (resistive static loss) modes.
+
+#### Model Solution (Python)
+```python
+from sfq_sim import DFlipFlop, CryogenicEnergyModel
+
+def run_cryo_and_timing_lab() -> dict:
+    # 1. Setup-Time timing validation
+    dff = DFlipFlop(name="LabDFF", setup_time=3.0, prop_delay=5.0)
+
+    # Nominal case: D at 10.0 ps, CLK at 20.0 ps (Diff = 10.0 ps > 3.0 ps setup)
+    dff.process_pulse_d(10.0)
+    nominal_fired, nominal_time, nominal_warns = dff.process_pulse_clk(20.0)
+
+    # Violating case: D at 53.5 ps, CLK at 55.0 ps (Diff = 1.5 ps < 3.0 ps setup)
+    dff.process_pulse_d(53.5)
+    violating_fired, violating_time, violating_warns = dff.process_pulse_clk(55.0)
+
+    # 2. Refrigeration Power Evaluation
+    # Core running workload for 1 second: 100,000 JJs, 10,000,000 total switches
+    # Standard 4.2 K cooling with 0.5% Carnot efficiency
+    energy_model = CryogenicEnergyModel(temp_cold=4.2, pct_carnot_efficiency=0.005)
+
+    # Evaluate classic RSFQ (With static bias resistor dissipation)
+    rsfq_metrics = energy_model.evaluate_system_energy(
+        active_cycles=100_000_000, freq_ghz=100.0, num_jjs=100_000,
+        switching_events=10_000_000, ersfq_mode=False
+    )
+
+    # Evaluate ERSFQ (Resistorless - Zero static bias dissipation)
+    ersfq_metrics = energy_model.evaluate_system_energy(
+        active_cycles=100_000_000, freq_ghz=100.0, num_jjs=100_000,
+        switching_events=10_000_000, ersfq_mode=True
+    )
+
+    return {
+        "nominal_success": nominal_fired and (len(nominal_warns) == 0),
+        "violating_prevented": (not violating_fired) and (len(violating_warns) > 0),
+        "rsfq_utility_joules": rsfq_metrics["room_temp_utility_energy_Joules"],
+        "ersfq_utility_joules": ersfq_metrics["room_temp_utility_energy_Joules"]
+    }
+
+# Execution & Verification
+res = run_cryo_and_timing_lab()
+print(f"Nominal timing met?     {res['nominal_success']}")
+print(f"Timing hazard caught?   {res['violating_prevented']}")
+print(f"RSFQ Room-Temp Cost:    {res['rsfq_utility_joules']:.4e} Joules")
+print(f"ERSFQ Room-Temp Cost:   {res['ersfq_utility_joules']:.4e} Joules")
+```

@@ -1,7 +1,7 @@
 # Digital Archaeology
 
 [![Research Phase: Active](https://img.shields.io/badge/Research--Phase-Active-success.svg)](ROADMAP.md)
-[![Reconstructions: 13 Simulators & Models](https://img.shields.io/badge/Reconstructions-13%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
+[![Reconstructions: 14 Simulators & Models](https://img.shields.io/badge/Reconstructions-14%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
 [![Completed Excavations: 35](https://img.shields.io/badge/Completed--Excavations-35-orange.svg)](#project-pillars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -21,7 +21,7 @@ Digital Archaeology bridges systems history with modern hardware/software co-des
 4. **Distributed Systems & Single-Level-Store OS**: Decoupled, location-transparent namespaces. Features **Plan 9 Dynamic Namespaces**, **9P Protocol message servers**, **Multics SLS**, and **Inferno VM**.
 
 * **Where is the Revival Scorecard?** Explore the [Modern Revival Readiness Scorecard](modern-relevance/revival-readiness.md) for a quantitative, analytical comparative scorecard and high-density constraint-migration synthesis evaluating these lineages under modern sub-5nm silicon constraints.
-* **Where are the Simulators?** We maintain **13 zero-dependency simulators** and synthesizable SystemVerilog soft-cores. Run them instantly (e.g., `python3 reconstructions/systolic-array/systolic_sim.py` or `python3 reconstructions/plan9-9p/namespace_sim.py`).
+* **Where are the Simulators?** We maintain **14 zero-dependency simulators** and synthesizable SystemVerilog soft-cores. Run them instantly (e.g., `python3 reconstructions/systolic-array/systolic_sim.py` or `python3 reconstructions/plan9-9p/namespace_sim.py`).
 
 ---
 
@@ -152,11 +152,12 @@ Direct mapping of historical concepts to contemporary engineering challenges:
 
 ## 💻 Interactive Reconstructions & Simulators
 
-Moving from historical theory to active software and hardware prototyping, we maintain a suite of **13 zero-dependency executable models and simulators** that let you execute and study these paradigms directly.
+Moving from historical theory to active software and hardware prototyping, we maintain a suite of **14 zero-dependency executable models and simulators** that let you execute and study these paradigms directly.
 
 | Simulator / Emulator | Target Historical Paradigm | Key Architectural Highlight | Entry Point |
 | :--- | :--- | :--- | :--- |
 | 🧮 **[Balanced Ternary Simulator](reconstructions/mixed-radix-sim/)** | [Setun Ternary Computer](excavations/balanced-ternary.md) | Sign-bit-free arithmetic, trit-level logic, and radix economy demonstrating Base-3 advantages. | `reconstructions/mixed-radix-sim/ternary_sim.py` |
+| ❄️ **[Cryogenic Superconducting Simulator](reconstructions/cryogenic-superconducting/)** | [Superconducting & Cryogenic](excavations/superconducting-cryogenic.md) | Picosecond-accurate Rapid Single Flux Quantum (RSFQ) pulse logic timing, setup-time check, and refrigeration penalty. | `reconstructions/cryogenic-superconducting/sfq_sim.py` |
 | 🔄 **[Dynamic Token Dataflow Engine](reconstructions/dataflow-engine/)** | [MIT Tagged-Token Dataflow](excavations/dataflow-computing.md) | Out-of-order, asynchronous spatial execution using token-tag match scheduling. | `reconstructions/dataflow-engine/dataflow_sim.py` |
 | 🛡️ **[Capability Memory Protection Emulator](reconstructions/capability-security/)** | [Burroughs Systems / CHERI](excavations/capability-systems.md) | CPU & Tagged RAM emulator simulating hardware-enforced memory bounds and secure domain gates. | `reconstructions/capability-security/capability_sim.py` |
 | 🧠 **[Neuro-Symbolic Inference Solver](reconstructions/neuro-symbolic/)** | [Symbolic AI / Expert Systems](excavations/symbolic-ai.md) | Hybrid pipeline mapping probabilistic neural classifier confidences into deterministic logic. | `reconstructions/neuro-symbolic/neuro_symbolic_sim.py` |
@@ -177,6 +178,9 @@ You can run all simulators locally out-of-the-box. They are written in standard 
 # Clone the repository
 git clone https://github.com/t81dev/digital-archaeology.git
 cd digital-archaeology
+
+# Run the Cryogenic Superconducting & SFQ Pulse Simulator
+python3 reconstructions/cryogenic-superconducting/sfq_sim.py
 
 # Run the Plan 9 Namespace & 9P Protocol Simulator
 python3 reconstructions/plan9-9p/namespace_sim.py

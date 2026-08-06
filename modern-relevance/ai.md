@@ -74,9 +74,11 @@ The Transputer’s emphasis on lightweight processes and efficient message passi
 - [Transputers](../excavations/transputers.md)
 - [Systolic Arrays](../excavations/systolic-arrays.md)
 - [Connection Machine](../excavations/connection-machine.md)
+- [Superconducting & Cryogenic Microarchitectures](../excavations/superconducting-cryogenic.md)
 
 ## Related Modern Perspectives
 - [Modern Revival Readiness Scorecard](../modern-relevance/revival-readiness.md)
+- [State of Revival: Architectural Synthesis](../synthesis/state-of-revival.md)
 
 ## Related Patterns
 - Forgotten Abstractions

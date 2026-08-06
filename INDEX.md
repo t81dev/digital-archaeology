@@ -86,6 +86,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md) — *Why the modern performance frontier relies on treating compilers and custom silicon as a single unified system.*
 - [The Evolution of Coordination Abstractions](synthesis/evolution-of-coordination-abstractions.md) — *The evolution of process communication and concurrency models from shared-memory to decoupled coordination.*
 - [The Return of Spatial Computing](synthesis/return-of-spatial-computing.md) — *How sidelined parallel, grid, and dataflow execution models are reclaiming dominance in AI hardware.*
+- [State of Revival: Architectural Synthesis](synthesis/state-of-revival.md) — *High-density evaluation of all six lineages under modern physical, energy, and security constraints.*
 
 ---
 

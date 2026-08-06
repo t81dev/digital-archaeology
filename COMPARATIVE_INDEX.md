@@ -74,6 +74,7 @@ Comparing systems along these architectural axes reveals deep engineering lineag
 2. **The Spatial Data-Parallel Lineage**: *Systolic Arrays* $\rightarrow$ *Connection Machine* $\rightarrow$ *Dataflow Computing* $\rightarrow$ *Associative Processors* $\rightarrow$ *Stochastic Computing* $\rightarrow$ *FPGAs / Modern AI accelerators (TPUs / PIM)*. This line bypasses the sequential program-counter paradigm to unlock massive spatial and in-memory throughput.
 3. **The Distributed Channels Lineage**: *CSP (Hoare)* $\rightarrow$ *occam* $\rightarrow$ *Transputers* $\rightarrow$ *Go (channels) / Erlang (actor passing)*. This path proves that message passing can eliminate shared-memory concurrency hazards.
 4. **The Distributed Resource Namespace Lineage**: *Plan 9 / Styx* $\rightarrow$ *Inferno / Limbo* $\rightarrow$ *Distributed Object-Cap Systems (KeyKOS / CapROS / CHERI)*. This lineage maps all network and execution resources to process-private file trees to decouple host-level systems from physical network topography.
+5. **The Physical & Thermodynamic Lineage**: *Analog Computing* $\rightarrow$ *Optical Computing* $\rightarrow$ *Reversible Computing (uncomputation)* $\rightarrow$ *Superconducting & Cryogenic (SFQ)*. This lineage bypasses standard room-temperature silicon CMOS charging constraints, utilizing continuous physics, coherent wave interference, or macroscopic quantum phase slips to compute near or below the traditional Landauer energy limits at speeds up to $500 \text{ GHz}$.
 
 ---
 
