@@ -877,40 +877,40 @@
       "id": "connection-machine",
       "title": "Connection Machine",
       "path": "excavations/connection-machine.md",
-      "summary": "The Connection Machine (CM-1, CM-2, and later CM-5) was a series of supercomputers developed by Thinking Machines Corporation in the 1980s and early 1990s. Founded by Danny Hillis, it represented one of the most ambitious attempts to build a truly massively parallel computer using thousands of simple processors interconnected in a flexible network.\n\nParticularly strong at symbolic AI, scientific simulation, and data-parallel algorithms, the machines achieved cultural prominence as symbols of futuristic computing. Despite technical brilliance, the Connection Machine ultimately lost to more conventional vector supercomputers and, later, commodity clusters.",
+      "summary": "The Connection Machine (CM-1, CM-2, and later CM-5) was a family of supercomputers developed by Thinking Machines Corporation (TMC) in the 1980s and early 1990s. Conceived by W. Daniel (Danny) Hillis during his doctoral research at MIT, the architecture was designed as a radical alternative to conventional von Neumann single-processor designs, aiming to break the memory-processor bottleneck by distributing computation directly into memory.\n\nAt its peak, the Connection Machine family represented the premier commercialization of fine-grained SIMD (Single Instruction, Multiple Data) processing, utilizing up to 65,536 simple 1-bit processors interconnected via a high-dimensional router network. While it achieved massive cultural prominence and research success in AI, fluid dynamics, and database operations, it was ultimately outpaced by the economics of commodity microprocessors and cluster computing.",
       "scorecard": {
         "Historical Importance": {
-          "stars": "★★★★☆",
-          "numeric": 4,
-          "rationale": "Icon of 1980s parallel computing"
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Symbolized the peak and commercial push of massively parallel SIMD computing."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Ambitious scale and networking"
+          "rationale": "Groundbreaking 12D hypercube router and dynamic virtual processing logic."
         },
         "Commercial Success": {
           "stars": "★★☆☆☆",
           "numeric": 2,
-          "rationale": "Limited market penetration"
+          "rationale": "Extremely high cost and limited applicability drove TMC into bankruptcy."
         },
         "Modern Potential": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Strong influence on GPUs/AI hardware"
+          "rationale": "Direct ideological predecessor to modern GPUs, SIMD/SIMT models, and wafer-scale hardware."
         },
         "AI Synergy": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Medium synergy; potential utility in structured or specialized coprocessing."
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Originally targeted at Symbolic AI and neural networks; conceptually maps perfectly to modern LLM execution."
         },
         "Difficulty to Recreate": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "High physical fabrication or high-fidelity simulation complexity."
+          "rationale": "Recreating the massive 12-dimensional packet-routing network and its synchronization overhead is a monumental task."
         }
       },
-      "modern_relevance": "Connection Machine concepts live on strongly in:\n- **GPU computing** — Massive SIMD/data-parallel execution is a clear descendant.\n- **AI accelerators and tensor processors** — Handle highly parallel workloads efficiently.\n- **Graph processing and scientific computing frameworks** — Many tools echo the data-parallel approach.\n- **Massively parallel simulations** — Used in climate modeling, particle physics, and agent-based systems.\n- **Research into unconventional architectures** — Inspiration for neuromorphic, cellular, and spatial computing.\n\nIn the era of exascale and specialized AI hardware, the vision of thousands of interconnected simple processors feels remarkably relevant again.",
+      "modern_relevance": "### Historical Fact\nCommercially, the Connection Machine was a magnificent failure. The company pivoted from fine-grained SIMD (CM-1/2) to MIMD (CM-5) in 1991, shedding the 1-bit processors and the hypercube router in favor of SPARC cores and fat trees. Despite this pivot, TMC declared bankruptcy in 1994, unable to survive the \"killer micro\" wave where cheap, commodity workstations out-scaled specialized supercomputers on a price-to-performance basis.",
       "references": []
     },
     {
@@ -1816,75 +1816,75 @@
         "Historical Importance": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Influential in parallel/VLSI research"
+          "rationale": "Foundational VLSI concept that proved spatial scalability."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Elegant spatial dataflow model"
+          "rationale": "Shifted computing paradigm from control-centric to dataflow-centric."
         },
         "Commercial Success": {
           "stars": "★★☆☆☆",
           "numeric": 2,
-          "rationale": "Niche adoption, broad conceptual impact"
+          "rationale": "Originally restricted to DSP and defense niches; failed as general-purpose engines."
         },
         "Modern Potential": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Core to today's AI hardware"
+          "rationale": "Absolute core to modern AI chips, Tensor Processing Units, and edge silicon."
         },
         "AI Synergy": {
-          "stars": "★★★★☆",
-          "numeric": 4,
-          "rationale": "High utility for specific execution paths in machine learning workloads."
-        },
-        "Difficulty to Recreate": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "High physical fabrication or high-fidelity simulation complexity."
+          "rationale": "The optimal physical layout for dense matrix multiplication and deep learning operations."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Simple in logic, but designing high-performance clocking and spatial interconnects is highly complex."
         }
       },
-      "modern_relevance": "Systolic principles are experiencing a strong renaissance in the AI era:\n- **Tensor Cores and AI Accelerators**: Modern GPU tensor units and TPUs use systolic-array-style matrix multiply engines for high-efficiency GEMM operations central to deep learning.\n- **Domain-Specific Architectures**: Coarse-Grained Reconfigurable Arrays (CGRAs) and spatial computing fabrics often incorporate systolic dataflows.\n- **Edge and Low-Power Devices**: Excellent energy efficiency for always-on signal processing, vision, and inference.\n- **Hybrid Systems**: Combined with general-purpose cores or dataflow schedulers (e.g., in ML frameworks like TensorFlow/PyTorch computation graphs).\n- **Emerging Tech**: Potential synergy with optical/photonic computing and advanced packaging for massive spatial arrays.\n\nIn an era of specialized hardware and the memory wall, systolic designs offer proven techniques for minimizing data movement—the dominant energy cost in modern computing.",
+      "modern_relevance": "### Historical Fact\nIn the 1980s and 1990s, the standalone systolic array failed commercially. General-purpose CPUs powered by RISC pipelines and multi-level cache hierarchies scaled rapidly due to massive market demand, eclipsing specialized accelerators. The difficulty of writing software for specialized systolic engines further isolated them to military, high-end radar, and specialized image processing niches.",
       "references": []
     },
     {
       "id": "transputers",
       "title": "Transputers",
       "path": "excavations/transputers.md",
-      "summary": "The Transputer was a revolutionary microprocessor architecture developed by INMOS (UK) in the 1980s. It combined a powerful processor, on-chip memory, and high-speed serial communication links on a single chip, making it possible to build scalable parallel computers by simply wiring chips together.\n\nNamed from “transistor” + “computer,” the Transputer embodied the idea that communication is as important as computation. It was one of the most elegant and ambitious attempts to make parallel programming mainstream.\n\nDespite strong technical success and adoption in certain scientific and embedded applications, the Transputer ultimately lost to commodity microprocessors and the rise of cluster computing.",
+      "summary": "The Transputer was a pioneering microprocessor architecture developed by the British semiconductor firm INMOS in the 1980s. Conceived as the \"building block\" of parallel computing—analogous to how the transistor is the building block of electronic circuits—each Transputer integrated a CPU, fast local memory, a hardware-level multitasking scheduler, and four high-speed point-to-point serial communication links on a single silicon die.\n\nFundamentally co-designed with the **occam** programming language, the Transputer was a physical implementation of C.A.R. Hoare's **Communicating Sequential Processes (CSP)** formal model. Instead of relying on shared memory and complex cache coherence protocols, Transputer networks scaled through distributed, message-passing concurrency. Despite being highly innovative, a combination of manufacturing delays, the rapid rise of general-purpose RISC chips, and the difficulty of breaking mainstream software ecosystems relegated the Transputer to specialized scientific and real-time embedded niches.",
       "scorecard": {
         "Historical Importance": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "The most cohesive commercial implementation of a hardware-software CSP system."
         },
         "Technical Innovation": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Microcoded process scheduler and point-to-point local-remote link abstraction."
         },
         "Commercial Success": {
           "stars": "★★★☆☆",
           "numeric": 3,
-          "rationale": "Brief justification"
+          "rationale": "Found solid adoption in real-time embedded systems, but failed to penetrate main computing."
         },
         "Modern Potential": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "The software CSP model is highly active; hardware NoCs are essential in many-core."
         },
         "AI Synergy": {
           "stars": "★★★☆☆",
           "numeric": 3,
-          "rationale": "Medium synergy; potential utility in structured or specialized coprocessing."
+          "rationale": "High potential in distributed model-parallel training where communication scales linearly."
         },
         "Difficulty to Recreate": {
-          "stars": "★★★★★",
-          "numeric": 5,
-          "rationale": "High physical fabrication or high-fidelity simulation complexity."
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Implementing the microcoded queue management and link-level hardware rendezvous is moderately complex."
         }
       },
-      "modern_relevance": "Transputer ideas remain highly relevant today:\n\n- **Message-passing architectures** — Concepts live on in modern HPC interconnects (InfiniBand, Cray Slingshot, etc.).\n- **Many-core processors** — Chips like the Epiphany, Kalray MPPA, and some AI accelerators echo the Transputer’s “network on chip” philosophy.\n- **CSP-inspired concurrency** — Go’s goroutines and channels, Erlang’s actor model, and Rust’s message passing draw direct lineage from occam/CSP.\n- **Reconfigurable & embedded systems** — Modern FPGAs and MPSoCs often use similar lightweight process + communication models.\n- **Distributed systems** — Microservices and actor frameworks (Akka, Ray) operate at a higher level with similar principles.",
+      "modern_relevance": "### Historical Fact\nCommercially, the Transputer was marginalized in the general-purpose desktop computing and supercomputing markets. It found success as an embedded controller in specialized image processing boards (like the Meiko Computing Surface), laser printers, aerospace systems, and early industrial robotics before fading out of production in the late 1990s.",
       "references": []
     },
     {

@@ -79,6 +79,8 @@ As FPGA tools improve (especially with better high-level synthesis and AI-assist
 - [Dataflow Computing](../excavations/dataflow-computing.md)
 - [Lisp Machines](../excavations/lisp-machines.md)
 - [Transputers](../excavations/transputers.md)
+- [Systolic Arrays](../excavations/systolic-arrays.md)
+- [Connection Machine](../excavations/connection-machine.md)
 
 ## Related Patterns
 - Forgotten Abstractions

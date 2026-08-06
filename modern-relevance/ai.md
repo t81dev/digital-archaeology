@@ -67,6 +67,8 @@ The Transputer’s emphasis on lightweight processes and efficient message passi
 - [Dataflow Computing](../excavations/dataflow-computing.md)
 - [Lisp Machines](../excavations/lisp-machines.md)
 - [Transputers](../excavations/transputers.md)
+- [Systolic Arrays](../excavations/systolic-arrays.md)
+- [Connection Machine](../excavations/connection-machine.md)
 
 ## Related Patterns
 - Forgotten Abstractions

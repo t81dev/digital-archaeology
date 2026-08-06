@@ -1,6 +1,12 @@
 // capability_bounds_checker.sv
 // Synthesizable Hardware Tagged RAM Capability Bounds Checker
 //
+// FPGA / Tiny-Tapeout Readiness Notes:
+// - Pipelined synchronous outputs representation for precise timing constraints.
+// - Fits cleanly within standard Lattice, Cyclone, or Artix FPGA logic slices (~100 LUTs).
+// - Designed to integrate with standard SoC busses (e.g., Wishbone, TileLink, or AXI-Lite).
+// - Easily fits in a single Tiny-Tapeout digital layout tile at 50 MHz+.
+//
 // Performs inline hardware check of memory requests against loaded capability bounds.
 // Asserts violation flags and precise error codes if unauthorized accesses occur.
 
@@ -11,7 +17,7 @@ module capability_bounds_checker (
     // Memory Access Request
     input  logic        req_valid,
     input  logic [15:0] req_addr,
-    input  logic [1:0]  req_op,     // 2'b00: READ, 2'b01: WRITE, 2'b10: EXECUTE
+    input  logic [1:0]  req_op,     // 2'b00: READ, 2'b01: WRITE, 2'b10: EXECUTE, 2'b11: INVALID_OP
 
     // Capability register inputs
     input  logic [15:0] cap_base,   // Lower bound of valid segment (inclusive)
@@ -19,13 +25,13 @@ module capability_bounds_checker (
     input  logic [2:0]  cap_perms,  // [0]: Read, [1]: Write, [2]: Execute
     input  logic        cap_tag,    // 1-bit unforgeable validity tag
 
-    // Access Response
+    // Access Response (Synchronous registered pipeline output)
     output logic        resp_allowed,
     output logic        resp_violation_flag,
     output logic [1:0]  resp_violation_code // 2'b00: NO_VIOLATION
                                              // 2'b01: INVALID_CAP (tag is 0)
-                                             // 2'b10: OUT_OF_BOUNDS (addr < base OR addr >= limit)
-                                             // 2'b11: PERMISSION_DENIED
+                                             // 2'b10: OUT_OF_BOUNDS (addr < base OR addr >= limit, OR malformed bounds)
+                                             // 2'b11: PERMISSION_DENIED (or invalid requested op)
 );
 
     logic tag_fault;
@@ -42,8 +48,8 @@ module capability_bounds_checker (
             if (!cap_tag) begin
                 tag_fault = 1'b1;
             end
-            // 2. Bounds check (inclusive base, exclusive limit)
-            else if (req_addr < cap_base || req_addr >= cap_limit) begin
+            // 2. Bounds check (inclusive base, exclusive limit, plus malformed bounds safety check)
+            else if (req_addr < cap_base || req_addr >= cap_limit || cap_base > cap_limit) begin
                 bounds_fault = 1'b1;
             end
             // 3. Permissions check
@@ -52,7 +58,7 @@ module capability_bounds_checker (
                     2'b00: if (!cap_perms[0]) perm_fault = 1'b1; // Read Denied
                     2'b01: if (!cap_perms[1]) perm_fault = 1'b1; // Write Denied
                     2'b10: if (!cap_perms[2]) perm_fault = 1'b1; // Execute Denied
-                    default: perm_fault = 1'b1;
+                    default:                  perm_fault = 1'b1; // Any undefined/invalid op (e.g. 2'b11) raises permission fault
                 endcase
             end
         end

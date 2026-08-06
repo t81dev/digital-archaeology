@@ -87,6 +87,8 @@ If the limiting constraints have migrated (e.g., if memory latency is now the bo
 - [Reversible Computing](../excavations/reversible-computing.md)
 - [Superconducting & Cryogenic Microarchitectures](../excavations/superconducting-cryogenic.md)
 - [Systolic Arrays](../excavations/systolic-arrays.md)
+- [Connection Machine](../excavations/connection-machine.md)
+- [Transputers](../excavations/transputers.md)
 
 ---
 

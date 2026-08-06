@@ -1,5 +1,12 @@
 // ternary_alu.sv
-// Synthesizable 3-trit Balanced Ternary ALU
+// Synthesizable 3-trit Balanced Ternary ALU with Sequential Registered Interface
+//
+// FPGA / Tiny-Tapeout Readiness Notes:
+// - All inputs (A, B, Op) are captured synchronously when 'en' is asserted.
+// - All outputs (Out, CarryOut) are registered to prevent glitching and long propagation delays.
+// - Fits comfortably on a standard Lattice iCE40 UP5K or within a Tiny-Tapeout tile (approx 150-250 LUTs).
+// - Target frequency: 100 MHz+ on common FPGA nodes.
+//
 // Uses 2-bit Pos-Neg (PN) dual-rail encoding for each trit:
 //   2'b00 = 0
 //   2'b01 = +1 (Positive)
@@ -7,17 +14,22 @@
 //   2'b11 = Invalid
 
 module ternary_alu (
-    input  logic [5:0] A,      // 3 trits: A[1:0] (T0), A[3:2] (T1), A[5:4] (T2)
-    input  logic [5:0] B,      // 3 trits: B[1:0] (T0), B[3:2] (T1), B[5:4] (T2)
-    input  logic [2:0] Op,     // Operation select:
-                               //   3'b000: ADD (A + B)
-                               //   3'b001: SUB (A - B)
-                               //   3'b010: NEG (-A)
-                               //   3'b011: MUL (A * B)
-                               //   3'b100: MIN (Tritwise Minimum / AND)
-                               //   3'b101: MAX (Tritwise Maximum / OR)
-    output logic [5:0] Out,    // 3 trits result
-    output logic [1:0] CarryOut // 1 trit carry-out from ADD/SUB
+    input  logic        clk,       // System clock
+    input  logic        rst_n,     // Asynchronous active-low reset
+    input  logic        en,        // Enable / Strobe for operations
+    input  logic [5:0]  A,         // 3 trits: A[1:0] (T0), A[3:2] (T1), A[5:4] (T2)
+    input  logic [5:0]  B,         // 3 trits: B[1:0] (T0), B[3:2] (T1), B[5:4] (T2)
+    input  logic [2:0]  Op,        // Operation select:
+                                   //   3'b000: ADD (A + B)
+                                   //   3'b001: SUB (A - B)
+                                   //   3'b010: NEG (-A)
+                                   //   3'b011: MUL (A * B)
+                                   //   3'b100: MIN (Tritwise Minimum / AND)
+                                   //   3'b101: MAX (Tritwise Maximum / OR)
+                                   //   3'b110: LSH (Tritwise Logical Shift Left A)
+                                   //   3'b111: RSH (Tritwise Logical Shift Right A)
+    output logic [5:0]  Out,       // 3 trits result (registered)
+    output logic [1:0]  CarryOut   // 1 trit carry-out (registered)
 );
 
     // Decoding helper function: convert 2-bit PN encoding to 8-bit signed integer
@@ -40,8 +52,6 @@ module ternary_alu (
     endfunction
 
     // Single-trit Full Adder Module logic implemented inside a function
-    // Inputs: a (PN), b (PN), cin (PN)
-    // Outputs: s (PN), cout (PN)
     function automatic void ternary_full_adder(
         input  logic [1:0] a,
         input  logic [1:0] b,
@@ -109,6 +119,10 @@ module ternary_alu (
         end
     endfunction
 
+    // Combinational Internal Wires
+    logic [5:0] Out_comb;
+    logic [1:0] CarryOut_comb;
+
     // 3-trit Adder wiring
     logic [1:0] s0, s1, s2;
     logic [1:0] c0, c1, c2;
@@ -131,10 +145,6 @@ module ternary_alu (
     end
 
     // 3-trit Multiplier logic
-    // Partial products:
-    // A * B[0] (no shift)
-    // A * B[1] (shift left by 1 trit, i.e. insert 2'b00 as T0)
-    // A * B[2] (shift left by 2 trits, i.e. insert 2'b00 as T0 and T1)
     logic [5:0] pp0, pp1, pp2;
     logic [5:0] sum_pp0_pp1;
     logic [1:0] carry_pp0_pp1;
@@ -176,38 +186,57 @@ module ternary_alu (
         end
     end
 
-    // ALU Mux
+    // ALU Combinational Mux
     always_comb begin
         case (Op)
             3'b000: begin // ADD
-                Out = {s2, s1, s0};
-                CarryOut = c2;
+                Out_comb = {s2, s1, s0};
+                CarryOut_comb = c2;
             end
             3'b001: begin // SUB
-                Out = {s2, s1, s0};
-                CarryOut = c2;
+                Out_comb = {s2, s1, s0};
+                CarryOut_comb = c2;
             end
             3'b010: begin // NEG (-A)
-                Out = {ternary_neg(A[5:4]), ternary_neg(A[3:2]), ternary_neg(A[1:0])};
-                CarryOut = 2'b00;
+                Out_comb = {ternary_neg(A[5:4]), ternary_neg(A[3:2]), ternary_neg(A[1:0])};
+                CarryOut_comb = 2'b00;
             end
             3'b011: begin // MUL
-                Out = final_mul_sum;
-                CarryOut = carry_final_mul;
+                Out_comb = final_mul_sum;
+                CarryOut_comb = carry_final_mul;
             end
             3'b100: begin // MIN
-                Out = {ternary_min(A[5:4], B[5:4]), ternary_min(A[3:2], B[3:2]), ternary_min(A[1:0], B[1:0])};
-                CarryOut = 2'b00;
+                Out_comb = {ternary_min(A[5:4], B[5:4]), ternary_min(A[3:2], B[3:2]), ternary_min(A[1:0], B[1:0])};
+                CarryOut_comb = 2'b00;
             end
             3'b101: begin // MAX
-                Out = {ternary_max(A[5:4], B[5:4]), ternary_max(A[3:2], B[3:2]), ternary_max(A[1:0], B[1:0])};
-                CarryOut = 2'b00;
+                Out_comb = {ternary_max(A[5:4], B[5:4]), ternary_max(A[3:2], B[3:2]), ternary_max(A[1:0], B[1:0])};
+                CarryOut_comb = 2'b00;
+            end
+            3'b110: begin // LSH (Logical Shift Left A by 1 trit: T0 <- 0, T1 <- T0, T2 <- T1)
+                Out_comb = {A[3:2], A[1:0], 2'b00};
+                CarryOut_comb = A[5:4]; // Shifts out T2 as CarryOut
+            end
+            3'b111: begin // RSH (Logical Shift Right A by 1 trit: T2 <- 0, T1 <- T2, T0 <- T1)
+                Out_comb = {2'b00, A[5:4], A[3:2]};
+                CarryOut_comb = A[1:0]; // Shifts out T0 as CarryOut
             end
             default: begin
-                Out = 6'b000000;
-                CarryOut = 2'b00;
+                Out_comb = 6'b000000;
+                CarryOut_comb = 2'b00;
             end
         endcase
+    end
+
+    // Synchronous Registered Stage (FPGA/ASIC clean path)
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            Out      <= 6'b000000;
+            CarryOut <= 2'b00;
+        end else if (en) begin
+            Out      <= Out_comb;
+            CarryOut <= CarryOut_comb;
+        end
     end
 
 endmodule
