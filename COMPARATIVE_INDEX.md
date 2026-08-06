@@ -73,3 +73,10 @@ Comparing systems along these architectural axes reveals deep engineering lineag
 1. **The Safe Systems Lineage**: *Burroughs* $\rightarrow$ *Intel iAPX 432* $\rightarrow$ *Lisp Machines* $\rightarrow$ *Capability Systems (CHERI)*. This path favors hardware-enforced type safety and fine-grained capabilities over general-purpose performance.
 2. **The Spatial Data-Parallel Lineage**: *Systolic Arrays* $\rightarrow$ *Connection Machine* $\rightarrow$ *Dataflow Computing* $\rightarrow$ *Associative Processors* $\rightarrow$ *Stochastic Computing* $\rightarrow$ *FPGAs / Modern AI accelerators (TPUs / PIM)*. This line bypasses the sequential program-counter paradigm to unlock massive spatial and in-memory throughput.
 3. **The Distributed Channels Lineage**: *CSP (Hoare)* $\rightarrow$ *occam* $\rightarrow$ *Transputers* $\rightarrow$ *Go (channels) / Erlang (actor passing)*. This path proves that message passing can eliminate shared-memory concurrency hazards.
+4. **The Distributed Resource Namespace Lineage**: *Plan 9 / Styx* $\rightarrow$ *Inferno / Limbo* $\rightarrow$ *Distributed Object-Cap Systems (KeyKOS / CapROS / CHERI)*. This lineage maps all network and execution resources to process-private file trees to decouple host-level systems from physical network topography.
+
+---
+
+## Revival Readiness Scorecard Integration
+
+To see how these lineages perform under modern design conditions, consult the [Modern Revival Readiness Scorecard](modern-relevance/revival-readiness.md), which scores each lineage against active modern hardware, software, and AI design constraints.

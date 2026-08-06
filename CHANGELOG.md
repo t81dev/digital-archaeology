@@ -2,6 +2,25 @@
 
 All notable changes to the Digital Archaeology repository will be documented in this file.
 
+## [Consolidation & Usability] - August 2026
+
+### Added
+- **Analytical Architect Guide**: Created `modern-relevance/using-this-repo.md` detailing concrete application paths of excavations, simulators, and RTL blueprints to contemporary accelerator, security processor, and distributed runtime designs.
+- **Synthesizable Soft-Core Documentation**: Added a comprehensive `reconstructions/synthesizable-hardware/README.md` providing Lattice iCE40 UP5K and Tiny-Tapeout layout paths, clock frequencies, and RTL simulation instructions.
+
+### Improved
+- **Knowledge-Graph & Explorer Synchronization**: Enhanced `tools/generate_knowledge_graph.py` to recursively parse and map the 7 comparative synthesis essays (including the Revival Readiness Scorecard) and all 12 zero-dependency reconstructions/simulators.
+- **Top-of-README Navigation**: Completely redesigned the top of `README.md` with a <60-second summary of the four key deepened lineages, a dynamic simulator table, and role-based "Start Here" pathways.
+- **Strict Quality Gates**: Integrated strict link and anchor checks, ensuring the complete documentation site builds flawlessly with zero warnings or errors using `mkdocs build --strict`.
+
+### Future Gaps & Next-Iteration Targets
+The highest-value remaining gaps for the next iteration of the Digital Archaeology initiative include:
+1. **Formal Verification of Soft-Cores**: Extending our SystemVerilog verification suite with formal mathematical proofs (e.g., using SymbiYosys) to rigorously guarantee capability and bounds isolation on the capability bounds checker RTL.
+2. **Deepening Physical Lineages**: Expanding physical and alternative-mathematics excavations with deeper models of neuromorphic spike-routing mesh networks and continuous stochastic hardware coprocessors.
+3. **Academic Outreach & Lab Integration**: Developing standardized lecture slides, auto-grading harnesses, and lab companion guides to facilitate full course integration of the 6 lab modules into university systems architecture curricula.
+
+---
+
 ## [Unreleased] - August 2026
 
 ### Added

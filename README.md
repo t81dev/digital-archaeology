@@ -1,17 +1,53 @@
 # Digital Archaeology
 
 [![Research Phase: Active](https://img.shields.io/badge/Research--Phase-Active-success.svg)](ROADMAP.md)
-[![Reconstructions: 10 Simulators & Models](https://img.shields.io/badge/Reconstructions-10%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
+[![Reconstructions: 12 Simulators & Models](https://img.shields.io/badge/Reconstructions-12%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
 [![Completed Excavations: 35](https://img.shields.io/badge/Completed--Excavations-35-orange.svg)](#project-pillars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > *Excavating forgotten ideas. Recovering lost innovations. Reconstructing alternate futures.*
 
-**Digital Archaeology** is an open-source, multi-disciplinary research initiative dedicated to the rediscovery and implementation of historically sidelined computing architectures, operating environments, programming languages, and hardware paradigms.
+**Digital Archaeology** is an open-source, multi-disciplinary research initiative and execution sandbox dedicated to the rediscovery, simulation, and hardware-reconstruction of historically sidelined computing paradigms. As modern Silicon scaling hits the Von Neumann memory wall, Dennard scaling limits, and the "security wall," these forgotten architectures offer elegant, proven blueprints for domain-specific acceleration, hardware-enforced security, and distributed coordination.
 
-Many remarkable technologies did not disappear because they were technically flawed, but because economics, silicon manufacturing limitations, developer lock-in, or historical timing favored alternative paths. As modern computing faces physical and architectural ceilings—such as the Von Neumann memory wall, rising energy constraints, and the immense demands of AI—these "lost" ideas offer elegant, alternative blueprints for specialized acceleration, spatial execution, hardware-enforced security, and alternative mathematics.
+---
 
-Rather than treating computing history as a passive museum, we approach it as an active research discipline. We ask: **If this idea were invented today, under modern physical and economic constraints, would we build it differently?**
+### ⚡ Project in <60 Seconds
+
+Digital Archaeology bridges systems history with modern hardware/software co-design through four deeply-deepened architectural lineages:
+
+1. **Spatial & Data-Parallel**: Homogeneous grids bypassing global clock/bus bottlenecks. Features **Systolic Arrays** (TPU-style wave compute), **Dataflow Engines** (token-tag scheduling), and **Transputers** (native CSP channels).
+2. **Capability, Tagged & Descriptor**: Fine-grained, hardware-enforced security boundaries. Features **CHERI-style Capabilities**, **Lisp Machine Type Tagging**, and **Burroughs Descriptor-Based Virtualization**.
+3. **Physical, Thermodynamic & Optical**: Exploiting continuous physics for sub-nanosecond compute. Features **Analog Memristive Crossbars**, **Silicon Photonics (MZI meshes)**, and **Reversible/Adiabatic Logic** bypassing Landauer limits.
+4. **Distributed Systems & Single-Level-Store OS**: Decoupled, location-transparent namespaces. Features **Plan 9 Dynamic Namespaces**, **9P Protocol message servers**, **Multics SLS**, and **Inferno VM**.
+
+* **Where is the Revival Scorecard?** Explore the [Modern Revival Readiness Scorecard](modern-relevance/revival-readiness.md) for a quantitative, analytical comparative scorecard and high-density constraint-migration synthesis evaluating these lineages under modern sub-5nm silicon constraints.
+* **Where are the Simulators?** We maintain **12 zero-dependency simulators** and synthesizable SystemVerilog soft-cores. Run them instantly (e.g., `python3 reconstructions/systolic-array/systolic_sim.py` or `python3 reconstructions/plan9-9p/namespace_sim.py`).
+
+---
+
+### 🗺️ Start Here Pathways
+
+Select your specialization to discover immediate entry points into the repository:
+
+#### 🛠️ The Hardware Architect / AI Engineer
+* **Understand the Limits**: Read the [Return of Spatial Computing](synthesis/return-of-spatial-computing.md) and [AI & Hardware Bottlenecks](modern-relevance/ai.md) to understand spatial and analog acceleration.
+* **Analyze the Models**: Compare execution efficiencies in the [Revival Readiness Scorecard](modern-relevance/revival-readiness.md).
+* **Execute Simulators**: Run the cycle-accurate [Systolic Array Simulator](reconstructions/systolic-array/systolic_sim.py) (`python3 reconstructions/systolic-array/systolic_sim.py`) or explore synthesizable RTL under [Synthesizable Hardware Blueprints](reconstructions/synthesizable-hardware/).
+
+#### 🛡️ The Security Researcher / OS Designer
+* **Explore Capabilities**: Read the [Capability-Based Security Synthesis](synthesis/capability-based-security.md) and explore the hardware-enforced memory boundary models.
+* **Run the Emulators**: Execute the [Capability Memory Protection Emulator](reconstructions/capability-security/capability_sim.py) (`python3 reconstructions/capability-security/capability_sim.py`) to simulate tagged RAM protection, out-of-bounds violations, and Burroughs descriptors.
+* **Review synthesizable code**: Inspect the inline [Synthesizable Capability Bounds Checker SV core](reconstructions/synthesizable-hardware/capability_bounds_checker.sv).
+
+#### 🌐 The Distributed Systems Engineer / Agentic AI Designer
+* **Unpack Coordination**: Read [The Evolution of Coordination Abstractions](synthesis/evolution-of-coordination-abstractions.md) analyzing how 9P namespaces and tuple spaces decouple communication.
+* **Build namespaces**: Walk through [Lab Module 6](reconstructions/LAB_MANUAL.md#lab-module-6-distributed-namespaces-9p-protocol-messages) to understand dynamic union mounts and remote-local transparency.
+* **Run 9P simulator**: Execute `python3 reconstructions/plan9-9p/namespace_sim.py` to see 9P protocol messages (Twalk, Tread, Twrite) routing resource namespaces.
+
+#### 🎓 The Computer Science Student / Instructor
+* **Interactive Exploration**: Open [explorer.html](explorer.html) to interactively explore the multidimensional taxonomy. Or use [playground.html](playground.html) to run and modify simulators online.
+* **Follow University Labs**: Walk through the six university-level courses in [Academic Lab Manual & Pedagogical Sandboxes](reconstructions/LAB_MANUAL.md).
+* **Verify Reconstructions**: Run the complete test suite with `pytest` locally to confirm execution and correctness of every simulator.
 
 ---
 
@@ -21,7 +57,7 @@ Rather than treating computing history as a passive museum, we approach it as an
         ┌───────────────────────────────┼───────────────────────────────┐
         ▼                               ▼                               ▼
   [EXCAVATIONS]                    [SYNTHESIS]                   [RECONSTRUCTIONS]
- 35 deep dives into              Comparative and                10 executable models
+ 35 deep dives into              Comparative and                12 executable models
  historical paradigms.          architectural essays.           and simulators.
         │                               │                               │
         └───────────────────────────────┼───────────────────────────────┘
@@ -130,14 +166,22 @@ Moving from historical theory to active software and hardware prototyping, we ma
 | 🔀 **[Co-Simulation Interoperability Fabric](reconstructions/co-simulation/)** | Hybrid AI • CSP Concurrency • Spatial Dataflow | Sandbox orchestrator running multiple reconstructed engines simultaneously and coordinating cross-paradigm messaging. | `reconstructions/co-simulation/orchestrator.py` |
 | 🗃️ **[Linda Tuple Space Simulator](reconstructions/tuple-space/)** | [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) | Thread-safe, associative coordinate-free generative communication engine with pattern-matching. | `reconstructions/tuple-space/tuple_space_sim.py` |
 | 🎲 **[Stochastic Computing Simulator](reconstructions/stochastic-computing/)** | [Stochastic Computing](excavations/stochastic-computing.md) | Probabilistic arithmetic, MUX weighted additions, saturating FSM-based activations, and LFSR random generation. | `reconstructions/stochastic-computing/stochastic_sim.py` |
+| 🕸️ **[Plan 9 Namespace Simulator](reconstructions/plan9-9p/)** | [Plan 9](excavations/plan-9.md) • [Inferno](excavations/inferno.md) | Stateful 9P/Styx transaction processor simulating private namespaces, mounts, binds, and union directories. | `reconstructions/plan9-9p/namespace_sim.py` |
+| 🧮 **[Systolic Array Simulator](reconstructions/systolic-array/)** | [Systolic Arrays](excavations/systolic-arrays.md) | Cycle-accurate simulation of Weight-Stationary and Output-Stationary dataflows with CMOS energy proxy metrics. | `reconstructions/systolic-array/systolic_sim.py` |
 
 ### Quick Start: Running the Simulators
 You can run all simulators locally out-of-the-box. They are written in standard Python 3 and require no third-party libraries:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/digital-archaeology.git
+git clone https://github.com/t81dev/digital-archaeology.git
 cd digital-archaeology
+
+# Run the Plan 9 Namespace & 9P Protocol Simulator
+python3 reconstructions/plan9-9p/namespace_sim.py
+
+# Run the Systolic Array Matrix-Multiplication Simulator
+python3 reconstructions/systolic-array/systolic_sim.py
 
 # Run the Balanced Ternary & Mixed-Radix Simulator
 python3 reconstructions/mixed-radix-sim/ternary_sim.py

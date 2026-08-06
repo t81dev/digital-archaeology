@@ -16,7 +16,7 @@ class KnowledgeGraphGenerator:
             "metadata": {
                 "title": "Digital Archaeology Knowledge Graph",
                 "description": "A comparative research database of forgotten and alternative computing paradigms.",
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "last_updated": "2026-08-02"
             },
             "glossary": [],
@@ -25,7 +25,9 @@ class KnowledgeGraphGenerator:
                 "memory_protection_models": {},
                 "concurrency_models": {}
             },
-            "excavations": []
+            "excavations": [],
+            "synthesis_essays": [],
+            "reconstructions": []
         }
 
     def generate(self):
@@ -33,6 +35,8 @@ class KnowledgeGraphGenerator:
         self.parse_glossary()
         self.parse_comparative_index()
         self.parse_excavations()
+        self.parse_synthesis_essays()
+        self.parse_reconstructions()
 
         # Write to target path
         target_dir = os.path.join(self.root_dir, "modern-relevance")
@@ -162,6 +166,96 @@ class KnowledgeGraphGenerator:
                 "modern_relevance": relevance,
                 "references": references
             })
+
+    def parse_synthesis_essays(self):
+        print("Parsing synthesis essays and scorecard...")
+        synthesis_dir = os.path.join(self.root_dir, "synthesis")
+        essays = []
+        if os.path.exists(synthesis_dir):
+            for file in sorted(os.listdir(synthesis_dir)):
+                if not file.endswith(".md") or file == "README.md":
+                    continue
+                filepath = os.path.join(synthesis_dir, file)
+                with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                    content = f.read()
+                title_match = re.search(r'^#\s*(.+)$', content, re.MULTILINE)
+                title = title_match.group(1).strip() if title_match else file.replace(".md", "")
+
+                # Get first paragraph or blockquote as summary
+                summary_match = re.search(r'^(?:>.*?|[A-Za-z].*?)(?:\n|$)', content, re.MULTILINE)
+                summary = summary_match.group(0).strip().replace("> ", "") if summary_match else ""
+
+                essays.append({
+                    "id": file.replace(".md", ""),
+                    "title": title,
+                    "path": f"synthesis/{file}",
+                    "summary": summary
+                })
+
+        # Also parse modern-relevance/revival-readiness.md
+        readiness_path = os.path.join(self.root_dir, "modern-relevance", "revival-readiness.md")
+        if os.path.exists(readiness_path):
+            with open(readiness_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            title_match = re.search(r'^#\s*(.+)$', content, re.MULTILINE)
+            title = title_match.group(1).strip() if title_match else "Modern Revival Readiness Scorecard"
+            essays.append({
+                "id": "revival-readiness",
+                "title": title,
+                "path": "modern-relevance/revival-readiness.md",
+                "summary": "A quantitative scorecard and high-density synthesis evaluating the commercial and technical revival readiness of the four core lineages under sub-5nm CMOS constraints."
+            })
+
+        self.data["synthesis_essays"] = essays
+
+    def parse_reconstructions(self):
+        print("Parsing reconstructions and simulators...")
+        reconstructions_dir = os.path.join(self.root_dir, "reconstructions")
+        recons = []
+        if os.path.exists(reconstructions_dir):
+            for folder in sorted(os.listdir(reconstructions_dir)):
+                folder_path = os.path.join(reconstructions_dir, folder)
+                if not os.path.isdir(folder_path) or folder in ("__pycache__", "synthesizable-hardware", "co-simulation"):
+                    continue
+
+                # Look for a .py file that serves as simulator or test files
+                py_files = [f for f in os.listdir(folder_path) if f.endswith(".py") and not f.startswith("test_")]
+                if not py_files:
+                    continue
+                entry_point = py_files[0]
+
+                # Construct description
+                desc = f"Executable simulator for the {folder.replace('-', ' ').title()} paradigm."
+                if folder == "plan9-9p":
+                    desc = "Stateful 9P/Styx protocol and private distributed namespace simulator."
+                elif folder == "systolic-array":
+                    desc = "Cycle-accurate Weight-Stationary and Output-Stationary systolic matrix multiplier with energy proxy counters."
+
+                recons.append({
+                    "id": folder,
+                    "title": folder.replace("-", " ").title(),
+                    "path": f"reconstructions/{folder}/",
+                    "entry_point": f"reconstructions/{folder}/{entry_point}",
+                    "description": desc
+                })
+
+            # Add synthesizable-hardware and co-simulation manually as they are special
+            recons.append({
+                "id": "synthesizable-hardware",
+                "title": "Synthesizable Hardware Blueprints",
+                "path": "reconstructions/synthesizable-hardware/",
+                "entry_point": "reconstructions/synthesizable-hardware/",
+                "description": "Synthesizable SystemVerilog models of a 3-trit Balanced Ternary ALU and Tagged RAM Capability Bounds Checker."
+            })
+            recons.append({
+                "id": "co-simulation",
+                "title": "Multi-Architecture Co-Simulation Fabric",
+                "path": "reconstructions/co-simulation/",
+                "entry_point": "reconstructions/co-simulation/orchestrator.py",
+                "description": "Cross-architecture co-simulator orchestrating a hybrid AI statistical pipeline, synchronous CSP channels, and dynamic dataflow blocks."
+            })
+
+        self.data["reconstructions"] = recons
 
 
 if __name__ == "__main__":

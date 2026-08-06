@@ -96,13 +96,15 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Academic Research & Hardware Partnerships](modern-relevance/partnerships.md) — *Connecting key excavations to active academic labs, zero-trust security initiatives, and open-source FPGA/ASIC hardware toolchains.*
 - [FPGA Prototyping & Reconfigurable Computing](modern-relevance/fpga.md) — *Modern programmable logic as a time machine for architectural experimentation.*
 - [Mixed-Radix & Alternative Number Systems](modern-relevance/mixed-radix.md) — *Evaluating ternary, posits, and log number systems in modern silicon.*
-- [Modern Revival Readiness Scorecard](modern-relevance/revival-readiness.md) — *Quantitative comparative evaluation of alternative computing lineages.*
+- [Modern Revival Readiness Scorecard](modern-relevance/revival-readiness.md) — *Quantitative comparative evaluation of alternative computing lineages, assessing Spatial, Capability, Continuous/Thermodynamic, and Distributed SLS OS technologies under modern CMOS constraints.*
 - [Symbolic Computing](modern-relevance/symbolic-computing.md) — *Neuro-symbolic integration, automated theorem proving, and deterministic guardrails.*
 
 ---
 
 ## Reconstructions & Simulators
 
+- [Plan 9 Namespace Simulator](reconstructions/plan9-9p/) — *Stateful 9P/Styx transaction simulator demonstrating process-private directories and dynamic union directory mounts.*
+- [Systolic Array Simulator](reconstructions/systolic-array/) — *Cycle-accurate, parameterizable matrix multiplier comparing Weight-Stationary and Output-Stationary execution dataflows with CMOS energy proxy metrics.*
 - [Balanced Ternary & Mixed-Radix Simulator](reconstructions/mixed-radix-sim/) — *Multi-trit arithmetic logic, logic gate suite, and decimal-ternary conversions.*
 - [Dynamic Tagged-Token Dataflow Engine](reconstructions/dataflow-engine/) — *Parallel execution engine with dynamic token-tag matching and asynchronous scheduling.*
 - [Capability-Based Memory Protection Emulator](reconstructions/capability-security/) — *Register-level CPU and Tagged RAM simulating hardware capabilities and domain transitions.*
