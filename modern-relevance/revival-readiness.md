@@ -21,9 +21,10 @@ To determine when and how a sidelined computing lineage can successfully return 
 | Architectural Lineage | CMS | SR | SEF | EA | AIS | Average Score |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **1. Spatial & Data-Parallel** | ★★★★★ | ★★★★★ | ★★★☆☆ | ★★★★☆ | ★★★★★ | **4.4 / 5.0** |
-| **2. Capability, Tagged & Descriptor** | ★★★★★ | ★★★★☆ | ★★★★☆ | ★★★☆☆ | ★★★☆☆ | **3.8 / 5.0** |
-| **3. Physical, Thermodynamic & Optical** | ★★★★☆ | ★★★☆☆ | ★☆☆☆☆ | ★★★★★ | ★★★★★ | **3.6 / 5.0** |
-| **4. Distributed & Single-Level-Store OS** | ★★★★☆ | ★★★★★ | ★★☆☆☆ | ★★★☆☆ | ★★★★☆ | **3.6 / 5.0** |
+| **2. Neuromorphic & Stochastic** | ★★★★★ | ★★★★☆ | ★★☆☆☆ | ★★★★★ | ★★★★★ | **4.2 / 5.0** |
+| **3. Capability, Tagged & Descriptor** | ★★★★★ | ★★★★☆ | ★★★★☆ | ★★★☆☆ | ★★★☆☆ | **3.8 / 5.0** |
+| **4. Physical, Thermodynamic & Optical** | ★★★★☆ | ★★★☆☆ | ★☆☆☆☆ | ★★★★★ | ★★★★★ | **3.6 / 5.0** |
+| **5. Distributed & Single-Level-Store OS** | ★★★★☆ | ★★★★★ | ★★☆☆☆ | ★★★☆☆ | ★★★★☆ | **3.6 / 5.0** |
 
 ---
 
@@ -45,7 +46,23 @@ To determine when and how a sidelined computing lineage can successfully return 
 
 ---
 
-### 2. Capability, Tagged & Descriptor Lineage
+### 2. Neuromorphic & Stochastic Lineage
+*Includes: Spiking Neural Networks (LIF/AER), Spike-Timing-Dependent Plasticity (STDP), and Probabilistic/Stochastic logic arithmetic.*
+
+*   **Constraint Migration Status: 5/5 (Critical)**
+    The Power Wall and Memory Wall dictate a paradigm shift away from heavy, continuous, high-precision floating-point tensor multiplication toward sparse, event-driven temporal spikes and ultra-simple logic gates. Single Event Upsets (SEUs) from background radiation are neutralized by the natural statistical noise tolerance of stochastic streams.
+*   **Silicon Readiness: 4/5 (High)**
+    Fully digital, asynchronous neuromorphic chips (Intel Loihi, IBM TrueNorth) have demonstrated excellent yields and physical viability in standard CMOS processes. Memristor crossbar arrays representing continuous weights are increasingly integrated into commercial foundry PDKs (e.g., TSMC, GlobalFoundries).
+*   **Software Ecosystem Friction: 2/5 (High)**
+    The entire software stack (compilers, debuggers, learning frameworks) is locked into backpropagation on continuous floating-point tensors. SNN training is hampered by non-differentiable spiking threshold operations, and mapping complex neural topologies to Address-Event Representation (AER) networks remains an active academic challenge.
+*   **Energy Advantage: 5/5 (Maximum)**
+    Offers zero active idle power: if no spikes arrive, circuit dynamic toggles drop to near zero. Stochastic unipolar multiplication collapses from a standard multi-thousand-transistor multiplier to a single 2-input AND gate, reducing active power by orders of magnitude.
+*   **AI Synergy: 5/5 (Maximum)**
+    Direct structural mapping to biological neural networks, temporal models, and sparse edge inference tasks (DVS cameras, robotics, and low-latency wearables).
+
+---
+
+### 3. Capability, Tagged & Descriptor Lineage
 *Includes: Hardware Capabilities (CHERI), Dynamic Lisp Machines, iAPX 432, and Burroughs Descriptor-Based Protection.*
 
 *   **Constraint Migration Status: 5/5 (Critical)**
@@ -61,7 +78,7 @@ To determine when and how a sidelined computing lineage can successfully return 
 
 ---
 
-### 3. Physical, Thermodynamic & Optical Lineage
+### 4. Physical, Thermodynamic & Optical Lineage
 *Includes: Analog In-Memory Crossbars (AIMC), Silicon Photonics, and Reversible/Adiabatic Computing.*
 
 *   **Constraint Migration Status: 4/5 (High)**
@@ -77,7 +94,7 @@ To determine when and how a sidelined computing lineage can successfully return 
 
 ---
 
-### 4. Distributed & Single-Level-Store OS Lineage
+### 5. Distributed & Single-Level-Store OS Lineage
 *Includes: Plan 9 Dynamic Namespaces, Inferno VM (Dis/Limbo), Multics Single-Level Store, and Styx/9P Protocols.*
 
 *   **Constraint Migration Status: 4/5 (High)**

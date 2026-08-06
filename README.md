@@ -1,7 +1,7 @@
 # Digital Archaeology
 
 [![Research Phase: Active](https://img.shields.io/badge/Research--Phase-Active-success.svg)](ROADMAP.md)
-[![Reconstructions: 12 Simulators & Models](https://img.shields.io/badge/Reconstructions-12%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
+[![Reconstructions: 13 Simulators & Models](https://img.shields.io/badge/Reconstructions-13%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
 [![Completed Excavations: 35](https://img.shields.io/badge/Completed--Excavations-35-orange.svg)](#project-pillars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -21,7 +21,7 @@ Digital Archaeology bridges systems history with modern hardware/software co-des
 4. **Distributed Systems & Single-Level-Store OS**: Decoupled, location-transparent namespaces. Features **Plan 9 Dynamic Namespaces**, **9P Protocol message servers**, **Multics SLS**, and **Inferno VM**.
 
 * **Where is the Revival Scorecard?** Explore the [Modern Revival Readiness Scorecard](modern-relevance/revival-readiness.md) for a quantitative, analytical comparative scorecard and high-density constraint-migration synthesis evaluating these lineages under modern sub-5nm silicon constraints.
-* **Where are the Simulators?** We maintain **12 zero-dependency simulators** and synthesizable SystemVerilog soft-cores. Run them instantly (e.g., `python3 reconstructions/systolic-array/systolic_sim.py` or `python3 reconstructions/plan9-9p/namespace_sim.py`).
+* **Where are the Simulators?** We maintain **13 zero-dependency simulators** and synthesizable SystemVerilog soft-cores. Run them instantly (e.g., `python3 reconstructions/systolic-array/systolic_sim.py` or `python3 reconstructions/plan9-9p/namespace_sim.py`).
 
 ---
 
@@ -30,9 +30,9 @@ Digital Archaeology bridges systems history with modern hardware/software co-des
 Select your specialization to discover immediate entry points into the repository:
 
 #### 🛠️ The Hardware Architect / AI Engineer
-* **Understand the Limits**: Read the [Return of Spatial Computing](synthesis/return-of-spatial-computing.md) and [AI & Hardware Bottlenecks](modern-relevance/ai.md) to understand spatial and analog acceleration.
+* **Understand the Limits**: Read the [Return of Spatial Computing](synthesis/return-of-spatial-computing.md) and [AI & Hardware Bottlenecks](modern-relevance/ai.md) to understand spatial, neuromorphic, and stochastic acceleration.
 * **Analyze the Models**: Compare execution efficiencies in the [Revival Readiness Scorecard](modern-relevance/revival-readiness.md).
-* **Execute Simulators**: Run the cycle-accurate [Systolic Array Simulator](reconstructions/systolic-array/systolic_sim.py) (`python3 reconstructions/systolic-array/systolic_sim.py`) or explore synthesizable RTL under [Synthesizable Hardware Blueprints](reconstructions/synthesizable-hardware/).
+* **Execute Simulators**: Run the cycle-accurate [Systolic Array Simulator](reconstructions/systolic-array/systolic_sim.py) (`python3 reconstructions/systolic-array/systolic_sim.py`), the [Neuromorphic Spiking Simulator](reconstructions/neuromorphic-spiking/spiking_sim.py), or explore synthesizable RTL (including our stochastic multiplier) under [Synthesizable Hardware Blueprints](reconstructions/synthesizable-hardware/).
 
 #### 🛡️ The Security Researcher / OS Designer
 * **Explore Capabilities**: Read the [Capability-Based Security Synthesis](synthesis/capability-based-security.md) and explore the hardware-enforced memory boundary models.
@@ -46,7 +46,7 @@ Select your specialization to discover immediate entry points into the repositor
 
 #### 🎓 The Computer Science Student / Instructor
 * **Interactive Exploration**: Open [explorer.html](explorer.html) to interactively explore the multidimensional taxonomy. Or use [playground.html](playground.html) to run and modify simulators online.
-* **Follow University Labs**: Walk through the six university-level courses in [Academic Lab Manual & Pedagogical Sandboxes](reconstructions/LAB_MANUAL.md).
+* **Follow University Labs**: Walk through the seven university-level courses in [Academic Lab Manual & Pedagogical Sandboxes](reconstructions/LAB_MANUAL.md).
 * **Verify Reconstructions**: Run the complete test suite with `pytest` locally to confirm execution and correctness of every simulator.
 
 ---
@@ -152,7 +152,7 @@ Direct mapping of historical concepts to contemporary engineering challenges:
 
 ## 💻 Interactive Reconstructions & Simulators
 
-Moving from historical theory to active software and hardware prototyping, we maintain a suite of **ten zero-dependency executable models and simulators** that let you execute and study these paradigms directly.
+Moving from historical theory to active software and hardware prototyping, we maintain a suite of **13 zero-dependency executable models and simulators** that let you execute and study these paradigms directly.
 
 | Simulator / Emulator | Target Historical Paradigm | Key Architectural Highlight | Entry Point |
 | :--- | :--- | :--- | :--- |
@@ -162,12 +162,13 @@ Moving from historical theory to active software and hardware prototyping, we ma
 | 🧠 **[Neuro-Symbolic Inference Solver](reconstructions/neuro-symbolic/)** | [Symbolic AI / Expert Systems](excavations/symbolic-ai.md) | Hybrid pipeline mapping probabilistic neural classifier confidences into deterministic logic. | `reconstructions/neuro-symbolic/neuro_symbolic_sim.py` |
 | 📞 **[CSP Synchronous Messaging Simulator](reconstructions/csp-messaging/)** | [Occam](excavations/occam.md) • [Transputers](excavations/transputers.md) | Cooperative generator scheduler implementing synchronous rendezvous, ALT choice, and deadlock reporting. | `reconstructions/csp-messaging/csp_sim.py` |
 | 🌊 **[Analog & Optical Wave Accelerator](reconstructions/analog-optical/)** | [Analog Computing](excavations/analog-computing.md) • [Optical Computing](excavations/optical-computing.md) | Continuous-physical electronic op-amp solver paired with a Mach-Zehnder Interferometer photonic tensor core. | `reconstructions/analog-optical/analog_optical_sim.py` |
-| 🛠️ **[Synthesizable Hardware Blueprints](reconstructions/synthesizable-hardware/)** | [Balanced Ternary](excavations/balanced-ternary.md) • [Capability Systems](excavations/capability-systems.md) | Synthesizable SystemVerilog models of a 3-trit Balanced Ternary ALU and a Tagged RAM Capability Bounds Checker. | `reconstructions/synthesizable-hardware/` |
+| 🛠️ **[Synthesizable Hardware Blueprints](reconstructions/synthesizable-hardware/)** | [Balanced Ternary](excavations/balanced-ternary.md) • [Capability Systems](excavations/capability-systems.md) • [Stochastic Computing](excavations/stochastic-computing.md) | Synthesizable SystemVerilog models of a 3-trit Balanced Ternary ALU, a Tagged RAM Capability Bounds Checker, and a Stochastic Multiplier. | `reconstructions/synthesizable-hardware/` |
 | 🔀 **[Co-Simulation Interoperability Fabric](reconstructions/co-simulation/)** | Hybrid AI • CSP Concurrency • Spatial Dataflow | Sandbox orchestrator running multiple reconstructed engines simultaneously and coordinating cross-paradigm messaging. | `reconstructions/co-simulation/orchestrator.py` |
 | 🗃️ **[Linda Tuple Space Simulator](reconstructions/tuple-space/)** | [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) | Thread-safe, associative coordinate-free generative communication engine with pattern-matching. | `reconstructions/tuple-space/tuple_space_sim.py` |
-| 🎲 **[Stochastic Computing Simulator](reconstructions/stochastic-computing/)** | [Stochastic Computing](excavations/stochastic-computing.md) | Probabilistic arithmetic, MUX weighted additions, saturating FSM-based activations, and LFSR random generation. | `reconstructions/stochastic-computing/stochastic_sim.py` |
+| 🎲 **[Stochastic Computing Simulator](reconstructions/stochastic-computing/)** | [Stochastic Computing](excavations/stochastic-computing.md) | Probabilistic arithmetic, MUX weighted additions, saturating FSM-based activations, LFSR generation, neuron/filter workloads. | `reconstructions/stochastic-computing/stochastic_sim.py` |
 | 🕸️ **[Plan 9 Namespace Simulator](reconstructions/plan9-9p/)** | [Plan 9](excavations/plan-9.md) • [Inferno](excavations/inferno.md) | Stateful 9P/Styx transaction processor simulating private namespaces, mounts, binds, and union directories. | `reconstructions/plan9-9p/namespace_sim.py` |
 | 🧮 **[Systolic Array Simulator](reconstructions/systolic-array/)** | [Systolic Arrays](excavations/systolic-arrays.md) | Cycle-accurate simulation of Weight-Stationary and Output-Stationary dataflows with CMOS energy proxy metrics. | `reconstructions/systolic-array/systolic_sim.py` |
+| 🧠 **[Neuromorphic Spiking Simulator](reconstructions/neuromorphic-spiking/)** | [Neuromorphic Hardware](excavations/neuromorphic-hardware.md) | Event-driven SNN routing using Leaky Integrate-and-Fire (LIF) dynamics and STDP learning rules. | `reconstructions/neuromorphic-spiking/spiking_sim.py` |
 
 ### Quick Start: Running the Simulators
 You can run all simulators locally out-of-the-box. They are written in standard Python 3 and require no third-party libraries:
@@ -209,6 +210,9 @@ python3 reconstructions/tuple-space/tuple_space_sim.py
 
 # Run the Stochastic Computing Simulator
 python3 reconstructions/stochastic-computing/stochastic_sim.py
+
+# Run the Neuromorphic Spiking Simulator
+python3 reconstructions/neuromorphic-spiking/spiking_sim.py
 ```
 
 ---

@@ -442,6 +442,69 @@ print(f"✓ Union fallthrough data retrieved: {resp_read['data']}") # BackupData
 
 ---
 
+## Lab Module 7 — Stochastic Computing and Spiking Neuromorphic Co-processors
+
+### Core Theoretical Concepts
+- **Spiking Neural Dynamics**: Spiking Neural Networks (SNNs) replicate the biological brain's high temporal sparsity. Neurons integrate inputs into a membrane potential $V(t)$, and leak state toward a rest potential $V_{\text{rest}}$ over time constant $\tau_m$. Once potential hits $V_{\text{th}}$, the neuron fires a discrete temporal binary spike event and enters a refractory period.
+- **Stochastic Arithmetic**: Continuous real numbers are mapped to probabilities represented by randomized bitstreams. This collapses a multiplier from a massive binary array (thousands of gates) into a single 2-input logic gate (AND for unipolar, XNOR for bipolar representations).
+- **STDP Learning Rule**: Spike-Timing-Dependent Plasticity (STDP) is a localized Hebbian learning rule. If a pre-synaptic spike precedes a post-synaptic spike, the synaptic connection is strengthened (potentiated); if a post-synaptic spike precedes a pre-synaptic spike, the synapse is weakened (depressed).
+
+---
+
+### Challenge 7A: Asynchronous Event-driven Spiking Integration
+
+#### Exercise Problem
+Design a spiking neuromorphic pipeline using a Leaky Integrate-and-Fire (LIF) neuron. Receive an input spike stream and verify that the membrane potential charges and fires according to the physical leak time constant $\tau_m$.
+
+#### Model Solution (Python)
+```python
+from spiking_sim import SpikingNeuron
+
+# Instantiate LIF neuron
+neuron = SpikingNeuron(neuron_id=1, v_rest=0.0, v_th=1.0, tau_m=10.0, v_reset=0.0, refractory_cycles=2)
+
+# Step the neuron through cycle inputs
+voltages = []
+spikes = []
+inputs = [0.2, 0.2, 0.4, 0.4, 0.0, 0.0, 0.0]
+
+for cycle, stim in enumerate(inputs):
+    fired = neuron.step(current_time=cycle, input_current=stim)
+    voltages.append(neuron.v)
+    spikes.append(fired)
+
+print(f"Membrane Potential Trace: {[round(v, 3) for v in voltages]}")
+print(f"Spike Emission Events:    {spikes}")
+```
+
+---
+
+### Challenge 7B: Stochastic Multiplication Energy Trade-off
+
+#### Exercise Problem
+Generate two independent stochastic bitstreams representing unipolar values $x = 0.60$ and $y = 0.70$. Perform single-gate multiplication using an AND gate. Compare the decoded product accuracy against execution bitstream length to evaluate the precision-energy trade-off.
+
+#### Model Solution (Python)
+```python
+from stochastic_sim import LFSR, StochasticGenerator, StochasticArithmetic, StochasticDecoder
+
+# Set up independent random generators to avoid correlation faults
+lfsr_a = LFSR(seed=101, width=16)
+lfsr_b = LFSR(seed=202, width=16)
+
+# Test unipolar multiplication across lengths
+for length in [64, 1024]:
+    stream_a = StochasticGenerator.to_unipolar(0.60, length, lfsr_a)
+    stream_b = StochasticGenerator.to_unipolar(0.70, length, lfsr_b)
+
+    # Single-gate AND multiplication
+    stream_out = StochasticArithmetic.multiply_unipolar(stream_a, stream_b)
+    decoded_product = StochasticDecoder.decode_unipolar(stream_out)
+    print(f"Bitstream Length: {length:4d} | Decoded Product: {decoded_product:.4f} | Target: 0.4200")
+```
+
+---
+
 ## Grading Criteria & System Verification
 
 For all submissions, systems engineering students are assessed on:
@@ -450,3 +513,4 @@ For all submissions, systems engineering students are assessed on:
 3. **Liveness**: Does the concurrent design avoid deadlock and satisfy the progress property?
 4. **Thermodynamic Integrity**: Does the reversible logic simulation return intermediate garbage states cleanly to zero to bypass Landauer limits?
 5. **Namespace Fallthrough**: Does the union mount setup resolve search queries across both directories in the correct precedence order?
+6. **Sparsity and Resolution**: Does the neuromorphic or stochastic design properly model accuracy resolution scaling vs. temporal bitstream latency and event sparsity?

@@ -16,15 +16,26 @@ Initially pioneered by Carver Mead in the late 1980s using subthreshold analog C
 
 ## Historical Context
 
-The architectural origins of neuromorphic engineering date back to the late 1980s at Caltech. Neurobiophysicist Max Delbrück introduced analog circuit designer **Carver Mead** to the biophysics of biological synapses. Mead realized that the physics of silicon transistors operating in their subthreshold (weak inversion) region mirrored the exponential ion-channel dynamics of biological neuronal membranes.
+The architectural origins of neuromorphic engineering date back to the late 1980s at Caltech. Neurobiophysicist Max Delbrück introduced analog circuit designer **Carver Mead** to the biophysics of biological synapses. Mead realized that the physics of silicon transistors operating in their subthreshold (weak inversion) region mirrored the exponential ion-channel dynamics of biological neuronal membranes. In weak inversion, the drain current $I_d$ of a MOSFET is exponentially proportional to the gate-to-source voltage $V_{gs}$:
+
+$$I_d = I_0 \cdot e^{\frac{\kappa V_{gs}}{k_B T / q}}$$
+
+This equation directly mirrors the exponential relation governing ion channel conductance across neuronal cell membranes (the Boltzmann distribution of channel opening states).
 
 In 1989, Mead published *Analog VLSI and Neural Systems*, establishing the foundational principles of neuromorphic engineering:
-
-1. **Analog dynamics as computational primitives:** Using physical device laws (such as Ohm’s law and Kirchhoff’s laws) to perform mathematical operations natively in silicon, eliminating binary logic overhead.
+1. **Analog dynamics as computational primitives:** Using physical device laws (such as Ohm’s law for synaptic multiplication and Kirchhoff’s current law for spatial summation) to perform mathematical operations natively in silicon, eliminating binary logic overhead.
 2. **Asynchronous event communication:** Replacing global clocks with data-driven routing, leading to the development of the **Address-Event Representation (AER)** protocol in 1991 (with Richard Lyon and Misha Mahowald) to multiplex spike events across chip pins.
 3. **Collocated state and memory:** Storing synaptic weights directly at the point of computation using integrated storage rather than fetching from off-chip DRAM.
 
-Throughout the 1990s and 2000s, neuromorphic engineering remained largely within academic bio-inspired research labs (e.g., Stanford's *Neurogrid*, Heidelberg's *BrainScaleS*, and Manchester's *SpiNNaker*). In the 2010s, major industrial initiatives emerged, including DARPA's SyNAPSE program (yielding IBM's 1-million-neuron **TrueNorth** in 2014) and Intel's research processor **Loihi** (2017) and **Loihi 2** (2021).
+### Historical Metrics of Major Neuromorphic Implementations
+
+| System Name (Year) | Developer | Fabrication Node | Neuron/Synapse Count | Operating Power | Key Architectural Metric |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Neurogrid** (2009) | Stanford University | 180nm CMOS | 1M Neurons / 6B Synapses | ~3.1 Watts | Subthreshold analog neuron dynamics; 100,000× more energy-efficient than typical PC simulation of same network. |
+| **BrainScaleS** (2011) | Heidelberg University | 180nm wafer-scale | 200k Neurons / 50M Synapses | ~1.0 Kilowatts | Continuous-time analog physical model; operates at a 10,000× physical acceleration speedup compared to real biological time. |
+| **SpiNNaker** (2014) | University of Manchester | 130nm CMOS | 1M ARM968 cores / 1B Neurons | ~1.0 Kilowatts | Massively parallel digital packet-switched toroidal mesh; schedules real-time biological neural networks. |
+| **TrueNorth** (2014) | IBM (DARPA SyNAPSE) | 28nm CMOS | 1M Neurons / 256M Synapses | 63 Milliwatts | Fully digital, asynchronous non-von Neumann spatial mesh; active power density of only $20\text{ mW/cm}^2$. |
+| **Loihi** (2017) | Intel Labs | 14nm FinFET | 131k Neurons / 130M Synapses | ~100 Milliwatts | Fully digital, asynchronous many-core mesh supporting on-chip Spike-Timing-Dependent Plasticity (STDP) learning. |
 
 ---
 
@@ -52,15 +63,29 @@ Neuromorphic architectures bypass the von Neumann bottleneck through three prima
 Rather than passing 16-bit or 8-bit floating-point activation values across dense layer matrices, SNNs communicate via binary temporal pulses ($\text{spike} \in \{0, 1\}$).
 The core computational unit is typically modeled on variants of the **Leaky Integrate-and-Fire (LIF)** neuron:
 
-$$\frac{dV(t)}{dt} = -\frac{V(t) - V_{\text{rest}}}{\tau_m} + \sum_{i} w_i \cdot s_i(t)$$
+$$\tau_m \frac{dV(t)}{dt} = -(V(t) - V_{\text{rest}}) + R \cdot \sum_{i} w_i \cdot s_i(t)$$
 
-* **Integration:** Incoming spikes $s_i(t)$ increment the internal membrane potential $V(t)$ according to synaptic weights $w_i$.
+* **Integration:** Incoming spikes $s_i(t) = \sum_f \delta(t - t_i^f)$ increment the internal membrane potential $V(t)$ according to synaptic weights $w_i$.
 * **Leak:** In the absence of spikes, $V(t)$ decays exponentially toward $V_{\text{rest}}$ over time constant $\tau_m$.
-* **Firing & Reset:** When $V(t) \ge V_{\text{th}}$, the neuron emits an output spike event and resets its potential.
+* **Firing & Reset:** When $V(t) \ge V_{\text{th}}$, the neuron emits an output spike event, and its potential resets: $V(t^+) \leftarrow V_{\text{reset}}$.
+
+```text
+                  Leaky Integrate-and-Fire (LIF) Spike Dynamics
+        V(t)
+         ▲
+    V_th ┼ - - - - - - - - - - - - - - ⚡ (Spike Fired)
+         │                           / │
+         │             /\           /  │
+         │     /\     /  \         /   │
+         │    /  \   /    \       /    │
+         │   /    \_/      \     /     │
+  V_rest ┼──/───────────────\───/──────┼────────► t
+         │ /                 \_/       │ V_reset
+```
 
 ### 2. Asynchronous Event-Driven Computing
 
-There is no central system clock driving global cycle execution. Neuromorphic processors use self-timed asynchronous digital logic (or continuous-time analog circuits).
+There is no central system clock driving global cycle execution. Neuromorphic processors use self-timed asynchronous digital logic (e.g., quasi-delay-insensitive null convention logic or handshaking channels).
 
 * **Zero Active Idle Power:** If no spikes arrive, circuit transitions freeze, and dynamic power consumption drops to near zero ($< 1\text{ mW}$).
 * **Temporal Sparsity:** Computations execute only when state updates occur, exploiting spatial and temporal redundancy in real-world data streams.
@@ -68,6 +93,23 @@ There is no central system clock driving global cycle execution. Neuromorphic pr
 ### 3. Address-Event Representation (AER) Protocol
 
 Because wiring millions of dedicated point-to-point connections on silicon is physically impossible due to interconnect scaling, neuromorphic chips use **AER routing**:
+
+```text
+       SENDER NEURON CORE                      RECEIVER NEURON CORE
+  ┌───────────────────────────┐           ┌───────────────────────────┐
+  │   Spiking Neuron #42      │           │   Target Synapses Array   │
+  │   (Fires local event)     │           │   (Decodes input address) │
+  └─────────────┬─────────────┘           └─────────────▲─────────────┘
+                │                                       │
+                ▼                                       │ (Reconstructed Spike)
+   [ Asynchronous Encoder ]                             │
+                │                                       │
+                ▼ Address Packet: [ID=42]               │
+    =================== Shared Parallel Bus ===================
+                │
+                ▼
+   [ Network-on-Chip Router ] ──────────────────────────┘
+```
 
 * When a source neuron fires, its digital coordinate address is packed into a sparse packet.
 * An asynchronous time-division multiplexed bus or Network-on-Chip (NoC) routes the address packet to the destination core array, where local decoders broadcast the spike to target target synapses.
@@ -100,7 +142,7 @@ Because wiring millions of dedicated point-to-point connections on silicon is ph
 
 ---
 
-## Modern Relevance
+## Modern Evaluation (Forward-Looking Analysis)
 
 While neuromorphic hardware did not displace general-purpose GPUs in cloud data center training, modern edge AI constraints have revived interest in the technology:
 
@@ -132,12 +174,12 @@ While neuromorphic hardware did not displace general-purpose GPUs in cloud data 
 
 | Category | Rating | Rationale |
 | --- | --- | --- |
-| Historical Importance | ★★★☆☆ | Brief justification |
-| Technical Innovation | ★★★☆☆ | Brief justification |
-| Commercial Success | ★★★☆☆ | Brief justification |
-| Modern Potential | ★★★☆☆ | Brief justification |
-| AI Synergy | ★★★★★ | Direct structural mapping to deep learning and neural network acceleration. |
-| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
+| Historical Importance | ★★★★☆ | Re-engineered silicon around biological principles, laying foundations for non-von Neumann hardware and event-based sensor processing. |
+| Technical Innovation | ★★★★★ | Completely eliminated global clocks, unified compute/memory, and pioneered subthreshold analog circuit design for continuous differential modeling. |
+| Commercial Success | ★★☆☆☆ | Consistently limited to academic labs and research prototypes due to the sheer dominance of GPU scaling and CUDA ecosystems. |
+| Modern Potential | ★★★★★ | Essential for sub-watt edge AI, bio-interfaces, high-speed robotics, and neuromorphic co-processors in heterogeneous systems. |
+| AI Synergy | ★★★★★ | Direct structural mapping to spiking neural networks, temporal models, and sparse event-driven computing. |
+| Difficulty to Recreate | ★★★★★ | Extremely high design complexity, requiring mixed-signal asynchronous circuit layout or complex high-fidelity simulation models. |
 
 
 ## References
@@ -147,5 +189,7 @@ While neuromorphic hardware did not displace general-purpose GPUs in cloud data 
 * Merolla, P. A., et al. (2014). *A million spiking-neuron integrated circuit with a scalable communication network and architecture* (IBM TrueNorth). Science, 345(6197), 668-673.
 * Davies, M., et al. (2018). *Loihi: A Neuromorphic Manycore Processor with On-Chip Learning*. IEEE Micro, 38(1), 82-99.
 * Furber, S. B., et al. (2014). *The SpiNNaker Project*. Proceedings of the IEEE, 102(5), 652-665.
+* Indiveri, G., et al. (2011). *Neuromorphic Silicon Neuron Circuits*. Frontiers in Neuroscience, 5, 73.
+* Mead, C. (1990). *Neuromorphic Electronic Systems*. Proceedings of the IEEE, 78(10), 1629-1636.
 
 ---

@@ -230,6 +230,8 @@ class KnowledgeGraphGenerator:
                     desc = "Stateful 9P/Styx protocol and private distributed namespace simulator."
                 elif folder == "systolic-array":
                     desc = "Cycle-accurate Weight-Stationary and Output-Stationary systolic matrix multiplier with energy proxy counters."
+                elif folder == "neuromorphic-spiking":
+                    desc = "Event-driven Spiking Neural Network (SNN) simulator modeling Leaky Integrate-and-Fire (LIF) dynamics, Address-Event Representation (AER), and Spike-Timing-Dependent Plasticity (STDP) learning rules."
 
                 recons.append({
                     "id": folder,

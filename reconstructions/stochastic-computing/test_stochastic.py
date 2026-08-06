@@ -14,7 +14,9 @@ from stochastic_sim import (
     StochasticGenerator,
     StochasticDecoder,
     StochasticArithmetic,
-    StochasticFSM
+    StochasticFSM,
+    StochasticNeuron,
+    StochasticSignalFilter
 )
 
 def test_lfsr_basic():
@@ -132,3 +134,27 @@ def test_fsm_tanh():
     assert fsm_down.state == -4
     # Output bits should be 0 (except potentially first couple depending on initial state, but over 20 steps, mostly 0)
     assert out_zeros[-10:] == [0] * 10
+
+
+def test_stochastic_neuron():
+    """Verify the functional execution of a Stochastic Artificial Neuron workload."""
+    weights = [0.5, -0.2]
+    inputs = [0.8, 0.4]
+
+    neuron = StochasticNeuron(weights, states=8)
+    decoded, expected = neuron.evaluate(inputs, length=1024)
+
+    # Assert output is mathematically sensible
+    assert -1.0 <= decoded <= 1.0
+    assert abs(decoded - expected) < 0.25
+
+
+def test_stochastic_signal_filter():
+    """Verify 1D moving average signal smoothing in the stochastic domain."""
+    signal = [0.1, 0.9, 0.8, 0.2]
+    filtered = StochasticSignalFilter.filter_signal(signal, kernel_width=3, length=512)
+
+    assert len(filtered) == len(signal)
+    assert all(0.0 <= x <= 1.0 for x in filtered)
+    # The smoothed version of 0.9 in the middle of 0.1 and 0.8 should decrease
+    assert filtered[1] < 0.9

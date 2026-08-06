@@ -36,6 +36,7 @@ Several ambitious spatial systems were developed:
 - **[Vector Supercomputing](../excavations/vector-supercomputing.md)** (Cray) — Long vector pipelines with high memory bandwidth
 - **[Dataflow Computing](../excavations/dataflow-computing.md)** — Execution driven purely by data availability
 - **[Associative Processors](../excavations/associative-processors.md)** — Content-addressable parallel computation and vertical bit-slicing
+- **[Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)** — Asynchronous event-driven spiking neural networks bypassing global clock trees
 
 Most struggled commercially due to programming difficulty, ecosystem lock-in, and the continued success of general-purpose CPUs.
 
@@ -108,6 +109,6 @@ It is a cycle of distillation, constraint change, and revival.
 
 **Last updated**: July 27, 2026
 
-**Related Excavations**: **[Connection Machine](../excavations/connection-machine.md)**, **[Systolic Arrays](../excavations/systolic-arrays.md)**, **[Vector Supercomputing](../excavations/vector-supercomputing.md)**, **[Dataflow Computing](../excavations/dataflow-computing.md)**, **[Transputers](../excavations/transputers.md)**, **[Associative Processors](../excavations/associative-processors.md)**
+**Related Excavations**: **[Connection Machine](../excavations/connection-machine.md)**, **[Systolic Arrays](../excavations/systolic-arrays.md)**, **[Vector Supercomputing](../excavations/vector-supercomputing.md)**, **[Dataflow Computing](../excavations/dataflow-computing.md)**, **[Transputers](../excavations/transputers.md)**, **[Associative Processors](../excavations/associative-processors.md)**, **[Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)**, **[Stochastic Computing](../excavations/stochastic-computing.md)**
 
 **Related Patterns**: **[Recurring Ideas](../patterns/recurring-ideas.md)**, **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)**, **[Economic Failures](../patterns/economic-failures.md)**
