@@ -1060,22 +1060,22 @@
         "Historical Importance": {
           "stars": "★★★☆☆",
           "numeric": 3,
-          "rationale": "Influential in distributed OS research"
+          "rationale": "Important evolutionary link between Plan 9, Java's concurrent systems, and modern portable runtimes."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Clean, secure, portable design"
+          "rationale": "Flawless register-based VM design with CSP channels and unified network-transparent Styx protocol."
         },
         "Commercial Success": {
           "stars": "★☆☆☆☆",
           "numeric": 1,
-          "rationale": "Limited adoption"
+          "rationale": "Overshadowed by Java and embedded Linux, failing to achieve mainstream consumer deployment."
         },
         "Modern Potential": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Strong for edge/IoT/security"
+          "rationale": "The core ideas map perfectly to WebAssembly, Edge computing virtual microcontrollers, and lightweight secure enclaves."
         },
         "AI Synergy": {
           "stars": "★★☆☆☆",
@@ -1088,7 +1088,7 @@
           "rationale": "Requires extensive systems-level implementation and emulation efforts."
         }
       },
-      "modern_relevance": "Inferno’s philosophy is highly relevant today:\n- **Edge and IoT computing** — Small footprint and strong security model suit resource-constrained devices.\n- **Capability-based security** — Aligns with modern research (CHERI) and zero-trust architectures.\n- **Distributed systems** — 9P/Styx influences and concepts appear in various networked storage and orchestration tools.\n- **Virtual machines and containers** — Ideas of portable, isolated execution environments live on in WebAssembly, containers, and unikernels.\n- **Research OSes** — Continues to inspire minimal, secure, network-native systems.",
+      "modern_relevance": "",
       "references": []
     },
     {
@@ -1320,27 +1320,27 @@
       "id": "multics",
       "title": "Multics",
       "path": "excavations/multics.md",
-      "summary": "Multics (MULTiplexed Information and Computing Service) was one of the most ambitious and influential operating systems ever created. Developed starting in 1964 as a joint project by MIT, General Electric, and Bell Labs, it was designed as a high-reliability, scalable utility computing platform — essentially a \"computing utility\" that users could access like electricity or water.\n\nMultics introduced or popularized numerous concepts taken for granted today: segmented virtual memory, hierarchical filesystems with access control lists (ACLs), dynamic linking, ring-based protection (security rings), online reconfiguration, and strong security principles. It ran continuously for decades at some sites and heavily influenced Unix (which was originally written as a simpler alternative to Multics). Despite its technical successes, Multics struggled with performance, complexity, and commercial adoption, ultimately becoming a niche system.",
+      "summary": "Multics (MULTiplexed Information and Computing Service) was one of the most ambitious and influential operating systems ever created. Developed starting in 1964 as a joint project by MIT (Project MAC), General Electric, and Bell Labs, it was designed as a high-reliability, scalable utility computing platform — essentially a \"computing utility\" that users could access like electricity or water.\n\nMultics introduced or popularized numerous concepts taken for granted today: segmented virtual memory, hierarchical filesystems with access control lists (ACLs), dynamic linking, ring-based protection (security rings), online reconfiguration, and strong security principles. It ran continuously for decades at some sites and heavily influenced Unix (which was originally written as a simpler alternative to Multics). Despite its technical successes, Multics struggled with performance, complexity, and commercial adoption, ultimately becoming a niche system.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Massive influence on OS research"
+          "rationale": "Ground zero for modern operating system concepts; directly inspired Unix, security rings, and ACLs."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Extremely advanced for its time"
+          "rationale": "Extremely advanced. Features like single-level store and dynamic PL/I linking were decades ahead of standard practice."
         },
         "Commercial Success": {
           "stars": "★★☆☆☆",
           "numeric": 2,
-          "rationale": "Limited market success"
+          "rationale": "honeywell sold only roughly 80 systems globally; was a commercial failure despite high-reliability military deployments."
         },
         "Modern Potential": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Concepts still relevant"
+          "rationale": "Essential concepts (persistent stores, ring isolation, utility scaling) are highly active in secure enclaves and NVMM research."
         },
         "AI Synergy": {
           "stars": "★★☆☆☆",
@@ -1353,7 +1353,7 @@
           "rationale": "Requires extensive systems-level implementation and emulation efforts."
         }
       },
-      "modern_relevance": "Multics ideas remain highly relevant today:\n- **Security Architectures**: Ring protection, ACLs, and segmented memory influence modern microkernel designs, CHERI capabilities, and secure enclaves.\n- **Virtualization and Cloud**: Concepts of reliable, always-on utility computing prefigure modern cloud platforms.\n- **OS Design Philosophy**: Single-level store and dynamic linking appear in research systems and some modern filesystems/databases.\n- **High-Availability Systems**: Lessons in fault tolerance apply to mission-critical and distributed systems.\n- **AI / Secure Computing**: Fine-grained protection and formal security models are valuable for governed, auditable AI infrastructure.\n\nIn many ways, modern computing is slowly rediscovering Multics principles in the context of security, reliability, and large-scale shared infrastructure.",
+      "modern_relevance": "",
       "references": []
     },
     {
@@ -1497,22 +1497,22 @@
         "Historical Importance": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Major influence on OS research"
+          "rationale": "Deeply influenced Unix developments (e.g., `/proc`, UTF-8) and modern containerization."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Coherent rethinking of OS design"
+          "rationale": "Flawless unification of networking, device control, and isolation under a single protocol."
         },
         "Commercial Success": {
           "stars": "★☆☆☆☆",
           "numeric": 1,
-          "rationale": "Limited adoption"
+          "rationale": "Failed to capture market share due to pricing, timing, and POSIX compatibility issues."
         },
         "Modern Potential": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Concepts live on in containers/cloud"
+          "rationale": "9P remains highly active in cloud-mounting layers (VirtFS/WSL2); namespace concepts form the core of containers."
         },
         "AI Synergy": {
           "stars": "★★☆☆☆",
@@ -1525,7 +1525,7 @@
           "rationale": "Requires extensive systems-level implementation and emulation efforts."
         }
       },
-      "modern_relevance": "Plan 9 ideas are experiencing a quiet renaissance:\n- **Containerization and orchestration** (Docker, Kubernetes) use namespace and isolation concepts similar to Plan 9.\n- **9P protocol** support exists in many modern systems and is used in virtual machine and cloud environments.\n- **Distributed systems and microservices** benefit from Plan 9’s clean separation of concerns.\n- **Research OSes and hobbyist communities** continue active development (9front, Harvey, etc.).\n- **Influence on Inferno** (a descendant) and various embedded/distributed projects.\n\nIn an era of cloud-native computing and heterogeneous systems, Plan 9’s philosophy of simplicity, distribution, and uniform interfaces feels increasingly prescient.",
+      "modern_relevance": "",
       "references": []
     },
     {

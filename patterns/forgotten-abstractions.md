@@ -34,6 +34,8 @@ Forgotten abstractions typically share these traits:
 * **Capability Systems** — Fine-grained, unforgeable rights instead of ACLs or ambient permissions.
 * **Vector Chaining & Systolic Dataflow** *(new)* — Rhythmic, streaming spatial computation models.
 * **iAPX 432 / Multics abstractions** *(new)* — Strong object-oriented and protection models in hardware/OS.
+* **9P/Styx Dynamic Namespaces & Union Mounts** *(new)* — Completely transparent, network-independent resource sharing via stateful, simple file messages, resolving search lookups with fallthrough directory bindings.
+* **Single-Level Store (SLS)** *(new)* — Erasing the logical and physical boundary between volatile register heap memory and persistent filesystem storage.
 
 ### Other Classic Cases
 * Persistent / single-level object stores (vs. filesystems + databases)
@@ -95,7 +97,9 @@ The goal is not nostalgia, but **technological optionality** — keeping powerfu
 - [Systolic Arrays](../excavations/systolic-arrays.md)
 - [Transputers](../excavations/transputers.md)
 - [Vector Supercomputing](../excavations/vector-supercomputing.md)
+- [Plan 9](../excavations/plan-9.md)
+- [Inferno](../excavations/inferno.md)
 
 ---
 
-**Last updated**: July 26, 2026
+**Last updated**: August 2, 2026

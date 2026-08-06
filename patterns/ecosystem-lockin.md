@@ -46,6 +46,8 @@ Breaking the cycle usually requires either massive disruption (a killer applicat
 * **Dataflow Computing** — Required fundamentally new programming models and toolchains in a world optimized for imperative control flow.
 * **Capability Systems** — Elegant security model hindered by deep incompatibility with existing permission/ACL-based software ecosystems.
 * **Vector Supercomputing** *(new)* — Superior per-node efficiency displaced by the scalability and software ecosystem of commodity clusters (Beowulf) + MPI.
+* **Plan 9 & Inferno** — The beautiful simplicity of everything-as-a-file 9P protocols and dynamic, private namespaces was completely locked out by standard POSIX socket libraries and the massive open-source momentum surrounding Linux.
+* **Multics** — Tying core segmented memory-mapped persistent files directly to custom GE/Honeywell mainframes locked it out of the portable, general-purpose microprocessor revolution that spawned Unix.
 
 ---
 
@@ -89,7 +91,10 @@ Nevertheless, lock-in around x86/ARM, CUDA, and major ML frameworks continues to
 - [Lisp Machines](../excavations/lisp-machines.md)
 - [Transputers](../excavations/transputers.md)
 - [Vector Supercomputing](../excavations/vector-supercomputing.md)
+- [Plan 9](../excavations/plan-9.md)
+- [Inferno](../excavations/inferno.md)
+- [Multics](../excavations/multics.md)
 
 ---
 
-**Last updated**: July 26, 2026
+**Last updated**: August 2, 2026

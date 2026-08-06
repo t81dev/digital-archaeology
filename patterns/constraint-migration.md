@@ -39,6 +39,11 @@ A constraint typically migrates when there is:
 * **Modern**: Software supply chain vulnerabilities, remote exploits, and side-channel attacks make security an existential requirement.
 * **Result**: Fine-grained protection models (like capability-based security, tagged memory, and descriptors), once deemed too expensive, are now integrated at the hardware level (e.g., CHERI, ARM MTE).
 
+### 4. Shared Memory vs. Network-Native Isolation (The Scale Wall)
+* **Historically**: Single-node processors governed systems via centralized shared state. Networking was a slow, external IO accessory.
+* **Modern**: Computing is dominated by hyper-scale, multi-agent serverless clusters and distributed edge IoT networks. Shared physical memory cannot scale across networks, and microservice REST APIs introduce extreme spatial and temporal coupling.
+* **Result**: Unified network-transparent message-passing protocols (9P/Styx) and private dynamic namespaces are resurrected to organize secure, decoupled distributed systems.
+
 ---
 
 ## Case Studies from This Repository
@@ -48,6 +53,7 @@ A constraint typically migrates when there is:
 * **Balanced Ternary** — Sidelined because binary logic gates (on/off vacuum tubes or transistors) were far simpler to manufacture at high yields. With Silicon nearing its physical atomic scaling limits, researchers are looking at multi-valued logic and alternative materials where three stable states are natively available, unlocking higher information density.
 * **Analog Computing** — Replaced by digital due to noise, drift, and programming difficulty. Today, specialized edge AI workloads do not require high digital precision; they require high throughput at ultra-low power. Analog and mixed-signal in-memory compute (e.g., executing matrix-vector multiplication via Kirchhoff's laws on memristor crossbars) can operate thousands of times more efficiently than digital equivalents.
 * **Reversible Computing** — Once purely theoretical. As we approach Landauer's thermodynamic limit of energy dissipation per bit operation, traditional logic gates cannot get cooler. Reversible computing (preserving state and energy) is migrating from a physics curiosity to a long-term necessity for cryogenic, space-based, or post-silicon microarchitectures.
+* **Plan 9 & Inferno Namespaces** — Sidelined due to high performance overheads of text parsing and POSIX ecosystem inertia. Today, WSL2, containerization isolation (Docker), and multi-agent AI blackboards have resurrected dynamic namespaces, proving that unified network-transparent resource messaging is the cleanest abstraction for massive cloud scaling.
 
 ---
 
@@ -90,6 +96,9 @@ If the limiting constraints have migrated (e.g., if memory latency is now the bo
 - [Systolic Arrays](../excavations/systolic-arrays.md)
 - [Connection Machine](../excavations/connection-machine.md)
 - [Transputers](../excavations/transputers.md)
+- [Plan 9](../excavations/plan-9.md)
+- [Inferno](../excavations/inferno.md)
+- [Multics](../excavations/multics.md)
 
 ## Related Modern Perspectives
 
