@@ -74,3 +74,25 @@ Modern advanced computing is increasingly heterogeneous. Real-world systems requ
   python3 -m reconstructions.co-simulation.experiments --all
   ```
 - Use this orchestrator and the experiments as structural templates for designing heterogeneous system-level simulation boundaries in custom software-in-the-loop (SIL) modeling.
+
+---
+
+## 🔮 5. Forecasting Future Computer Transitions
+
+When modeling the long-term impact of sub-2nm scaling limits (nanoscale copper resistance delays, sub-threshold static gate leakage, memory walls) or security vulnerability exposure rates on your architectural roadmap:
+
+### How to use this repository:
+1. **Execute the Predictive Engine**:
+   - Run the [Constraint Migration Predictive Hypothesis Engine](../reconstructions/predictive-hypothesis/) (`python3 reconstructions/predictive-hypothesis/predictive_engine.py`) to forecast the revival readiness of forgotten lineages.
+   - Inject customized physical limits and workloads, such as scaling nanoscale copper interconnect delays up to $3.0\times$ or AI tensor compute density to $4.0\times$, to observe how alternative paradigms (like Optical or Neuromorphic) emerge as dominant solutions:
+     ```bash
+     python3 reconstructions/predictive-hypothesis/predictive_engine.py --copper-resistance 3.0 --tensor-density 4.0
+     ```
+2. **Review Automated Research Hypotheses**:
+   - Study the generated primary-source-aligned research hypotheses output by the engine. These briefs provide clear architectural proposals mapping specific bottlenecks directly to resurrected logical abstractions (such as Clements MZI optical wave meshes or hardware-enforced CHERI-style capability registers).
+3. **Automate Ingestion & Multi-Agent Planning**:
+   - Run the engine with the `--json` flag to export structured, machine-readable forecasting data:
+     ```bash
+     python3 reconstructions/predictive-hypothesis/predictive_engine.py --json
+     ```
+   - Feed this JSON schema directly into autonomous LLM agents or architectural model-checkers to dynamically adjust your system design priorities under varying physical scaling scenarios.

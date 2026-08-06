@@ -132,6 +132,23 @@ To elevate the repository from a decoupled database into a highly cohesive, non-
 
 # Phase VIII — Semantic Navigation & Browser-Native Hardware-in-the-Loop Co-Simulation ✅ (Complete)
 
+- [x] **Smart Query Console**: Implemented an advanced client-side semantic query and constraint parser inside `explorer.html`, allowing readers to execute queries like `synergy:high potential:high ternary` or `type:excavation stars:>=4`.
+- [x] **Relational Highlighting**: Highlights shortest connection paths and dims non-matching clusters on the D3.js force-directed knowledge graph based on query constraints, keeping navigational results highly relational.
+- [x] **Interactive Peripherals Board**: Integrated physical sliders and fault-injection toggle switches in `playground.html` representing continuous sensor feeds, active-low reset lines, and bounds protection tags.
+- [x] **Live Digital Logic Analyzer**: Engineered a canvas-based waveform viewer displaying synchronized transitions of `CLK`, `SEN_TRIG`, `LOGIC_DEC`, `CSP_RDV`, `DF_OP`, `EDGE_WR`, and `HW_EXC` logic signals.
+- [x] **Inter-Paradigm Fault Injection**: Toggles like `FORCE_EXCEPTION` dynamically override soft-core bounds rules to manually trigger hardware capability violations or ternary carry overflows live in the Wasm sandbox.
+
+---
+
+# Phase X — Constraint Migration Predictive Hypothesis Engine ✅ (Complete)
+
+We have engineered an active, quantitative forecasting model that translates post-CMOS physical limits directly into alternative hardware lineage scores.
+
+- [x] **Quantitative Constraint Forecasting Model**: Designed dynamic scoring equations that map copper interconnect resistance, memory walls, static gate leakage, and AI tensor demands to our 6 core lineages.
+- [x] **Highly Connected Research Hypotheses**: Programmed automated hypothesis generation delivering precise, non-partisan, primary-source-aligned resurrection briefs for high-bottleneck scenarios.
+- [x] **Interactive Command-Line Interface**: Released a fully-functional CLI parser supporting customized physical parameters, text tables, star ratings, and JSON export for automated ingestion.
+- [x] **Zero-Dependency Validation Suite**: Verified prediction bounds clamping, input sensitivity, and schema layout through extensive pytest unit tests.
+
 To transition our comparative research network into a dynamically queryable and physically interactive environment, Phase VIII introduces advanced browser-native semantic routing, interactive hardware panels, and cycle-accurate co-simulation visualization.
 
 ### 1. Multi-Dimensional Semantic Query Engine

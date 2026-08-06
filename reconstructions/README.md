@@ -70,6 +70,12 @@ Each subdirectory here contains an interactive, fully-functional simulator, synt
 * **What it does**: Implements a thread-safe, associative Tuple Space supporting blocking/non-blocking out, in, rd, and active process evaluation (eval). Demonstrates coordinate-free master-worker task allocation.
 * **Entry point**: `reconstructions/tuple-space/tuple_space_sim.py`
 
+### 10. [Constraint Migration Predictive Hypothesis Engine](predictive-hypothesis/)
+* **Focus**: Constraint migration forecasting, custom post-CMOS architectural projection.
+* **Paradigm**: [Constraint Migration](../patterns/constraint-migration.md) & [Recurring Ideas](../patterns/recurring-ideas.md).
+* **What it does**: Models how shifting physical, technological, and security constraints influence alternative computing lineages, predicting their revival potential and generating targeted research hypotheses.
+* **Entry point**: `reconstructions/predictive-hypothesis/predictive_engine.py`
+
 ---
 
 ## Interactive Playgrounds & Academic Materials
@@ -110,4 +116,7 @@ python3 reconstructions/analog-optical/analog_optical_sim.py
 
 # Run the Linda Tuple Space Simulator
 python3 reconstructions/tuple-space/tuple_space_sim.py
+
+# Run the Constraint Migration Predictive Hypothesis Engine
+python3 reconstructions/predictive-hypothesis/predictive_engine.py
 ```

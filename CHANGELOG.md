@@ -2,6 +2,14 @@
 
 All notable changes to the Digital Archaeology repository will be documented in this file.
 
+## [Phase X: Constraint Migration Predictive Hypothesis Engine & Alternative Hardware Forecasting] - August 2026
+
+### Added
+- **Predictive Hypothesis Engine**: Implemented a stateful, zero-dependency Python forecaster under `reconstructions/predictive-hypothesis/predictive_engine.py` mapping emerging nanoscale physical bottlenecks to our 6 core lineages.
+- **Dynamic Research Hypotheses Generation**: Added rules for generating rigorous, academic-grade resurrection briefs linking specific physical constraint shifts (e.g., copper resistance scaling, subthreshold gate leakage, security exposure) to forgotten abstractions.
+- **Argparse CLI Console & JSON Interface**: Created a fully interactive command-line interface with detailed tabular text formatting, star ratings, and standardized JSON export.
+- **Pytest Verification Suite**: Added 6 comprehensive unit tests under `reconstructions/predictive-hypothesis/test_predictive_engine.py` validating prediction bounds clamping, input sensitivities, and JSON schema compatibility.
+
 ## [Phase IX: Cross-Paradigm Sandbox Verification & Soft-Core Hardening] - August 2026
 
 ### Added
