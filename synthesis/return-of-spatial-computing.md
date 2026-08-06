@@ -92,6 +92,9 @@ The return of spatial computing suggests that many other “failed” ideas in t
 - Alternative number systems (**[Balanced Ternary](../excavations/balanced-ternary.md)**, **[Stochastic Computing](../excavations/stochastic-computing.md)**)
 - Dataflow execution (**[Dataflow Computing](../excavations/dataflow-computing.md)**, **[EDGE Architecture](../excavations/edge-architecture.md)**)
 - Reversible and adiabatic logic (**[Reversible Computing](../excavations/reversible-computing.md)**)
+- Analog & Photonic in-memory processing (**[Analog Computing](../excavations/analog-computing.md)** / **[Optical Computing](../excavations/optical-computing.md)**)
+
+To evaluate the feasibility and timeline of these resurrections, see the quantitative **[Modern Revival Readiness Scorecard](../modern-relevance/revival-readiness.md)**.
 
 We are entering an era of **architectural pluralism** — not one dominant model, but a collection of specialized, spatially-oriented engines working together.
 

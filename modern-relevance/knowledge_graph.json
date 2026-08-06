@@ -537,34 +537,34 @@
       "summary": "Analog Computing is a computational paradigm that solves mathematical equations by directly modeling them with continuous physical quantities—such as electric voltage, current, fluid pressure, or mechanical motion—rather than processing discrete, digitized binary signals ($0$s and $1$s). Instead of executing sequences of instructions through a central processor, an analog computer is configured as an active physical network (a \"physical simulation\") whose natural equilibrium or time evolution directly mirrors the differential equations being solved.\n\nPioneered in mechanical forms by figures such as Lord Kelvin and Vannevar Bush (the Differential Analyzer) and perfected electronically mid-century using operational amplifiers (op-amps), analog computing was the dominant technology for scientific simulation, aerospace trajectory calculations, and real-time control systems throughout the 1940s to 1960s.\n\nWhile virtually wiped out by the explosive rise of general-purpose digital CMOS microprocessors and digital precision, analog computing is undergoing a major modern renaissance. As digital microarchitectures face the \"Memory Wall\" and severe thermal limits executing dense floating-point tensor math for AI, modern **In-Memory Analog Computing (AIMC)** leverages Kirchhoff's and Ohm's laws inside non-volatile memory crossbars to perform massive matrix-vector multiplications at orders of magnitude higher energy efficiency.",
       "scorecard": {
         "Historical Importance": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
-        },
-        "Technical Innovation": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
-        },
-        "Commercial Success": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
-        },
-        "Modern Potential": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
-        },
-        "AI Synergy": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "High utility for specific execution paths in machine learning workloads."
+          "rationale": "Dominant paradigm for real-time military and scientific simulation from the 1940s through 1960s; solved aerospace models that chocked digital computers."
         },
-        "Difficulty to Recreate": {
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Pioneered $O(1)$ time complexity execution using fundamental electrical physical phenomena, bypassing discretization truncation."
+        },
+        "Commercial Success": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Heavily commercialized mid-century by vendors like EA, Philbrick, and Beckman; ubiquitous in Cold War laboratories."
+        },
+        "Modern Potential": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "High physical fabrication or high-fidelity simulation complexity."
+          "rationale": "Essential paradigm for non-volatile memory crossbars (AIMC) to break the digital memory and power walls."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Direct, perfect mapping to low-precision, high-density matrix-vector multiplications required for neural network inference."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Simulating high-fidelity operational amplifier saturation, noise, and component thermal drift requires fine-grained numerical solvers."
         }
       },
       "modern_relevance": "While discarded for general computing, Analog Computing is making a historic comeback in deep learning and low-power hardware acceleration:\n\n* **In-Memory Compute (IMC) for AI:** Deep Learning inference (specifically LLMs and Vision Transformers) is heavily dominated by Matrix-Vector Multiplication ($\\text{GEMM}$) where $8$-bit or $4$-bit quantization ($\\text{INT8}/\\text{INT4}$) is fully sufficient. Analog crossbars (using ReRAM or PCM) calculate these operations inside memory arrays at sub-milliwatt power budgets.\n* **Low-Power Edge & Biomedical Devices:** Implantable cardiac monitors, continuous voice keyword spotters, and wearable health sensors use subthreshold analog circuits to run continuous background classification at nanowatt power levels, waking up digital processors only when events are detected.\n* **Hybrid Analog-Digital Microarchitectures:** Modern SoCs pair general-purpose digital cores (for control flow, exact logic, and storage) with dedicated analog coprocessor blocks (for continuous sensor filtering and neural network acceleration).\n* **Physical Neuromorphic Processing:** Neuromorphic processors use analog transistor dynamics to model biological neuron membrane potentials and synaptic transmission directly in hardware.",
@@ -752,7 +752,7 @@
       "id": "burroughs-large-systems",
       "title": "Burroughs Large Systems (B5000/B5500/B6500 and descendants)",
       "path": "excavations/burroughs-large-systems.md",
-      "summary": "The Burroughs Large Systems (particularly the B5000 introduced in 1961, followed by B5500, B6500/B7500, and later Unisys MCP-based machines) represented one of the most radical departures from conventional computer design in the early history of computing. Instead of building hardware and then layering software on top, Burroughs designed the hardware around the requirements of high-level languages (primarily ALGOL 60 and later extensions) and operating system needs. \n\nKey innovations included a hardware stack for expression evaluation, descriptor-based memory addressing (a form of capability-like protection), automatic virtual memory management, and symmetric multiprocessing support—all running under the Master Control Program (MCP), one of the earliest and most advanced OSes.\n\nWhile commercially successful in certain markets (especially banking and large-scale transaction processing), the architecture was ultimately eclipsed by simpler, more commoditized designs. Its ideas, however, recur in modern systems through stack-based virtual machines, tagged/capability memory, and language-hardware co-design.",
+      "summary": "The Burroughs Large Systems (particularly the B5000 introduced in 1961, followed by B5500, B6500/B7500, and later Unisys MCP-based machines) represented one of the most radical departures from conventional computer design in the early history of computing. Instead of building hardware and then layering software on top, Burroughs designed the hardware around the requirements of high-level languages (primarily ALGOL 60 and later extensions) and operating system needs.\n\nKey innovations included a hardware stack for expression evaluation, descriptor-based memory addressing (a form of capability-like protection), automatic virtual memory management, and symmetric multiprocessing support—all running under the Master Control Program (MCP), one of the earliest and most advanced OSes.\n\nWhile commercially successful in certain markets (especially banking and large-scale transaction processing), the architecture was ultimately eclipsed by simpler, more commoditized designs. Its ideas, however, recur in modern systems through stack-based virtual machines, tagged/capability memory, and language-hardware co-design.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1451,32 +1451,32 @@
         "Historical Importance": {
           "stars": "★★★☆☆",
           "numeric": 3,
-          "rationale": "Brief justification"
+          "rationale": "Realized critical real-time radar and spatial Fourier filtering in defense niches (SAR) during the 1960s; major telecommunications boom in fiber optics."
         },
         "Technical Innovation": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Pioneered lightwave propagation as an computational medium, utilizing interference patterns and Wavelength-Division Multiplexing (WDM)."
         },
         "Commercial Success": {
           "stars": "★★★☆☆",
           "numeric": 3,
-          "rationale": "Brief justification"
+          "rationale": "Highly successful in telecom transceivers and optical fiber networks, but lagged as standalone digital computing systems."
         },
         "Modern Potential": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Critical modern paradigm for co-packaged optics (CPO) and silicon photonic tensor cores to bypass the thermal limits of copper interconnects."
         },
         "AI Synergy": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Medium synergy; potential utility in structured or specialized coprocessing."
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Massive synergy with high-throughput Transformer model workloads, performing sub-nanosecond matrix-vector products at propagation speeds."
         },
         "Difficulty to Recreate": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "High physical fabrication or high-fidelity simulation complexity."
+          "rationale": "Modeling wave optics (MZI splitting, phase shifts, laser RIN, and photodetector quantum shot noise) requires complex, high-fidelity double-precision mathematical simulations."
         }
       },
       "modern_relevance": "Optical computing has pivoted from trying to build general-purpose \"optical CPUs\" to serving as specialized hardware accelerators and ultra-high-speed chip-to-chip interconnects:\n\n* **Co-Packaged Optics (CPO):** High-performance AI networking switches and multi-chip module (MCM) processor clusters integrate laser transceivers directly onto the same organic substrate as the GPU/NPU silicon. This replaces high-loss copper board traces with optical fiber interfaces, reducing interconnect energy consumption by up to $70\\%$.\n* **Optical AI Tensor Accelerators:** Photonic chips (developed by companies like Lightmatter, Celestial AI, and Luminous) leverage integrated MZI meshes and microring arrays to perform large-scale matrix-vector multiplications ($\\text{GEMM}$) for LLM inference at sub-nanosecond speeds and ultra-low latency.\n* **Optical Interconnects for Disaggregated Data Centers:** Modern hyperscale data centers use optical interconnects to pool memory (CXL over optics) and connect thousands of compute nodes into a single unified execution fabric without traditional network hop latency.\n* **Analog Optical Signal Processing & Sensing:** Lidar engines, radar signal filtering, and real-time medical imaging continue to rely on integrated photonic Fourier processing to perform spatial filtering and phase detection directly in the optical domain.",
@@ -1572,37 +1572,37 @@
       "id": "reversible-computing",
       "title": "Reversible Computing",
       "path": "excavations/reversible-computing.md",
-      "summary": "Reversible Computing is a computing paradigm in which physical logic gates and execution instructions operate in a mathematically bijective (one-to-one) and time-reversible manner. In conventional irreversible logic (such as standard NAND, AND, or OR gates), logical information is destroyed during computation—for instance, an AND gate collapses two input bits into a single output bit, permanently erasing one bit of information.\n\nAccording to **Landauer’s Principle** (formulated by Rolf Landauer in 1961), erasing a single bit of physical information dissipates a fundamental minimum amount of heat into the environment:\n\n$$E_{\\text{min}} = k_B T \\ln 2$$\n\nWhere $k_B$ is the Boltzmann constant and $T$ is the absolute temperature in Kelvin. While negligible during the vacuum-tube and early integrated-circuit eras, modern CMOS processors operating at tens of billions of transistors now operate dangerously close to thermal dissipation limits, causing severe power density bottlenecks (\"Dark Silicon\").\n\nReversible Computing solves this fundamental physical constraint by preserving logical state throughout computation. By ensuring that every computational step can be run backward to recover previous states without information destruction, reversible architectures can theoretically reduce dynamic heat dissipation to zero—opening a path toward ultra-dense, ultra-low-power microarchitectures, adiabatic CMOS, and physical realization in quantum computing.",
+      "summary": "Reversible Computing is a computing paradigm in which physical logic gates and execution instructions operate in a mathematically bijective (one-to-one) and time-reversible manner. In conventional irreversible logic (such as standard NAND, AND, or OR gates), logical information is destroyed during computation—for instance, an AND gate collapses two input bits into a single output bit, permanently erasing one bit of information.\n\nAccording to **Landauer’s Principle** (formulated by Rolf Landauer in 1961), erasing a single bit of physical information dissipates a fundamental minimum amount of heat into the environment:\n\n$$E_{\\text{min}} = k_B T \\ln 2$$\n\nWhere $k_B$ is the Boltzmann constant ($1.38 \\times 10^{-23}$ J/K) and $T$ is the absolute temperature in Kelvin. At room temperature ($T \\approx 300$ K), Landauer's limit equates to approximately:\n\n$$E_{\\text{min}} \\approx 2.87 \\times 10^{-21} \\text{ Joules (or } \\approx 0.018 \\text{ eV)}$$\n\nWhile negligible during the vacuum-tube and early integrated-circuit eras, modern CMOS processors operating at tens of billions of transistors switching at multi-gigahertz frequencies now operate dangerously close to thermal dissipation limits, causing severe power density bottlenecks (\"Dark Silicon\").\n\nReversible Computing solves this fundamental physical constraint by preserving logical state throughout computation. By ensuring that every computational step can be run backward to recover previous states without information destruction, reversible architectures can theoretically reduce dynamic heat dissipation to zero—opening a path toward ultra-dense, ultra-low-power microarchitectures, adiabatic CMOS, and physical realization in quantum computing.",
       "scorecard": {
         "Historical Importance": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Foundational paradigm in statistical physics and thermodynamic computation bounds; defined the limits of modern silicon."
         },
         "Technical Innovation": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
-        },
-        "Commercial Success": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
-        },
-        "Modern Potential": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Brief justification"
-        },
-        "AI Synergy": {
-          "stars": "★★★☆☆",
-          "numeric": 3,
-          "rationale": "Medium synergy; potential utility in structured or specialized coprocessing."
-        },
-        "Difficulty to Recreate": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "High physical fabrication or high-fidelity simulation complexity."
+          "rationale": "Created uncomputation, adiabatic charge recycling, and fully bijective logic structures (Toffoli & Fredkin)."
+        },
+        "Commercial Success": {
+          "stars": "★☆☆☆☆",
+          "numeric": 1,
+          "rationale": "Confined entirely to physics laboratories and research publications; no historical commercial mass production."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Essential for cryogenic superconducting systems and compiling classical arithmetic blocks onto quantum computers."
+        },
+        "AI Synergy": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "High long-term potential in low-power cryogenic computing arrays executing matrix operations reversibly to bypass the thermal limit."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Simulating uncomputation pipelines, intermediate register state tracking, and adiabatic energy dissipation scaling requires specialized state machines."
         }
       },
       "modern_relevance": "As conventional CMOS fabrication approaches 1-nanometer quantum tunneling thresholds and thermal dissipation strictly limits high-performance data centers, Reversible Computing is transitioning from theoretical physics to practical engineering:\n\n* **Cryogenic Computing & Superconducting Logic:** Superconducting logic systems—such as **Reciprocal Quantum Logic (RQL)** and **Adiabatic Quantum Flux Parametron (AQFP)**—operate inside cryogenic environments ($4\\text{ Kelvin}$). At low temperatures, $T$ drops, but heat removal efficiency drops even faster (requiring up to $1,000\\text{ W}$ of cooling power per $1\\text{ W}$ of dissipated heat). Reversible logic is essential to prevent thermal destruction of cryogenic processors.\n* **Quantum Circuit Compilation:** Because quantum gates must be unitary and reversible, compiling classical algorithms (e.g., modular exponentiation in Shor's algorithm) onto quantum processors relies directly on reversible circuit design, Toffoli gates, and Bennett uncomputation techniques.\n* **Ultra-Low-Power Edge AI & Implantable Electronics:** Medical implants, space probes, and deep-sea autonomous sensors operate in environments where battery replacement is impossible and heat generation damages surrounding tissue. Adiabatic reversible microcontrollers offer sub-nanowatt background execution profiles.\n* **Extreme-Scale High-Performance Computing (HPC):** Modern exascale supercomputers dissipate tens of megawatts of power—most of it converted directly into thermal waste. Integrating reversible coprocessor tiles into high-density matrix math units could dramatically lower thermal footprints in future zettascale installations.",

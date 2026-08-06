@@ -13,9 +13,11 @@ def test_rtl_files_exist_and_are_valid():
     hardware_dir = os.path.dirname(__file__)
     alu_path = os.path.join(hardware_dir, "ternary_alu.sv")
     checker_path = os.path.join(hardware_dir, "capability_bounds_checker.sv")
+    reversible_path = os.path.join(hardware_dir, "reversible_gates.sv")
 
     assert os.path.exists(alu_path), "ternary_alu.sv does not exist!"
     assert os.path.exists(checker_path), "capability_bounds_checker.sv does not exist!"
+    assert os.path.exists(reversible_path), "reversible_gates.sv does not exist!"
 
     # Verify Ternary ALU contains expected modules and synthesizable syntax
     with open(alu_path, 'r', encoding='utf-8') as f:
@@ -37,6 +39,16 @@ def test_rtl_files_exist_and_are_valid():
         assert "desc_mode" in checker_content
         assert "cap_present" in checker_content
         assert "endmodule" in checker_content
+
+    # Verify Reversible Gates contains correct modules
+    with open(reversible_path, 'r', encoding='utf-8') as f:
+        rev_content = f.read()
+        assert "module reversible_gates" in rev_content
+        assert "always_ff @(posedge clk or negedge rst_n)" in rev_content
+        assert "X_comb" in rev_content
+        assert "Y_comb" in rev_content
+        assert "Z_comb" in rev_content
+        assert "endmodule" in rev_content
 
 
 # ==========================================
@@ -337,3 +349,34 @@ def test_capability_bounds_checker_golden_model():
     assert checker.violation_flag is False
     assert checker.page_fault is False
     assert checker.violation_code == 0
+
+
+# ==========================================
+# 4. Golden-Model Verification: Reversible Gates
+# ==========================================
+
+def golden_reversible_gates(op, a, b, c):
+    """
+    Python-based emulator of the SV `reversible_gates` logic.
+    op = 0: Toffoli (CCNOT), op = 1: Fredkin (CSWAP)
+    """
+    if op == 0:
+        # Toffoli (CCNOT)
+        return a, b, c ^ (a & b)
+    else:
+        # Fredkin (CSWAP)
+        if a == 1:
+            return a, c, b
+        else:
+            return a, b, c
+
+def test_reversible_gates_golden_model():
+    """Verify standard logic combinations for synthesizable Toffoli and Fredkin gates."""
+    # Toffoli checks (op = 0)
+    assert golden_reversible_gates(op=0, a=1, b=1, c=0) == (1, 1, 1)
+    assert golden_reversible_gates(op=0, a=1, b=0, c=1) == (1, 0, 1)
+    assert golden_reversible_gates(op=0, a=0, b=1, c=0) == (0, 1, 0)
+
+    # Fredkin checks (op = 1)
+    assert golden_reversible_gates(op=1, a=1, b=1, c=0) == (1, 0, 1) # SWAP
+    assert golden_reversible_gates(op=1, a=0, b=1, c=0) == (0, 1, 0) # No SWAP

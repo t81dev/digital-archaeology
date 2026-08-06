@@ -75,12 +75,18 @@ As FPGA tools improve (especially with better high-level synthesis and AI-assist
 ---
 
 ## Related Excavations
+- [Analog Computing](../excavations/analog-computing.md)
 - [Balanced Ternary](../excavations/balanced-ternary.md)
 - [Dataflow Computing](../excavations/dataflow-computing.md)
 - [Lisp Machines](../excavations/lisp-machines.md)
+- [Optical Computing](../excavations/optical-computing.md)
+- [Reversible Computing](../excavations/reversible-computing.md)
 - [Transputers](../excavations/transputers.md)
 - [Systolic Arrays](../excavations/systolic-arrays.md)
 - [Connection Machine](../excavations/connection-machine.md)
+
+## Related Modern Perspectives
+- [Modern Revival Readiness Scorecard](../modern-relevance/revival-readiness.md)
 
 ## Related Patterns
 - Forgotten Abstractions

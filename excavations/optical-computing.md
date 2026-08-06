@@ -78,7 +78,19 @@ Optical computing spans two distinct domains: **Photonic Interconnects** (data m
 
 An MZI splits an incoming laser beam into two paths, applies a controllable phase shift ($\theta$) to one path using micro-heaters or electro-optic materials, and recombines the beams. The interference between the two paths constructively or destructively modulates the light intensity.
 
-By cascading arrays of MZIs in a mesh topology (e.g., the Reck or Clements architectures), a network of phase shifters directly implements unitary matrix transformations ($\mathbf{U}$). Because any complex matrix can be decomposed into unitary matrices using Singular Value Decomposition ($\mathbf{A} = \mathbf{U} \mathbf{\Sigma} \mathbf{V}^\dagger$), an optical MZI mesh executes matrix-vector multiplication in continuous physical time as light propagates through the chip.
+By cascading arrays of MZIs in a mesh topology (such as the triangular **Reck architecture** or symmetric **Clements architecture**), a network of phase shifters directly implements unitary matrix transformations ($\mathbf{U}$). Because any complex matrix can be decomposed into unitary matrices using Singular Value Decomposition ($\mathbf{A} = \mathbf{U} \mathbf{\Sigma} \mathbf{V}^\dagger$), an optical MZI mesh executes matrix-vector multiplication in continuous physical time as light propagates through the chip.
+
+```
+       CLEMENTS MZI MESH FOR UNITARY MATRIX MULTIPLIER (N=4)
+
+       Input 1 ───►[ MZI_1 ]──┬──►[ MZI_3 ]──┬──►[ MZI_5 ]───► Output 1
+                   \     /    \    /    \    /    \     /
+       Input 2 ─────X───X──────X──X──────X──X──────X───X─────► Output 2
+                    \ /         \/        \/        \ /
+       Input 3 ──────X───────────X─────────X─────────X───────► Output 3
+                    / \         /\        /\        / \
+       Input 4 ───►[ MZI_2 ]──┴──►[ MZI_4 ]──┴──►[ MZI_6 ]───► Output 4
+```
 
 ### 2. Microring Resonators (MRRs) and WDM
 
@@ -102,7 +114,7 @@ By modulating multiple wavelengths ($\lambda_1, \lambda_2, \dots, \lambda_n$) si
 
 ## Innovations
 
-* **Propagation-Speed Execution ($O(1)$ Latency):** Mathematical operations (such as Fourier transforms, convolutions, and matrix multiplications) occur continuously as light travels through optical components. Latency is limited only by the refractive index of the waveguide, yielding sub-nanosecond execution times.
+* **Propagation-Speed Execution ($O(1)$ Latency):** Mathematical operations (such as Fourier transforms, convolutions, and matrix multiplications) occur continuously as light travels through optical components. Latency is limited only by the refractive index of the waveguide, yielding sub-nanosecond execution times (processing speed of $\approx 3 \times 10^8$ m/s in vacuum, or $\approx 2 \times 10^8$ m/s in silicon waveguides with refractive index $n \approx 3.5$).
 * **Massive Parallelism via Wavelength Multiplexing:** Dozens of independent data streams can travel through a single optical waveguide simultaneously without crosstalk by using distinct wavelengths ($\lambda$), multiplying data throughput exponentially.
 * **Elimination of RC Interconnect Delay and Heat:** Copper wires suffer from resistance-capacitance ($RC$) bottlenecks and dynamic power loss ($\frac{1}{2} C V^2 f$). Photonic waveguides transmit signals with near-zero heat dissipation along the transmission path, bypassing the thermal power limits of high-speed copper buses.
 * **Zero Electromagnetic Interference (EMI):** Light paths do not generate or suffer from capacitive coupling, cross-talk, or inductive interference, allowing high-density signal packing.
@@ -111,8 +123,8 @@ By modulating multiple wavelengths ($\lambda_1, \lambda_2, \dots, \lambda_n$) si
 
 ## Limitations
 
-* **Weak Photonic Non-Linearities:** Photons do not interact directly with each other in vacuum or linear optical media. Implementing the optical equivalent of a digital transistor or a non-linear activation function (e.g., ReLU or Sigmoid) requires specialized electro-optic materials, high laser intensities, or optical-electrical-optical (O-E-O) conversions.
-* **Physical Footprint and Component Size:** While silicon transistors measure a few nanometers across, optical wavelengths ($\approx 1550\text{ nm}$ or $1.55\,\mu\text{m}$) dictate that photonic components (MZIs, ring resonators) remain several micrometers to millimeters in size—orders of magnitude larger than modern electronic logic gates.
+* **Weak Photonic Non-Linearities:** Photons do not interact directly with each other in vacuum or linear optical media. Implementing the optical equivalent of a digital transistor or a non-linear activation function (e.g., ReLU or Sigmoid) requires specialized electro-optic materials, high laser intensities, or optical-electrical-optical (O-E-O) conversions which re-introduce latency.
+* **Physical Footprint and Component Size:** While digital silicon transistors measure a few nanometers across, optical wavelengths ($\approx 1550\text{ nm}$ or $1.55\,\mu\text{m}$ in standard telecom C-band) dictate that photonic components (MZIs, ring resonators) remain several micrometers to millimeters in size due to the wave diffraction limit.
 * **Sensitivity to Thermal and Physical Drift:** Microring resonators and interferometers rely on precise physical dimensions down to sub-nanometer tolerances. Ambient thermal fluctuations shift material refractive indices, requiring active thermal tuning heaters that consume energy.
 * **Conversion Overhead (E-O and O-E Conversion):** Data stored in digital memory is electronic. Converting electrical signals to light (via lasers and modulators) and back to electricity (via photodetectors and ADCs) introduces latency and energy penalties that can outweigh the gains of optical processing if not carefully managed.
 
@@ -157,13 +169,14 @@ Optical computing has pivoted from trying to build general-purpose "optical CPUs
 
 | Category | Rating | Rationale |
 | --- | --- | --- |
-| Historical Importance | ★★★☆☆ | Brief justification |
-| Technical Innovation | ★★★☆☆ | Brief justification |
-| Commercial Success | ★★★☆☆ | Brief justification |
-| Modern Potential | ★★★☆☆ | Brief justification |
-| AI Synergy | ★★★☆☆ | Medium synergy; potential utility in structured or specialized coprocessing. |
-| Difficulty to Recreate | ★★★★★ | High physical fabrication or high-fidelity simulation complexity. |
+| Historical Importance | ★★★☆☆ | Realized critical real-time radar and spatial Fourier filtering in defense niches (SAR) during the 1960s; major telecommunications boom in fiber optics. |
+| Technical Innovation | ★★★★★ | Pioneered lightwave propagation as an computational medium, utilizing interference patterns and Wavelength-Division Multiplexing (WDM). |
+| Commercial Success | ★★★☆☆ | Highly successful in telecom transceivers and optical fiber networks, but lagged as standalone digital computing systems. |
+| Modern Potential | ★★★★★ | Critical modern paradigm for co-packaged optics (CPO) and silicon photonic tensor cores to bypass the thermal limits of copper interconnects. |
+| AI Synergy | ★★★★★ | Massive synergy with high-throughput Transformer model workloads, performing sub-nanosecond matrix-vector products at propagation speeds. |
+| Difficulty to Recreate | ★★★★★ | Modeling wave optics (MZI splitting, phase shifts, laser RIN, and photodetector quantum shot noise) requires complex, high-fidelity double-precision mathematical simulations. |
 
+---
 
 ## References
 

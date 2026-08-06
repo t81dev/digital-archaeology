@@ -84,11 +84,16 @@ If the limiting constraints have migrated (e.g., if memory latency is now the bo
 - [Balanced Ternary](../excavations/balanced-ternary.md)
 - [Capability Systems](../excavations/capability-systems.md)
 - [Dataflow Computing](../excavations/dataflow-computing.md)
+- [Optical Computing](../excavations/optical-computing.md)
 - [Reversible Computing](../excavations/reversible-computing.md)
 - [Superconducting & Cryogenic Microarchitectures](../excavations/superconducting-cryogenic.md)
 - [Systolic Arrays](../excavations/systolic-arrays.md)
 - [Connection Machine](../excavations/connection-machine.md)
 - [Transputers](../excavations/transputers.md)
+
+## Related Modern Perspectives
+
+- [Modern Revival Readiness Scorecard](../modern-relevance/revival-readiness.md)
 
 ---
 

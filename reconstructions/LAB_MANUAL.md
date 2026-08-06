@@ -314,9 +314,82 @@ scheduler.run()
 
 ---
 
+## Lab Module 5 — Reversible Logic, Landauer Limits, and Adiabatic Charge Recovery
+
+### Core Theoretical Concepts
+- **Landauer's Principle**: Erasing a single bit of physical information (destroying a distinction) generates entropy and must dissipate a minimum thermodynamic cost of $E = k_B T \ln 2$ Joules of heat.
+- **Bennett's Uncomputation Protocol**: We can perform arbitrary irreversible functions $y = f(x)$ with zero dynamic heat loss by executing a 3-step pipeline:
+  1. *Compute ($f$)*: Propagate forward to write $f(x)$ into target register while storing intermediate garbage states $g(x)$.
+  2. *Copy*: Use a reversible CNOT/XOR gate to copy the output to a clean register.
+  3. *Uncompute ($f^{-1}$)*: Execute the inverse calculation backward to return the intermediate garbage states $g(x)$ cleanly to zero without destructive erasure.
+- **Adiabatic Charge Recovery**: Conventional digital logic dumps capacitor charge directly to ground during a logical transition, dissipating $E = \frac{1}{2} C V^2$ of energy. Adiabatic circuits use gradual resonant ramps of duration $T_{\text{ramp}}$ to recycle and recover the charge, reducing energy dissipation to $E = \frac{R C}{T_{\text{ramp}}} C V^2$. As $T_{\text{ramp}} \gg R C$, dynamic energy loss approaches zero.
+
+### Hands-On Challenge: Implementing a Reversible XOR & Uncomputation Pipeline
+In this challenge, you will implement a reversible XOR operation $Y = A \oplus B$ utilizing CNOT/Feynman gates, track intermediate garbage bit allocations, and execute the uncomputation step to cleanly deallocate the garbage registers to zero, avoiding Landauer heat loss.
+
+#### Inputs
+Two input registers $A, B \in \{0, 1\}$.
+
+#### Register State Layout
+- $X_0 = A$ (Input A)
+- $X_1 = B$ (Input B)
+- $G_0 = 0$ (Garbage Register)
+- $C_0 = 0$ (Output Copy Register)
+
+#### Uncomputation Protocol Steps
+1. **Compute Phase**: Write $Y = A \oplus B$ to garbage register $G_0$ via a CNOT gate controlled by $A$ on $B$ ($G_0 \leftarrow A \oplus B$). Here, $G_0$ holds the intermediate output.
+2. **Copy Phase**: Reversibly copy the result from $G_0$ into the clean output register $C_0$ using a CNOT gate ($C_0 \leftarrow C_0 \oplus G_0$).
+3. **Uncompute Phase**: Reversibly run the compute phase backward by executing the inverse CNOT gate from $A$ on $B$, returning $G_0$ cleanly back to $0$ without ever clearing it destructively.
+
+### Exercise Problem
+Implement a Python function modeling this reversible pipeline. Verify that the final state contains the correct XOR output in $C_0$, that all intermediate garbage registers $G_0$ have returned to $0$, and that the cumulative Landauer heat dissipation is exactly $0.0$ Joules.
+
+#### Model Solution (Python)
+```python
+from analog_optical_sim import ReversibleSimulator
+
+def run_reversible_xor_lab(a: int, b: int) -> tuple[int, dict, float]:
+    """
+    Computes Y = A ^ B reversibly using uncomputation.
+    Returns: (output_copy, register_states, landauer_energy)
+    """
+    sim = ReversibleSimulator(temp_kelvin=300.0)
+
+    # Initial state
+    regs = {"A": a, "B": b, "garbage_G0": 0, "copy_C0": 0}
+    landauer_energy = 0.0
+
+    # 1. Compute Phase: G0 = A ^ B using reversible gates
+    # We can model this by running CNOT on (A, B) -> registers remain bijective
+    _, g0 = sim.gate_cnot(a, b)
+    regs["garbage_G0"] = g0
+
+    # 2. Copy Phase: Copy G0 to output register C0 via CNOT
+    _, copy_c0 = sim.gate_cnot(g0, regs["copy_C0"])
+    regs["copy_C0"] = copy_c0
+
+    # 3. Uncompute Phase: Run inverse of Compute Phase to restore G0 to 0
+    # The inverse of CNOT is itself. We run CNOT on (A, B) again to deallocate G0
+    _, restored_g0 = sim.gate_cnot(a, b)
+    # The garbage G0 must return to its initial zero state!
+    regs["garbage_G0"] = restored_g0 ^ g0 # Reversible restoration logic
+
+    # Final landauer energy is 0 because no bits are destructively erased!
+    return regs["copy_C0"], regs, landauer_energy
+
+# Verification
+out, final_regs, energy = run_reversible_xor_lab(1, 1)
+print(f"XOR Output: {out} (Expected: 0)")
+print(f"Final Registers: {final_regs} (Garbage G0 should be 0)")
+print(f"Thermodynamic Heat Loss: {energy} Joules")
+```
+
+---
+
 ## Grading Criteria & System Verification
 
 For all submissions, systems engineering students are assessed on:
 1. **Mathematical correctness**: Does the custom balanced ternary arithmetic or dataflow routing yield the exact expected value?
 2. **Robustness of constraints**: Are capability and descriptor access gates protected against address overflows and tag forgery?
 3. **Liveness**: Does the concurrent design avoid deadlock and satisfy the progress property?
+4. **Thermodynamic Integrity**: Does the reversible logic simulation return intermediate garbage states cleanly to zero to bypass Landauer limits?

@@ -96,6 +96,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Academic Research & Hardware Partnerships](modern-relevance/partnerships.md) — *Connecting key excavations to active academic labs, zero-trust security initiatives, and open-source FPGA/ASIC hardware toolchains.*
 - [FPGA Prototyping & Reconfigurable Computing](modern-relevance/fpga.md) — *Modern programmable logic as a time machine for architectural experimentation.*
 - [Mixed-Radix & Alternative Number Systems](modern-relevance/mixed-radix.md) — *Evaluating ternary, posits, and log number systems in modern silicon.*
+- [Modern Revival Readiness Scorecard](modern-relevance/revival-readiness.md) — *Quantitative comparative evaluation of alternative computing lineages.*
 - [Symbolic Computing](modern-relevance/symbolic-computing.md) — *Neuro-symbolic integration, automated theorem proving, and deterministic guardrails.*
 
 ---
