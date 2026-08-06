@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Capability-Based Memory Protection Emulator
-Simulates hardware-enforced capabilities, tagged memory, bounds-checking, and domain transitions.
+Capability-Based Memory Protection & Tagged-Memory Emulator
+Simulates hardware-enforced capabilities, tagged memory, bounds-checking, domain transitions,
+Lisp-Machine-style dynamic type tags with CDR-coding, and Burroughs-style descriptors with presence-bit virtual paging.
 """
 
 class CapabilityException(Exception):
@@ -18,6 +19,10 @@ class PermissionException(CapabilityException):
 
 class TagException(CapabilityException):
     """Raised when attempting to use a raw data word as a capability."""
+    pass
+
+class DescriptorNotPresentException(CapabilityException):
+    """Raised when a Burroughs-style memory descriptor has its presence bit cleared (page fault)."""
     pass
 
 
@@ -66,6 +71,38 @@ class RevocableCapabilityWord(CapabilityWord):
         return f"RevocableCap(base={self.base}, limit={self.limit}, perms={perms}, gate={self.gate_id}, label='{self.label}')"
 
 
+class LispWord(Word):
+    """
+    A dynamic tagged memory word mimicking a Lisp Machine word (tag bit = 1 with custom tag).
+    Includes a type tag (e.g. 'Fixnum', 'Flonum', 'Symbol', 'Cons') and a cdr-code (e.g. 'CDR-NORMAL', 'CDR-NEXT', 'CDR-NIL').
+    """
+    def __init__(self, type_tag: str, value, cdr_code: str = "CDR-NORMAL"):
+        self.type_tag = type_tag  # 'Fixnum', 'Flonum', 'Symbol', 'Cons', etc.
+        self.value = value
+        self.cdr_code = cdr_code  # 'CDR-NORMAL', 'CDR-NEXT', 'CDR-NIL'
+
+    def __repr__(self):
+        return f"LispWord(tag={self.type_tag}, val={self.value}, cdr={self.cdr_code})"
+
+
+class DescriptorWord(Word):
+    """
+    A memory descriptor mimicking Burroughs Large Systems (tag bit = 1 with custom tag).
+    Features a presence bit (virtual memory swap-out), read-only flag, limit (bounds), and physical base address.
+    """
+    def __init__(self, base: int, limit: int, is_present: bool = True, read_only: bool = False, label: str = ""):
+        self.base = base
+        self.limit = limit
+        self.is_present = is_present
+        self.read_only = read_only
+        self.label = label
+
+    def __repr__(self):
+        pres_str = "" if self.is_present else " (NOT PRESENT)"
+        ro_str = " (RO)" if self.read_only else ""
+        return f"Desc(base={self.base}, limit={self.limit}{pres_str}{ro_str}, label='{self.label}')"
+
+
 class TaggedRAM:
     """
     Simulated memory where each address contains a Word.
@@ -90,6 +127,7 @@ class CPU:
     """
     A virtual CPU implementing capability registers and hardware-enforced bounds checking.
     Tracks performance counters for hardware validation operations.
+    Also supports dynamic type tags (Lisp Machine) and memory descriptors (Burroughs).
     """
     def __init__(self, ram: TaggedRAM):
         self.ram = ram
@@ -113,7 +151,8 @@ class CPU:
             "bounds_checks": 0,
             "domain_crossings": 0,
             "tag_validations": 0,
-            "derivations": 0
+            "derivations": 0,
+            "page_faults": 0
         }
 
     def reset_perf_counters(self):
@@ -225,7 +264,7 @@ class CPU:
         word = self.ram.read(address)
 
         if not isinstance(word, DataWord):
-            raise TagException(f"Type Mismatch: Memory cell at address {address} contains a Capability. Use LOAD_CAP instead.")
+            raise TagException(f"Type Mismatch: Memory cell at address {address} contains a Capability or non-DataWord. Use LOAD_CAP instead.")
 
         self.data_regs[dest_data_idx] = word.value
 
@@ -313,6 +352,202 @@ class CPU:
 
         self._validate_cap(src_cap)
         self.ram.write(address, src_cap)
+
+    # =========================================================
+    # Lisp-Machine-Style Tagged Memory & Operations
+    # =========================================================
+
+    def load_lisp_word(self, dest_reg_idx: int, cap_idx: int, offset: int):
+        """Loads a LispWord from RAM. Validates bounds, tag, and permission."""
+        self.perf_counters["bounds_checks"] += 1
+        self.perf_counters["memory_reads"] += 1
+
+        cap = self.cap_regs[cap_idx]
+        if not cap:
+            raise TagException(f"Register C{cap_idx} is empty.")
+        self._validate_cap(cap)
+        if cap.sealed:
+            raise PermissionException("Cannot load from a sealed capability.")
+        if 'R' not in cap.permissions:
+            raise PermissionException("Capability lacks READ permission.")
+
+        if offset < 0 or offset >= cap.limit:
+            raise BoundsException(f"OOB Lisp Read: Offset {offset} exceeds limit {cap.limit}.")
+
+        address = cap.base + offset
+        word = self.ram.read(address)
+
+        if not isinstance(word, LispWord):
+            raise TagException(f"Tag Mismatch: Memory cell at {address} is not a LispWord (Got {type(word).__name__}).")
+
+        # Load LispWord directly into data_regs slot (as an object container)
+        self.data_regs[dest_reg_idx] = word
+
+    def store_lisp_word(self, src_reg_idx: int, cap_idx: int, offset: int):
+        """Stores a LispWord into RAM. Validates bounds, tags, and permissions."""
+        self.perf_counters["bounds_checks"] += 1
+        self.perf_counters["memory_writes"] += 1
+
+        cap = self.cap_regs[cap_idx]
+        if not cap:
+            raise TagException(f"Register C{cap_idx} is empty.")
+        self._validate_cap(cap)
+        if cap.sealed:
+            raise PermissionException("Cannot store using a sealed capability.")
+        if 'W' not in cap.permissions:
+            raise PermissionException("Capability lacks WRITE permission.")
+
+        if offset < 0 or offset >= cap.limit:
+            raise BoundsException(f"OOB Lisp Write: Offset {offset} exceeds limit {cap.limit}.")
+
+        address = cap.base + offset
+        lisp_val = self.data_regs[src_reg_idx]
+        if not isinstance(lisp_val, LispWord):
+            raise TagException("Source register does not contain a LispWord.")
+
+        self.ram.write(address, lisp_val)
+
+    def lisp_add(self, dest_idx: int, src1_idx: int, src2_idx: int):
+        """
+        Hardware-enforced dynamic type-check addition (Lisp Machine style).
+        Verifies both source registers contain LispWords with tag 'Fixnum' or 'Flonum'.
+        Throws a TagException if there is a type mismatch.
+        """
+        self.perf_counters["tag_validations"] += 2
+
+        w1 = self.data_regs[src1_idx]
+        w2 = self.data_regs[src2_idx]
+
+        if not isinstance(w1, LispWord) or not isinstance(w2, LispWord):
+            raise TagException("ALU Error: Operand registers must contain dynamic LispWords.")
+
+        if w1.type_tag not in ("Fixnum", "Flonum") or w2.type_tag not in ("Fixnum", "Flonum"):
+            raise TagException(f"Type Error: Cannot add types {w1.type_tag} and {w2.type_tag}.")
+
+        # Perform operation
+        res_val = w1.value + w2.value
+        res_tag = "Flonum" if (w1.type_tag == "Flonum" or w2.type_tag == "Flonum") else "Fixnum"
+
+        # Write result
+        self.data_regs[dest_idx] = LispWord(type_tag=res_tag, value=res_val)
+
+    def lisp_cdr_next_traverse(self, cap_idx: int, start_offset: int) -> list:
+        """
+        Traverses a sequence of list elements starting at an offset, leveraging CDR-coding tags.
+        Demonstrates CDR-coding sequential list packing.
+        """
+        cap = self.cap_regs[cap_idx]
+        if not cap:
+            raise TagException("Capability register is empty.")
+        self._validate_cap(cap)
+
+        visited_values = []
+        current_offset = start_offset
+
+        while True:
+            self.perf_counters["bounds_checks"] += 1
+            self.perf_counters["memory_reads"] += 1
+
+            if current_offset < 0 or current_offset >= cap.limit:
+                raise BoundsException("OOB list traversal.")
+
+            address = cap.base + current_offset
+            word = self.ram.read(address)
+
+            if not isinstance(word, LispWord):
+                break
+
+            visited_values.append(word.value)
+
+            if word.cdr_code == "CDR-NIL":
+                # End of list
+                break
+            elif word.cdr_code == "CDR-NEXT":
+                # Next memory cell contains the cdr of this list element sequentially (no pointer needed!)
+                current_offset += 1
+            else:
+                # CDR-NORMAL representation: the next memory cell or pointer must be dereferenced
+                # For simplicity, we assume we follow the pointer in its value field
+                if not isinstance(word.value, tuple) or len(word.value) < 2:
+                    break
+                # Value tuple is (CAR, CDR_OFFSET)
+                visited_values[-1] = word.value[0] # The current car
+                current_offset = word.value[1] # Follow pointer to cdr offset
+
+        return visited_values
+
+    # =========================================================
+    # Burroughs-Style Descriptor Memory & Operations
+    # =========================================================
+
+    def load_via_descriptor(self, dest_data_idx: int, desc_reg_idx: int, index: int):
+        """
+        LOAD_VIA_DESCRIPTOR: Loads a value from RAM via a Burroughs B5000-style descriptor.
+        Validates descriptor type, presence-bit (virtual page-in), limits, and loads data.
+        """
+        self.perf_counters["tag_validations"] += 1
+
+        desc = self.data_regs[desc_reg_idx] if desc_reg_idx < len(self.data_regs) else None
+        # Descriptors can also live in data registers in the B5000 stack/register space
+        if not isinstance(desc, DescriptorWord):
+            raise TagException(f"Register D{desc_reg_idx} does not contain a Burroughs Descriptor.")
+
+        # 1. Presence-bit check
+        if not desc.is_present:
+            self.perf_counters["page_faults"] += 1
+            raise DescriptorNotPresentException(f"Descriptor Not Present Fault: Segment '{desc.label}' swapped out of physical memory!")
+
+        # 2. Bounds check
+        self.perf_counters["bounds_checks"] += 1
+        if index < 0 or index >= desc.limit:
+            raise BoundsException(f"Descriptor Index Out of Bounds: Index {index} exceeds limit {desc.limit}.")
+
+        # 3. Read memory
+        self.perf_counters["memory_reads"] += 1
+        address = desc.base + index
+        word = self.ram.read(address)
+
+        if not isinstance(word, DataWord):
+            raise TagException(f"Descriptor Access Error: Target word at {address} is not raw data.")
+
+        self.data_regs[dest_data_idx] = word.value
+
+    def store_via_descriptor(self, src_data_idx: int, desc_reg_idx: int, index: int):
+        """
+        STORE_VIA_DESCRIPTOR: Stores a value into RAM via a Burroughs descriptor.
+        Enforces presence-bit, bounds-checking, and read-only write protection.
+        """
+        self.perf_counters["tag_validations"] += 1
+
+        desc = self.data_regs[desc_reg_idx] if desc_reg_idx < len(self.data_regs) else None
+        if not isinstance(desc, DescriptorWord):
+            raise TagException(f"Register D{desc_reg_idx} does not contain a Burroughs Descriptor.")
+
+        # 1. Presence-bit check
+        if not desc.is_present:
+            self.perf_counters["page_faults"] += 1
+            raise DescriptorNotPresentException(f"Descriptor Not Present Fault: Segment '{desc.label}' swapped out of physical memory!")
+
+        # 2. Bounds check
+        self.perf_counters["bounds_checks"] += 1
+        if index < 0 or index >= desc.limit:
+            raise BoundsException(f"Descriptor Index Out of Bounds: Index {index} exceeds limit {desc.limit}.")
+
+        # 3. Write protection check
+        if desc.read_only:
+            raise PermissionException(f"Permission Violation: Attempted to write to Read-Only Descriptor '{desc.label}'.")
+
+        # 4. Write memory
+        self.perf_counters["memory_writes"] += 1
+        address = desc.base + index
+        val = self.data_regs[src_data_idx]
+        self.ram.write(address, DataWord(val))
+
+    def page_in_descriptor(self, desc_reg_idx: int):
+        """Simulates an operating system (MCP) paging-in a descriptor's memory space."""
+        desc = self.data_regs[desc_reg_idx]
+        if isinstance(desc, DescriptorWord):
+            desc.is_present = True
 
     def print_state(self):
         """Prints the CPU register and RAM status."""

@@ -8,6 +8,9 @@ from capability_sim import (
     PermissionException,
     TagException,
     RevocableCapabilityWord,
+    LispWord,
+    DescriptorWord,
+    DescriptorNotPresentException,
 )
 
 def test_tagged_ram_operations():
@@ -102,7 +105,7 @@ def test_tag_and_forgery_mismatch():
 
 
 # =========================================================
-# New Security & Performance Tests
+# Security & Performance Tests
 # =========================================================
 
 def test_performance_counters():
@@ -172,3 +175,120 @@ def test_revocable_capabilities():
 
     with pytest.raises(PermissionException):
         cpu.store_data(src_data_idx=0, cap_idx=1, offset=2)
+
+
+# =========================================================
+# Lisp Machine & Burroughs Descriptor Tests
+# =========================================================
+
+def test_lisp_machine_simulation():
+    ram = TaggedRAM(100)
+    cpu = CPU(ram)
+
+    # 1. Setup Lisp words in memory
+    w1 = LispWord("Fixnum", 42)
+    w2 = LispWord("Fixnum", 58)
+    w3 = LispWord("Symbol", "HELLO")
+
+    # Store them using system capability C0
+    cpu.data_regs[0] = w1
+    cpu.data_regs[1] = w2
+    cpu.data_regs[2] = w3
+
+    cpu.store_lisp_word(src_reg_idx=0, cap_idx=0, offset=10)
+    cpu.store_lisp_word(src_reg_idx=1, cap_idx=0, offset=11)
+    cpu.store_lisp_word(src_reg_idx=2, cap_idx=0, offset=12)
+
+    # 2. Load them back
+    cpu.load_lisp_word(dest_reg_idx=0, cap_idx=0, offset=10)
+    cpu.load_lisp_word(dest_reg_idx=1, cap_idx=0, offset=11)
+    cpu.load_lisp_word(dest_reg_idx=2, cap_idx=0, offset=12)
+
+    assert isinstance(cpu.data_regs[0], LispWord)
+    assert cpu.data_regs[0].value == 42
+    assert cpu.data_regs[1].value == 58
+
+    # 3. Perform Type-Checked Dynamic Lisp Addition
+    cpu.lisp_add(dest_idx=3, src1_idx=0, src2_idx=1)
+    assert isinstance(cpu.data_regs[3], LispWord)
+    assert cpu.data_regs[3].type_tag == "Fixnum"
+    assert cpu.data_regs[3].value == 100
+
+    # 4. Try adding mismatching types (Fixnum + Symbol)
+    with pytest.raises(TagException):
+        cpu.lisp_add(dest_idx=3, src1_idx=0, src2_idx=2)
+
+    # 5. Try adding a raw non-LispWord
+    cpu.load_const(src1_idx := 0, 999)
+    with pytest.raises(TagException):
+        cpu.lisp_add(dest_idx=3, src1_idx=0, src2_idx=1)
+
+
+def test_lisp_cdr_coding_traversal():
+    ram = TaggedRAM(100)
+    cpu = CPU(ram)
+
+    # Store sequential list [10, 20, 30] using CDR-NEXT
+    ram.write(20, LispWord("Fixnum", 10, cdr_code="CDR-NEXT"))
+    ram.write(21, LispWord("Fixnum", 20, cdr_code="CDR-NEXT"))
+    ram.write(22, LispWord("Fixnum", 30, cdr_code="CDR-NIL"))
+
+    # Traverse list using C0
+    vals = cpu.lisp_cdr_next_traverse(cap_idx=0, start_offset=20)
+    assert vals == [10, 20, 30]
+
+
+def test_burroughs_descriptor_checks():
+    ram = TaggedRAM(100)
+    cpu = CPU(ram)
+
+    # Write data segment elements in memory [30, 35)
+    ram.write(30, DataWord(111))
+    ram.write(31, DataWord(222))
+    ram.write(32, DataWord(333))
+
+    # Setup a descriptor inside data register 0
+    desc_normal = DescriptorWord(base=30, limit=5, is_present=True, read_only=False, label="ArrayBuf")
+    cpu.data_regs[0] = desc_normal
+
+    # Read via descriptor (Success)
+    cpu.load_via_descriptor(dest_data_idx=1, desc_reg_idx=0, index=1)
+    assert cpu.data_regs[1] == 222
+
+    # Write via descriptor (Success)
+    cpu.load_const(src_data_idx := 2, 777)
+    cpu.store_via_descriptor(src_data_idx=2, desc_reg_idx=0, index=2)
+    assert ram.read(32).value == 777
+
+    # Bounds Violation (Index 5 is out of bounds for limit 5)
+    with pytest.raises(BoundsException):
+        cpu.load_via_descriptor(dest_data_idx=1, desc_reg_idx=0, index=5)
+
+    with pytest.raises(BoundsException):
+        cpu.store_via_descriptor(src_data_idx=2, desc_reg_idx=0, index=-1)
+
+    # Read-Only Protection Violation
+    desc_ro = DescriptorWord(base=30, limit=5, is_present=True, read_only=True, label="ReadOnlyBuf")
+    cpu.data_regs[0] = desc_ro
+
+    # Read RO is fine
+    cpu.load_via_descriptor(dest_data_idx=1, desc_reg_idx=0, index=1)
+    assert cpu.data_regs[1] == 222
+
+    # Write RO is blocked
+    with pytest.raises(PermissionException):
+        cpu.store_via_descriptor(src_data_idx=2, desc_reg_idx=0, index=1)
+
+    # Virtual Memory Page Fault (Descriptor not present)
+    desc_swapped = DescriptorWord(base=30, limit=5, is_present=False, read_only=False, label="SwappedArray")
+    cpu.data_regs[0] = desc_swapped
+
+    with pytest.raises(DescriptorNotPresentException):
+        cpu.load_via_descriptor(dest_data_idx=1, desc_reg_idx=0, index=1)
+
+    assert cpu.perf_counters["page_faults"] == 1
+
+    # Simulate Page-in by OS
+    cpu.page_in_descriptor(desc_reg_idx=0)
+    cpu.load_via_descriptor(dest_data_idx=1, desc_reg_idx=0, index=1)
+    assert cpu.data_regs[1] == 222
