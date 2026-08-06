@@ -2,7 +2,7 @@
   "metadata": {
     "title": "Digital Archaeology Knowledge Graph",
     "description": "A comparative research database of forgotten and alternative computing paradigms.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "last_updated": "2026-08-02"
   },
   "glossary": [
@@ -2030,6 +2030,136 @@
         "Lie, S. (2023). *Wafer-Scale Compute: The Cerebras Architecture*. IEEE Micro, 43(3), 28–36.",
         "Tegze, M., & Janac, J. (1991). *Wafer Scale Integration: Architectures and Algorithms*. Academic Press."
       ]
+    }
+  ],
+  "synthesis_essays": [
+    {
+      "id": "alternative-mathematical-execution-paradigms",
+      "title": "Alternative Mathematical Execution Paradigms: Beyond the Binary Von Neumann Architecture",
+      "path": "synthesis/alternative-mathematical-execution-paradigms.md",
+      "summary": "**How historical models of non-standard computation—ranging from symmetric balanced ternary arithmetic to probabilistic stochastic bitstreams and symbolic logic resolution trees—are returning to bypass the memory wall, density constraints, and uncertainty of modern AI systems.**"
+    },
+    {
+      "id": "architectural-distillation",
+      "title": "Architectural Distillation",
+      "path": "synthesis/architectural-distillation.md",
+      "summary": "**How failed computing systems continue to shape modern architectures by leaving behind abstractions that outlive their original implementations.**"
+    },
+    {
+      "id": "capability-based-security",
+      "title": "Capability-Based Security: From Obscurity to Necessity",
+      "path": "synthesis/capability-based-security.md",
+      "summary": "How an elegant but forgotten security model is quietly becoming one of the most relevant ideas for the AI and zero-trust era."
+    },
+    {
+      "id": "compiler-hardware-co-design",
+      "title": "Compiler-Hardware Co-Design: The Quiet Revolution",
+      "path": "synthesis/compiler-hardware-co-design.md",
+      "summary": "How the most successful modern computing systems are built by treating the compiler and hardware as a single co-designed system — a lesson learned from both failure and survival in computing history."
+    },
+    {
+      "id": "evolution-of-coordination-abstractions",
+      "title": "The Evolution of Coordination Abstractions: From Shared Memory to Decoupled Concurrency",
+      "path": "synthesis/evolution-of-coordination-abstractions.md",
+      "summary": "How historical models of process communication—ranging from synchronous hardware channels to anonymous generative tuple spaces—are returning to solve modern cloud, multi-agent AI, and edge computing bottlenecks."
+    },
+    {
+      "id": "return-of-spatial-computing",
+      "title": "The Return of Spatial Computing",
+      "path": "synthesis/return-of-spatial-computing.md",
+      "summary": "How abandoned parallel and spatial architectures from the 1980s–90s are quietly reshaping modern hardware, especially in the age of AI."
+    },
+    {
+      "id": "revival-readiness",
+      "title": "Modern Revival Readiness Scorecard",
+      "path": "modern-relevance/revival-readiness.md",
+      "summary": "A quantitative scorecard and high-density synthesis evaluating the commercial and technical revival readiness of the four core lineages under sub-5nm CMOS constraints."
+    }
+  ],
+  "reconstructions": [
+    {
+      "id": "analog-optical",
+      "title": "Analog Optical",
+      "path": "reconstructions/analog-optical/",
+      "entry_point": "reconstructions/analog-optical/analog_optical_sim.py",
+      "description": "Executable simulator for the Analog Optical paradigm."
+    },
+    {
+      "id": "capability-security",
+      "title": "Capability Security",
+      "path": "reconstructions/capability-security/",
+      "entry_point": "reconstructions/capability-security/capability_sim.py",
+      "description": "Executable simulator for the Capability Security paradigm."
+    },
+    {
+      "id": "csp-messaging",
+      "title": "Csp Messaging",
+      "path": "reconstructions/csp-messaging/",
+      "entry_point": "reconstructions/csp-messaging/csp_sim.py",
+      "description": "Executable simulator for the Csp Messaging paradigm."
+    },
+    {
+      "id": "dataflow-engine",
+      "title": "Dataflow Engine",
+      "path": "reconstructions/dataflow-engine/",
+      "entry_point": "reconstructions/dataflow-engine/dataflow_sim.py",
+      "description": "Executable simulator for the Dataflow Engine paradigm."
+    },
+    {
+      "id": "mixed-radix-sim",
+      "title": "Mixed Radix Sim",
+      "path": "reconstructions/mixed-radix-sim/",
+      "entry_point": "reconstructions/mixed-radix-sim/ternary_sim.py",
+      "description": "Executable simulator for the Mixed Radix Sim paradigm."
+    },
+    {
+      "id": "neuro-symbolic",
+      "title": "Neuro Symbolic",
+      "path": "reconstructions/neuro-symbolic/",
+      "entry_point": "reconstructions/neuro-symbolic/neuro_symbolic_sim.py",
+      "description": "Executable simulator for the Neuro Symbolic paradigm."
+    },
+    {
+      "id": "plan9-9p",
+      "title": "Plan9 9P",
+      "path": "reconstructions/plan9-9p/",
+      "entry_point": "reconstructions/plan9-9p/namespace_sim.py",
+      "description": "Stateful 9P/Styx protocol and private distributed namespace simulator."
+    },
+    {
+      "id": "stochastic-computing",
+      "title": "Stochastic Computing",
+      "path": "reconstructions/stochastic-computing/",
+      "entry_point": "reconstructions/stochastic-computing/stochastic_sim.py",
+      "description": "Executable simulator for the Stochastic Computing paradigm."
+    },
+    {
+      "id": "systolic-array",
+      "title": "Systolic Array",
+      "path": "reconstructions/systolic-array/",
+      "entry_point": "reconstructions/systolic-array/systolic_sim.py",
+      "description": "Cycle-accurate Weight-Stationary and Output-Stationary systolic matrix multiplier with energy proxy counters."
+    },
+    {
+      "id": "tuple-space",
+      "title": "Tuple Space",
+      "path": "reconstructions/tuple-space/",
+      "entry_point": "reconstructions/tuple-space/tuple_space_sim.py",
+      "description": "Executable simulator for the Tuple Space paradigm."
+    },
+    {
+      "id": "synthesizable-hardware",
+      "title": "Synthesizable Hardware Blueprints",
+      "path": "reconstructions/synthesizable-hardware/",
+      "entry_point": "reconstructions/synthesizable-hardware/",
+      "description": "Synthesizable SystemVerilog models of a 3-trit Balanced Ternary ALU and Tagged RAM Capability Bounds Checker."
+    },
+    {
+      "id": "co-simulation",
+      "title": "Multi-Architecture Co-Simulation Fabric",
+      "path": "reconstructions/co-simulation/",
+      "entry_point": "reconstructions/co-simulation/orchestrator.py",
+      "description": "Cross-architecture co-simulator orchestrating a hybrid AI statistical pipeline, synchronous CSP channels, and dynamic dataflow blocks."
     }
   ]
 }

@@ -124,6 +124,7 @@ nav:
     - The Evolution of Coordination Abstractions: synthesis/evolution-of-coordination-abstractions.md
     - Return of Spatial Computing: synthesis/return-of-spatial-computing.md
   - Modern Relevance:
+    - How to Use This Repo: modern-relevance/using-this-repo.md
     - AI & Hardware Bottlenecks: modern-relevance/ai.md
     - Coprocessors: modern-relevance/coprocessors.md
     - Academic Partnerships: modern-relevance/partnerships.md
