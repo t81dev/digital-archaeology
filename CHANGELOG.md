@@ -2,6 +2,25 @@
 
 All notable changes to the Digital Archaeology repository will be documented in this file.
 
+## [Phase IX: Cross-Paradigm Sandbox Verification & Soft-Core Hardening] - August 2026
+
+### Added
+- **Runnable Multi-Paradigm Sandbox Experiments**: Developed a comprehensive integration driver and execution script `reconstructions/co-simulation/experiments.py` implementing three high-impact cross-paradigm experiments proposed in the State of Revival synthesis:
+  - *Experiment 1: Heterogeneous Cryogenic Systolic Coprocessor*: Wires the cycle-accurate systolic array activity & interconnect metrics directly to Josephson junction switching events and cryogenic refrigeration models at 4.2 K, demonstrating up to a $140\times$ efficiency gain over standard 5 GHz CMOS GPU tiles.
+  - *Experiment 2: Reversible Uncomputation in Cryogenic Storage Loops*: Combines adiabatic charge recovery with the cryogenic cooling penalty model to demonstrate absolute Landauer heat erasure avoidance, saving over $3.6\times10^4 \text{ fJ}$ of utility grid power per uncomputed bit at cryogenic scale.
+  - *Experiment 3: 9P Sandboxed Execution for Autonomous LLM Agents*: Integrates the Plan 9/9P private resource namespace server with inline hardware-level Burroughs segmented memory descriptors, validating the block of OOB prompt-injection attacks and triggering proper page faults.
+- **Focused Multi-Paradigm Unit Tests**: Added a complete Pytest test suite `reconstructions/co-simulation/test_experiments.py` to continuously verify the correctness, metrics, and security guarantees of all three sandbox experiments.
+
+### Improved
+- **Prominent Navigation & Discoverability**:
+  - Rewrote the top of `synthesis/state-of-revival.md` to cleanly integrate the three multi-paradigm experiments and reference the executable experiments driver.
+  - Added the dynamic experiments to `README.md` and `modern-relevance/using-this-repo.md` as prominent entry points for computer architects and security researchers.
+  - Updated `INDEX.md` and rebuilt `modern-relevance/knowledge_graph.json` so that the newly written experiments and academic synthesis modules are indexed as first-class, highly-connected taxonomy nodes.
+- **Synthesizable Soft-Core Documentation**:
+  - Polished module headers, asynchronous active-low reset styles, and port signal declarations in `capability_bounds_checker.sv`, `ternary_alu.sv`, `reversible_gates.sv`, and `stochastic_multiplier.sv` for clean synthesis in Lattice iCE40 FPGAs and OpenLane ASIC compiler suites.
+
+---
+
 ## [Phase VIII: Academic Credibility & Soft-Core Hardening] - August 2026
 
 ### Added

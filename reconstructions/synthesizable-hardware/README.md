@@ -61,6 +61,17 @@ Our SystemVerilog designs strictly avoid unsynthesizable behavioral structures. 
 
 ---
 
+## Runnable Multi-Paradigm Sandbox Integration
+
+To complement our synthesizable SystemVerilog IP cores, we have wired these physical paradigms and timing models into a complete, runnable integration and co-simulation driver at **`reconstructions/co-simulation/experiments.py`**.
+
+External researchers can execute this driver out-of-the-box to run three distinct, highly-synergistic architectural experiments:
+1. **Experiment 1 (Cryogenic Systolic Coprocessor)**: Simulates weight-stationary systolic array operations mapped directly to Rapid Single Flux Quantum (RSFQ) switching events and Carnot refrigeration cooling budgets.
+2. **Experiment 2 (Reversible Cryogenic Storage Loops)**: Integrates Bennett-style uncomputation logic gates to bypass Landauer's thermodynamic erasure limit at 4.2 K cryogenic conditions.
+3. **Experiment 3 (9P Sandboxed execution)**: Mounts Plan 9 9P-style private resource file trees and filters read/write traffic through the hardware-synthesizable Capability Bounds Checker.
+
+---
+
 ## Microarchitectural Integration Notes
 
 These soft-cores are fully synthesizable and designed for integration with standard SoC architectures or FPGA wrappers. Below are the minimal microarchitectural connection patterns and testbench sequences for each module:
