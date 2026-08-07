@@ -82,7 +82,7 @@ The table below maps the six core lineages across historical computing eras, ill
 - **2001**: Intel releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](../excavations/vliw-epic.md)
 - **2003–2006**: The DARPA-funded **TRIPS (EDGE)** processor demonstrates instruction-level spatial dataflow compilation and block-structured scheduling. **Key excavation link**: [Explicit Data Graph Execution (EDGE)](../excavations/edge-architecture.md)
 - **2004**: Dennard scaling breaks down (the Power Wall), ending the era of single-thread frequency scaling and forcing the industry toward multi-core CPUs.
-- **Late 2000s**: The GPGPU revolution begins, repurposing 3D graphics hardware for massively parallel vector math. **Key excavation link**: [Associative Processors](../excavations/associative-processors.md)
+- **Late 2000s**: The GPU revolution begins, repurposing 3D graphics hardware for massively parallel vector math. **Key excavation link**: [Associative Processors](../excavations/associative-processors.md)
 
 ---
 
