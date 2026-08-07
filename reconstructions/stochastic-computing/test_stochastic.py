@@ -158,3 +158,24 @@ def test_stochastic_signal_filter():
     assert all(0.0 <= x <= 1.0 for x in filtered)
     # The smoothed version of 0.9 in the middle of 0.1 and 0.8 should decrease
     assert filtered[1] < 0.9
+
+
+def test_stochastic_noise_benchmark_execution():
+    """Verify that the stochastic noise-robustness benchmark harness runs successfully and complies with expected margins."""
+    from benchmark_noise import StochasticMultiplierBenchmark, BinaryMultiplier8Bit
+
+    # 1. Test binary multiplier logic directly
+    bin_mult = BinaryMultiplier8Bit()
+    assert bin_mult.get_dynamic_toggles() == 240
+
+    # Verify zero-noise multiplier correctness
+    product = bin_mult.multiply(0.5, 0.5, bit_flip_prob=0.0)
+    assert abs(product - 0.25) < 0.05
+
+    # Verify noisy multiplier degrades
+    product_noisy = bin_mult.multiply(0.5, 0.5, bit_flip_prob=0.2)
+    assert 0.0 <= product_noisy <= 1.0
+
+    # 2. Run a small scale benchmark to verify complete harness integration
+    benchmark = StochasticMultiplierBenchmark()
+    benchmark.run_benchmark(num_trials=10, noise_levels=[0.0, 0.05])

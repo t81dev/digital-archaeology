@@ -15,11 +15,13 @@ def test_rtl_files_exist_and_are_valid():
     checker_path = os.path.join(hardware_dir, "capability_bounds_checker.sv")
     reversible_path = os.path.join(hardware_dir, "reversible_gates.sv")
     multiplier_path = os.path.join(hardware_dir, "stochastic_multiplier.sv")
+    formal_path = os.path.join(hardware_dir, "formal_assertions_companion.sv")
 
     assert os.path.exists(alu_path), "ternary_alu.sv does not exist!"
     assert os.path.exists(checker_path), "capability_bounds_checker.sv does not exist!"
     assert os.path.exists(reversible_path), "reversible_gates.sv does not exist!"
     assert os.path.exists(multiplier_path), "stochastic_multiplier.sv does not exist!"
+    assert os.path.exists(formal_path), "formal_assertions_companion.sv does not exist!"
 
     # Verify Ternary ALU contains expected modules and synthesizable syntax
     with open(alu_path, 'r', encoding='utf-8') as f:
@@ -62,6 +64,18 @@ def test_rtl_files_exist_and_are_valid():
         assert "stream_b" in mult_content
         assert "stream_out" in mult_content
         assert "endmodule" in mult_content
+
+    # Verify Formal Assertions Companion contains correct SVA bind modules
+    with open(formal_path, 'r', encoding='utf-8') as f:
+        formal_content = f.read()
+        assert "module capability_checker_sva_bind" in formal_content
+        assert "assert_unforgeability: assert property" in formal_content
+        assert "assert_spatial_safety: assert property" in formal_content
+        assert "assert_descriptor_page_fault: assert property" in formal_content
+        assert "module stochastic_multiplier_sva_bind" in formal_content
+        assert "assert_lfsr_nonzero: assert property" in formal_content
+        assert "module reversible_gates_sva_bind" in formal_content
+        assert "assert_fredkin_conservation: assert property" in formal_content
 
 
 # ==========================================
