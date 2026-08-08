@@ -25,11 +25,11 @@ Early hardware-enforced and software-mediated systems evolved through distinct g
 ### 2. KeyKOS (1983)
 * Developed by Key Systems, KeyKOS was a commercial microkernel-based OS designed for high-availability mainframe banking environments.
 * **Architecture**: KeyKOS implemented a *single-level store*, mapping disk blocks and RAM into a unified, persistent address space. Objects were represented by "keys" (capabilities).
-* **Mechanisms**: Disk pages themselves acted as capabilities (disc pages as objects), mediated securely by the microkernel. To handle performance constraints, KeyKOS utilized highly optimized kernel-mediated message passing (IPC). Despite having fewer than 100,000 lines of code, it demonstrated unprecedented reliability and security, achieving years of continuous uptime without security breaches.
+* **Mechanisms**: Disk pages themselves acted as capabilities (disc pages as objects), mediated securely by the microkernel. To handle performance constraints, KeyKOS utilized highly optimized kernel-mediated message passing (IPC). Despite a compact microkernel codebase of approximately $20,000\text{--}100,000$ lines of code, it demonstrated unprecedented reliability and security, achieving years of continuous uptime without security breaches.
 
 ### 3. EROS: Extremely Reliable Operating System (1999)
 * Developed by Jonathan Shapiro et al. at the University of Pennsylvania, EROS modernized the KeyKOS single-level store and capability mechanisms.
-* **Performance**: EROS resolved long-standing criticisms regarding capability overhead. It achieved extremely fast synchronous IPC performance—taking only ~50 clock cycles on a Pentium II, which outperformed traditional microkernels like Mach by an order of magnitude.
+* **Performance**: EROS resolved long-standing criticisms regarding capability overhead. It achieved extremely fast synchronous IPC performance—taking only $50\text{--}200$ clock cycles depending on the processor state, which outperformed traditional microkernels like Mach by an order of magnitude.
 * **Persistence & Safety**: EROS implemented periodic, synchronous system-wide checkpointing (continuous orthogonal persistence). It provided a clean substrate for formal verification, establishing mathematical proofs of isolation and authority confinement.
 
 ```

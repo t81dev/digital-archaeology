@@ -134,12 +134,12 @@ Because these pulses are transient, standard logical structures are fully statef
 
 ## Innovations
 
-* **Extreme Speed Boundaries ($100\text{--}750\text{ GHz}$)**: Operating speeds are limited only by the Josephson plasma frequency, enabling raw clock trees to tick at speeds $100\times$ faster than standard silicon.
+* **Extreme Speed Boundaries ($100\text{--}750\text{ GHz}$)**: Operating speeds are limited only by the Josephson plasma frequency, enabling raw clock trees to tick at speeds of $10\times\text{--}100\times$ faster than standard room-temperature silicon pipelines.
 * **Sub-Attojoule Switching Energy**: The fundamental physical switching energy of a Josephson junction is extraordinarily small:
 
   $$E_s \approx I_c \Phi_0 \approx 100 \text{ }\mu\text{A} \times 2.07 \times 10^{-15} \text{ Wb} \approx 2 \times 10^{-19} \text{ Joules (or } 0.2 \text{ aJ)}$$
 
-  This is approximately $10,000\times$ lower than the charging energy of a minimum-sized sub-5nm room-temperature CMOS gate.
+  This is approximately $1000\times\text{--}10,000\times$ lower than the charging energy of a minimum-sized sub-5nm room-temperature CMOS gate.
 * **Superconducting Transmission Lines (Passive Microstrip Lines)**: Unlike lossy copper RC interconnects, SFQ pulses propagate along superconducting microstrips as electromagnetic waves at near speed-of-light ($\approx 10^8 \text{ m/s}$) with near-zero attenuation and dispersion, bypassing the global interconnect delay bottlenecks of sub-nanometer CMOS.
 * **Quantum Control Integration**: Operating naturally at $4\text{ Kelvin}$ or sub-Kelvin regimes, SFQ logic can interface directly with superconducting qubits (transmons) inside dilution refrigerators, acting as an ultra-fast, local, classical digital controller without generating high thermal loads.
 
@@ -178,7 +178,7 @@ To assist contemporary computer architects, we strictly distinguish between veri
 * **Zero Static Dissipation**: IARPA’s SuperTools program successfully verified ERSFQ logic libraries operating with **zero static power** on niobium fabrication processes in the mid-2010s.
 
 ### Forward-Looking Architectural Projections (System Evaluation)
-* **Exascale Datacenter Optimization**: Modern architectural models project that if high-density cryogenic magnetic memory (e.g., spin-transfer torque MRAM) achieves maturity, a 100-petaflop superconducting supercomputer operating at $4\text{ K}$ (including refrigerator energy overhead) would consume only **$200\text{ kW}$** of total utility power, compared to **$10\text{ MW}$** for an equivalent semiconductor-based CMOS installation—a $50\times$ system-level energy reduction.
+* **Exascale Datacenter Optimization**: Modern architectural models project that if high-density cryogenic magnetic memory (e.g., spin-transfer torque MRAM) achieves maturity, a 100-petaflop superconducting supercomputer operating at $4\text{ K}$ (including refrigerator energy overhead) would consume only **$200\text{ kW}$** of total utility power, compared to **$10\text{ MW}$** for an equivalent semiconductor-based CMOS installation—a projected $10\times\text{--}50\times$ system-level energy reduction.
 * **Quantum Controller Scaling**: Researchers project that a superconducting classical processor operating at $4\text{ K}$ can route control lines to a dilution refrigerator's $10\text{ mK}$ qubit stage, reducing external room-temperature coax wiring from thousands of thick cables to a single optical bus.
 
 ---

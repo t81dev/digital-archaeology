@@ -31,7 +31,7 @@ In 1989, Mead published *Analog VLSI and Neural Systems*, establishing the found
 
 | System Name (Year) | Developer | Fabrication Node | Neuron/Synapse Count | Operating Power | Key Architectural Metric |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Neurogrid** (2009) | Stanford University | 180nm CMOS | 1M Neurons / 6B Synapses | ~3.1 Watts | Subthreshold analog neuron dynamics; 100,000× more energy-efficient than typical PC simulation of same network. |
+| **Neurogrid** (2009) | Stanford University | 180nm CMOS | 1M Neurons / 6B Synapses | ~3.1 Watts | Subthreshold analog neuron dynamics; operating at a reported $10,000\times\text{--}100,000\times$ lower core power density compared to standard PC-based software simulation of the equivalent network. |
 | **BrainScaleS** (2011) | Heidelberg University | 180nm wafer-scale | 200k Neurons / 50M Synapses | ~1.0 Kilowatts | Continuous-time analog physical model; operates at a 10,000× physical acceleration speedup compared to real biological time. |
 | **SpiNNaker** (2014) | University of Manchester | 130nm CMOS | 1M ARM968 cores / 1B Neurons | ~1.0 Kilowatts | Massively parallel digital packet-switched toroidal mesh; schedules real-time biological neural networks. |
 | **TrueNorth** (2014) | IBM (DARPA SyNAPSE) | 28nm CMOS | 1M Neurons / 256M Synapses | 63 Milliwatts | Fully digital, asynchronous non-von Neumann spatial mesh; active power density of only $20\text{ mW/cm}^2$. |
@@ -118,7 +118,7 @@ Because wiring millions of dedicated point-to-point connections on silicon is ph
 
 ## Innovations
 
-* **Extreme Energy Efficiency:** Neuromorphic processors can perform pattern classification, temporal signal processing, and closed-loop spatial positioning at sub-milliwatt to milliwatt power envelopes—often $100\times$ to $10,000\times$ more energy-efficient per inference than general-purpose GPUs.
+* **Extreme Energy Efficiency:** Neuromorphic processors can perform pattern classification, temporal signal processing, and closed-loop spatial positioning at sub-milliwatt to milliwatt power envelopes. For sparse temporal/event-based edge workloads, they have demonstrated $10\times\text{--}100\times$ higher energy-efficiency per inference compared to general-purpose GPUs at equivalent nodes. However, this advantage is highly workload-dependent and vanishes on dense, static workloads (such as LLMs) where continuous computation dominates.
 * **In-Memory Computing (Non-von Neumann Layout):** Synaptic weights are co-located in SRAM arrays, eDRAM, or emerging non-volatile memristors (RRAM/PCM) adjacent to neuron update logic. Weight-fetching bandwidth constraints are virtually eliminated.
 * **Asynchronous Network-on-Chip (NoC):** Mesh routing algorithms operate without global clock distribution networks, eliminating the substantial clock tree power dissipation that dominates conventional gigahertz processors.
 * **Native Event-Based Sensor Pairing:** Interfaces directly with asynchronous, event-based hardware sensors—such as Dynamic Vision Sensors (DVS event cameras) and silicon cochleas—processing pixel brightness changes on a microsecond temporal grid without frame-rate latency or redundant buffer polling.
@@ -164,7 +164,7 @@ While neuromorphic hardware did not displace general-purpose GPUs in cloud data 
 
 ## Lessons Learned
 
-1. **Hardware Efficiency is Useless Without Software Ergonomics:** A hardware architecture that delivers $1000\times$ better energy efficiency will still fail to achieve broad adoption if software developers cannot easily map existing codebases or mainstream frameworks to it.
+1. **Hardware Efficiency is Useless Without Software Ergonomics:** A hardware architecture that delivers a projected $100\times\text{--}1000\times$ better core-level energy efficiency will still fail to achieve broad adoption if software developers cannot easily map existing codebases or mainstream frameworks to it.
 2. **Dense vs. Sparse Compute Trade-offs:** Maximizing theoretical hardware efficiency (sparsity, event-driven execution) introduces huge overhead in routing, asynchronous logic, and state management. When dense hardware (GPUs) is fast enough, software paradigms will choose simplicity over theoretical energy optimality.
 3. **Co-Design of Sensors and Processors:** Neuromorphic hardware delivers its highest efficiency gains when paired with natively event-driven inputs (e.g., event cameras, bio-sensors). Matching the temporal dynamics of input data directly to the hardware substrate eliminates redundant representation layer conversions.
 
