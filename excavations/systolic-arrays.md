@@ -107,10 +107,10 @@ graph TD
 
 ## Limitations & Contemporary Bottlenecks
 
-- **Rigidity and Workload Sensitivity**: Best for highly regular, dense linear algebra. Struggles with sparse matrices, irregular control flow (if-else branches), and dynamic loop boundaries.
-- **Boundary I/O Bottleneck**: The array throughput is bounded by the speed at which the boundary PEs can be fed from external memory or host buses.
-- **Programming Complexity**: Mapping arbitrary mathematical formulas to a rigid spatial grid required manual, compiler-unfriendly spatial scheduling.
-- **Fill/Drain Overhead**: Before computation reaches peak efficiency, the pipeline must be "filled" (latency of $O(W+H)$ cycles), and afterwards "drained," reducing utilization on small batch sizes.
+- **Rigidity and Workload Sensitivity (The Sparsity Penalty)**: Best for highly regular, dense linear algebra. Struggles with sparse matrices, irregular control flow (if-else branches), and dynamic loop boundaries. If a workload has unstructured sparsity (e.g., $90\%$ of tensor values are zero), standard systolic PEs must still execute zero-value multiplications, dropping effective computation efficiency.
+- **Boundary I/O Memory Bottleneck (The Feeding Limit)**: The array throughput is strictly bounded by the rate at which boundary PEs can be loaded from adjacent SRAM buffers or off-chip HBM (High-Bandwidth Memory) stacks. If memory bandwidth fails to deliver data tokens at the array's clock speed, the entire spatial grid becomes memory-starved and idle.
+- **Programming Complexity & Lack of Compilers**: Mapping arbitrary mathematical formulas or nesting loops to a rigid spatial coordinate grid historically required manual, compiler-unfriendly spatial scheduling. Modern compilers (like TVM) automate this for standard GEMM but face a steep optimization cliff for non-tensor operations.
+- **Fill/Drain Overhead (Utilization Cliff)**: Before computation reaches peak efficiency, the pipeline must be "filled" (latency of $O(W+H)$ cycles), and afterwards "drained." For a standard $256 \times 256$ array executing on small batch sizes (e.g., batch size of 1 in low-latency real-time edge inference), this fill-and-drain overhead dominates the execution, causing effective array utilization to drop **below $10\%\text{--}15\%$**.
 
 ---
 
@@ -161,10 +161,15 @@ The modern consensus is that **systolic arrays did not lose the architectural wa
 
 ---
 
-## References (Selected)
+## References & Further Reading
 
-- **Kung, H.T. and Leiserson, C.E.** (1978). "Systolic Arrays (for VLSI)". *Sparse Matrix Proceedings*, Carnegie Mellon University. (The original paper introducing the concept).
-- **Kung, H.T.** (1982). "Why Systolic Architectures?". *IEEE Computer*, 15(1), 37-46.
-- **Annaratone, M., Bitz, E., Deutch, J., Hamey, L., Kung, H. T., Maulik, P. C., Tseng, P. S., & Webb, J. A.** (1987). "The Warp Computer: Architecture, Implementation, and Performance". *IEEE Transactions on Computers*, C-36(12), 1523-1538.
-- **Borkar, S., et al.** (1988). "iWarp: An integrated solution to high-speed parallel computing". *Supercomputing '88 Proceedings*.
-- **Jouppi, N. P., et al.** (2017). "In-datacenter performance analysis of a tensor processing unit". *ISCA '17 Proceedings*. (Detailing Google TPU v1's systolic array).
+* **Kung, H. T., & Leiserson, C. E.** (1979). *Systolic arrays (for VLSI)*. *Sparse Matrix Proceedings 1978*, Society for Industrial and Applied Mathematics, 256–282.
+  - *Relevance*: The seminal paper proposing systolic grids, describing how data can be "pumped" rhythmically through Processing Elements to exploit VLSI layout.
+* **Kung, H. T.** (1982). *Why systolic architectures?*. *Computer*, 15(1), 37–46.
+  - *Relevance*: Outlines the physical principles of data reuse, localized routing, and area-efficiency that differentiate systolic meshes from general Von Neumann CPUs.
+* **Annaratone, M., et al.** (1987). *The Warp computer: Architecture, implementation, and performance*. *IEEE Transactions on Computers*, C-36(12), 1523–1538.
+  - *Relevance*: Documents the design and performance metrics of the 10-node CMU Warp systolic supercomputer, showcasing real-time image processing.
+* **Jouppi, N. P., et al.** (2017). *In-datacenter performance analysis of a tensor processing unit*. *Proceedings of the 44th Annual International Symposium on Computer Architecture (ISCA)*, 1–12.
+  - *Relevance*: Presents the definitive architectural study of Google's TPU v1, detailing its 256x256 weight-stationary 8-bit systolic array running at 700MHz.
+* **Horowitz, M.** (2014). *Computing's energy problem (and what we can do about it)*. *IEEE International Solid-State Circuits Conference (ISSCC) Digest of Technical Papers*, 10–14.
+  - *Relevance*: Provides the primary physical data proving that off-chip memory fetches (DRAM) consume $100\times\text{--}1000\times$ more energy than logic MAC operations, establishing the physical justification for spatial systolic structures.

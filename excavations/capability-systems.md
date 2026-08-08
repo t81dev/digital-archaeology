@@ -105,8 +105,9 @@ This model naturally eliminates many classes of vulnerabilities, including the c
 - **CHERI (Capability Hardware Enhanced RISC Instructions)**: Pioneered by SRI International and the University of Cambridge (Woodruff et al., 2014; Watson et al., 2015), CHERI extends conventional RISC architectures (such as ARM and RISC-V) with native capability registers and instructions.
 - **Tag-Bit Integrity**: CHERI protects capabilities in physical RAM via a hardware-managed tag bit. If a capability word in memory is overwritten by any normal integer or data-manipulation instruction, the tag bit is automatically cleared, making the capability invalid for use.
 - **128-bit Compressed Capabilities**: To minimize memory bandwidth overhead, CHERI uses floating-point-style compression to compress 256-bit architectural bounds (base, limit, permissions) into a 128-bit format that fits within existing 64-bit memory spaces.
-- **Performance Overhead**: Extensive benchmarking on real-world workloads (e.g., PostgreSQL, nginx, WebKit) demonstrates that CHERI's hardware-enforced spatial and temporal memory safety incurs a performance overhead of **less than 1% to 2%**, resolving the performance penalty of earlier software-based capability implementations.
-- **Industry Adoption**: ARM has fabricated experimental CHERI silicon (the "Morello" prototype chip), demonstrating physical viability in mass-market general-purpose processors. Furthermore, OS architectures like Google's Fuchsia utilize capability-like semantics (Zircon handles), and WebAssembly employs sandboxing principles inspired directly by object-capabilities.
+- **Performance Overhead & Memory Pressure (The Pointer Expansion Penalty)**: Extensive benchmarking on real-world workloads (e.g., PostgreSQL, nginx, WebKit) demonstrates that CHERI's hardware-enforced spatial and temporal memory safety typically incurs a low CPU cycle overhead of **1% to 5%** on the 7nm ARM Morello prototype. However, expanding pointers to 128-bit capability descriptors doubles their size in memory. In pointer-heavy workloads (such as compilers, browser engines, or interpreter runtimes), this causes a **$10\%\text{--}25\%$ memory footprint expansion**, resulting in increased L1/L2 data cache misses and higher off-chip DRAM bandwidth utilization.
+- **Developer Training & Adoption Friction**: While CHERI Clang can compile standard, well-behaved C/C++ with minimal changes, adapting legacy codebases that rely on non-standard pointer arithmetic (such as XOR-linked lists, packing data bits into unused pointer bits, or custom arena allocators) requires manual refactoring. This introduces a steep developer training and engineering cost.
+- **Industry Adoption & Deployment Calendar (2028--2030)**: ARM has successfully fabricated experimental CHERI silicon (the 7nm "Morello" prototype chip), demonstrating physical viability in mass-market general-purpose processors. With the active standardization of the RISC-V CHERI ISA extension, commercial deployments in secure microcontrollers, automotive platforms, and mobile application processors are anticipated within the **2028--2030 calendar horizon**. Furthermore, modern operating systems like Google's Fuchsia utilize capability-like semantics (Zircon handles), and WebAssembly employs sandboxing principles inspired directly by object-capabilities.
 
 ---
 
@@ -149,9 +150,15 @@ The trajectory of capability systems highlights how changing physical and econom
 
 ## Primary Sources & Further Reading
 
-1. **Dennis, J. B., & Van Horn, E. C.** (1966). "Programming Semantics for Multiprogrammed Computations." *Communications of the ACM*, 9(3), 143-155.
-2. **Wulf, W. A., et al.** (1974). "HYDRA: The Kernel of a Multiprocessor Operating System." *Communications of the ACM*, 17(6), 337-345.
-3. **Hardy, N.** (1985). "The KeyKOS Architecture." *ACM SIGOPS Operating Systems Review*, 19(4), 8-25.
-4. **Shapiro, J. S., Smith, J. M., & Farber, D. J.** (1999). "EROS: A Fast Capability System." *ACM SIGOPS Operating Systems Review*, 33(5), 72-85.
-5. **Woodruff, J., et al.** (2014). "CHERI: Concentrating Capability Is Safe, Fast, and Easy." *proceedings of the 41st Annual International Symposium on Computer Architecture (ISCA)*, 487-498.
-6. **Watson, R. N. M., et al.** (2015). "CHERI: A Hybrid Capability-System Architecture for Scalable Software Compartmentalization." *IEEE Symposium on Security and Privacy*, 20-37.
+* **Dennis, J. B., & Van Horn, E. C.** (1966). "Programming Semantics for Multiprogrammed Computations." *Communications of the ACM*, 9(3), 143–155.
+  - *Relevance*: The seminal publication that defined the formal concept of "capabilities" as unforgeable references to system-managed resource descriptors.
+* **Hardy, N.** (1985). "The KeyKOS Architecture." *ACM SIGOPS Operating Systems Review*, 19(4), 8–25.
+  - *Relevance*: Details the implementation of the microkernel-based KeyKOS operating system, demonstrating commercial viability, single-level stores, and orthogonal persistence using capabilities.
+* **Shapiro, J. S., Smith, J. M., & Farber, D. J.** (1999). "EROS: A Fast Capability System." *ACM SIGOPS Operating Systems Review*, 33(5), 72–85.
+  - *Relevance*: Modernizes the KeyKOS single-level store, demonstrating that synchronous, capability-based message passing can be executed in under 50 clock cycles.
+* **Woodruff, J., et al.** (2014). "CHERI: Concentrating Capability Is Safe, Fast, and Easy." *Proceedings of the 41st Annual International Symposium on Computer Architecture (ISCA)*, 487–498.
+  - *Relevance*: Formulates the hardware-compressed 128-bit capability layout and extensions to the MIPS ISA, establishing a low-overhead path for hardware pointer validation.
+* **Watson, R. N. M., et al.** (2015). "CHERI: A Hybrid Capability-System Architecture for Scalable Software Compartmentalization." *IEEE Symposium on Security and Privacy*, 20–37.
+  - *Relevance*: Explains how the CHERI model can be used to run legacy, un-modified C/C++ codebases while retrofitting fine-grained spatial and temporal memory bounds checks at the hardware level.
+* **Watson, R. N. M., et al.** (2020). *Capability Hardware Enhanced RISC Instructions (CHERI): Instruction-Set Architecture (Version 8)*. *Technical Report UCAM-CL-TR-951*, University of Cambridge Computer Laboratory.
+  - *Relevance*: The authoritative, primary specification detailing the tag-integrity, permission maps, and instructions for modern CHERI implementations.

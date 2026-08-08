@@ -111,6 +111,10 @@ An external researcher or architect can use this codebase to execute three high-
 
 ---
 
-## 5. Conclusion
+## 5. Overcoming Isolation: Heterogeneous Co-Design Synergies
+
+Evaluating alternative lineages in isolation masks their true potential. The highest-value architectural path is the integration of complementary architectures. For a detailed analysis of pairwise and triple combinations (such as the secure "CapSystolic" matrix core, or optoelectronic spiking networks that bypass the data-conversion wall), see the full study on **[Heterogeneous Revival Synergies](heterogeneous-revival-synergies.md)**.
+
+## 6. Conclusion
 
 Physical limits have shattered the abstraction of general-purpose, room-temperature sequential computing. The path forward is heterogeneous, physical, and domain-specific. By combining the executable excavations, synthesizable cores, and multi-paradigm co-simulation fabrics compiled in this repository, computer architects possess a complete, runnable ontology to bridge forgotten history with the future of silicon design.

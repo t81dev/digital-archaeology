@@ -120,7 +120,8 @@ Where $R$ is the transistor channel resistance, $C$ is the load capacitance, and
 * **Memory & Storage Overhead:** Retaining computational history or executing Bennett's uncomputation strategy requires extra temporary registers and memory buffers, leading to higher spatial memory consumption than irreversible programs.
 * **Increased Step Complexity (Time Overhead):** Uncomputation requires running steps backward, effectively doubling or tripling the instruction execution count ($\approx 2\times\text{ to } 3\times$ increase in time steps) to save energy.
 * **Complex Circuit Layouts:** Bijective gates like Toffoli and Fredkin require $3\times3$ input-output lines, increasing signal routing density, wire cross-overs, and silicon area footprint compared to compact irreversible 2-input logic gates.
-* **Clocking and Voltage Ramp Bottlenecks:** Adiabatic CMOS relies on slow sinusoidal AC clock supplies to smoothly recover charge. Ramping logic states too quickly degrades energy efficiency, trading off high raw clock frequencies ($\text{GHz}$) for low power consumption.
+* **Clocking and Voltage Ramp Bottlenecks (The Frequency Trade-off)**: Adiabatic CMOS relies on slow, multi-phase sinusoidal AC clock power supplies to smoothly recover charge. Since energy recovery scales inversely with transition speed ($E \propto 1/T_{\text{ramp}}$), achieving meaningful efficiency gains requires running at very slow frequencies (typically **$1\text{--}10\text{ MHz}$**). Attempting to scale to gigahertz frequencies causes adiabatic energy dissipation to exceed conventional CMOS power, making it a poor choice for general-purpose high-throughput workloads.
+* **Extremely Long Commercialization Horizon (2040+)**: Due to the severe density and throughput penalties of low-frequency adiabatic operation and the total lack of industrial EDA support for bi-directional compiler scheduling, fully reversible general-purpose digital systems are a very long-horizon vision (projected beyond **2040**). Practical applications will remain limited to specialized ultra-low-power sensors, implantable medical devices, and cryogenic quantum control planes.
 
 ---
 
@@ -172,12 +173,17 @@ As conventional CMOS fabrication approaches 1-nanometer quantum tunneling thresh
 
 ---
 
-## References
+## References & Further Reading
 
-* Landauer, R. (1961). *Irreversibility and Heat Generation in the Computing Process*. IBM Journal of Research and Development, 5(3), 183–191.
-* Bennett, C. H. (1973). *Logical Reversibility of Computation*. IBM Journal of Research and Development, 17(6), 525–532.
-* Fredkin, E., & Toffoli, T. (1982). *Conservative Logic*. International Journal of Theoretical Physics, 21(3), 219–253.
-* Frank, M. P. (2005). *Physical Limits of Computing*. Computing in Science & Engineering, 7(3), 16–26.
-* Takeuchi, N., et al. (2013). *Adiabatic Quantum Flux Parametron (AQFP) as an Ultra-Low-Power Logic Device*. Superconductor Science and Technology, 26(3), 035010.
+* **Landauer, R.** (1961). *Irreversibility and Heat Generation in the Computing Process*. *IBM Journal of Research and Development*, 5(3), 183–191.
+  - *Relevance*: The seminal publication establishing "Landauer's Principle"—proving that any logically irreversible operations that erase information must generate $k_B T \ln 2$ heat.
+* **Bennett, C. H.** (1973). *Logical Reversibility of Computation*. *IBM Journal of Research and Development*, 17(6), 525–532.
+  - *Relevance*: Proves that arbitrary deterministic computing is logically reversible and formulates the multi-stage uncomputation pipeline (Bennett's Strategy) to reclaim garbage states without heat loss.
+* **Fredkin, E., & Toffoli, T.** (1982). *Conservative Logic*. *International Journal of Theoretical Physics*, 21(3), 219–253.
+  - *Relevance*: Introduces reversible logic gates (Toffoli CCNOT and Fredkin CSWAP) and demonstrates that universal computation is possible using conservative logic primitives.
+* **Frank, M. P.** (2005). *Physical Limits of Computing*. *Computing in Science & Engineering*, 7(3), 16–26.
+  - *Relevance*: Quantifies the energy limits of room-temperature and cryogenic CMOS systems, analyzing the practical engineering boundaries and clocking constraints of adiabatic charge recovery.
+* **Lent, C. S., Tougaw, P. D., Porod, W., & Bernstein, G. H.** (1993). *Quantum cellular automata*. *Nanotechnology*, 4(1), 49.
+  - *Relevance*: Presents Quantum-dot Cellular Automata (QCA) as a potential physical substrate to realize low-overhead reversible logic gates, discussing routing and signal degradation.
 
 ---

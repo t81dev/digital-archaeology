@@ -153,6 +153,8 @@ Because these pulses are transient, standard logical structures are fully statef
 
   In practice, non-ideal cryogenic cooling systems operate at only $0.1\%\text{--}1.0\%$ of Carnot efficiency, yielding an actual **Cooling Penalty Factor of $1,000\times$ to $3,000\times$**. Therefore, dissipating $1\text{ W}$ at $4\text{ K}$ requires drawing $1\text{--}3\text{ kW}$ of AC utility power at room temperature.
 * **Extreme Memory Density Wall**: Building high-density random-access memory at $4\text{ K}$ is an open research challenge. SFQ memory cells (SQUID-based) are physically massive ($10\text{--}100\,\mu\text{m}^2$) and cannot scale to gigabytes. Alternative magnetic spin memory (MRAM) or hybrid superconducting-semiconductor systems require complex material interfaces and write currents.
+* **Severe Density Scaling Limits (Lithography Lag)**: While modern digital CMOS has scaled down to sub-3nm nodes yielding upwards of $200\text{ million transistors/mm}^2$, niobium-based Josephson junction processes are currently restricted to micro-level lithography nodes (typically $130\text{ nm}$ to $250\text{ nm}$). For example, MIT Lincoln Laboratory's state-of-the-art SFQ5ee fabrication node offers $8$ niobium layers with a $250\text{ nm}$ junction diameter, yielding around $10,000\text{ to }100,000 \text{ junctions/mm}^2$. This severe density limit makes it physically impossible to construct gigabyte-scale on-chip caches or billions of processing elements, confining the architecture to highly specialized, low-gate-count accelerator blocks.
+* **Commercialization Calendar Horizon (2035+)**: Because of the lack of automated EDA tools, manufacturing non-uniformity across large-area wafers, high package-level interconnect signal loss, and the specialized cryogenics required, industrial deployment of general-purpose superconducting processors is not anticipated before the **2035--2040 calendar horizon**. Near-term applications will remain restricted to military aerospace, high-end radio-astronomy signal processing, and quantum computing control planes.
 * **Low Fan-Out Constraints**: Unlike CMOS gates where a single output can drive several parallel gate inputs, SFQ pulses are quantized packages of magnetic flux. A single pulse cannot be split directly without loss of signal amplitude. Fan-out requires active **Splitter** structures (Junction trees), which consume additional silicon area and bias energy.
 * **Specialized Fabrication Ecosystem**: Josephson junctions cannot be manufactured in standard silicon CMOS foundries. They require specialized superconducting niobium fabrication lines (such as the MIT Lincoln Laboratory or SECON processes) which operate at micro-level lithography nodes ($248\text{ nm}$ or $130\text{ nm}$), limiting raw transistor density.
 
@@ -212,11 +214,16 @@ To assist contemporary computer architects, we strictly distinguish between veri
 
 ## Primary Sources & Further Reading
 
-* Likharev, K. K., & Semenov, V. K. (1991). *RSFQ logic/memory family: a new Josephson-junction technology for sub-terahertz-clock-frequency digital systems*. IEEE Transactions on Applied Superconductivity, 1(1), 3–28.
-* Mukhanov, O. A. (2011). *Energy-efficient single flux quantum technology*. IEEE Transactions on Applied Superconductivity, 21(3), 760–769.
-* Takeuchi, N., Yamanashi, Y., & Yoshikawa, N. (2014). *Measurement of thermodynamic minimum energy dissipation of an adiabatic quantum flux parametron*. Scientific Reports, 4(1), 1–5.
-* Likharev, K. K. (2012). *Superconducting devices for classical computing*. In *Comprehensive Semiconductor Science and Technology* (pp. 268–315). Elsevier.
-* IARPA (Intelligence Advanced Research Projects Activity). *Cryogenic Computing Complexity (C3)* Program Reports (2014–2020).
+* **Likharev, K. K., & Semenov, V. K.** (1991). *RSFQ logic/memory family: a new Josephson-junction technology for sub-terahertz-clock-frequency digital systems*. *IEEE Transactions on Applied Superconductivity*, 1(1), 3–28.
+  - *Relevance*: Introduces the foundational equations and cell layouts for Rapid Single Flux Quantum (RSFQ) logic. It explains how non-latching picosecond-pulse logic achieves operating rates above $100\text{ GHz}$.
+* **Mukhanov, O. A.** (2011). *Energy-efficient single flux quantum technology*. *IEEE Transactions on Applied Superconductivity*, 21(3), 760–769.
+  - *Relevance*: Formulates the architecture of Energy-Efficient RSFQ (ERSFQ) which replaces passive bias resistors with inductors, eliminating static heat dissipation.
+* **Takeuchi, N., Yamanashi, Y., & Yoshikawa, N.** (2014). *Measurement of thermodynamic minimum energy dissipation of an adiabatic quantum flux parametron*. *Scientific Reports*, 4(1), 1–5.
+  - *Relevance*: Demonstrates and measures physical heat dissipation of AQFP gates, proving they can operate adiabatically to bypass standard thermodynamic limits.
+* **Tolpygo, S. K., et al.** (2016). *Superconducting multi-project active chips fabrication process with self-aligned Josephson junctions and two active layers*. *IEEE Transactions on Applied Superconductivity*, 26(3), 1–8.
+  - *Relevance*: Details the multi-layer fabrication processes used at MIT Lincoln Laboratory for modern high-density Josephson junction integration, establishing the density boundary of $10^5 \text{ junctions/mm}^2$ under $250\text{ nm}$ lithography.
+* **Holmes, D. S., Ripple, A. L., & Manheimer, M. A.** (2013). *Energy-efficient superconducting computing—power budgets and requirements*. *IEEE Transactions on Applied Superconductivity*, 23(3), 1701610.
+  - *Relevance*: Rigorously models the thermodynamic cryogenic cooling penalty ($1000\times\text{--}3000\times$ penalty at $4\text{ K}$) and calculates the net utility power requirements for exascale cryogenic data centers.
 
 ---
 

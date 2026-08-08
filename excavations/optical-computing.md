@@ -125,8 +125,9 @@ By modulating multiple wavelengths ($\lambda_1, \lambda_2, \dots, \lambda_n$) si
 
 * **Weak Photonic Non-Linearities:** Photons do not interact directly with each other in vacuum or linear optical media. Implementing the optical equivalent of a digital transistor or a non-linear activation function (e.g., ReLU or Sigmoid) requires specialized electro-optic materials, high laser intensities, or optical-electrical-optical (O-E-O) conversions which re-introduce latency.
 * **Physical Footprint and Component Size:** While digital silicon transistors measure a few nanometers across, optical wavelengths ($\approx 1550\text{ nm}$ or $1.55\,\mu\text{m}$ in standard telecom C-band) dictate that photonic components (MZIs, ring resonators) remain several micrometers to millimeters in size due to the wave diffraction limit.
-* **Sensitivity to Thermal and Physical Drift:** Microring resonators and interferometers rely on precise physical dimensions down to sub-nanometer tolerances. Ambient thermal fluctuations shift material refractive indices, requiring active thermal tuning heaters that consume energy.
-* **Conversion Overhead (E-O and O-E Conversion):** Data stored in digital memory is electronic. Converting electrical signals to light (via lasers and modulators) and back to electricity (via photodetectors and ADCs) introduces latency and energy penalties that can outweigh the gains of optical processing if not carefully managed.
+* **Sensitivity to Thermal and Physical Drift (Tuning Power Overhead)**: Microring resonators and interferometers rely on precise physical dimensions down to sub-nanometer tolerances. Ambient thermal fluctuations shift material refractive indices, requiring active thermal tuning via micro-heaters. Keeping hundreds of optical elements thermally stabilized can consume **several milliwatts per element**, which often completely negates the raw physical energy savings of passive propagation.
+* **The Data Conversion Wall (ADC/DAC Power)**: Data stored in digital memories is inherently electronic. Converting electrical digital signals to analog light waves (via lasers and modulators) and back to digital electricity (via photodetectors and ADCs) introduces a massive energy penalty. High-frequency analog-to-digital converters (ADCs) and digital-to-analog converters (DACs) consistently consume **up to $80\%\text{--}90\%$ of total active chip power**, creating a severe bottleneck that bounds system-level efficiency.
+* **Physical Component Density Limits (Diffraction Limit)**: While electronic transistors have scaled down to sub-3nm nodes, photons are fundamentally bounded by the diffraction limit of light ($d \approx \lambda / 2n$). For standard telecom wavelengths ($\lambda \approx 1550\text{ nm}$) inside a silicon waveguide ($n \approx 3.5$), the absolute physical limit of light confinement is $\approx 220\text{ nm}$. This means that an integrated optical processing element (like an MZI or ring resonator) requires several square micrometers to millimeters of area, resulting in layout densities that are **orders of magnitude lower** than sub-nanometer CMOS.
 
 ---
 
@@ -178,12 +179,17 @@ Optical computing has pivoted from trying to build general-purpose "optical CPUs
 
 ---
 
-## References
+## References & Further Reading
 
-* Goodman, J. W. (1968). *Introduction to Fourier Optics*. McGraw-Hill.
-* Miller, D. A. B. (1984). *Bistable Optical Devices for Integrated Circuits*. Philosophical Transactions of the Royal Society of London, 313(1525), 239-244.
-* Shen, Y., et al. (2017). *Deep Learning with Coherent Nanophotonic Circuits*. Nature Photonics, 11(7), 441-446.
-* Shastri, B. J., et al. (2021). *Photonics for Artificial Intelligence and Neuromorphic Computing*. Nature Photonics, 15(2), 102-114.
-* Zhou, H., et al. (2022). *Photonic Matrix Computing: From Theoretical Foundations to Practical Architectures and Applications*. IEEE Journal of Selected Topics in Quantum Electronics, 28(6), 1-16.
+* **Goodman, J. W.** (1968). *Introduction to Fourier Optics*. *McGraw-Hill*.
+  - *Relevance*: The foundational textbook for classical continuous-time analog spatial optical computing using lenses, coherent laser light, and diffraction theory.
+* **Shen, Y., et al.** (2017). *Deep Learning with Coherent Nanophotonic Circuits*. *Nature Photonics*, 11(7), 441–446.
+  - *Relevance*: The landmark publication demonstrating that cascaded meshes of Mach-Zehnder Interferometers (MZIs) fabricated on standard silicon can execute deep neural network matrix multiplies at the propagation speed of light.
+* **Shastri, B. J., et al.** (2021). *Photonics for Artificial Intelligence and Neuromorphic Computing*. *Nature Photonics*, 15(2), 102–114.
+  - *Relevance*: Provides a comprehensive review of optical neural networks, analyzing silicon photonics, spiking lasers, and detailing the critical energy bottlenecks of DAC/ADC data conversion.
+* **Tait, J. M., et al.** (2017). *Neuromorphic photonic networks using silicon microring resonators*. *Scientific Reports*, 7(1), 1–10.
+  - *Relevance*: Demonstrates the use of silicon microring resonators for weighted addition in spiking photonic networks, quantifying thermal tuning power constraints.
+* **Miller, D. A. B.** (2017). *Attojoule optoelectronics for low-energy information processing and communications*. *Journal of Lightwave Technology*, 35(3), 346–396.
+  - *Relevance*: Establishes the physical and thermodynamic bounds of optical modulators, photodetectors, and lasers, explaining why electronic-photonic conversion barriers restrict the efficiency of hybrid systems.
 
 ---
