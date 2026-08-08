@@ -127,10 +127,10 @@ Because wiring millions of dedicated point-to-point connections on silicon is ph
 
 ## Limitations
 
-* **The Backpropagation / Gradient Discontinuity Problem:** The non-differentiable step function of a firing spike ($\Theta(V - V_{\text{th}})$) breaks standard gradient descent backpropagation. While techniques like *surrogate gradients* and *ANN-to-SNN conversion* have narrowed the gap, training deep SNNs remains significantly harder and less stable than training conventional deep neural networks (ANNs).
-* **Algorithmic Mismatch with Modern LLMs/Transformers:** Standard LLMs and Transformer architectures rely heavily on dense matrix-matrix multiplications ($\text{GEMM}$), which map with extreme efficiency onto GPU SIMD/Tensor cores. Converting attention mechanisms to temporal spiking representations without losing precision or throughput remains an open challenge.
-* **Programming Paradigm Complexity:** Software toolchains lack standardized abstractions. Writing code for a neuromorphic processor requires managing stateful differential equations, spatial mesh topology, temporal coding schemes, and asynchronous spike timing—far more complex than PyTorch or CUDA tensor operations.
-* **Analog Variability & Noise:** Early analog neuromorphic systems suffered from device mismatch, thermal noise, and process-voltage-temperature (PVT) variations across fabrication runs, forcing a partial retreat toward fully digital asynchronous architectures (e.g., Loihi, TrueNorth) to maintain deterministic predictability.
+* **The Backpropagation & Training Instability Barrier**: The non-differentiable step function of a firing spike ($\Theta(V - V_{\text{th}})$) breaks standard gradient descent backpropagation. While techniques like *surrogate gradients* and *ANN-to-SNN conversion* have narrowed the gap, training deep SNNs is highly unstable, suffering from vanishing or exploding temporal gradients in networks deeper than a few dozen layers, limiting them on complex vision and NLP tasks.
+* **Algorithmic Mismatch with Modern LLMs/Transformers**: Standard LLMs and Transformer architectures rely heavily on dense matrix-matrix multiplications ($\text{GEMM}$), which map with extreme efficiency onto GPU SIMD/Tensor cores. Converting attention mechanisms to temporal spiking representations without losing precision, introducing severe latency, or increasing routing overhead remains an unresolved open challenge.
+* **Device Mismatch, Noise, and Precision Limits**: Analog and memristive neuromorphic systems suffer from device mismatch, thermal noise, and process-voltage-temperature (PVT) variations. This limits synaptic weight precision to the equivalent of **4 to 6 bits**, requiring specialized *hardware-in-the-loop (HIL)* training schemes to run networks without massive accuracy loss. Digital asynchronous systems (like Loihi) escape this noise but suffer from severe routing bottlenecks as spike density increases, leading to network-on-chip congestion and latency.
+* **Programming Toolchain Gap & Deployment Horizon (2035+)**: Software toolchains lack standardized, mature abstractions. Writing and optimizing code for a neuromorphic processor requires managing stateful differential equations, spatial mesh topology, temporal coding schemes, and asynchronous spike timing—far more complex than PyTorch or CUDA tensor operations. Consequently, while specialized sub-watt edge AI edge co-processors (e.g., for keyword spotting or drone odometry) are entering production (2026--2028), large-scale cloud-level neuromorphic general computation is not anticipated to compete with conventional accelerators before the **2035+ calendar horizon**.
 
 ---
 
@@ -182,14 +182,17 @@ While neuromorphic hardware did not displace general-purpose GPUs in cloud data 
 | Difficulty to Recreate | ★★★★★ | Extremely high design complexity, requiring mixed-signal asynchronous circuit layout or complex high-fidelity simulation models. |
 
 
-## References
+## References & Further Reading
 
-* Mead, C. (1989). *Analog VLSI and Neural Systems*. Addison-Wesley.
-* Mahowald, M. A., & Mead, C. (1991). *The Silicon Retina*. Scientific American, 264(5), 76-82.
-* Merolla, P. A., et al. (2014). *A million spiking-neuron integrated circuit with a scalable communication network and architecture* (IBM TrueNorth). Science, 345(6197), 668-673.
-* Davies, M., et al. (2018). *Loihi: A Neuromorphic Manycore Processor with On-Chip Learning*. IEEE Micro, 38(1), 82-99.
-* Furber, S. B., et al. (2014). *The SpiNNaker Project*. Proceedings of the IEEE, 102(5), 652-665.
-* Indiveri, G., et al. (2011). *Neuromorphic Silicon Neuron Circuits*. Frontiers in Neuroscience, 5, 73.
-* Mead, C. (1990). *Neuromorphic Electronic Systems*. Proceedings of the IEEE, 78(10), 1629-1636.
+* **Mead, C.** (1989). *Analog VLSI and Neural Systems*. *Addison-Wesley*.
+  - *Relevance*: The foundational textbook that established neuromorphic engineering, introducing the equivalence of subthreshold analog CMOS physics and biological membrane dynamics.
+* **Merolla, P. A., et al.** (2014). *A million spiking-neuron integrated circuit with a scalable communication network and architecture*. *Science*, 345(6197), 668–673.
+  - *Relevance*: Details the architecture of IBM's TrueNorth chip, demonstrating a fully digital, asynchronous, non-von Neumann 1-million neuron spatial mesh drawing only $20 \text{ mW/cm}^2$.
+* **Davies, M., et al.** (2018). *Loihi: A Neuromorphic Manycore Processor with On-Chip Learning*. *IEEE Micro*, 38(1), 82–99.
+  - *Relevance*: Introduces Intel's 14nm digital asynchronous Loihi chip, detailing the on-chip implementation of STDP learning rules and the Network-on-Chip (NoC) architecture.
+* **Neftci, E. O., Mostafa, H., & Zenke, F.** (2019). *Surrogate gradient learning algorithms: Classifying scenes and sounds with spiking neural networks*. *IEEE Signal Processing Magazine*, 36(6), 51–63.
+  - *Relevance*: Formulates the surrogate gradient descent method for SNN training, explaining how to bypass the non-differentiability of spike functions during backpropagation.
+* **Sebastian, A., et al.** (2020). *Memory devices and applications for in-memory computing*. *Nature Nanotechnology*, 15(7), 529–544.
+  - *Relevance*: Reviews analog memristive crossbar devices (Phase-Change Memory, ReRAM) and their use in neuromorphic engines, detailing the physical limitations of device noise and drift.
 
 ---
