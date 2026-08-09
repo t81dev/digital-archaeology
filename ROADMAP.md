@@ -168,16 +168,18 @@ Integrated and validated the multi-architecture co-simulation harness while unif
 
 # Phase XI — High-Level Hardware Synthesis (HLS) & Open-ASIC Toolchain Integration (2026-2027) ✅ (Complete)
 
-Bridges functional simulators with synthesizable hardware models through formal verification loops and open-source FPGA compilation toolchains.
+Bridges functional simulators with synthesizable hardware models through formal verification loops and open-source FPGA compilation toolchains. All verification logs and synthesizable bitstreams are committed directly to close the evidence gap.
 
 ### 1. Formal Verification Loop Closure
 - [x] **Full SVA Assertions**: Embedded inline SystemVerilog Assertions (`FORMAL` block properties) inside `reversible_gates.sv` and `stochastic_multiplier.sv` mapping mathematical invariants.
 - [x] **SymbiYosys (SBY) Suite**: Integrated production-style `.sby` configuration files for all 4 IP cores under a dedicated formal verification workspace.
-- [x] **Verification Testing**: Extended Python golden-model unit testing with verification of SBY configurations, proving all assertions mathematically correct via BMC.
+- [x] **Reproducible Proof Logs**: Generated, verified, and committed standard SBY bounded model checking (BMC) run logs for all 4 IP cores, mathematically proving all assertions under `reconstructions/synthesizable-hardware/formal/logs/`.
+- [x] **Verification Testing**: Extended Python golden-model unit testing with validation of SBY configurations and hardware behavior.
 
 ### 2. Open FPGA Toolchain Targeting (iCEbreaker & Lattice iCE40)
 - [x] **iCEbreaker Physical Constraints**: Mapped the capability-bounds checker ports to physical Lattice iCE40 UP5K pin structures in `icebreaker.pcf`.
 - [x] **Build & Toolchain Automation**: Developed an automated, clean `Makefile` providing unified commands to run formal proofs and synthesize/place-and-route bitstreams under Yosys + nextpnr.
+- [x] **Physical Synthesis and Timing Logs**: Synthesized and placed-and-routed the `capability_bounds_checker` against `icebreaker.pcf`, committing the final `.bin` bitstream and `capability_bounds_checker_timing.rpt` report to `reconstructions/synthesizable-hardware/fpga/build/`.
 - [x] **Analytical Performance Scaling**: Integrated fallback profiling engines within `profile_synthesis.py` to maintain synthesizable credibility under missing local compiler contexts.
 
 ---

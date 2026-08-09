@@ -1,0 +1,34 @@
+SBY 10:14:39 [formal/stochastic_multiplier] Running SBY with keep_files=prefix, reuse_files=none
+SBY 10:14:39 [formal/stochastic_multiplier] Copying 'stochastic_multiplier.sv' to 'formal/stochastic_multiplier/src/stochastic_multiplier.sv'
+SBY 10:14:39 [formal/stochastic_multiplier] engine_0: smtbmc z3
+SBY 10:14:39 [formal/stochastic_multiplier] base: free: yosys -q -p 'read -formal stochastic_multiplier.sv; prep -top stochastic_multiplier; write_smt2 -wires formal/stochastic_multiplier/model/design.smt2'
+SBY 10:14:40 [formal/stochastic_multiplier] base: free: -- running yosys --
+SBY 10:14:41 [formal/stochastic_multiplier] engine_0: free: yosys-smtbmc -s z3 -t 20 --dump-vcd formal/stochastic_multiplier/engine_0/trace.vcd --dump-vlogtb formal/stochastic_multiplier/engine_0/trace_tb.v --dump-smtc formal/stochastic_multiplier/engine_0/trace.smtc formal/stochastic_multiplier/model/design.smt2
+SBY 10:14:41 [formal/stochastic_multiplier] engine_0: free: -- running yosys-smtbmc --
+SBY 10:14:41 [formal/stochastic_multiplier] engine_0: status: ready (current step 0)
+SBY 10:14:41 [formal/stochastic_multiplier] engine_0: checking assertions in step 0..
+SBY 10:14:41 [formal/stochastic_multiplier] engine_0: checking assertions in step 1..
+SBY 10:14:41 [formal/stochastic_multiplier] engine_0: checking assertions in step 2..
+SBY 10:14:42 [formal/stochastic_multiplier] engine_0: checking assertions in step 3..
+SBY 10:14:42 [formal/stochastic_multiplier] engine_0: checking assertions in step 4..
+SBY 10:14:42 [formal/stochastic_multiplier] engine_0: checking assertions in step 5..
+SBY 10:14:42 [formal/stochastic_multiplier] engine_0: checking assertions in step 6..
+SBY 10:14:42 [formal/stochastic_multiplier] engine_0: checking assertions in step 7..
+SBY 10:14:42 [formal/stochastic_multiplier] engine_0: checking assertions in step 8..
+SBY 10:14:42 [formal/stochastic_multiplier] engine_0: checking assertions in step 9..
+SBY 10:14:42 [formal/stochastic_multiplier] engine_0: checking assertions in step 10..
+SBY 10:14:42 [formal/stochastic_multiplier] engine_0: checking assertions in step 11..
+SBY 10:14:43 [formal/stochastic_multiplier] engine_0: checking assertions in step 12..
+SBY 10:14:43 [formal/stochastic_multiplier] engine_0: checking assertions in step 13..
+SBY 10:14:43 [formal/stochastic_multiplier] engine_0: checking assertions in step 14..
+SBY 10:14:43 [formal/stochastic_multiplier] engine_0: checking assertions in step 15..
+SBY 10:14:43 [formal/stochastic_multiplier] engine_0: checking assertions in step 16..
+SBY 10:14:43 [formal/stochastic_multiplier] engine_0: checking assertions in step 17..
+SBY 10:14:43 [formal/stochastic_multiplier] engine_0: checking assertions in step 18..
+SBY 10:14:43 [formal/stochastic_multiplier] engine_0: checking assertions in step 19..
+SBY 10:14:43 [formal/stochastic_multiplier] engine_0: checking assertions in step 20..
+SBY 10:14:44 [formal/stochastic_multiplier] engine_0: status: passed
+SBY 10:14:44 [formal/stochastic_multiplier] summary: Elapsed process time [00:00:05]
+SBY 10:14:44 [formal/stochastic_multiplier] summary: engine_0 (smtbmc z3) returned pass
+SBY 10:14:44 [formal/stochastic_multiplier] summary: Successful run: 0 subjobs failed, 1 subjobs passed.
+SBY 10:14:44 [formal/stochastic_multiplier] DONE (PASS, clk2fflogic)

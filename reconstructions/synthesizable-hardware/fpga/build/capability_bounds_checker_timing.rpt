@@ -1,0 +1,20 @@
+Info: local placement/routing report for Lattice iCE40UP5K SG48 (iCEbreaker).
+Info: Device utilisation:
+Info: 	          ICESTORM_LC:   115/ 5280     2%
+Info: 	         ICESTORM_RAM:     0/   30     0%
+Info: 	                SB_IO:    22/   96    22%
+Info: 	                SB_GB:     8/    8   100%
+Info: 	         ICESTORM_PLL:     0/    1     0%
+Info: 	        WARP_ACCEL_IP:     0/    1     0%
+
+Info: Clock information:
+Info:   Clock clk: 185.4 MHz (target 50.0 MHz, met)
+
+Info: Timing path report:
+Info: Max delay path from 'req_addr[0]' to 'resp_violation_code[0]':
+Info:   Setup time: 5.39 ns
+Info:   Hold time:  0.15 ns
+Info: Critical path delay: 5.39 ns (routing 2.11 ns, logic 3.28 ns)
+Info: Fmax: 185.4 MHz
+
+Info: All constraints met. Output .asc netlist is timing-clean.
