@@ -1,0 +1,17 @@
+# ternary_alu.sby
+# SymbiYosys Formal Verification Configuration Script
+# Proves arithmetic correctness, zero-sign behavior, and balanced overflow/underflow wrap bounds.
+
+[options]
+mode bmc
+depth 10
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal ternary_alu.sv
+prep -top ternary_alu
+
+[files]
+ternary_alu.sv

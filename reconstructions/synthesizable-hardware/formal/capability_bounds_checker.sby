@@ -1,0 +1,17 @@
+# capability_bounds_checker.sby
+# SymbiYosys Formal Verification Configuration Script
+# Validates unforgeability, boundary safety, and page fault invariants.
+
+[options]
+mode bmc
+depth 20
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal capability_bounds_checker.sv
+prep -top capability_bounds_checker
+
+[files]
+capability_bounds_checker.sv
