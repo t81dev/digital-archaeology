@@ -82,6 +82,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 
 - [Academic Overview & Research Entry Point](synthesis/digital-archaeology-overview.md) — *A short, dense, and citable reference introducing our six core lineages, methodology, and BibTeX records.*
 - [Architectural Distillation](synthesis/architectural-distillation.md) — *How failed computing systems leave behind enduring abstractions that shape modern architectures.*
+- [Architectural Roadmap Re-Evaluation](synthesis/architectural-roadmap-re-evaluation.md) — *A comprehensive, academically rigorous phase-by-phase re-evaluation of the Digital Archaeology Roadmap (Phases I through XIII) under modern post-Dennard, sub-5nm scaling, and zero-trust security constraints.*
 - [Alternative Mathematical Execution Paradigms](synthesis/alternative-mathematical-execution-paradigms.md) — *How symmetric balanced ternary, probabilistic stochastic bitstreams, and symbolic logic resolution trees bypass the memory wall and density constraints of modern AI.*
 - [Capability-Based Security](synthesis/capability-based-security.md) — *The revival of fine-grained, unforgeable hardware-level rights in the zero-trust and AI era.*
 - [Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md) — *Why the modern performance frontier relies on treating compilers and custom silicon as a single unified system.*
