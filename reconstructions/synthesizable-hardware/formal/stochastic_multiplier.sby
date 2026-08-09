@@ -1,0 +1,17 @@
+# stochastic_multiplier.sby
+# SymbiYosys Formal Verification Configuration Script
+# Validates LFSR non-zero state preservation, zero multiplication, and stream B dominance.
+
+[options]
+mode bmc
+depth 20
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal stochastic_multiplier.sv
+prep -top stochastic_multiplier
+
+[files]
+stochastic_multiplier.sv
