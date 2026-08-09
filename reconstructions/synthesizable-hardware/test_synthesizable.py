@@ -546,3 +546,44 @@ def test_ternary_alu_overflow_underflow_scenarios():
     out, cout = golden_ternary_alu(min_val_pn, neg_one_pn, 0)
     assert out == max_val_pn, f"Expected output to underflow and wrap to +13 (0b{max_val_pn:06b}), got 0b{out:06b}"
     assert cout == 0b10, f"Expected CarryOut -1 (0b10) for underflow, got 0b{cout:02b}"
+
+
+# ==========================================
+# 7. Hardware & Formal Pipeline Tests
+# ==========================================
+
+def test_pcf_constraints_file_exists():
+    """Ensure the physical FPGA pin mapping constraints file exists and has correct ports."""
+    pcf_path = os.path.join(os.path.dirname(__file__), "fpga", "icebreaker.pcf")
+    assert os.path.exists(pcf_path), "icebreaker.pcf constraints file missing!"
+    with open(pcf_path, "r") as f:
+        content = f.read()
+        assert "set_io clk" in content
+        assert "set_io rst_n" in content
+        assert "set_io resp_allowed" in content
+
+
+def test_sby_formal_configs_exist():
+    """Verify that formal model checking configurations (.sby) are defined for key modules."""
+    formal_dir = os.path.join(os.path.dirname(__file__), "formal")
+    checker_sby = os.path.join(formal_dir, "capability_bounds_checker.sby")
+    alu_sby = os.path.join(formal_dir, "ternary_alu.sby")
+
+    assert os.path.exists(checker_sby), "capability_bounds_checker.sby configuration missing!"
+    assert os.path.exists(alu_sby), "ternary_alu.sby configuration missing!"
+
+    with open(checker_sby, "r") as f:
+        content = f.read()
+        assert "mode bmc" in content
+        assert "smtbmc" in content
+
+
+def test_synthesis_profiler():
+    """Verify the physical synthesis profiler tool runs and outputs structured analytical models."""
+    import sys
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "tools"))
+    import profile_synthesis
+    mock_metrics = profile_synthesis.profile_module_mock("capability_bounds_checker")
+    assert mock_metrics["module"] == "capability_bounds_checker"
+    assert mock_metrics["lut_count"] == 115
+    assert mock_metrics["dff_count"] == 22

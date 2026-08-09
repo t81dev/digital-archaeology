@@ -1,0 +1,32 @@
+# icebreaker.pcf
+# Physical Pin Constraints mapping for capability_bounds_checker on Lattice iCEbreaker (UP5K SG48)
+# Enables hardware-in-the-loop (HIL) fault-injection debugging and LED status monitoring.
+
+# System Clock & Reset
+set_io clk             35
+set_io rst_n           10
+
+# Memory Access Request Inputs (Mapped to PMOD switches / GPIO lines)
+set_io req_valid       4    # PMOD1_1
+set_io req_addr[0]     2    # PMOD1_2
+set_io req_addr[1]     47   # PMOD1_3
+set_io req_addr[2]     45   # PMOD1_4
+set_io req_addr[3]     3    # PMOD1_7
+set_io req_addr[4]     48   # PMOD1_8
+set_io req_addr[5]     46   # PMOD1_9
+set_io req_addr[6]     44   # PMOD1_10
+
+set_io req_op[0]       34   # PMOD2_1
+set_io req_op[1]       31   # PMOD2_2
+set_io desc_mode       36   # PMOD2_3
+
+# Config / Capability Inputs
+set_io cap_tag         42   # PMOD2_4
+set_io cap_present     38   # PMOD2_7
+
+# Access Response Outputs (Mapped to On-Board LEDs for live status monitoring)
+set_io resp_allowed        11   # Red LED (Allowed Status)
+set_io resp_violation_flag 37   # Green LED (Exception Flag)
+set_io resp_page_fault     28   # Blue LED (Page Fault Exception)
+set_io resp_violation_code[0] 26 # User LED 1
+set_io resp_violation_code[1] 27 # User LED 2
