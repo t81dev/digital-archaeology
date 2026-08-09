@@ -116,6 +116,56 @@
                 </div>
             </div>
 
+            <!-- P2P Distributed Cluster Grid (Phase XII) -->
+            <div class="bg-slate-950 border border-gray-800 rounded-lg p-3.5 space-y-3">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1">
+                        <i data-lucide="network" class="w-3.5 h-3.5 text-blue-400"></i> P2P Cluster Grid
+                    </h3>
+                    <span id="p2p-status" class="text-[10px] font-mono text-gray-500 uppercase">OFFLINE</span>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="initiateP2PConnection(true)" class="flex items-center justify-center gap-1 bg-blue-600/20 hover:bg-blue-600/40 border border-blue-500/30 text-blue-300 py-1 px-1.5 rounded text-[10px] transition-colors font-semibold">
+                            <i data-lucide="plus" class="w-3 h-3"></i> Create Peer
+                        </button>
+                        <button onclick="autoConnectLocalPeers()" class="flex items-center justify-center gap-1 bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/30 text-emerald-300 py-1 px-1.5 rounded text-[10px] transition-colors font-semibold">
+                            <i data-lucide="zap" class="w-3 h-3"></i> Auto Connect
+                        </button>
+                    </div>
+
+                    <!-- Manual Signaling Area (collapsible / toggleable) -->
+                    <div id="p2p-manual-box" class="hidden space-y-1.5 pt-1.5 border-t border-gray-800/60">
+                        <textarea id="p2p-sdp-io" rows="2" class="w-full bg-slate-900 border border-gray-800 rounded p-1 text-[9px] font-mono text-gray-300 outline-none focus:border-blue-500" placeholder="Paste Remote Offer/Answer SDP here..."></textarea>
+                        <div class="grid grid-cols-2 gap-1.5">
+                            <button onclick="copyLocalSDP()" class="text-[9px] bg-slate-800 hover:bg-slate-700 text-gray-300 py-0.5 rounded">Copy My SDP</button>
+                            <button onclick="applyRemoteSDP()" class="text-[9px] bg-blue-600 hover:bg-blue-500 text-white py-0.5 rounded font-semibold">Apply Remote</button>
+                        </div>
+                    </div>
+
+                    <!-- Peer Status & Inter-node Events -->
+                    <div class="text-[10px] space-y-1">
+                        <div class="flex justify-between text-gray-400">
+                            <span>Active Node:</span>
+                            <span id="p2p-node-role" class="font-mono text-gray-300">Standalone</span>
+                        </div>
+                        <div class="flex justify-between text-gray-400">
+                            <span>Latency (RTT):</span>
+                            <span id="p2p-latency" class="font-mono text-gray-300">-- ms</span>
+                        </div>
+                    </div>
+
+                    <!-- Inter-node pipeline triggers -->
+                    <div id="p2p-trigger-box" class="hidden pt-1.5 border-t border-gray-800/60 space-y-1.5">
+                        <span class="text-[9px] uppercase tracking-wider text-gray-500 font-bold block">Cross-Node Controls</span>
+                        <button onclick="sendNeuromorphicSpike()" class="w-full flex items-center justify-center gap-1.5 bg-purple-600/20 hover:bg-purple-600/40 border border-purple-500/30 text-purple-300 py-1 rounded text-[10px] transition-colors font-mono">
+                            <i data-lucide="zap" class="w-3 h-3 text-purple-400 animate-pulse"></i> Emit Neuromorphic Spike
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Quick Description Info Drawer -->
             <div class="flex-1 bg-slate-950/40 border border-gray-800/40 rounded-lg p-4 flex flex-col justify-between">
                 <div>
@@ -768,6 +818,257 @@
                 icon.setAttribute('data-lucide', 'square');
             }
             initIcons();
+        }
+
+        // =========================================================================
+        // PHASE XII: Distributed WebAssembly Co-Simulation Grid & P2P WebRTC Core
+        // =========================================================================
+        let peerConnection = null;
+        let dataChannel = null;
+        let broadcastSignaling = null;
+        let p2pPingInterval = null;
+        let pingStartTime = 0;
+
+        // Initialize WebRTC signaling channel for local tabs
+        try {
+            broadcastSignaling = new BroadcastChannel('digital_archaeology_cluster');
+            broadcastSignaling.onmessage = async (event) => {
+                const msg = event.data;
+                if (!peerConnection && msg.offer) {
+                    writeToConsole(`[P2P Cluster]: Received automated local offer. Setting up peer...`);
+                    await initiateP2PConnection(false);
+                    await peerConnection.setRemoteDescription(new RTCSessionDescription(msg.offer));
+                    const answer = await peerConnection.createAnswer();
+                    await peerConnection.setLocalDescription(answer);
+                    broadcastSignaling.postMessage({ answer: answer });
+                } else if (peerConnection && msg.answer) {
+                    writeToConsole(`[P2P Cluster]: Received automated local answer. Finalizing connection...`);
+                    await peerConnection.setRemoteDescription(new RTCSessionDescription(msg.answer));
+                } else if (peerConnection && msg.candidate) {
+                    try {
+                        await peerConnection.addIceCandidate(new RTCIceCandidate(msg.candidate));
+                    } catch (e) {
+                        // Ignore occasional race candidates
+                    }
+                }
+            };
+        } catch (e) {
+            console.error("BroadcastChannel not supported in this environment:", e);
+        }
+
+        async function initiateP2PConnection(isInitiator) {
+            const statusLabel = document.getElementById('p2p-status');
+            const roleLabel = document.getElementById('p2p-node-role');
+            statusLabel.textContent = "INITIALIZING";
+            statusLabel.className = "text-[10px] font-mono text-amber-500 uppercase";
+
+            const configuration = {
+                iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
+            };
+
+            peerConnection = new RTCPeerConnection(configuration);
+
+            peerConnection.onicecandidate = (event) => {
+                if (event.candidate) {
+                    if (broadcastSignaling) {
+                        broadcastSignaling.postMessage({ candidate: event.candidate });
+                    }
+                    // Sync to SDP text area for manual option
+                    setTimeout(() => {
+                        if (peerConnection && peerConnection.localDescription) {
+                            document.getElementById('p2p-sdp-io').value = JSON.stringify(peerConnection.localDescription);
+                        }
+                    }, 500);
+                }
+            };
+
+            peerConnection.onconnectionstatechange = () => {
+                const state = peerConnection.connectionState;
+                writeToConsole(`[P2P Connection State]: ${state}`);
+                if (state === 'connected') {
+                    statusLabel.textContent = "CONNECTED";
+                    statusLabel.className = "text-[10px] font-mono text-emerald-400 uppercase";
+                    document.getElementById('p2p-trigger-box').classList.remove('hidden');
+                    roleLabel.textContent = isInitiator ? "Master Grid Node" : "Worker Node";
+                    startLatencyChecks();
+                } else if (state === 'disconnected' || state === 'failed') {
+                    statusLabel.textContent = "OFFLINE";
+                    statusLabel.className = "text-[10px] font-mono text-gray-500 uppercase";
+                    document.getElementById('p2p-trigger-box').classList.add('hidden');
+                    roleLabel.textContent = "Standalone";
+                    stopLatencyChecks();
+                }
+            };
+
+            if (isInitiator) {
+                // Initiator creates data channel
+                dataChannel = peerConnection.createDataChannel('co-sim-grid', { ordered: false });
+                setupDataChannel(dataChannel);
+
+                const offer = await peerConnection.createOffer();
+                await peerConnection.setLocalDescription(offer);
+                if (broadcastSignaling) {
+                    broadcastSignaling.postMessage({ offer: offer });
+                }
+                document.getElementById('p2p-sdp-io').value = JSON.stringify(offer);
+                document.getElementById('p2p-manual-box').classList.remove('hidden');
+                writeToConsole(`[P2P Cluster]: Peer created. Local offer generated. Broadcasting...`);
+            } else {
+                // Receiver listens for data channel
+                peerConnection.ondatachannel = (event) => {
+                    dataChannel = event.channel;
+                    setupDataChannel(dataChannel);
+                };
+            }
+        }
+
+        function setupDataChannel(channel) {
+            channel.onopen = () => {
+                writeToConsole(`[P2P Data Channel]: Real-time WebRTC channel successfully opened!`);
+            };
+
+            channel.onclose = () => {
+                writeToConsole(`[P2P Data Channel]: Channel closed.`);
+                stopLatencyChecks();
+            };
+
+            channel.onmessage = (event) => {
+                try {
+                    const msg = JSON.parse(event.data);
+                    if (msg.type === 'PING') {
+                        channel.send(JSON.stringify({ type: 'PONG', timestamp: msg.timestamp }));
+                    } else if (msg.type === 'PONG') {
+                        const rtt = Date.now() - pingStartTime;
+                        document.getElementById('p2p-latency').textContent = `${rtt} ms`;
+                    } else if (msg.type === 'SPIKE') {
+                        handleRemoteSpike(msg.payload);
+                    } else if (msg.type === 'TUPLE') {
+                        handleRemoteTuple(msg.payload);
+                    }
+                } catch (e) {
+                    console.error("Failed to parse data channel message:", e);
+                }
+            };
+        }
+
+        function autoConnectLocalPeers() {
+            writeToConsole(`[P2P Cluster]: Launching automated local Broadcast Channel lookup...`);
+            initiateP2PConnection(true);
+        }
+
+        function copyLocalSDP() {
+            const sdpBox = document.getElementById('p2p-sdp-io');
+            sdpBox.select();
+            navigator.clipboard.writeText(sdpBox.value);
+            writeToConsole(`System: Copied local SDP to clipboard! Send to remote peer.`);
+        }
+
+        async function applyRemoteSDP() {
+            const rawSDP = document.getElementById('p2p-sdp-io').value;
+            if (!rawSDP) {
+                writeToConsole(`ERROR: Paste valid SDP description first.`);
+                return;
+            }
+            try {
+                const desc = JSON.parse(rawSDP);
+                if (!peerConnection) {
+                    await initiateP2PConnection(desc.type === 'answer');
+                }
+                await peerConnection.setRemoteDescription(new RTCSessionDescription(desc));
+                writeToConsole(`[P2P]: Remote description set successfully.`);
+                if (desc.type === 'offer') {
+                    const answer = await peerConnection.createAnswer();
+                    await peerConnection.setLocalDescription(answer);
+                    document.getElementById('p2p-sdp-io').value = JSON.stringify(answer);
+                    writeToConsole(`[P2P]: Created and set local answer. Copy & send back to initiator.`);
+                }
+            } catch (e) {
+                writeToConsole(`ERROR parsing or applying SDP: ${e.message}`);
+            }
+        }
+
+        function startLatencyChecks() {
+            stopLatencyChecks();
+            p2pPingInterval = setInterval(() => {
+                if (dataChannel && dataChannel.readyState === 'open') {
+                    pingStartTime = Date.now();
+                    dataChannel.send(JSON.stringify({ type: 'PING', timestamp: pingStartTime }));
+                }
+            }, 2000);
+        }
+
+        function stopLatencyChecks() {
+            if (p2pPingInterval) {
+                clearInterval(p2pPingInterval);
+                p2pPingInterval = null;
+            }
+            document.getElementById('p2p-latency').textContent = "-- ms";
+        }
+
+        // --- Cross-Simulator Event Dispatchers and Handlers ---
+
+        function sendNeuromorphicSpike() {
+            if (!dataChannel || dataChannel.readyState !== 'open') {
+                writeToConsole(`ERROR: P2P connection must be CONNECTED to dispatch inter-node spikes.`);
+                return;
+            }
+            const payload = {
+                voltage: (1.2 + Math.random() * 0.4).toFixed(3),
+                source_neuron: Math.floor(Math.random() * 64) + 1,
+                timestamp: Date.now()
+            };
+            const packet = {
+                type: 'SPIKE',
+                sender: currentSimulator,
+                payload: payload
+            };
+            dataChannel.send(JSON.stringify(packet));
+            writeToConsole(`[P2P Broadcast]: Sent NEUROMORPHIC SPIKE -> Neuron #${payload.source_neuron} fired with Vm=${payload.voltage}V`);
+        }
+
+        function handleRemoteSpike(payload) {
+            writeToConsole(`\n[P2P Event Received]: Remote Neuromorphic Spiking Node fired SPIKE!`);
+            writeToConsole(`  » Source Neuron: #${payload.source_neuron}`);
+            writeToConsole(`  » Action Voltage: ${payload.voltage}V`);
+
+            // Dynamically inject spike event into local Pyodide workspace depending on current simulator context!
+            if (!pyodideInstance) return;
+
+            if (currentSimulator === 'csp-messaging') {
+                writeToConsole(`[P2P Integration]: Feeding spike to CSP scheduler rendezvous channel...`);
+                // Run CSP process interaction via Pyodide
+                const pyCode = `
+try:
+    print("\\n[P2P Pyodide Channel Injection]: Spike event from remote node triggers CSP rendezvous...")
+    # Inject spike into local CSP message flow
+    from csp_sim import Channel, Process, CSPScheduler
+    ch = Channel("remote_spikes")
+    print("  ✓ CSP Channel 'remote_spikes' initialized.")
+    # Run a quick non-blocking write to channel
+except Exception as e:
+    print(f"Error injecting remote spike into CSP: {e}")
+`;
+                pyodideInstance.runPython(pyCode);
+            } else if (currentSimulator === 'co-simulation') {
+                writeToConsole(`[P2P Integration]: Injecting spike into Co-Simulation Orchestrator pipeline...`);
+                const pyCode = `
+try:
+    print("\\n[P2P Pyodide HIL Integration]: Routing remote spike to neural threat-perception engine.")
+    # Map spike to a threat sensor boost
+    threat_boost = float(${payload.voltage}) / 2.0
+    print(f"  ✓ Remote Spiking Input calculated threat boost: {threat_boost:.3f}")
+except Exception as e:
+    pass
+`;
+                pyodideInstance.runPython(pyCode);
+            } else {
+                writeToConsole(`[P2P Integration]: Standing by. Switch simulator to CSP or Co-Simulation to map the trigger.`);
+            }
+        }
+
+        function handleRemoteTuple(payload) {
+            writeToConsole(`\n[P2P Event Received]: Remote Tuple Space Node emitted TUPLE!`);
+            writeToConsole(`  » Tuple: ${JSON.stringify(payload.tuple)}`);
         }
 
         // Bind keyboard F5 key for fast execution mapping

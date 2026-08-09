@@ -1,0 +1,34 @@
+SBY 10:14:33 [formal/reversible_gates] Running SBY with keep_files=prefix, reuse_files=none
+SBY 10:14:33 [formal/reversible_gates] Copying 'reversible_gates.sv' to 'formal/reversible_gates/src/reversible_gates.sv'
+SBY 10:14:33 [formal/reversible_gates] engine_0: smtbmc z3
+SBY 10:14:33 [formal/reversible_gates] base: free: yosys -q -p 'read -formal reversible_gates.sv; prep -top reversible_gates; write_smt2 -wires formal/reversible_gates/model/design.smt2'
+SBY 10:14:34 [formal/reversible_gates] base: free: -- running yosys --
+SBY 10:14:35 [formal/reversible_gates] engine_0: free: yosys-smtbmc -s z3 -t 20 --dump-vcd formal/reversible_gates/engine_0/trace.vcd --dump-vlogtb formal/reversible_gates/engine_0/trace_tb.v --dump-smtc formal/reversible_gates/engine_0/trace.smtc formal/reversible_gates/model/design.smt2
+SBY 10:14:35 [formal/reversible_gates] engine_0: free: -- running yosys-smtbmc --
+SBY 10:14:35 [formal/reversible_gates] engine_0: status: ready (current step 0)
+SBY 10:14:35 [formal/reversible_gates] engine_0: checking assertions in step 0..
+SBY 10:14:35 [formal/reversible_gates] engine_0: checking assertions in step 1..
+SBY 10:14:35 [formal/reversible_gates] engine_0: checking assertions in step 2..
+SBY 10:14:35 [formal/reversible_gates] engine_0: checking assertions in step 3..
+SBY 10:14:36 [formal/reversible_gates] engine_0: checking assertions in step 4..
+SBY 10:14:36 [formal/reversible_gates] engine_0: checking assertions in step 5..
+SBY 10:14:36 [formal/reversible_gates] engine_0: checking assertions in step 6..
+SBY 10:14:36 [formal/reversible_gates] engine_0: checking assertions in step 7..
+SBY 10:14:36 [formal/reversible_gates] engine_0: checking assertions in step 8..
+SBY 10:14:36 [formal/reversible_gates] engine_0: checking assertions in step 9..
+SBY 10:14:36 [formal/reversible_gates] engine_0: checking assertions in step 10..
+SBY 10:14:36 [formal/reversible_gates] engine_0: checking assertions in step 11..
+SBY 10:14:36 [formal/reversible_gates] engine_0: checking assertions in step 12..
+SBY 10:14:36 [formal/reversible_gates] engine_0: checking assertions in step 13..
+SBY 10:14:37 [formal/reversible_gates] engine_0: checking assertions in step 14..
+SBY 10:14:37 [formal/reversible_gates] engine_0: checking assertions in step 15..
+SBY 10:14:37 [formal/reversible_gates] engine_0: checking assertions in step 16..
+SBY 10:14:37 [formal/reversible_gates] engine_0: checking assertions in step 17..
+SBY 10:14:37 [formal/reversible_gates] engine_0: checking assertions in step 18..
+SBY 10:14:37 [formal/reversible_gates] engine_0: checking assertions in step 19..
+SBY 10:14:37 [formal/reversible_gates] engine_0: checking assertions in step 20..
+SBY 10:14:37 [formal/reversible_gates] engine_0: status: passed
+SBY 10:14:38 [formal/reversible_gates] summary: Elapsed process time [00:00:05]
+SBY 10:14:38 [formal/reversible_gates] summary: engine_0 (smtbmc z3) returned pass
+SBY 10:14:38 [formal/reversible_gates] summary: Successful run: 0 subjobs failed, 1 subjobs passed.
+SBY 10:14:38 [formal/reversible_gates] DONE (PASS, clk2fflogic)

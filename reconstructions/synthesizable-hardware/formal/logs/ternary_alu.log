@@ -1,0 +1,34 @@
+SBY 10:14:27 [formal/ternary_alu] Running SBY with keep_files=prefix, reuse_files=none
+SBY 10:14:27 [formal/ternary_alu] Copying 'ternary_alu.sv' to 'formal/ternary_alu/src/ternary_alu.sv'
+SBY 10:14:27 [formal/ternary_alu] engine_0: smtbmc z3
+SBY 10:14:27 [formal/ternary_alu] base: free: yosys -q -p 'read -formal ternary_alu.sv; prep -top ternary_alu; write_smt2 -wires formal/ternary_alu/model/design.smt2'
+SBY 10:14:28 [formal/ternary_alu] base: free: -- running yosys --
+SBY 10:14:29 [formal/ternary_alu] engine_0: free: yosys-smtbmc -s z3 -t 20 --dump-vcd formal/ternary_alu/engine_0/trace.vcd --dump-vlogtb formal/ternary_alu/engine_0/trace_tb.v --dump-smtc formal/ternary_alu/engine_0/trace.smtc formal/ternary_alu/model/design.smt2
+SBY 10:14:29 [formal/ternary_alu] engine_0: free: -- running yosys-smtbmc --
+SBY 10:14:29 [formal/ternary_alu] engine_0: status: ready (current step 0)
+SBY 10:14:29 [formal/ternary_alu] engine_0: checking assertions in step 0..
+SBY 10:14:29 [formal/ternary_alu] engine_0: checking assertions in step 1..
+SBY 10:14:30 [formal/ternary_alu] engine_0: checking assertions in step 2..
+SBY 10:14:30 [formal/ternary_alu] engine_0: checking assertions in step 3..
+SBY 10:14:30 [formal/ternary_alu] engine_0: checking assertions in step 4..
+SBY 10:14:30 [formal/ternary_alu] engine_0: checking assertions in step 5..
+SBY 10:14:30 [formal/ternary_alu] engine_0: checking assertions in step 6..
+SBY 10:14:30 [formal/ternary_alu] engine_0: checking assertions in step 7..
+SBY 10:14:30 [formal/ternary_alu] engine_0: checking assertions in step 8..
+SBY 10:14:30 [formal/ternary_alu] engine_0: checking assertions in step 9..
+SBY 10:14:30 [formal/ternary_alu] engine_0: checking assertions in step 10..
+SBY 10:14:30 [formal/ternary_alu] engine_0: checking assertions in step 11..
+SBY 10:14:31 [formal/ternary_alu] engine_0: checking assertions in step 12..
+SBY 10:14:31 [formal/ternary_alu] engine_0: checking assertions in step 13..
+SBY 10:14:31 [formal/ternary_alu] engine_0: checking assertions in step 14..
+SBY 10:14:31 [formal/ternary_alu] engine_0: checking assertions in step 15..
+SBY 10:14:31 [formal/ternary_alu] engine_0: checking assertions in step 16..
+SBY 10:14:31 [formal/ternary_alu] engine_0: checking assertions in step 17..
+SBY 10:14:31 [formal/ternary_alu] engine_0: checking assertions in step 18..
+SBY 10:14:31 [formal/ternary_alu] engine_0: checking assertions in step 19..
+SBY 10:14:31 [formal/ternary_alu] engine_0: checking assertions in step 20..
+SBY 10:14:32 [formal/ternary_alu] engine_0: status: passed
+SBY 10:14:32 [formal/ternary_alu] summary: Elapsed process time [00:00:05]
+SBY 10:14:32 [formal/ternary_alu] summary: engine_0 (smtbmc z3) returned pass
+SBY 10:14:32 [formal/ternary_alu] summary: Successful run: 0 subjobs failed, 1 subjobs passed.
+SBY 10:14:32 [formal/ternary_alu] DONE (PASS, clk2fflogic)
