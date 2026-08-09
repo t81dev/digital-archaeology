@@ -2,6 +2,8 @@
 
 This roadmap tracks the evolution of **Digital Archaeology** as both a growing body of excavations and a comparative research framework for recovering, analyzing, and re-evaluating abandoned computing paradigms under modern physical, economic, and architectural constraints.
 
+For a comprehensive, academically citable analysis of our multi-phase horizons, see our synthesis document: **[Comprehensive Architectural Re-Evaluation of the Digital Archaeology Roadmap](synthesis/architectural-roadmap-re-evaluation.md)**.
+
 ---
 
 # Phase I — Core Excavations ✅ (Complete)
@@ -16,6 +18,10 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 - [x] Linda Tuple Spaces, Occam, Smalltalk, Symbolic AI
 
 **Total Excavations**: 35
+
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **Quantified Energy/Area Projections**: Expand each excavation's "Modern Relevance" with an estimated Gate-Equivalent (GE) count or normalized Energy-per-Op (fJ) scaling curve comparing the historic design to its modern sub-5nm CMOS equivalent.
+- **Archival/Patent Deep Linking**: Direct embedding of standardized patent identifiers (e.g., USPTO numbers for the J-Machine routing chip) and oral history URLs (such as the Charles Babbage Institute archives) at the end of each excavation to elevate academic credibility.
 
 ---
 
@@ -46,6 +52,10 @@ This roadmap tracks the evolution of **Digital Archaeology** as both a growing b
 - [x] [capability-based-security.md](synthesis/capability-based-security.md)
 - [x] [compiler-hardware-co-design.md](synthesis/compiler-hardware-co-design.md)
 
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **Cross-Lineage Convergence Matrix**: Add a pairwise and triple interaction index directly into `synthesis/state-of-revival.md` to formalize how these sidelined ideas interact. For example: How does combining spatial computing (Systolic Arrays) with hardware capabilities (CHERI) impact compiler optimization loops and register renaming pressure?
+- **Quantitative Constraint Migration Curves**: Plot mathematical curves showing the exact crossover points where physical bottlenecks (e.g., copper interconnect resistance scaling at <3nm) make a historical paradigm (e.g., Optical matrix-vector multipliers) economically and thermally superior to general-purpose CMOS arithmetic logic.
+
 ---
 
 # Phase III — Modern Reconstruction & Prototyping ✅ (Complete)
@@ -60,6 +70,10 @@ Transitioned from theoretical comparisons to dynamic execution models, implement
 
 **Reconstruction Index**: [reconstructions/README.md](reconstructions/README.md)
 
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **Trace-Driven Replay Engines**: Expand the simulators to read standard execution traces (such as RISC-V ELF execution traces or tensor operations from PyTorch graphs) and replay them step-by-step to demonstrate functional divergence in real-time.
+- **Micro-Architectural Pipeline Visualizers**: Add internal cycle-accurate structures, such as a simulated instruction window or register-reservation table, directly exposing resource contention and queue depths in the Python terminal output.
+
 ---
 
 # Phase IV — Research Infrastructure & Dissemination ✅ (Complete)
@@ -69,6 +83,10 @@ Transitioned from theoretical comparisons to dynamic execution models, implement
 - [x] [Comparative indexes](COMPARATIVE_INDEX.md): Constructed dynamic matrices grouping all 35 excavations across different core technical archetypes.
 - [x] [Static site / better navigation](INDEX.md): Enhanced repo-wide index and cross-linking as a foundation for static site generation.
 - [x] [Public essays and "idea revival" case studies](synthesis/): Published synthesis essays including [Architectural Distillation](synthesis/architectural-distillation.md), [The Return of Spatial Computing](synthesis/return-of-spatial-computing.md), [Capability-Based Security](synthesis/capability-based-security.md), and [Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md).
+
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **Standardized BibTeX Integration**: Include a fully downloadable .bib file in the root of the `bibliography/` directory, allowing researchers to copy-paste citation blocks directly for IEEE/ACM systems preprints.
+- **Interactive Timeline Scrubbers**: Convert static markdown timelines into dynamic, queryable timelines in the `explorer.html` visual interface, allowing users to filter milestones by architectural lineage.
 
 ---
 
@@ -92,6 +110,10 @@ To scale the research initiative and expand from descriptive analysis into activ
 - [x] **AI-Assisted Knowledge Ingestion**: Provided an API/schema (`knowledge_graph.json`) format of the index and comparative matrices, allowing LLM-based autonomous agents to ingest, reference, and evaluate these historical architectural patterns.
 - [x] **Academic & Hardware Partnerships**: Connected historical architectures to active academic research programs, zero-trust security initiatives, and modern open-source FPGA toolchains (documented in [Partnerships](modern-relevance/partnerships.md)).
 
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **Pyodide Shared Memory Buffers**: Optimize the Python-to-JavaScript data transfer inside `playground.html`. Instead of serializing large simulation logs as JSON strings, utilize SharedArrayBuffer for direct zero-copy binary state sharing between the WebAssembly runtime and the UI rendering loop.
+- **Optical Core Noise Modeling**: Add physical noise artifacts (e.g., shot noise, thermal carrier dispersion, phase jitter) to the Photonic/Analog wave accelerator simulator to illustrate how analog computation trades numerical precision for sub-nanosecond latency.
+
 ---
 
 # Phase VI — Synthesizable Hardware, Co-Simulation Fabrics, & WebAssembly Playgrounds ✅ (Complete)
@@ -114,6 +136,10 @@ To transition research from functional emulation into the physical silicon pipel
 - [x] **Curated Lab Modules**: Authored a series of interactive pedagogical lab sheets (`reconstructions/LAB_MANUAL.md`) designed for university systems-architecture curricula.
 - [x] **Hands-on Clean-Slate Challenges**: Included problems such as "Designing a Ternary Half-Adder," "Custom Mathematical Pipelined Dataflow Graph," "Implementing Secure Domain Transitions," and "Deadlock-Avoiding Message Broker" complete with model solutions.
 
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **Complete Hardware-Software Co-Simulation Loop**: Connect the behavioral Python simulators directly to the SystemVerilog RTL cores using a lightweight foreign-function interface (such as a WASM-compiled Verilator simulation harness running in the browser). This would allow users to write a python test script that drives clock cycles on the physical SystemVerilog gates live inside `playground.html`.
+- **Lab Module Auto-Graders**: Extend the `LAB_MANUAL.md` curriculum with lightweight python test harnesses. Students could write their custom solutions (e.g., a "Ternary Half-Adder") and run an automated grading script to instantly assert arithmetic and logical compliance.
+
 ---
 
 # Phase VII — Relational Density, Architectural Integrity & Taxonomic Synthesis ✅ (Complete)
@@ -127,6 +153,10 @@ To elevate the repository from a decoupled database into a highly cohesive, non-
 ### 2. Graph and Network Optimization
 - [x] **Metric Analysis and Density Doubling**: Developed custom network analysis tools (`density_analyzer.py`) to systematically map the repository's topological layout, successfully doubling active cross-reference connections from 96 to 192 and achieving a high network density metric of 0.1171 with zero dead-ends or isolated nodes.
 - [x] **Dynamic Knowledge Graph Synthesis**: Recompiled the machine-readable database `knowledge_graph.json` via automated scripts to dynamically update the interactive D3 force-directed visual explorer (`explorer.html`).
+
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **Dynamic Clustering Coefficients**: Update `density_analyzer.py` to calculate graph-theoretic metrics like cliquishness, average path length, and eigenvector centrality for excavations. This mathematical analysis can automatically flag which historical ideas are currently under-linked or isolated from modern design paradigms.
+- **Automated Cross-Reference Generators**: Build a utility that parses newly written markdown files and uses the `knowledge_graph.json` vocabulary to automatically inject accurate relative markdown links to relevant excavations, patterns, and glossaries.
 
 ---
 
@@ -143,6 +173,10 @@ To transition our comparative research network into a dynamically queryable and 
 - [x] **Live Digital Logic Analyzer**: Engineered a canvas-based waveform viewer displaying synchronized transitions of `CLK`, `SEN_TRIG`, `LOGIC_DEC`, `CSP_RDV`, `DF_OP`, `EDGE_WR`, and `HW_EXC` logic signals.
 - [x] **Inter-Paradigm Fault Injection**: Toggles like `FORCE_EXCEPTION` dynamically override soft-core bounds rules to manually trigger hardware capability violations or ternary carry overflows live in the Wasm sandbox.
 
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **Save/Export Waveform Capabilities**: Add a "Capture VCD" button to the canvas-based Logic Analyzer. This would allow researchers to export cycle-accurate waveform traces (.vcd format) directly from their in-browser co-simulation runs for offline analysis in tools like GTKWave.
+- **HIL Hardware Hook**: Provide a standard WebUSB/WebSerial connector interface within `playground.html`, enabling physical development boards (e.g., an FPGA running our synthesizable SystemVerilog IP cores) to stream actual logic transitions directly into the browser's digital logic analyzer canvas.
+
 ---
 
 # Phase IX — Quantitative Constraint Forecasting ✅ (Complete)
@@ -154,6 +188,10 @@ Designed, verified, and released an active, quantitative forecasting model that 
 - [x] **Interactive Command-Line Interface**: Released a fully-functional CLI parser supporting customized physical parameters, text tables, star ratings, and JSON export for automated ingestion.
 - [x] **Zero-Dependency Validation Suite**: Verified prediction bounds clamping, input sensitivity, and schema layout through extensive pytest unit tests.
 
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **Dynamic CMOS Node Modifiers**: Expand the forecasting model to include specific transistor technologies (e.g., FinFET, GAA nanosheets, and backside power delivery networks (BSPDN)). This allows users to forecast how alternative paradigms perform when migrating from standard planar CMOS to advanced sub-2nm 3D structural boundaries.
+- **Sensitivity Analysis Module**: Add a CLI command (e.g., `--sensitivity`) that systematically swept individual physical variables (e.g., varying copper interconnect resistivity from $1.7\,\mu\Omega\cdot\text{cm}$ to $10\,\mu\Omega\cdot\text{cm}$) to automatically isolate which physical constraints act as the primary catalyst for each architectural lineage's revival.
+
 ---
 
 # Phase X — Co-Simulation Fabric & Alternative Lineage Scorecards ✅ (Complete)
@@ -163,6 +201,10 @@ Integrated and validated the multi-architecture co-simulation harness while unif
 - [x] **Physical Co-Simulation Execution**: Established verified execution routines for 15 Python simulators and co-simulation orchestrators.
 - [x] **Robust Error Handling & Edge Cases**: Hardened multi-architecture message queues, thread-safe message passing, and deadlock recovery strategies.
 - [x] **Lineage Baseline Consolidation**: Linked physical co-simulation behaviors directly to the six architectural lineages documented in the [Modern Revival Readiness Scorecard](modern-relevance/revival-readiness.md) and evaluated in [State of Revival Synthesis](synthesis/state-of-revival.md).
+
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **Dynamic Deadlock Recovery Policies**: The co-simulation orchestrator handles basic deadlocks. We can introduce advanced recovery options, such as asynchronous transaction rollbacks or prioritized channel preemption, to dynamically resolve structural blocks when coordinating disparate execution models.
+- **Dynamic Workload Rebalancer**: Implement an adaptive orchestration harness that profiles the execution cycles of each active simulator (e.g., measuring the relative time spent in the Neuro-Symbolic vs. CSP Messaging engines) and dynamically scales queue capacities to maximize multi-threaded throughput.
 
 ---
 
@@ -181,6 +223,10 @@ Bridges functional simulators with synthesizable hardware models through formal 
 - [x] **Build & Toolchain Automation**: Developed an automated, clean `Makefile` providing unified commands to run formal proofs and synthesize/place-and-route bitstreams under Yosys + nextpnr.
 - [x] **Physical Synthesis and Timing Logs**: Synthesized and placed-and-routed the `capability_bounds_checker` against `icebreaker.pcf`, committing the final `.bin` bitstream and `capability_bounds_checker_timing.rpt` report to `reconstructions/synthesizable-hardware/fpga/build/`.
 - [x] **Analytical Performance Scaling**: Integrated fallback profiling engines within `profile_synthesis.py` to maintain synthesizable credibility under missing local compiler contexts.
+
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **OpenLane GDSII Physical Layout Synthesis**: Expand the build automation to target the OpenLane open-source ASIC synthesis flow. By writing configuration files (config.json) for the 4 IP cores, we can synthesize physical GDSII silicon layout files (macro placement, power distribution grids, clock tree synthesis) targeted at the SkyWater sky130 or IHP SG13G2 open foundry PDKs.
+- **Induction (k-induction) Formal Proofs**: SBY is currently configured for Bounded Model Checking (BMC). By extending the SVA assertions and SBY configurations to execute temporal induction proofs, we can mathematically prove that our security invariants and arithmetic properties hold true across infinite clock cycles rather than just a bounded step depth.
 
 ---
 
@@ -202,6 +248,10 @@ To scale alternative computational model testing beyond isolated browser windows
 - **Success Metric M12.1**: Successful execution of a distributed 3-node co-simulation pipeline running at $<15\text{ms}$ inter-node latency overhead in a standard web browser sandbox.
 - **Success Metric M12.2**: Verification of distributed lock and resource isolation correctness across multiple parallel browser sessions.
 
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **Automated Public Signaling Server**: To make cross-device WAN clustering zero-configuration, deploy a public, open-source signaling server (using secure WebSockets) to broker WebRTC offers and answers automatically without manual copy-paste of SDP strings.
+- **Distributed Workload Partitioning**: Build a concrete decentralized benchmark where parameters from the Predictive Hypothesis Engine are split across 3 distinct browser nodes (e.g., Node A calculates interconnect bottlenecks, Node B evaluates memory walls, Node C runs thermodynamic limits) and the final comparative scorecard is unified over WebRTC.
+
 ---
 
 # Phase XIII — Agentic Co-Design, Neuro-Symbolic Validation, & Automated Architectural Discovery (2028-2030) 🧠 (Vision)
@@ -216,9 +266,13 @@ The ultimate frontier of Digital Archaeology transitions the researcher from man
 - **Machine-Generated Intermediate Representations (IR)**: Design a unified compiler intermediate representation (IR) capable of compiling high-level programming constructs into targets spanning custom systolic spatial grids, tagged-token dataflow pipelines, and stochastic bit-serial execution units.
 - **Recursive Co-Design Optimization**: Implement a machine-learning loop that adjusts simulated hardware topologies (e.g., systolic array weight-stationary sizing, dataflow match-table capacities) and re-compiles the target workloads recursively until the optimal energy-delay-product (EDP) is discovered for a given constraint migration profile.
 
+### Future Horizons: Re-Evaluation & Potential Expansions
+- **LLM Structured Tooling APIs**: Create a specialized Python endpoint (`tools/agent_api.py`) that formats the `knowledge_graph.json` database, the `predictive_engine.py` output, and the SystemVerilog RTL files into structured JSON schemas. This allows external LLM agents (such as Autogen or LangChain loop nodes) to autonomously query architectural properties, write behavioral tests, and compile them.
+- **WASM-Compiled SAT/SMT Verification Solver**: Compile an open-source SAT/SMT solver (like the Z3 theorem prover) to WebAssembly and integrate it directly into `playground.html`. This would allow an agent or script to mathematically check capability boundary safety rules and verify synthesized circuits in real-time without leaving the browser sandbox.
+
 ---
 
-# Long-Term Vision
+## Long-Term Vision
 
 Digital Archaeology seeks to become the premier comparative reference and execution playground for abandoned and underexplored computing paradigms.
 
@@ -235,4 +289,4 @@ The ultimate goal is to help computer engineers, systems researchers, and autono
 
 ---
 
-**Last updated**: August 2, 2026
+**Last updated**: August 26, 2026
