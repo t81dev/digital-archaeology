@@ -568,11 +568,25 @@ def test_sby_formal_configs_exist():
     formal_dir = os.path.join(os.path.dirname(__file__), "formal")
     checker_sby = os.path.join(formal_dir, "capability_bounds_checker.sby")
     alu_sby = os.path.join(formal_dir, "ternary_alu.sby")
+    reversible_sby = os.path.join(formal_dir, "reversible_gates.sby")
+    stochastic_sby = os.path.join(formal_dir, "stochastic_multiplier.sby")
 
     assert os.path.exists(checker_sby), "capability_bounds_checker.sby configuration missing!"
     assert os.path.exists(alu_sby), "ternary_alu.sby configuration missing!"
+    assert os.path.exists(reversible_sby), "reversible_gates.sby configuration missing!"
+    assert os.path.exists(stochastic_sby), "stochastic_multiplier.sby configuration missing!"
 
     with open(checker_sby, "r") as f:
+        content = f.read()
+        assert "mode bmc" in content
+        assert "smtbmc" in content
+
+    with open(reversible_sby, "r") as f:
+        content = f.read()
+        assert "mode bmc" in content
+        assert "smtbmc" in content
+
+    with open(stochastic_sby, "r") as f:
         content = f.read()
         assert "mode bmc" in content
         assert "smtbmc" in content

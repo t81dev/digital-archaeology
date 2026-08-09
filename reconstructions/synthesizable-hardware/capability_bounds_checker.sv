@@ -77,7 +77,7 @@ module capability_bounds_checker (
         // Memory accesses with invalid/cleared capability tags must always trigger an immediate safety fault.
         property p_unforgeable;
             @(posedge clk) disable iff (!rst_n)
-            (req_valid && !cap_tag) |=>> (!resp_allowed && resp_violation_flag && (resp_violation_code == 2'b01));
+            (req_valid && !cap_tag) |=> (!resp_allowed && resp_violation_flag && (resp_violation_code == 2'b01));
         endproperty
         assert_unforgeable: assert property(p_unforgeable);
 
@@ -85,7 +85,7 @@ module capability_bounds_checker (
         // Requests out of capability base/limit bounds must raise bounds-check exception.
         property p_boundary_safety;
             @(posedge clk) disable iff (!rst_n)
-            (req_valid && cap_tag && (req_addr < cap_base || req_addr >= cap_limit || cap_base > cap_limit)) |=>>
+            (req_valid && cap_tag && (req_addr < cap_base || req_addr >= cap_limit || cap_base > cap_limit)) |=>
             (!resp_allowed && resp_violation_flag && (resp_violation_code == 2'b10));
         endproperty
         assert_boundary_safety: assert property(p_boundary_safety);
@@ -94,7 +94,7 @@ module capability_bounds_checker (
         // In Burroughs Descriptor mode, reading a swapped-out segment (present = 0) must trigger a hardware page fault exception.
         property p_page_fault;
             @(posedge clk) disable iff (!rst_n)
-            (req_valid && cap_tag && desc_mode && !cap_present) |=>>
+            (req_valid && cap_tag && desc_mode && !cap_present) |=>
             (!resp_allowed && resp_violation_flag && resp_page_fault && (resp_violation_code == 2'b11));
         endproperty
         assert_page_fault: assert property(p_page_fault);

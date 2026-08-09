@@ -1,0 +1,17 @@
+# reversible_gates.sby
+# SymbiYosys Formal Verification Configuration Script
+# Validates control line preservation, information conservation, and gate inversion invariants.
+
+[options]
+mode bmc
+depth 20
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal reversible_gates.sv
+prep -top reversible_gates
+
+[files]
+reversible_gates.sv

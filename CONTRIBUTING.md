@@ -13,12 +13,12 @@ We welcome contributions of all types:
 
 ## Highest-Value Contribution Areas
 
-As the repository has reached a mature, feature-complete state with 35 excavations, 14 interactive simulators, and synthesizable RTL cores, we are pivoting from bulk content generation to **credibility, robustness, and physical verification**. We encourage contributions focused on the following high-leverage areas:
+As the repository has reached a mature, feature-complete state with 35 excavations, 15+ simulators, and fully verified synthesizable RTL cores (formally checked via SymbiYosys/z3 and mapped to Lattice iCE40 FPGAs), we encourage contributions focused on the following next-generation research frontiers:
 
-1. **Formal Verification of Soft-Cores**: Writing formal properties (SVA/SystemVerilog Assertions) or utilizing model-checking tools (such as SymbiYosys) to mathematically prove the correctness, safety, and bounds-checking guarantees of our synthesizable cores (`capability_bounds_checker.sv`, `ternary_alu.sv`, `stochastic_multiplier.sv`).
-2. **Additional Primary-Source Depth**: Adding high-fidelity archival references, patents, and technical schematic data to our lighter excavations to ensure academic-grade historical accuracy.
-3. **Physical FPGA Bitstreams & Demos**: Compiling, synthesizing, and placing-and-routing our SystemVerilog cores onto target hardware boards (such as the Lattice iCE40 UltraPlus / iCEbreaker or Tiny-Tapeout) and sharing the resulting PCFs, bitstreams, and oscilloscope traces.
-4. **Real-World Case Studies & Benchmarks**: Porting or benchmarking modern domain-specific workloads (e.g., lightweight convolutional neural network layers or cryptographic micro-segments) onto our simulators to quantify energy and speed advantages against traditional x86/ARM baselines.
+1. **Tiny Tapeout Submission & Silicon Target Readiness**: Adapting our synthesizable soft-cores (`ternary_alu.sv`, `capability_bounds_checker.sv`, `reversible_gates.sv`, `stochastic_multiplier.sv`) for [Tiny Tapeout](https://tinytapeout.com/), establishing GDSII layouts, and preparing files for the next physical silicon shuttle.
+2. **Real-Workload PPA Benchmarks**: Running systems-level benchmarks on physical FPGA boards (e.g. iCEbreaker UP5K) or logic analyzers, measuring Power, Performance, and Area (PPA) scaling curves for alternate computing paradigms against CMOS equivalents.
+3. **Distributed WebRTC Co-Simulation**: Writing peer-to-peer browser-native WebRTC signal handlers to connect isolated Python simulators and co-simulation instances across multiple distributed browser clients.
+4. **Additional Primary-Source Depth**: Elevating our lighter historical excavations with high-fidelity archival documents, patents, oral histories, and technical schematic data to ensure academic-grade historical precision.
 
 ---
 

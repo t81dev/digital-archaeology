@@ -20,24 +20,74 @@ module reversible_gates (
 );
 
     // =========================================================================
-    // FORMAL VERIFICATION PROPERTIES (SVA Friendly Comments)
+    // FORMAL VERIFICATION PROPERTIES (SVA Block)
     // =========================================================================
-    //
-    // RESET BEHAVIOR:
-    // - On asynchronous active-low reset (!rst_n), all registered outputs (X, Y, Z)
-    //   must asynchronously clear to 1'b0.
-    //
-    // FORMAL INVARIANTS (Bijectivity & Self-Inversion):
-    // - Self-Inversion: Running the Toffoli or Fredkin configuration twice with
-    //   matching outputs routed back must reconstruct the original input triplet.
-    //   Since this is a synchronous pipeline, evaluating a self-inverse state
-    //   asserts that the logic maps bijective states bi-directionally without loss.
-    // - Conservation of Information: Number of high bits in inputs must equal
-    //   number of high bits in outputs (essential property of Fredkin gates).
-    //   `assert property (@(posedge clk) (en && op == 1'b1) ##1 (X + Y + Z == $past(A + B + C)));`
-    // - Control Conservatism: Under both Toffoli and Fredkin configurations, control
-    //   line A is preserved exactly.
-    //   `assert property (@(posedge clk) en ##1 (X == $past(A)));`
+    `ifdef FORMAL
+        // Immediate Reset Behavior
+        always @(*) begin
+            if (!rst_n) begin
+                assert(X == 1'b0);
+                assert(Y == 1'b0);
+                assert(Z == 1'b0);
+            end
+        end
+
+        // Control Conservatism Invariant
+        // Under both Toffoli and Fredkin configurations, control line A is preserved exactly.
+        property p_control_preservation;
+            @(posedge clk) disable iff (!rst_n)
+            en |=> (X == $past(A));
+        endproperty
+        assert_control_preservation: assert property(p_control_preservation);
+
+        // Conservation of Information Invariant (Fredkin/CSWAP)
+        // Number of high bits in inputs must equal number of high bits in outputs.
+        property p_fredkin_conservation;
+            @(posedge clk) disable iff (!rst_n)
+            (en && op == 1'b1) |=> (X + Y + Z == $past(A) + $past(B) + $past(C));
+        endproperty
+        assert_fredkin_conservation: assert property(p_fredkin_conservation);
+
+        // Control B Preservation Invariant (Toffoli/CCNOT)
+        // Under Toffoli configuration, control line B is preserved exactly.
+        property p_toffoli_control_b;
+            @(posedge clk) disable iff (!rst_n)
+            (en && op == 1'b0) |=> (Y == $past(B));
+        endproperty
+        assert_toffoli_control_b: assert property(p_toffoli_control_b);
+
+        // Target Inversion Invariant (Toffoli/CCNOT)
+        // Z is inverted under Toffoli if A and B are both high.
+        property p_toffoli_inversion;
+            @(posedge clk) disable iff (!rst_n)
+            (en && op == 1'b0 && A && B) |=> (Z == !$past(C));
+        endproperty
+        assert_toffoli_inversion: assert property(p_toffoli_inversion);
+
+        // Target Preservation Invariant (Toffoli/CCNOT)
+        // Z is preserved under Toffoli if A or B is low.
+        property p_toffoli_no_inversion;
+            @(posedge clk) disable iff (!rst_n)
+            (en && op == 1'b0 && !(A && B)) |=> (Z == $past(C));
+        endproperty
+        assert_toffoli_no_inversion: assert property(p_toffoli_no_inversion);
+
+        // Fredkin No Swap Invariant (Fredkin/CSWAP)
+        // If control A is low, Y == B and Z == C.
+        property p_fredkin_no_swap;
+            @(posedge clk) disable iff (!rst_n)
+            (en && op == 1'b1 && !A) |=> (Y == $past(B) && Z == $past(C));
+        endproperty
+        assert_fredkin_no_swap: assert property(p_fredkin_no_swap);
+
+        // Fredkin Swap Invariant (Fredkin/CSWAP)
+        // If control A is high, Y == C and Z == B.
+        property p_fredkin_swap;
+            @(posedge clk) disable iff (!rst_n)
+            (en && op == 1'b1 && A) |=> (Y == $past(C) && Z == $past(B));
+        endproperty
+        assert_fredkin_swap: assert property(p_fredkin_swap);
+    `endif
     // =========================================================================
 
     logic X_comb, Y_comb, Z_comb;
