@@ -1,0 +1,16 @@
+{
+    "DESIGN_NAME": "stochastic_multiplier",
+    "VERILOG_FILES": ["dir::../../stochastic_multiplier.sv"],
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 4.0,
+    "FP_SIZING": "relative",
+    "FP_CORE_UTIL": 40,
+    "PL_TARGET_DENSITY": 0.45,
+    "SYNTH_STRATEGY": "DELAY 1",
+    "PDK": "sky130_fd_sc_hd",
+    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
+    "DIODE_INSERTION_STRATEGY": 3,
+    "RUN_CVP": true,
+    "VDD_NETS": ["vccd1"],
+    "GND_NETS": ["vssd1"]
+}

@@ -2,8 +2,13 @@
 # SymbiYosys Formal Verification Configuration Script
 # Validates LFSR non-zero state preservation, zero multiplication, and stream B dominance.
 
+[tasks]
+bmc
+prove
+
 [options]
-mode bmc
+bmc: mode bmc
+prove: mode prove
 depth 20
 
 [engines]

@@ -1,0 +1,17 @@
+{
+    "DESIGN_NAME": "capability_bounds_checker",
+    "VERILOG_FILES": ["dir::../../capability_bounds_checker.sv"],
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 10.0,
+    "FP_SIZING": "relative",
+    "FP_CORE_UTIL": 45,
+    "PL_TARGET_DENSITY": 0.5,
+    "SYNTH_STRATEGY": "DELAY 0",
+    "PDK": "sky130_fd_sc_hd",
+    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
+    "DIODE_INSERTION_STRATEGY": 3,
+    "RUN_CVP": true,
+    "FP_PDN_MULTIPLE": 2,
+    "VDD_NETS": ["vccd1"],
+    "GND_NETS": ["vssd1"]
+}

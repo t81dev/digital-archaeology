@@ -2,8 +2,13 @@
 # SymbiYosys Formal Verification Configuration Script
 # Proves arithmetic correctness, zero-sign behavior, and balanced overflow/underflow wrap bounds.
 
+[tasks]
+bmc
+prove
+
 [options]
-mode bmc
+bmc: mode bmc
+prove: mode prove
 depth 10
 
 [engines]

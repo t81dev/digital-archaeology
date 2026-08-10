@@ -2,8 +2,13 @@
 # SymbiYosys Formal Verification Configuration Script
 # Validates control line preservation, information conservation, and gate inversion invariants.
 
+[tasks]
+bmc
+prove
+
 [options]
-mode bmc
+bmc: mode bmc
+prove: mode prove
 depth 20
 
 [engines]

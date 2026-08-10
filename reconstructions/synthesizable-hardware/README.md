@@ -54,13 +54,13 @@ This hardware suite has been advanced to a state of **formal mathematical correc
 
 | IP Core Module | Verification Type | Status | SVA Property Coverage | Formally Proven Invariants |
 | :--- | :---: | :---: | :---: | :--- |
-| `capability_bounds_checker` | **Formal BMC (z3)** & Python Golden | **100% PASSED** | 4 Assertions | Tag Unforgeability, Boundary safety, Page-fault exceptions, Reset invariants |
-| `ternary_alu` | **Formal BMC (z3)** & Python Golden | **100% PASSED** | 3 Assertions | Negation involution, Identity addition, Reset invariants |
-| `reversible_gates` | **Formal BMC (z3)** & Python Golden | **100% PASSED** | 8 Assertions | Fredkin information conservation, Control line preservation, CCNOT inversion/identity |
-| `stochastic_multiplier` | **Formal BMC (z3)** & Python Golden | **100% PASSED** | 4 Assertions | LFSR non-zero state preservation, Zero multiplication dominance, Stream B gate control |
+| `capability_bounds_checker` | **Formal BMC & k-Induction (z3)** & Python Golden | **100% PASSED** | 4 Assertions | Tag Unforgeability, Boundary safety, Page-fault exceptions, Reset invariants |
+| `ternary_alu` | **Formal BMC & k-Induction (z3)** & Python Golden | **100% PASSED** | 3 Assertions | Negation involution, Identity addition, Reset invariants |
+| `reversible_gates` | **Formal BMC & k-Induction (z3)** & Python Golden | **100% PASSED** | 8 Assertions | Fredkin information conservation, Control line preservation, CCNOT inversion/identity |
+| `stochastic_multiplier` | **Formal BMC & k-Induction (z3)** & Python Golden | **100% PASSED** | 4 Assertions | LFSR non-zero state preservation, Zero multiplication dominance, Stream B gate control |
 
 *   **Simulation Golden Model**: Verified via Python golden emulator in `test_synthesizable.py` with 100% test coverage mapping LFSR periods, reversible gate bijectivity, and balanced ternary arithmetic.
-*   **Formal Model Checking**: 100% formally proven using **SymbiYosys (SBY)** and the **z3 SMT solver**. All inline SVA (SystemVerilog Assertions) compile into exact mathematical constraints, proving zero safety violations, boundary leaks, or lockup conditions.
+*   **Formal Model Checking (Temporal k-Induction)**: 100% formally proven using **SymbiYosys (SBY)** and the **z3 SMT solver** configured for both bounded model checking (`bmc`) and temporal induction (`prove`). Proves that safety invariants and arithmetic assertions hold true across infinite clock cycles rather than just bounded traces.
 *   **Gate-Level FPGA Synthesis**: Compiled and routed successfully for the **Lattice iCE40 UP5K** using the open-source **Yosys + nextpnr** toolchain.
 
 ---
@@ -301,3 +301,14 @@ We target the **Lattice iCE40 UP5K** (found on the iCEbreaker board) as it is th
    - *Example Mapping*: For `reversible_gates`, input pins `ui_in[0]` (A), `ui_in[1]` (B), `ui_in[2]` (C), `ui_in[3]` (op), and `ui_in[4]` (en).
 3. **Run GitHub Actions**: Push to your fork. The automated GitHub actions pipeline runs **OpenLane** to synthesize, place, route, and compile your design into a physical GDSII layout.
 4. **Silicon Delivery**: Your design is packaged onto a shared multi-project chip wafer and shipped to you on an evaluation board.
+
+### 🏭 Path C: Direct OpenLane GDSII Silicon Synthesis
+For deep-submicron physical design tapeouts, we provide production-ready **OpenLane configuration templates** (`fpga/openlane_configs/`) targeting standard foundry PDKs (e.g., SkyWater sky130 or IHP SG13G2).
+
+By supplying custom floorplan, density, and clock constraints, these configurations bypass manual layout:
+1. **Prepare OpenLane Workspace**: Install Docker and pull the `efabless/openlane` container.
+2. **Synthesize and Route**: Run the OpenLane physical synthesis flow on any core config:
+   ```bash
+   ./flow.tcl -design reconstructions/synthesizable-hardware/fpga/openlane_configs/capability_bounds_checker.json -tag tapeout_v1
+   ```
+3. **Analyze Reports**: Under `openlane/designs/capability_bounds_checker/runs/tapeout_v1/`, examine the generated macro placements, clock trees, parasitic extraction (`.spef`), and the final tapeout-ready GDSII file (`.gds`).
