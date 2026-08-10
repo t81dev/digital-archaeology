@@ -13,7 +13,7 @@ We welcome contributions of all types:
 
 ## Highest-Value Contribution Areas
 
-As the repository has reached a mature, feature-complete state with 35 excavations, 15+ simulators, and fully verified synthesizable RTL cores (formally checked via SymbiYosys/z3 and mapped to Lattice iCE40 FPGAs), we encourage contributions focused on the following next-generation research frontiers:
+As the repository has reached a mature, feature-complete state with 35 excavations, 15+ simulators, and fully verified synthesizable RTL cores (formally checked via SymbiYosys/z3 and mapped to Lattice iCE40 FPGAs), we encourage contributions focused on the following next-generation research frontiers outlined in **[synthesis/architectural-roadmap-re-evaluation.md](synthesis/architectural-roadmap-re-evaluation.md)**:
 
 1. **Tiny Tapeout & OpenLane ASIC Submissions**: Adapting our synthesizable soft-cores (`ternary_alu.sv`, `capability_bounds_checker.sv`, `reversible_gates.sv`, `stochastic_multiplier.sv`) for [Tiny Tapeout](https://tinytapeout.com/) or deep-submicron OpenLane synthesis, establishing physical layout GDSII parameters (`fpga/openlane_configs/`) for SkyWater 130nm / IHP SG13G2.
 2. **Infinite Clock-Cycle Formal Proofs**: Extending SystemVerilog Assertions (SVA) and SymbiYosys configurations (`formal/`) to leverage temporal k-induction (`prove` tasks) to mathematically verify infinite-trace hardware security and arithmetic properties.
