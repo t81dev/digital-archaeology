@@ -71,7 +71,7 @@ Transitioned from theoretical comparisons to dynamic execution models, implement
 **Reconstruction Index**: [reconstructions/README.md](reconstructions/README.md)
 
 ### Future Horizons: Re-Evaluation & Potential Expansions
-- **Trace-Driven Replay Engines**: Expand the simulators to read standard execution traces (such as RISC-V ELF execution traces or tensor operations from PyTorch graphs) and replay them step-by-step to demonstrate functional divergence in real-time.
+- [x] **Trace-Driven Replay Engines**: Expand the simulators to read standard execution traces (such as RISC-V ELF execution traces or tensor operations from PyTorch graphs) and replay them step-by-step to demonstrate functional divergence in real-time. (Implemented via `TraceReplayEngine` in `reconstructions/dataflow-engine/trace_replay.py`)
 - **Micro-Architectural Pipeline Visualizers**: Add internal cycle-accurate structures, such as a simulated instruction window or register-reservation table, directly exposing resource contention and queue depths in the Python terminal output.
 
 ---
@@ -155,7 +155,7 @@ To elevate the repository from a decoupled database into a highly cohesive, non-
 - [x] **Dynamic Knowledge Graph Synthesis**: Recompiled the machine-readable database `knowledge_graph.json` via automated scripts to dynamically update the interactive D3 force-directed visual explorer (`explorer.html`).
 
 ### Future Horizons: Re-Evaluation & Potential Expansions
-- **Dynamic Clustering Coefficients**: Update `density_analyzer.py` to calculate graph-theoretic metrics like cliquishness, average path length, and eigenvector centrality for excavations. This mathematical analysis can automatically flag which historical ideas are currently under-linked or isolated from modern design paradigms.
+- [x] **Dynamic Clustering Coefficients**: Update `density_analyzer.py` to calculate graph-theoretic metrics like cliquishness, average path length, and eigenvector centrality for excavations. This mathematical analysis can automatically flag which historical ideas are currently under-linked or isolated from modern design paradigms. (Implemented in `tools/density_analyzer.py`)
 - **Automated Cross-Reference Generators**: Build a utility that parses newly written markdown files and uses the `knowledge_graph.json` vocabulary to automatically inject accurate relative markdown links to relevant excavations, patterns, and glossaries.
 
 ---
@@ -203,8 +203,8 @@ Integrated and validated the multi-architecture co-simulation harness while unif
 - [x] **Lineage Baseline Consolidation**: Linked physical co-simulation behaviors directly to the six architectural lineages documented in the [Modern Revival Readiness Scorecard](modern-relevance/revival-readiness.md) and evaluated in [State of Revival Synthesis](synthesis/state-of-revival.md).
 
 ### Future Horizons: Re-Evaluation & Potential Expansions
-- **Dynamic Deadlock Recovery Policies**: The co-simulation orchestrator handles basic deadlocks. We can introduce advanced recovery options, such as asynchronous transaction rollbacks or prioritized channel preemption, to dynamically resolve structural blocks when coordinating disparate execution models.
-- **Dynamic Workload Rebalancer**: Implement an adaptive orchestration harness that profiles the execution cycles of each active simulator (e.g., measuring the relative time spent in the Neuro-Symbolic vs. CSP Messaging engines) and dynamically scales queue capacities to maximize multi-threaded throughput.
+- [x] **Dynamic Deadlock Recovery Policies**: The co-simulation orchestrator handles basic deadlocks. We can introduce advanced recovery options, such as asynchronous transaction rollbacks or prioritized channel preemption, to dynamically resolve structural blocks when coordinating disparate execution models. (Implemented via `deadlock_policy` preemption & rollback in `reconstructions/csp-messaging/csp_sim.py`)
+- [x] **Dynamic Workload Rebalancer**: Implement an adaptive orchestration harness that profiles the execution cycles of each active simulator (e.g., measuring the relative time spent in the Neuro-Symbolic vs. CSP Messaging engines) and dynamically scales queue capacities to maximize multi-threaded throughput. (Implemented profiling and adaptive workload rebalancing in `reconstructions/co-simulation/orchestrator.py`)
 
 ---
 

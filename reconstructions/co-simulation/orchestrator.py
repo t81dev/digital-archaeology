@@ -32,15 +32,63 @@ class CoSimulationOrchestrator:
       2. CSP synchronous message passing scheduler
       3. Tagged-Token Dataflow parallel execution
       4. EDGE spatial block-structured hardware grid commit
+    Provides continuous execution profiling and adaptive partition/workload rebalancing.
     """
     def __init__(self, verbose=True):
         self.verbose = verbose
         self.log_history = []
+        self.profiled_cycles = {}
+        self.rebalance_logs = []
 
     def log(self, msg: str):
         self.log_history.append(msg)
         if self.verbose:
             print(f"[Orchestrator] {msg}")
+
+    def rebalance_workloads(self) -> dict:
+        """
+        Analyzes cycle overhead for all co-simulation stages, isolates the bottleneck,
+        and dynamically generates adaptive partition/rebalancing configurations.
+        """
+        if not self.profiled_cycles:
+            return {"status": "No profiling data gathered yet."}
+
+        # Find bottleneck phase (highest cycle count)
+        bottleneck = max(self.profiled_cycles, key=self.profiled_cycles.get)
+        max_cycles = self.profiled_cycles[bottleneck]
+        total_cycles = sum(self.profiled_cycles.values())
+        ratio = max_cycles / total_cycles if total_cycles > 0 else 0.0
+
+        self.log(f"=== Adaptive Workload Rebalancer profiling ===")
+        self.log(f"  Profiled cycles: {self.profiled_cycles}")
+        self.log(f"  Primary Bottleneck identified: '{bottleneck}' ({ratio*100:.1f}% of execution cycles)")
+
+        recommendation = ""
+        action_plan = []
+        if bottleneck == "Neuro-Symbolic":
+            recommendation = "Optimize forward-chaining activation trees and prune redundant rules."
+            action_plan = ["prune_rules", "cache_perception_triggers"]
+        elif bottleneck == "CSP":
+            recommendation = "Enable dynamic channel preemption and prioritize scheduler context-yield frequencies."
+            action_plan = ["enable_preemption", "increase_thread_slices"]
+        elif bottleneck == "Dataflow":
+            recommendation = "Partition token-matcher caches to prevent hash collisions and allow sub-graph concurrency."
+            action_plan = ["partition_matcher", "expand_token_queues"]
+        elif bottleneck == "EDGE":
+            recommendation = "Increase spatial block grid sizes and instantiate macro-operation spatial bypass lanes."
+            action_plan = ["increase_block_dimensions", "bypass_mem_hazards"]
+
+        rebalance_config = {
+            "bottleneck": bottleneck,
+            "bottleneck_cycles": max_cycles,
+            "total_cycles": total_cycles,
+            "bottleneck_ratio": ratio,
+            "recommendation": recommendation,
+            "action_plan": action_plan
+        }
+        self.rebalance_logs.append(rebalance_config)
+        self.log(f"  Rebalancer output: {recommendation}")
+        return rebalance_config
 
     def execute_pipeline(self, raw_sensor_inputs: dict) -> float:
         """
@@ -73,8 +121,17 @@ class CoSimulationOrchestrator:
         triggered_actions = [fact for fact in kb.facts.keys() if fact.startswith("ACTION_")]
         self.log(f"Neuro-Symbolic Deduction complete. Triggered: {triggered_actions}")
 
+        # Profile Phase A cycles: approximate by compiled facts and registered rules evaluated
+        ns_cycles = len(kb.facts) + len(kb.rules)
+
         if "ACTION_trigger_incident_response" not in triggered_actions:
             self.log("No high-level threat incident detected. Nominal standby.")
+            self.profiled_cycles = {
+                "Neuro-Symbolic": ns_cycles,
+                "CSP": 0,
+                "Dataflow": 0,
+                "EDGE": 0
+            }
             return 0.0
 
         # --- Phase B: CSP Synchronous Messaging ---
@@ -113,6 +170,8 @@ class CoSimulationOrchestrator:
         if "alert" not in pipeline_status:
             self.log("CSP Dispatcher failed to rendezvous.")
             return 0.0
+
+        csp_cycles = scheduler.step_count
 
         # --- Phase C: Tagged-Token Dataflow Execution ---
         self.log("Phase C: Triggering Tagged-Token Dataflow parallel engine for numerical analytics...")
@@ -161,6 +220,8 @@ class CoSimulationOrchestrator:
 
         self.log(f"Dataflow Execution finished. Final Calculated Threat Risk Score: {final_threat_score:.3f}")
 
+        df_cycles = dataflow.step_count
+
         # --- Phase D: EDGE Spatial Block-Structured Writeback ---
         self.log("Phase D: Launching EDGE block-structured spatial grid for transactional commit...")
         edge_block = EDGEBlock("writeback_block")
@@ -186,6 +247,20 @@ class CoSimulationOrchestrator:
         edge_grid.run_block()
 
         self.log(f"EDGE commit complete. R5 value = {edge_grid.registers['R5']}, Memory[0xDEAD] = {edge_grid.memory[0xDEAD]}")
+
+        edge_cycles = len(edge_block.instructions) * 2 # instruction pipeline step depth proxy
+
+        # Store profile cycles
+        self.profiled_cycles = {
+            "Neuro-Symbolic": ns_cycles,
+            "CSP": csp_cycles,
+            "Dataflow": df_cycles,
+            "EDGE": edge_cycles
+        }
+
+        # Trigger automatic rebalancer
+        self.rebalance_workloads()
+
         return final_threat_score
 
 

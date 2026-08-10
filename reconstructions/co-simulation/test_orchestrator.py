@@ -48,3 +48,32 @@ def test_co_simulation_pipeline_nominal_standby():
 
     risk_score = orchestrator.execute_pipeline(raw_data)
     assert risk_score == 0.0, "Risk score should be 0.0 for nominal standby!"
+
+
+def test_co_simulation_profiling_and_rebalancing():
+    """Verify that co-simulation execution cycle profiling and dynamic rebalancing are performed."""
+    orchestrator = CoSimulationOrchestrator(verbose=False)
+
+    raw_data = {
+        'package_detected': 0.10,
+        'person_present': 0.95,
+        'authorized_resident': 0.05,
+        'unknown_person': 0.95,
+        'threat_detected': 0.90 # High threat
+    }
+
+    risk_score = orchestrator.execute_pipeline(raw_data)
+    assert risk_score > 0.0
+
+    # Ensure profiled cycles were populated
+    assert "Neuro-Symbolic" in orchestrator.profiled_cycles
+    assert "CSP" in orchestrator.profiled_cycles
+    assert "Dataflow" in orchestrator.profiled_cycles
+    assert "EDGE" in orchestrator.profiled_cycles
+
+    # Ensure rebalancer logged a configuration
+    assert len(orchestrator.rebalance_logs) == 1
+    rebalance_log = orchestrator.rebalance_logs[0]
+    assert "bottleneck" in rebalance_log
+    assert "recommendation" in rebalance_log
+    assert len(rebalance_log["action_plan"]) > 0
