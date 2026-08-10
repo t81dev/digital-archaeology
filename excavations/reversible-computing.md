@@ -186,4 +186,9 @@ As conventional CMOS fabrication approaches 1-nanometer quantum tunneling thresh
 * **Lent, C. S., Tougaw, P. D., Porod, W., & Bernstein, G. H.** (1993). *Quantum cellular automata*. *Nanotechnology*, 4(1), 49.
   - *Relevance*: Presents Quantum-dot Cellular Automata (QCA) as a potential physical substrate to realize low-overhead reversible logic gates, discussing routing and signal degradation.
 
+### Standardized Patents & Archival Material
+
+*   **US Patent 4,596,939**: *Reversible Logic Gate*. Edward Fredkin. Filing Date: Aug 24, 1984. Issue Date: Jun 24, 1986. [Google Patents Link (US4596939A)](https://patents.google.com/patent/US4596939A/en).
+*   **Rolf Landauer Oral History**: Oral history interview with Rolf Landauer detailing IBM research labs and computing limits. IEEE History Center, Rutgers University. [IEEE ETHW Archives](https://ethw.org/Oral-History:Rolf_Landauer).
+
 ---
