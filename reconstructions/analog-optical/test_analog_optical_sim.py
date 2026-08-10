@@ -171,3 +171,26 @@ def test_reversible_and_adiabatic_simulation():
     assert math.isclose(e_conv, expected_conv)
     assert math.isclose(e_adi, expected_adi)
     assert math.isclose(e_adi, 0.2 * expected_conv)  # 5x energy reduction relative to conventional limits because T_ramp = 10 * RC
+
+
+def test_optical_noise_modeling():
+    """Verify that multiple physical noise channels degrade the output precision (ENOB) of the accelerator."""
+    acc = OpticalMatrixAccelerator(theta=1.0, phi=0.5, laser_power=1.0)
+
+    # Calculate ENOB under low noise conditions
+    acc.laser_rin = 0.001
+    acc.phase_jitter_std = 0.001
+    acc.detector_shot_noise = 0.001
+    acc.thermal_dispersion_coeff = 0.0005
+    enob_low_noise = acc.calculate_precision_enob(1.0, 0.5, trials=50)
+
+    # Calculate ENOB under high noise conditions
+    acc.laser_rin = 0.05
+    acc.phase_jitter_std = 0.05
+    acc.detector_shot_noise = 0.05
+    acc.thermal_dispersion_coeff = 0.01
+    enob_high_noise = acc.calculate_precision_enob(1.0, 0.5, trials=50)
+
+    # High noise should lead to less numerical precision (lower ENOB)
+    assert enob_high_noise < enob_low_noise
+    assert enob_low_noise > 4.0  # low noise should maintain a reasonable number of bits

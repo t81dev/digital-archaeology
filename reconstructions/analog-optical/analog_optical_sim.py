@@ -223,25 +223,33 @@ class OpticalMatrixAccelerator:
     Simulates a 2x2 Photonic Tensor Core using a Mach-Zehnder Interferometer (MZI).
     A unitary 2x2 matrix can be completely parameterized by a single 2x2 MZI.
     This module performs matrix-vector multiplication (y = W x) in a single light-propagation step.
+
+    Includes detailed physical noise models representing thermal carrier dispersion,
+    phase jitter, laser relative intensity noise (RIN), and photodetector shot noise.
     """
     def __init__(self, theta: float, phi: float, laser_power: float = 1.0):
         self.mzi = MachZehnderInterferometer(theta, phi)
         self.laser_power = laser_power
 
-        # Physical noise sources
-        self.laser_rin = 0.01          # Relative Intensity Noise (RIN) on laser source
-        self.phase_noise_std = 0.02    # Thermal phase noise in heaters (radians)
-        self.detector_dark_current = 0.001 # Noise floor of photodetector
-        self.detector_shot_noise = 0.005   # Quantum shot noise factor
+        # Physical noise parameters
+        self.laser_rin = 0.01                 # Relative Intensity Noise (RIN) on laser source
+        self.detector_dark_current = 0.001    # Noise floor of photodetector
+        self.detector_shot_noise = 0.005      # Quantum shot noise factor (proportional to sqrt(I))
+
+        # New multi-factor physical noise parameters:
+        self.thermal_dispersion_coeff = 0.003 # rad/K (refractive index thermo-optic temperature sensitivity)
+        self.ambient_temp_variation = 1.5     # Kelvin variation for thermal drift
+        self.phase_jitter_std = 0.015         # High-frequency jitter on phase heaters (radians)
 
     def run_multiplication(self, x1: float, x2: float, enable_noise: bool = True) -> tuple:
         """
         Runs optical multiplication:
         1. Encodes real-valued input voltages (x1, x2) into coherent light fields (amplitude-modulated).
-        2. Propagates waves through MZI, suffering from physical phase noise.
-        3. Measures optical intensity using simulated photodetectors with noise.
+        2. Applies systematic thermal carrier dispersion and high-frequency phase jitter.
+        3. Propagates waves through MZI, suffering from physical phase noise.
+        4. Measures optical intensity using simulated photodetectors with shot noise.
         """
-        # Laser power scaling
+        # Laser power scaling under Relative Intensity Noise (RIN)
         rin_noise = random.gauss(0, self.laser_rin) if enable_noise else 0.0
         effective_source = self.laser_power * (1.0 + rin_noise)
 
@@ -250,8 +258,15 @@ class OpticalMatrixAccelerator:
         e_in1 = Complex(x1 * math.sqrt(effective_source), 0.0)
         e_in2 = Complex(x2 * math.sqrt(effective_source), 0.0)
 
-        # Phase noise
-        p_noise = random.gauss(0, self.phase_noise_std) if enable_noise else 0.0
+        # 1. Thermal Carrier Dispersion (low-frequency systematic phase shift from substrate temp changes)
+        temp_drift = random.gauss(0, self.ambient_temp_variation) if enable_noise else 0.0
+        thermal_phase_shift = self.thermal_dispersion_coeff * temp_drift
+
+        # 2. High-Frequency Phase Jitter (fast stochastic noise on micro-heater control lines)
+        jitter = random.gauss(0, self.phase_jitter_std) if enable_noise else 0.0
+
+        # Total combined phase noise
+        p_noise = thermal_phase_shift + jitter
 
         # Propagate through MZI
         e_out1, e_out2 = self.mzi.propagate(e_in1, e_in2, phase_noise=p_noise)
@@ -260,9 +275,8 @@ class OpticalMatrixAccelerator:
         i_out1 = e_out1.abs() ** 2
         i_out2 = e_out2.abs() ** 2
 
-        # Apply photodetector noise (shot noise + dark current floor)
+        # 3. Apply photodetector shot noise (proportional to sqrt of intensity) + dark current
         if enable_noise:
-            # Shot noise is proportional to the square root of signal intensity
             shot1 = random.gauss(0, self.detector_shot_noise * math.sqrt(i_out1))
             shot2 = random.gauss(0, self.detector_shot_noise * math.sqrt(i_out2))
             dark1 = abs(random.gauss(0, self.detector_dark_current))
@@ -271,12 +285,42 @@ class OpticalMatrixAccelerator:
             i_out1 = max(0.0, i_out1 + shot1 + dark1)
             i_out2 = max(0.0, i_out2 + shot2 + dark2)
 
-        # Convert optical intensities back to output voltages (using square root for field-equivalent)
-        # y = sqrt(I) * sign of field (or phase-rectified outputs)
-        # For simplicity, we model direct power intensity as the linear mathematical result
-        # representing a squared-weight operation, or amplitude multiplication.
-        # Let's return both the complex fields and measured intensity outputs.
         return (e_out1, e_out2), (i_out1, i_out2)
+
+    def calculate_precision_enob(self, x1: float, x2: float, trials: int = 100) -> float:
+        """
+        Quantifies the numerical precision in terms of Effective Number of Bits (ENOB)
+        by evaluating the Signal-to-Noise Ratio (SNR) over multiple trials.
+
+        ENOB = (SNR_dB - 1.76) / 6.02
+        """
+        # Get ideal (noise-free) outputs
+        _, ideal_ints = self.run_multiplication(x1, x2, enable_noise=False)
+        ideal_val = ideal_ints[0]  # evaluate precision on output channel 1
+
+        if ideal_val <= 1e-9:
+            return 0.0  # signal too small to evaluate precision
+
+        # Gather noisy outputs
+        errors = []
+        for _ in range(trials):
+            _, noisy_ints = self.run_multiplication(x1, x2, enable_noise=True)
+            errors.append(noisy_ints[0] - ideal_val)
+
+        # Compute noise power (variance of error)
+        mean_error = sum(errors) / trials
+        variance_error = sum((e - mean_error)**2 for e in errors) / trials
+
+        if variance_error <= 1e-18:
+            return 16.0  # limit of analytical precision in simulation
+
+        # SNR = Signal Power / Noise Power
+        snr_ratio = (ideal_val ** 2) / variance_error
+        snr_db = 10.0 * math.log10(snr_ratio)
+
+        # Compute ENOB
+        enob = (snr_db - 1.76) / 6.02
+        return max(0.0, enob)
 
     def get_ideal_unitary_matrix(self) -> list:
         """Returns the ideal 2x2 mathematical transformation matrix represented by the MZI."""
@@ -602,6 +646,11 @@ def run_optical_tensor_scenario(theta=1.5708, phi=0.7854, x1=1.0, x2=0.5, noise=
     p1_diff = abs(intensities[0] - ideal_intensities[0])
     p2_diff = abs(intensities[1] - ideal_intensities[1])
     print(f"  Multiplication Error margin:  Chan1: {p1_diff:.4f} W, Chan2: {p2_diff:.4f} W")
+
+    # Evaluate ENOB Precision
+    enob_val = acc.calculate_precision_enob(x1, x2, trials=100)
+    print(f"  Simulated Output Precision (ENOB): {enob_val:.2f} bits of equivalence")
+    print(f"  Tradeoff: Analog wave propagation operates at sub-nanosecond latency but has limited SNR.")
 
     print("\n--- Interference Visualizer ---")
     # Amplitude of output wave elements

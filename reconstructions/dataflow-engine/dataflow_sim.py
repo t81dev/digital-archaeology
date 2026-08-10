@@ -53,6 +53,7 @@ class DataflowEngine:
         # Performance and Token Metrics
         self.tokens_injected = 0
         self.tokens_matched = 0
+        self.last_fired_info = "None"
 
     def add_node(self, node):
         self.nodes[node.node_id] = node
@@ -86,10 +87,12 @@ class DataflowEngine:
 
         if node.op in unary_ops:
             self.execution_log.append(f"[Step {self.step_count}] Unary Node {node_id} ({node.op}) fired with {token}")
+            self.last_fired_info = f"Unary Node {node_id} ({node.op}) on Token {token.value} (Tag: {token.tag})"
             self.fire_unary(node, token)
         elif node.op == 'MERGE':
             # MERGE propagates whichever input arrives
             self.execution_log.append(f"[Step {self.step_count}] MERGE Node {node_id} fired with {token}")
+            self.last_fired_info = f"MERGE Node {node_id} on Token {token.value} (Tag: {token.tag})"
             self.route_output(node, token.value, token.tag)
         else:
             # 2-input operations require matching left and right tokens
@@ -109,6 +112,7 @@ class DataflowEngine:
                     left, right = token, partner
 
                 self.execution_log.append(f"[Step {self.step_count}] Binary Node {node_id} ({node.op}) matched and fired: Left={left.value}, Right={right.value} (Tag={tag})")
+                self.last_fired_info = f"Binary Node {node_id} ({node.op}) matched Left={left.value} & Right={right.value} (Tag: {tag})"
                 self.fire_binary(node, left, right)
             else:
                 # No partner yet, store it
@@ -179,10 +183,69 @@ class DataflowEngine:
             for dest_id, dest_port in node.destinations:
                 self.inject_token(Token(value, dest_id, dest_port, tag))
 
-    def run_until_empty(self, limit=500):
+    def visualize_pipeline_state(self) -> str:
+        """
+        Returns a beautifully formatted ASCII representation of the microarchitectural pipeline state.
+        This includes:
+        1. Token Queue Depth and contents (Instruction Window representation).
+        2. Reservation Stations (Active entries in the Matching Store waiting for operands).
+        3. Fired Functional Units (active execution slots).
+        4. Resource Congestion Metrics.
+        """
+        lines = []
+        lines.append("=" * 80)
+        lines.append("             TAGGED-TOKEN DATAFLOW MICROARCHITECTURAL PIPELINE STATE")
+        lines.append("=" * 80)
+
+        # Pending Token Queue (Instruction Window)
+        q_len = len(self.token_queue)
+        lines.append(f"[INSTRUCTION WINDOW / PENDING TOKEN QUEUE]  (Depth: {q_len})")
+        if q_len == 0:
+            lines.append("  (Queue is currently empty)")
+        else:
+            for i, tok in enumerate(list(self.token_queue)[:10]):
+                lines.append(f"  - Slot {i:02d}: {tok}")
+            if q_len > 10:
+                lines.append(f"  - ... and {q_len - 10} more pending tokens")
+        lines.append("")
+
+        # Reservation Stations (Matching Store)
+        ms_len = len(self.matching_store)
+        lines.append(f"[RESERVATION STATIONS / MATCHING STORE]  (Active Waiting Cells: {ms_len})")
+        if ms_len == 0:
+            lines.append("  (No active waiting operand matches)")
+        else:
+            lines.append("  +---------+-------------+---------+--------------+------------------+")
+            lines.append("  | Slot ID | Target Node | Tag     | Port Bound   | Stored Value     |")
+            lines.append("  +---------+-------------+---------+--------------+------------------+")
+            for idx, (match_key, tok) in enumerate(self.matching_store.items()):
+                node_id, tag = match_key
+                lines.append(f"  | {idx:7d} | Node #{node_id:<5d} | {tag:<7d} | {tok.port:<12s} | {str(tok.value):<16s} |")
+            lines.append("  +---------+-------------+---------+--------------+------------------+")
+        lines.append("")
+
+        # Last executed state
+        lines.append("[FUNCTIONAL UNIT STATUS / EXECUTION PIPELINE]")
+        lines.append(f"  * Last Fired Event: {self.last_fired_info}")
+        lines.append("")
+
+        # Metrics
+        lines.append("[RESOURCE CONGESTION & THROUGHPUT METRICS]")
+        lines.append(f"  - Active Token Queue Occupancy: {q_len}")
+        lines.append(f"  - Total Dynamic Tokens Injected: {self.tokens_injected}")
+        lines.append(f"  - Total Dynamic Tokens Matched:  {self.tokens_matched}")
+        lines.append(f"  - Total Simulation Step Count:   {self.step_count}")
+        lines.append("=" * 80)
+        return "\n".join(lines)
+
+    def run_until_empty(self, limit=500, verbose=False):
         """Runs the simulation engine until token queue is empty or limit is reached."""
         while self.token_queue and self.step_count < limit:
+            if verbose:
+                print(self.visualize_pipeline_state())
             self.step()
+        if verbose:
+            print(self.visualize_pipeline_state())
         if self.step_count >= limit:
             print(f"Simulation execution limit reached ({limit} steps). Suspected infinite loop.")
 

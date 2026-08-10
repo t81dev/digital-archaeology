@@ -116,3 +116,26 @@ def test_matrix_multiply_2x2_benchmark():
     assert res == [[11, 16], [19, 28]]
     assert stats["tokens_matched"] == 12  # 8 multiplications + 4 additions matched
     assert stats["cycles_steps"] > 0
+
+
+def test_microarchitectural_visualizer():
+    """Verify the microarchitectural pipeline visualizer displays the correct status information."""
+    engine = DataflowEngine()
+    engine.add_node(Node(node_id=1, op='ADD', destinations=[(2, 'unconditional')]))
+    engine.add_node(Node(node_id=2, op='OUTPUT'))
+
+    # Inject one operand (stored in matching store, queue becomes empty)
+    engine.inject_token(Token(value=10, dest_node=1, port='left', tag=0))
+    engine.step()
+
+    vis_str = engine.visualize_pipeline_state()
+    assert "RESERVATION STATIONS / MATCHING STORE" in vis_str
+    assert "Active Waiting Cells: 1" in vis_str
+    assert "Node #1" in vis_str
+
+    # Inject second operand to fire the node
+    engine.inject_token(Token(value=20, dest_node=1, port='right', tag=0))
+    engine.step()
+
+    vis_str2 = engine.visualize_pipeline_state()
+    assert "Binary Node 1 (ADD) matched Left=10 & Right=20" in vis_str2

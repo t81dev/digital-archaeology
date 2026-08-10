@@ -52,9 +52,9 @@ For a comprehensive, academically citable analysis of our multi-phase horizons, 
 - [x] [capability-based-security.md](synthesis/capability-based-security.md)
 - [x] [compiler-hardware-co-design.md](synthesis/compiler-hardware-co-design.md)
 
-### Future Horizons: Re-Evaluation & Potential Expansions
-- **Cross-Lineage Convergence Matrix**: Add a pairwise and triple interaction index directly into `synthesis/state-of-revival.md` to formalize how these sidelined ideas interact. For example: How does combining spatial computing (Systolic Arrays) with hardware capabilities (CHERI) impact compiler optimization loops and register renaming pressure?
-- **Quantitative Constraint Migration Curves**: Plot mathematical curves showing the exact crossover points where physical bottlenecks (e.g., copper interconnect resistance scaling at <3nm) make a historical paradigm (e.g., Optical matrix-vector multipliers) economically and thermally superior to general-purpose CMOS arithmetic logic.
+### Future Horizons: Re-Evaluation & Potential Expansions ✅ (Complete)
+- [x] **Cross-Lineage Convergence Matrix**: Add a pairwise and triple interaction index directly into `synthesis/state-of-revival.md` to formalize how these sidelined ideas interact. For example: How does combining spatial computing (Systolic Arrays) with hardware capabilities (CHERI) impact compiler optimization loops and register renaming pressure?
+- [x] **Quantitative Constraint Migration Curves**: Plot mathematical curves showing the exact crossover points where physical bottlenecks (e.g., copper interconnect resistance scaling at <3nm) make a historical paradigm (e.g., Optical matrix-vector multipliers) economically and thermally superior to general-purpose CMOS arithmetic logic.
 
 ---
 
@@ -70,9 +70,9 @@ Transitioned from theoretical comparisons to dynamic execution models, implement
 
 **Reconstruction Index**: [reconstructions/README.md](reconstructions/README.md)
 
-### Future Horizons: Re-Evaluation & Potential Expansions
+### Future Horizons: Re-Evaluation & Potential Expansions ✅ (Complete)
 - [x] **Trace-Driven Replay Engines**: Expand the simulators to read standard execution traces (such as RISC-V ELF execution traces or tensor operations from PyTorch graphs) and replay them step-by-step to demonstrate functional divergence in real-time. (Implemented via `TraceReplayEngine` in `reconstructions/dataflow-engine/trace_replay.py`)
-- **Micro-Architectural Pipeline Visualizers**: Add internal cycle-accurate structures, such as a simulated instruction window or register-reservation table, directly exposing resource contention and queue depths in the Python terminal output.
+- [x] **Micro-Architectural Pipeline Visualizers**: Add internal cycle-accurate structures, such as a simulated instruction window or register-reservation table, directly exposing resource contention and queue depths in the Python terminal output. (Implemented via `visualize_pipeline_state` in `reconstructions/dataflow-engine/dataflow_sim.py`)
 
 ---
 
@@ -112,7 +112,7 @@ To scale the research initiative and expand from descriptive analysis into activ
 
 ### Future Horizons: Re-Evaluation & Potential Expansions
 - **Pyodide Shared Memory Buffers**: Optimize the Python-to-JavaScript data transfer inside `playground.html`. Instead of serializing large simulation logs as JSON strings, utilize SharedArrayBuffer for direct zero-copy binary state sharing between the WebAssembly runtime and the UI rendering loop.
-- **Optical Core Noise Modeling**: Add physical noise artifacts (e.g., shot noise, thermal carrier dispersion, phase jitter) to the Photonic/Analog wave accelerator simulator to illustrate how analog computation trades numerical precision for sub-nanosecond latency.
+- [x] **Optical Core Noise Modeling**: Add physical noise artifacts (e.g., shot noise, thermal carrier dispersion, phase jitter) to the Photonic/Analog wave accelerator simulator to illustrate how analog computation trades numerical precision for sub-nanosecond latency. (Implemented in `reconstructions/analog-optical/analog_optical_sim.py`)
 
 ---
 
