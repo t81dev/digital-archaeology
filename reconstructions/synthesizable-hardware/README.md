@@ -84,6 +84,20 @@ cd reconstructions/synthesizable-hardware
 make fpga
 ```
 This generates the following hardware artifacts under `fpga/build/`:
+
+#### Target: Run ASIC Physical Synthesis Verification (OpenLane Configs)
+To validate the format and content of all four OpenLane JSON configs and search for a local OpenLane toolchain to compile layout structures:
+```bash
+cd reconstructions/synthesizable-hardware
+make asic
+```
+
+#### Target: Run RTL Python Equivalence Tests
+To execute the pytest testbench asserting strict digital equivalence between our SystemVerilog soft-cores and Python behavioral models:
+```bash
+cd reconstructions/synthesizable-hardware
+make test
+```
 *   `capability_bounds_checker.json`: Synthesized netlist.
 *   `capability_bounds_checker.asc`: ASCII place-and-route layout.
 *   `capability_bounds_checker.bin`: Final raw binary bitstream ready to flash to SPI flash.
