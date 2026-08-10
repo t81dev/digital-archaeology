@@ -54,12 +54,14 @@ class CSPScheduler:
     """
     A cooperative CSP scheduler that manages process state transitions,
     synchronous channel rendezvous, ALT multiplexing, and deadlock detection.
+    Supports dynamic deadlock recovery policies: "none", "preemption", "rollback".
     """
-    def __init__(self, verbose=True):
+    def __init__(self, verbose=True, deadlock_policy="none"):
         self.processes = []
         self.step_count = 0
         self.verbose = verbose
         self.log_history = []
+        self.deadlock_policy = deadlock_policy
 
     def log(self, message: str):
         self.log_history.append(message)
@@ -184,6 +186,30 @@ class CSPScheduler:
             if not progress_made:
                 self.log("\n[DEADLOCK] No progress could be made! All active processes are blocked.")
                 self._report_deadlock()
+
+                if self.deadlock_policy == "preemption":
+                    self.log(f"[Recovery: Preemption] Preempting blocked processes by forcing channel communication completion...")
+                    # Find all blocked processes and force them to unblock with None/preempted status
+                    recovered = False
+                    for p in self.processes:
+                        if p.state == "BLOCKED":
+                            p.state = "READY"
+                            p.block_action = None
+                            p.last_val = "PREEMPTED_VAL"
+                            self.log(f"  Unblocked process [{p.name}] with preemption signal.")
+                            recovered = True
+                    if recovered:
+                        continue  # Try running them again in the next step
+                elif self.deadlock_policy == "rollback":
+                    self.log(f"[Recovery: Rollback] Rolling back blocked processes by forcing STOP/Termination...")
+                    # Roll back process to terminated state cleanly to avoid infinite hang
+                    for p in self.processes:
+                        if p.state == "BLOCKED":
+                            p.state = "TERMINATED"
+                            p.block_action = None
+                            self.log(f"  Rolled back/terminated process [{p.name}].")
+                    return True
+
                 return False
 
             self.step_count += 1

@@ -21,3 +21,24 @@ def test_deadlock_detection():
     scheduler.register("P2", deadlocked_p2_proc, c1, c2)
     success = scheduler.run()
     assert success is False
+
+def test_deadlock_recovery_preemption():
+    """Verify that deadlock recovery with 'preemption' policy unblocks the scheduler."""
+    scheduler = CSPScheduler(verbose=False, deadlock_policy="preemption")
+    c1 = Channel("Chan1")
+    c2 = Channel("Chan2")
+    scheduler.register("P1", deadlocked_p1_proc, c1, c2)
+    scheduler.register("P2", deadlocked_p2_proc, c1, c2)
+    success = scheduler.run()
+    # Preemption unblocks them, they continue and stop naturally or terminated
+    assert success is True
+
+def test_deadlock_recovery_rollback():
+    """Verify that deadlock recovery with 'rollback' policy unblocks the scheduler."""
+    scheduler = CSPScheduler(verbose=False, deadlock_policy="rollback")
+    c1 = Channel("Chan1")
+    c2 = Channel("Chan2")
+    scheduler.register("P1", deadlocked_p1_proc, c1, c2)
+    scheduler.register("P2", deadlocked_p2_proc, c1, c2)
+    success = scheduler.run()
+    assert success is True
