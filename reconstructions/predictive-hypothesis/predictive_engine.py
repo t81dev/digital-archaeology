@@ -29,6 +29,42 @@ class PredictiveHypothesisEngine:
         "Superconducting & Cryogenic": 3.4
     }
 
+    # Custom CMOS technology node presets modeling physical scaling barriers
+    CMOS_NODES = {
+        "planar-28nm": {
+            "copper_resistance": 1.0,
+            "memory_wall": 1.0,
+            "gate_leakage": 1.0,
+            "security_risk": 1.0,
+            "tensor_density": 1.0,
+            "cryo_penalty": 1.0
+        },
+        "finfet-16nm": {
+            "copper_resistance": 1.5,
+            "memory_wall": 1.3,
+            "gate_leakage": 1.2,
+            "security_risk": 1.2,
+            "tensor_density": 1.5,
+            "cryo_penalty": 1.0
+        },
+        "gaa-3nm": {
+            "copper_resistance": 3.0,
+            "memory_wall": 2.5,
+            "gate_leakage": 2.2,
+            "security_risk": 1.8,
+            "tensor_density": 2.5,
+            "cryo_penalty": 1.0
+        },
+        "gaa-bspdn-2nm": {
+            "copper_resistance": 4.5,
+            "memory_wall": 3.5,
+            "gate_leakage": 3.0,
+            "security_risk": 2.5,
+            "tensor_density": 3.5,
+            "cryo_penalty": 1.1
+        }
+    }
+
     # Sensitivity weights (W_ij) for each lineage under each constraint.
     # Positives indicate that higher constraints increase the lineage's relative utility.
     # Negatives indicate that higher constraints degrade the lineage's relative utility.
@@ -93,29 +129,33 @@ class PredictiveHypothesisEngine:
         gate_leakage: float = 1.0,
         security_risk: float = 1.0,
         tensor_density: float = 1.0,
-        cryo_penalty: float = 1.0
+        cryo_penalty: float = 1.0,
+        cmos_node: str = "planar-28nm"
     ) -> Dict[str, Any]:
         """
         Calculates dynamic scores and produces analytical hypotheses based on the inputs.
 
         Args:
-            copper_resistance: Scale factor for nanoscale interconnect RC delays (0.1 to 10.0)
-            memory_wall: Scale factor for off-chip DRAM latency & bandwidth limits (0.1 to 10.0)
-            gate_leakage: Scale factor for sub-threshold static power leakage (0.1 to 10.0)
-            security_risk: Scale factor for software-level exploit frequency (0.1 to 10.0)
-            tensor_density: Scale factor for AI workloads in compute mix (0.1 to 10.0)
-            cryo_penalty: Scale factor for cryogenic cooling thermodynamic overhead (0.1 to 10.0)
+            copper_resistance: Scale factor/multiplier for nanoscale interconnect RC delays (0.1 to 10.0)
+            memory_wall: Scale factor/multiplier for off-chip DRAM latency & bandwidth limits (0.1 to 10.0)
+            gate_leakage: Scale factor/multiplier for sub-threshold static power leakage (0.1 to 10.0)
+            security_risk: Scale factor/multiplier for software-level exploit frequency (0.1 to 10.0)
+            tensor_density: Scale factor/multiplier for AI workloads in compute mix (0.1 to 10.0)
+            cryo_penalty: Scale factor/multiplier for cryogenic cooling thermodynamic overhead (0.1 to 10.0)
+            cmos_node: The baseline CMOS technology node configuration preset.
 
         Returns:
             A structured dictionary containing inputs, forecasted scores, rankings, and hypotheses.
         """
+        node_profile = self.CMOS_NODES.get(cmos_node, self.CMOS_NODES["planar-28nm"])
+
         inputs = {
-            "copper_resistance": max(0.1, min(10.0, copper_resistance)),
-            "memory_wall": max(0.1, min(10.0, memory_wall)),
-            "gate_leakage": max(0.1, min(10.0, gate_leakage)),
-            "security_risk": max(0.1, min(10.0, security_risk)),
-            "tensor_density": max(0.1, min(10.0, tensor_density)),
-            "cryo_penalty": max(0.1, min(10.0, cryo_penalty))
+            "copper_resistance": max(0.1, min(10.0, node_profile["copper_resistance"] * copper_resistance)),
+            "memory_wall": max(0.1, min(10.0, node_profile["memory_wall"] * memory_wall)),
+            "gate_leakage": max(0.1, min(10.0, node_profile["gate_leakage"] * gate_leakage)),
+            "security_risk": max(0.1, min(10.0, node_profile["security_risk"] * security_risk)),
+            "tensor_density": max(0.1, min(10.0, node_profile["tensor_density"] * tensor_density)),
+            "cryo_penalty": max(0.1, min(10.0, node_profile["cryo_penalty"] * cryo_penalty))
         }
 
         forecasts = {}
@@ -214,6 +254,45 @@ class PredictiveHypothesisEngine:
 
         return hypotheses
 
+    def analyze_sensitivity(self, cmos_node: str = "planar-28nm") -> Dict[str, Any]:
+        """
+        Performs a systematic sensitivity analysis by sweeping each physical parameter individually
+        from 0.1 to 10.0 (holding others at the node's baseline) for each lineage.
+        Identifies the primary catalyst and the positive sensitivity slope for each lineage.
+        """
+        base_profile = self.CMOS_NODES.get(cmos_node, self.CMOS_NODES["planar-28nm"])
+        parameters = ["copper_resistance", "memory_wall", "gate_leakage", "security_risk", "tensor_density", "cryo_penalty"]
+
+        results = {}
+        for lineage in self.LINEAGE_BASELINES.keys():
+            results[lineage] = {
+                "param_sensitivities": {},
+                "primary_catalyst": None,
+                "max_sensitivity_slope": -999.0
+            }
+
+            # Sweep each parameter holding others constant at base_profile
+            for param in parameters:
+                # Sweep from 0.1 to 10.0 in several steps to compute linear impact slope
+                steps = [0.1, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]
+                scores = []
+                for val in steps:
+                    kwargs = {p: 1.0 for p in parameters} # We sweep multiplier factors on top of base_profile
+                    kwargs[param] = val
+                    f_res = self.forecast(cmos_node=cmos_node, **kwargs)
+                    scores.append(f_res["forecasts"][lineage]["predicted"])
+
+                # Slope = ΔScore / ΔFactor (dy/dx)
+                slope = (scores[-1] - scores[0]) / 9.9
+                results[lineage]["param_sensitivities"][param] = round(slope, 4)
+
+                # Identify primary positive catalyst
+                if slope > results[lineage]["max_sensitivity_slope"]:
+                    results[lineage]["max_sensitivity_slope"] = round(slope, 4)
+                    results[lineage]["primary_catalyst"] = param
+
+        return results
+
 
 def render_star_rating(score: float) -> str:
     """Converts a numerical score into a standard 5-character star string."""
@@ -262,6 +341,18 @@ def main():
         help="Cryogenic refrigeration cooling penalty scale factor (default: 1.0, range: 0.1 - 10.0)"
     )
     parser.add_argument(
+        "--cmos-node",
+        type=str,
+        default="planar-28nm",
+        choices=["planar-28nm", "finfet-16nm", "gaa-3nm", "gaa-bspdn-2nm"],
+        help="Baseline CMOS technology node configuration preset (default: planar-28nm)"
+    )
+    parser.add_argument(
+        "--sensitivity",
+        action="store_true",
+        help="Run systematic sensitivity analysis sweep across all physical constraints and exit."
+    )
+    parser.add_argument(
         "--json",
         action="store_true",
         help="Output raw JSON results for automated AI ingestion instead of the text report."
@@ -270,13 +361,37 @@ def main():
     args = parser.parse_args()
 
     engine = PredictiveHypothesisEngine()
+
+    if args.sensitivity:
+        results = engine.analyze_sensitivity(cmos_node=args.cmos_node)
+        if args.json:
+            import json
+            print(json.dumps(results, indent=2))
+            return
+
+        print("\n" + "="*80)
+        print(f"      PREDICTIVE HYPOTHESIS ENGINE: SENSITIVITY SWEEP ANALYSIS ({args.cmos_node.upper()})")
+        print("="*80)
+        print("  Systematically sweeping all physical modifiers [0.1 to 10.0] to isolate")
+        print("  the primary catalyst (greatest positive slope dy/dx) for each lineage.")
+        print("-" * 80)
+        for lineage, info in results.items():
+            print(f"  Lineage: {lineage}")
+            print(f"    - Primary Catalyst:      {info['primary_catalyst']} (Slope: +{info['max_sensitivity_slope']:.4f})")
+            print("    - Parameter Sensitivity Slopes (dy/dx):")
+            for p, slope in info["param_sensitivities"].items():
+                print(f"        * {p:<20}: {slope:+.4f}")
+            print("-" * 80)
+        return
+
     result = engine.forecast(
         copper_resistance=args.copper_resistance,
         memory_wall=args.memory_wall,
         gate_leakage=args.gate_leakage,
         security_risk=args.security_risk,
         tensor_density=args.tensor_density,
-        cryo_penalty=args.cryo_penalty
+        cryo_penalty=args.cryo_penalty,
+        cmos_node=args.cmos_node
     )
 
     if args.json:
@@ -291,6 +406,7 @@ def main():
     print("  Modeling future architectural transitions (2026-2036) by mapping emerging")
     print("  post-CMOS physical and economic limits to alternative hardware lineages.")
     print("-" * 80)
+    print(f"  CMOS BASELINE NODE: {args.cmos_node.upper()}")
     print("  INPUTS PROFILE:")
     print(f"    - Nanoscale Copper Interconnect Resistance:   {result['inputs']['copper_resistance']:.2f}x")
     print(f"    - Memory Wall Limit (Off-chip Latency):      {result['inputs']['memory_wall']:.2f}x")

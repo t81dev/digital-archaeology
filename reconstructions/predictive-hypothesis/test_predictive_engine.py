@@ -126,3 +126,39 @@ def test_json_structure():
     assert "ranking" in parsed
     assert "hypotheses" in parsed
     assert len(parsed["ranking"]) == 6
+
+
+def test_cmos_node_modifiers():
+    """
+    Verifies that selecting a CMOS node correctly applies scaling modifiers.
+    """
+    engine = PredictiveHypothesisEngine()
+
+    # Under GAA 3nm baseline, copper resistance should be scaled to 3.0
+    result_gaa = engine.forecast(cmos_node="gaa-3nm")
+    assert result_gaa["inputs"]["copper_resistance"] == 3.0
+    assert result_gaa["inputs"]["memory_wall"] == 2.5
+
+    # Under FinFET 16nm, gate leakage is scaled to 1.2
+    result_finfet = engine.forecast(cmos_node="finfet-16nm")
+    assert result_finfet["inputs"]["gate_leakage"] == 1.2
+
+
+def test_sensitivity_analysis():
+    """
+    Verifies that the sensitivity analysis swept values and correctly isolates catalysts.
+    """
+    engine = PredictiveHypothesisEngine()
+    sensitivities = engine.analyze_sensitivity("planar-28nm")
+
+    # Capability primary catalyst should be security_risk
+    cap_sens = sensitivities["Capability, Tagged & Descriptor"]
+    assert cap_sens["primary_catalyst"] == "security_risk"
+    assert cap_sens["max_sensitivity_slope"] > 0.0
+
+    # Spatial primary catalyst should be memory_wall
+    spatial_sens = sensitivities["Spatial & Data-Parallel"]
+    assert spatial_sens["primary_catalyst"] == "memory_wall"
+
+    # Verify that we have all 6 lineages represented
+    assert len(sensitivities) == 6

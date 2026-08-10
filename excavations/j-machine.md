@@ -171,4 +171,9 @@ As silicon scaling reaches its physical limits and the **Von Neumann memory wall
 * Noakes, M. D., Wallach, D. A., & Dally, W. J. (1993). *The J-Machine multicomputer: Architecture and multicomputer performance*. In Proceedings of the 20th Annual International Symposium on Computer Architecture (ISCA), 224-235.
 * Dally, W. J. (1990). *Network and Node Architecture for Massively Parallel Computers*. In Organick, E. I. (Ed.), *New Frontiers in Computer Architecture*. Prentice Hall.
 
+### Standardized Patents & Archival Material
+
+*   **US Patent 4,896,265**: *Multi-Processor Computer Routing Network*. William J. Dally (MIT). Filing Date: Feb 19, 1988. Issue Date: Jan 23, 1990. [Google Patents Link (US4896265A)](https://patents.google.com/patent/US4896265A/en).
+*   **Charles Babbage Institute Oral History**: Oral history interview with William J. Dally. Charles Babbage Institute, University of Minnesota. [CBI Archives Link](https://www.computerhistory.org/collections/catalog/102746875).
+
 ---

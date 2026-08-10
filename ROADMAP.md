@@ -19,9 +19,9 @@ For a comprehensive, academically citable analysis of our multi-phase horizons, 
 
 **Total Excavations**: 35
 
-### Future Horizons: Re-Evaluation & Potential Expansions
-- **Quantified Energy/Area Projections**: Expand each excavation's "Modern Relevance" with an estimated Gate-Equivalent (GE) count or normalized Energy-per-Op (fJ) scaling curve comparing the historic design to its modern sub-5nm CMOS equivalent.
-- **Archival/Patent Deep Linking**: Direct embedding of standardized patent identifiers (e.g., USPTO numbers for the J-Machine routing chip) and oral history URLs (such as the Charles Babbage Institute archives) at the end of each excavation to elevate academic credibility.
+### Future Horizons: Re-Evaluation & Potential Expansions ✅ (Complete)
+- [x] **Quantified Energy/Area Projections**: Expanded each major lineage in `modern-relevance/revival-readiness.md` with estimated Gate-Equivalent (GE) counts and normalized Energy-per-Op (fJ) scaling curves under modern sub-5nm CMOS equivalent processes.
+- [x] **Archival/Patent Deep Linking**: Direct embedding of standardized patent identifiers (e.g., USPTO numbers for the J-Machine routing chip and Fredkin gates) and oral history URLs (such as the Computer History Museum and CBI archives) at the end of key excavations.
 
 ---
 
@@ -85,7 +85,7 @@ Transitioned from theoretical comparisons to dynamic execution models, implement
 - [x] [Public essays and "idea revival" case studies](synthesis/): Published synthesis essays including [Architectural Distillation](synthesis/architectural-distillation.md), [The Return of Spatial Computing](synthesis/return-of-spatial-computing.md), [Capability-Based Security](synthesis/capability-based-security.md), and [Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md).
 
 ### Future Horizons: Re-Evaluation & Potential Expansions
-- **Standardized BibTeX Integration**: Include a fully downloadable .bib file in the root of the `bibliography/` directory, allowing researchers to copy-paste citation blocks directly for IEEE/ACM systems preprints.
+- [x] **Standardized BibTeX Integration**: Provided a complete, downloadable `.bib` file (`bibliography/digital_archaeology.bib`) mapping all 25 seminal books in the books index for academic preprint citations.
 - **Interactive Timeline Scrubbers**: Convert static markdown timelines into dynamic, queryable timelines in the `explorer.html` visual interface, allowing users to filter milestones by architectural lineage.
 
 ---
@@ -138,7 +138,7 @@ To transition research from functional emulation into the physical silicon pipel
 
 ### Future Horizons: Re-Evaluation & Potential Expansions
 - **Complete Hardware-Software Co-Simulation Loop**: Connect the behavioral Python simulators directly to the SystemVerilog RTL cores using a lightweight foreign-function interface (such as a WASM-compiled Verilator simulation harness running in the browser). This would allow users to write a python test script that drives clock cycles on the physical SystemVerilog gates live inside `playground.html`.
-- **Lab Module Auto-Graders**: Extend the `LAB_MANUAL.md` curriculum with lightweight python test harnesses. Students could write their custom solutions (e.g., a "Ternary Half-Adder") and run an automated grading script to instantly assert arithmetic and logical compliance.
+- [x] **Lab Module Auto-Graders**: Extended the `LAB_MANUAL.md` curriculum with automated grading tests (`reconstructions/lab_autograder.py`) running against standard student solutions (`reconstructions/student_solutions.py`), integrated with pytest.
 
 ---
 
@@ -188,9 +188,9 @@ Designed, verified, and released an active, quantitative forecasting model that 
 - [x] **Interactive Command-Line Interface**: Released a fully-functional CLI parser supporting customized physical parameters, text tables, star ratings, and JSON export for automated ingestion.
 - [x] **Zero-Dependency Validation Suite**: Verified prediction bounds clamping, input sensitivity, and schema layout through extensive pytest unit tests.
 
-### Future Horizons: Re-Evaluation & Potential Expansions
-- **Dynamic CMOS Node Modifiers**: Expand the forecasting model to include specific transistor technologies (e.g., FinFET, GAA nanosheets, and backside power delivery networks (BSPDN)). This allows users to forecast how alternative paradigms perform when migrating from standard planar CMOS to advanced sub-2nm 3D structural boundaries.
-- **Sensitivity Analysis Module**: Add a CLI command (e.g., `--sensitivity`) that systematically swept individual physical variables (e.g., varying copper interconnect resistivity from $1.7\,\mu\Omega\cdot\text{cm}$ to $10\,\mu\Omega\cdot\text{cm}$) to automatically isolate which physical constraints act as the primary catalyst for each architectural lineage's revival.
+### Future Horizons: Re-Evaluation & Potential Expansions ✅ (Complete)
+- [x] **Dynamic CMOS Node Modifiers**: Expanded the forecasting model to include specific transistor technologies (`planar-28nm`, `finfet-16nm`, `gaa-3nm`, `gaa-bspdn-2nm`) scaling baseline post-CMOS constraint parameters.
+- [x] **Sensitivity Analysis Module**: Added a `--sensitivity` CLI sweep command to systematically sweep physical variables from 0.1x to 10.0x and automatically isolate the primary catalyst and positive impact slopes for each alternative hardware lineage.
 
 ---
 

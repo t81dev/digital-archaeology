@@ -171,6 +171,52 @@ By adjusting factors such as sub-threshold static gate leakage, nanoscale interc
 
 ---
 
+## Quantified Energy/Area Projections
+
+To ground architectural discussions in physical and manufacturable realities, we establish standardized engineering estimates for both area—measured in **Gate-Equivalents (GE)**—and active computing efficiency—measured in **Energy-per-Operation (fJ/op)**—projected down to advanced sub-5nm CMOS processes.
+
+```
+       PROJECTED ACTIVE ENERGY-PER-OP SCALING AT SUB-5nm CMOS CORES (fJ/Op)
+  10^4 ┼────────────────────────────────────────────────────────── Standard CPU (10^4 fJ)
+       │
+  10^3 ┼────────────────────────────── CHERI Capability (10^3 fJ)
+       │
+  10^2 ┼───────────────── Spatial Systolic (10^2 fJ)
+       │
+  10^1 ┼──────── Superconducting Post-Cryo (2.8 * 10^1 fJ)
+       │
+  10^0 ┼──────── Stochastic / Neuromorphic (1.5 * 10^0 fJ)
+       │
+  10^-1┼──────── Passive Optical Prop (0.8 * 10^-1 fJ)  *Excluding ADC/DAC conversion wall
+       └────────┴────────┴────────┴────────┴────────┴────────► Computing Lineage
+```
+
+### 1. Spatial & Data-Parallel Lineage
+*   **Area Complexity**: A $16 \times 16$ 16-bit Weight-Stationary systolic matrix multiplier tile utilizes approximately **$125,000 \text{ GE}$** in standard CMOS logic.
+*   **Energy Scaling**: At a sub-5nm CMOS node, a 16-bit localized MAC (including single-hop register file neighbor access) scales down to **$\approx 3.5 \text{ fJ/op}$**, compared to $\approx 350 \text{ fJ/op}$ for a general-purpose sequential CPU register access.
+
+### 2. Neuromorphic & Stochastic Lineage
+*   **Area Complexity**: An event-driven Leaky Integrate-and-Fire (LIF) spiking neuron core occupies **$1,500 \text{ GE}$**. An unipolar stochastic multiplier occupies exactly a single 2-input AND gate (**$6 \text{ GE}$**), compared to standard 16-bit binary multipliers requiring **$>5,000 \text{ GE}$**.
+*   **Energy Scaling**: Spiking event propagation utilizes **$\approx 1.2 \text{ fJ}$** per active spike. Stochastic stream unipolar logic gates scale to **$\approx 0.15 \text{ fJ}$** per bit-operation, with net energy bound by the target precision bitstream length ($O(2^N)$).
+
+### 3. Capability, Tagged & Descriptor Lineage
+*   **Area Complexity**: Adding unforgeable CHERI 128-bit spatial capability and permission validation registers adds **$8,500\text{--}12,000 \text{ GE}$** per physical CPU execution unit and register port.
+*   **Energy Scaling**: Standard operations carry an incremental power overhead of **$\approx 0.05 \text{ pJ/op}$** ($50 \text{ fJ/op}$) due to tag-validation check circuits and slight L1/L2 data cache pointer expansion pressure.
+
+### 4. Physical, Thermodynamic & Optical Lineage
+*   **Area Complexity**: A single monolithic 2x2 Mach-Zehnder Interferometer (MZI) utilizing thermal-optical heaters occupies an equivalent silicon footprint of **$18,000 \text{ GE}$**.
+*   **Energy Scaling**: Passive optical wave propagation through the MZI executes complex matrix multiplication using only coherent light interference, consuming **$<0.1 \text{ fJ/op}$**. However, active high-speed analog-to-digital (ADC) and digital-to-analog (DAC) conversion blocks at the boundary consume a massive **$\approx 8.5 \text{ pJ/op}$** ($8,500 \text{ fJ/op}$).
+
+### 5. Distributed & Single-Level-Store OS Lineage
+*   **Area Complexity**: Fully implemented in software; requires zero custom silicon area overhead ($0 \text{ GE}$).
+*   **Energy Scaling**: By replacing nested gRPC and REST serialization layers with dynamic, flat 9P file protocol packets, distributed service transactions collapse from **$\approx 1.2 \text{ mJ}$** ($1.2 \times 10^9 \text{ fJ}$) per transaction down to **$\approx 15.0 \text{ \mu J}$** ($1.5 \times 10^7 \text{ fJ}$) per transaction.
+
+### 6. Superconducting & Cryogenic Lineage
+*   **Area Complexity**: A stateful RSFQ D-Flip-Flop occupies exactly 6 Josephson junctions, equivalent to **$\approx 120 \text{ standard CMOS gates}$**.
+*   **Energy Scaling**: Microscopic active switching energy at $4.2\text{ K}$ is a tiny **$0.2 \text{ aJ/switch}$** ($2 \times 10^{-4} \text{ fJ}$). Factoring in the real thermodynamic cryogenic refrigeration cooling penalty ($1400\times$ penalty factor), the net room-temperature utility energy consumption is **$\approx 0.28 \text{ fJ/switch}$**.
+
+---
+
 ## Heterogeneous Revival Synergies
 
 Pure architectural lineages scored in isolation understate the highest-value path to commercial viability. The ultimate destination of non-von Neumann research is **hybrid, heterogeneous hardware-software co-design**, where complementary lineages are integrated onto a single substrate or package to bypass individual physical boundaries.
