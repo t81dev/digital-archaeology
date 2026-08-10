@@ -1,0 +1,17 @@
+{
+    "DESIGN_NAME": "ternary_alu",
+    "VERILOG_FILES": ["dir::../../ternary_alu.sv"],
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 15.0,
+    "FP_SIZING": "relative",
+    "FP_CORE_UTIL": 55,
+    "PL_TARGET_DENSITY": 0.55,
+    "SYNTH_STRATEGY": "DELAY 0",
+    "PDK": "sky130_fd_sc_hd",
+    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
+    "DIODE_INSERTION_STRATEGY": 3,
+    "RUN_CVP": true,
+    "FP_PDN_MULTIPLE": 2,
+    "VDD_NETS": ["vccd1"],
+    "GND_NETS": ["vssd1"]
+}

@@ -578,17 +578,17 @@ def test_sby_formal_configs_exist():
 
     with open(checker_sby, "r") as f:
         content = f.read()
-        assert "mode bmc" in content
+        assert "mode bmc" in content or "bmc: mode bmc" in content
         assert "smtbmc" in content
 
     with open(reversible_sby, "r") as f:
         content = f.read()
-        assert "mode bmc" in content
+        assert "mode bmc" in content or "bmc: mode bmc" in content
         assert "smtbmc" in content
 
     with open(stochastic_sby, "r") as f:
         content = f.read()
-        assert "mode bmc" in content
+        assert "mode bmc" in content or "bmc: mode bmc" in content
         assert "smtbmc" in content
 
 
@@ -601,3 +601,20 @@ def test_synthesis_profiler():
     assert mock_metrics["module"] == "capability_bounds_checker"
     assert mock_metrics["lut_count"] == 115
     assert mock_metrics["dff_count"] == 22
+
+
+def test_openlane_configs_exist_and_are_valid():
+    """Verify that OpenLane JSON config files exist and are valid JSON format."""
+    import json
+    hardware_dir = os.path.dirname(__file__)
+    config_dir = os.path.join(hardware_dir, "fpga", "openlane_configs")
+    cores = ["capability_bounds_checker", "reversible_gates", "stochastic_multiplier", "ternary_alu"]
+
+    for core in cores:
+        config_path = os.path.join(config_dir, f"{core}.json")
+        assert os.path.exists(config_path), f"OpenLane config missing for {core}"
+        with open(config_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            assert data["DESIGN_NAME"] == core
+            assert "CLOCK_PORT" in data
+            assert "CLOCK_PERIOD" in data

@@ -1,0 +1,16 @@
+{
+    "DESIGN_NAME": "reversible_gates",
+    "VERILOG_FILES": ["dir::../../reversible_gates.sv"],
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 5.0,
+    "FP_SIZING": "relative",
+    "FP_CORE_UTIL": 35,
+    "PL_TARGET_DENSITY": 0.4,
+    "SYNTH_STRATEGY": "AREA 0",
+    "PDK": "sky130_fd_sc_hd",
+    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
+    "DIODE_INSERTION_STRATEGY": 3,
+    "RUN_CVP": true,
+    "VDD_NETS": ["vccd1"],
+    "GND_NETS": ["vssd1"]
+}

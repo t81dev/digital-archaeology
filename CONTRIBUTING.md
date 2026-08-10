@@ -15,10 +15,11 @@ We welcome contributions of all types:
 
 As the repository has reached a mature, feature-complete state with 35 excavations, 15+ simulators, and fully verified synthesizable RTL cores (formally checked via SymbiYosys/z3 and mapped to Lattice iCE40 FPGAs), we encourage contributions focused on the following next-generation research frontiers:
 
-1. **Tiny Tapeout Submission & Silicon Target Readiness**: Adapting our synthesizable soft-cores (`ternary_alu.sv`, `capability_bounds_checker.sv`, `reversible_gates.sv`, `stochastic_multiplier.sv`) for [Tiny Tapeout](https://tinytapeout.com/), establishing GDSII layouts, and preparing files for the next physical silicon shuttle.
-2. **Real-Workload PPA Benchmarks**: Running systems-level benchmarks on physical FPGA boards (e.g. iCEbreaker UP5K) or logic analyzers, measuring Power, Performance, and Area (PPA) scaling curves for alternate computing paradigms against CMOS equivalents.
-3. **Distributed WebRTC Co-Simulation**: Writing peer-to-peer browser-native WebRTC signal handlers to connect isolated Python simulators and co-simulation instances across multiple distributed browser clients.
-4. **Additional Primary-Source Depth**: Elevating our lighter historical excavations with high-fidelity archival documents, patents, oral histories, and technical schematic data to ensure academic-grade historical precision.
+1. **Tiny Tapeout & OpenLane ASIC Submissions**: Adapting our synthesizable soft-cores (`ternary_alu.sv`, `capability_bounds_checker.sv`, `reversible_gates.sv`, `stochastic_multiplier.sv`) for [Tiny Tapeout](https://tinytapeout.com/) or deep-submicron OpenLane synthesis, establishing physical layout GDSII parameters (`fpga/openlane_configs/`) for SkyWater 130nm / IHP SG13G2.
+2. **Infinite Clock-Cycle Formal Proofs**: Extending SystemVerilog Assertions (SVA) and SymbiYosys configurations (`formal/`) to leverage temporal k-induction (`prove` tasks) to mathematically verify infinite-trace hardware security and arithmetic properties.
+3. **Distributed WebRTC Co-Simulation**: Writing browser-native peer-to-peer messaging networks and data-channel signaling protocols inside `playground.html` to orchestrate zero-configuration cross-tab/cross-client multi-architecture pipelines.
+4. **Real-Workload PPA Benchmarks**: Running systems-level benchmarks on physical FPGA boards (e.g. iCEbreaker UP5K) or logic analyzers, measuring Power, Performance, and Area (PPA) scaling curves for alternate computing paradigms against CMOS equivalents.
+5. **Additional Primary-Source Depth**: Elevating our lighter historical excavations with high-fidelity archival documents, patents, oral histories, and technical schematic data to ensure academic-grade historical precision.
 
 ---
 
