@@ -111,10 +111,78 @@ An external researcher or architect can use this codebase to execute three high-
 
 ---
 
-## 5. Overcoming Isolation: Heterogeneous Co-Design Synergies
+## 5. Cross-Lineage Convergence Matrix
+
+Evaluating alternative lineages in isolation masks their true potential. The highest-value architectural path is the integration of complementary architectures. Below is the formalized Cross-Lineage Convergence Matrix demonstrating how pairwise and triple interactions overcome individual bottlenecks, including impact on compilers, register pressure, and silicon layouts.
+
+```
++------------------+---------------------------+-----------------------------------+-----------------------------------+
+| Lineage          | Spatial & Data-Parallel   | Capability & Descriptor (CHERI)  | Neuromorphic & Stochastic         |
++------------------+---------------------------+-----------------------------------+-----------------------------------+
+| Spatial &        |                           | [CapSystolic Array]               | [SNN Matrix Accelerator]          |
+| Data-Parallel    |             -             | Restricts capability checks to    | Maps sparse temporal event-spikes |
+|                  |                           | array boundary DMUs, bypassing    | directly to 2D systolic MAC cells,|
+|                  |                           | internal register pressure.       | bypassing instruction fetch.      |
++------------------+---------------------------+-----------------------------------+-----------------------------------+
+| Capability &     | [CapSystolic Array]       |                                   | [Secure Neuromorphic Core]        |
+| Descriptor       | Restricts checks to       |                 -                 | Hardware unforgeable descriptors  |
+|                  | edge DMUs.                |                                   | sandbox neuron weight segments.   |
++------------------+---------------------------+-----------------------------------+-----------------------------------+
+| Distributed &    | [P2P Spatial Mesh Grid]   | [Unaddressable Agent Sandbox]     | [Asynchronous Agent Swarms]       |
+| 9P Namespace     | Maps distributed processes| Secures LLM tool execution via    | Event-driven neural processing    |
+|                  | to dynamic local mounts.  | private mounts & physical tags.   | triggers asynchronous 9P threads. |
++------------------+---------------------------+-----------------------------------+-----------------------------------+
+```
+
+### Core Microarchitectural & Compiler Impacts:
+1. **Compiler Optimization Loops & Register Pressure**:
+   Integrating capability-checking registers (e.g., CHERI) into general-purpose architectures typically increases register renaming pressure. However, in a **CapSystolic** co-design (Spatial + Capability), the capability bounds check is moved entirely to the Boundary Memory Management Unit (BMMU). The compiler (Clang-CHERI) compiles matrix multiplies using standard unforgeable 128-bit pointers, but the inner execution loop of the spatial mesh is kept free of capability checks. This avoids expanding the register renaming file width inside the high-throughput computing core.
+2. **Eliminating the Data Conversion Wall (ADC/DAC)**:
+   In modern optical matrix accelerators, up to $80\%$ of active chip area and energy is wasted in Analog-to-Digital and Digital-to-Analog converters. Combining **Neuromorphic Spiking** with **Analog Photonic Crossbars** (Optoelectronic SNN) allows electrical inputs to propagate directly as temporal voltage spike pulses. Synaptic weights are programmed as non-volatile memristive or PCM conductances, and output currents integrate directly on a leaky integrate-and-fire (LIF) node. This completely bypasses ADC/DAC overheads.
+
+---
+
+## 6. Quantitative Constraint Migration Curves
+
+The viability of non-von Neumann computing is driven by physical scaling boundaries. Below we derive the exact thermodynamic and electrical crossover curves where physical copper interconnect resistance scaling makes alternative paradigms superior to room-temperature CMOS.
+
+### The Interconnect Wall: Copper Resistance Scaling at <3nm
+As planar CMOS nodes shrink below 3nm, the cross-sectional area ($A$) of copper wires decreases, and electron scattering at wire boundaries increases, causing copper resistivity ($\rho$) to skyrocket:
+$$R_{wire} = \frac{\rho \cdot L}{A}$$
+Where $L$ is the wire length. The dynamic charging energy consumed by a standard digital copper wire is:
+$$E_{CMOS\_wire} = C_{wire} \cdot V^2 = \left( \epsilon \frac{L}{W} \right) \cdot V^2$$
+
+In contrast, optical wave propagation through a silicon photonic waveguide incurs static laser source power ($P_{laser}$) and photo-detection energy ($E_{PD}$):
+$$E_{Optical} = P_{laser\_bias} \cdot \tau_{latency} + E_{PD}$$
+Where $\tau_{latency}$ is the sub-nanosecond optical propagation time.
+
+At high frequencies (GHz clock speeds) and long on-chip routing spans ($L > 100\,\mu\text{m}$), the crossover curve shows optical waveguides becoming exponentially more energy-efficient than copper interconnects.
+
+```
+         ENERGY CONSUMPTION VS INTERCONNECT DISTANCE (Crossover Curves)
+
+  Energy (fJ)
+     ▲
+10.0 ┼                                      / [Room-Temp CMOS Copper Wire]
+     │                                     /  (Scaling with R_wire at <3nm)
+ 5.0 ┼                                    /
+     │                                   /
+ 2.0 ┼──────────────────────────────────/───────── [Silicon Photonic Waveguide]
+     │                                 /           (Static Laser Bias + PD Energy)
+ 1.0 ┼                                /
+     │            Crossover Point (~80 µm)
+     └───────┴───────┴───────┴───────┴───────┴───────► Interconnect Distance L
+            20 µm   40 µm   60 µm   80 µm   100 µm
+```
+
+By substituting cryogenic Josephson junction logic (ERSFQ operating at 4.2 K), the switching energy drops to sub-attojoule levels ($0.2\text{ aJ}$). Even with the $1000\times$ refrigeration penalty, ERSFQ is highly superior for high-density, high-frequency spatial networks.
+
+---
+
+## 7. Overcoming Isolation: Heterogeneous Co-Design Synergies
 
 Evaluating alternative lineages in isolation masks their true potential. The highest-value architectural path is the integration of complementary architectures. For a detailed analysis of pairwise and triple combinations (such as the secure "CapSystolic" matrix core, or optoelectronic spiking networks that bypass the data-conversion wall), see the full study on **[Heterogeneous Revival Synergies](heterogeneous-revival-synergies.md)**.
 
-## 6. Conclusion
+## 8. Conclusion
 
 Physical limits have shattered the abstraction of general-purpose, room-temperature sequential computing. The path forward is heterogeneous, physical, and domain-specific. By combining the executable excavations, synthesizable cores, and multi-paradigm co-simulation fabrics compiled in this repository, computer architects possess a complete, runnable ontology to bridge forgotten history with the future of silicon design.
