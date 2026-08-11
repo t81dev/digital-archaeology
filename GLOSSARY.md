@@ -13,6 +13,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Plan 9](excavations/plan-9.md)
 
 ### A
+* **Apple Silicon**: A lineage of custom-designed, ARM-based System-on-Chip (SoC) architectures integrating high-bandwidth Unified Memory, Secure Enclave processors, and dynamic matrix-multiplication co-processors tightly integrated with the system compilers.
+  * *See excavation*: [Apple: The Integrated Platform Surface](excavations/apple.md)
+
+### A
 * **Active Messages**: A communication paradigm for high-performance parallel systems where each message packet contains in its header the address of an execution handler. Upon arrival, the handler executes immediately using the packet's payload as arguments, bypassing operating system scheduling and context-switching overhead.
   * *See excavation*: [The MIT J-Machine](excavations/j-machine.md)
 * **Actor Model**: A mathematical model of concurrent computation where the universal primitive is the *actor*. Actors can make local decisions, create more actors, send messages, and designate how to respond to the next message. Unlike the Von Neumann model, communication is asynchronous and there is no shared state.
@@ -67,6 +71,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)
 * **Graph Reduction Machine**: A non-von Neumann computer architecture designed to natively execute pure functional programming languages. Instead of sequentially executing compiled assembly instructions, it represents programs as directed acyclic graphs in memory and executes them by repeatedly simplifying and rewriting reducible expressions (redexes) in-place.
   * *See excavation*: [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md)
+
+### I
+* **Integrated Platform Surface**: An architectural paradigm of hardware-software-distribution vertical integration where custom silicon, core operating system managers, dynamic runtimes, developer toolchains, and centralized monetization gates are co-designed as a single surface.
+  * *See excavation*: [Apple: The Integrated Platform Surface](excavations/apple.md)
 
 ### J
 * **J-Machine (Jellybean Machine)**: A fine-grained, massively parallel computer architecture that integrated a 3D wormhole-routing network, on-chip SRAM, and a message-driven processor on a single monolithic die to support low-latency active messages.
