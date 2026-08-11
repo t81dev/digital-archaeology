@@ -37,6 +37,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Cellular Automata Hardware](excavations/cellular-automata-hardware.md)
 * **Communicating Sequential Processes (CSP)**: A formal language and mathematical model (introduced by Tony Hoare) for concurrent systems where processes communicate solely through synchronous, unbuffered/buffered channels.
   * *See excavation*: [Occam](excavations/occam.md), [Transputers](excavations/transputers.md)
+* **Component Object Model (COM)**: A language-agnostic binary interface standard enabling location-transparent object communication via structured virtual function table (vtable) layouts.
+  * *See excavation*: [Microsoft: The Platform Machine](excavations/microsoft.md)
 * **Content-Addressable Memory (CAM)**: A specialized computer memory that searches its entire contents in a single clock cycle and returns the address(es) where matching data is found.
   * *See excavation*: [Associative Processors](excavations/associative-processors.md)
 * **Continuous Physical Modeling**: Solving differential equations by mapping physical system variables (e.g., fluid dynamics, acoustics) directly onto equivalent physical currents or voltages in analog circuits.
@@ -144,6 +146,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See modern relevance*: [AI & Hardware Bottlenecks](modern-relevance/ai.md)
 
 ### W
+* **Win32 API**: A highly stable, multi-decade 32-bit flat application programming interface designed to decouple application target software from dynamic kernel changes.
+  * *See excavation*: [Microsoft: The Platform Machine](excavations/microsoft.md)
 * **[Wafer-Scale Integration](excavations/wafer-scale-integration.md) (WSI)**: An advanced semiconductor manufacturing paradigm that builds an entire digital system (incorporating multiple processor nodes, memory blocks, and interconnect networks) on a single, uncut silicon wafer, completely bypassing chip-packaging boundaries.
   * *See excavation*: [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
 

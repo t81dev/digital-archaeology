@@ -51,6 +51,10 @@
       "definition": "A formal language and mathematical model (introduced by Tony Hoare) for concurrent systems where processes communicate solely through synchronous, unbuffered/buffered channels."
     },
     {
+      "term": "Component Object Model (COM)",
+      "definition": "A language-agnostic binary interface standard enabling location-transparent object communication via structured virtual function table (vtable) layouts."
+    },
+    {
       "term": "Content-Addressable Memory (CAM)",
       "definition": "A specialized computer memory that searches its entire contents in a single clock cycle and returns the address(es) where matching data is found."
     },
@@ -207,6 +211,10 @@
       "definition": "The throughput limitation on computer systems caused by the physical separation of the central processing unit and memory, requiring all instruction and data transfers to share a single bus."
     },
     {
+      "term": "Win32 API",
+      "definition": "A highly stable, multi-decade 32-bit flat application programming interface designed to decouple application target software from dynamic kernel changes."
+    },
+    {
       "term": "[Wafer-Scale Integration](excavations/wafer-scale-integration.md) (WSI)",
       "definition": "An advanced semiconductor manufacturing paradigm that builds an entire digital system (incorporating multiple processor nodes, memory blocks, and interconnect networks) on a single, uncut silicon wafer, completely bypassing chip-packaging boundaries."
     },
@@ -292,6 +300,7 @@
           "inferno",
           "intel-iapx-432",
           "lisp-machines",
+          "microsoft",
           "multics",
           "plan-9",
           "smalltalk",
@@ -435,6 +444,7 @@
         "description": "Enforcing type-safety and isolation inside a managed runtime environment or interpreter instead of hardware.",
         "mapped_excavations": [
           "inferno",
+          "microsoft",
           "smalltalk",
           "smalltalk",
           "lisp-machines"
@@ -470,6 +480,7 @@
         "description": "Dynamic, uncoordinated message queues at the operating system or runtime layer.",
         "mapped_excavations": [
           "beos-haiku",
+          "microsoft",
           "plan-9",
           "GLOSSARY",
           "inferno",
@@ -973,7 +984,7 @@
       "id": "ebcdic",
       "title": "EBCDIC (Extended Binary Coded Decimal Interchange Code)",
       "path": "excavations/ebcdic.md",
-      "summary": "Extended Binary Coded Decimal Interchange Code (EBCDIC) is an 8-bit character encoding system designed by IBM in 1963 and introduced with the landmark System/360 mainframe computer architecture. Rather than being a single, static character table, EBCDIC is a family of highly structured code pages designed to map characters, control codes, and symbols to binary byte values. \n\nEBCDIC's structural design was directly derived from the mechanical engineering constraints of Hollerith punched cards and 6-bit Binary Coded Decimal (BCD) representations. To optimize physical card-reader decoding speeds, EBCDIC split the alphabet into non-contiguous groups punctuated by structural \"holes.\"\n\nWhile ASCII became the dominant encoding for mini-computers, personal computers, Unix-like systems, and the global Internet, EBCDIC persisted and remains actively deployed within IBM Z mainframes and transactional backend systems. EBCDIC's endurance is one of the most powerful examples of **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)** and **[Constraint Migration](../patterns/constraint-migration.md)** in computing history, proving that low-level representation decisions can establish durable, multi-billion-dollar enterprise boundaries that outlive their original hardware substrate.",
+      "summary": "Extended Binary Coded Decimal Interchange Code (EBCDIC) is an 8-bit character encoding system designed by IBM in 1963 and introduced with the landmark System/360 mainframe computer architecture. Rather than being a single, static character table, EBCDIC is a family of highly structured code pages designed to map characters, control codes, and symbols to binary byte values.\n\nEBCDIC's structural design was directly derived from the mechanical engineering constraints of Hollerith punched cards and 6-bit Binary Coded Decimal (BCD) representations. To optimize physical card-reader decoding speeds, EBCDIC split the alphabet into non-contiguous groups punctuated by structural \"holes.\"\n\nWhile ASCII became the dominant encoding for mini-computers, personal computers, Unix-like systems, and the global Internet, EBCDIC persisted and remains actively deployed within IBM Z mainframes and transactional backend systems. EBCDIC's endurance is one of the most powerful examples of **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)** and **[Constraint Migration](../patterns/constraint-migration.md)** in computing history, proving that low-level representation decisions can establish durable, multi-billion-dollar enterprise boundaries that outlive their original hardware substrate.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -1325,6 +1336,46 @@
         "**Moon, David A.** (1987). *\"Generational Garbage Collection in the Symbolics 3600.\"* ACM Conference on Lisp and Functional Programming.",
         "**Noftsker, Russell** (1984). *\"The Commercialization of the Lisp Machine.\"* IEEE Micro, Vol. 4, No. 4, pp. 10-15."
       ]
+    },
+    {
+      "id": "microsoft",
+      "title": "Microsoft: The Platform Machine",
+      "path": "excavations/microsoft.md",
+      "summary": "The Microsoft lineage is often evaluated through the lens of corporate history, market dominance, or biographical retrospectives of its founders. In digital archaeology, however, **Microsoft represents a historical computational ecosystem** that succeeded not through absolute technical superiority at any single point in time, but through the mastery of **platform feedback loops, architectural compatibility, and developer-facing abstractions**.\n\nMicrosoft's primary achievement was the engineering of a platform machine: a self-reinforcing loop that converted raw hardware into stable, programmable abstractions ([Win32](../GLOSSARY.md)/COM/.NET), bound developers to these abstractions via high-fidelity tooling (QuickBASIC, Visual Basic, Visual Studio), and maintained multi-decade backwards compatibility to minimize migration costs for enterprise customers. This excavation dissects the mechanisms of this machine, traces its evolution from 8-bit BASIC to distributed cloud and AI infrastructure, and analyzes how its core abstractions survive even as the underlying hardware and execution models shift.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Shaped the landscape of personal, enterprise, and cloud computing for four decades."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Mastered pragmatic runtime abstractions (COM, CLR, NT Object Manager) and API compatibility engines."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "The most successful platform machine in computing history, generating trillions in economic value."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Successfully transitioned to distributed cloud infrastructure and automated AI software development (GitHub/OpenAI)."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Commands massive compute scale via Azure, model integration, and the default developer cockpit (VS Code/Copilot)."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Recreating the massive surface area of Win32, COM, and legacy compatibility layers is economically and technically prohibitive."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
     },
     {
       "id": "molecular-biocomputing",
