@@ -134,6 +134,21 @@ When submitting a new excavation, classify it under one or more of these concept
 
 ## Submission Process
 
+## Local Verification Setup
+
+The simulators are standard-library-only, while repository checks use a small development toolset. From a fresh checkout:
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-dev.txt
+.venv/bin/python -m pytest
+.venv/bin/python tools/verify_excavations.py
+```
+
+Use the project virtual environment rather than installing packages into a system-managed Python. For an RTL PPA contribution, also follow the evidence and provenance requirements in [BENCHMARKING.md](BENCHMARKING.md).
+
+---
+
 1. **Open an Issue**: Discuss your proposed excavation or pattern with the community first.
 2. **Create a Branch**: Create a branch off `main` for your changes (e.g., `feature/excavation-mytech`).
 3. **Draft the Document**: Follow the standard format and check your files for broken markdown links.

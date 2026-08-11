@@ -601,6 +601,7 @@ def test_synthesis_profiler():
     assert mock_metrics["module"] == "capability_bounds_checker"
     assert mock_metrics["lut_count"] == 115
     assert mock_metrics["dff_count"] == 22
+    assert mock_metrics["measurement_kind"] == "analytical_estimate"
 
 
 def test_openlane_configs_exist_and_are_valid():

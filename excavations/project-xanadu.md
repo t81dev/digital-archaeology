@@ -29,6 +29,8 @@ Core concepts:
 
 The system was extraordinarily ambitious, attempting to solve problems like broken links, copyright, and content reuse from the beginning.
 
+Xanadu is particularly useful as a contrast case: the Web made document retrieval cheap by accepting one-way, copy-based links, while Xanadu treated identity, provenance, inclusion, and link direction as first-class system invariants. That trade-off connects it to the repository's work on [distributed namespaces](plan-9.md), [coordinate-free communication](linda-tuple-spaces.md), and durable [single-level stores](multics.md).
+
 ---
 
 ## Innovations
@@ -63,6 +65,8 @@ Xanadu’s ideas are experiencing a renaissance:
 
 In the age of information overload and broken links, Xanadu’s deeper vision feels more relevant than ever.
 
+Modern systems should recover the abstractions selectively rather than reproduce the entire design: stable content identities and explicit provenance make archival systems and AI retrieval pipelines more auditable; transclusion avoids uncontrolled copying; and visible backlinks improve navigation. The caution is equally enduring: global consistency, rights enforcement, payments, and a novel user interface should be independently deployable layers, not a prerequisite for reading a document.
+
 ---
 
 ## Lessons Learned
@@ -88,16 +92,21 @@ In the age of information overload and broken links, Xanadu’s deeper vision fe
 ## Related Excavations
 - [Plan 9](../excavations/plan-9.md)
 - [Lisp Machines](../excavations/lisp-machines.md)
+- [Linda Tuple Spaces](../excavations/linda-tuple-spaces.md)
+- [Multics](../excavations/multics.md)
+- [Inferno](../excavations/inferno.md)
 
 ## Related Patterns
 - [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
 - [Recurring Ideas](../patterns/recurring-ideas.md)
 - [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)
+- [Constraint Migration](../patterns/constraint-migration.md)
+- [Evolution of Coordination Abstractions](../synthesis/evolution-of-coordination-abstractions.md)
 
 ---
 
 ## References (Selected)
-- Nelson, Ted — *Literary Machines* and various Xanadu papers.
-- Original Xanadu technical documentation and prototypes.
-- Nelson’s writings and talks (e.g., “A File Structure for the Complex, the Changing, and the Indeterminate”).
-- Modern retrospectives and comparisons with the World Wide Web.
+- Nelson, Theodor H. “[A File Structure for the Complex, the Changing, and the Indeterminate](https://doi.org/10.1145/800197.806036),” ACM National Conference, 1965.
+- Nelson, Theodor H. *[Computer Lib / Dream Machines](https://archive.org/details/computerlibdream00nels)*, 1974. Introduces the broader hypertext vision and terminology.
+- Nelson, Theodor H. *Literary Machines*, 1981 and later editions. A primary design account of Xanadu concepts and terminology.
+- Berners-Lee, Tim. “[Information Management: A Proposal](https://www.w3.org/History/1989/proposal.html),” CERN, 1989. A contemporary primary contrast case for the simpler Web model.

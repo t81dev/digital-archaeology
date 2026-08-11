@@ -70,26 +70,31 @@ This resource guide links to primary online archives, repositories, emulators, a
 * **Relevance**: [Burroughs Large Systems](../excavations/burroughs-large-systems.md)
 * **Description**: Retrospective conference transcripts and engineering document collections detailing the development, architecture, and deployment of the Burroughs B5000, B5500, and B6700 computers.
 
+#### 13. *[Project Xanadu](../excavations/project-xanadu.md) Primary Sources*
+* **Link**: [Nelson's 1965 ACM paper](https://doi.org/10.1145/800197.806036) / [Computer Lib / Dream Machines](https://archive.org/details/computerlibdream00nels)
+* **Relevance**: [Project Xanadu](../excavations/project-xanadu.md), [Plan 9](../excavations/plan-9.md), [Linda Tuple Spaces](../excavations/linda-tuple-spaces.md)
+* **Description**: Primary accounts of early hypertext, versioned documents, transclusion, and their proposed global document-space model. Use these sources to distinguish Nelson's original design claims from later Web-era retrospectives.
+
 ---
 
 ### Museums & Historical Foundations
 
-#### 13. *The Computer History Museum (CHM)*
+#### 14. *The Computer History Museum (CHM)*
 * **Link**: [computerhistory.org](https://computerhistory.org)
 * **Relevance**: All excavations
 * **Description**: Located in Mountain View, California, CHM preserves physical artifacts, oral histories, and technical documents. It holds the source code to several landmark systems (such as Apple LISA, WordStar, and early Fortran compilers).
 
-#### 14. *CHM Oral History Collection*
+#### 15. *CHM Oral History Collection*
 * **Link**: [computerhistory.org/collections/oralhistories/](https://www.computerhistory.org/collections/oralhistories/)
 * **Relevance**: All excavations
 * **Description**: Thousands of digitized transcriptions and video recordings of oral histories with legendary engineers, including Carver Mead, Gene Amdahl, and Burroughs B5000 designers.
 
-#### 15. *The Living Computers Museum Archive*
+#### 16. *The Living Computers Museum Archive*
 * **Link**: [livingcomputers.org](https://www.livingcomputers.org)
 * **Relevance**: [Lisp Machines](../excavations/lisp-machines.md), [Burroughs Large Systems](../excavations/burroughs-large-systems.md)
 * **Description**: Preserves a spectacular collection of fully restored, operational historic systems. While the physical museum is currently closed, its online portals and documentation repositories remain high-value research tools.
 
-#### 16. *The Stanford Computer History Exhibits*
+#### 17. *The Stanford Computer History Exhibits*
 * **Link**: [exhibits.stanford.edu](https://exhibits.stanford.edu)
 * **Relevance**: All excavations
 * **Description**: Houses technical memos, administrative archives, and research papers from early Stanford Artificial Intelligence Laboratory (SAIL) and the Xerox PARC Alto development teams.

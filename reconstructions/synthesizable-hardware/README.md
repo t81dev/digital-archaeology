@@ -117,6 +117,8 @@ When deployed to a physical **iCEbreaker UP5K board**, the `capability_bounds_ch
 
 ## Target Synthesis Parameters
 
+> The following table contains design targets and analytical estimates, except where an accompanying board report explicitly identifies a measured result. Reproduce and report PPA results using the repository-wide [benchmarking protocol](../../BENCHMARKING.md); do not compare an estimate directly to an instrumented board measurement.
+
 Our SystemVerilog designs strictly avoid unsynthesizable behavioral structures. They rely entirely on clean sequential (`always_ff`) and combinational (`always_comb`) blocks with asynchronous active-low resets.
 
 | Core Module | Est. LUT Count (iCE40 UP5K) | Clock Frequency Target | ASIC Tile Area (Tiny-Tapeout) |

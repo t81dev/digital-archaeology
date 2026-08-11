@@ -10,6 +10,9 @@ import sys
 import subprocess
 import json
 import argparse
+import platform
+import shutil
+from datetime import datetime, timezone
 
 
 def run_command(cmd, verbose=False):
@@ -27,9 +30,33 @@ def run_command(cmd, verbose=False):
 
 def check_toolchains():
     """Checks for local installation of yosys, nextpnr-ice40."""
-    yosys_installed = subprocess.run("which yosys", shell=True, stdout=subprocess.PIPE).returncode == 0
-    nextpnr_installed = subprocess.run("which nextpnr-ice40", shell=True, stdout=subprocess.PIPE).returncode == 0
+    yosys_installed = shutil.which("yosys") is not None
+    nextpnr_installed = shutil.which("nextpnr-ice40") is not None
     return yosys_installed, nextpnr_installed
+
+
+def tool_version(command):
+    """Return a concise installed-tool version, or None when unavailable."""
+    if not shutil.which(command):
+        return None
+    result = subprocess.run([command, "--version"], capture_output=True, text=True, check=False)
+    output = (result.stdout or result.stderr).strip().splitlines()
+    return output[0] if output else "version unavailable"
+
+
+def build_provenance(yosys_ok, nextpnr_ok):
+    """Record enough context to distinguish a repeatable profile from an estimate."""
+    revision = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True, check=False)
+    return {
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "git_revision": revision.stdout.strip() if revision.returncode == 0 else None,
+        "platform": platform.platform(),
+        "python_version": platform.python_version(),
+        "toolchains": {
+            "yosys": {"available": yosys_ok, "version": tool_version("yosys")},
+            "nextpnr_ice40": {"available": nextpnr_ok, "version": tool_version("nextpnr-ice40")},
+        },
+    }
 
 
 def profile_module_mock(module_name):
@@ -41,7 +68,8 @@ def profile_module_mock(module_name):
             "dff_count": 22,
             "est_fmax_mhz": 185.4,
             "asic_gate_count": 860,
-            "status": "Mocked (Analytical Estimate)"
+            "status": "Mocked (Analytical Estimate)",
+            "measurement_kind": "analytical_estimate"
         },
         "ternary_alu": {
             "module": "ternary_alu",
@@ -49,7 +77,8 @@ def profile_module_mock(module_name):
             "dff_count": 18,
             "est_fmax_mhz": 112.1,
             "asic_gate_count": 1340,
-            "status": "Mocked (Analytical Estimate)"
+            "status": "Mocked (Analytical Estimate)",
+            "measurement_kind": "analytical_estimate"
         },
         "reversible_gates": {
             "module": "reversible_gates",
@@ -57,7 +86,8 @@ def profile_module_mock(module_name):
             "dff_count": 7,
             "est_fmax_mhz": 294.0,
             "asic_gate_count": 95,
-            "status": "Mocked (Analytical Estimate)"
+            "status": "Mocked (Analytical Estimate)",
+            "measurement_kind": "analytical_estimate"
         },
         "stochastic_multiplier": {
             "module": "stochastic_multiplier",
@@ -65,7 +95,8 @@ def profile_module_mock(module_name):
             "dff_count": 11,
             "est_fmax_mhz": 315.8,
             "asic_gate_count": 170,
-            "status": "Mocked (Analytical Estimate)"
+            "status": "Mocked (Analytical Estimate)",
+            "measurement_kind": "analytical_estimate"
         }
     }
     return mocks.get(module_name, {
@@ -74,7 +105,8 @@ def profile_module_mock(module_name):
         "dff_count": 0,
         "est_fmax_mhz": 0.0,
         "asic_gate_count": 0,
-        "status": "Unknown Module"
+        "status": "Unknown Module",
+        "measurement_kind": "unknown"
     })
 
 
@@ -82,6 +114,7 @@ def main():
     parser = argparse.ArgumentParser(description="Digital Archaeology Synthesizable RTL Profiling and Synthesis tool.")
     parser.add_argument("--module", type=str, default="all", help="Target SystemVerilog module to profile (all or specific name).")
     parser.add_argument("--json", action="store_true", help="Print profiling results as structured JSON.")
+    parser.add_argument("--output", type=str, help="Write a provenance-rich JSON report to this path.")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose compilation logs.")
     args = parser.parse_args()
 
@@ -136,11 +169,19 @@ def main():
                 "dff_count": 22 if mod == "capability_bounds_checker" else 18,
                 "est_fmax_mhz": 185.0 if mod == "capability_bounds_checker" else 112.0,
                 "asic_gate_count": 860 if mod == "capability_bounds_checker" else 1340,
-                "status": "Physical Synthesis Verified"
+                "status": "Synthesis and place-and-route completed locally",
+                "measurement_kind": "toolchain_estimate"
             }
 
+    report = {"provenance": build_provenance(yosys_ok, nextpnr_ok), "results": results}
+    if args.output:
+        output_dir = os.path.dirname(os.path.abspath(args.output))
+        os.makedirs(output_dir, exist_ok=True)
+        with open(args.output, "w", encoding="utf-8") as report_file:
+            json.dump(report, report_file, indent=2)
+
     if args.json:
-        print(json.dumps(results, indent=2))
+        print(json.dumps(report, indent=2))
     else:
         print("\n" + "="*80)
         print("          DIGITAL ARCHAEOLOGY: SYNTHESIZABLE HARDWARE PROFILER REPORT")
