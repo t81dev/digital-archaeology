@@ -27,6 +27,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Connection Machine](excavations/connection-machine.md) — *Fine-grained SIMD massively parallel hypercube processing.*
 - [Dataflow Computing](excavations/dataflow-computing.md) — *Non-von Neumann, event-driven, token-matching spatial execution.*
 - [Explicit Data Graph Execution (EDGE) & The TRIPS Architecture](excavations/edge-architecture.md) — *Instruction-level spatial dataflow and block-structured microarchitectures.*
+- [EBCDIC (Extended Binary Coded Decimal Interchange Code)](excavations/ebcdic.md) — *IBM's 8-bit punched-card-derived character representation establishing durable ecosystem boundaries.*
 - [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md) — *Non-von Neumann expression-rewriting architectures executing pure functional programs natively.*
 - [Molecular & Biocomputing](excavations/molecular-biocomputing.md) — *Computation using molecules, DNA strands, chemical reactions, and synthetic biology.*
 - [Neuromorphic Hardware](excavations/neuromorphic-hardware.md) — *Asynchronous, event-driven spiking neural networks and in-memory compute.*

@@ -75,6 +75,10 @@
       "definition": "An execution model in dataflow processors where data packets (tokens) carry tag headers specifying their destination, iteration context, and call frame, allowing out-of-order, parallel execution of loops and functions."
     },
     {
+      "term": "EBCDIC (Extended Binary Coded Decimal Interchange Code)",
+      "definition": "An 8-bit character encoding family designed by IBM in 1963 for the System/360 architecture, combining mechanical zone and digit punch mappings from Herman Hollerith's card layouts, resulting in non-contiguous alphabet segments and unique sorting semantics."
+    },
+    {
       "term": "Explicit Data Graph Execution (EDGE)",
       "definition": "An alternative class of microprocessors that partition instructions into logically atomic blocks. Within each block, execution is dataflow-driven, with instructions routing operand tokens directly to their consumers over a physical spatial grid, completely bypassing centralized registers and rename tables."
     },
@@ -284,6 +288,7 @@
           "beos-haiku",
           "burroughs-large-systems",
           "capability-systems",
+          "ebcdic",
           "inferno",
           "intel-iapx-432",
           "lisp-machines",
@@ -442,7 +447,8 @@
           "stack-machines",
           "stochastic-computing",
           "transputers",
-          "balanced-ternary"
+          "balanced-ternary",
+          "ebcdic"
         ]
       },
       "Bi-Directional Graph Address Space": {
@@ -961,6 +967,46 @@
         }
       },
       "modern_relevance": "### AI Accelerator Lineage\n* **SambaNova Systems Reconfigurable Dataflow Unit (RDU)**: SambaNova utilizes an array of Pattern Compute Units (PCUs) and Pattern Memory Units (PMUs) linked by an on-chip routing network. Instead of fetching instructions every cycle, the deep learning compiler maps the tensor execution graph directly onto the physical substrate, streaming data tokens continuously through the physical array.\n* **Cerebras Systems Wafer-Scale Engine (WSE)**: Cerebras manufactures a single, massive silicon wafer containing **850,000 AI-optimized compute cores**, 40GB of on-wafer SRAM, and a custom inter-core fabric. It functions as a massive, dynamic dataflow machine where tensors stream between physical processing nodes with sub-microsecond latency, bypassing the off-chip DRAM memory wall entirely.\n* **Google Tensor Processing Units (TPUs)**: The TPU's matrix multiply unit is structured as a **256x256 [systolic array](../GLOSSARY.md)** performing 65,536 Multiply-Accumulate (MAC) operations per clock cycle. Data flows statically through an array of processing cells, where inputs from the left and weights from the top meet inside multipliers, demonstrating a highly efficient, deterministic static dataflow model.\n* **Graphcore IPU (Intelligence Processing Unit)**: Utilizes an explicitly parallel spatial layout with over 1,472 tile processors, executing structured neural dataflow graphs utilizing a highly-scalable, deterministic Bulk Synchronous Parallel (BSP) exchange fabric.",
+      "references": []
+    },
+    {
+      "id": "ebcdic",
+      "title": "EBCDIC (Extended Binary Coded Decimal Interchange Code)",
+      "path": "excavations/ebcdic.md",
+      "summary": "Extended Binary Coded Decimal Interchange Code (EBCDIC) is an 8-bit character encoding system designed by IBM in 1963 and introduced with the landmark System/360 mainframe computer architecture. Rather than being a single, static character table, EBCDIC is a family of highly structured code pages designed to map characters, control codes, and symbols to binary byte values. \n\nEBCDIC's structural design was directly derived from the mechanical engineering constraints of Hollerith punched cards and 6-bit Binary Coded Decimal (BCD) representations. To optimize physical card-reader decoding speeds, EBCDIC split the alphabet into non-contiguous groups punctuated by structural \"holes.\"\n\nWhile ASCII became the dominant encoding for mini-computers, personal computers, Unix-like systems, and the global Internet, EBCDIC persisted and remains actively deployed within IBM Z mainframes and transactional backend systems. EBCDIC's endurance is one of the most powerful examples of **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)** and **[Constraint Migration](../patterns/constraint-migration.md)** in computing history, proving that low-level representation decisions can establish durable, multi-billion-dollar enterprise boundaries that outlive their original hardware substrate.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Foundational character encoding for the IBM System/360, shaping the design of the 8-bit byte and enterprise banking infrastructure."
+        },
+        "Technical Innovation": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Mechanically driven rather than mathematically optimal; introduced non-contiguous holes that complicate logical text manipulation."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Supported trillions of dollars in global financial transactions for over six decades; standard across Fortune 500 mainframe databases."
+        },
+        "Modern Potential": {
+          "stars": "★☆☆☆☆",
+          "numeric": 1,
+          "rationale": "Replaced universally by Unicode (UTF-8) for general computing; zero potential for a general hardware revival."
+        },
+        "AI Synergy": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Low direct synergy; relevant primarily for data preparation, unpacking enterprise COBOL records, and ingestion pipeline tokenization."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Low complexity to build software translation models, but high system-level complexity to simulate native EBCDIC operating system environments."
+        }
+      },
+      "modern_relevance": "",
       "references": []
     },
     {
@@ -1557,7 +1603,7 @@
           "rationale": "Medium complexity to simulate or rebuild on modern software/hardware platforms."
         }
       },
-      "modern_relevance": "Xanadu’s ideas are experiencing a renaissance:\n- **Bidirectional links** — Tools like Roam Research, Obsidian, and Wikipedia backlinks.\n- **Transclusion** — Modern note-taking apps, component-based web frameworks, and content reuse systems.\n- **Version control** — Git, Wikipedia history, and decentralized web efforts.\n- **Micropayments and creator economy** — Patreon, Substack, and blockchain-based systems echo the economic vision.\n- **Decentralized web** — IPFS, Solid, and various hypertext revival projects draw direct inspiration.\n\nIn the age of information overload and broken links, Xanadu’s deeper vision feels more relevant than ever.",
+      "modern_relevance": "Xanadu’s ideas are experiencing a renaissance:\n- **Bidirectional links** — Tools like Roam Research, Obsidian, and Wikipedia backlinks.\n- **Transclusion** — Modern note-taking apps, component-based web frameworks, and content reuse systems.\n- **Version control** — Git, Wikipedia history, and decentralized web efforts.\n- **Micropayments and creator economy** — Patreon, Substack, and blockchain-based systems echo the economic vision.\n- **Decentralized web** — IPFS, Solid, and various hypertext revival projects draw direct inspiration.\n\nIn the age of information overload and broken links, Xanadu’s deeper vision feels more relevant than ever.\n\nModern systems should recover the abstractions selectively rather than reproduce the entire design: stable content identities and explicit provenance make archival systems and AI retrieval pipelines more auditable; transclusion avoids uncontrolled copying; and visible backlinks improve navigation. The caution is equally enduring: global consistency, rights enforcement, payments, and a novel user interface should be independently deployable layers, not a prerequisite for reading a document.",
       "references": []
     },
     {

@@ -26,7 +26,7 @@ The Digital Archaeology initiative serves as a comparative system research frame
 6.  **Deriving Hypotheses:** Forecasting future computing transitions based on physical constraint migrations.
 
 ### 2.2 Target Users & Use Cases
-*   **Computer Architects & Chip Designers:** Evaluating alternative mathematical representations (ternary, stochastic, mixed-radix) and fine-grained spatial/systolic array topologies.
+*   **Computer Architects & Chip Designers:** Evaluating alternative mathematical representations (ternary, stochastic, mixed-radix) and fine-grained spatial/[systolic array](GLOSSARY.md) topologies.
 *   **Systems Security Researchers:** Studying hardware-enforced memory boundary registers (CHERI-style capabilities, Burroughs descriptors) to secure multi-tenant cloud environments.
 *   **Academic Instructors & Students:** Utilizing the academic curriculum lab manual and automated grading harness for systems-architecture courses.
 *   **Autonomous AI Agents:** Accessing structured JSON interfaces for automated architectural discovery and hardware co-design loops.
@@ -128,7 +128,7 @@ Each includes dedicated behavioral Python checks inside `reconstructions/synthes
 ### 4.3 Error Handling, Logging, and Observability
 The code contains highly granular hardware-level exception types modeled in software to mirror physical faults:
 *   `TagException` in Lisp-machine tagging simulations.
-*   `BoundsException` and `DescriptorNotPresentException` in descriptor-based memory access.
+*   `BoundsException` and `DescriptorNotPresentException` in [descriptor-based memory](GLOSSARY.md) access.
 *   `timing_warning` structures in superconducting SFQ setups to capture setup-time hazards ($t_{\text{diff}} < t_{\text{setup}}$).
 
 Observability is further enhanced by interactive logging capabilities, such as `visualize_pipeline_state` rendering active token queues, and a canvas-based **Live Digital Logic Analyzer** in the in-browser sandbox (`playground.html`) that serializes runs to Value Change Dump (`.vcd`) wave logs.
@@ -157,11 +157,11 @@ The repository implements an extensive array of fully mature, functional core su
 | Functional System | Stated Research Goal | Technical Core | Implementation File | Verification Mechanism |
 | :--- | :--- | :--- | :--- | :--- |
 | **Ternary ALU** | Radix-3 execution | PN dual-rail encoding, signed arithmetic, carry-sum logic | `ternary_alu.sv` `ternary_sim.py` | Pytest sweeps; SBY BMC/induction formal proofs |
-| **Tagged Memory** | Zero-trust hardware | Tag bits, unforgeable bounds check, secure service gates | `capability_bounds_checker.sv` `capability_sim.py` | Pytest domain-gate exceptions; SBY proofs |
+| **[Tagged Memory](GLOSSARY.md)** | Zero-trust hardware | Tag bits, unforgeable bounds check, secure service gates | `capability_bounds_checker.sv` `capability_sim.py` | Pytest domain-gate exceptions; SBY proofs |
 | **Continuous wave** | Optical tensor compute | Op-amp mass-spring, Clements MZI mesh, ENOB physical noise | `analog_optical_sim.py` | Pytest precision loss & noise modeling assertions |
 | **Superconducting** | Ultra-high efficiency | Picosecond RSFQ pulse-timing, Carnot Carnot COP, HTS metrics | `sfq_sim.py` | Pytest setup-time violations & energy penalty calculations |
-| **9P Protocol** | Location transparency | Twalk/Tread/Twrite state machines, private union directory mounts | `namespace_sim.py` | Pytest fallback union mounts precedence checks |
-| **Tuple Spaces** | Decoupled coordination | Generative communication thread-safe associative match | `tuple_space_sim.py` | Pytest tuple wildcard matching sweeps |
+| **[9P Protocol](GLOSSARY.md)** | Location transparency | Twalk/Tread/Twrite state machines, private union directory mounts | `namespace_sim.py` | Pytest fallback union mounts precedence checks |
+| **Tuple Spaces** | Decoupled coordination | [Generative communication](GLOSSARY.md) thread-safe associative match | `tuple_space_sim.py` | Pytest tuple wildcard matching sweeps |
 
 ### Edge Cases and Robustness
 *   **Asynchronous Deadlock Resolution:** The CSP Messaging Simulator (`reconstructions/csp-messaging/csp_sim.py`) contains a dedicated deadlock-recovery engine supporting both thread preemption and rollback mechanisms to resolve execution blocks.
@@ -217,7 +217,7 @@ Its overall readiness is assessed as a **highly polished, production-ready resea
 ## Appendix: Key Files Reviewed
 
 1.  **`reconstructions/co-simulation/orchestrator.py`** - Core inter-paradigm co-simulation fabric coordinating multi-architecture workloads.
-2.  **`reconstructions/predictive-hypothesis/predictive_engine.py`** - Constraint migration forecasting CLI engine with sensitivity sweeps.
+2.  **`reconstructions/predictive-hypothesis/predictive_engine.py`** - [Constraint migration](patterns/constraint-migration.md) forecasting CLI engine with sensitivity sweeps.
 3.  **`reconstructions/synthesizable-hardware/capability_bounds_checker.sv`** - Synthesizable hardware Tagged RAM security controller.
 4.  **`reconstructions/lab_autograder.py`** - Automated academic curriculum grading engine checking logical solutions.
 5.  **`tools/verify_excavations.py`** - Continuous integration verifier ensuring markdown, scorecard, and glossary correctness.
