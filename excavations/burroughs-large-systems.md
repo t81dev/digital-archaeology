@@ -8,7 +8,7 @@
 
 The Burroughs Large Systems (particularly the B5000 introduced in 1961, followed by B5500, B6500/B7500, and later Unisys MCP-based machines) represented one of the most radical departures from conventional computer design in the early history of computing. Instead of building hardware and then layering software on top, Burroughs designed the hardware around the requirements of high-level languages (primarily ALGOL 60 and later extensions) and operating system needs.
 
-Key innovations included a hardware stack for expression evaluation, descriptor-based memory addressing (a form of capability-like protection), automatic virtual memory management, and symmetric multiprocessing support—all running under the Master Control Program (MCP), one of the earliest and most advanced OSes.
+Key innovations included a hardware stack for expression evaluation, [descriptor-based memory](../GLOSSARY.md) addressing (a form of capability-like protection), automatic virtual memory management, and symmetric multiprocessing support—all running under the Master Control Program (MCP), one of the earliest and most advanced OSes.
 
 While commercially successful in certain markets (especially banking and large-scale transaction processing), the architecture was ultimately eclipsed by simpler, more commoditized designs. Its ideas, however, recur in modern systems through stack-based virtual machines, tagged/capability memory, and language-hardware co-design.
 
@@ -33,7 +33,7 @@ The B5000 was followed by the B5500 (1964) and the completely redesigned B6500 (
 
 The Burroughs Large Systems featured several architectural elements that completely eliminated register allocation and memory corruption:
 
-### 1. Tagged Memory Architecture
+### 1. [Tagged Memory](../GLOSSARY.md) Architecture
 To prevent type confusion and enforce hardware security, every memory word was tagged. In the B6500, words were **51 bits** wide:
 
 ```text
@@ -73,7 +73,7 @@ When performing an array index access, the hardware validated:
 $$\text{Offset} \ge 0 \quad \text{and} \quad \text{Offset} < \text{Limit}$$
 If the offset exceeded the limit, the hardware blocked the access and raised a bounds exception. This completely eliminated buffer overflow vulnerabilities.
 
-### 3. Stack Machine & Display Registers
+### 3. [Stack Machine](../GLOSSARY.md) & Display Registers
 The Burroughs systems did not have general-purpose registers. Instead, they utilized an active **evaluation stack**. Operands were pushed onto the stack, and arithmetic instructions popped their inputs and pushed the results back:
 
 ```text
@@ -107,7 +107,7 @@ To support recursive block-nested procedures in ALGOL, Burroughs integrated **Di
 
 Despite extreme reliability and security, Burroughs Large Systems did not become the mainstream computer standard:
 
-1. **The Moore's Law Trajectory**: Stack architectures are difficult to pipeline. On a register-based processor, compiler optimizations (like loop unrolling and register renaming) allow multiple instructions to execute concurrently. On a stack machine, the top of the stack is a central bottleneck that is hard to execute out-of-order. Simpler register designs scaled their clock frequencies and instruction throughput far faster.
+1. **The Moore's Law Trajectory**: Stack architectures are difficult to pipeline. On a register-based processor, compiler optimizations (like loop unrolling and register renaming) allow multiple instructions to execute concurrently. On a [stack machine](../GLOSSARY.md), the top of the stack is a central bottleneck that is hard to execute out-of-order. Simpler register designs scaled their clock frequencies and instruction throughput far faster.
 2. **Ecosystem Isolation**: Because the Burroughs hardware was tightly coupled to ALGOL and MCP, it was highly incompatible with the massive waves of C, FORTRAN, and Unix software developed for register-oriented, flat-memory architectures. Porting software from other platforms required a complete rewrite.
 3. **High Unit Costs**: Burroughs systems were large, complex mainframes. They were expensive to manufacture and maintain, leaving the mass market open to cheap minicomputers (DEC PDP/VAX) and microcomputers.
 
@@ -153,9 +153,9 @@ In an era defined by software safety failures, Burroughs concepts are making a m
 | Category | Rating | Rationale |
 | --- | --- | --- |
 | Historical Importance | ★★★★☆ | A monumental milestone in the history of programming language and operating system hardware support. |
-| Technical Innovation | ★★★★★ | Groundbreaking design introducing typed tagged memory, hardware stack evaluation, dynamic display registers, and presence-bit virtual memory swaps. |
+| Technical Innovation | ★★★★★ | Groundbreaking design introducing typed [tagged memory](../GLOSSARY.md), hardware stack evaluation, dynamic display registers, and presence-bit virtual memory swaps. |
 | Commercial Success | ★★★☆☆ | Highly successful and profitable in niche markets (financial and transaction banking); maintained a loyal base but lost the mainstream. |
-| Modern Potential | ★★★★☆ | Strongly relevant to modern sandboxed VM runtimes (WebAssembly) and capability-based security extensions. |
+| Modern Potential | ★★★★☆ | Strongly relevant to modern sandboxed VM runtimes (WebAssembly) and [capability-based security](../GLOSSARY.md) extensions. |
 | AI Synergy | ★★☆☆☆ | Low direct synergy; designed around traditional structured and structured-procedural computations (ALGOL). |
 | Difficulty to Recreate | ★★★★☆ | High complexity; requires implementing a dual stack-buffer evaluation unit, virtual memory page tables, and display-registers scope lookup. |
 

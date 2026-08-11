@@ -8,7 +8,7 @@
 
 Plan 9 from Bell Labs is a research operating system developed in the late 1980s and 1990s by many of the same people who created Unix. It represents one of the most ambitious and coherent attempts to rethink operating system design in the network era.
 
-Instead of bolting networking onto an existing system, Plan 9 was designed with distribution, simplicity, and research flexibility as core principles. While it never achieved widespread commercial adoption, its ideas — particularly the 9P protocol, per-process namespaces, and unified file interface — have influenced modern systems and remain highly relevant.
+Instead of bolting networking onto an existing system, Plan 9 was designed with distribution, simplicity, and research flexibility as core principles. While it never achieved widespread commercial adoption, its ideas — particularly the [9P protocol](../GLOSSARY.md), per-process namespaces, and unified file interface — have influenced modern systems and remain highly relevant.
 
 ---
 
@@ -41,7 +41,7 @@ Plan 9's design is built on three simple, orthogonal, but universally applied pr
 
 1. **Everything is a file**: All resources, including devices, network connections, memory, process states, and graphic contexts, are represented as files or hierarchical file trees.
 2. **Per-process namespaces**: Every process operates in its own customized view of the filesystem. Namespaces can be dynamically configured at runtime via three primitives: `mount`, `bind`, and union mounts.
-3. **9P protocol**: A simple, synchronous, connection-oriented, stateful byte-oriented request/response protocol. Every resource access, whether local or remote, is translated into 9P transactions.
+3. **[9P protocol](../GLOSSARY.md)**: A simple, synchronous, connection-oriented, stateful byte-oriented request/response protocol. Every resource access, whether local or remote, is translated into 9P transactions.
 
 ```
        Plan 9 Unified 9P Network Abstraction
@@ -65,8 +65,8 @@ Plan 9's design is built on three simple, orthogonal, but universally applied pr
   [ File Server ]   [ VGA Driver ]   [ CPU Server ]
 ```
 
-### The 9P Protocol Message Flows
-The 9P protocol maps system calls into sequential message pairs (Request `T-message` and Response `R-message`):
+### The [9P Protocol](../GLOSSARY.md) Message Flows
+The [9P protocol](../GLOSSARY.md) maps system calls into sequential message pairs (Request `T-message` and Response `R-message`):
 - `Tversion` / `Rversion`: Negotiate protocol version.
 - `Tauth` / `Rauth`: Establish authentication channel.
 - `Tattach` / `Rattach`: Mount the root of a file tree.
@@ -97,7 +97,7 @@ The 9P protocol maps system calls into sequential message pairs (Request `T-mess
 
 ## Reasons for Decline
 
-1. **Ecosystem Lock-In & POSIX Dominance**: By the mid-1990s, software vendors standardized exclusively on POSIX and Win32 interfaces. The cost of porting foundational applications (e.g., databases, web browsers, compilers) to Plan 9 was economically prohibitive.
+1. **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md) & POSIX Dominance**: By the mid-1990s, software vendors standardized exclusively on POSIX and Win32 interfaces. The cost of porting foundational applications (e.g., databases, web browsers, compilers) to Plan 9 was economically prohibitive.
 2. **The Success of Linux**: Linux provided a "good enough" free, open-source Unix clone that ran on cheap x86 PCs, satisfying the open-source community's needs while maintaining binary compatibility with existing Unix code.
 3. **Corporate and Licensing Hesitation**: AT&T's early commercial licensing policies were highly restrictive and expensive. By the time Plan 9 was open-sourced under a free license in 2002, the market had completely consolidated around Linux and Windows.
 
@@ -107,7 +107,7 @@ The 9P protocol maps system calls into sequential message pairs (Request `T-mess
 
 Plan 9's dynamic namespace design directly prefigures modern virtualization:
 - **Containers and Microservices**: Docker containers rely on namespace isolation (mount namespaces, network namespaces) to create sandboxed environments. This is conceptually identical to Plan 9's per-process namespace isolation.
-- **9P in Virtualized Infrastructure**: The 9P protocol is actively used in modern cloud virtualization. **WSL2** (Windows Subsystem for Linux) uses a highly optimized 9P client/server to share folders between Windows and Linux. Similarly, **QEMU/KVM** leverages VirtFS (a 9P transport over virtio) to share host directories with guest VMs with near-zero overhead.
+- **9P in Virtualized Infrastructure**: The [9P protocol](../GLOSSARY.md) is actively used in modern cloud virtualization. **WSL2** (Windows Subsystem for Linux) uses a highly optimized 9P client/server to share folders between Windows and Linux. Similarly, **QEMU/KVM** leverages VirtFS (a 9P transport over virtio) to share host directories with guest VMs with near-zero overhead.
 - **Edge Computing and IoT**: Representing distributed sensors and actuators as simple, network-transparent 9P file streams eliminates the need for proprietary, fragmented IoT APIs.
 
 ---

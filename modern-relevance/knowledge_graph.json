@@ -19,7 +19,7 @@
       "definition": "A mathematical model of concurrent computation where the universal primitive is the *actor*. Actors can make local decisions, create more actors, send messages, and designate how to respond to the next message. Unlike the Von Neumann model, communication is asynchronous and there is no shared state."
     },
     {
-      "term": "Analog Computing",
+      "term": "[Analog Computing](excavations/analog-computing.md)",
       "definition": "Computation that utilizes continuous physical phenomena (e.g., electrical voltage, mechanical rotation, fluid flow) to model the problem being solved, bypassing the discretization of binary systems."
     },
     {
@@ -27,7 +27,7 @@
       "definition": "A parallel computing paradigm where data is accessed and operated on by content (associative matching of data values) rather than by hardware memory addresses."
     },
     {
-      "term": "Balanced Ternary",
+      "term": "[Balanced Ternary](excavations/balanced-ternary.md)",
       "definition": "A base-3 positional numeral system using the trits $-1$ (represented as `T`), $0$, and $+1$ (represented as `1`). It eliminates the need for a separate sign bit, simplifies arithmetic circuits, and possesses a superior radix economy compared to binary."
     },
     {
@@ -123,11 +123,11 @@
       "definition": "A fundamental state-retaining logical component in asynchronous control circuits that acts as an \"event AND-gate\"—its output transitions only when all of its inputs have transitioned to match."
     },
     {
-      "term": "Neuromorphic Hardware",
+      "term": "[Neuromorphic Hardware](excavations/neuromorphic-hardware.md)",
       "definition": "Silicon architectures designed to mimic the neural structures of the brain, utilizing asynchronous, event-driven spiking neural networks and in-memory computation."
     },
     {
-      "term": "Optical Computing",
+      "term": "[Optical Computing](excavations/optical-computing.md)",
       "definition": "A hardware paradigm using light waves (photons) instead of electrical currents (electrons) to perform logic operations, leveraging wave interference, spatial division multiplexing, and sub-nanosecond matrix-vector multiplication."
     },
     {
@@ -143,7 +143,7 @@
       "definition": "A mathematical measure of the efficiency of representing numbers in a given base, defined as $R \\times \\lfloor \\log_R(N) + 1 \\rfloor$ for base $R$ and maximum value $N$. It is mathematically optimized at the transcendental base $e \\approx 2.718$, which makes base 3 (ternary) more efficient than base 2 (binary)."
     },
     {
-      "term": "Reversible Computing",
+      "term": "[Reversible Computing](excavations/reversible-computing.md)",
       "definition": "A paradigm where logic gates perform bijective (one-to-one) mapping between inputs and outputs, allowing computation to run backward and theoretically bypassing Landauer's thermodynamic limit."
     },
     {
@@ -159,7 +159,7 @@
       "definition": "A processor architecture that uses a hardware evaluation stack rather than general-purpose registers to execute zero-operand instructions."
     },
     {
-      "term": "Stochastic Computing",
+      "term": "[Stochastic Computing](excavations/stochastic-computing.md)",
       "definition": "A computing paradigm where continuous values are encoded as randomized binary bitstreams, mapping complex arithmetic operations (like multiplication) onto simple logic gates (like AND/XNOR) at the cost of execution time."
     },
     {
@@ -171,7 +171,7 @@
       "definition": "A high-performance hardware paradigm operating at cryogenic temperatures, using Josephson junctions and Single Flux Quantum (SFQ) logic to achieve ultra-high clock frequencies and near-zero power dissipation."
     },
     {
-      "term": "Symbolic AI",
+      "term": "[Symbolic AI](excavations/symbolic-ai.md)",
       "definition": "An approach to artificial intelligence based on high-level, human-readable symbols, formal logic, and rule-based inference engines."
     },
     {
@@ -203,7 +203,7 @@
       "definition": "The throughput limitation on computer systems caused by the physical separation of the central processing unit and memory, requiring all instruction and data transfers to share a single bus."
     },
     {
-      "term": "Wafer-Scale Integration (WSI)",
+      "term": "[Wafer-Scale Integration](excavations/wafer-scale-integration.md) (WSI)",
       "definition": "An advanced semiconductor manufacturing paradigm that builds an entire digital system (incorporating multiple processor nodes, memory blocks, and interconnect networks) on a single, uncut silicon wafer, completely bypassing chip-packaging boundaries."
     },
     {
@@ -397,7 +397,7 @@
           "intel-iapx-432"
         ]
       },
-      "Tagged Memory": {
+      "[Tagged Memory](GLOSSARY.md)": {
         "description": "Extra hardware metadata bits on every word in RAM indicating data type, restricting invalid pointer arithmetic or data execution.",
         "mapped_excavations": [
           "burroughs-large-systems",
@@ -414,7 +414,7 @@
           "associative-processors"
         ]
       },
-      "Hierarchical Ring Protection": {
+      "[Hierarchical Ring Protection](GLOSSARY.md)": {
         "description": "Concentric rings of hardware privilege (e.g., Rings 0–3) preventing direct access to more privileged supervisor segments.",
         "mapped_excavations": [
           "multics"
@@ -430,6 +430,7 @@
         "description": "Enforcing type-safety and isolation inside a managed runtime environment or interpreter instead of hardware.",
         "mapped_excavations": [
           "inferno",
+          "smalltalk",
           "smalltalk",
           "lisp-machines"
         ]
@@ -452,7 +453,7 @@
       }
     },
     "concurrency_models": {
-      "Synchronous CSP Channels": {
+      "[Synchronous CSP Channels](GLOSSARY.md)": {
         "description": "Point-to-point, unbuffered synchronous channel messaging forcing deterministic synchronization.",
         "mapped_excavations": [
           "occam",
@@ -464,8 +465,11 @@
         "mapped_excavations": [
           "beos-haiku",
           "plan-9",
+          "GLOSSARY",
           "inferno",
-          "j-machine"
+          "GLOSSARY",
+          "j-machine",
+          "GLOSSARY"
         ]
       },
       "Object-Oriented Dynamic Messaging": {
@@ -503,7 +507,7 @@
           "graph-reduction-machines"
         ]
       },
-      "Generative Communication": {
+      "[Generative Communication](GLOSSARY.md)": {
         "description": "Coordinate-free, associative, time-and-space decoupled communication via a shared multi-set pool.",
         "mapped_excavations": [
           "linda-tuple-spaces"
@@ -624,14 +628,14 @@
     },
     {
       "id": "asynchronous-processors",
-      "title": "Asynchronous Microprocessors & Micropipelines",
+      "title": "Asynchronous Microprocessors & [Micropipelines](../GLOSSARY.md)",
       "path": "excavations/asynchronous-processors.md",
       "summary": "Asynchronous microprocessors represent a profound departure from traditional synchronous digital logic design. Since the dawn of microcomputing, virtually all mainstream processors have relied on a global, central synchronization signal—the **clock**—to regulate the movement of data between register boundaries. While highly predictable, global clock distribution imposes severe penalties in power consumption, electromagnetic interference, and clock skew as silicon feature sizes scale down.\n\nIn contrast, asynchronous microprocessors utilize **self-timed logic**. Instead of waiting for a periodic clock pulse to register data, individual execution stages and processing blocks communicate locally via direct handshake protocols. When a pipeline stage completes its operation, it signals the next stage that data is valid, and receives an acknowledgment once the data has been consumed. Execution occurs at the natural physical speed of the underlying transistors, depending on temperature, voltage, and material properties.\n\nThis paradigm achieved a major historical milestone in 1989 when Turing Award winner **Ivan Sutherland** introduced the **Micropipelining** framework, providing a formal engineering methodology for clockless elastic pipelines. Inspired by this work, the **AMULET Group** at the University of Manchester, led by ARM co-architect **Steve Furber**, designed a series of fully asynchronous microprocessors (AMULET1, AMULET2e, and AMULET3) that implemented the commercial ARM instruction set. Although technically triumphant, proving that complex general-purpose processors could operate without any global clock while saving significant energy and emitting near-zero electromagnetic noise, asynchronous processors were ultimately sidelined by the massive economic momentum of synchronous CAD design suites, advanced EDA toolchains, and the rapid rise of clock-gating inside synchronous designs.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Sutherland's Micropipelines and AMULET established that commercially viable ISAs could run completely clockless."
+          "rationale": "Sutherland's [Micropipelines](../GLOSSARY.md) and AMULET established that commercially viable ISAs could run completely clockless."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
@@ -659,9 +663,9 @@
           "rationale": "Requires specialized asynchronous HDL synthesis tools, custom layout cells, and hazard/glitch verification."
         }
       },
-      "modern_relevance": "While synchronous control remains dominant in standard CPU cores, the physical limits of sub-nanometer silicon have triggered a powerful revival of asynchronous techniques across specialized high-performance domains:\n\n* **Wafer-Scale Integration (WSI) & Cerebras Systems:** As chips grow to the size of an entire silicon wafer (e.g., Cerebras Wafer-Scale Engine), distributing a unified, synchronized gigahertz clock across centimeters of silicon is physically impossible due to massive wire propagation delay and clock skew. Cerebras utilizes a Globally Asynchronous, Locally Synchronous (GALS) spatial array, routing operands asynchronously via self-timed Network-on-Chip (NoC) switches.\n* **Neuromorphic Edge AI Processors:** Spiking neural network (SNN) chips, such as **Intel's Loihi** and IBM's TrueNorth, are fundamentally asynchronous. Spikes propagate between core clusters using asynchronous Address-Event Representation (AER) protocols. Because biological signals are highly sparse in time, event-driven, clockless logic is the only way to achieve the sub-milliwatt power budgets required for edge deployments.\n* **Hardware Security & Smart Cards:** Modern secure enclaves, hardware security modules (HSMs), and contactless smart cards (like those based on ARM's SecurCore or specialized chips from Infineon) employ asynchronous cores to prevent hackers from reconstructing cryptographic keys via electromagnetic or power-analysis side-channel attacks.\n* **Energy-Harvesting IoT Nodes:** Wearable medical sensors and environmental monitoring nodes run on extremely low and unpredictable harvested energy (solar, thermal, or vibration). Asynchronous processors can operate under widely fluctuating voltage levels, slowing down dynamically when voltage drops and speeding up when energy is abundant, without ever crashing due to timing violations.",
+      "modern_relevance": "While synchronous control remains dominant in standard CPU cores, the physical limits of sub-nanometer silicon have triggered a powerful revival of asynchronous techniques across specialized high-performance domains:\n\n* **[Wafer-Scale Integration](wafer-scale-integration.md) (WSI) & Cerebras Systems:** As chips grow to the size of an entire silicon wafer (e.g., Cerebras Wafer-Scale Engine), distributing a unified, synchronized gigahertz clock across centimeters of silicon is physically impossible due to massive wire propagation delay and clock skew. Cerebras utilizes a Globally Asynchronous, Locally Synchronous (GALS) spatial array, routing operands asynchronously via self-timed Network-on-Chip (NoC) switches.\n* **Neuromorphic Edge AI Processors:** Spiking neural network (SNN) chips, such as **Intel's Loihi** and IBM's TrueNorth, are fundamentally asynchronous. Spikes propagate between core clusters using asynchronous Address-Event Representation (AER) protocols. Because biological signals are highly sparse in time, event-driven, clockless logic is the only way to achieve the sub-milliwatt power budgets required for edge deployments.\n* **Hardware Security & Smart Cards:** Modern secure enclaves, hardware security modules (HSMs), and contactless smart cards (like those based on ARM's SecurCore or specialized chips from Infineon) employ asynchronous cores to prevent hackers from reconstructing cryptographic keys via electromagnetic or power-analysis side-channel attacks.\n* **Energy-Harvesting IoT Nodes:** Wearable medical sensors and environmental monitoring nodes run on extremely low and unpredictable harvested energy (solar, thermal, or vibration). Asynchronous processors can operate under widely fluctuating voltage levels, slowing down dynamically when voltage drops and speeding up when energy is abundant, without ever crashing due to timing violations.",
       "references": [
-        "Sutherland, I. E. (1989). *Micropipelines*. Communications of the ACM, 32(6), 720-738. (Sutherland's seminal Turing Award lecture introducing the micropipelining framework).",
+        "Sutherland, I. E. (1989). *[Micropipelines](../GLOSSARY.md)*. Communications of the ACM, 32(6), 720-738. (Sutherland's seminal Turing Award lecture introducing the micropipelining framework).",
         "Furber, S. B., Edwards, D. A., & Garside, J. D. (1994). *AMULET1: An asynchronous ARM microprocessor*. IEEE Transactions on Very Large Scale Integration (VLSI) Systems, 2(2), 205-215.",
         "Furber, S. B., Garside, J. D., Gilbert, P., & Temple, S. (1997). *AMULET2e: An asynchronous embedded controller*. Proceedings of the IEEE, 85(2), 211-222.",
         "Garside, J. D., et al. (2000). *AMULET3: A high-performance self-timed ARM microprocessor*. In Proceedings of the IEEE International Conference on Computer Design (ICCD), 356-361.",
@@ -712,7 +716,7 @@
       "id": "beos-haiku",
       "title": "BeOS & Haiku",
       "path": "excavations/beos-haiku.md",
-      "summary": "BeOS was a complete operating system developed in the mid-1990s with the explicit goal of being the best platform for digital media creation and consumption. It featured a modern microkernel-inspired design, pervasive multithreading, a custom 64-bit journaling filesystem (BFS), and a highly responsive graphical interface. Despite technical excellence and passionate users, it failed commercially and was discontinued. The open-source Haiku project has kept its vision alive since the mid-2000s.\n\nBeOS/Haiku stands as one of the clearest modern examples of a technically superior OS losing primarily due to ecosystem and market forces.",
+      "summary": "BeOS was a complete operating system developed in the mid-1990s with the explicit goal of being the best platform for digital media creation and consumption. It featured a modern microkernel-inspired design, [pervasive multithreading](../GLOSSARY.md), a custom 64-bit journaling filesystem (BFS), and a highly responsive graphical interface. Despite technical excellence and passionate users, it failed commercially and was discontinued. The open-source Haiku project has kept its vision alive since the mid-2000s.\n\nBeOS/Haiku stands as one of the clearest modern examples of a technically superior OS losing primarily due to ecosystem and market forces.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -752,7 +756,7 @@
       "id": "burroughs-large-systems",
       "title": "Burroughs Large Systems (B5000/B5500/B6500 and descendants)",
       "path": "excavations/burroughs-large-systems.md",
-      "summary": "The Burroughs Large Systems (particularly the B5000 introduced in 1961, followed by B5500, B6500/B7500, and later Unisys MCP-based machines) represented one of the most radical departures from conventional computer design in the early history of computing. Instead of building hardware and then layering software on top, Burroughs designed the hardware around the requirements of high-level languages (primarily ALGOL 60 and later extensions) and operating system needs.\n\nKey innovations included a hardware stack for expression evaluation, descriptor-based memory addressing (a form of capability-like protection), automatic virtual memory management, and symmetric multiprocessing support—all running under the Master Control Program (MCP), one of the earliest and most advanced OSes.\n\nWhile commercially successful in certain markets (especially banking and large-scale transaction processing), the architecture was ultimately eclipsed by simpler, more commoditized designs. Its ideas, however, recur in modern systems through stack-based virtual machines, tagged/capability memory, and language-hardware co-design.",
+      "summary": "The Burroughs Large Systems (particularly the B5000 introduced in 1961, followed by B5500, B6500/B7500, and later Unisys MCP-based machines) represented one of the most radical departures from conventional computer design in the early history of computing. Instead of building hardware and then layering software on top, Burroughs designed the hardware around the requirements of high-level languages (primarily ALGOL 60 and later extensions) and operating system needs.\n\nKey innovations included a hardware stack for expression evaluation, [descriptor-based memory](../GLOSSARY.md) addressing (a form of capability-like protection), automatic virtual memory management, and symmetric multiprocessing support—all running under the Master Control Program (MCP), one of the earliest and most advanced OSes.\n\nWhile commercially successful in certain markets (especially banking and large-scale transaction processing), the architecture was ultimately eclipsed by simpler, more commoditized designs. Its ideas, however, recur in modern systems through stack-based virtual machines, tagged/capability memory, and language-hardware co-design.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -762,7 +766,7 @@
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Groundbreaking design introducing typed tagged memory, hardware stack evaluation, dynamic display registers, and presence-bit virtual memory swaps."
+          "rationale": "Groundbreaking design introducing typed [tagged memory](../GLOSSARY.md), hardware stack evaluation, dynamic display registers, and presence-bit virtual memory swaps."
         },
         "Commercial Success": {
           "stars": "★★★☆☆",
@@ -772,7 +776,7 @@
         "Modern Potential": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Strongly relevant to modern sandboxed VM runtimes (WebAssembly) and capability-based security extensions."
+          "rationale": "Strongly relevant to modern sandboxed VM runtimes (WebAssembly) and [capability-based security](../GLOSSARY.md) extensions."
         },
         "AI Synergy": {
           "stars": "★★☆☆☆",
@@ -798,7 +802,7 @@
       "id": "capability-systems",
       "title": "Capability Systems",
       "path": "excavations/capability-systems.md",
-      "summary": "Capability-based security offers a powerful alternative to traditional Access Control List (ACL) and Unix-style ambient permission models. In a capability system, possessing an unforgeable reference (a “capability”) to a resource *is* the authority to use it. Capabilities tightly combine designation (“this resource”) with permission (“you may do these operations”) in a single mechanism.\n\nPioneered in the 1960s and implemented in several influential systems, capability architectures provide elegant solutions to persistent security problems such as privilege escalation, confused deputy attacks, and ambient authority. Despite their strengths, they have remained largely outside the mainstream operating system ecosystem.",
+      "summary": "[Capability-based security](../GLOSSARY.md) offers a powerful alternative to traditional Access Control List (ACL) and Unix-style ambient permission models. In a capability system, possessing an unforgeable reference (a “capability”) to a resource *is* the authority to use it. Capabilities tightly combine designation (“this resource”) with permission (“you may do these operations”) in a single mechanism.\n\nPioneered in the 1960s and implemented in several influential systems, capability architectures provide elegant solutions to persistent security problems such as privilege escalation, confused deputy attacks, and ambient authority. Despite their strengths, they have remained largely outside the mainstream operating system ecosystem.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -831,14 +835,14 @@
           "rationale": "Requires extensive systems-level implementation and emulation efforts."
         }
       },
-      "modern_relevance": "### CHERI Hardware\n- **CHERI (Capability Hardware Enhanced RISC Instructions)**: Pioneered by SRI International and the University of Cambridge (Woodruff et al., 2014; Watson et al., 2015), CHERI extends conventional RISC architectures (such as ARM and RISC-V) with native capability registers and instructions.\n- **Tag-Bit Integrity**: CHERI protects capabilities in physical RAM via a hardware-managed tag bit. If a capability word in memory is overwritten by any normal integer or data-manipulation instruction, the tag bit is automatically cleared, making the capability invalid for use.\n- **128-bit Compressed Capabilities**: To minimize memory bandwidth overhead, CHERI uses floating-point-style compression to compress 256-bit architectural bounds (base, limit, permissions) into a 128-bit format that fits within existing 64-bit memory spaces.\n- **Performance Overhead**: Extensive benchmarking on real-world workloads (e.g., PostgreSQL, nginx, WebKit) demonstrates that CHERI's hardware-enforced spatial and temporal memory safety incurs a performance overhead of **less than 1% to 2%**, resolving the performance penalty of earlier software-based capability implementations.\n- **Industry Adoption**: ARM has fabricated experimental CHERI silicon (the \"Morello\" prototype chip), demonstrating physical viability in mass-market general-purpose processors. Furthermore, OS architectures like Google's Fuchsia utilize capability-like semantics (Zircon handles), and WebAssembly employs sandboxing principles inspired directly by object-capabilities.",
+      "modern_relevance": "### CHERI Hardware\n- **CHERI (Capability Hardware Enhanced RISC Instructions)**: Pioneered by SRI International and the University of Cambridge (Woodruff et al., 2014; Watson et al., 2015), CHERI extends conventional RISC architectures (such as ARM and RISC-V) with native capability registers and instructions.\n- **Tag-Bit Integrity**: CHERI protects capabilities in physical RAM via a hardware-managed tag bit. If a capability word in memory is overwritten by any normal integer or data-manipulation instruction, the tag bit is automatically cleared, making the capability invalid for use.\n- **128-bit Compressed Capabilities**: To minimize memory bandwidth overhead, CHERI uses floating-point-style compression to compress 256-bit architectural bounds (base, limit, permissions) into a 128-bit format that fits within existing 64-bit memory spaces.\n- **Performance Overhead & Memory Pressure (The Pointer Expansion Penalty)**: Extensive benchmarking on real-world workloads (e.g., PostgreSQL, nginx, WebKit) demonstrates that CHERI's hardware-enforced spatial and temporal memory safety typically incurs a low CPU cycle overhead of **1% to 5%** on the 7nm ARM Morello prototype. However, expanding pointers to 128-bit capability descriptors doubles their size in memory. In pointer-heavy workloads (such as compilers, browser engines, or interpreter runtimes), this causes a **$10\\%\\text{--}25\\%$ memory footprint expansion**, resulting in increased L1/L2 data cache misses and higher off-chip DRAM bandwidth utilization.\n- **Developer Training & Adoption Friction**: While CHERI Clang can compile standard, well-behaved C/C++ with minimal changes, adapting legacy codebases that rely on non-standard pointer arithmetic (such as XOR-linked lists, packing data bits into unused pointer bits, or custom arena allocators) requires manual refactoring. This introduces a steep developer training and engineering cost.\n- **Industry Adoption & Deployment Calendar (2028--2030)**: ARM has successfully fabricated experimental CHERI silicon (the 7nm \"Morello\" prototype chip), demonstrating physical viability in mass-market general-purpose processors. With the active standardization of the RISC-V CHERI ISA extension, commercial deployments in secure microcontrollers, automotive platforms, and mobile application processors are anticipated within the **2028--2030 calendar horizon**. Furthermore, modern operating systems like Google's Fuchsia utilize capability-like semantics (Zircon handles), and WebAssembly employs sandboxing principles inspired directly by object-capabilities.",
       "references": []
     },
     {
       "id": "cellular-automata-hardware",
       "title": "Cellular Automata Hardware",
       "path": "excavations/cellular-automata-hardware.md",
-      "summary": "Cellular Automata (CA) Hardware is a computational paradigm in which processing, memory, and spatial interconnects are unified into fine-grained arrays of identical, low-complexity processing elements (cells). In a cellular automaton, each cell maintains a discrete state and updates it synchronously at discrete clock intervals based solely on its own current state and the states of its immediate geometric neighbors (such as a 4-connected **von Neumann neighborhood** or an 8-connected **Moore neighborhood**).\n\nWhile software simulations of cellular automata—such as John Conway’s *Game of Life* (1970) or Stephen Wolfram’s 1D elementary rules—run sequentially on von Neumann hardware with $O(N^2)$ software loops, dedicated **Cellular Automata Machines (CAMs)** implement spatial parallelism natively in silicon. Every cell operates simultaneously in hardware, yielding true $O(1)$ temporal update execution regardless of grid dimensions.\n\nPioneered theoretically by John von Neumann and Stanislaw Ulam in the 1940s, and implemented in physical hardware through systems like Tommaso Toffoli and Norman Margolus's **CAM-6** and **CAM-8** in the 1980s, CA hardware eliminates central bus bottlenecks. Today, its spatial execution philosophy directly underpins modern Field-Programmable Gate Arrays (FPGAs), systolic arrays, stencil accelerators, and wafer-scale AI processors.",
+      "summary": "[Cellular Automata (CA) Hardware](../GLOSSARY.md) is a computational paradigm in which processing, memory, and spatial interconnects are unified into fine-grained arrays of identical, low-complexity processing elements (cells). In a cellular automaton, each cell maintains a discrete state and updates it synchronously at discrete clock intervals based solely on its own current state and the states of its immediate geometric neighbors (such as a 4-connected **von Neumann neighborhood** or an 8-connected **Moore neighborhood**).\n\nWhile software simulations of cellular automata—such as John Conway’s *Game of Life* (1970) or Stephen Wolfram’s 1D elementary rules—run sequentially on von Neumann hardware with $O(N^2)$ software loops, dedicated **Cellular Automata Machines (CAMs)** implement spatial parallelism natively in silicon. Every cell operates simultaneously in hardware, yielding true $O(1)$ temporal update execution regardless of grid dimensions.\n\nPioneered theoretically by John von Neumann and Stanislaw Ulam in the 1940s, and implemented in physical hardware through systems like Tommaso Toffoli and Norman Margolus's **CAM-6** and **CAM-8** in the 1980s, CA hardware eliminates central bus bottlenecks. Today, its spatial execution philosophy directly underpins modern Field-Programmable Gate Arrays (FPGAs), [systolic arrays](systolic-arrays.md), stencil accelerators, and wafer-scale AI processors.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★☆☆",
@@ -871,7 +875,7 @@
           "rationale": "High physical fabrication or high-fidelity simulation complexity."
         }
       },
-      "modern_relevance": "While stand-alone \"Cellular Automata Machines\" vanished as commercial products, their fine-grained spatial compute model is the foundation of modern high-performance spatial hardware:\n\n* **Field-Programmable Gate Arrays (FPGAs):** Modern FPGAs are directly descended from CA architecture principles—consisting of a 2D spatial grid of Lookup Tables (LUTs), flip-flops, and configurable neighbor routing channels.\n* **Wafer-Scale AI Processors (Cerebras WSE):** The Cerebras Wafer-Scale Engine utilizes a 2D mesh of hundreds of thousands of independent processing cores connected via a high-speed spatial fabric, executing tensor computations as localized spatial stencil operations.\n* **Systolic Arrays and Stencil Accelerators:** Google’s Tensor Processing Unit (TPU) and domain-specific physics accelerators use spatial 2D grid meshes to push data through neighboring processing elements without central register file access.\n* **Lattice-Boltzmann Physics Solvers:** Modern fluid dynamics and aerodynamic solvers (e.g., in aerospace and automotive design) run parallelized Lattice-Boltzmann Method (LBM) algorithms on massive GPU grids, directly inheriting the physics model of 1980s lattice-gas cellular automata.",
+      "modern_relevance": "While stand-alone \"Cellular Automata Machines\" vanished as commercial products, their fine-grained spatial compute model is the foundation of modern high-performance spatial hardware:\n\n* **Field-Programmable Gate Arrays (FPGAs):** Modern FPGAs are directly descended from CA architecture principles—consisting of a 2D spatial grid of Lookup Tables (LUTs), flip-flops, and configurable neighbor routing channels.\n* **Wafer-Scale AI Processors (Cerebras WSE):** The Cerebras Wafer-Scale Engine utilizes a 2D mesh of hundreds of thousands of independent processing cores connected via a high-speed spatial fabric, executing tensor computations as localized spatial stencil operations.\n* **[Systolic Arrays](systolic-arrays.md) and Stencil Accelerators:** Google’s Tensor Processing Unit (TPU) and domain-specific physics accelerators use spatial 2D grid meshes to push data through neighboring processing elements without central register file access.\n* **Lattice-Boltzmann Physics Solvers:** Modern fluid dynamics and aerodynamic solvers (e.g., in aerospace and automotive design) run parallelized Lattice-Boltzmann Method (LBM) algorithms on massive GPU grids, directly inheriting the physics model of 1980s lattice-gas cellular automata.",
       "references": [
         "von Neumann, J. (1966). *Theory of Self-Reproducing Automata* (Edited and completed by A. W. Burks). University of Illinois Press.",
         "Toffoli, T., & Margolus, N. (1987). *Cellular Automata Machines: A New Environment for Modeling*. MIT Press.",
@@ -908,7 +912,7 @@
         "AI Synergy": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Originally targeted at Symbolic AI and neural networks; conceptually maps perfectly to modern LLM execution."
+          "rationale": "Originally targeted at [Symbolic AI](symbolic-ai.md) and neural networks; conceptually maps perfectly to modern LLM execution."
         },
         "Difficulty to Recreate": {
           "stars": "★★★★★",
@@ -923,7 +927,7 @@
       "id": "dataflow-computing",
       "title": "Dataflow Computing",
       "path": "excavations/dataflow-computing.md",
-      "summary": "Dataflow computing departs from the traditional von Neumann control-flow model. Instead of a program counter stepping through instructions sequentially, computation occurs when data becomes available — operations “fire” automatically as their inputs arrive.\n\nThis paradigm promises natural parallelism, simpler synchronization, and elegant handling of streaming and reactive workloads. Ambitious hardware projects explored it from the 1970s through the 1990s, including the MIT Tagged-Token Dataflow Architecture, the Manchester Dataflow Machine, and Japanese efforts like the ETL machines. Although dataflow never displaced conventional processors, its core ideas have profoundly influenced modern GPUs, streaming frameworks, reactive programming, and dataflow-oriented Domain-Specific Languages (DSLs).",
+      "summary": "Dataflow computing departs from the traditional von Neumann control-flow model. Instead of a program counter stepping through instructions sequentially, computation occurs when data becomes available — operations “fire” automatically as their inputs arrive.\n\nThis paradigm promises natural parallelism, simpler synchronization, and elegant handling of streaming and reactive workloads. Ambitious hardware projects explored it from the 1970s through the 1990s, including the MIT Tagged-Token [Dataflow Architecture](../GLOSSARY.md), the Manchester Dataflow Machine, and Japanese efforts like the ETL machines. Although dataflow never displaced conventional processors, its core ideas have profoundly influenced modern GPUs, streaming frameworks, reactive programming, and dataflow-oriented Domain-Specific Languages (DSLs).",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -956,7 +960,7 @@
           "rationale": "Medium complexity to simulate or rebuild on modern software/hardware platforms."
         }
       },
-      "modern_relevance": "### AI Accelerator Lineage\n* **SambaNova Systems Reconfigurable Dataflow Unit (RDU)**: SambaNova utilizes an array of Pattern Compute Units (PCUs) and Pattern Memory Units (PMUs) linked by an on-chip routing network. Instead of fetching instructions every cycle, the deep learning compiler maps the tensor execution graph directly onto the physical substrate, streaming data tokens continuously through the physical array.\n* **Cerebras Systems Wafer-Scale Engine (WSE)**: Cerebras manufactures a single, massive silicon wafer containing **850,000 AI-optimized compute cores**, 40GB of on-wafer SRAM, and a custom inter-core fabric. It functions as a massive, dynamic dataflow machine where tensors stream between physical processing nodes with sub-microsecond latency, bypassing the off-chip DRAM memory wall entirely.\n* **Google Tensor Processing Units (TPUs)**: The TPU's matrix multiply unit is structured as a **256x256 systolic array** performing 65,536 Multiply-Accumulate (MAC) operations per clock cycle. Data flows statically through an array of processing cells, where inputs from the left and weights from the top meet inside multipliers, demonstrating a highly efficient, deterministic static dataflow model.\n* **Graphcore IPU (Intelligence Processing Unit)**: Utilizes an explicitly parallel spatial layout with over 1,472 tile processors, executing structured neural dataflow graphs utilizing a highly-scalable, deterministic Bulk Synchronous Parallel (BSP) exchange fabric.",
+      "modern_relevance": "### AI Accelerator Lineage\n* **SambaNova Systems Reconfigurable Dataflow Unit (RDU)**: SambaNova utilizes an array of Pattern Compute Units (PCUs) and Pattern Memory Units (PMUs) linked by an on-chip routing network. Instead of fetching instructions every cycle, the deep learning compiler maps the tensor execution graph directly onto the physical substrate, streaming data tokens continuously through the physical array.\n* **Cerebras Systems Wafer-Scale Engine (WSE)**: Cerebras manufactures a single, massive silicon wafer containing **850,000 AI-optimized compute cores**, 40GB of on-wafer SRAM, and a custom inter-core fabric. It functions as a massive, dynamic dataflow machine where tensors stream between physical processing nodes with sub-microsecond latency, bypassing the off-chip DRAM memory wall entirely.\n* **Google Tensor Processing Units (TPUs)**: The TPU's matrix multiply unit is structured as a **256x256 [systolic array](../GLOSSARY.md)** performing 65,536 Multiply-Accumulate (MAC) operations per clock cycle. Data flows statically through an array of processing cells, where inputs from the left and weights from the top meet inside multipliers, demonstrating a highly efficient, deterministic static dataflow model.\n* **Graphcore IPU (Intelligence Processing Unit)**: Utilizes an explicitly parallel spatial layout with over 1,472 tile processors, executing structured neural dataflow graphs utilizing a highly-scalable, deterministic Bulk Synchronous Parallel (BSP) exchange fabric.",
       "references": []
     },
     {
@@ -1055,17 +1059,17 @@
       "id": "inferno",
       "title": "Inferno",
       "path": "excavations/inferno.md",
-      "summary": "Inferno is a lightweight, portable operating system and virtual machine developed at Bell Labs in the mid-1990s (and later by Vita Nuova). It was explicitly designed as a successor to Plan 9 for the emerging networked, embedded, and mobile computing landscape.\n\nBuilt around the Dis virtual machine and the Limbo programming language, Inferno emphasizes minimalism, security through capabilities, and seamless distribution across heterogeneous devices. Though it saw limited commercial success, its ideas remain influential in embedded systems, edge computing, and research into distributed operating systems.",
+      "summary": "Inferno is a lightweight, portable operating system and virtual machine developed at Bell Labs in the mid-1990s (and later by Vita Nuova). It was explicitly designed as a successor to [Plan 9](plan-9.md) for the emerging networked, embedded, and mobile computing landscape.\n\nBuilt around the Dis virtual machine and the Limbo programming language, Inferno emphasizes minimalism, security through capabilities, and seamless distribution across heterogeneous devices. Though it saw limited commercial success, its ideas remain influential in embedded systems, edge computing, and research into distributed operating systems.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★☆☆",
           "numeric": 3,
-          "rationale": "Important evolutionary link between Plan 9, Java's concurrent systems, and modern portable runtimes."
+          "rationale": "Important evolutionary link between [Plan 9](plan-9.md), Java's concurrent systems, and modern portable runtimes."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Flawless register-based VM design with CSP channels and unified network-transparent Styx protocol."
+          "rationale": "Flawless register-based VM design with CSP channels and unified network-transparent [Styx protocol](../GLOSSARY.md)."
         },
         "Commercial Success": {
           "stars": "★☆☆☆☆",
@@ -1095,7 +1099,7 @@
       "id": "intel-iapx-432",
       "title": "Intel iAPX 432",
       "path": "excavations/intel-iapx-432.md",
-      "summary": "The Intel iAPX 432 (introduced in 1981) was Intel's radical attempt to build a next-generation architecture that directly supported object-oriented programming, capability-based security, automatic memory management, and high-level language execution (especially Ada) in silicon. It featured a sophisticated capability system, hardware-enforced typing, and a multi-chip design with separate instruction decoding and execution units.\n\nDespite innovative ideas and strong backing from Intel and the U.S. Department of Defense (via Ada), the iAPX 432 suffered from severe performance issues, architectural complexity, and poor compiler support. It was discontinued in the mid-1980s after limited commercial adoption. The project remains a cautionary tale of over-ambitious hardware-software co-design and a valuable source of lessons for modern capability-based systems.",
+      "summary": "The Intel iAPX 432 (introduced in 1981) was Intel's radical attempt to build a next-generation architecture that directly supported object-oriented programming, [capability-based security](../GLOSSARY.md), automatic memory management, and high-level language execution (especially Ada) in silicon. It featured a sophisticated capability system, hardware-enforced typing, and a multi-chip design with separate instruction decoding and execution units.\n\nDespite innovative ideas and strong backing from Intel and the U.S. Department of Defense (via Ada), the iAPX 432 suffered from severe performance issues, architectural complexity, and poor compiler support. It was discontinued in the mid-1980s after limited commercial adoption. The project remains a cautionary tale of over-ambitious hardware-software co-design and a valuable source of lessons for modern capability-based systems.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1142,12 +1146,12 @@
       "id": "j-machine",
       "title": "The MIT J-Machine",
       "path": "excavations/j-machine.md",
-      "summary": "The J-Machine (Jellybean Machine) was a landmark, fine-grained, massively parallel computer architecture developed in the late 1980s and early 1990s by the Concurrent VLSI Architecture Group at MIT, led by parallel-computing pioneer **William Dally**, in collaboration with Intel.\n\nThe machine was called a \"jellybean\" machine because its design philosophy argued that high-performance computing should not be built from expensive, specialized processors, but from massive arrays of cheap, single-chip commodity nodes—like jellybeans—that integrated a processor, memory, and a fast routing network on a single die.\n\nThe J-Machine's fundamental innovation was its **Message-Driven Processor (MDP)**. Rather than treating communication as a high-latency software OS intervention, the MDP implemented communication mechanisms directly in the silicon. Through **Active Messages**, a message arrival instantly triggered the creation of a hardware-scheduled task and executed the message's target code in a few clock cycles. Coupled with a 3D **wormhole-routing** network, the J-Machine operated as a hardware-enforced, single-level global object namespace, eliminating the distinction between local and remote object references.\n\nUltimately eclipsed by the rapid performance scaling of standard commodity workstation clusters (Beowulf clusters) and the complexity of partitioning software compilers, the J-Machine's architectural concepts live on as the primary infrastructure of modern **Networks-on-Chip (NoCs)**, GPU interconnects, and exascale AI accelerators like the Cerebras Wafer-Scale Engine.",
+      "summary": "The J-Machine (Jellybean Machine) was a landmark, fine-grained, massively parallel computer architecture developed in the late 1980s and early 1990s by the Concurrent VLSI Architecture Group at MIT, led by parallel-computing pioneer **William Dally**, in collaboration with Intel.\n\nThe machine was called a \"jellybean\" machine because its design philosophy argued that high-performance computing should not be built from expensive, specialized processors, but from massive arrays of cheap, single-chip commodity nodes—like jellybeans—that integrated a processor, memory, and a fast routing network on a single die.\n\nThe J-Machine's fundamental innovation was its **Message-Driven Processor (MDP)**. Rather than treating communication as a high-latency software OS intervention, the MDP implemented communication mechanisms directly in the silicon. Through **[Active Messages](../GLOSSARY.md)**, a message arrival instantly triggered the creation of a hardware-scheduled task and executed the message's target code in a few clock cycles. Coupled with a 3D **wormhole-routing** network, the J-Machine operated as a hardware-enforced, single-level global object namespace, eliminating the distinction between local and remote object references.\n\nUltimately eclipsed by the rapid performance scaling of standard commodity workstation clusters (Beowulf clusters) and the complexity of partitioning software compilers, the J-Machine's architectural concepts live on as the primary infrastructure of modern **Networks-on-Chip (NoCs)**, GPU interconnects, and exascale AI accelerators like the Cerebras Wafer-Scale Engine.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Formulated the concept of Active Messages, wormhole routing, and early Network-on-Chip integration."
+          "rationale": "Formulated the concept of [Active Messages](../GLOSSARY.md), wormhole routing, and early Network-on-Chip integration."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
@@ -1175,25 +1179,25 @@
           "rationale": "Simulating a multi-node message-driven 3D routing fabric requires custom asynchronous parallel simulators."
         }
       },
-      "modern_relevance": "As silicon scaling reaches its physical limits and the **Von Neumann memory wall** chokes general-purpose performance, the core principles of the J-Machine are undergoing a major renaissance:\n\n* **Networks-on-Chip (NoCs) in Many-Core Chips:** Modern GPUs, Google TPUs, and multi-core CPUs are no longer structured as a single monolithic processor. Instead, they are composed of a grid of independent execution cores connected via a highly optimized, on-silicon 2D/3D packet-routing network—structurally identical to the J-Machine’s MDP integration.\n* **Cerebras Wafer-Scale Engine (WSE):** The WSE is the ultimate physical realization of the \"jellybean\" philosophy. By building hundreds of thousands of AI-optimized cores on a single, uncut silicon wafer, Cerebras avoids chip packaging and PCB traces entirely. Cores communicate asynchronously via a fine-grained, localized spatial routing fabric that echoes the J-Machine's wormhole-routing network.\n* **Distributed Actor Frameworks (Ray & Akka):** Modern distributed computing workloads (such as scaling large language models across thousands of GPUs) utilize software-implemented Active Messages. In **Ray**, tasks and objects are routed dynamically across a cluster using global object identifiers and executed asynchronously, mirroring the J-Machine's execution model.\n* **Neuromorphic Spike Routing:** Spiking neuromorphic architectures (like Intel Loihi) route events (spikes) across distributed, asynchronous neural cores using on-chip routers, inheriting the J-Machine's fine-grained, event-driven message dispatch mechanisms.",
+      "modern_relevance": "As silicon scaling reaches its physical limits and the **Von Neumann memory wall** chokes general-purpose performance, the core principles of the J-Machine are undergoing a major renaissance:\n\n* **Networks-on-Chip (NoCs) in Many-Core Chips:** Modern GPUs, Google TPUs, and multi-core CPUs are no longer structured as a single monolithic processor. Instead, they are composed of a grid of independent execution cores connected via a highly optimized, on-silicon 2D/3D packet-routing network—structurally identical to the J-Machine’s MDP integration.\n* **Cerebras Wafer-Scale Engine (WSE):** The WSE is the ultimate physical realization of the \"jellybean\" philosophy. By building hundreds of thousands of AI-optimized cores on a single, uncut silicon wafer, Cerebras avoids chip packaging and PCB traces entirely. Cores communicate asynchronously via a fine-grained, localized spatial routing fabric that echoes the J-Machine's wormhole-routing network.\n* **Distributed Actor Frameworks (Ray & Akka):** Modern distributed computing workloads (such as scaling large language models across thousands of GPUs) utilize software-implemented [Active Messages](../GLOSSARY.md). In **Ray**, tasks and objects are routed dynamically across a cluster using global object identifiers and executed asynchronously, mirroring the J-Machine's execution model.\n* **Neuromorphic Spike Routing:** Spiking neuromorphic architectures (like Intel Loihi) route events (spikes) across distributed, asynchronous neural cores using on-chip routers, inheriting the J-Machine's fine-grained, event-driven message dispatch mechanisms.",
       "references": [
         "Dally, W. J., et al. (1989). *The J-Machine: A fine-grain concurrent computer*. In Proceedings of the IFIP 11th World Computer Congress, 1147-1153.",
         "Dally, W. J., & Wills, D. S. (1989). *Universal mechanisms for concurrency*. In Proceedings of the 16th Annual International Symposium on Computer Architecture (ISCA), 19-26.",
-        "von Eicken, T., Culler, D. E., Goldstein, S. C., & Schauser, K. E. (1992). *Active messages: a mechanism for integrated communication and computation*. In Proceedings of the 19th Annual International Symposium on Computer Architecture (ISCA), 256-266.",
+        "von Eicken, T., Culler, D. E., Goldstein, S. C., & Schauser, K. E. (1992). *[Active messages](../GLOSSARY.md): a mechanism for integrated communication and computation*. In Proceedings of the 19th Annual International Symposium on Computer Architecture (ISCA), 256-266.",
         "Noakes, M. D., Wallach, D. A., & Dally, W. J. (1993). *The J-Machine multicomputer: Architecture and multicomputer performance*. In Proceedings of the 20th Annual International Symposium on Computer Architecture (ISCA), 224-235.",
         "Dally, W. J. (1990). *Network and Node Architecture for Massively Parallel Computers*. In Organick, E. I. (Ed.), *New Frontiers in Computer Architecture*. Prentice Hall."
       ]
     },
     {
       "id": "linda-tuple-spaces",
-      "title": "Linda Tuple Spaces (Generative Communication)",
+      "title": "Linda Tuple Spaces ([Generative Communication](../GLOSSARY.md))",
       "path": "excavations/linda-tuple-spaces.md",
-      "summary": "In parallel and distributed computing, processes must coordinate to share data and synchronize execution. Historically, this has been achieved through two primary models: **shared memory** (which requires explicit locks, semaphores, and is spatially coupled to a single physical machine) or **message passing** (such as MPI or actor systems, which are temporally coupled and require processes to know each other's explicit network addresses or IDs).\n\n**Linda** is a non-von Neumann parallel programming model introduced in 1982 by **David Gelernter** that pioneered a radically different paradigm known as **Generative Communication**. Instead of sending messages directly to one another, processes interact anonymously and asynchronously through a globally shared, associative memory pool called a **Tuple Space**.\n\nA process coordinates with others by performing three primary operations on the Tuple Space:\n* `out(t)`: Generates a tuple $t$ and deposits it into the Tuple Space. The tuple exists independently of the process that created it.\n* `in(p)`: Associatively searches the Tuple Space for a tuple matching the pattern $p$, withdraws it from the space, and returns it to the calling process. If no matching tuple exists, the calling process blocks until one becomes available.\n* `rd(p)`: Performs the same associative search as `in`, but returns a copy of the matching tuple, leaving the original tuple in the Tuple Space.\n\nBy replacing explicit sender-recipient links with associative, content-addressable retrieval, Linda achieved complete spatial and temporal decoupling. Although highly influential and used in early high-performance scientific and financial computing, Linda was ultimately sidelined by the massive momentum of the Message Passing Interface (MPI) and standard socket-based networking due to the high performance overhead of implementing distributed associative matching on early hardware.",
+      "summary": "In parallel and distributed computing, processes must coordinate to share data and synchronize execution. Historically, this has been achieved through two primary models: **shared memory** (which requires explicit locks, semaphores, and is spatially coupled to a single physical machine) or **message passing** (such as MPI or actor systems, which are temporally coupled and require processes to know each other's explicit network addresses or IDs).\n\n**Linda** is a non-von Neumann parallel programming model introduced in 1982 by **David Gelernter** that pioneered a radically different paradigm known as **[Generative Communication](../GLOSSARY.md)**. Instead of sending messages directly to one another, processes interact anonymously and asynchronously through a globally shared, associative memory pool called a **[Tuple Space](../GLOSSARY.md)**.\n\nA process coordinates with others by performing three primary operations on the [Tuple Space](../GLOSSARY.md):\n* `out(t)`: Generates a tuple $t$ and deposits it into the [Tuple Space](../GLOSSARY.md). The tuple exists independently of the process that created it.\n* `in(p)`: Associatively searches the [Tuple Space](../GLOSSARY.md) for a tuple matching the pattern $p$, withdraws it from the space, and returns it to the calling process. If no matching tuple exists, the calling process blocks until one becomes available.\n* `rd(p)`: Performs the same associative search as `in`, but returns a copy of the matching tuple, leaving the original tuple in the [Tuple Space](../GLOSSARY.md).\n\nBy replacing explicit sender-recipient links with associative, content-addressable retrieval, Linda achieved complete spatial and temporal decoupling. Although highly influential and used in early high-performance scientific and financial computing, Linda was ultimately sidelined by the massive momentum of the Message Passing Interface (MPI) and standard socket-based networking due to the high performance overhead of implementing distributed associative matching on early hardware.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Pioneered generative communication, completely decoupled parallel paradigms, and deeply influenced JavaSpaces, Clojure's ref models, and modern message-queue patterns."
+          "rationale": "Pioneered [generative communication](../GLOSSARY.md), completely decoupled parallel paradigms, and deeply influenced JavaSpaces, Clojure's ref models, and modern message-queue patterns."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
@@ -1218,12 +1222,12 @@
         "Difficulty to Recreate": {
           "stars": "★★★☆☆",
           "numeric": 3,
-          "rationale": "Implementing a highly efficient, single-node in-memory associative Tuple Space is straightforward; a globally consistent, high-performance distributed version remains complex."
+          "rationale": "Implementing a highly efficient, single-node in-memory associative [Tuple Space](../GLOSSARY.md) is straightforward; a globally consistent, high-performance distributed version remains complex."
         }
       },
-      "modern_relevance": "While the original Linda implementations faded, the core abstraction of generative coordination has undergone profound **architectural distillation**, re-emerging at the center of modern cloud and intelligent systems:\n\n* **Cloud Message Brokers & Distributed Queues**: Modern distributed event streaming platforms (like Apache Kafka, RabbitMQ, and Amazon SQS) are spiritually derived from Tuple Spaces. They decouple producers and consumers in space and time. However, most modern systems utilize rigid, address-like topics (e.g., `user.signup`) rather than Linda's fully associative, multi-field pattern-matching.\n* **Multi-Agent AI and LLM Swarms**: The coordination of autonomous LLM agents is one of the most exciting frontiers in modern software engineering. General-purpose API coordination is fragile. Instead, modern multi-agent frameworks are reviving the **Blackboard Pattern**—which is structurally identical to a Tuple Space. Agents write task tuples to a shared blackboard, and specialist agent nodes (e.g., a \"Coder Agent\" or a \"Tester Agent\") associatively poll the blackboard for tasks matching their capabilities, executing them and posting the results back as new tuples.\n* **Space-Based Architectures (SBA)**: In financial technology and high-frequency trading, systems like GigaSpaces, Apache River, and JavaSpaces utilize in-memory data grids structured as distributed tuple spaces to achieve low-latency, highly scalable transactional processing, proving the architectural viability of Gelernter's model when backed by modern high-speed networks and abundant RAM.\n* **Edge & IoT Coordination**: In smart cities and IoT deployments, millions of heterogeneous sensors must coordinate without centralized registries. A localized tuple space allows sensors to drop anonymous telemetry tuples (e.g., `(\"temp\", \"zone_3\", 22.4)`) that local actuators read and react to, establishing a highly robust, self-healing, and topology-independent edge fabric.",
+      "modern_relevance": "While the original Linda implementations faded, the core abstraction of generative coordination has undergone profound **[architectural distillation](../synthesis/architectural-distillation.md)**, re-emerging at the center of modern cloud and intelligent systems:\n\n* **Cloud Message Brokers & Distributed Queues**: Modern distributed event streaming platforms (like Apache Kafka, RabbitMQ, and Amazon SQS) are spiritually derived from Tuple Spaces. They decouple producers and consumers in space and time. However, most modern systems utilize rigid, address-like topics (e.g., `user.signup`) rather than Linda's fully associative, multi-field pattern-matching.\n* **Multi-Agent AI and LLM Swarms**: The coordination of autonomous LLM agents is one of the most exciting frontiers in modern software engineering. General-purpose API coordination is fragile. Instead, modern multi-agent frameworks are reviving the **Blackboard Pattern**—which is structurally identical to a [Tuple Space](../GLOSSARY.md). Agents write task tuples to a shared blackboard, and specialist agent nodes (e.g., a \"Coder Agent\" or a \"Tester Agent\") associatively poll the blackboard for tasks matching their capabilities, executing them and posting the results back as new tuples.\n* **Space-Based Architectures (SBA)**: In financial technology and high-frequency trading, systems like GigaSpaces, Apache River, and JavaSpaces utilize in-memory data grids structured as distributed tuple spaces to achieve low-latency, highly scalable transactional processing, proving the architectural viability of Gelernter's model when backed by modern high-speed networks and abundant RAM.\n* **Edge & IoT Coordination**: In smart cities and IoT deployments, millions of heterogeneous sensors must coordinate without centralized registries. A localized [tuple space](../GLOSSARY.md) allows sensors to drop anonymous telemetry tuples (e.g., `(\"temp\", \"zone_3\", 22.4)`) that local actuators read and react to, establishing a highly robust, self-healing, and topology-independent edge fabric.",
       "references": [
-        "Gelernter, D. (1985). *Generative communication in Linda*. ACM Transactions on Programming Languages and Systems (TOPLAS), 7(1), 80-112. (The seminal paper defining the Linda coordination model and its operations).",
+        "Gelernter, D. (1985). *[Generative communication](../GLOSSARY.md) in Linda*. ACM Transactions on Programming Languages and Systems (TOPLAS), 7(1), 80-112. (The seminal paper defining the Linda coordination model and its operations).",
         "Carriero, N., & Gelernter, D. (1989). *How to write parallel programs: A guide to the perplexed*. ACM Computing Surveys (CSUR), 21(3), 323-357.",
         "Ahuja, S., Carriero, N., & Gelernter, D. (1986). *Linda and friends*. Computer, 19(8), 26-34.",
         "Gelernter, D., & Carriero, N. (1992). *Coordination languages and their significance*. Communications of the ACM, 35(2), 97-107.",
@@ -1244,7 +1248,7 @@
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Groundbreaking microcoded co-design featuring tagged memory, hardware-assisted write barriers, CDR-coding, and custom stack buffers."
+          "rationale": "Groundbreaking microcoded co-design featuring [tagged memory](../GLOSSARY.md), hardware-assisted write barriers, CDR-coding, and custom stack buffers."
         },
         "Commercial Success": {
           "stars": "★★☆☆☆",
@@ -1267,7 +1271,7 @@
           "rationale": "Medium-to-high complexity; while Lisp simulators exist (e.g., Ivory emulators), recreating a fully cycle-accurate VLSI-level model requires deep microcode simulation."
         }
       },
-      "modern_relevance": "The architectural concepts of Lisp Machines are highly visible in modern systems:\n\n- **Virtual Machines & Dynamic runtimes**: Modern runtimes (the Java Virtual Machine, V8 JavaScript Engine, Microsoft .NET CLR) implement in software the exact abstractions that Lisp Machines implemented in microcode: dynamic typing, JIT compilation, generational garbage collection, and runtime type checking.\n- **CHERI & Tagged Memory**: The modern revival of hardware-enforced security (specifically CHERI—Capability Hardware Enhanced RISC Instructions) uses a **1-bit out-of-band hardware tag** to distinguish unforgeable pointers from raw data. This is conceptually identical to the Lisp Machine's tag-bit model, re-targeted from type-safety to spatial/temporal memory safety.\n- **Hardware Accelerators for Managed Languages**: As silicon scaling slows, there is renewed interest in specialized accelerators for database queries, JSON parsing, and dynamic languages, mirroring the co-design philosophy.",
+      "modern_relevance": "The architectural concepts of Lisp Machines are highly visible in modern systems:\n\n- **Virtual Machines & Dynamic runtimes**: Modern runtimes (the Java Virtual Machine, V8 JavaScript Engine, Microsoft .NET CLR) implement in software the exact abstractions that Lisp Machines implemented in microcode: dynamic typing, JIT compilation, generational garbage collection, and runtime type checking.\n- **CHERI & [Tagged Memory](../GLOSSARY.md)**: The modern revival of hardware-enforced security (specifically CHERI—Capability Hardware Enhanced RISC Instructions) uses a **1-bit out-of-band hardware tag** to distinguish unforgeable pointers from raw data. This is conceptually identical to the Lisp Machine's tag-bit model, re-targeted from type-safety to spatial/temporal memory safety.\n- **Hardware Accelerators for Managed Languages**: As silicon scaling slows, there is renewed interest in specialized accelerators for database queries, JSON parsing, and dynamic languages, mirroring the co-design philosophy.",
       "references": [
         "**Knight, Tom Jr.** (1979). *\"The CONS Microprocessor.\"* MIT AI Lab Memo.",
         "**Bawden, Alan, et al.** (1977). *\"Lisp Machine Progress Report.\"* MIT Artificial Intelligence Laboratory, Memo 444.",
@@ -1394,15 +1398,7 @@
         }
       },
       "modern_relevance": "",
-      "references": [
-        "Mead, C. (1989). *Analog VLSI and Neural Systems*. Addison-Wesley.",
-        "Mahowald, M. A., & Mead, C. (1991). *The Silicon Retina*. Scientific American, 264(5), 76-82.",
-        "Merolla, P. A., et al. (2014). *A million spiking-neuron integrated circuit with a scalable communication network and architecture* (IBM TrueNorth). Science, 345(6197), 668-673.",
-        "Davies, M., et al. (2018). *Loihi: A Neuromorphic Manycore Processor with On-Chip Learning*. IEEE Micro, 38(1), 82-99.",
-        "Furber, S. B., et al. (2014). *The SpiNNaker Project*. Proceedings of the IEEE, 102(5), 652-665.",
-        "Indiveri, G., et al. (2011). *Neuromorphic Silicon Neuron Circuits*. Frontiers in Neuroscience, 5, 73.",
-        "Mead, C. (1990). *Neuromorphic Electronic Systems*. Proceedings of the IEEE, 78(10), 1629-1636."
-      ]
+      "references": []
     },
     {
       "id": "occam",
@@ -1482,19 +1478,13 @@
         }
       },
       "modern_relevance": "Optical computing has pivoted from trying to build general-purpose \"optical CPUs\" to serving as specialized hardware accelerators and ultra-high-speed chip-to-chip interconnects:\n\n* **Co-Packaged Optics (CPO):** High-performance AI networking switches and multi-chip module (MCM) processor clusters integrate laser transceivers directly onto the same organic substrate as the GPU/NPU silicon. This replaces high-loss copper board traces with optical fiber interfaces, reducing interconnect energy consumption by up to $70\\%$.\n* **Optical AI Tensor Accelerators:** Photonic chips (developed by companies like Lightmatter, Celestial AI, and Luminous) leverage integrated MZI meshes and microring arrays to perform large-scale matrix-vector multiplications ($\\text{GEMM}$) for LLM inference at sub-nanosecond speeds and ultra-low latency.\n* **Optical Interconnects for Disaggregated Data Centers:** Modern hyperscale data centers use optical interconnects to pool memory (CXL over optics) and connect thousands of compute nodes into a single unified execution fabric without traditional network hop latency.\n* **Analog Optical Signal Processing & Sensing:** Lidar engines, radar signal filtering, and real-time medical imaging continue to rely on integrated photonic Fourier processing to perform spatial filtering and phase detection directly in the optical domain.",
-      "references": [
-        "Goodman, J. W. (1968). *Introduction to Fourier Optics*. McGraw-Hill.",
-        "Miller, D. A. B. (1984). *Bistable Optical Devices for Integrated Circuits*. Philosophical Transactions of the Royal Society of London, 313(1525), 239-244.",
-        "Shen, Y., et al. (2017). *Deep Learning with Coherent Nanophotonic Circuits*. Nature Photonics, 11(7), 441-446.",
-        "Shastri, B. J., et al. (2021). *Photonics for Artificial Intelligence and Neuromorphic Computing*. Nature Photonics, 15(2), 102-114.",
-        "Zhou, H., et al. (2022). *Photonic Matrix Computing: From Theoretical Foundations to Practical Architectures and Applications*. IEEE Journal of Selected Topics in Quantum Electronics, 28(6), 1-16."
-      ]
+      "references": []
     },
     {
       "id": "plan-9",
       "title": "Plan 9",
       "path": "excavations/plan-9.md",
-      "summary": "Plan 9 from Bell Labs is a research operating system developed in the late 1980s and 1990s by many of the same people who created Unix. It represents one of the most ambitious and coherent attempts to rethink operating system design in the network era.\n\nInstead of bolting networking onto an existing system, Plan 9 was designed with distribution, simplicity, and research flexibility as core principles. While it never achieved widespread commercial adoption, its ideas — particularly the 9P protocol, per-process namespaces, and unified file interface — have influenced modern systems and remain highly relevant.",
+      "summary": "Plan 9 from Bell Labs is a research operating system developed in the late 1980s and 1990s by many of the same people who created Unix. It represents one of the most ambitious and coherent attempts to rethink operating system design in the network era.\n\nInstead of bolting networking onto an existing system, Plan 9 was designed with distribution, simplicity, and research flexibility as core principles. While it never achieved widespread commercial adoption, its ideas — particularly the [9P protocol](../GLOSSARY.md), per-process namespaces, and unified file interface — have influenced modern systems and remain highly relevant.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1574,7 +1564,7 @@
       "id": "reversible-computing",
       "title": "Reversible Computing",
       "path": "excavations/reversible-computing.md",
-      "summary": "Reversible Computing is a computing paradigm in which physical logic gates and execution instructions operate in a mathematically bijective (one-to-one) and time-reversible manner. In conventional irreversible logic (such as standard NAND, AND, or OR gates), logical information is destroyed during computation—for instance, an AND gate collapses two input bits into a single output bit, permanently erasing one bit of information.\n\nAccording to **Landauer’s Principle** (formulated by Rolf Landauer in 1961), erasing a single bit of physical information dissipates a fundamental minimum amount of heat into the environment:\n\n$$E_{\\text{min}} = k_B T \\ln 2$$\n\nWhere $k_B$ is the Boltzmann constant ($1.38 \\times 10^{-23}$ J/K) and $T$ is the absolute temperature in Kelvin. At room temperature ($T \\approx 300$ K), Landauer's limit equates to approximately:\n\n$$E_{\\text{min}} \\approx 2.87 \\times 10^{-21} \\text{ Joules (or } \\approx 0.018 \\text{ eV)}$$\n\nWhile negligible during the vacuum-tube and early integrated-circuit eras, modern CMOS processors operating at tens of billions of transistors switching at multi-gigahertz frequencies now operate dangerously close to thermal dissipation limits, causing severe power density bottlenecks (\"Dark Silicon\").\n\nReversible Computing solves this fundamental physical constraint by preserving logical state throughout computation. By ensuring that every computational step can be run backward to recover previous states without information destruction, reversible architectures can theoretically reduce dynamic heat dissipation to zero—opening a path toward ultra-dense, ultra-low-power microarchitectures, adiabatic CMOS, and physical realization in quantum computing.",
+      "summary": "Reversible Computing is a computing paradigm in which physical logic gates and execution instructions operate in a mathematically bijective (one-to-one) and time-reversible manner. In conventional irreversible logic (such as standard NAND, AND, or OR gates), logical information is destroyed during computation—for instance, an AND gate collapses two input bits into a single output bit, permanently erasing one bit of information.\n\nAccording to **Landauer’s Principle** (formulated by Rolf Landauer in 1961), erasing a single bit of physical information dissipates a fundamental minimum amount of heat into the environment:\n\n$$E_{\\text{min}} = k_B T \\ln 2$$\n\nWhere $k_B$ is the Boltzmann constant ($1.38 \\times 10^{-23}$ J/K) and $T$ is the absolute temperature in Kelvin. At room temperature ($T \\approx 300$ K), [Landauer's limit](../GLOSSARY.md) equates to approximately:\n\n$$E_{\\text{min}} \\approx 2.87 \\times 10^{-21} \\text{ Joules (or } \\approx 0.018 \\text{ eV)}$$\n\nWhile negligible during the vacuum-tube and early integrated-circuit eras, modern CMOS processors operating at tens of billions of transistors switching at multi-gigahertz frequencies now operate dangerously close to thermal dissipation limits, causing severe power density bottlenecks (\"Dark Silicon\").\n\nReversible Computing solves this fundamental physical constraint by preserving logical state throughout computation. By ensuring that every computational step can be run backward to recover previous states without information destruction, reversible architectures can theoretically reduce dynamic heat dissipation to zero—opening a path toward ultra-dense, ultra-low-power microarchitectures, adiabatic CMOS, and physical realization in quantum computing.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1608,13 +1598,7 @@
         }
       },
       "modern_relevance": "As conventional CMOS fabrication approaches 1-nanometer quantum tunneling thresholds and thermal dissipation strictly limits high-performance data centers, Reversible Computing is transitioning from theoretical physics to practical engineering:\n\n* **Cryogenic Computing & Superconducting Logic:** Superconducting logic systems—such as **Reciprocal Quantum Logic (RQL)** and **Adiabatic Quantum Flux Parametron (AQFP)**—operate inside cryogenic environments ($4\\text{ Kelvin}$). At low temperatures, $T$ drops, but heat removal efficiency drops even faster (requiring up to $1,000\\text{ W}$ of cooling power per $1\\text{ W}$ of dissipated heat). Reversible logic is essential to prevent thermal destruction of cryogenic processors.\n* **Quantum Circuit Compilation:** Because quantum gates must be unitary and reversible, compiling classical algorithms (e.g., modular exponentiation in Shor's algorithm) onto quantum processors relies directly on reversible circuit design, Toffoli gates, and Bennett uncomputation techniques.\n* **Ultra-Low-Power Edge AI & Implantable Electronics:** Medical implants, space probes, and deep-sea autonomous sensors operate in environments where battery replacement is impossible and heat generation damages surrounding tissue. Adiabatic reversible microcontrollers offer sub-nanowatt background execution profiles.\n* **Extreme-Scale High-Performance Computing (HPC):** Modern exascale supercomputers dissipate tens of megawatts of power—most of it converted directly into thermal waste. Integrating reversible coprocessor tiles into high-density matrix math units could dramatically lower thermal footprints in future zettascale installations.",
-      "references": [
-        "Landauer, R. (1961). *Irreversibility and Heat Generation in the Computing Process*. IBM Journal of Research and Development, 5(3), 183–191.",
-        "Bennett, C. H. (1973). *Logical Reversibility of Computation*. IBM Journal of Research and Development, 17(6), 525–532.",
-        "Fredkin, E., & Toffoli, T. (1982). *Conservative Logic*. International Journal of Theoretical Physics, 21(3), 219–253.",
-        "Frank, M. P. (2005). *Physical Limits of Computing*. Computing in Science & Engineering, 7(3), 16–26.",
-        "Takeuchi, N., et al. (2013). *Adiabatic Quantum Flux Parametron (AQFP) as an Ultra-Low-Power Logic Device*. Superconductor Science and Technology, 26(3), 035010."
-      ]
+      "references": []
     },
     {
       "id": "smalltalk",
@@ -1700,7 +1684,7 @@
       "id": "stochastic-computing",
       "title": "Stochastic Computing",
       "path": "excavations/stochastic-computing.md",
-      "summary": "Stochastic Computing (SC) is a computing paradigm that represents continuous real numbers as randomized binary bitstreams. Instead of encoding numbers into positional binary words (such as standard IEEE 754 float or integer representations), SC represents a value $x$ as the probability $P(X=1) = x$ of a \"1\" bit appearing in an independent, randomized sequence of bits.\n\nThis transformation swaps spatial and structural complexity for temporal latency. In the stochastic domain, complex arithmetic operations collapse into extremely simple digital logic gates: a multiplier is implemented as a single two-input **AND** gate (unipolar representation) or an **XNOR** gate (bipolar representation), and addition is performed via a simple **Multiplexer (MUX)**.\n\nIntroduced in the mid-1960s by Brian Gaines, Stochastic Computing offered an elegant bridge between the continuous, noise-tolerant qualities of analog computers and the discrete, reproducible advantages of digital electronics. While the exponential scaling of execution time sidelined SC during the Silicon Boom and Moore's Law era, it is seeing a spectacular revival today in the fields of deep neural network (DNN) accelerators, processing-in-memory (PIM), neuromorphic hardware, and fault-tolerant computing for deep-space and high-radiation environments.",
+      "summary": "Stochastic Computing (SC) is a computing paradigm that represents continuous real numbers as randomized binary bitstreams. Instead of encoding numbers into positional binary words (such as standard IEEE 754 float or integer representations), SC represents a value $x$ as the probability $P(X=1) = x$ of a \"1\" bit appearing in an independent, randomized sequence of bits.\n\nThis transformation swaps spatial and structural complexity for temporal latency. In the stochastic domain, complex arithmetic operations collapse into extremely simple digital logic gates: a multiplier is implemented as a single two-input **AND** gate (unipolar representation) or an **XNOR** gate (bipolar representation), and addition is performed via a simple **Multiplexer (MUX)**.\n\nIntroduced in the mid-1960s by Brian Gaines, Stochastic Computing offered an elegant bridge between the continuous, noise-tolerant qualities of analog computers and the discrete, reproducible advantages of digital electronics. While the exponential scaling of execution time sidelined SC during the Silicon Boom and Moore's Law era, it is seeing a spectacular revival today in the fields of deep neural network (DNN) accelerators, processing-in-memory (PIM), [neuromorphic hardware](neuromorphic-hardware.md), and fault-tolerant computing for deep-space and high-radiation environments.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1867,14 +1851,14 @@
           "rationale": "Simple in logic, but designing high-performance clocking and spatial interconnects is highly complex."
         }
       },
-      "modern_relevance": "### Historical Fact\nIn the 1980s and 1990s, the standalone systolic array failed commercially. General-purpose CPUs powered by RISC pipelines and multi-level cache hierarchies scaled rapidly due to massive market demand, eclipsing specialized accelerators. The difficulty of writing software for specialized systolic engines further isolated them to military, high-end radar, and specialized image processing niches.",
+      "modern_relevance": "### Historical Fact\nIn the 1980s and 1990s, the standalone [systolic array](../GLOSSARY.md) failed commercially. General-purpose CPUs powered by RISC pipelines and multi-level cache hierarchies scaled rapidly due to massive market demand, eclipsing specialized accelerators. The difficulty of writing software for specialized systolic engines further isolated them to military, high-end radar, and specialized image processing niches.",
       "references": []
     },
     {
       "id": "transputers",
       "title": "Transputers",
       "path": "excavations/transputers.md",
-      "summary": "The Transputer was a pioneering microprocessor architecture developed by the British semiconductor firm INMOS in the 1980s. Conceived as the \"building block\" of parallel computing—analogous to how the transistor is the building block of electronic circuits—each Transputer integrated a CPU, fast local memory, a hardware-level multitasking scheduler, and four high-speed point-to-point serial communication links on a single silicon die.\n\nFundamentally co-designed with the **occam** programming language, the Transputer was a physical implementation of C.A.R. Hoare's **Communicating Sequential Processes (CSP)** formal model. Instead of relying on shared memory and complex cache coherence protocols, Transputer networks scaled through distributed, message-passing concurrency. Despite being highly innovative, a combination of manufacturing delays, the rapid rise of general-purpose RISC chips, and the difficulty of breaking mainstream software ecosystems relegated the Transputer to specialized scientific and real-time embedded niches.",
+      "summary": "The Transputer was a pioneering microprocessor architecture developed by the British semiconductor firm INMOS in the 1980s. Conceived as the \"building block\" of parallel computing—analogous to how the transistor is the building block of electronic circuits—each Transputer integrated a CPU, fast local memory, a hardware-level multitasking scheduler, and four high-speed point-to-point serial communication links on a single silicon die.\n\nFundamentally co-designed with the **[occam](occam.md)** programming language, the Transputer was a physical implementation of C.A.R. Hoare's **Communicating Sequential Processes (CSP)** formal model. Instead of relying on shared memory and complex cache coherence protocols, Transputer networks scaled through distributed, message-passing concurrency. Despite being highly innovative, a combination of manufacturing delays, the rapid rise of general-purpose RISC chips, and the difficulty of breaking mainstream software ecosystems relegated the Transputer to specialized scientific and real-time embedded niches.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1914,7 +1898,7 @@
       "id": "vector-supercomputing",
       "title": "Vector Supercomputing (Cray-style Architectures)",
       "path": "excavations/vector-supercomputing.md",
-      "summary": "Vector supercomputers, epitomized by Seymour Cray’s designs (Cray-1 in 1976, followed by Cray-2, Cray X-MP, Y-MP, C90, etc.), introduced powerful vector processing capabilities to tackle large-scale numerical simulations. Instead of operating on single data elements (scalars), these machines operated on entire vectors (arrays of numbers) in a pipelined fashion, delivering massive throughput for regular, compute-intensive workloads such as weather modeling, fluid dynamics, linear algebra, and physics simulations.\n\nWhile general-purpose microprocessor performance eventually caught up for many tasks, the core ideas of vector processing, memory bandwidth engineering, and specialized pipelines live on strongly in modern GPUs, AI accelerators, and vector extensions (AVX-512, SVE, etc.).",
+      "summary": "Vector supercomputers, epitomized by Seymour Cray’s designs (Cray-1 in 1976, followed by Cray-2, Cray X-MP, Y-MP, C90, etc.), introduced powerful [vector processing](../GLOSSARY.md) capabilities to tackle large-scale numerical simulations. Instead of operating on single data elements (scalars), these machines operated on entire vectors (arrays of numbers) in a pipelined fashion, delivering massive throughput for regular, compute-intensive workloads such as weather modeling, fluid dynamics, linear algebra, and physics simulations.\n\nWhile general-purpose microprocessor performance eventually caught up for many tasks, the core ideas of [vector processing](../GLOSSARY.md), memory bandwidth engineering, and specialized pipelines live on strongly in modern GPUs, AI accelerators, and vector extensions (AVX-512, SVE, etc.).",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -1947,7 +1931,7 @@
           "rationale": "Medium complexity to simulate or rebuild on modern software/hardware platforms."
         }
       },
-      "modern_relevance": "Vector ideas are experiencing a major renaissance:\n- **GPU Architectures**: Modern tensor cores and SIMT execution are direct descendants of vector processing.\n- **CPU Vector Extensions**: AVX-512, ARM SVE, and RISC-V Vector extensions bring Cray-style operations into mainstream processors.\n- **AI Accelerators**: Matrix and vector operations dominate deep learning training and inference.\n- **Scientific Computing**: Vector-friendly designs remain highly relevant for HPC centers running climate, physics, and engineering codes.\n- **Memory Wall Solutions**: Emphasis on bandwidth and data movement is even more critical today.\n\nIn the age of specialized hardware and AI, the Cray philosophy — build balanced systems optimized for data movement and regular computation — is highly influential.",
+      "modern_relevance": "Vector ideas are experiencing a major renaissance:\n- **GPU Architectures**: Modern tensor cores and SIMT execution are direct descendants of [vector processing](../GLOSSARY.md).\n- **CPU Vector Extensions**: AVX-512, ARM SVE, and RISC-V Vector extensions bring Cray-style operations into mainstream processors.\n- **AI Accelerators**: Matrix and vector operations dominate deep learning training and inference.\n- **Scientific Computing**: Vector-friendly designs remain highly relevant for HPC centers running climate, physics, and engineering codes.\n- **Memory Wall Solutions**: Emphasis on bandwidth and data movement is even more critical today.\n\nIn the age of specialized hardware and AI, the Cray philosophy — build balanced systems optimized for data movement and regular computation — is highly influential.",
       "references": []
     },
     {
@@ -2041,7 +2025,7 @@
       "id": "alternative-mathematical-execution-paradigms",
       "title": "Alternative Mathematical Execution Paradigms: Beyond the Binary Von Neumann Architecture",
       "path": "synthesis/alternative-mathematical-execution-paradigms.md",
-      "summary": "**How historical models of non-standard computation—ranging from symmetric balanced ternary arithmetic to probabilistic stochastic bitstreams and symbolic logic resolution trees—are returning to bypass the memory wall, density constraints, and uncertainty of modern AI systems.**"
+      "summary": "**How historical models of non-standard computation—ranging from symmetric [balanced ternary](../excavations/balanced-ternary.md) arithmetic to probabilistic stochastic bitstreams and symbolic logic resolution trees—are returning to bypass the memory wall, density constraints, and uncertainty of modern AI systems.**"
     },
     {
       "id": "architectural-distillation",
@@ -2050,8 +2034,14 @@
       "summary": "**How failed computing systems continue to shape modern architectures by leaving behind abstractions that outlive their original implementations.**"
     },
     {
+      "id": "architectural-roadmap-re-evaluation",
+      "title": "Comprehensive Architectural Re-Evaluation of the Digital Archaeology Roadmap",
+      "path": "synthesis/architectural-roadmap-re-evaluation.md",
+      "summary": "This synthesis document provides a comprehensive, academically rigorous re-evaluation of the **Digital Archaeology Roadmap (Phases I through XIII)**. By analyzing the underlying codebase, execution runtimes, synthesizable RTL cores, and WebRTC co-simulation interfaces, we identify concrete, high-leverage areas for future expansion. This analysis balances theoretical system design with practical hardware/software co-design, illustrating how each phase can be advanced under modern post-Dennard, sub-5nm scaling, and zero-trust security constraints."
+    },
+    {
       "id": "capability-based-security",
-      "title": "Capability-Based Security: From Obscurity to Necessity",
+      "title": "[Capability-Based Security](../GLOSSARY.md): From Obscurity to Necessity",
       "path": "synthesis/capability-based-security.md",
       "summary": "How an elegant but forgotten security model is quietly becoming one of the most relevant ideas for the AI and zero-trust era."
     },
@@ -2065,13 +2055,19 @@
       "id": "digital-archaeology-overview",
       "title": "Digital Archaeology: An Open-Source Research Framework and Simulation Suite for Sidelined Computing Paradigms",
       "path": "synthesis/digital-archaeology-overview.md",
-      "summary": "**An academic overview and citation reference for researchers, computer architects, and systems historians studying constraint migration, alternative execution models, and physical-security hardware revival.**"
+      "summary": "**An academic overview and citation reference for researchers, computer architects, and systems historians studying [constraint migration](../patterns/constraint-migration.md), alternative execution models, and physical-security hardware revival.**"
     },
     {
       "id": "evolution-of-coordination-abstractions",
       "title": "The Evolution of Coordination Abstractions: From Shared Memory to Decoupled Concurrency",
       "path": "synthesis/evolution-of-coordination-abstractions.md",
-      "summary": "How historical models of process communication—ranging from synchronous hardware channels to anonymous generative tuple spaces—are returning to solve modern cloud, multi-agent AI, and edge computing bottlenecks."
+      "summary": "How historical models of process communication—ranging from synchronous hardware channels to anonymous [generative tuple spaces](../GLOSSARY.md)—are returning to solve modern cloud, multi-agent AI, and edge computing bottlenecks."
+    },
+    {
+      "id": "heterogeneous-revival-synergies",
+      "title": "[Heterogeneous Revival](../patterns/heterogeneous-revival.md) Synergies",
+      "path": "synthesis/heterogeneous-revival-synergies.md",
+      "summary": "**A systematic analysis of pairwise and triple computing lineage integrations, demonstrating how hybrid co-design overcomes the physical, security, and data conversion boundaries of isolated non-von Neumann architectures.**"
     },
     {
       "id": "return-of-spatial-computing",
@@ -2083,7 +2079,7 @@
       "id": "state-of-revival",
       "title": "State of Revival: Architectural Synthesis of Sidelined Computing Lineages",
       "path": "synthesis/state-of-revival.md",
-      "summary": "**An analytical synthesis evaluating the intersection of constraint migration, silicon readiness, and AI/energy relevance across six historically sidelined architectural lineages, and outlining concrete experiments enabled by this repository.**"
+      "summary": "**An analytical synthesis evaluating the intersection of [constraint migration](../patterns/constraint-migration.md), silicon readiness, and AI/energy relevance across six historically sidelined architectural lineages, and outlining concrete experiments enabled by this repository.**"
     },
     {
       "id": "revival-readiness",
@@ -2204,6 +2200,734 @@
       "path": "reconstructions/co-simulation/",
       "entry_point": "reconstructions/co-simulation/experiments.py",
       "description": "Demonstration runner executing three concrete architectural experiments: cryogenic systolic array mapping, reversible storage loops uncomputation, and 9P sandboxed capabilities enforcement."
+    }
+  ],
+  "timelines": [
+    {
+      "category": "COMPUTING",
+      "time": "1936",
+      "sort_year": 1936,
+      "description": "Alan Turing publishes *On Computable Numbers*, establishing the mathematical bounds of sequential algorithms."
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1945",
+      "sort_year": 1945,
+      "description": "John von Neumann's *First Draft of a Report on the EDVAC* formalizes the sequential control-flow CPU/memory split, creating the \"[von Neumann bottleneck](GLOSSARY.md).\""
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1945",
+      "sort_year": 1945,
+      "description": "The ENIAC is completed, utilizing decimal (base-10) ring counters. Early hardware models explore alternative representation frameworks before binary standardizes."
+    },
+    {
+      "category": "AI",
+      "time": "1956",
+      "sort_year": 1956,
+      "description": "The Dartmouth Summer Research Project on Artificial Intelligence formalizes the field, driven by McCarthy, Minsky, Shannon, and Rochester."
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1956",
+      "sort_year": 1956,
+      "description": "Dudley Buck proposes the superconducting cryotron switch, launching cryogenic logic research. **Key excavation link**: [Superconducting & Cryogenic Microarchitectures](excavations/superconducting-cryogenic.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1956",
+      "sort_year": 1956,
+      "description": "Dudley Buck introduces the cryogenic **Cryotron** switch, demonstrating that superconductivity can perform digital logic and memory. **Key excavation link**: [Superconducting & Cryogenic Microarchitectures](excavations/superconducting-cryogenic.md)"
+    },
+    {
+      "category": "AI",
+      "time": "1958",
+      "sort_year": 1958,
+      "description": "John McCarthy develops Lisp, introducing dynamic list processing, symbolic manipulation, and automatic garbage collection. **Key excavation links**: [Symbolic AI](excavations/symbolic-ai.md) | [Lisp Machines](excavations/lisp-machines.md)"
+    },
+    {
+      "category": "AI",
+      "time": "1958",
+      "sort_year": 1958,
+      "description": "Frank Rosenblatt conceptualizes the Perceptron (first neural network model), triggering early interest in statistical classification."
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1958",
+      "sort_year": 1958,
+      "description": "Moscow State University builds **Setun**, operating on symmetric ternary logic ($+1, 0, -1$) for superior arithmetic density. **Key excavation link**: [Balanced Ternary](excavations/balanced-ternary.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1958",
+      "sort_year": 1958,
+      "description": "Moscow State University develops **Setun**, operating on symmetric ternary logic ($+1, 0, -1$) and proving that base-3 representation offers higher arithmetic density and simplified sign detection. **Key excavation link**: [Balanced Ternary](excavations/balanced-ternary.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1961",
+      "sort_year": 1961,
+      "description": "Burroughs launches the **B5000**, integrating a zero-operand hardware evaluation stack with [descriptor-based memory](GLOSSARY.md). **Key excavation links**: [Burroughs Large Systems](excavations/burroughs-large-systems.md) | [Stack Machines](excavations/stack-machines.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1961",
+      "sort_year": 1961,
+      "description": "Burroughs introduces the **B5000**, implementing a hardware-enforced evaluation stack and descriptor-based virtual memory. **Key excavation link**: [Burroughs Large Systems](excavations/burroughs-large-systems.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1961",
+      "sort_year": 1961,
+      "description": "Rolf Landauer derives the thermodynamic erasure limit ($E_{\\text{min}} = k_B T \\ln 2$), establishing the physical foundation for [reversible computing](excavations/reversible-computing.md). **Key excavation link**: [Reversible Computing](excavations/reversible-computing.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1964",
+      "sort_year": 1964,
+      "description": "The **[Multics](excavations/multics.md)** project begins, introducing dynamic segmentation, concentric ring-based hardware security, and single-level storage. **Key excavation link**: [Multics](excavations/multics.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1964",
+      "sort_year": 1964,
+      "description": "IBM introduces the **System/360**, establishing standard microcoded instruction set architectures (ISAs) and peripheral compatibility."
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1965",
+      "sort_year": 1965,
+      "description": "Ted Nelson conceptualizes **[Project Xanadu](excavations/project-xanadu.md)**, a [bi-directional hypermedia](GLOSSARY.md) network featuring deep versioning and micro-payments. **Key excavation link**: [Project Xanadu](excavations/project-xanadu.md)"
+    },
+    {
+      "category": "AI",
+      "time": "1967",
+      "sort_year": 1967,
+      "description": "B.R. Gaines proposes [stochastic computing](excavations/stochastic-computing.md), mapping continuous probabilities to random binary bitstreams for low-cost hardware arithmetic. **Key excavation link**: [Stochastic Computing](excavations/stochastic-computing.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1967",
+      "sort_year": 1967,
+      "description": "B.R. Gaines formalizes stochastic bitstream mathematics for low-cost probabilistic arithmetic. **Key excavation link**: [Stochastic Computing](excavations/stochastic-computing.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1967",
+      "sort_year": 1967,
+      "description": "B.R. Gaines introduces [stochastic computing](excavations/stochastic-computing.md), mapping continuous mathematical probabilities to random binary bitstreams to perform multiplication via a single 2-input AND gate. **Key excavation link**: [Stochastic Computing](excavations/stochastic-computing.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1971",
+      "sort_year": 1971,
+      "description": "Intel releases the **4004** microprocessor, consolidating CPU logic onto a single silicon die and starting the microprocessor era."
+    },
+    {
+      "category": "AI",
+      "time": "1972",
+      "sort_year": 1972,
+      "description": "Xerox PARC starts [Smalltalk](excavations/smalltalk.md) development, influencing interactive AI environments and object-oriented representation."
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1972",
+      "sort_year": 1972,
+      "description": "Plessey launches **System 250**, the first commercial multiprocessor operating system utilizing hardware-enforced capabilities. **Key excavation link**: [Capability Systems](excavations/capability-systems.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1972",
+      "sort_year": 1972,
+      "description": "Xerox PARC develops **[Smalltalk](excavations/smalltalk.md)-72** (later [Smalltalk](excavations/smalltalk.md)-80), pioneering dynamic image-based object-oriented environments and virtual machine bytecode. **Key excavation link**: [Smalltalk](excavations/smalltalk.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1972",
+      "sort_year": 1972,
+      "description": "Plessey launches **System 250**, featuring hardware-enforced capabilities to prevent memory-safety exploits at the register level. **Key excavation links**: [Capability Systems](excavations/capability-systems.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1973",
+      "sort_year": 1973,
+      "description": "Charles Bennett proves that reversible, non-dissipative thermodynamic computation is possible. **Key excavation link**: [Reversible Computing](excavations/reversible-computing.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1973",
+      "sort_year": 1973,
+      "description": "Charles Bennett proves that reversible, non-dissipative thermodynamic computation is possible. **Key excavation link**: [Reversible Computing](excavations/reversible-computing.md)"
+    },
+    {
+      "category": "AI",
+      "time": "1974",
+      "sort_year": 1974,
+      "description": "MIT AI Lab completes the first Lisp Machine prototype (CONS), bypassing general-purpose memory bottlenecks with a hardware-tagged architecture optimized for list pointers. **Key excavation link**: [Lisp Machines](excavations/lisp-machines.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1976",
+      "sort_year": 1976,
+      "description": "Seymour Cray introduces the **Cray-1**, pioneering pipelined vector register processing. **Key excavation link**: [Vector Supercomputing](excavations/vector-supercomputing.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1976",
+      "sort_year": 1976,
+      "description": "Seymour Cray introduces the **Cray-1**, utilizing highly pipelined vector register processors for dense scientific workloads. **Key excavation link**: [Vector Supercomputing](excavations/vector-supercomputing.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1978",
+      "sort_year": 1978,
+      "description": "H.T. Kung and Charles Leiserson formalize **[Systolic Arrays](excavations/systolic-arrays.md)** for synchronous, localized 2D pipeline data streaming. **Key excavation link**: [Systolic Arrays](excavations/systolic-arrays.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1978",
+      "sort_year": 1978,
+      "description": "H.T. Kung and Charles Leiserson formalize **[Systolic Arrays](excavations/systolic-arrays.md)** for synchronous, localized 2D pipeline data streaming. **Key excavation link**: [Systolic Arrays](excavations/systolic-arrays.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1981",
+      "sort_year": 1981,
+      "description": "Intel ships the **iAPX 432**, a microcoded 32-bit CPU implementing object-oriented capabilities directly in hardware. **Key excavation link**: [Intel iAPX 432](excavations/intel-iapx-432.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1981",
+      "sort_year": 1981,
+      "description": "Arthur John Codd and colleagues build the **Manchester Dataflow Computer**, proving the viability of [dynamic token-matching](GLOSSARY.md) execution. **Key excavation link**: [Dataflow Computing](excavations/dataflow-computing.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1981",
+      "sort_year": 1981,
+      "description": "Intel ships the **iAPX 432**, a microcoded 32-bit CPU implementing object-oriented capabilities directly in hardware. **Key excavation link**: [Intel iAPX 432](excavations/intel-iapx-432.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1981",
+      "sort_year": 1981,
+      "description": "The **Manchester Dataflow Computer** proves the viability of [dynamic token-matching](GLOSSARY.md) execution in hardware, bypassing sequential program counter control-flow. **Key excavation link**: [Dataflow Computing](excavations/dataflow-computing.md)"
+    },
+    {
+      "category": "AI",
+      "time": "1982",
+      "sort_year": 1982,
+      "description": "Japan launches the **Fifth Generation Computer Project**, aiming to build massively parallel Prolog-based machines for natural language and reasoning. **Key excavation links**: [Symbolic AI](excavations/symbolic-ai.md) | [Graph Reduction Machines](excavations/graph-reduction-machines.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1982",
+      "sort_year": 1982,
+      "description": "Symbolics launches the **3600 Lisp Machine**, offering a hardware-tagged dynamic object-oriented environment. **Key excavation link**: [Lisp Machines](excavations/lisp-machines.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1982",
+      "sort_year": 1982,
+      "description": "Symbolics launches the **3600 Lisp Machine**, offering hardware-tagged pointers and dynamic type-checking inside hardware registers. **Key excavation link**: [Lisp Machines](excavations/lisp-machines.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1983",
+      "sort_year": 1983,
+      "description": "Inmos introduces the **IMS T414 Transputer** and the concurrent language **[Occam](excavations/occam.md)**, establishing native channel-based CSP messaging in hardware. **Key excavation links**: [Transputers](excavations/transputers.md) | [Occam](excavations/occam.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1983",
+      "sort_year": 1983,
+      "description": "Inmos introduces the **IMS T414 Transputer** and the concurrent language **[Occam](excavations/occam.md)**, establishing native channel-based CSP messaging in hardware. **Key excavation links**: [Transputers](excavations/transputers.md) | [Occam](excavations/occam.md)"
+    },
+    {
+      "category": "AI",
+      "time": "1985",
+      "sort_year": 1985,
+      "description": "Danny Hillis develops the **[Connection Machine](excavations/connection-machine.md) CM-1**, a 65,536-processor hypercube SIMD array designed to accelerate semantic networks and [symbolic AI](excavations/symbolic-ai.md). **Key excavation link**: [Connection Machine](excavations/connection-machine.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1985",
+      "sort_year": 1985,
+      "description": "David Gelernter introduces **Linda**, a coordinate-free [generative communication](GLOSSARY.md) system using associative tuple matching. **Key excavation link**: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1985",
+      "sort_year": 1985,
+      "description": "Chuck Moore designs the **Novix NC4016**, a microprocessor executing Forth instructions directly in hardware. **Key excavation link**: [Stack Machines](excavations/stack-machines.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1985",
+      "sort_year": 1985,
+      "description": "Danny Hillis designs the **[Connection Machine](excavations/connection-machine.md) CM-1**, a massively parallel 65,536-processor bit-serial hypercube SIMD architecture. **Key excavation link**: [Connection Machine](excavations/connection-machine.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1985",
+      "sort_year": 1985,
+      "description": "Chuck Moore designs the **Novix NC4016**, a microprocessor executing Forth stack instructions directly in hardware. **Key excavation link**: [Stack Machines](excavations/stack-machines.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1985",
+      "sort_year": 1985,
+      "description": "Danny Hillis designs the **[Connection Machine](excavations/connection-machine.md) CM-1**, a massively parallel 65,536-processor bit-serial hypercube SIMD architecture. **Key excavation link**: [Connection Machine](excavations/connection-machine.md)"
+    },
+    {
+      "category": "AI",
+      "time": "1986",
+      "sort_year": 1986,
+      "description": "The Backpropagation algorithm is popularized by Rumelhart, Hinton, and Williams, igniting a connectionist neural network revival."
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1986",
+      "sort_year": 1986,
+      "description": "The **ALICE** graph-reduction machine executes declarative, functional languages natively via packet-switched transputer networks. **Key excavation link**: [Graph Reduction Machines](excavations/graph-reduction-machines.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1986",
+      "sort_year": 1986,
+      "description": "MIT's **CAM-6** cellular automata machine implements physical field simulations on a custom spatial board. **Key excavation link**: [Cellular Automata Hardware](excavations/cellular-automata-hardware.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1986",
+      "sort_year": 1986,
+      "description": "Bell Labs demonstrates early photonic logic gates. **Key excavation link**: [Optical Computing](excavations/optical-computing.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1986",
+      "sort_year": 1986,
+      "description": "The **ALICE** graph-reduction machine executes declarative, functional languages natively via packet-switched transputer networks. **Key excavation link**: [Graph Reduction Machines](excavations/graph-reduction-machines.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1986",
+      "sort_year": 1986,
+      "description": "MIT's **CAM-6** cellular automata machine implements physical field simulations on a custom spatial board. **Key excavation link**: [Cellular Automata Hardware](excavations/cellular-automata-hardware.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1986",
+      "sort_year": 1986,
+      "description": "Bell Labs demonstrates early photonic logic gates. **Key excavation link**: [Optical Computing](excavations/optical-computing.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1988",
+      "sort_year": 1988,
+      "description": "The MIT **J-Machine** implements fine-grained 3D routing for [active messages](GLOSSARY.md) and concurrent objects. **Key excavation link**: [The MIT J-Machine](excavations/j-machine.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1988",
+      "sort_year": 1988,
+      "description": "The MIT **J-Machine** implements fine-grained 3D routing for [active messages](GLOSSARY.md) and concurrent objects. **Key excavation link**: [The MIT J-Machine](excavations/j-machine.md)"
+    },
+    {
+      "category": "AI",
+      "time": "1989",
+      "sort_year": 1989,
+      "description": "Carver Mead designs early silicon neuromorphic chips using subthreshold analog transistor dynamics to model biological synapses. **Key excavation link**: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1989",
+      "sort_year": 1989,
+      "description": "Carver Mead publishes *Analog VLSI and Neural Systems*, establishing the physical foundation for silicon brain-inspired computing. **Key excavation link**: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1989",
+      "sort_year": 1989,
+      "description": "Carver Mead publishes *Analog VLSI and Neural Systems*, establishing the physical foundation for silicon brain-inspired computing. **Key excavation link**: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1992",
+      "sort_year": 1992,
+      "description": "Bell Labs begins distribution of **[Plan 9](excavations/plan-9.md)**, a distributed successor to Unix implementing private dynamic namespaces via the Styx/[9P protocol](GLOSSARY.md). **Key excavation link**: [Plan 9](excavations/plan-9.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1994",
+      "sort_year": 1994,
+      "description": "Leonard Adleman performs the first DNA-based molecular calculation. **Key excavation link**: [Molecular & Biocomputing](excavations/molecular-biocomputing.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1995",
+      "sort_year": 1995,
+      "description": "Be Inc. releases **BeOS**, a multi-threaded media-centric operating system optimized for responsive symmetrical multiprocessing. **Key excavation link**: [BeOS / Haiku](excavations/beos-haiku.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1995",
+      "sort_year": 1995,
+      "description": "Bell Labs introduces **[Inferno](excavations/inferno.md)**, a distributed VM-based OS featuring the Limbo language and Dis virtual machine. **Key excavation link**: [Inferno](excavations/inferno.md)"
+    },
+    {
+      "category": "AI",
+      "time": "1997",
+      "sort_year": 1997,
+      "description": "IBM's **Deep Blue** defeats Garry Kasparov, combining massively parallel alpha-beta search with a handcrafted evaluation function. **Key excavation link**: [Associative Processors](excavations/associative-processors.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "2001",
+      "sort_year": 2001,
+      "description": "Intel releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](excavations/vliw-epic.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "2001",
+      "sort_year": 2001,
+      "description": "Intel releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](excavations/vliw-epic.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "2003–2006",
+      "sort_year": 2003,
+      "description": "The DARPA-funded **TRIPS (EDGE)** processor demonstrates instruction-level spatial dataflow compilation and block-structured scheduling. **Key excavation link**: [Explicit Data Graph Execution (EDGE)](excavations/edge-architecture.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "2003–2006",
+      "sort_year": 2003,
+      "description": "The DARPA-funded **TRIPS (EDGE)** processor demonstrates instruction-level spatial dataflow compilation and block-structured scheduling. **Key excavation link**: [Explicit Data Graph Execution (EDGE)](excavations/edge-architecture.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "2004",
+      "sort_year": 2004,
+      "description": "Dennard scaling breaks down (the Power Wall), ending the era of single-thread frequency scaling and forcing the industry toward multi-core CPUs."
+    },
+    {
+      "category": "HARDWARE",
+      "time": "2004",
+      "sort_year": 2004,
+      "description": "Dennard scaling breaks down (the Power Wall), ending the era of single-thread frequency scaling and forcing the industry toward multi-core CPUs."
+    },
+    {
+      "category": "AI",
+      "time": "2012",
+      "sort_year": 2012,
+      "description": "**AlexNet** wins the ImageNet competition using a convolutional neural network accelerated on standard graphics GPUs, launching the modern Deep Learning era. **Key excavation link**: [Associative Processors](excavations/associative-processors.md)"
+    },
+    {
+      "category": "AI",
+      "time": "2014",
+      "sort_year": 2014,
+      "description": "IBM reveals **TrueNorth**, an asynchronous spiking neuromorphic processor with 1 million digital neurons. **Key excavation link**: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "2014",
+      "sort_year": 2014,
+      "description": "IBM reveals **TrueNorth**, a 1-million-neuron asynchronous spiking processor. **Key excavation link**: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "2014",
+      "sort_year": 2014,
+      "description": "IBM reveals **TrueNorth**, an asynchronous spiking neuromorphic processor with 1 million digital neurons. **Key excavation link**: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)"
+    },
+    {
+      "category": "AI",
+      "time": "2016",
+      "sort_year": 2016,
+      "description": "Google deploys the first **Tensor Processing Unit (TPU)**, resurrecting synchronous 2D [systolic array](GLOSSARY.md) meshes to perform matrix multiplications. **Key excavation link**: [Systolic Arrays](excavations/systolic-arrays.md)"
+    },
+    {
+      "category": "AI",
+      "time": "2017",
+      "sort_year": 2017,
+      "description": "The Transformer architecture is introduced, scaling to billions of parameters and demonstrating massive parallel training capability on GPU clusters."
+    },
+    {
+      "category": "COMPUTING",
+      "time": "2019",
+      "sort_year": 2019,
+      "description": "Cerebras launches the **Wafer-Scale Engine (WSE)**, bypassing package boundaries with a 400,000-core monolithic silicon wafer for AI workloads. **Key excavation link**: [Wafer-Scale Integration](excavations/wafer-scale-integration.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "2019",
+      "sort_year": 2019,
+      "description": "Cerebras launches the **Wafer-Scale Engine (WSE)**, bypassing package boundaries with a 400,000-core monolithic silicon wafer for AI workloads. **Key excavation link**: [Wafer-Scale Integration](excavations/wafer-scale-integration.md)"
+    },
+    {
+      "category": "AI",
+      "time": "1970s",
+      "sort_year": 9999,
+      "description": "Expert systems emerge (e.g., MYCIN, DENDRAL), proving that domain-specific reasoning rules can match human expertise but highlighting the \"knowledge acquisition bottleneck.\" **Key excavation link**: [Symbolic AI](excavations/symbolic-ai.md)"
+    },
+    {
+      "category": "AI",
+      "time": "1990s",
+      "sort_year": 9999,
+      "description": "The \"First AI Winter\" hits symbolic systems; specialized [Lisp Machines](excavations/lisp-machines.md) go out of business due to cheap commodity x86 chips. **Key excavation link**: [Lisp Machines](excavations/lisp-machines.md)"
+    },
+    {
+      "category": "AI",
+      "time": "2000s",
+      "sort_year": 9999,
+      "description": "Support Vector Machines (SVMs) and Bayesian networks dominate AI research; neural networks and symbolic logic are largely marginalized."
+    },
+    {
+      "category": "AI",
+      "time": "2020s",
+      "sort_year": 9999,
+      "description": "Large Language Models (LLMs) scale to trillions of parameters, demonstrating reasoning capabilities but suffering from hallucinations, lack of formal truth models, and extreme energy costs."
+    },
+    {
+      "category": "AI",
+      "time": "2020s",
+      "sort_year": 9999,
+      "description": "Active research shifts toward **neuro-symbolic integration**, combining deep learning's statistical power with deterministic symbolic reasoning and formal verification. **Key excavation link**: [Symbolic AI](excavations/symbolic-ai.md)"
+    },
+    {
+      "category": "AI",
+      "time": "2020s",
+      "sort_year": 9999,
+      "description": "Shifting physical limits force a migration toward continuous physical mediums for AI inference, including analog memristive crossbar arrays and photonic tensor processors. **Key excavation links**: [Analog Computing](excavations/analog-computing.md) | [Optical Computing](excavations/optical-computing.md)"
+    },
+    {
+      "category": "AI",
+      "time": "2020s",
+      "sort_year": 9999,
+      "description": "Exploration of synthetic biological circuits for low-power edge processing. **Key excavation link**: [Molecular & Biocomputing](excavations/molecular-biocomputing.md)"
+    },
+    {
+      "category": "AI",
+      "time": "Symbolic vs. Statistical Tension",
+      "sort_year": 9999,
+      "description": "Repeated cycles of dominance and integration. [Symbolic AI](excavations/symbolic-ai.md) (reasoning, logic, explicit structure) and statistical AI (learning from data, continuous vectors) periodically trade dominance, ultimately merging into neuro-symbolic hybrids."
+    },
+    {
+      "category": "AI",
+      "time": "Hardware Co-Evolution & Specialization",
+      "sort_year": 9999,
+      "description": "AI paradigms are severely constrained by hardware physical limits. [Lisp Machines](excavations/lisp-machines.md) (1980s pointers) → GPUs (vector math) → TPUs (systolic matrix meshes) → Neuromorphic/Analog (continuous in-situ physics)."
+    },
+    {
+      "category": "AI",
+      "time": "The Knowledge Bottleneck vs. Brute-Force Scaling",
+      "sort_year": 9999,
+      "description": "The trade-off between handcrafting explicit, verifiable logic rules and allowing neural networks to learn representations implicitly via brute-force parameters and compute."
+    },
+    {
+      "category": "AI",
+      "time": "Explainability and Deterministic Verification",
+      "sort_year": 9999,
+      "description": "The return of formal reasoning, rule engines, and symbolic safety guardrails after periods of black-box statistical dominance."
+    },
+    {
+      "category": "AI",
+      "time": "Spatial Computing (CMS: 5/5, AIS: 5/5)",
+      "sort_year": 9999,
+      "description": "Bypasses the memory wall by localizing matrix arithmetic on-chip ([systolic arrays](excavations/systolic-arrays.md))."
+    },
+    {
+      "category": "AI",
+      "time": "Neuromorphic & Stochastic (CMS: 5/5, AIS: 5/5)",
+      "sort_year": 9999,
+      "description": "Solves the power wall via sparse spiking and extremely simple AND-gate stochastic multipliers."
+    },
+    {
+      "category": "AI",
+      "time": "Continuous/Physical (CMS: 4/5, AIS: 5/5)",
+      "sort_year": 9999,
+      "description": "Utilizes analog memristor crossbars to calculate massive dot-products in a single step using Kirchhoff's laws."
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1940s–1950s",
+      "sort_year": 9999,
+      "description": "Vacuum tube analog computers perform real-time continuous differential equation solving. **Key excavation link**: [Analog Computing](excavations/analog-computing.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1990s",
+      "sort_year": 9999,
+      "description": "The ARM-based **AMULET** asynchronous microprocessor series demonstrates high-performance, clockless self-timed logic. **Key excavation link**: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1990s",
+      "sort_year": 9999,
+      "description": "Proliferation of compile-time explicit instruction scheduling. **Key excavation link**: [VLIW / EPIC Architectures](excavations/vliw-epic.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1990s",
+      "sort_year": 9999,
+      "description": "Early wafer-level packaging experiments fail commercially due to silicon defect rates. **Key excavation link**: [Wafer-Scale Integration](excavations/wafer-scale-integration.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "Late 2000s",
+      "sort_year": 9999,
+      "description": "The GPU revolution begins, repurposing 3D graphics hardware for massively parallel vector math. **Key excavation link**: [Associative Processors](excavations/associative-processors.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "2020s",
+      "sort_year": 9999,
+      "description": "AI hardware developers resurrect **[Systolic Arrays](excavations/systolic-arrays.md)** (Google TPUs), **[Stochastic Computing](excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors)."
+    },
+    {
+      "category": "COMPUTING",
+      "time": "2020s",
+      "sort_year": 9999,
+      "description": "Proliferation of heterogeneous coprocessors as general-purpose Moore's Law slows down."
+    },
+    {
+      "category": "COMPUTING",
+      "time": "[Constraint Migration](../patterns/constraint-migration.md) Status (CMS)",
+      "sort_year": 9999,
+      "description": "Have physical or software limits pivoted in the lineage's favor?"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "Silicon Readiness (SR)",
+      "sort_year": 9999,
+      "description": "Can modern fabrication nodes and packaging support implementation?"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "Software Ecosystem Friction (SEF)",
+      "sort_year": 9999,
+      "description": "Can modern compilers (e.g., MLIR) hide historical routing complexities?"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "Energy Advantage (EA)",
+      "sort_year": 9999,
+      "description": "Does the lineage bypass the clock-tree and data-movement energy penalties?"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "AI Synergy (AIS)",
+      "sort_year": 9999,
+      "description": "Does the physical architecture map directly to linear algebra or inference tasks?"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1940s–1950s",
+      "sort_year": 9999,
+      "description": "Vacuum-tube analog differential analyzers solve dynamic equations in continuous time. **Key excavation link**: [Analog Computing](excavations/analog-computing.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1980s",
+      "sort_year": 9999,
+      "description": "Attempts at integrating entire systems on single wafers fail commercially due to high defect rates and poor yields. **Key excavation link**: [Wafer-Scale Integration](excavations/wafer-scale-integration.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1990s",
+      "sort_year": 9999,
+      "description": "The ARM-based **AMULET** asynchronous microprocessor series demonstrates high-performance, clockless self-timed logic. **Key excavation link**: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1990s",
+      "sort_year": 9999,
+      "description": "Proliferation of compile-time explicit instruction scheduling. **Key excavation link**: [VLIW / EPIC Architectures](excavations/vliw-epic.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "Late 2000s",
+      "sort_year": 9999,
+      "description": "The GPGPU revolution begins, repurposing 3D graphics hardware for massively parallel vector math. **Key excavation link**: [Associative Processors](excavations/associative-processors.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "2020s",
+      "sort_year": 9999,
+      "description": "AI hardware developers resurrect **[Systolic Arrays](excavations/systolic-arrays.md)** (Google TPUs), **[Stochastic Computing](excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors)."
+    },
+    {
+      "category": "HARDWARE",
+      "time": "2020s",
+      "sort_year": 9999,
+      "description": "Exploration of synthetic biological circuits for low-power edge processing. **Key excavation link**: [Molecular & Biocomputing](excavations/molecular-biocomputing.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "2020s",
+      "sort_year": 9999,
+      "description": "Proliferation of heterogeneous coprocessors as general-purpose Moore's Law slows down."
+    },
+    {
+      "category": "HARDWARE",
+      "time": "Alternative Number Systems",
+      "sort_year": 9999,
+      "description": "Bypassing binary limits via symmetric ternary logics, logarithmic representations, or high-density posit formats. **Key excavation link**: [Balanced Ternary](excavations/balanced-ternary.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "Dataflow and Spatial Computing",
+      "sort_year": 9999,
+      "description": "Localizing register-to-register data movement on 2D processor grids, bypassing central register file congestion. **Key excavation links**: [Dataflow Computing](excavations/dataflow-computing.md) | [Systolic Arrays](excavations/systolic-arrays.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "Message-Passing & Network-on-Chip",
+      "sort_year": 9999,
+      "description": "Eliminating global bus bottlenecks via on-chip point-to-point packet routing. **Key excavation links**: [Transputers](excavations/transputers.md) | [The MIT J-Machine](excavations/j-machine.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "Tagged/Capability Architectures",
+      "sort_year": 9999,
+      "description": "Enforcing fine-grained memory safety at the logic-gate level to secure hardware. **Key excavation link**: [Capability Systems](excavations/capability-systems.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "Analog & Continuous Physical Computing",
+      "sort_year": 9999,
+      "description": "Utilizing Kirchhoff's laws and photonic wave interference to compute \"for free\" in continuous time. **Key excavation links**: [Analog Computing](excavations/analog-computing.md) | [Optical Computing](excavations/optical-computing.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "[Constraint Migration](../patterns/constraint-migration.md) Status (CMS)",
+      "sort_year": 9999,
+      "description": "Have physical or software limits pivoted in the lineage's favor?"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "Silicon Readiness (SR)",
+      "sort_year": 9999,
+      "description": "Can modern fabrication nodes and packaging (e.g., chiplets) support physical implementation?"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "Software Ecosystem Friction (SEF)",
+      "sort_year": 9999,
+      "description": "Can compiler advancements (e.g., MLIR) bypass the historical code-generation walls?"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "Energy Advantage (EA)",
+      "sort_year": 9999,
+      "description": "Does the physical medium bypass the capacitive charging energy penalty ($CV^2f$)?"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "AI Synergy (AIS)",
+      "sort_year": 9999,
+      "description": "Does the hardware structure map directly to dense matrix algebra or sparse SNN spiking?"
     }
   ]
 }

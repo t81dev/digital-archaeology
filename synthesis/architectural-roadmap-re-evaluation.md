@@ -18,7 +18,7 @@ Recovering and re-evaluating historically sidelined architectures (such as spati
 
 ### Phase I — Core Excavations (Historical Deep Dives)
 
-*   **What Exists**: 35 deep-dive excavations spanning Stack Machines, Balanced Ternary, Cellular Automata, Transputers, Lisp Machines, and Capability Systems, rated via a rigorous six-factor scorecard.
+*   **What Exists**: 35 deep-dive excavations spanning [Stack Machines](../excavations/stack-machines.md), [Balanced Ternary](../excavations/balanced-ternary.md), Cellular Automata, [Transputers](../excavations/transputers.md), [Lisp Machines](../excavations/lisp-machines.md), and [Capability Systems](../excavations/capability-systems.md), rated via a rigorous six-factor scorecard.
 *   **Potential Expansions & Improvements**:
     *   **Quantified Energy/Area Projections**: Expand each excavation's "Modern Relevance" with an estimated Gate-Equivalent (GE) count or normalized Energy-per-Op (fJ) scaling curve comparing the historic design to its modern sub-5nm CMOS equivalent.
     *   **Archival/Patent Deep Linking**: Direct embedding of standardized patent identifiers (e.g., USPTO numbers for the J-Machine routing chip) and oral history URLs (such as the Charles Babbage Institute archives) at the end of each excavation to elevate academic credibility.
@@ -28,17 +28,17 @@ Recovering and re-evaluating historically sidelined architectures (such as spati
 
 ### Phase II — Comparative Analysis & Synthesis (Enduring Patterns)
 
-*   **What Exists**: Synthesis essays and engineering pattern documents (e.g., Constraint Migration, Heterogeneous Revival, Ecosystem Lock-In) mapping the structural reasons behind architectural failures.
+*   **What Exists**: Synthesis essays and engineering pattern documents (e.g., [Constraint Migration](../patterns/constraint-migration.md), [Heterogeneous Revival](../patterns/heterogeneous-revival.md), [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)) mapping the structural reasons behind architectural failures.
 *   **Potential Expansions & Improvements**:
-    *   **Cross-Lineage Convergence Matrix**: Add a pairwise and triple interaction index directly into `synthesis/state-of-revival.md` to formalize how these sidelined ideas interact. For example: *How does combining spatial computing (Systolic Arrays) with hardware capabilities (CHERI) impact compiler optimization loops and register renaming pressure?*
-    *   **Quantitative Constraint Migration Curves**: Plot mathematical curves showing the exact crossover points where physical bottlenecks (e.g., copper interconnect resistance scaling at $<3\text{nm}$) make a historical paradigm (e.g., Optical matrix-vector multipliers) economically and thermally superior to general-purpose CMOS arithmetic logic.
+    *   **Cross-Lineage Convergence Matrix**: Add a pairwise and triple interaction index directly into `synthesis/state-of-revival.md` to formalize how these sidelined ideas interact. For example: *How does combining spatial computing ([Systolic Arrays](../excavations/systolic-arrays.md)) with hardware capabilities (CHERI) impact compiler optimization loops and register renaming pressure?*
+    *   **Quantitative [Constraint Migration](../patterns/constraint-migration.md) Curves**: Plot mathematical curves showing the exact crossover points where physical bottlenecks (e.g., copper interconnect resistance scaling at $<3\text{nm}$) make a historical paradigm (e.g., Optical matrix-vector multipliers) economically and thermally superior to general-purpose CMOS arithmetic logic.
 *   **Architectural Analysis**: Pairwise and triple synergies define the ultimate Pareto frontier for next-generation systems. Combining spatial routing with hardware-enforced memory safety limits ensures that high-throughput tensor calculations do not leak private weights during multi-tenant execution.
 
 ---
 
 ### Phase III — Modern Reconstruction & Prototyping (Functional Simulators)
 
-*   **What Exists**: 4 initial zero-dependency interactive simulators written in clean, behavioral Python: Balanced Ternary arithmetic, Tagged-Token Dataflow, Capability Protection, and Neuro-Symbolic Logic.
+*   **What Exists**: 4 initial zero-dependency interactive simulators written in clean, behavioral Python: [Balanced Ternary](../excavations/balanced-ternary.md) arithmetic, Tagged-Token Dataflow, Capability Protection, and Neuro-Symbolic Logic.
 *   **Potential Expansions & Improvements**:
     *   **Trace-Driven Replay Engines**: Expand the simulators to read standard execution traces (such as RISC-V ELF execution traces or tensor operations from PyTorch graphs) and replay them step-by-step to demonstrate functional divergence in real-time.
     *   **Micro-Architectural Pipeline Visualizers**: Add internal cycle-accurate structures, such as a simulated instruction window or register-reservation table, directly exposing resource contention and queue depths in the Python terminal output.
@@ -58,7 +58,7 @@ Recovering and re-evaluating historically sidelined architectures (such as spati
 
 ### Phase V — Interactive Dissemination & Executable Artifact Expansion (D3 Explorer & Simulators)
 
-*   **What Exists**: A client-side visualizer (`explorer.html`), automated site builds via MkDocs Material, and three next-gen Python simulators (CSP Messaging, Continuous Analog/Optical, and Stochastic Computing).
+*   **What Exists**: A client-side visualizer (`explorer.html`), automated site builds via MkDocs Material, and three next-gen Python simulators (CSP Messaging, Continuous Analog/Optical, and [Stochastic Computing](../excavations/stochastic-computing.md)).
 *   **Potential Expansions & Improvements**:
     *   **Pyodide Shared Memory Buffers**: Optimize the Python-to-JavaScript data transfer inside `playground.html`. Instead of serializing large simulation logs as JSON strings, utilize `SharedArrayBuffer` for direct zero-copy binary state sharing between the WebAssembly runtime and the UI rendering loop.
     *   **Optical Core Noise Modeling**: Add physical noise artifacts (e.g., shot noise, thermal carrier dispersion, phase jitter) to the Photonic/Analog wave accelerator simulator to illustrate how analog computation trades numerical precision for sub-nanosecond latency.
@@ -128,7 +128,7 @@ Recovering and re-evaluating historically sidelined architectures (such as spati
 
 ### Phase XII — Distributed WebAssembly Co-Simulation Grid & P2P Research Nodes (WebRTC Cluster)
 
-*   **What Exists**: Standardized JSON message schemas, automated local loopback tab discovery via browser `BroadcastChannel` signaling, manual SDP text block exchange, latency RTT checks, and neuromorphic-to-CSP/Tuple Space Pyodide injection.
+*   **What Exists**: Standardized JSON message schemas, automated local loopback tab discovery via browser `BroadcastChannel` signaling, manual SDP text block exchange, latency RTT checks, and neuromorphic-to-CSP/[Tuple Space](../GLOSSARY.md) Pyodide injection.
 *   **Potential Expansions & Improvements**:
     *   **Automated Public Signaling Server**: To make cross-device WAN clustering zero-configuration, deploy a public, open-source signaling server (using secure WebSockets) to broker WebRTC offers and answers automatically without manual copy-paste of SDP strings.
     *   **Distributed Workload Partitioning**: Build a concrete decentralized benchmark where parameters from the Predictive Hypothesis Engine are split across 3 distinct browser nodes (e.g., Node A calculates interconnect bottlenecks, Node B evaluates memory walls, Node C runs thermodynamic limits) and the final comparative scorecard is unified over WebRTC.

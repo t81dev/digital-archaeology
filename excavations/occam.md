@@ -45,7 +45,7 @@ The compiler and runtime mapped directly onto Transputer hardware features, such
 ## Why It Didn’t Win
 
 - **Hardware dependence** — Strongly tied to the Transputer’s fate.
-- **Ecosystem lock-in** — Developers overwhelmingly preferred C and Fortran with emerging libraries (e.g., MPI).
+- **[Ecosystem lock-in](../patterns/ecosystem-lockin.md)** — Developers overwhelmingly preferred C and Fortran with emerging libraries (e.g., MPI).
 - **Learning curve** — The explicit concurrency model felt unfamiliar compared to sequential imperative languages.
 - **Timing** — Arrived just as commodity microprocessors and Ethernet clusters became dominant.
 - **Limited portability** — Early implementations were Transputer-centric.

@@ -35,9 +35,9 @@ These patterns help transform isolated historical case studies into a coherent f
 
 ## Key Insights from Recent Excavations
 
-- **Spatial & Data-Parallel Thinking** (Systolic Arrays, Vector Supercomputing, Connection Machine) continues to recur in AI accelerators. See [Heterogeneous Revival](heterogeneous-revival.md).
-- **High-Level Hardware Integration** (Burroughs, Lisp Machines, iAPX 432) shows the tension between safety/abstraction and raw performance.
-- **Capability & Protection Models** (Burroughs descriptors, Multics, Capability Systems) remain highly relevant to modern security needs. See [Constraint Migration](constraint-migration.md).
+- **Spatial & Data-Parallel Thinking** ([Systolic Arrays](../excavations/systolic-arrays.md), [Vector Supercomputing](../excavations/vector-supercomputing.md), [Connection Machine](../excavations/connection-machine.md)) continues to recur in AI accelerators. See [Heterogeneous Revival](heterogeneous-revival.md).
+- **High-Level Hardware Integration** (Burroughs, [Lisp Machines](../excavations/lisp-machines.md), iAPX 432) shows the tension between safety/abstraction and raw performance.
+- **Capability & Protection Models** (Burroughs descriptors, [Multics](../excavations/multics.md), [Capability Systems](../excavations/capability-systems.md)) remain highly relevant to modern security needs. See [Constraint Migration](constraint-migration.md).
 - Many failures were **not technical** but economic/ecosystem-driven, reinforcing our core patterns of [Economic Failures](economic-failures.md) and [Ecosystem Lock-In](ecosystem-lockin.md).
 
 ---

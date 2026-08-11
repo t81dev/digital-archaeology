@@ -96,7 +96,7 @@ Commercially, the Connection Machine was a magnificent failure. The company pivo
 ### Modern Evaluation
 While the business failed, the core architectural paradigms of the Connection Machine are highly active today:
 - **GPUs and GPGPU (SIMT)**: Modern GPU streaming multiprocessors (SMs) execute instructions in a highly data-parallel SIMD/SIMT (Single Instruction, Multiple Threads) fashion. A modern NVIDIA GPU contains tens of thousands of active execution threads executing the same kernel over distinct data—a direct realization of Hillis's data-parallel model.
-- **Wafer-Scale Integration**: The high-density spatial grids of the CM prefigured ultra-dense accelerators like the Cerebras Wafer-Scale Engine, which routes data across thousands of small integrated cores.
+- **[Wafer-Scale Integration](wafer-scale-integration.md)**: The high-density spatial grids of the CM prefigured ultra-dense accelerators like the Cerebras Wafer-Scale Engine, which routes data across thousands of small integrated cores.
 - **Graph Processing Engines**: Hillis's original goal of using the CM to navigate complex semantic networks in physical hardware is reflected in today's distributed graph databases and graph neural network (GNN) engines.
 
 ---
@@ -127,7 +127,7 @@ While the business failed, the core architectural paradigms of the Connection Ma
 | Technical Innovation | ★★★★★ | Groundbreaking 12D hypercube router and dynamic virtual processing logic. |
 | Commercial Success | ★★☆☆☆ | Extremely high cost and limited applicability drove TMC into bankruptcy. |
 | Modern Potential | ★★★★☆ | Direct ideological predecessor to modern GPUs, SIMD/SIMT models, and wafer-scale hardware. |
-| AI Synergy | ★★★★☆ | Originally targeted at Symbolic AI and neural networks; conceptually maps perfectly to modern LLM execution. |
+| AI Synergy | ★★★★☆ | Originally targeted at [Symbolic AI](symbolic-ai.md) and neural networks; conceptually maps perfectly to modern LLM execution. |
 | Difficulty to Recreate | ★★★★★ | Recreating the massive 12-dimensional packet-routing network and its synchronization overhead is a monumental task. |
 
 ---

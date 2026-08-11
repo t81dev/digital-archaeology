@@ -24,7 +24,7 @@ Modern software security is dominated by memory safety vulnerabilities (such as 
 ### Formal Verification & Microkernels
 * **Contemporary Lead:** Trustworthy Systems Research Group (UNSW / seL4 Foundation).
 * **Core Connection:** Translates the secure design patterns of [Multics](../excavations/multics.md) and [Inferno](../excavations/inferno.md) into mathematical proofs.
-* **Research Focus:** Using interactive theorem provers (like Isabelle/HOL) to formally verify the seL4 microkernel's capability-based access control. This realizes the "security kernel" vision first articulated by Multics researchers in the 1970s.
+* **Research Focus:** Using interactive theorem provers (like Isabelle/HOL) to formally verify the seL4 microkernel's capability-based access control. This realizes the "security kernel" vision first articulated by [Multics](../excavations/multics.md) researchers in the 1970s.
 
 ---
 
@@ -76,7 +76,7 @@ The following matrix maps Digital Archaeology excavations to modern research tra
 To bridge the gap between historical digital archaeology and modern hardware engineering, we propose three collaborative initiatives:
 
 1. **Academic Soft-Core Repositories:** Package our interactive simulators and conceptual reconstructions into synthesizable SystemVerilog/Chisel IP cores and make them available to academic Chipyard users.
-2. **Tiny Tapeout Submissions:** Leverage Google's Tiny Tapeout program to fabricate physical prototypes of our synthesizable 3-trit Balanced Ternary ALU core and the inline RAM capability bounds checker.
+2. **Tiny Tapeout Submissions:** Leverage Google's Tiny Tapeout program to fabricate physical prototypes of our synthesizable 3-trit [Balanced Ternary](../excavations/balanced-ternary.md) ALU core and the inline RAM capability bounds checker.
 3. **Formal Verification Case Studies:** Partner with formal verification researchers to apply automated theorem proving to our [CSP messaging](../reconstructions/csp-messaging/README.md) and dataflow models, establishing rigorous safety standards for clean-slate systems.
 
 ---
@@ -88,9 +88,9 @@ To bridge the gap between historical digital archaeology and modern hardware eng
 - [Balanced Ternary](../excavations/balanced-ternary.md)
 
 ## Related Patterns
-- Constraint Migration
-- Heterogeneous Revival
-- Forgotten Abstractions
+- [Constraint Migration](../patterns/constraint-migration.md)
+- [Heterogeneous Revival](../patterns/heterogeneous-revival.md)
+- [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
 
 ---
 

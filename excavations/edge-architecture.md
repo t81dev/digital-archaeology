@@ -136,7 +136,7 @@ While TRIPS did not succeed as a general-purpose processor, its core principles 
 ## Related Technologies
 
 * **[Dataflow Computing](dataflow-computing.md):** The structural ancestor of EDGE. While traditional dataflow used tagged tokens on an associative hardware bus, EDGE optimized this model by placing dataflow within bounded, static compile blocks.
-* **[Systolic Arrays](systolic-arrays.md):** Shares the focus on spatial, rhythmic data routing, though systolic arrays are homogeneous and rigid, whereas EDGE grids execute irregular instruction graphs.
+* **[Systolic Arrays](systolic-arrays.md):** Shares the focus on spatial, rhythmic data routing, though [systolic arrays](systolic-arrays.md) are homogeneous and rigid, whereas EDGE grids execute irregular instruction graphs.
 * **[VLIW / EPIC Architectures](vliw-epic.md):** Shares the philosophy of shifting instruction scheduling overhead from hardware control logic to the compiler.
 
 ---

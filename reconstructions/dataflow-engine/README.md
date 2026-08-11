@@ -1,4 +1,4 @@
-# Dynamic Token-Matching Dataflow Engine
+# [Dynamic Token-Matching](../../GLOSSARY.md) Dataflow Engine
 
 > *An executable model of a non-von Neumann dataflow execution processor with dynamic token-tag matching.*
 
@@ -6,9 +6,9 @@
 
 ## Background
 
-In the traditional **von Neumann architecture**, execution is guided by a **Program Counter (PC)**, which sequentially fetches and executes instructions. This model enforces a strict, serialized ordering of operations, introducing major hardware bottlenecks (the "von Neumann bottleneck" and "memory wall") when scaling to massively parallel workloads.
+In the traditional **von Neumann architecture**, execution is guided by a **Program Counter (PC)**, which sequentially fetches and executes instructions. This model enforces a strict, serialized ordering of operations, introducing major hardware bottlenecks (the "[von Neumann bottleneck](../../GLOSSARY.md)" and "memory wall") when scaling to massively parallel workloads.
 
-**Dataflow Computing** abandons the Program Counter entirely. Instead of fetching instructions, execution is entirely **data-driven**. An instruction (or "node" in a dataflow graph) is triggered and executed automatically as soon as all its input operands (represented as "tokens") become available.
+**[Dataflow Computing](../../excavations/dataflow-computing.md)** abandons the Program Counter entirely. Instead of fetching instructions, execution is entirely **data-driven**. An instruction (or "node" in a dataflow graph) is triggered and executed automatically as soon as all its input operands (represented as "tokens") become available.
 
 ### Dynamic Tagged-Token Dataflow
 
@@ -26,7 +26,7 @@ arrive at the left and right inputs of the node.
 
 ## Features of This Simulator
 
-This simulator implements a dynamic token-matching execution engine:
+This simulator implements a [dynamic token-matching](../../GLOSSARY.md) execution engine:
 1. **Dynamic Token Queue**: Houses active tokens waiting to be processed or matched.
 2. **Token Matcher**: A hardware-like memory unit that matches left and right tokens by destination `node_id` and context `tag`.
 3. **Instruction Set**: Includes operators:

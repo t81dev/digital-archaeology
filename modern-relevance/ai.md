@@ -41,13 +41,13 @@ Securely hosting multi-tenant LLM weights and protecting fine-tuning parameters 
 Silicon Photonics and Analog In-Memory Computing (AIMC) bypass copper interconnect losses and the Memory Wall entirely. Our [Analog Optical Wave Accelerator](../reconstructions/analog-optical/) models physical op-amps and coherent Mach-Zehnder Interferometers (MZI) to compute matrix-vector products at propagation speeds. Reversible/adiabatic uncomputation also holds massive thermodynamic benefits for cryogenic memory banks.
 
 ### Distributed & Single-Level-Store OS Lineage
-Autonomous AI agent swarms suffer from fragile REST/gRPC serialization and coordination overhead. Our [9P Namespace Simulator](../reconstructions/plan9-9p/) and [Linda Tuple Space Simulator](../reconstructions/tuple-space/) demonstrate network-transparent dynamic union mounts and coordinate-free generative communication, creating robust, secure, and decoupled sandboxes for agent collaboration.
+Autonomous AI agent swarms suffer from fragile REST/gRPC serialization and coordination overhead. Our [9P Namespace Simulator](../reconstructions/plan9-9p/) and [Linda Tuple Space Simulator](../reconstructions/tuple-space/) demonstrate network-transparent dynamic union mounts and coordinate-free [generative communication](../GLOSSARY.md), creating robust, secure, and decoupled sandboxes for agent collaboration.
 
 ---
 
 ## Emerging Opportunities
 
-- **Alternative number systems** — Posits, logarithmic number systems, balanced ternary, and stochastic computing for more efficient low-precision AI.
+- **Alternative number systems** — Posits, logarithmic number systems, [balanced ternary](../excavations/balanced-ternary.md), and [stochastic computing](../excavations/stochastic-computing.md) for more efficient low-precision AI.
 - **Neuromorphic & event-based systems** — Dataflow and asynchronous designs that align with spiking neural networks.
 - **Symbolic & hybrid architectures** — Hardware support for fast inference over knowledge graphs and logical reasoning, modeled in our [Neuro-Symbolic Logic Inference Solver](../reconstructions/neuro-symbolic/).
 - **Reconfigurable computing** — FPGAs and CGRA for rapid experimentation with exotic architectures tailored to new AI paradigms.
@@ -59,7 +59,7 @@ Autonomous AI agent swarms suffer from fragile REST/gRPC serialization and coord
 
 1. **History is worth revisiting** — Many “failed” ideas were limited by economics and technology of their time, not fundamental flaws.
 2. **Specialization wins in AI** — The high value of AI capabilities justifies domain-specific architectures more than general-purpose computing ever did.
-3. **Software-hardware co-design** — Deep integration (as seen in Lisp Machines and Transputers) can yield massive productivity and efficiency gains.
+3. **Software-hardware co-design** — Deep integration (as seen in [Lisp Machines](../excavations/lisp-machines.md) and [Transputers](../excavations/transputers.md)) can yield massive productivity and efficiency gains.
 4. **Communication and data movement** — Often more important than raw arithmetic throughput.
 5. **Diversity of representations** — Binary is not sacred. AI may drive wider exploration of number systems and execution models.
 
@@ -84,15 +84,15 @@ Autonomous AI agent swarms suffer from fragile REST/gRPC serialization and coord
 - [State of Revival: Architectural Synthesis](../synthesis/state-of-revival.md)
 
 ## Related Patterns
-- Forgotten Abstractions
-- Recurring Ideas
-- Economic Failures
-- Ecosystem Lock-In
+- [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
+- [Recurring Ideas](../patterns/recurring-ideas.md)
+- [Economic Failures](../patterns/economic-failures.md)
+- [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)
 
 ---
 
 ## References
 - Surveys on alternative number systems in AI hardware (Posits, ternary, logarithmic).
-- Papers on neuro-symbolic AI and hybrid architectures.
+- Papers on neuro-[symbolic AI](../excavations/symbolic-ai.md) and hybrid architectures.
 - Documentation from modern AI accelerators (TPU, IPU, Groq, etc.).
 - Historical comparisons between dataflow machines and contemporary graph execution engines.

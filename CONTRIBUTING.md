@@ -114,21 +114,21 @@ Cite primary sources, including books, papers, patents, manuals, archives, and o
 
 When submitting a new excavation, classify it under one or more of these conceptual categories (rather than just chronological periods):
 
-* **Architectures**: Stack machines, dataflow, vector, spatial, cellular automata, non-von Neumann.
+* **Architectures**: [Stack machines](excavations/stack-machines.md), dataflow, vector, spatial, cellular automata, non-von Neumann.
 * **Operating Systems**: Capability-based, single-level stores, distributed resources, message-passing microkernels.
-* **Programming Languages & Runtimes**: Actor model, concurrent (CSP), image-based, pure object-oriented, symbolic.
+* **Programming Languages & Runtimes**: [Actor model](GLOSSARY.md), concurrent (CSP), image-based, pure object-oriented, symbolic.
 * **AI & Symbolic Computing**: Knowledge representation, logic programming, inference hardware, expert systems.
-* **Hardware & Physics**: Analog, balanced ternary, reversible logic, cryogenic/superconducting, optical, wafer-scale integration, bio/molecular.
+* **Hardware & Physics**: Analog, [balanced ternary](excavations/balanced-ternary.md), reversible logic, cryogenic/superconducting, optical, [wafer-scale integration](excavations/wafer-scale-integration.md), bio/molecular.
 * **Mathematics & Arithmetic**: Alternative number systems, mixed-radix representations, logarithmic formats, posits.
-* **Security & Memory Safety**: Object-capabilities, tagged memory, capability registers, formal verification.
-* **HCI & Networking**: Bi-directional hypermedia, zoomable interfaces, distributed resource sharing protocols.
+* **Security & Memory Safety**: Object-capabilities, [tagged memory](GLOSSARY.md), capability registers, formal verification.
+* **HCI & Networking**: [Bi-directional hypermedia](GLOSSARY.md), zoomable interfaces, distributed resource sharing protocols.
 
 ---
 
 ## Contributing to Patterns & Syntheses
 
 * **Patterns** (`patterns/`): If you find a recurring dynamic across three or more excavations, propose it as a pattern. Draft a file explaining the pattern's characteristics, historical case studies, and modern implications.
-* **Syntheses** (`synthesis/`): For multi-disciplinary themes or deep architectural trends (like the return of spatial computing or compiler-hardware co-design), write a synthesis essay comparing different technical lineages and evaluating their hybrid future.
+* **Syntheses** (`synthesis/`): For multi-disciplinary themes or deep architectural trends (like [the return of spatial computing](synthesis/return-of-spatial-computing.md) or compiler-hardware co-design), write a synthesis essay comparing different technical lineages and evaluating their hybrid future.
 
 ---
 

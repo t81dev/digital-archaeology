@@ -102,6 +102,9 @@
                 </span>
                 <span id="loaded-database-text">Database Loaded: -- Excavations</span>
             </div>
+            <button id="toggle-view-btn" onclick="toggleView()" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 bg-slate-800 hover:bg-slate-700 border border-gray-700 rounded-lg transition-colors">
+                <i data-lucide="calendar" class="w-3.5 h-3.5"></i> <span id="toggle-view-btn-text">Timeline View</span>
+            </button>
             <button onclick="resetVisualization()" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 bg-slate-800 hover:bg-slate-700 border border-gray-700 rounded-lg transition-colors">
                 <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Reset Layout
             </button>
@@ -231,6 +234,32 @@
             <!-- SVG Container for D3 -->
             <div id="graph-container" class="w-full flex-1 relative overflow-hidden select-none">
                 <svg id="visualizer-svg" class="w-full h-full"></svg>
+            </div>
+
+            <!-- Timeline Scrubber Container -->
+            <div id="timeline-view-container" class="hidden absolute inset-0 bg-[#090d16] z-10 flex flex-col overflow-hidden">
+                <!-- Controls Bar -->
+                <div class="p-4 border-b border-gray-800 bg-slate-900/80 backdrop-blur flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shrink-0">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Lineage Filters:</span>
+                        <div class="flex gap-1.5">
+                            <button id="filter-all-btn" onclick="filterTimelineCategory('ALL')" class="px-2.5 py-1 rounded text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">ALL</button>
+                            <button id="filter-computing-btn" onclick="filterTimelineCategory('COMPUTING')" class="px-2.5 py-1 rounded text-xs font-semibold bg-slate-800 text-gray-400 hover:bg-slate-700 border border-transparent">COMPUTING</button>
+                            <button id="filter-ai-btn" onclick="filterTimelineCategory('AI')" class="px-2.5 py-1 rounded text-xs font-semibold bg-slate-800 text-gray-400 hover:bg-slate-700 border border-transparent">AI</button>
+                            <button id="filter-hardware-btn" onclick="filterTimelineCategory('HARDWARE')" class="px-2.5 py-1 rounded text-xs font-semibold bg-slate-800 text-gray-400 hover:bg-slate-700 border border-transparent">HARDWARE</button>
+                        </div>
+                    </div>
+                    <!-- Year Range Slider -->
+                    <div class="flex items-center space-x-3 flex-1 max-w-md w-full">
+                        <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Scrub Era:</span>
+                        <span id="timeline-slider-year" class="text-xs font-bold text-emerald-400 font-mono w-16 shrink-0 text-center bg-slate-950 px-2 py-0.5 rounded border border-gray-800">All Eras</span>
+                        <input type="range" id="timeline-scrubber" min="1930" max="2030" step="10" value="2030" oninput="handleTimelineScrub(this.value)" class="flex-1 h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                    </div>
+                </div>
+                <!-- Timeline Cards Area -->
+                <div id="timeline-cards-scroll" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <!-- Populated by JS -->
+                </div>
             </div>
         </main>
 
@@ -411,6 +440,7 @@
                     processGraphData(data);
                     renderSidebar(data);
                     initSimulation();
+                    initTimeline(data);
                     lucide.createIcons();
 
                     // Update dynamic counts
@@ -1241,6 +1271,141 @@
                     d3.zoomIdentity
                 );
             }
+        }
+
+        // =========================================================================
+        // PHASE IV: Interactive Timeline Scrubbers
+        // =========================================================================
+        let isTimelineView = false;
+        let currentTimelineCategory = 'ALL';
+        let currentTimelineDecade = '2030'; // 2030 represents 'All Eras'
+        let timelineData = [];
+
+        function initTimeline(data) {
+            timelineData = data.timelines || [];
+        }
+
+        function toggleView() {
+            isTimelineView = !isTimelineView;
+            const btnText = document.getElementById('toggle-view-btn-text');
+            const btnIcon = document.querySelector('#toggle-view-btn i');
+            const graphContainer = document.getElementById('graph-container');
+            const timelineContainer = document.getElementById('timeline-view-container');
+
+            if (isTimelineView) {
+                btnText.textContent = "Graph View";
+                if (btnIcon) btnIcon.setAttribute('data-lucide', 'network');
+                timelineContainer.classList.remove('hidden');
+                renderTimeline();
+            } else {
+                btnText.textContent = "Timeline View";
+                if (btnIcon) btnIcon.setAttribute('data-lucide', 'calendar');
+                timelineContainer.classList.add('hidden');
+            }
+            lucide.createIcons();
+        }
+
+        function filterTimelineCategory(cat) {
+            currentTimelineCategory = cat;
+
+            // Update active button styles
+            const cats = ['ALL', 'COMPUTING', 'AI', 'HARDWARE'];
+            cats.forEach(c => {
+                const btn = document.getElementById(`filter-${c.toLowerCase()}-btn`);
+                if (btn) {
+                    if (c === cat) {
+                        btn.className = "px-2.5 py-1 rounded text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+                    } else {
+                        btn.className = "px-2.5 py-1 rounded text-xs font-semibold bg-slate-800 text-gray-400 hover:bg-slate-700 border border-transparent";
+                    }
+                }
+            });
+
+            renderTimeline();
+        }
+
+        function handleTimelineScrub(val) {
+            currentTimelineDecade = val;
+            const label = document.getElementById('timeline-slider-year');
+            if (label) {
+                if (val === '2030') {
+                    label.textContent = "All Eras";
+                } else {
+                    label.textContent = `${val}s`;
+                }
+            }
+            renderTimeline();
+        }
+
+        function renderTimeline() {
+            const container = document.getElementById('timeline-cards-scroll');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const decadeNum = parseInt(currentTimelineDecade);
+
+            const filtered = timelineData.filter(item => {
+                // Filter by category
+                if (currentTimelineCategory !== 'ALL' && item.category !== currentTimelineCategory) {
+                    return false;
+                }
+                // Filter by decade
+                if (decadeNum !== 2030) {
+                    if (item.sort_year < decadeNum || item.sort_year >= decadeNum + 10) {
+                        return false;
+                    }
+                }
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center p-12 text-center text-gray-500">
+                        <div class="p-4 bg-slate-950/40 rounded-full border border-gray-800 mb-4 text-gray-600">
+                            <i data-lucide="calendar-range" class="w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-sm font-semibold text-gray-300">No Milestones Found</h3>
+                        <p class="text-xs mt-1">Try selecting a different category or decade era.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "p-4 bg-slate-900/60 border border-gray-800/80 rounded-xl hover:border-emerald-500/20 hover:bg-slate-900 transition-all flex items-start gap-4";
+
+                let catBadgeColor = "bg-blue-500/10 text-blue-400 border-blue-500/20";
+                if (item.category === 'AI') catBadgeColor = "bg-purple-500/10 text-purple-400 border-purple-500/20";
+                if (item.category === 'HARDWARE') catBadgeColor = "bg-amber-500/10 text-amber-400 border-amber-500/20";
+
+                const formattedDesc = formatMarkdownLinks(item.description);
+
+                card.innerHTML = `
+                    <div class="flex flex-col items-center shrink-0 w-24">
+                        <span class="text-sm font-black font-mono text-emerald-400">${item.time}</span>
+                        <span class="text-[9px] font-bold px-1.5 py-0.5 rounded border ${catBadgeColor} uppercase tracking-wider mt-1.5 text-center block w-full truncate">${item.category}</span>
+                    </div>
+                    <div class="text-sm text-gray-300 leading-relaxed pt-0.5">
+                        ${formattedDesc}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        function formatMarkdownLinks(text) {
+            return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, path) => {
+                if (path.includes("excavations/") && path.endsWith(".md")) {
+                    const parts = path.split("/");
+                    const filename = parts[parts.length - 1];
+                    const id = filename.replace(".md", "");
+                    return `<a href="#" onclick="selectNode('${id}'); return false;" class="text-emerald-400 hover:underline font-semibold">${linkText}</a>`;
+                }
+                return `<a href="${path}" target="_blank" class="text-blue-400 hover:underline font-semibold">${linkText}</a>`;
+            });
         }
     </script>
 </body>

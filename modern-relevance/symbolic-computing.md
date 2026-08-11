@@ -14,9 +14,9 @@ This revival creates new relevance for historical hardware and software systems 
 
 ## Historical Context
 
-Symbolic AI dominated early artificial intelligence research (1950s–1980s). Key platforms included:
+[Symbolic AI](../excavations/symbolic-ai.md) dominated early artificial intelligence research (1950s–1980s). Key platforms included:
 
-- Lisp Machines (Symbolics, LMI, TI Explorer)
+- [Lisp Machines](../excavations/lisp-machines.md) (Symbolics, LMI, TI Explorer)
 - Prolog machines and specialized inference engines
 - Expert system shells running on general-purpose hardware
 
@@ -42,16 +42,16 @@ Today, symbolic computing is valuable for:
 
 ## Opportunities for Historical Ideas
 
-**Lisp Machines**  
-Their tagged architectures, fast garbage collection, efficient list/tree processing, and live incremental development environments are highly relevant for modern symbolic reasoning engines and neuro-symbolic toolchains. The productivity of Genera-style environments could dramatically accelerate symbolic AI development.
+**[Lisp Machines](../excavations/lisp-machines.md)**
+Their tagged architectures, fast garbage collection, efficient list/tree processing, and live incremental development environments are highly relevant for modern symbolic reasoning engines and neuro-symbolic toolchains. The productivity of Genera-style environments could dramatically accelerate [symbolic AI](../excavations/symbolic-ai.md) development.
 
-**Dataflow Computing**  
+**[Dataflow Computing](../excavations/dataflow-computing.md)**
 Many symbolic algorithms (pattern matching, constraint propagation, logical inference) map naturally to dataflow execution models. Run our [Dynamic Token-Matching Dataflow Engine](../reconstructions/dataflow-engine/) to evaluate these execution paths.
 
-**Transputers**  
+**[Transputers](../excavations/transputers.md)**
 Lightweight concurrent processes and message passing align well with multi-agent symbolic systems and distributed reasoning. Try out our [CSP messaging simulator](../reconstructions/csp-messaging/) to explore channel-based concurrency.
 
-**Balanced Ternary & Alternative Representations**  
+**[Balanced Ternary](../excavations/balanced-ternary.md) & Alternative Representations**
 May offer advantages in certain symbolic or hybrid numeric-symbolic computations where symmetry or multi-valued logic provides more natural encodings. Play with three-state balanced arithmetic using our [ternary_sim.py](../reconstructions/mixed-radix-sim/ternary_sim.py).
 
 ---
@@ -73,7 +73,7 @@ These systems often require efficient symbolic substrates — exactly what many 
 - Cycles in AI research are common. Ideas dismissed as obsolete can become critical when paired with new capabilities.
 - Hardware optimized for symbolic computing was never fundamentally flawed — it was ahead of its time and economically disadvantaged.
 - The most powerful future AI systems will likely be heterogeneous, combining statistical pattern matching with symbolic reasoning.
-- Productivity environments (like those on Lisp Machines) remain vastly superior for complex symbolic work compared to mainstream tools.
+- Productivity environments (like those on [Lisp Machines](../excavations/lisp-machines.md)) remain vastly superior for complex symbolic work compared to mainstream tools.
 
 ---
 
@@ -84,13 +84,13 @@ These systems often require efficient symbolic substrates — exactly what many 
 - [Balanced Ternary](../excavations/balanced-ternary.md)
 
 ## Related Patterns
-- Forgotten Abstractions
-- Recurring Ideas
+- [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
+- [Recurring Ideas](../patterns/recurring-ideas.md)
 
 ---
 
 ## References
-- Surveys on neuro-symbolic AI (e.g., DARPA, recent IEEE / Nature papers).
+- Surveys on neuro-[symbolic AI](../excavations/symbolic-ai.md) (e.g., DARPA, recent IEEE / Nature papers).
 - Historical Lisp Machine literature and Genera system documentation.
-- Modern symbolic AI toolkits (e.g., PyKE, TAO, Lean theorem prover integrations).
+- Modern [symbolic AI](../excavations/symbolic-ai.md) toolkits (e.g., PyKE, TAO, Lean theorem prover integrations).
 - Research on differentiable programming and hybrid architectures.

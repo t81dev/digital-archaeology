@@ -12,7 +12,7 @@ According to **Landauer’s Principle** (formulated by Rolf Landauer in 1961), e
 
 $$E_{\text{min}} = k_B T \ln 2$$
 
-Where $k_B$ is the Boltzmann constant ($1.38 \times 10^{-23}$ J/K) and $T$ is the absolute temperature in Kelvin. At room temperature ($T \approx 300$ K), Landauer's limit equates to approximately:
+Where $k_B$ is the Boltzmann constant ($1.38 \times 10^{-23}$ J/K) and $T$ is the absolute temperature in Kelvin. At room temperature ($T \approx 300$ K), [Landauer's limit](../GLOSSARY.md) equates to approximately:
 
 $$E_{\text{min}} \approx 2.87 \times 10^{-21} \text{ Joules (or } \approx 0.018 \text{ eV)}$$
 
@@ -109,7 +109,7 @@ Where $R$ is the transistor channel resistance, $C$ is the load capacitance, and
 
 ## Innovations
 
-* **Removal of Physical Thermal Bottlenecks:** Reversible computing offers the only known path in classical physics to lower energy dissipation per logic operation below Landauer's limit ($k_B T \ln 2$), enabling theoretically infinite performance per watt.
+* **Removal of Physical Thermal Bottlenecks:** Reversible computing offers the only known path in classical physics to lower energy dissipation per logic operation below [Landauer's limit](../GLOSSARY.md) ($k_B T \ln 2$), enabling theoretically infinite performance per watt.
 * **Information-Preserving Instruction Sets:** Reversible ISAs eliminate standard destruction operations. For instance, explicit register overwrites (`MOV R1, R2`) are replaced with reversible swaps (`SWAP R1, R2`) or reversible arithmetic updates (`ADD R1, R2` $\implies R_1 \leftarrow R_1 + R_2$).
 * **Direct Theoretical Link to Quantum Computing:** Quantum logic gates operating on qubits are inherently unitary operations ($\mathbf{U}^\dagger \mathbf{U} = \mathbf{I}$). Because unitary operators are linear and fully reversible, quantum computing hardware is fundamentally a specialized physical realization of reversible computing.
 
@@ -154,7 +154,7 @@ As conventional CMOS fabrication approaches 1-nanometer quantum tunneling thresh
 
 ## Lessons Learned
 
-1. **Physical Limits Eventually Dictate Software Paradigms:** As long as silicon fabrication sidesteps physical limits, irreversible brute-force methods will win due to software simplicity. Once hard physical boundaries are reached (Landauer's limit, thermal power density), long-ignored physical compute paradigms become imperative.
+1. **Physical Limits Eventually Dictate Software Paradigms:** As long as silicon fabrication sidesteps physical limits, irreversible brute-force methods will win due to software simplicity. Once hard physical boundaries are reached ([Landauer's limit](../GLOSSARY.md), thermal power density), long-ignored physical compute paradigms become imperative.
 2. **Space vs. Energy Trade-offs Are Fundamental:** Reversible computing trades spatial memory overhead (holding history bits) and extra execution steps (uncomputation) for physical energy efficiency. Engineering is always a balance between thermodynamic energy, time, and spatial area.
 3. **Hardware Unification Across Domains:** The concepts developed by Landauer, Bennett, Toffoli, and Fredkin in the 1970s now form the foundational compiler tools for modern quantum logic synthesis—proving that theoretical research outlives transient hardware limitations.
 

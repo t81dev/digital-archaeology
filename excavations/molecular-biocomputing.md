@@ -38,7 +38,7 @@ These systems operate in wet, often room-temperature or biological conditions, i
 - **Energy Efficiency** — Many operations occur near thermodynamic limits using ambient chemical energy.
 - **Self-Assembly & Self-Organization** — Structures can build themselves; computation can emerge from local rules.
 - **Integration with Biology** — Direct interface with living systems for sensing, actuation, or in-vivo computing.
-- **Novel Algorithmic Paradigms** — Adleman-style combinatorial search, chemical reaction networks as analog computing substrates.
+- **Novel Algorithmic Paradigms** — Adleman-style combinatorial search, chemical reaction networks as [analog computing](analog-computing.md) substrates.
 
 ---
 
@@ -89,7 +89,7 @@ They are strong candidates for domain-specific, highly parallel, or bio-integrat
 
 1. **Computation is not limited to silicon** — nature has been performing sophisticated information processing for billions of years.
 2. **Different substrates enable different strengths** — massive parallelism and self-assembly vs. raw speed and precision.
-3. **Hybrid systems are likely the future** — combining molecular/biocomputing with electronic or quantum components.
+3. **Hybrid systems are likely the future** — combining [molecular/biocomputing](../GLOSSARY.md) with electronic or quantum components.
 4. **Economic & Engineering Barriers** are often higher than theoretical ones — practical control and I/O remain the biggest challenges.
 5. Recurring Idea: When conventional scaling hits limits (energy, density, bio-interface needs), we return to chemical and biological paradigms.
 
@@ -113,7 +113,7 @@ They are strong candidates for domain-specific, highly parallel, or bio-integrat
 - Recent synthetic biology genetic circuit papers.
 - Surveys on molecular electronics and reaction-diffusion computing.
 
-*Cross-links strongly with Recurring Ideas, Forgotten Abstractions, and modern-relevance topics on energy-efficient and bio-integrated computing.*
+*Cross-links strongly with [Recurring Ideas](../patterns/recurring-ideas.md), [Forgotten Abstractions](../patterns/forgotten-abstractions.md), and modern-relevance topics on energy-efficient and bio-integrated computing.*
 
 ---
 

@@ -1,6 +1,6 @@
-# Linda Tuple Space Simulator
+# Linda [Tuple Space](../../GLOSSARY.md) Simulator
 
-> **An interactive software reconstruction of David Gelernter's Linda coordination model implementing Generative Communication.**
+> **An interactive software reconstruction of David Gelernter's Linda coordination model implementing [Generative Communication](../../GLOSSARY.md).**
 
 ---
 
@@ -8,7 +8,7 @@
 
 In traditional parallel and distributed computing, processes coordinate using **shared memory** (spatially coupled via physical address boundaries and managed by locks/semaphores) or **message passing** (temporally coupled sender-recipient channels).
 
-**Linda** (introduced by David Gelernter at Yale University in 1982) pioneered a radically different paradigm called **Generative Communication**. Instead of direct communication, processes interact asynchronously and anonymously via a central, associative memory medium called a **Tuple Space**.
+**Linda** (introduced by David Gelernter at Yale University in 1982) pioneered a radically different paradigm called **[Generative Communication](../../GLOSSARY.md)**. Instead of direct communication, processes interact asynchronously and anonymously via a central, associative memory medium called a **[Tuple Space](../../GLOSSARY.md)**.
 
 By replacing explicit channel addresses with associative, structural pattern-matching, Linda achieves complete **spatial decoupling** (processes communicate without knowing each other's identities) and **temporal decoupling** (tuples can persist in the space indefinitely, independent of their creators' lifespans).
 
@@ -45,9 +45,9 @@ By replacing explicit channel addresses with associative, structural pattern-mat
 
 Our zero-dependency, thread-safe Python simulator implements Linda's complete coordination operator suite:
 
-1. **`out(tup)`**: Evaluates parameters and deposits a passive data tuple into the Tuple Space. Triggers notifications to any blocked threads waiting on matches.
-2. **`in_(pattern)`**: Searches the Tuple Space for a tuple matching `pattern`, withdraws it from the space, and returns it. Blocks the calling thread if no match exists.
-3. **`rd(pattern)`**: Same search as `in_`, but returns a copy of the matching tuple, leaving the original in the Tuple Space. Blocks if no match exists.
+1. **`out(tup)`**: Evaluates parameters and deposits a passive data tuple into the [Tuple Space](../../GLOSSARY.md). Triggers notifications to any blocked threads waiting on matches.
+2. **`in_(pattern)`**: Searches the [Tuple Space](../../GLOSSARY.md) for a tuple matching `pattern`, withdraws it from the space, and returns it. Blocks the calling thread if no match exists.
+3. **`rd(pattern)`**: Same search as `in_`, but returns a copy of the matching tuple, leaving the original in the [Tuple Space](../../GLOSSARY.md). Blocks if no match exists.
 4. **`inp(pattern)`**: Non-blocking version of `in_`. Returns the matched tuple immediately if present (withdrawing it), otherwise returns `None`.
 5. **`rdp(pattern)`**: Non-blocking version of `rd`. Returns a copy of the matched tuple immediately if present, otherwise returns `None`.
 6. **`eval(func, *args)`**: Spawns an *active process tuple*. Evaluates `func(*args)` concurrently in a separate thread. Upon termination, it automatically deposits the result as a passive data tuple of the schema `("result", function_name, output)` back into the space.
@@ -77,7 +77,7 @@ A tuple $T$ in the space matches a pattern template $P$ if:
 ## Master-Worker Showcase
 
 The built-in demonstration implements a classic **coordinate-free worker pool**:
-- **Master** anonymously drops computational tasks (`out(("task", task_id, num_list))`) and an active factorial computation (`eval(async_factorial, 5)`) into the Tuple Space.
+- **Master** anonymously drops computational tasks (`out(("task", task_id, num_list))`) and an active factorial computation (`eval(async_factorial, 5)`) into the [Tuple Space](../../GLOSSARY.md).
 - Three concurrent **Worker Nodes** poll the space for tasks (`in_(("task", int, list))`), perform the processing, and anonymously deposit result tuples back.
 - **Master** block-waits on results (`in_(("result", int, int, int))`) and outputs the compiled results.
 

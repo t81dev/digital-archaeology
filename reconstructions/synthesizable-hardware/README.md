@@ -9,7 +9,7 @@
 This directory contains synthesizable SystemVerilog soft-cores representing some of our most important reconstructed architectural abstractions. Rather than leaving historical concepts as pure software emulators, these hardware IP cores prove the microarchitectural viability of non-von Neumann and secure-by-default execution.
 
 ### Included Hardware Cores
-1. **Balanced Ternary ALU (`ternary_alu.sv`)**:
+1. **[Balanced Ternary](../../excavations/balanced-ternary.md) ALU (`ternary_alu.sv`)**:
    - Implements 3-trit arithmetic and logic operations using a dual-rail Pos-Neg (PN) dual-rail representation (where `2'b00` = 0, `2'b01` = +1, `2'b10` = -1).
    - Features registered inputs/outputs, sequential single-cycle execution, and supports `ADD`, `SUB`, `NEG` (-A), `MUL` (partial-product multiplication), `MIN` (AND), `MAX` (OR), and logical shifts.
 2. **Capability & Descriptor Bounds Checker (`capability_bounds_checker.sv`)**:
@@ -59,7 +59,7 @@ This hardware suite has been advanced to a state of **formal mathematical correc
 | `reversible_gates` | **Formal BMC & k-Induction (z3)** & Python Golden | **100% PASSED** | 8 Assertions | Fredkin information conservation, Control line preservation, CCNOT inversion/identity |
 | `stochastic_multiplier` | **Formal BMC & k-Induction (z3)** & Python Golden | **100% PASSED** | 4 Assertions | LFSR non-zero state preservation, Zero multiplication dominance, Stream B gate control |
 
-*   **Simulation Golden Model**: Verified via Python golden emulator in `test_synthesizable.py` with 100% test coverage mapping LFSR periods, reversible gate bijectivity, and balanced ternary arithmetic.
+*   **Simulation Golden Model**: Verified via Python golden emulator in `test_synthesizable.py` with 100% test coverage mapping LFSR periods, reversible gate bijectivity, and [balanced ternary](../../excavations/balanced-ternary.md) arithmetic.
 *   **Formal Model Checking (Temporal k-Induction)**: 100% formally proven using **SymbiYosys (SBY)** and the **z3 SMT solver** configured for both bounded model checking (`bmc`) and temporal induction (`prove`). Proves that safety invariants and arithmetic assertions hold true across infinite clock cycles rather than just bounded traces.
 *   **Gate-Level FPGA Synthesis**: Compiled and routed successfully for the **Lattice iCE40 UP5K** using the open-source **Yosys + nextpnr** toolchain.
 
@@ -146,9 +146,9 @@ python3 -m reconstructions.co-simulation.experiments --experiment 3
 ```
 
 The three experiments are:
-1. **Experiment 1 (Cryogenic Systolic Coprocessor)**: Simulates weight-stationary systolic array operations mapped directly to Rapid Single Flux Quantum (RSFQ) switching events and Carnot refrigeration cooling budgets.
+1. **Experiment 1 (Cryogenic Systolic Coprocessor)**: Simulates weight-stationary [systolic array](../../GLOSSARY.md) operations mapped directly to Rapid Single Flux Quantum (RSFQ) switching events and Carnot refrigeration cooling budgets.
 2. **Experiment 2 (Reversible Cryogenic Storage Loops)**: Integrates Bennett-style uncomputation logic gates to bypass Landauer's thermodynamic erasure limit at 4.2 K cryogenic conditions.
-3. **Experiment 3 (9P Sandboxed execution)**: Mounts Plan 9 9P-style private resource file trees and filters read/write traffic through the hardware-synthesizable Capability Bounds Checker.
+3. **Experiment 3 (9P Sandboxed execution)**: Mounts [Plan 9](../../excavations/plan-9.md) 9P-style private resource file trees and filters read/write traffic through the hardware-synthesizable Capability Bounds Checker.
 
 ---
 
@@ -156,9 +156,9 @@ The three experiments are:
 
 These soft-cores are fully synthesizable and designed for integration with standard SoC architectures or FPGA wrappers. Below are the minimal microarchitectural connection patterns and testbench sequences for each module:
 
-### 1. Balanced Ternary ALU (`ternary_alu`)
+### 1. [Balanced Ternary](../../excavations/balanced-ternary.md) ALU (`ternary_alu`)
 * **wrapper Integration**:
-  - `A` and `B` carry 3-trit balanced ternary operands in 2-bit dual-rail Pos-Neg (PN) format (6 bits total per operand).
+  - `A` and `B` carry 3-trit [balanced ternary](../../excavations/balanced-ternary.md) operands in 2-bit dual-rail Pos-Neg (PN) format (6 bits total per operand).
   - Tie `en` to your instruction decoder's execution strobe.
   - outputs `Out` and `CarryOut` are registered. Ensure the receiving pipeline registers or accumulator captures them exactly one clock cycle after asserting `en`.
 * **Minimal Testbench Sequence**:
@@ -283,7 +283,7 @@ To manufacture physical superconducting ASICs using niobium Josephson junction p
 ## Known Limitations
 
 1. **Precision / Scalability**:
-   - The Balanced Ternary ALU is fixed at a 3-trit width (range of $[-13, 13]$). Scaling to 9-trit or 27-trit words requires cascading adder blocks, which introduces log-linear propagation delays.
+   - The [Balanced Ternary](../../excavations/balanced-ternary.md) ALU is fixed at a 3-trit width (range of $[-13, 13]$). Scaling to 9-trit or 27-trit words requires cascading adder blocks, which introduces log-linear propagation delays.
    - The Capability Bounds Checker handles 16-bit address offsets. For high-performance 64-bit address spaces (e.g., RISC-V CHERI), bounds must be compressed to fit in register bounds.
 2. **Timing Closure**:
    - The ternary multiplier (`ternary_alu.sv` `MUL`) is implemented using combinational shift-and-add partial-product logic. For wide ternary pipelines, this multiplier must be replaced with a multi-cycle pipelined multiplier to avoid violating timing constraints.

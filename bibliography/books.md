@@ -12,11 +12,11 @@ This annotated bibliography lists key books that explore computer architecture, 
 * **Relevance**: [Burroughs Large Systems](../excavations/burroughs-large-systems.md), [Vector Supercomputing](../excavations/vector-supercomputing.md), [Stack Machines](../excavations/stack-machines.md)
 * **Description**: A monumental compendium of historic computer architectures. It provides primary hardware specifications, block diagrams, and analyses of classic machines, illustrating the rich diversity of architecture before standard ISA commoditization.
 
-#### 2. *The Connection Machine*
+#### 2. *The [Connection Machine](../excavations/connection-machine.md)*
 * **Author**: W. Daniel Hillis
 * **Published**: MIT Press, 1985
 * **Relevance**: [Connection Machine](../excavations/connection-machine.md), [Cellular Automata Hardware](../excavations/cellular-automata-hardware.md)
-* **Description**: Based on Hillis's groundbreaking PhD thesis, this book outlines the architecture and philosophy of the Connection Machine. It explores massively parallel, fine-grained SIMD execution and hypercube routing networks.
+* **Description**: Based on Hillis's groundbreaking PhD thesis, this book outlines the architecture and philosophy of the [Connection Machine](../excavations/connection-machine.md). It explores massively parallel, fine-grained SIMD execution and hypercube routing networks.
 
 #### 3. *Introduction to VLSI Systems*
 * **Authors**: Carver Mead, Lynn Conway
@@ -34,7 +34,7 @@ This annotated bibliography lists key books that explore computer architecture, 
 * **Author**: William J. Dally
 * **Published**: Kluwer Academic Publishers, 1987
 * **Relevance**: [The MIT J-Machine](../excavations/j-machine.md)
-* **Description**: Outlines the design of low-latency message-passing communication networks and message-driven processors for massively parallel VLSI systems. This work formed the microarchitectural basis for the MIT J-Machine.
+* **Description**: Outlines the design of low-latency message-passing communication networks and message-driven processors for massively parallel VLSI systems. This work formed the microarchitectural basis for [the MIT J-Machine](../excavations/j-machine.md).
 
 #### 6. *Stack Computers: The New Wave*
 * **Author**: Philip J. Koopman, Jr.
@@ -52,13 +52,13 @@ This annotated bibliography lists key books that explore computer architecture, 
 * **Authors**: Tommaso Toffoli, Norman Margolus
 * **Published**: MIT Press, 1987
 * **Relevance**: [Cellular Automata Hardware](../excavations/cellular-automata-hardware.md), [Reversible Computing](../excavations/reversible-computing.md)
-* **Description**: Outlines the architecture, physics, and programming of special-purpose cellular automata hardware (CAM-6). It demonstrates how localized grid-based updating achieves massive parallel simulation speedups.
+* **Description**: Outlines the architecture, physics, and programming of special-purpose [cellular automata hardware](../excavations/cellular-automata-hardware.md) (CAM-6). It demonstrates how localized grid-based updating achieves massive parallel simulation speedups.
 
 #### 9. *Wafer Scale Integration*
 * **Author**: Earl E. Swartzlander Jr. (Editor)
 * **Published**: Kluwer Academic Publishers, 1989
 * **Relevance**: [Wafer-Scale Integration](../excavations/wafer-scale-integration.md)
-* **Description**: A compilation of early wafer-scale integration research, focusing on defect tolerance, monolithic routing interconnects, and redundant block architectures to build systems spanning entire silicon wafers.
+* **Description**: A compilation of early [wafer-scale integration](../excavations/wafer-scale-integration.md) research, focusing on defect tolerance, monolithic routing interconnects, and redundant block architectures to build systems spanning entire silicon wafers.
 
 ---
 
@@ -68,13 +68,13 @@ This annotated bibliography lists key books that explore computer architecture, 
 * **Author**: Henry M. Levy
 * **Published**: Digital Press, 1984
 * **Relevance**: [Capability Systems](../excavations/capability-systems.md), [Intel iAPX 432](../excavations/intel-iapx-432.md), [Multics](../excavations/multics.md)
-* **Description**: The definitive survey of early hardware- and software-enforced capability systems. Levy provides structural reviews of the CAP computer, Hydra, StarOS, and the Intel iAPX 432, detailing why fine-grained, unforgeable addressing failed to win commercially in the 1980s.
+* **Description**: The definitive survey of early hardware- and software-enforced [capability systems](../excavations/capability-systems.md). Levy provides structural reviews of the CAP computer, Hydra, StarOS, and the [Intel iAPX 432](../excavations/intel-iapx-432.md), detailing why fine-grained, unforgeable addressing failed to win commercially in the 1980s.
 
-#### 11. *The Multics System: An Examination of Its Structure*
+#### 11. *The [Multics](../excavations/multics.md) System: An Examination of Its Structure*
 * **Author**: Elliott I. Organick
 * **Published**: MIT Press, 1972
 * **Relevance**: [Multics](../excavations/multics.md), [Capability Systems](../excavations/capability-systems.md)
-* **Description**: A comprehensive guide to the internal structure of Multics, focusing on its pioneering use of virtual memory, segmented addressing, and ring protection architectures.
+* **Description**: A comprehensive guide to the internal structure of [Multics](../excavations/multics.md), focusing on its pioneering use of virtual memory, segmented addressing, and ring protection architectures.
 
 #### 12. *The Cambridge CAP Computer and its Operating System*
 * **Authors**: Maurice V. Wilkes, Roger M. Needham
@@ -86,7 +86,7 @@ This annotated bibliography lists key books that explore computer architecture, 
 * **Author**: Maurice J. Bach
 * **Published**: Prentice Hall, 1986
 * **Relevance**: [Plan 9](../excavations/plan-9.md), [Multics](../excavations/multics.md)
-* **Description**: Explains the internal mechanisms of classic UNIX file systems, process control, and character/block I/O, illustrating the architectural lineage that led to Plan 9's namespace and file-centric distributed system.
+* **Description**: Explains the internal mechanisms of classic UNIX file systems, process control, and character/block I/O, illustrating the architectural lineage that led to [Plan 9](../excavations/plan-9.md)'s namespace and file-centric distributed system.
 
 ---
 
@@ -96,13 +96,13 @@ This annotated bibliography lists key books that explore computer architecture, 
 * **Author**: C.A.R. Hoare
 * **Published**: Prentice Hall, 1985
 * **Relevance**: [Transputers](../excavations/transputers.md), [Occam](../excavations/occam.md)
-* **Description**: The mathematical and conceptual foundation for channel-based concurrency. Hoare outlines the CSP formal language, which directly inspired the INMOS Transputer, the Occam programming language, and modern concurrency models like Go channels.
+* **Description**: The mathematical and conceptual foundation for channel-based concurrency. Hoare outlines the CSP formal language, which directly inspired the INMOS Transputer, the [Occam](../excavations/occam.md) programming language, and modern concurrency models like Go channels.
 
-#### 15. *Smalltalk-80: The Language and its Implementation*
+#### 15. *[Smalltalk](../excavations/smalltalk.md)-80: The Language and its Implementation*
 * **Authors**: Adele Goldberg, David Robson
 * **Published**: Addison-Wesley, 1983 (The "Blue Book")
 * **Relevance**: [Smalltalk](../excavations/smalltalk.md), [Lisp Machines](../excavations/lisp-machines.md)
-* **Description**: The authoritative description of the Smalltalk-80 virtual machine, compiler, and image-based runtime environment developed at Xerox PARC. It explains dynamic messaging, garbage collection, and object-oriented virtual hardware.
+* **Description**: The authoritative description of the [Smalltalk](../excavations/smalltalk.md)-80 virtual machine, compiler, and image-based runtime environment developed at Xerox PARC. It explains dynamic messaging, garbage collection, and object-oriented virtual hardware.
 
 #### 16. *The Art of the Metaobject Protocol*
 * **Authors**: Gregor Kiczales, Jim des Rivieres, Daniel G. Bobrow
@@ -132,7 +132,7 @@ This annotated bibliography lists key books that explore computer architecture, 
 * **Authors**: Nicholas Carriero, David Gelernter
 * **Published**: MIT Press, 1990
 * **Relevance**: [Linda Tuple Spaces](../excavations/linda-tuple-spaces.md)
-* **Description**: The definitive textbook introducing Linda's generative communication model and coordinate-free tuple space operations, explaining how the tuple space paradigm enables decoupled parallel coordination.
+* **Description**: The definitive textbook introducing Linda's [generative communication](../GLOSSARY.md) model and coordinate-free [tuple space](../GLOSSARY.md) operations, explaining how the [tuple space](../GLOSSARY.md) paradigm enables decoupled parallel coordination.
 
 ---
 
@@ -142,7 +142,7 @@ This annotated bibliography lists key books that explore computer architecture, 
 * **Author**: Richard P. Feynman (edited by Tony Hey and Robin W. Allen)
 * **Published**: Addison-Wesley, 1996
 * **Relevance**: [Reversible Computing](../excavations/reversible-computing.md)
-* **Description**: Contains seminal lectures on reversible computing, conservative logic, and the physical limits of computation. Feynman analyzes how Fredkin gates and quantum-mechanical systems can compute without dissipating thermodynamic heat.
+* **Description**: Contains seminal lectures on [reversible computing](../excavations/reversible-computing.md), conservative logic, and the physical limits of computation. Feynman analyzes how Fredkin gates and quantum-mechanical systems can compute without dissipating thermodynamic heat.
 
 #### 22. *Computer Science and Multiple-Valued Logic: Theory and Applications*
 * **Author**: David C. Rine (Editor)
@@ -160,7 +160,7 @@ This annotated bibliography lists key books that explore computer architecture, 
 * **Author**: Joseph W. Goodman
 * **Published**: McGraw-Hill, 1968 (Second Edition 1996)
 * **Relevance**: [Optical Computing](../excavations/optical-computing.md), [Analog Computing](../excavations/analog-computing.md)
-* **Description**: The seminal textbook explaining the mathematical principles of wave optics and spatial filtering, which form the bedrock of continuous optical computing and holographic matrix processing.
+* **Description**: The seminal textbook explaining the mathematical principles of wave optics and spatial filtering, which form the bedrock of continuous [optical computing](../excavations/optical-computing.md) and holographic matrix processing.
 
 #### 25. *The Soul of a New Machine*
 * **Author**: Tracy Kidder

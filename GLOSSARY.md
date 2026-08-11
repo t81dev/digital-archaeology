@@ -9,7 +9,7 @@ This document provides a conceptual glossary of terms from across the excavation
 ## Part 1: Glossary of Forgotten Computing Terms
 
 ### #
-* **9P Protocol**: A distributed resource sharing protocol designed for Plan 9 where every system resource (including files, devices, memory, and processes) is represented as a file and accessed via a standardized, network-transparent set of message transactions.
+* **9P Protocol**: A distributed resource sharing protocol designed for [Plan 9](excavations/plan-9.md) where every system resource (including files, devices, memory, and processes) is represented as a file and accessed via a standardized, network-transparent set of message transactions.
   * *See excavation*: [Plan 9](excavations/plan-9.md)
 
 ### A
@@ -17,13 +17,13 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [The MIT J-Machine](excavations/j-machine.md)
 * **Actor Model**: A mathematical model of concurrent computation where the universal primitive is the *actor*. Actors can make local decisions, create more actors, send messages, and designate how to respond to the next message. Unlike the Von Neumann model, communication is asynchronous and there is no shared state.
   * *See excavation*: [Smalltalk](excavations/smalltalk.md)
-* **Analog Computing**: Computation that utilizes continuous physical phenomena (e.g., electrical voltage, mechanical rotation, fluid flow) to model the problem being solved, bypassing the discretization of binary systems.
+* **[Analog Computing](excavations/analog-computing.md)**: Computation that utilizes continuous physical phenomena (e.g., electrical voltage, mechanical rotation, fluid flow) to model the problem being solved, bypassing the discretization of binary systems.
   * *See excavation*: [Analog Computing](excavations/analog-computing.md)
 * **Associative Processing**: A parallel computing paradigm where data is accessed and operated on by content (associative matching of data values) rather than by hardware memory addresses.
   * *See excavation*: [Associative Processors](excavations/associative-processors.md)
 
 ### B
-* **Balanced Ternary**: A base-3 positional numeral system using the trits $-1$ (represented as `T`), $0$, and $+1$ (represented as `1`). It eliminates the need for a separate sign bit, simplifies arithmetic circuits, and possesses a superior radix economy compared to binary.
+* **[Balanced Ternary](excavations/balanced-ternary.md)**: A base-3 positional numeral system using the trits $-1$ (represented as `T`), $0$, and $+1$ (represented as `1`). It eliminates the need for a separate sign bit, simplifies arithmetic circuits, and possesses a superior radix economy compared to binary.
   * *See excavation*: [Balanced Ternary](excavations/balanced-ternary.md)
 * **Bi-Directional Hypermedia**: A network publishing and hypertext model where hyperlinks are inherently two-way and un-breakable, enabling side-by-side visual comparison, micro-transactions, and deep version tracking.
   * *See excavation*: [Project Xanadu](excavations/project-xanadu.md)
@@ -71,7 +71,7 @@ This document provides a conceptual glossary of terms from across the excavation
 ### L
 * **Landauer's Limit**: A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \ln 2$).
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
-* **Linear Feedback Shift Register (LFSR)**: A hardware-efficient shift register whose input bit is a linear function (typically XOR) of its previous states. In alternative architectures like Stochastic Computing, LFSRs serve as compact, high-speed pseudo-random number generators.
+* **Linear Feedback Shift Register (LFSR)**: A hardware-efficient shift register whose input bit is a linear function (typically XOR) of its previous states. In alternative architectures like [Stochastic Computing](excavations/stochastic-computing.md), LFSRs serve as compact, high-speed pseudo-random number generators.
   * *See excavation*: [Stochastic Computing](excavations/stochastic-computing.md)
 
 ### M
@@ -87,11 +87,11 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)
 
 ### N
-* **Neuromorphic Hardware**: Silicon architectures designed to mimic the neural structures of the brain, utilizing asynchronous, event-driven spiking neural networks and in-memory computation.
+* **[Neuromorphic Hardware](excavations/neuromorphic-hardware.md)**: Silicon architectures designed to mimic the neural structures of the brain, utilizing asynchronous, event-driven spiking neural networks and in-memory computation.
   * *See excavation*: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)
 
 ### O
-* **Optical Computing**: A hardware paradigm using light waves (photons) instead of electrical currents (electrons) to perform logic operations, leveraging wave interference, spatial division multiplexing, and sub-nanosecond matrix-vector multiplication.
+* **[Optical Computing](excavations/optical-computing.md)**: A hardware paradigm using light waves (photons) instead of electrical currents (electrons) to perform logic operations, leveraging wave interference, spatial division multiplexing, and sub-nanosecond matrix-vector multiplication.
   * *See excavation*: [Optical Computing](excavations/optical-computing.md)
 
 ### P
@@ -104,23 +104,23 @@ This document provides a conceptual glossary of terms from across the excavation
 ### R
 * **Radix Economy**: A mathematical measure of the efficiency of representing numbers in a given base, defined as $R \times \lfloor \log_R(N) + 1 \rfloor$ for base $R$ and maximum value $N$. It is mathematically optimized at the transcendental base $e \approx 2.718$, which makes base 3 (ternary) more efficient than base 2 (binary).
   * *See excavation*: [Balanced Ternary](excavations/balanced-ternary.md)
-* **Reversible Computing**: A paradigm where logic gates perform bijective (one-to-one) mapping between inputs and outputs, allowing computation to run backward and theoretically bypassing Landauer's thermodynamic limit.
+* **[Reversible Computing](excavations/reversible-computing.md)**: A paradigm where logic gates perform bijective (one-to-one) mapping between inputs and outputs, allowing computation to run backward and theoretically bypassing Landauer's thermodynamic limit.
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
 
 ### S
 * **Single-Level Store (SLS)**: A memory management architecture where all secondary storage (such as disk drives) is integrated into a single, flat, virtually-addressed main memory space, completely eliminating the user-level distinction between file systems and RAM.
   * *See excavation*: [Multics](excavations/multics.md)
-* **Spatial Computing (Hardware)**: Architectures where software logic is mapped directly onto a physical grid of processing elements with localized communication channels (e.g., FPGAs, Systolic Arrays, Cellular Automata), removing global bus bottlenecks.
+* **Spatial Computing (Hardware)**: Architectures where software logic is mapped directly onto a physical grid of processing elements with localized communication channels (e.g., FPGAs, [Systolic Arrays](excavations/systolic-arrays.md), Cellular Automata), removing global bus bottlenecks.
   * *See excavation*: [Systolic Arrays](excavations/systolic-arrays.md)
 * **Stack Machine**: A processor architecture that uses a hardware evaluation stack rather than general-purpose registers to execute zero-operand instructions.
   * *See excavation*: [Stack Machines](excavations/stack-machines.md)
-* **Stochastic Computing**: A computing paradigm where continuous values are encoded as randomized binary bitstreams, mapping complex arithmetic operations (like multiplication) onto simple logic gates (like AND/XNOR) at the cost of execution time.
+* **[Stochastic Computing](excavations/stochastic-computing.md)**: A computing paradigm where continuous values are encoded as randomized binary bitstreams, mapping complex arithmetic operations (like multiplication) onto simple logic gates (like AND/XNOR) at the cost of execution time.
   * *See excavation*: [Stochastic Computing](excavations/stochastic-computing.md)
-* **Styx Protocol**: A network protocol derived from 9P, serving as the universal communication interface in the Inferno operating system to expose system services, devices, and files transparently over public networks.
+* **Styx Protocol**: A network protocol derived from 9P, serving as the universal communication interface in the [Inferno](excavations/inferno.md) operating system to expose system services, devices, and files transparently over public networks.
   * *See excavation*: [Inferno](excavations/inferno.md)
 * **Superconducting / Cryogenic Computing**: A high-performance hardware paradigm operating at cryogenic temperatures, using Josephson junctions and Single Flux Quantum (SFQ) logic to achieve ultra-high clock frequencies and near-zero power dissipation.
   * *See excavation*: [Superconducting & Cryogenic Microarchitectures](excavations/superconducting-cryogenic.md)
-* **Symbolic AI**: An approach to artificial intelligence based on high-level, human-readable symbols, formal logic, and rule-based inference engines.
+* **[Symbolic AI](excavations/symbolic-ai.md)**: An approach to artificial intelligence based on high-level, human-readable symbols, formal logic, and rule-based inference engines.
   * *See excavation*: [Symbolic AI](excavations/symbolic-ai.md)
 * **Systolic Array**: A network of homogeneous, tightly-coupled processing elements that rhythmically compute and pass data through the system, optimizing matrix multiplication and other highly structured, compute-bound workloads.
   * *See excavation*: [Systolic Arrays](excavations/systolic-arrays.md)
@@ -142,12 +142,12 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See modern relevance*: [AI & Hardware Bottlenecks](modern-relevance/ai.md)
 
 ### W
-* **Wafer-Scale Integration (WSI)**: An advanced semiconductor manufacturing paradigm that builds an entire digital system (incorporating multiple processor nodes, memory blocks, and interconnect networks) on a single, uncut silicon wafer, completely bypassing chip-packaging boundaries.
+* **[Wafer-Scale Integration](excavations/wafer-scale-integration.md) (WSI)**: An advanced semiconductor manufacturing paradigm that builds an entire digital system (incorporating multiple processor nodes, memory blocks, and interconnect networks) on a single, uncut silicon wafer, completely bypassing chip-packaging boundaries.
   * *See excavation*: [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
 
 ---
 
-## Part 2: A Taxonomy of Forgotten Abstractions
+## Part 2: A Taxonomy of [Forgotten Abstractions](patterns/forgotten-abstractions.md)
 
 Digital Archaeology categorizes forgotten concepts not by their historical date, but by the architectural *abstractions* they introduced. Below is the structured classification framework.
 

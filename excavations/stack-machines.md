@@ -96,7 +96,7 @@ Modern FPGA implementations and specialized accelerators sometimes revive stack 
 ---
 
 ## References (Selected)
-- Moore, Charles — Forth literature and stack machine philosophy.
+- Moore, Charles — Forth literature and [stack machine](../GLOSSARY.md) philosophy.
 - Burroughs B5000 and early stack computer papers.
 - Koopman, Philip — *Stack Computers: The New Wave*.
 - Modern FPGA stack processor implementations and WebAssembly specifications.

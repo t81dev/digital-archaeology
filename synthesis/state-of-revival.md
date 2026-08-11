@@ -1,6 +1,6 @@
 # State of Revival: Architectural Synthesis of Sidelined Computing Lineages
 
-> **An analytical synthesis evaluating the intersection of constraint migration, silicon readiness, and AI/energy relevance across six historically sidelined architectural lineages, and outlining concrete experiments enabled by this repository.**
+> **An analytical synthesis evaluating the intersection of [constraint migration](../patterns/constraint-migration.md), silicon readiness, and AI/energy relevance across six historically sidelined architectural lineages, and outlining concrete experiments enabled by this repository.**
 
 ---
 
@@ -13,7 +13,7 @@ Modern systems engineering is undergoing a fundamental pivot. For five decades, 
 
 As these physical, security, and data limitations stall traditional progress, historically sidelined computing abstractions—once abandoned due to the rapid scaling of room-temperature binary silicon—are returning as necessary innovations.
 
-This document evaluates which of these abandoned abstractions show the strongest combination of **constraint migration, silicon readiness, and AI / energy relevance**, and details the concrete, multi-paradigm experiments enabled by this repository.
+This document evaluates which of these abandoned abstractions show the strongest combination of **[constraint migration](../patterns/constraint-migration.md), silicon readiness, and AI / energy relevance**, and details the concrete, multi-paradigm experiments enabled by this repository.
 
 ---
 
@@ -41,7 +41,7 @@ Based on the quantitative metrics scored in [Modern Revival Readiness Scorecard]
 
 | Lineage | CMS | Silicon Readiness | Software Friction | Energy Advantage | AI Synergy | Key Revival Constraint |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1. Spatial & Data-Parallel** | 5/5 | 5/5 | 3/5 | 4/5 | 5/5 | Data-locality optimizations (Systolic Array) |
+| **1. Spatial & Data-Parallel** | 5/5 | 5/5 | 3/5 | 4/5 | 5/5 | Data-locality optimizations ([Systolic Array](../GLOSSARY.md)) |
 | **2. Neuromorphic & Stochastic** | 5/5 | 4/5 | 2/5 | 5/5 | 5/5 | Event-driven sparsity & single-gate AND logic |
 | **3. Capability & Descriptor** | 5/5 | 4/5 | 4/5 | 3/5 | 3/5 | Hardware-enforced bounds (CHERI pointer safety) |
 | **4. Optical & Thermodynamic** | 4/5 | 3/5 | 1/5 | 5/5 | 5/5 | Wave-interference matrix multiplication |
@@ -54,11 +54,11 @@ Based on the quantitative metrics scored in [Modern Revival Readiness Scorecard]
 
 Analyzing the intersections of these parameters reveals four specific abstractions that possess the most immediate, high-leverage potential for industrial adoption:
 
-### A. 2D Systolic Array Meshes (Spatial & Data Parallel)
+### A. 2D [Systolic Array](../GLOSSARY.md) Meshes (Spatial & Data Parallel)
 *   **The Abstraction**: Bypassing the instruction-fetch cycle by rhythmically routing data tokens through localized, 2D neighbor-connected grids of execution units.
 *   **Why it leads**: This abstraction has completed a full cycle of resurrection. Because deep learning workloads are composed of static, regular linear algebra structures (matrix multiplications), spatial localized routing completely bypasses the Memory Wall. This represents the primary arithmetic engine of modern AI chips (such as Google TPUs and Tensor Cores).
 
-### B. Hardware Capability Bounds Registers (Capability Systems)
+### B. Hardware Capability Bounds Registers ([Capability Systems](../excavations/capability-systems.md))
 *   **The Abstraction**: Moving pointer authorization and memory range checks from software operating system tables directly into unforgeable hardware capability registers.
 *   **Why it leads**: The "Security Wall" makes manual software auditing unviable. Prototyping programs (like ARM's Morello or RISC-V CHERI extensions) prove that register-enforced pointer bounds prevent memory exploits in legacy codebases (such as C/C++) with less than $2\%$ performance overhead.
 
@@ -66,7 +66,7 @@ Analyzing the intersections of these parameters reveals four specific abstractio
 *   **The Abstraction**: Replacing planar silicon transistors with superconducting Niobium Josephson junctions that generate picosecond-wide, non-latching magnetic flux pulses.
 *   **Why it leads**: Since room-temperature silicon clocks have frozen due to heat dissipation, superconducting logic is the only classical microarchitecture capable of ticking at **$100\text{--}500\text{ GHz}$**. By adopting Energy-Efficient RSFQ (ERSFQ) or adiabatic variants, switching energies drop to $0.2\text{ aJ}$, completely offsetting the thermodynamic cooling penalties at scale.
 
-### D. 9P Protocol & Private Namespaces (Distributed Systems)
+### D. [9P Protocol](../GLOSSARY.md) & Private Namespaces (Distributed Systems)
 *   **The Abstraction**: Virtualizing all remote hardware, IO, and IPC resources into process-private file trees with a single network message passing protocol.
 *   **Why it leads**: Mainstream multi-agent AI architectures are bogged down in gRPC/REST API wrappers, which introduce massive serialization costs and vulnerability vectors. Un-addressable, union-mounted private namespaces secure LLM agents, letting them coordinate anonymously by reading and writing files in mounted shared spaces.
 
@@ -86,7 +86,7 @@ python3 -m reconstructions.co-simulation.experiments --all
 An external researcher or architect can use this codebase to execute three high-impact, multi-paradigm experiments:
 
 ### Experiment 1: The Heterogeneous Cryogenic Systolic Coprocessor
-*   **The Concept**: Coupling the high-frequency clock speed of superconducting logic with the data-parallel throughput of systolic arrays.
+*   **The Concept**: Coupling the high-frequency clock speed of superconducting logic with the data-parallel throughput of [systolic arrays](../excavations/systolic-arrays.md).
 *   **How to execute**:
     1. Run the single-command integration driver: `python3 -m reconstructions.co-simulation.experiments --all` (or run individually using `--experiment 1`).
     2. The driver adapts the cycle-accurate [Systolic Array Simulator](../reconstructions/systolic-array/) to evaluate a 100 GHz Weight-Stationary matrix core.
@@ -142,7 +142,7 @@ Evaluating alternative lineages in isolation masks their true potential. The hig
 
 ---
 
-## 6. Quantitative Constraint Migration Curves
+## 6. Quantitative [Constraint Migration](../patterns/constraint-migration.md) Curves
 
 The viability of non-von Neumann computing is driven by physical scaling boundaries. Below we derive the exact thermodynamic and electrical crossover curves where physical copper interconnect resistance scaling makes alternative paradigms superior to room-temperature CMOS.
 

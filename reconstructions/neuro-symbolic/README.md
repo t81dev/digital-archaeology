@@ -11,7 +11,7 @@ Modern Artificial Intelligence is dominated by **statistical deep learning** (ne
 - **Unverifiable Reasoning**: Their internal decision-making is a black box of high-dimensional weights, making them difficult to audit or explain.
 - **Lack of Guardrails**: It is hard to mathematically guarantee that a neural network will never violate legal, safety, or business constraints.
 
-**Neuro-Symbolic AI** is a hybrid paradigm that combines:
+**Neuro-[Symbolic AI](../../excavations/symbolic-ai.md)** is a hybrid paradigm that combines:
 1. **The Statistical/Neural Layer (Perception)**: Excels at processing messy, raw sensor inputs (images, audio, unstructured text) and outputs probabilistic confidence scores (e.g., "92% confidence there is a package on the porch").
 2. **The Symbolic/Logic Layer (Reasoning & Guardrails)**: Processes explicit, structured concepts using formal logic rules. It executes deterministic operations (like forward-chaining deduction) to guarantee logical, verifiable, and explainable decisions.
 

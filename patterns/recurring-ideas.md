@@ -15,31 +15,31 @@ This pattern catalog identifies recurring ideas, documents their historical appe
 ## Core Recurring Ideas (Updated July 2026)
 
 ### 1. Dataflow and Execution by Availability
-- **Original**: Dataflow architectures (1970s–1990s), Systolic Arrays
+- **Original**: Dataflow architectures (1970s–1990s), [Systolic Arrays](../excavations/systolic-arrays.md)
 - **Modern forms**: TensorFlow/PyTorch computation graphs, GPU shader/tensor execution, streaming processors, reactive programming, and many AI accelerators.
 
 ### 2. Message-Passing & CSP Concurrency
-- **Original**: Transputers, Occam, Hoare’s Communicating Sequential Processes (CSP)
+- **Original**: [Transputers](../excavations/transputers.md), [Occam](../excavations/occam.md), Hoare’s Communicating Sequential Processes (CSP)
 - **Modern forms**: Go channels, Erlang actors, Akka, Ray, many distributed systems, and network-on-chip designs.
 
 ### 3. Tagged / Capability Architectures
-- **Original**: Lisp Machines (tagged memory), Burroughs descriptors, Capability Systems, iAPX 432, Multics
+- **Original**: [Lisp Machines](../excavations/lisp-machines.md) ([tagged memory](../GLOSSARY.md)), Burroughs descriptors, [Capability Systems](../excavations/capability-systems.md), iAPX 432, [Multics](../excavations/multics.md)
 - **Modern forms**: CHERI hardware capabilities, ARM Memory Tagging Extension (MTE), typed memory in managed runtimes, and object-capability models.
 
 ### 4. Alternative Number Systems & Representations
-- **Original**: Balanced Ternary (Setun), decimal machines, residue number systems
-- **Modern forms**: Posits, logarithmic number systems, mixed-precision AI formats, stochastic computing, and multi-valued logic research.
+- **Original**: [Balanced Ternary](../excavations/balanced-ternary.md) (Setun), decimal machines, residue number systems
+- **Modern forms**: Posits, logarithmic number systems, mixed-precision AI formats, [stochastic computing](../excavations/stochastic-computing.md), and multi-valued logic research.
 
 ### 5. Deep Language-Hardware Integration
-- **Original**: Lisp Machines, Burroughs Large Systems, Symbolics Genera (microcode + rich runtime)
+- **Original**: [Lisp Machines](../excavations/lisp-machines.md), [Burroughs Large Systems](../excavations/burroughs-large-systems.md), Symbolics Genera (microcode + rich runtime)
 - **Modern forms**: Domain-specific accelerators with tight compiler co-design, e-graph rewriting, hardware support for garbage collection, dynamic typing, and high-level operations.
 
 ### 6. Single-Level Storage / Persistent Object Models
-- **Original**: Early Lisp/Smalltalk environments, Multics, Burroughs
+- **Original**: Early Lisp/[Smalltalk](../excavations/smalltalk.md) environments, [Multics](../excavations/multics.md), Burroughs
 - **Modern forms**: Persistent memory (Optane-style), unified memory architectures (e.g., Apple Silicon), and object-capability storage systems.
 
 ### 7. Vector / Spatial / Streaming Data Parallelism (new)
-- **Original**: Cray Vector Supercomputing, Systolic Arrays, Connection Machine
+- **Original**: Cray [Vector Supercomputing](../excavations/vector-supercomputing.md), [Systolic Arrays](../excavations/systolic-arrays.md), [Connection Machine](../excavations/connection-machine.md)
 - **Modern forms**: GPU tensor cores, SIMD extensions (AVX-512, SVE), spatial computing fabrics, and systolic-style matrix engines in AI hardware.
 
 ---
@@ -56,7 +56,7 @@ This pattern catalog identifies recurring ideas, documents their historical appe
 
 ## Relationship to Other Patterns
 
-Recurring ideas often become **Forgotten Abstractions** when economic or ecosystem forces temporarily suppress them. They frequently suffer from **Economic Failures** and **Ecosystem Lock-In**, only to reappear when technological or market constraints shift.
+Recurring ideas often become **[Forgotten Abstractions](forgotten-abstractions.md)** when economic or ecosystem forces temporarily suppress them. They frequently suffer from **[Economic Failures](economic-failures.md)** and **[Ecosystem Lock-In](ecosystem-lockin.md)**, only to reappear when technological or market constraints shift.
 
 Understanding recurrence helps us distinguish transient fads from deep structural principles in computing.
 

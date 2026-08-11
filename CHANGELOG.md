@@ -2,11 +2,11 @@
 
 All notable changes to the Digital Archaeology repository will be documented in this file.
 
-## [Phase X: Constraint Migration Predictive Hypothesis Engine & Alternative Hardware Forecasting] - August 2026
+## [Phase X: [Constraint Migration](patterns/constraint-migration.md) Predictive Hypothesis Engine & Alternative Hardware Forecasting] - August 2026
 
 ### Added
 - **Predictive Hypothesis Engine**: Implemented a stateful, zero-dependency Python forecaster under `reconstructions/predictive-hypothesis/predictive_engine.py` mapping emerging nanoscale physical bottlenecks to our 6 core lineages.
-- **Dynamic Research Hypotheses Generation**: Added rules for generating rigorous, academic-grade resurrection briefs linking specific physical constraint shifts (e.g., copper resistance scaling, subthreshold gate leakage, security exposure) to forgotten abstractions.
+- **Dynamic Research Hypotheses Generation**: Added rules for generating rigorous, academic-grade resurrection briefs linking specific physical constraint shifts (e.g., copper resistance scaling, subthreshold gate leakage, security exposure) to [forgotten abstractions](patterns/forgotten-abstractions.md).
 - **Argparse CLI Console & JSON Interface**: Created a fully interactive command-line interface with detailed tabular text formatting, star ratings, and standardized JSON export.
 - **Pytest Verification Suite**: Added 6 comprehensive unit tests under `reconstructions/predictive-hypothesis/test_predictive_engine.py` validating prediction bounds clamping, input sensitivities, and JSON schema compatibility.
 
@@ -14,9 +14,9 @@ All notable changes to the Digital Archaeology repository will be documented in 
 
 ### Added
 - **Runnable Multi-Paradigm Sandbox Experiments**: Developed a comprehensive integration driver and execution script `reconstructions/co-simulation/experiments.py` implementing three high-impact cross-paradigm experiments proposed in the State of Revival synthesis:
-  - *Experiment 1: Heterogeneous Cryogenic Systolic Coprocessor*: Wires the cycle-accurate systolic array activity & interconnect metrics directly to Josephson junction switching events and cryogenic refrigeration models at 4.2 K, demonstrating up to a $140\times$ efficiency gain over standard 5 GHz CMOS GPU tiles.
+  - *Experiment 1: Heterogeneous Cryogenic Systolic Coprocessor*: Wires the cycle-accurate [systolic array](GLOSSARY.md) activity & interconnect metrics directly to Josephson junction switching events and cryogenic refrigeration models at 4.2 K, demonstrating up to a $140\times$ efficiency gain over standard 5 GHz CMOS GPU tiles.
   - *Experiment 2: Reversible Uncomputation in Cryogenic Storage Loops*: Combines adiabatic charge recovery with the cryogenic cooling penalty model to demonstrate absolute Landauer heat erasure avoidance, saving over $3.6\times10^4 \text{ fJ}$ of utility grid power per uncomputed bit at cryogenic scale.
-  - *Experiment 3: 9P Sandboxed Execution for Autonomous LLM Agents*: Integrates the Plan 9/9P private resource namespace server with inline hardware-level Burroughs segmented memory descriptors, validating the block of OOB prompt-injection attacks and triggering proper page faults.
+  - *Experiment 3: 9P Sandboxed Execution for Autonomous LLM Agents*: Integrates the [Plan 9](excavations/plan-9.md)/9P private resource namespace server with inline hardware-level Burroughs segmented memory descriptors, validating the block of OOB prompt-injection attacks and triggering proper page faults.
 - **Focused Multi-Paradigm Unit Tests**: Added a complete Pytest test suite `reconstructions/co-simulation/test_experiments.py` to continuously verify the correctness, metrics, and security guarantees of all three sandbox experiments.
 - **Formal Verification Assertions for Soft-Cores**: Appended inline, SystemVerilog Assertions (SVA) compatible specifications inside `ternary_alu.sv`, `capability_bounds_checker.sv`, `reversible_gates.sv`, and `stochastic_multiplier.sv` representing core physical and safety invariants (reset state, zero-element addition, bounds safety, information conservation, and non-zero LFSR state propagation).
 - **Hardened Golden Model Testing**: Added targeted alignment tests to `test_synthesizable.py` mapping reversible uncomputation sequences and segmented virtual memory page fault triggers to physical experiment conditions, and introduced CLI execution test coverage to `test_experiments.py`.
@@ -36,7 +36,7 @@ All notable changes to the Digital Archaeology repository will be documented in 
 ## [Phase VIII: Academic Credibility & Soft-Core Hardening] - August 2026
 
 ### Added
-- **Academic Research Overview**: Authored `synthesis/digital-archaeology-overview.md` compiling the project's definition, the six core lineages with one-sentence characterizations, core methodological claims (constraint migration and explanatory density), and a BibTeX citation record.
+- **Academic Research Overview**: Authored `synthesis/digital-archaeology-overview.md` compiling the project's definition, the six core lineages with one-sentence characterizations, core methodological claims ([constraint migration](patterns/constraint-migration.md) and explanatory density), and a BibTeX citation record.
 - **Microarchitectural Integration Notes**: Added a detailed section to `reconstructions/synthesizable-hardware/README.md` guiding designers on FPGA/ASIC wrappers, clock/reset inputs, and minimal testbench structures for all four cores.
 - **Advanced Golden-Model Tests**: Added 8 advanced, zero-dependency validation tests in `test_synthesizable.py`, verifying the maximal-period properties of the 8-bit LFSR, unipolar stochastic output ratios, exhaustive 1-trit multiplier logic, addition/subtraction overflow conditions, and reversible gate bijectivity.
 
@@ -59,7 +59,7 @@ All notable changes to the Digital Archaeology repository will be documented in 
 - **Pedagogical Spiking & Stochastic Lab**: Integrated **Lab Module 7** to `reconstructions/LAB_MANUAL.md` covering LIF neural integration challenges and unipolar multiplier precision/latency trade-offs.
 
 ### Improved
-- **Stochastic Computing Simulator Expansion**: Upgraded `reconstructions/stochastic-computing/stochastic_sim.py` with multi-input stochastic artificial neuron and 1-D moving-average smoothing filter workloads. Added a quantitative accuracy-vs-energy proxy (active CMOS logic gate transitions) trade-off evaluation comparing stochastic multipliers with standard 8-bit binary multipliers.
+- **[Stochastic Computing](excavations/stochastic-computing.md) Simulator Expansion**: Upgraded `reconstructions/stochastic-computing/stochastic_sim.py` with multi-input stochastic artificial neuron and 1-D moving-average smoothing filter workloads. Added a quantitative accuracy-vs-energy proxy (active CMOS logic gate transitions) trade-off evaluation comparing stochastic multipliers with standard 8-bit binary multipliers.
 - **Sourced Historical Documentation**:
   - Deepened `excavations/neuromorphic-hardware.md` with MOSFET subthreshold exponential physics, ASCII diagrams of LIF neuron and AER routing mechanics, and a detailed comparison table of historical metrics (IBM TrueNorth, Stanford Neurogrid, Heidelberg BrainScaleS, Manchester SpiNNaker, Intel Loihi).
   - Deepened `excavations/stochastic-computing.md` with Gaines' saturating state counter FSM activation math, unipolar/bipolar SCG comparator diagrams, and historical metrics (Gaines' ADDIE, RASCEL).
@@ -131,6 +131,6 @@ Now that the major physical and systems lineages are fully covered, mapped, and 
 - **Deepened Spatial & Parallel Excavations**:
   - `excavations/systolic-arrays.md`: Greatly expanded historical specifications of Carnegie Mellon Warp (100 MFLOPS, Weitek FP chips) and Intel-CMU iWarp (1.2-micron CMOS, 20 MFLOPS/node, 320 MB/s links), illustrated detailed Weight-Stationary and Output-Stationary ASCII/Mermaid structures, and discussed Google TPU and GPU Tensor Core design lineages.
   - `excavations/connection-machine.md`: Grounded in Danny Hillis's MIT dissertation, providing specific metrics on CM-1 (65,536 1-bit nodes, 4 MHz, 32 MB RAM), CM-2 (Weitek FPU accelerators, 2.5 GFLOPS peak), and CM-5 (SPARC cores, fat-tree MIMD topology). Mapped dynamic packet routing, the Virtual Processor Ratio (VPR), and processing-in-memory to modern SIMT and wafer-scale architectures.
-  - `excavations/transputers.md`: Fully documented INMOS T414 (15 MIPS), T800 (FPU-on-die, 1.5-micron, 250k transistors), and T9000 milestones. Highlighted the microcoded low/high priority hardware multitasking scheduler, internal/external zero-copy channel rendezvous mechanisms, and the elegant occam compiler CSP-to-silicon co-design. Mapped concepts to Go channels, Erlang actors, and modern Networks-on-Chip (NoC).
+  - `excavations/transputers.md`: Fully documented INMOS T414 (15 MIPS), T800 (FPU-on-die, 1.5-micron, 250k transistors), and T9000 milestones. Highlighted the microcoded low/high priority hardware multitasking scheduler, internal/external zero-copy channel rendezvous mechanisms, and the elegant [occam](excavations/occam.md) compiler CSP-to-silicon co-design. Mapped concepts to Go channels, Erlang actors, and modern Networks-on-Chip (NoC).
 - **Relational Density & Bidirectional Linking**: Strengthened link intersections from excavations to spatial computing, AI, and FPGA relevance files (`synthesis/return-of-spatial-computing.md`, `patterns/constraint-migration.md`, `modern-relevance/ai.md`, `modern-relevance/fpga.md`, and `synthesis/capability-based-security.md`).
 - **Knowledge Graph Synchronization**: Regrouped headings to ensure regular expression compliance, enabling full dynamic extraction of modern relevance paragraphs in `modern-relevance/knowledge_graph.json` without blanking out nodes.

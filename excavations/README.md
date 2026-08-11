@@ -119,5 +119,5 @@ Together, these layers form a map of computing paths taken, abandoned, and poten
 
 | Excavation | Subject | Status |
 |------------|---------|--------|
-| Balanced Ternary | Alternative number representation and ternary computing | Active |
+| [Balanced Ternary](balanced-ternary.md) | Alternative number representation and ternary computing | Active |
 | | | |

@@ -55,7 +55,7 @@ Numbers are represented in powers of 3, with each position weighted **3ⁿ** and
 | -4      | --               | $-1 \times 3^1 - 1 \times 3^0 = -3 - 1 = -4$ |
 
 **Key Properties:**
-- **Information density**: Radix economy defines the efficiency of a representation. The optimal theoretical base for representing numbers is the transcendental number $e \approx 2.718$. Therefore, base 3 (ternary) is mathematically more efficient than base 2 (binary) or base 10 (decimal). Each trit carries $\log_2(3) \approx \mathbf{1.585\text{ bits}}$.
+- **Information density**: [Radix economy](../GLOSSARY.md) defines the efficiency of a representation. The optimal theoretical base for representing numbers is the transcendental number $e \approx 2.718$. Therefore, base 3 (ternary) is mathematically more efficient than base 2 (binary) or base 10 (decimal). Each trit carries $\log_2(3) \approx \mathbf{1.585\text{ bits}}$.
 - **Unique representation**: Every integer has exactly one canonical balanced ternary form (no dual representation of zero, unlike binary schemes like one's complement or sign-magnitude).
 - **Symmetric arithmetic**: Addition and multiplication rules are perfectly symmetric around zero. The sign of a number is simply the sign of its most significant non-zero trit, enabling instant comparison.
 
@@ -89,7 +89,7 @@ Balanced ternary failed for primarily **non-mathematical and physical fabricatio
 
 ---
 
-## Lessons Learned & Constraint Migration
+## Lessons Learned & [Constraint Migration](../patterns/constraint-migration.md)
 
 - **Physical Medium Dictates Abstractions**: When vacuum tubes and simple binary switches were the cheapest components, binary won. Now, as physical wires and memory access become the primary bottleneck, MVL abstractions that maximize information transfer density are becoming optimal.
 - **Ecosystem Dominance**: A mathematically superior system will lose to a simpler, well-funded alternative.

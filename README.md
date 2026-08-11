@@ -9,13 +9,13 @@
 
 **Digital Archaeology** is an open-source, multi-disciplinary research initiative and execution sandbox dedicated to the rediscovery, simulation, and hardware-reconstruction of historically sidelined computing paradigms. As modern Silicon scaling hits the Von Neumann memory wall, Dennard scaling limits, and the "security wall," these forgotten architectures offer elegant, proven blueprints for domain-specific acceleration, hardware-enforced security, and distributed coordination.
 
-> 🎓 **Academic Entry Point & Research Reference**: If you are an external researcher, academic, or computer architect, please review and cite our **[Academic Overview & Research Entry Point](synthesis/digital-archaeology-overview.md)**, which compiles our six core lineages, core methodological claims on constraint migration and explanatory density, and a standard BibTeX citation block.
+> 🎓 **Academic Entry Point & Research Reference**: If you are an external researcher, academic, or computer architect, please review and cite our **[Academic Overview & Research Entry Point](synthesis/digital-archaeology-overview.md)**, which compiles our six core lineages, core methodological claims on [constraint migration](patterns/constraint-migration.md) and explanatory density, and a standard BibTeX citation block.
 
 ---
 
 ### 🏃 Runnable Multi-Paradigm Experiments (One-Command Demo)
 
-We maintain three concrete cross-paradigm architectural experiments implementing synergistic connections across different sidelined lineages (systolic array + cryogenic logic; reversible uncomputation + Landauer thermal dissipation; 9P dynamic namespaces + hardware capability bounds check):
+We maintain three concrete cross-paradigm architectural experiments implementing synergistic connections across different sidelined lineages ([systolic array](GLOSSARY.md) + cryogenic logic; reversible uncomputation + Landauer thermal dissipation; 9P dynamic namespaces + hardware capability bounds check):
 
 ```bash
 # Run all three co-simulation experiments with a single clear command

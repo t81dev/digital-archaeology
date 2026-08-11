@@ -1,6 +1,6 @@
 # CSP Synchronous Messaging Simulator
 
-A zero-dependency Python simulator implementing an **occam-style synchronous message-passing engine** based on Tony Hoare's Communicating Sequential Processes (CSP) formalism.
+A zero-dependency Python simulator implementing an **[occam](../../excavations/occam.md)-style synchronous message-passing engine** based on Tony Hoare's Communicating Sequential Processes (CSP) formalism.
 
 ---
 

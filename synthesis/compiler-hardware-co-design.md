@@ -16,14 +16,14 @@ The most powerful modern architectures — especially in AI, GPUs, and domain-sp
 
 Several early systems pushed hard on co-design:
 
-- **[Lisp Machines](../excavations/lisp-machines.md)** — Hardware deeply integrated with the language runtime (tagged memory, garbage collection support, dynamic typing).
+- **[Lisp Machines](../excavations/lisp-machines.md)** — Hardware deeply integrated with the language runtime ([tagged memory](../GLOSSARY.md), garbage collection support, dynamic typing).
 - **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)** — Designed from the ground up around ALGOL and block-structured programming.
 - **[VLIW / EPIC Architectures](../excavations/vliw-epic.md)** (Itanium) — Explicitly gave the compiler control over instruction scheduling and parallelism.
 - **[Transputers](../excavations/transputers.md)** & **[Occam](../excavations/occam.md)** — Hardware channels and CSP concurrency designed together with the programming language.
 - **[Systolic Arrays](../excavations/systolic-arrays.md)** & **[Vector Supercomputing](../excavations/vector-supercomputing.md)** — Required specialized "systolic algorithms" and vectorizing compilers.
 - **[Graph Reduction Machines](../excavations/graph-reduction-machines.md)** — Compiled lazy expressions executing directly on custom self-rewriting memory heaps.
 
-Most of these efforts faced significant commercial challenges, often due to ecosystem lock-in and the difficulty of building a full software stack.
+Most of these efforts faced significant commercial challenges, often due to [ecosystem lock-in](../patterns/ecosystem-lockin.md) and the difficulty of building a full software stack.
 
 ---
 
@@ -48,7 +48,7 @@ Today, compiler-hardware co-design is thriving — especially in AI and speciali
 
 ### GPUs and Spatial Architectures
 - NVIDIA CUDA + PTX is a textbook example of co-design: the hardware ISA is heavily influenced by what the compiler can express.
-- Modern GPU tensor cores are essentially systolic arrays exposed through high-level compiler abstractions.
+- Modern GPU tensor cores are essentially [systolic arrays](../excavations/systolic-arrays.md) exposed through high-level compiler abstractions.
 
 ### Domain-Specific Architectures
 - AWS Inferentia, Google Edge TPU, and many startups design custom instructions and memory hierarchies specifically for what compilers can optimize.
@@ -70,7 +70,7 @@ Several constraints have shifted:
 ## Lessons from the Pattern
 
 1. **Co-design is high-risk, high-reward.** It can produce exceptional efficiency but requires a strong software story.
-2. **Distillation again** — We are not reviving full Lisp Machines or Itanium, but selectively adopting their co-design philosophy.
+2. **Distillation again** — We are not reviving full [Lisp Machines](../excavations/lisp-machines.md) or Itanium, but selectively adopting their co-design philosophy.
 3. **The compiler is part of the architecture.** In high-performance domains, treating them separately is increasingly naive.
 4. **Timing and workload matter.** Ideas that failed under general-purpose computing can succeed spectacularly when a dominant new workload appears.
 

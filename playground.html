@@ -329,7 +329,9 @@
             <div class="flex-1 bg-slate-950 border border-gray-800 rounded-lg p-3.5 flex flex-col space-y-2 min-h-[260px]">
                 <h3 class="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center justify-between">
                     <span class="flex items-center gap-1"><i data-lucide="activity" class="w-3.5 h-3.5 text-emerald-400"></i> Logic Analyzer</span>
-                    <span class="text-[9px] text-gray-500 font-mono">TIME_UNIT: CYCLES</span>
+                    <button onclick="exportWaveformToVCD()" class="flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold text-emerald-400 bg-emerald-950/40 hover:bg-emerald-950/80 border border-emerald-500/20 rounded transition-colors cursor-pointer">
+                        <i data-lucide="download" class="w-3 h-3"></i> Export VCD
+                    </button>
                 </h3>
 
                 <!-- Waveforms Grid -->
@@ -1078,6 +1080,69 @@ except Exception as e:
                 executePythonCode();
             }
         });
+
+        // =========================================================================
+        // PHASE VIII: Save/Export Waveform Capabilities
+        // =========================================================================
+        function exportWaveformToVCD() {
+            let vcd = "";
+            vcd += `$date\n  ${new Date().toUTCString()}\n$end\n`;
+            vcd += `$version\n  Digital Archaeology HIL Logic Analyzer v1.0\n$end\n`;
+            vcd += `$timescale\n  1ns\n$end\n`;
+            vcd += `$scope module top $end\n`;
+
+            // Map signal names to 1-character identifier codes
+            const sigMap = {
+                'CLK': 'c',
+                'SEN_TRIG': 't',
+                'LOGIC_DEC': 'd',
+                'CSP_RDV': 'r',
+                'DF_OP': 'o',
+                'EDGE_WR': 'w',
+                'HW_EXC': 'x'
+            };
+
+            // Register variables
+            for (let [name, code] of Object.entries(sigMap)) {
+                vcd += `$var wire 1 ${code} ${name} $end\n`;
+            }
+
+            vcd += `$upscope $end\n`;
+            vcd += `$enddefinitions $end\n`;
+
+            // Dump initial values at time #0
+            vcd += `#0\n$dumpvars\n`;
+            for (let [name, code] of Object.entries(sigMap)) {
+                const val = signals[name][0] || 0;
+                vcd += `${val}${code}\n`;
+            }
+            vcd += `$end\n`;
+
+            // Dump subsequent cycles
+            for (let step = 1; step < maxHilCycles; step++) {
+                vcd += `#${step}\n`;
+                for (let [name, code] of Object.entries(sigMap)) {
+                    const val = signals[name][step] || 0;
+                    const prevVal = signals[name][step - 1] || 0;
+                    if (val !== prevVal) {
+                        vcd += `${val}${code}\n`;
+                    }
+                }
+            }
+
+            // Trigger browser client-side download
+            const blob = new Blob([vcd], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${currentSimulator}_waveform.vcd`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            writeToConsole(`System: Successfully exported standard Value Change Dump (VCD) trace to '${currentSimulator}_waveform.vcd'!`);
+        }
     </script>
 </body>
 </html>

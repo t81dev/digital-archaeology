@@ -6,11 +6,11 @@
 
 ## Summary
 
-Cellular Automata (CA) Hardware is a computational paradigm in which processing, memory, and spatial interconnects are unified into fine-grained arrays of identical, low-complexity processing elements (cells). In a cellular automaton, each cell maintains a discrete state and updates it synchronously at discrete clock intervals based solely on its own current state and the states of its immediate geometric neighbors (such as a 4-connected **von Neumann neighborhood** or an 8-connected **Moore neighborhood**).
+[Cellular Automata (CA) Hardware](../GLOSSARY.md) is a computational paradigm in which processing, memory, and spatial interconnects are unified into fine-grained arrays of identical, low-complexity processing elements (cells). In a cellular automaton, each cell maintains a discrete state and updates it synchronously at discrete clock intervals based solely on its own current state and the states of its immediate geometric neighbors (such as a 4-connected **von Neumann neighborhood** or an 8-connected **Moore neighborhood**).
 
 While software simulations of cellular automata—such as John Conway’s *Game of Life* (1970) or Stephen Wolfram’s 1D elementary rules—run sequentially on von Neumann hardware with $O(N^2)$ software loops, dedicated **Cellular Automata Machines (CAMs)** implement spatial parallelism natively in silicon. Every cell operates simultaneously in hardware, yielding true $O(1)$ temporal update execution regardless of grid dimensions.
 
-Pioneered theoretically by John von Neumann and Stanislaw Ulam in the 1940s, and implemented in physical hardware through systems like Tommaso Toffoli and Norman Margolus's **CAM-6** and **CAM-8** in the 1980s, CA hardware eliminates central bus bottlenecks. Today, its spatial execution philosophy directly underpins modern Field-Programmable Gate Arrays (FPGAs), systolic arrays, stencil accelerators, and wafer-scale AI processors.
+Pioneered theoretically by John von Neumann and Stanislaw Ulam in the 1940s, and implemented in physical hardware through systems like Tommaso Toffoli and Norman Margolus's **CAM-6** and **CAM-8** in the 1980s, CA hardware eliminates central bus bottlenecks. Today, its spatial execution philosophy directly underpins modern Field-Programmable Gate Arrays (FPGAs), [systolic arrays](systolic-arrays.md), stencil accelerators, and wafer-scale AI processors.
 
 ---
 
@@ -96,7 +96,7 @@ Because neighborhood inputs total only a few bits (e.g., $5\text{ bits}$ for 2-s
 
 ## Innovations
 
-* **Elimination of the von Neumann Bottleneck:** Memory and logic are collocated inside each processing element. There are no high-capacitance address buses or DRAM fetch cycles; data transfers occur only across microscopic neighbor-to-neighbor wires.
+* **Elimination of the [von Neumann Bottleneck](../GLOSSARY.md):** Memory and logic are collocated inside each processing element. There are no high-capacitance address buses or DRAM fetch cycles; data transfers occur only across microscopic neighbor-to-neighbor wires.
 * **$O(1)$ Spatial Scaling:** Doubling the spatial grid resolution simply requires adding more identical silicon tiles. System throughput scales linearly with silicon area without degrading execution clock frequencies.
 * **Fault-Tolerant Self-Repair:** Fine-grained spatial cellular grids can be programmed with self-organizing rules that route around defective hardware cells, making them resilient to silicon manufacturing defects.
 * **Exact Simulation of Physical Laws:** Conservation rules (mass, momentum, particle counts) can be embedded directly into local cellular lookup tables, yielding physical simulations that are perfectly stable without numerical drift or rounding errors.
@@ -125,7 +125,7 @@ While stand-alone "Cellular Automata Machines" vanished as commercial products, 
 
 * **Field-Programmable Gate Arrays (FPGAs):** Modern FPGAs are directly descended from CA architecture principles—consisting of a 2D spatial grid of Lookup Tables (LUTs), flip-flops, and configurable neighbor routing channels.
 * **Wafer-Scale AI Processors (Cerebras WSE):** The Cerebras Wafer-Scale Engine utilizes a 2D mesh of hundreds of thousands of independent processing cores connected via a high-speed spatial fabric, executing tensor computations as localized spatial stencil operations.
-* **Systolic Arrays and Stencil Accelerators:** Google’s Tensor Processing Unit (TPU) and domain-specific physics accelerators use spatial 2D grid meshes to push data through neighboring processing elements without central register file access.
+* **[Systolic Arrays](systolic-arrays.md) and Stencil Accelerators:** Google’s Tensor Processing Unit (TPU) and domain-specific physics accelerators use spatial 2D grid meshes to push data through neighboring processing elements without central register file access.
 * **Lattice-Boltzmann Physics Solvers:** Modern fluid dynamics and aerodynamic solvers (e.g., in aerospace and automotive design) run parallelized Lattice-Boltzmann Method (LBM) algorithms on massive GPU grids, directly inheriting the physics model of 1980s lattice-gas cellular automata.
 
 ---

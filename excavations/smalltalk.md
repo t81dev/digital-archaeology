@@ -46,7 +46,7 @@ The canonical Smalltalk-80 image provided a complete, self-contained world of ob
 ## Why It Didn’t Win
 
 - **Performance** — Early implementations were slower than optimized C/Fortran systems on the same hardware.
-- **Ecosystem lock-in** — The world standardized on C/Unix and later C++/Windows ecosystems.
+- **[Ecosystem lock-in](../patterns/ecosystem-lockin.md)** — The world standardized on C/Unix and later C++/Windows ecosystems.
 - **Commercial viability** — Xerox’s failure to capitalize on PARC inventions allowed competitors to adopt pieces (e.g., GUI concepts) without the full coherent vision.
 - **Learning curve and perception** — Seen as too radical or academic for mainstream developers.
 - **Memory and resource usage** — The image-based model was resource-intensive on 1980s hardware.

@@ -9,7 +9,7 @@
         │               │               │
   ┌─────┼─────┐     ┌───┼───┐      ┌────┼────┐
   │     │     │     │   │   │      │    │    │
-Stack  Ternary Data  Plan Inferno Small Lisp Occam
+Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](excavations/occam.md)
         │      │
         └───Modern AI──────FPGA────Mixed-Radix
         
@@ -19,8 +19,8 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 
 ## Architectures
 
-- [Analog Computing](excavations/analog-computing.md) — *Continuous physical modeling via wave, power, and operational amplifier dynamics.*
-- [Asynchronous Microprocessors](excavations/asynchronous-processors.md) — *Self-timed micropipelines and clockless processor architectures bypassing global clock constraints.*
+- [Analog Computing](excavations/analog-computing.md) — *[Continuous physical modeling](GLOSSARY.md) via wave, power, and operational amplifier dynamics.*
+- [Asynchronous Microprocessors](excavations/asynchronous-processors.md) — *Self-timed [micropipelines](GLOSSARY.md) and clockless processor architectures bypassing global clock constraints.*
 - [Associative Processors & Content-Addressable Computing](excavations/associative-processors.md) — *Content-addressable parallel execution and bit-serial in-memory computing.*
 - [Balanced Ternary](excavations/balanced-ternary.md) — *Ternary logic, arithmetic, and power efficiency advantages over binary.*
 - [Cellular Automata Hardware](excavations/cellular-automata-hardware.md) — *Decentralized, spatial grid arrays executing local interaction rules.*
@@ -36,7 +36,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Stochastic Computing](excavations/stochastic-computing.md) — *Trading execution latency for extreme structural simplicity and noise tolerance by computing mathematically with random binary bitstreams.*
 - [Superconducting & Cryogenic Microarchitectures](excavations/superconducting-cryogenic.md) — *SFQ/RSFQ logic at cryogenic temperatures for ultra-high speed and efficiency.*
 - [Systolic Arrays](excavations/systolic-arrays.md) — *Regular, pipelined grids of processing elements for dense compute-bound workloads.*
-- [The MIT J-Machine](excavations/j-machine.md) — *Fine-grained message-driven 3D routing fabric executing active messages in hardware.*
+- [The MIT J-Machine](excavations/j-machine.md) — *Fine-grained message-driven 3D routing fabric executing [active messages](GLOSSARY.md) in hardware.*
 - [Transputers](excavations/transputers.md) — *Massively parallel microprocessors with native channel-based CSP messaging.*
 - [Vector Supercomputing](excavations/vector-supercomputing.md) — *Cray-style vector processors optimized for scientific and high-throughput workloads.*
 - [VLIW / EPIC Architectures](excavations/vliw-epic.md) — *Compiler-driven explicit instruction-level parallelism (Itanium and predecessors).*
@@ -49,18 +49,18 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [BeOS / Haiku](excavations/beos-haiku.md) — *Media-optimized, responsive OS with modern design (revived as open-source Haiku).*
 - [Burroughs Large Systems](excavations/burroughs-large-systems.md) — *High-level language hardware integration with descriptors and stack architecture.*
 - [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models (KeyKOS, EROS, CHERI).*
-- [Inferno](excavations/inferno.md) — *Distributed VM OS utilizing Limbo and the Styx/9P protocol.*
+- [Inferno](excavations/inferno.md) — *Distributed VM OS utilizing Limbo and the Styx/[9P protocol](GLOSSARY.md).*
 - [Intel iAPX 432](excavations/intel-iapx-432.md) — *Capability-based object-oriented architecture.*
 - [Lisp Machines](excavations/lisp-machines.md) — *Single-user, hardware-integrated dynamic environment.*
 - [Multics](excavations/multics.md) — *Influential secure, multi-user timesharing system with segmentation and rings.*
 - [Plan 9](excavations/plan-9.md) — *Distributed UNIX successor ("Everything is a 9P service").*
-- [Project Xanadu](excavations/project-xanadu.md) — *Bi-directional hypermedia network and deep versioning system.*
+- [Project Xanadu](excavations/project-xanadu.md) — *[Bi-directional hypermedia](GLOSSARY.md) network and deep versioning system.*
 
 ---
 
 ## Programming Languages & AI Paradigms
 
-- [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) — *Coordinate-free parallel coordination, generative communication, and associative pattern-matching.*
+- [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) — *Coordinate-free parallel coordination, [generative communication](GLOSSARY.md), and associative pattern-matching.*
 - [Occam](excavations/occam.md) — *Concurrent language based on Communicating Sequential Processes (CSP).*
 - [Smalltalk](excavations/smalltalk.md) — *Pure image-based object-oriented environment and dynamic messaging.*
 - [Symbolic AI](excavations/symbolic-ai.md) — *Logic programming, inference engines, and formal knowledge representation.*
@@ -83,7 +83,7 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Academic Overview & Research Entry Point](synthesis/digital-archaeology-overview.md) — *A short, dense, and citable reference introducing our six core lineages, methodology, and BibTeX records.*
 - [Architectural Distillation](synthesis/architectural-distillation.md) — *How failed computing systems leave behind enduring abstractions that shape modern architectures.*
 - [Architectural Roadmap Re-Evaluation](synthesis/architectural-roadmap-re-evaluation.md) — *A comprehensive, academically rigorous phase-by-phase re-evaluation of the Digital Archaeology Roadmap (Phases I through XIII) under modern post-Dennard, sub-5nm scaling, and zero-trust security constraints.*
-- [Alternative Mathematical Execution Paradigms](synthesis/alternative-mathematical-execution-paradigms.md) — *How symmetric balanced ternary, probabilistic stochastic bitstreams, and symbolic logic resolution trees bypass the memory wall and density constraints of modern AI.*
+- [Alternative Mathematical Execution Paradigms](synthesis/alternative-mathematical-execution-paradigms.md) — *How symmetric [balanced ternary](excavations/balanced-ternary.md), probabilistic stochastic bitstreams, and symbolic logic resolution trees bypass the memory wall and density constraints of modern AI.*
 - [Capability-Based Security](synthesis/capability-based-security.md) — *The revival of fine-grained, unforgeable hardware-level rights in the zero-trust and AI era.*
 - [Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md) — *Why the modern performance frontier relies on treating compilers and custom silicon as a single unified system.*
 - [The Evolution of Coordination Abstractions](synthesis/evolution-of-coordination-abstractions.md) — *The evolution of process communication and concurrency models from shared-memory to decoupled coordination.*
@@ -115,9 +115,9 @@ Stack  Ternary Data  Plan Inferno Small Lisp Occam
 - [Neuro-Symbolic Logic Solver](reconstructions/neuro-symbolic/) — *Hybrid AI decision system combining neural network outputs with forward-chaining rules.*
 - [CSP Synchronous Messaging Simulator](reconstructions/csp-messaging/) — *Synchronous channel rendezvous messaging, ALT-based multiplexing, and deadlock reporting.*
 - [Continuous Analog & Optical Wave Accelerator Simulator](reconstructions/analog-optical/) — *Photonic tensor core wave interference and op-amp mass-spring solvers.*
-- [Synthesizable Hardware IP Core Blueprints](reconstructions/synthesizable-hardware/) — *Synthesizable SystemVerilog models of Balanced Ternary ALUs and tagged RAM bounds checkers.*
+- [Synthesizable Hardware IP Core Blueprints](reconstructions/synthesizable-hardware/) — *Synthesizable SystemVerilog models of [Balanced Ternary](excavations/balanced-ternary.md) ALUs and tagged RAM bounds checkers.*
 - [Multi-Architecture Co-Simulation Orchestrator](reconstructions/co-simulation/) — *A cross-paradigm execution fabric linking hybrid AI, concurrent CSP, and spatial dataflow.*
-- [Linda Tuple Space Simulator](reconstructions/tuple-space/) — *An interactive generative communication engine implementing associative pattern-matching and coordinate-free parallel processing.*
+- [Linda Tuple Space Simulator](reconstructions/tuple-space/) — *An interactive [generative communication](GLOSSARY.md) engine implementing associative pattern-matching and coordinate-free parallel processing.*
 - [Stochastic Computing Simulator](reconstructions/stochastic-computing/) — *An interactive probabilistic execution engine implementing unipolar/bipolar logic gate arithmetic, saturating FSM-based activations, and LFSR random generation.*
 - [Cryogenic Superconducting Simulator](reconstructions/cryogenic-superconducting/) — *Picosecond-accurate Rapid Single Flux Quantum (RSFQ) pulse logic timing and thermodynamic cooling penalty simulator.*
 - [Neuromorphic Spiking Simulator](reconstructions/neuromorphic-spiking/) — *An event-driven SNN routing simulator modeling Leaky Integrate-and-Fire (LIF) dynamics and STDP learning rules.*

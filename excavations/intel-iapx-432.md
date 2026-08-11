@@ -6,7 +6,7 @@
 
 ## Summary
 
-The Intel iAPX 432 (introduced in 1981) was Intel's radical attempt to build a next-generation architecture that directly supported object-oriented programming, capability-based security, automatic memory management, and high-level language execution (especially Ada) in silicon. It featured a sophisticated capability system, hardware-enforced typing, and a multi-chip design with separate instruction decoding and execution units.
+The Intel iAPX 432 (introduced in 1981) was Intel's radical attempt to build a next-generation architecture that directly supported object-oriented programming, [capability-based security](../GLOSSARY.md), automatic memory management, and high-level language execution (especially Ada) in silicon. It featured a sophisticated capability system, hardware-enforced typing, and a multi-chip design with separate instruction decoding and execution units.
 
 Despite innovative ideas and strong backing from Intel and the U.S. Department of Defense (via Ada), the iAPX 432 suffered from severe performance issues, architectural complexity, and poor compiler support. It was discontinued in the mid-1980s after limited commercial adoption. The project remains a cautionary tale of over-ambitious hardware-software co-design and a valuable source of lessons for modern capability-based systems.
 
@@ -17,9 +17,9 @@ Despite innovative ideas and strong backing from Intel and the U.S. Department o
 In the late 1970s, Intel recognized that its highly successful 8080 and emerging 8086 microprocessors were architecturally limited. Under the leadership of computer architects Justin Rattner and Fred Pollack, Intel embarked on a clean-slate project named the **Intel 8800**, later rebranded as the **iAPX 432** ("Intel Advanced Processor Architecture 432").
 
 The design team sought to address the major software crises of the era: software reliability, security, and the rising cost of compiling and maintaining high-level programs. They were heavily influenced by contemporary systems research, including:
-- The **Burroughs Large Systems** descriptor model.
+- The **[Burroughs Large Systems](burroughs-large-systems.md)** descriptor model.
 - **Plessey System 250** and the **Cambridge CAP Computer** (capability-based hardware).
-- **Object-Oriented Programming** paradigms emerging from Xerox PARC (Smalltalk).
+- **Object-Oriented Programming** paradigms emerging from Xerox PARC ([Smalltalk](smalltalk.md)).
 - The **U.S. Department of Defense’s** mandate for **Ada**—a highly structured, strongly typed language designed for embedded military software.
 
 The iAPX 432 was officially launched in 1981. It consisted of a three-chip set:
@@ -76,7 +76,7 @@ Unlike modern processors that align instructions on 16-bit, 32-bit, or 64-bit bo
 - Decoding was performed on arbitrary bit boundaries, which required highly complex shift-and-extract logic inside the 43201 decoder.
 
 ### 3. Stack-Based Execution and High-Level Semantics
-The 432 was a zero-address stack machine. Arithmetic operations pulled operands from the execution stack and pushed results back. The microcode directly implemented high-level constructs:
+The 432 was a zero-address [stack machine](../GLOSSARY.md). Arithmetic operations pulled operands from the execution stack and pushed results back. The microcode directly implemented high-level constructs:
 - **Procedure Call / Return**: Handled via hardware-managed stack-frame allocation and domain switching (switching the active Access Descriptor List).
 - **Inter-Process Communication (IPC)**: The microcode included native `SEND` and `RECEIVE` instructions that managed process queues and message synchronization directly in silicon.
 
@@ -124,7 +124,7 @@ The iAPX 432 was decades ahead of its time, and its core concepts are being acti
 ## Related Technologies & Lineages
 
 * **[Capability Systems](capability-systems.md)** — Core lineage of unforgeable token-based hardware and operating systems security.
-* **[Burroughs Large Systems](burroughs-large-systems.md)** — Landmark descriptor-based memory safety and HLL integration.
+* **[Burroughs Large Systems](burroughs-large-systems.md)** — Landmark [descriptor-based memory](../GLOSSARY.md) safety and HLL integration.
 * **[Lisp Machines](lisp-machines.md)** — High-level language and dynamic typing runtime hardware-software co-design.
 * **[Stack Machines](stack-machines.md)** — Stack-oriented evaluation models and compact instructions.
 * **[Capability-Based Security](../synthesis/capability-based-security.md)** — The modern revival of unforgeable bounds and permissions in CHERI and ARM MTE.

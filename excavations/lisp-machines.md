@@ -93,7 +93,7 @@ Lisp Machines were ultimately crushed by a combination of rapid silicon commodit
 The architectural concepts of Lisp Machines are highly visible in modern systems:
 
 - **Virtual Machines & Dynamic runtimes**: Modern runtimes (the Java Virtual Machine, V8 JavaScript Engine, Microsoft .NET CLR) implement in software the exact abstractions that Lisp Machines implemented in microcode: dynamic typing, JIT compilation, generational garbage collection, and runtime type checking.
-- **CHERI & Tagged Memory**: The modern revival of hardware-enforced security (specifically CHERI—Capability Hardware Enhanced RISC Instructions) uses a **1-bit out-of-band hardware tag** to distinguish unforgeable pointers from raw data. This is conceptually identical to the Lisp Machine's tag-bit model, re-targeted from type-safety to spatial/temporal memory safety.
+- **CHERI & [Tagged Memory](../GLOSSARY.md)**: The modern revival of hardware-enforced security (specifically CHERI—Capability Hardware Enhanced RISC Instructions) uses a **1-bit out-of-band hardware tag** to distinguish unforgeable pointers from raw data. This is conceptually identical to the Lisp Machine's tag-bit model, re-targeted from type-safety to spatial/temporal memory safety.
 - **Hardware Accelerators for Managed Languages**: As silicon scaling slows, there is renewed interest in specialized accelerators for database queries, JSON parsing, and dynamic languages, mirroring the co-design philosophy.
 
 ---
@@ -127,7 +127,7 @@ The architectural concepts of Lisp Machines are highly visible in modern systems
 | Category | Rating | Rationale |
 | --- | --- | --- |
 | Historical Importance | ★★★☆☆ | Critical catalyst of the first major AI wave, pioneer of high-level development tools and mouse-driven graphical interfaces. |
-| Technical Innovation | ★★★★★ | Groundbreaking microcoded co-design featuring tagged memory, hardware-assisted write barriers, CDR-coding, and custom stack buffers. |
+| Technical Innovation | ★★★★★ | Groundbreaking microcoded co-design featuring [tagged memory](../GLOSSARY.md), hardware-assisted write barriers, CDR-coding, and custom stack buffers. |
 | Commercial Success | ★★☆☆☆ | Profitable in specialized niches for a brief window (~1981–1987), followed by commercial collapse and bankruptcy. |
 | Modern Potential | ★★★★☆ | The software abstractions are ubiquitous; the hardware tagging concepts are vital to modern secure architectures (CHERI). |
 | AI Synergy | ★★★★☆ | High historical synergy; with the rise of hybrid neuro-symbolic models, hardware-accelerated structured reasoning may return. |

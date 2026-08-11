@@ -1,4 +1,4 @@
-# Asynchronous Microprocessors & Micropipelines
+# Asynchronous Microprocessors & [Micropipelines](../GLOSSARY.md)
 
 > **Breaking the tyranny of the global clock: self-timed microarchitectures, transition-signaling handshakes, and the AMULET clockless processors.**
 
@@ -18,7 +18,7 @@ This paradigm achieved a major historical milestone in 1989 when Turing Award wi
 
 The architectural roots of clockless computing go back to the earliest days of digital computing. John von Neumann's IAS machine (1951) was originally planned as an asynchronous computer, and David Muller published formal papers on speed-independent circuits in the late 1950s. However, as integrated circuits grew in density, synchronous design became the default due to its simple temporal abstraction: designers could treat physical hardware as a sequence of discrete state transitions, ignoring electrical delay transients as long as the clock period was longer than the worst-case propagation delay (the critical path).
 
-In 1989, **Ivan Sutherland** delivered his Turing Award lecture, **"Micropipelines"**, establishing a clean, modular hardware abstraction for asynchronous pipelines. Sutherland proposed using transition-signaling handshakes to synchronize data transfer between registers, governed by simple logic elements called **Muller C-elements**. This breakthrough dramatically simplified asynchronous design, transforming it from a dark art of hazard-avoidance into a structured, modular pipeline framework.
+In 1989, **Ivan Sutherland** delivered his Turing Award lecture, **"[Micropipelines](../GLOSSARY.md)"**, establishing a clean, modular hardware abstraction for asynchronous pipelines. Sutherland proposed using transition-signaling handshakes to synchronize data transfer between registers, governed by simple logic elements called **Muller C-elements**. This breakthrough dramatically simplified asynchronous design, transforming it from a dark art of hazard-avoidance into a structured, modular pipeline framework.
 
 ```
                       Sutherland Micropipeline Control Path
@@ -32,7 +32,7 @@ In 1989, **Ivan Sutherland** delivered his Turing Award lecture, **"Micropipelin
        Acknowledge Out <──<───────┴───────────┴──────────<─── Acknowledge In
 ```
 
-Recognizing the potential of micropipelines to bypass the power-delivery and electromagnetic limits of upcoming sub-micron chips, **Steve Furber** founded the AMULET group at the University of Manchester in 1990. Their goal was to prove the feasibility of asynchronous architectures on a commercial ISA:
+Recognizing the potential of [micropipelines](../GLOSSARY.md) to bypass the power-delivery and electromagnetic limits of upcoming sub-micron chips, **Steve Furber** founded the AMULET group at the University of Manchester in 1990. Their goal was to prove the feasibility of asynchronous architectures on a commercial ISA:
 
 1. **AMULET1 (1993):** Fabricated on a 1.0µm CMOS process, it successfully matched the functional execution of the synchronous ARM6 processor, establishing that an asynchronous pipeline could handle complex pipelined register-forwarding and register-locking natively.
 2. **AMULET2e (1996):** Fabricated on a 0.5µm process, it introduced an on-chip cache and branch prediction. It demonstrated extreme power savings, particularly under idle workloads, as the processor automatically froze all switching logic when no instructions were present, without requiring software intervention.
@@ -64,7 +64,7 @@ Ack _____________|         |___         Ack _________|    |____
 
 ### 2. Muller C-Elements
 
-The **Muller C-element** is the fundamental state-retaining element of asynchronous control paths, acting as an "event AND-gate." The output of a C-element only changes state when *all* of its inputs match. If the inputs do not match, the output retains its previous state:
+The **[Muller C-element](../GLOSSARY.md)** is the fundamental state-retaining element of asynchronous control paths, acting as an "event AND-gate." The output of a C-element only changes state when *all* of its inputs match. If the inputs do not match, the output retains its previous state:
 
 | Input A | Input B | Output Y |
 |---------|---------|----------|
@@ -106,7 +106,7 @@ Despite outstanding technical achievements (e.g., the AMULET2e was highly energy
 
 While synchronous control remains dominant in standard CPU cores, the physical limits of sub-nanometer silicon have triggered a powerful revival of asynchronous techniques across specialized high-performance domains:
 
-* **Wafer-Scale Integration (WSI) & Cerebras Systems:** As chips grow to the size of an entire silicon wafer (e.g., Cerebras Wafer-Scale Engine), distributing a unified, synchronized gigahertz clock across centimeters of silicon is physically impossible due to massive wire propagation delay and clock skew. Cerebras utilizes a Globally Asynchronous, Locally Synchronous (GALS) spatial array, routing operands asynchronously via self-timed Network-on-Chip (NoC) switches.
+* **[Wafer-Scale Integration](wafer-scale-integration.md) (WSI) & Cerebras Systems:** As chips grow to the size of an entire silicon wafer (e.g., Cerebras Wafer-Scale Engine), distributing a unified, synchronized gigahertz clock across centimeters of silicon is physically impossible due to massive wire propagation delay and clock skew. Cerebras utilizes a Globally Asynchronous, Locally Synchronous (GALS) spatial array, routing operands asynchronously via self-timed Network-on-Chip (NoC) switches.
 * **Neuromorphic Edge AI Processors:** Spiking neural network (SNN) chips, such as **Intel's Loihi** and IBM's TrueNorth, are fundamentally asynchronous. Spikes propagate between core clusters using asynchronous Address-Event Representation (AER) protocols. Because biological signals are highly sparse in time, event-driven, clockless logic is the only way to achieve the sub-milliwatt power budgets required for edge deployments.
 * **Hardware Security & Smart Cards:** Modern secure enclaves, hardware security modules (HSMs), and contactless smart cards (like those based on ARM's SecurCore or specialized chips from Infineon) employ asynchronous cores to prevent hackers from reconstructing cryptographic keys via electromagnetic or power-analysis side-channel attacks.
 * **Energy-Harvesting IoT Nodes:** Wearable medical sensors and environmental monitoring nodes run on extremely low and unpredictable harvested energy (solar, thermal, or vibration). Asynchronous processors can operate under widely fluctuating voltage levels, slowing down dynamically when voltage drops and speeding up when energy is abundant, without ever crashing due to timing violations.
@@ -115,11 +115,11 @@ While synchronous control remains dominant in standard CPU cores, the physical l
 
 ## Unearthed Artifacts
 
-* **The Muller C-Element:** An invaluable, robust hardware primitive for event synchronization, input synchronization, and asynchronous clock-gating controllers.
+* **The [Muller C-Element](../GLOSSARY.md):** An invaluable, robust hardware primitive for event synchronization, input synchronization, and asynchronous clock-gating controllers.
 * **Transition Signaling (2-Phase Handshaking):** An elegant abstraction for coordinating parallel, asynchronous data flows using toggle states rather than continuous levels, reducing signal transitions and power.
-* **Bundled-Data Micropipelines:** A highly practical structural design pattern for building elastic pipelines. By pairing standard synchronous arithmetic units with self-timed control lines, engineers can achieve asynchronous elasticity without rebuilding standard logic cells.
+* **Bundled-Data [Micropipelines](../GLOSSARY.md):** A highly practical structural design pattern for building elastic pipelines. By pairing standard synchronous arithmetic units with self-timed control lines, engineers can achieve asynchronous elasticity without rebuilding standard logic cells.
 * **Delay-Insensitive Codes:** Encoding data in dual-rail or 1-of-N formats represents a key lesson in physical reliability: carrying timing information *inside* the data itself eliminates the need to guarantee wire timing delays, presenting an ultimate model of physical robustness.
-* **Ideas to Avoid (Ad-hoc Speed-Independent Circuits):** Designing large, complex asynchronous systems using ad-hoc speed-independent state machines without formal synthesis methods (like Signal Transition Graphs/STGs) leads to uncontrollable race conditions and un-testable hazards. Formal, template-based frameworks (like Micropipelines or NCL) must always be used.
+* **Ideas to Avoid (Ad-hoc Speed-Independent Circuits):** Designing large, complex asynchronous systems using ad-hoc speed-independent state machines without formal synthesis methods (like Signal Transition Graphs/STGs) leads to uncontrollable race conditions and un-testable hazards. Formal, template-based frameworks (like [Micropipelines](../GLOSSARY.md) or NCL) must always be used.
 
 ---
 
@@ -127,7 +127,7 @@ While synchronous control remains dominant in standard CPU cores, the physical l
 
 | Category | Rating | Rationale |
 | ---------------------- | ------ | --------- |
-| Historical Importance  | ★★★★☆  | Sutherland's Micropipelines and AMULET established that commercially viable ISAs could run completely clockless. |
+| Historical Importance  | ★★★★☆  | Sutherland's [Micropipelines](../GLOSSARY.md) and AMULET established that commercially viable ISAs could run completely clockless. |
 | Technical Innovation   | ★★★★★  | Pioneered elastic pipelines, event-driven control, and delay-insensitive dual-rail logic. |
 | Commercial Success     | ★★☆☆☆  | Sidelined in mainstream CPUs but highly successful in specialized niches like smart cards and secured enclaves. |
 | Modern Potential       | ★★★★★  | Vital for sub-nanometer chips, wafer-scale systems, and ultra-low-power edge AI. |
@@ -138,7 +138,7 @@ While synchronous control remains dominant in standard CPU cores, the physical l
 
 ## References
 
-* Sutherland, I. E. (1989). *Micropipelines*. Communications of the ACM, 32(6), 720-738. (Sutherland's seminal Turing Award lecture introducing the micropipelining framework).
+* Sutherland, I. E. (1989). *[Micropipelines](../GLOSSARY.md)*. Communications of the ACM, 32(6), 720-738. (Sutherland's seminal Turing Award lecture introducing the micropipelining framework).
 * Furber, S. B., Edwards, D. A., & Garside, J. D. (1994). *AMULET1: An asynchronous ARM microprocessor*. IEEE Transactions on Very Large Scale Integration (VLSI) Systems, 2(2), 205-215.
 * Furber, S. B., Garside, J. D., Gilbert, P., & Temple, S. (1997). *AMULET2e: An asynchronous embedded controller*. Proceedings of the IEEE, 85(2), 211-222.
 * Garside, J. D., et al. (2000). *AMULET3: A high-performance self-timed ARM microprocessor*. In Proceedings of the IEEE International Conference on Computer Design (ICCD), 356-361.

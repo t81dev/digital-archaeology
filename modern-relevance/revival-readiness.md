@@ -8,7 +8,7 @@
 
 To determine when and how a sidelined computing lineage can successfully return to active production, we score each major lineage on five transparent, independent criteria:
 
-1. **Constraint Migration Status (CMS)**: The degree to which physical limits (the Power Wall, Memory Wall, Security Wall) have shifted to transform the lineage's historical weaknesses into modern necessities.
+1. **[Constraint Migration](../patterns/constraint-migration.md) Status (CMS)**: The degree to which physical limits (the Power Wall, Memory Wall, Security Wall) have shifted to transform the lineage's historical weaknesses into modern necessities.
 2. **Silicon Readiness (SR)**: The maturity of standard CMOS foundry fabrication, packaging (e.g., Co-Packaged Optics, Chiplets), and FPGA prototyping tools for implementing the lineage.
 3. **Software Ecosystem Friction (SEF)**: The difficulty of compiling languages, managing operating system states, and integrating existing developer toolchains with the lineage's execution model.
 4. **Energy Advantage (EA)**: The theoretical and practical power-efficiency gains (Operations/Joule) compared to standard room-temperature sequential digital CMOS.
@@ -61,16 +61,16 @@ By adjusting factors such as sub-threshold static gate leakage, nanoscale interc
 ## Deep-Dive Quantitative Analysis & Software Ecosystem Friction (SEF)
 
 ### 1. Spatial & Data-Parallel Lineage
-*Includes: Systolic Arrays, Massively Parallel SIMD (Connection Machine), and Channel-Based Message Passing (Transputers).*
+*Includes: [Systolic Arrays](../excavations/systolic-arrays.md), Massively Parallel SIMD ([Connection Machine](../excavations/connection-machine.md)), and Channel-Based Message Passing ([Transputers](../excavations/transputers.md)).*
 
-*   **Constraint Migration Status: 5/5 (Critical)**
+*   **[Constraint Migration](../patterns/constraint-migration.md) Status: 5/5 (Critical)**
     The Memory Wall dominates modern processor performance. Moving data from off-chip DRAM to a CPU register consumes orders of magnitude more energy than executing a raw calculation. According to foundational studies (e.g., Horowitz, 2014), a 64-bit DRAM read consumes approximately $1\text{--}2\text{ nJ}$ ($1000\text{--}2000\text{ pJ}$), whereas a 64-bit double-precision floating-point multiply-accumulate (MAC) in 7nm CMOS consumes only $1\text{--}5\text{ pJ}$—representing a **$200\times$ to $1000\times$ energy disparity**. Spatial grids of simple ALUs localize data movement, optimizing register-to-register neighbor transfers and bypassing energy-expensive global buses and register files.
 *   **Silicon Readiness: 5/5 (High)**
     Spatial structures are highly regular and homogeneous, making them exceptionally easy to layout and yield in modern sub-5nm silicon nodes. Standard commercial design rule checks (DRC) and yield models adapt natively to repetitive systolic tiles.
 *   **Software Ecosystem Friction: 3/5 (Medium)**
     *   *Workload Mapping Friction*: While domain-specific compilers (e.g., MLIR, TVM, Halide) map static, highly regular GEMM (General Matrix Multiply) operations with extreme efficiency, mapping non-toy, irregular, pointer-heavy C/C++ or dynamic sparse workloads onto spatial grids remains exceptionally difficult. Arbitrary software with dynamic loop boundaries, conditional branches (`if-else` blocks), or pointer-linked graph structures causes severe utilization drops, reducing active array utilization to **below $10\%\text{--}15\%$**.
     *   *Debugging and Tooling Gaps*: Isolate-and-step debugging is virtually non-existent for spatial grids. Standard software debuggers (e.g., GDB) cannot halt a single core or processing element (PE) within a $10,000+$ node mesh without causing synchronization drift, packet loss, or deadlocks across the entire array. Hardware execution traces are massive, exceeding local buffer capacities within microseconds.
-    *   *Developer Training Cost*: Mainstream developers are trained strictly on the sequential von Neumann model. Forcing developers to manage manual coordinate routing, spatial channel synchronization (e.g., Occam for Transputers), or tiled local buffer sizing introduces steep corporate engineering overheads.
+    *   *Developer Training Cost*: Mainstream developers are trained strictly on the sequential von Neumann model. Forcing developers to manage manual coordinate routing, spatial channel synchronization (e.g., [Occam](../excavations/occam.md) for [Transputers](../excavations/transputers.md)), or tiled local buffer sizing introduces steep corporate engineering overheads.
     *   *Mitigation Paths*: Near-term mitigations focus on compiling strictly bounded Domain-Specific Languages (DSLs) through MLIR dialects (e.g., `affine` or `vector`) directly into target accelerator microcode, shielding programmers from spatial coordination.
 *   **Energy Advantage: 4/5 (Very High)**
     Eliminating dynamic instruction fetch, branch prediction speculation, and register renaming overhead allows spatial arrays to redirect over $70\%\text{--}80\%$ of active silicon area and energy toward useful arithmetic (as demonstrated in the Google TPU v1 architecture, where the matrix multiply unit represents the bulk of active execution area).
@@ -82,7 +82,7 @@ By adjusting factors such as sub-threshold static gate leakage, nanoscale interc
 ### 2. Neuromorphic & Stochastic Lineage
 *Includes: Spiking Neural Networks (LIF/AER), Spike-Timing-Dependent Plasticity (STDP), and Probabilistic/Stochastic logic arithmetic.*
 
-*   **Constraint Migration Status: 5/5 (Critical)**
+*   **[Constraint Migration](../patterns/constraint-migration.md) Status: 5/5 (Critical)**
     The Power Wall and Memory Wall dictate a paradigm shift away from heavy, continuous, high-precision floating-point tensor multiplication toward sparse, event-driven temporal spikes and ultra-simple logic gates. Single Event Upsets (SEUs) from background radiation are neutralized by the natural statistical noise tolerance of stochastic streams.
 *   **Silicon Readiness: 4/5 (High)**
     Fully digital, asynchronous neuromorphic chips (Intel Loihi, IBM TrueNorth) have demonstrated excellent yields and physical viability in standard CMOS processes. Memristor crossbar arrays representing continuous weights are increasingly integrated into commercial foundry PDKs (e.g., TSMC, GlobalFoundries).
@@ -217,7 +217,7 @@ To ground architectural discussions in physical and manufacturable realities, we
 
 ---
 
-## Heterogeneous Revival Synergies
+## [Heterogeneous Revival](../patterns/heterogeneous-revival.md) Synergies
 
 Pure architectural lineages scored in isolation understate the highest-value path to commercial viability. The ultimate destination of non-von Neumann research is **hybrid, heterogeneous hardware-software co-design**, where complementary lineages are integrated onto a single substrate or package to bypass individual physical boundaries.
 
