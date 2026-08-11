@@ -11,6 +11,10 @@
       "definition": "A distributed resource sharing protocol designed for Plan 9 where every system resource (including files, devices, memory, and processes) is represented as a file and accessed via a standardized, network-transparent set of message transactions."
     },
     {
+      "term": "Apple Silicon",
+      "definition": "A lineage of custom-designed, ARM-based System-on-Chip (SoC) architectures integrating high-bandwidth Unified Memory, Secure Enclave processors, and dynamic matrix-multiplication co-processors tightly integrated with the system compilers."
+    },
+    {
       "term": "Active Messages",
       "definition": "A communication paradigm for high-performance parallel systems where each message packet contains in its header the address of an execution handler. Upon arrival, the handler executes immediately using the packet's payload as arguments, bypassing operating system scheduling and context-switching overhead."
     },
@@ -97,6 +101,10 @@
     {
       "term": "Graph Reduction Machine",
       "definition": "A non-von Neumann computer architecture designed to natively execute pure functional programming languages. Instead of sequentially executing compiled assembly instructions, it represents programs as directed acyclic graphs in memory and executes them by repeatedly simplifying and rewriting reducible expressions (redexes) in-place."
+    },
+    {
+      "term": "Integrated Platform Surface",
+      "definition": "An architectural paradigm of hardware-software-distribution vertical integration where custom silicon, core operating system managers, dynamic runtimes, developer toolchains, and centralized monetization gates are co-designed as a single surface."
     },
     {
       "term": "J-Machine (Jellybean Machine)",
@@ -292,6 +300,7 @@
       "Control-Flow (von Neumann)": {
         "description": "Sequential instruction execution guided by a program counter. Includes traditional stack-based and register-based architectures.",
         "mapped_excavations": [
+          "apple",
           "asynchronous-processors",
           "beos-haiku",
           "burroughs-large-systems",
@@ -443,6 +452,7 @@
       "Virtual Machine / Language-Safe Sandbox": {
         "description": "Enforcing type-safety and isolation inside a managed runtime environment or interpreter instead of hardware.",
         "mapped_excavations": [
+          "apple",
           "inferno",
           "microsoft",
           "smalltalk",
@@ -479,6 +489,7 @@
       "Asynchronous Message Passing": {
         "description": "Dynamic, uncoordinated message queues at the operating system or runtime layer.",
         "mapped_excavations": [
+          "apple",
           "beos-haiku",
           "microsoft",
           "plan-9",
@@ -596,6 +607,46 @@
         "Ielmini, D., & Waser, R. (2018). *Non-volatile Memory-based Devices and Circuits for In-Memory Computing*. Advanced Electronic Materials, 4(7), 1700494.",
         "Verma, N., et al. (2019). *In-Memory Computing: Advancing AI Applications with Energy-Efficient Hardware*. IEEE Signal Processing Magazine, 36(6), 33-47."
       ]
+    },
+    {
+      "id": "apple",
+      "title": "Apple: The Integrated Platform Surface",
+      "path": "excavations/apple.md",
+      "summary": "The Apple computational lineage is commonly analyzed through corporate biography, industrial design aesthetic, or consumer marketing narratives. From the perspective of digital archaeology, however, **Apple represents a highly specialized paradigm of hardware–software–runtime vertical integration**. \n\nApple's primary architectural achievement was not any single computer or operating system, but rather the **engineering of a cohesive, vertically integrated platform surface**. By treating the entire stack—from custom silicon co-processors to system APIs, developer toolchains, dynamic runtimes, and centralized application distribution engines—as a single designed surface, Apple solved the classic coordination problems of software compatibility and hardware advancement. This integration enabled Apple to execute multiple rapid, high-fidelity platform transitions (e.g., 68000 $\\rightarrow$ PowerPC $\\rightarrow$ Intel $\\rightarrow$ Apple Silicon; Classic Mac OS $\\rightarrow$ NeXTSTEP/OS X; desktop computing $\\rightarrow$ mobile $\\rightarrow$ on-device AI) while maintaining strict developer control, high ecosystem-scale persistence, and powerful user lock-in.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Transformed personal computing, desktop publishing, mobile communication, and media container formats globally."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Mastered compiler-hardware co-design, ahead-of-time translation (Rosetta), and high-bandwidth Unified Memory Architecture."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Constructed the most profitable hardware and services ecosystem in computing history."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Positioned at the forefront of local AI inference, custom silicon design, and advanced spatial computing models."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Leverages massive on-device unified memory bandwidth and custom Neural Engines to execute local LLM inference efficiently."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Rebuilding the massive, proprietary vertical stack from Apple Silicon up through Darwin, Cocoa, and Xcode is economically prohibitive."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
     },
     {
       "id": "associative-processors",
