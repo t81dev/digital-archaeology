@@ -27,7 +27,8 @@ class KnowledgeGraphGenerator:
             },
             "excavations": [],
             "synthesis_essays": [],
-            "reconstructions": []
+            "reconstructions": [],
+            "timelines": []
         }
 
     def generate(self):
@@ -37,6 +38,7 @@ class KnowledgeGraphGenerator:
         self.parse_excavations()
         self.parse_synthesis_essays()
         self.parse_reconstructions()
+        self.parse_timelines()
 
         # Write to target path
         target_dir = os.path.join(self.root_dir, "modern-relevance")
@@ -267,6 +269,43 @@ class KnowledgeGraphGenerator:
             })
 
         self.data["reconstructions"] = recons
+
+    def parse_timelines(self):
+        print("Parsing timelines...")
+        timelines_dir = os.path.join(self.root_dir, "timelines")
+        timelines_data = []
+        if os.path.exists(timelines_dir):
+            for file in sorted(os.listdir(timelines_dir)):
+                if not file.endswith(".md") or file == "README.md":
+                    continue
+                category = file.replace(".md", "").upper() # e.g. COMPUTING, AI, HARDWARE
+                filepath = os.path.join(timelines_dir, file)
+                with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                    content = f.read()
+
+                # Find all bullet points of the form: - **time**: description
+                pattern = re.compile(r'^\s*[\-\*]\s*\*\*([^*]+)\*\*:\s*(.*)$', re.MULTILINE)
+                matches = pattern.findall(content)
+
+                for time_str, desc in matches:
+                    # Clean up description (strip relative links slightly or format them)
+                    # E.g., replace "../excavations/plan-9.md" with "excavations/plan-9.md"
+                    clean_desc = desc.replace("../", "")
+
+                    # Extract sortable year
+                    year_match = re.search(r'\b(\d{4})\b', time_str)
+                    sort_year = int(year_match.group(1)) if year_match else 9999
+
+                    timelines_data.append({
+                        "category": category, # COMPUTING, AI, HARDWARE
+                        "time": time_str.strip(),
+                        "sort_year": sort_year,
+                        "description": clean_desc.strip()
+                    })
+
+        # Sort chronologically by year, then by category
+        timelines_data.sort(key=lambda x: (x["sort_year"], x["category"]))
+        self.data["timelines"] = timelines_data
 
 
 if __name__ == "__main__":

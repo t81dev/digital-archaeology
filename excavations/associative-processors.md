@@ -73,7 +73,7 @@ Traditional memory is strictly one-dimensional: you can read or write a single m
 
 Kenneth Batcher's brilliant innovation was the MDA memory. By structuring the memory chips and addressing logic using a specialized multi-stage routing network (the **Batcher Flip Network**), the STARAN could access memory horizontally as words, vertically as bit-slices, or even diagonally.
 
-### 2. Bit-Serial Word-Parallel Execution
+### 2. [Bit-Serial Word-Parallel Execution](../GLOSSARY.md)
 
 To keep the hardware highly scalable, associative processors perform arithmetic in a **bit-serial, word-parallel** fashion.
 
@@ -143,7 +143,7 @@ As modern silicon scaling hits physical limits—specifically the **Von Neumann 
 * **[Connection Machine](connection-machine.md)** — Early massive SIMD parallelism using fine-grained processing nodes.
 * **[Stochastic Computing](stochastic-computing.md)** — Probabilistic, single-gate computation models.
 * **[The Return of Spatial Computing](../synthesis/return-of-spatial-computing.md)** — The modern migration of systolic, vector, and content-addressable computing into AI tensor accelerators.
-* **[Alternative Mathematical Execution Paradigms](../synthesis/alternative-mathematical-execution-paradigms.md)** — How content-addressable computing, balanced ternary, and stochastic bitstreams offer non-von Neumann execution.
+* **[Alternative Mathematical Execution Paradigms](../synthesis/alternative-mathematical-execution-paradigms.md)** — How content-addressable computing, [balanced ternary](balanced-ternary.md), and stochastic bitstreams offer non-von Neumann execution.
 * **[Architectural Distillation](../synthesis/architectural-distillation.md)** — How lost paradigms leave behind enduring abstractions (like associative matching in modern high-speed TCAM internet routers and database PIM search engines).
 * **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)** — Elegant paradigms (like associative content-addressing) that faded but retain significant utility.
 

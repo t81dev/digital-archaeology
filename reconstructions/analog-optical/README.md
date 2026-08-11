@@ -9,7 +9,7 @@
 Traditional computing relies on discretizing math into binary values ($0$s and $1$s) processed sequentially in discrete clock cycles. While this guarantees high precision and deterministic repeatability, it requires massive power to overcome resistance and high-frequency clocking bottlenecks.
 
 By contrast, **continuous computing** utilizes the natural laws of physics to process mathematical functions:
-1. **Electronic Analog Computing**: Models mathematical integration and summation using continuous voltages and currents inside active operational amplifier (op-amp) feedback networks. Integration happens continuously over time through capacitor charge accumulation ($I = C \frac{dV}{dt}$).
+1. **Electronic [Analog Computing](../../excavations/analog-computing.md)**: Models mathematical integration and summation using continuous voltages and currents inside active operational amplifier (op-amp) feedback networks. Integration happens continuously over time through capacitor charge accumulation ($I = C \frac{dV}{dt}$).
 2. **Coherent Optical (Photonic) Computing**: Performs matrix-vector multiplication at near-light-speed via constructive and destructive interference of laser beams passing through a mesh of **Mach-Zehnder Interferometers (MZIs)**.
 
 ---

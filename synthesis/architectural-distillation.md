@@ -53,7 +53,7 @@ Modern Reintegration (often hybridized)
 
 ### [Capability Systems](../excavations/capability-systems.md) & [Intel iAPX 432](../excavations/intel-iapx-432.md)
 - **Original**: Fine-grained, unforgeable rights in hardware/OS and **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)** / **[Multics](../excavations/multics.md)**
-- **What Survived**: Capability-based security, memory tagging (see **[Capability-Based Security](../synthesis/capability-based-security.md)**)
+- **What Survived**: [Capability-based security](../GLOSSARY.md), memory tagging (see **[Capability-Based Security](../synthesis/capability-based-security.md)**)
 - **Modern Forms**: CHERI, ARM MTE, secure compartmentalization
 
 ### [Balanced Ternary](../excavations/balanced-ternary.md)
@@ -70,7 +70,7 @@ Modern Reintegration (often hybridized)
 - **Economics**: Complete systems are expensive. Individual abstractions are cheap to adopt incrementally.
 - **Software Flexibility**: Hardware ideas become viable in software (or vice versa) as technology matures.
 - **Selective Pressure**: Useful abstractions spread; less useful ones fade.
-- **Constraint Migration**: New bottlenecks (energy, security, parallelism, bio-integration) make old ideas newly relevant.
+- **[Constraint Migration](../patterns/constraint-migration.md)**: New bottlenecks (energy, security, parallelism, bio-integration) make old ideas newly relevant.
 
 ---
 
@@ -115,10 +115,10 @@ The next generation of computing may owe as much to carefully chosen historical 
 
 ## Relationship to Core Patterns
 
-- **Economic Failures** explain *why* complete systems die.
-- **Ecosystem Lock-In** explains *why* replacement is rare.
-- **Forgotten Abstractions** identifies *what* gets preserved.
-- **Recurring Ideas** tracks *when and how* they reappear.
+- **[Economic Failures](../patterns/economic-failures.md)** explain *why* complete systems die.
+- **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)** explains *why* replacement is rare.
+- **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)** identifies *what* gets preserved.
+- **[Recurring Ideas](../patterns/recurring-ideas.md)** tracks *when and how* they reappear.
 
 **Architectural Distillation** is the bridge connecting all four.
 

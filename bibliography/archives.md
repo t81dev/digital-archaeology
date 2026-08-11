@@ -29,23 +29,23 @@ This resource guide links to primary online archives, repositories, emulators, a
 #### 5. *USPTO & Google Patents Databases*
 * **Link**: [patents.google.com](https://patents.google.com) / [uspto.gov](https://www.uspto.gov)
 * **Relevance**: [Systolic Arrays](../excavations/systolic-arrays.md), [Transputers](../excavations/transputers.md), [Superconducting & Cryogenic Microarchitectures](../excavations/superconducting-cryogenic.md)
-* **Description**: The primary source repository for original patent documents filed by historic designers, including H. T. Kung's systolic arrays, INMOS transputer circuitry, and early Josephson junction logic cells.
+* **Description**: The primary source repository for original patent documents filed by historic designers, including H. T. Kung's [systolic arrays](../excavations/systolic-arrays.md), INMOS transputer circuitry, and early Josephson junction logic cells.
 
 ---
 
 ### Machine-Specific & Project-Specific Archives
 
-#### 6. *The Multics History Project (Multicians)*
+#### 6. *The [Multics](../excavations/multics.md) History Project (Multicians)*
 * **Link**: [multicians.org](https://www.multicians.org)
 * **Relevance**: [Multics](../excavations/multics.md), [Capability Systems](../excavations/capability-systems.md)
-* **Description**: An extraordinarily detailed historical archive maintained by former Multics developers. It documents the history of the Multics system, its features, its design, and contains a complete list of all developers and sites.
+* **Description**: An extraordinarily detailed historical archive maintained by former [Multics](../excavations/multics.md) developers. It documents the history of the [Multics](../excavations/multics.md) system, its features, its design, and contains a complete list of all developers and sites.
 
-#### 7. *The Plan 9 & Inferno Documentation and Source*
-* **Link**: [9p.io](https://9p.io) (Formerly Plan 9 from Bell Labs)
+#### 7. *The [Plan 9](../excavations/plan-9.md) & [Inferno](../excavations/inferno.md) Documentation and Source*
+* **Link**: [9p.io](https://9p.io) (Formerly [Plan 9](../excavations/plan-9.md) from Bell Labs)
 * **Relevance**: [Plan 9](../excavations/plan-9.md), [Inferno](../excavations/inferno.md)
-* **Description**: The official repository for Bell Labs' research operating systems. It contains source code downloads, original research papers, user manuals, and tutorials for Plan 9 and Inferno.
+* **Description**: The official repository for Bell Labs' research operating systems. It contains source code downloads, original research papers, user manuals, and tutorials for [Plan 9](../excavations/plan-9.md) and [Inferno](../excavations/inferno.md).
 
-#### 8. *Ternary Logic & Balanced Ternary Resource Page*
+#### 8. *Ternary Logic & [Balanced Ternary](../excavations/balanced-ternary.md) Resource Page*
 * **Link**: [ternary.info](http://www.ternary.info)
 * **Relevance**: [Balanced Ternary](../excavations/balanced-ternary.md)
 * **Description**: A curated database of research publications, schematics, and history regarding the Russian Setun computer and multi-valued logic hardware designs.
@@ -53,7 +53,7 @@ This resource guide links to primary online archives, repositories, emulators, a
 #### 9. *Lisp Machine Archive*
 * **Link**: [tumbleweed.org.ua](http://tumbleweed.org.ua/cl/) / [classiccmp.org](http://www.classiccmp.org)
 * **Relevance**: [Lisp Machines](../excavations/lisp-machines.md)
-* **Description**: Community-maintained documentation, system software tapes, and emulators (e.g., Symbolics Genera emulators like "OpenGenera") for historic Symbolics, Lisp Machine Inc. (LMI), and TI Explorer Lisp machines.
+* **Description**: Community-maintained documentation, system software tapes, and emulators (e.g., Symbolics Genera emulators like "OpenGenera") for historic Symbolics, Lisp Machine Inc. (LMI), and TI Explorer [Lisp machines](../excavations/lisp-machines.md).
 
 #### 10. *The CHERI Project Resource Portal*
 * **Link**: [cl.cam.ac.uk/research/security/ctsrd/cheri/](https://www.cl.cam.ac.uk/research/security/ctsrd/cheri/)
@@ -65,7 +65,7 @@ This resource guide links to primary online archives, repositories, emulators, a
 * **Relevance**: [Linda Tuple Spaces](../excavations/linda-tuple-spaces.md)
 * **Description**: Historical project archives, publications, and software manuals for Linda and its implementations (including C-Linda and Fortran-Linda) developed at Yale.
 
-#### 12. *The Burroughs B5000 Conference & Burroughs Large Systems Resource*
+#### 12. *The Burroughs B5000 Conference & [Burroughs Large Systems](../excavations/burroughs-large-systems.md) Resource*
 * **Link**: [sbi.org](https://www.sbi.org)
 * **Relevance**: [Burroughs Large Systems](../excavations/burroughs-large-systems.md)
 * **Description**: Retrospective conference transcripts and engineering document collections detailing the development, architecture, and deployment of the Burroughs B5000, B5500, and B6700 computers.

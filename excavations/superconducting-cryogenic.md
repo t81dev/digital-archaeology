@@ -185,7 +185,7 @@ To assist contemporary computer architects, we strictly distinguish between veri
 
 ## Related Technologies
 
-* **[Reversible Computing](../excavations/reversible-computing.md)**: Shares foundational thermodynamic principles with adiabatic superconducting styles like AQFP, which recycle flux to compute below Landauer's limit.
+* **[Reversible Computing](../excavations/reversible-computing.md)**: Shares foundational thermodynamic principles with adiabatic superconducting styles like AQFP, which recycle flux to compute below [Landauer's limit](../GLOSSARY.md).
 * **[Analog Computing](../excavations/analog-computing.md)**: SQUIDs and Josephson junctions operate on continuous quantum phase equations, which can be harnessed to solve analog system matrices natively.
 * **Quantum Computing**: Many quantum architectures (superconducting transmons, topological qubits) rely on niobium junctions and must operate at cryogenic temperatures, making SFQ controllers their primary microarchitectural partner.
 

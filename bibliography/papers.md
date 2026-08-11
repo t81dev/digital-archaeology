@@ -10,7 +10,7 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Author**: C. A. R. Hoare
 * **Published**: *Communications of the ACM (CACM)*, 1978 (Volume 21, Issue 8)
 * **Relevance**: [Transputers](../excavations/transputers.md), [Occam](../excavations/occam.md)
-* **Description**: The classic paper that introduced Communicating Sequential Processes (CSP). It proposed that concurrency and input/output channels should be treated as fundamental programming language primitives, directly inspiring the OCCAM language and INMOS hardware.
+* **Description**: The classic paper that introduced Communicating Sequential Processes (CSP). It proposed that concurrency and input/output channels should be treated as fundamental programming language primitives, directly inspiring the [OCCAM](../excavations/occam.md) language and INMOS hardware.
 
 #### 2. *The Manchester Prototype Dataflow Computer*
 * **Authors**: J. R. Gurd, C. C. Kirkham, I. Watson
@@ -22,9 +22,9 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Authors**: H. T. Kung, Charles E. Leiserson
 * **Published**: *Introduction to VLSI Systems* (Mead & Conway), 1980
 * **Relevance**: [Systolic Arrays](../excavations/systolic-arrays.md)
-* **Description**: The landmark publication that introduced the concept of systolic arrays. It describes how data can be "pumped" rhythmically through a regular network of simple processing elements to achieve highly efficient matrix computations.
+* **Description**: The landmark publication that introduced the concept of [systolic arrays](../excavations/systolic-arrays.md). It describes how data can be "pumped" rhythmically through a regular network of simple processing elements to achieve highly efficient matrix computations.
 
-#### 4. *The Connection Machine (Computer Architecture)*
+#### 4. *The [Connection Machine](../excavations/connection-machine.md) (Computer Architecture)*
 * **Author**: W. Daniel Hillis
 * **Published**: *IEEE Transactions on Computers*, 1985 (Volume C-34, Issue 12)
 * **Relevance**: [Connection Machine](../excavations/connection-machine.md)
@@ -34,13 +34,13 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Authors**: Jack B. Dennis, David P. Misunas
 * **Published**: ACM SIGARCH Computer Architecture News, 1975 (Volume 3, Issue 4)
 * **Relevance**: [Dataflow Computing](../excavations/dataflow-computing.md)
-* **Description**: The pioneering paper that introduced the static dataflow architecture. It laid out the mechanism of actor-based execution where instructions are triggered directly by the arrival of data tokens on input ports.
+* **Description**: The pioneering paper that introduced the static [dataflow architecture](../GLOSSARY.md). It laid out the mechanism of actor-based execution where instructions are triggered directly by the arrival of data tokens on input ports.
 
-#### 6. *An Asynchronous Dataflow Architecture with Shared Memory*
+#### 6. *An Asynchronous [Dataflow Architecture](../GLOSSARY.md) with Shared Memory*
 * **Authors**: Arvind, Kim P. Gostelow
 * **Published**: *IEEE Transactions on Computers*, 1980 (Volume C-29, Issue 3)
 * **Relevance**: [Dataflow Computing](../excavations/dataflow-computing.md)
-* **Description**: Proposes the Tagged-Token Dataflow Architecture (TTDA), which allows multiple dynamic activations of a single instruction block to execute concurrently by tagging token streams with context identifiers.
+* **Description**: Proposes the Tagged-Token [Dataflow Architecture](../GLOSSARY.md) (TTDA), which allows multiple dynamic activations of a single instruction block to execute concurrently by tagging token streams with context identifiers.
 
 #### 7. *TRIPS: A Reconfigurable Architecture for General-Purpose Computing*
 * **Authors**: Karthikeyan Sankaralingam, Ramadass Nagarajan, Haiming Liu, Changkyu Kim, Jaehyuk Huh, Stephen W. Keckler, Doug Burger, Charles R. Moore
@@ -66,11 +66,11 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Relevance**: [The MIT J-Machine](../excavations/j-machine.md)
 * **Description**: Details the Message-Driven Processor (MDP) of the J-Machine, demonstrating how low-overhead message creation, queueing, and dispatch can be achieved in a single CMOS VLSI chip.
 
-#### 11. *Occam: A Language for Parallel Programming*
+#### 11. *[Occam](../excavations/occam.md): A Language for Parallel Programming*
 * **Author**: David May
 * **Published**: *ACM SIGPLAN Notices*, 1983 (Volume 18, Issue 4)
 * **Relevance**: [Occam](../excavations/occam.md), [Transputers](../excavations/transputers.md)
-* **Description**: Introduces the Occam concurrent programming language. It describes how processes communicate over synchronous channels and how Occam directly maps onto the Transputer's hardware scheduler.
+* **Description**: Introduces the [Occam](../excavations/occam.md) concurrent programming language. It describes how processes communicate over synchronous channels and how [Occam](../excavations/occam.md) directly maps onto the Transputer's hardware scheduler.
 
 #### 12. *The Architecture of an Associative Processor*
 * **Author**: Kenneth E. Batcher
@@ -92,7 +92,7 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Authors**: Jerome H. Saltzer, Michael D. Schroeder
 * **Published**: *Proceedings of the IEEE*, 1975 (Volume 63, Issue 9)
 * **Relevance**: [Multics](../excavations/multics.md), [Capability Systems](../excavations/capability-systems.md)
-* **Description**: A classic system security paper outlining design principles for secure operating systems, drawing heavily on lessons from Multics and early descriptor-based memory protection.
+* **Description**: A classic system security paper outlining design principles for secure operating systems, drawing heavily on lessons from [Multics](../excavations/multics.md) and early [descriptor-based memory](../GLOSSARY.md) protection.
 
 #### 15. *Capability-Based Computer Systems*
 * **Author**: Henry M. Levy
@@ -100,11 +100,11 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Relevance**: [Capability Systems](../excavations/capability-systems.md), [Intel iAPX 432](../excavations/intel-iapx-432.md)
 * **Description**: Explains the theory of capabilities as unforgeable hardware-enforced addressing structures, contrasting object-capabilities with standard ACL security models.
 
-#### 16. *Plan 9 from Bell Labs*
+#### 16. *[Plan 9](../excavations/plan-9.md) from Bell Labs*
 * **Authors**: Rob Pike, Dave Presotto, Ken Thompson, Howard Trickey
 * **Published**: *Computing Systems*, 1995 (Volume 8, Issue 3)
 * **Relevance**: [Plan 9](../excavations/plan-9.md), [Inferno](../excavations/inferno.md)
-* **Description**: The primary paper introducing Plan 9, describing its unified distributed resource model where files, devices, and connections are represented uniformly in a single name space via the 9P (Styx) protocol.
+* **Description**: The primary paper introducing [Plan 9](../excavations/plan-9.md), describing its unified distributed resource model where files, devices, and connections are represented uniformly in a single name space via the 9P (Styx) protocol.
 
 #### 17. *The Lisp Machine CADR*
 * **Authors**: Thomas Knight Jr., David A. Moon, John L. Sipser, Richard M. Stallman
@@ -130,11 +130,11 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Relevance**: [BeOS / Haiku](../excavations/beos-haiku.md)
 * **Description**: Outlines the architectural goals of BeOS, focusing on its microkernel design, symmetric multiprocessing, native multithreaded GUI pipeline, and database-like file system optimized for real-time media manipulation.
 
-#### 21. *Inferno: An Operating System for Distributed Devices*
+#### 21. *[Inferno](../excavations/inferno.md): An Operating System for Distributed Devices*
 * **Authors**: Sean Dorward, Rob Pike, David Presotto, Dennis M. Ritchie, Howard Trickey, Phil Winterbottom
 * **Published**: *COMPCON '97 Proceedings*, 1997
 * **Relevance**: [Inferno](../excavations/inferno.md), [Plan 9](../excavations/plan-9.md)
-* **Description**: Presents the Inferno distributed operating system, describing the Limbo language, the Dis virtual machine, and the adaptation of Plan 9's Styx/9P namespace unification for heterogeneous, resource-constrained network devices.
+* **Description**: Presents the [Inferno](../excavations/inferno.md) distributed operating system, describing the Limbo language, the Dis virtual machine, and the adaptation of [Plan 9](../excavations/plan-9.md)'s Styx/9P namespace unification for heterogeneous, resource-constrained network devices.
 
 #### 22. *The architecture of the Burroughs B5000: stack-oriented evaluation and language-directed machines*
 * **Authors**: John G. Cleary
@@ -142,13 +142,13 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Relevance**: [Burroughs Large Systems](../excavations/burroughs-large-systems.md), [Stack Machines](../excavations/stack-machines.md)
 * **Description**: Explores the unique stack execution mechanism and pointer descriptor verification of the B5000, analyzing why this design eliminated classic buffer overflow vulnerabilities and assembly-level coding.
 
-#### 23. *Generative Communication in Linda*
+#### 23. *[Generative Communication](../GLOSSARY.md) in Linda*
 * **Author**: David Gelernter
 * **Published**: *ACM Transactions on Programming Languages and Systems (TOPLAS)*, 1985 (Volume 7, Issue 1)
 * **Relevance**: [Linda Tuple Spaces](../excavations/linda-tuple-spaces.md)
-* **Description**: Outlines the design of the Linda coordination language and its generative communication paradigm. It introduces the six tuple space operators and explains how spatial/temporal decoupling simplifies parallel process synchronization.
+* **Description**: Outlines the design of the Linda coordination language and its [generative communication](../GLOSSARY.md) paradigm. It introduces the six [tuple space](../GLOSSARY.md) operators and explains how spatial/temporal decoupling simplifies parallel process synchronization.
 
-#### 24. *The Project Xanadu Hypermedia Design*
+#### 24. *The [Project Xanadu](../excavations/project-xanadu.md) Hypermedia Design*
 * **Author**: Theodor H. Nelson
 * **Published**: *Proceedings of the Hypertext '87 Conference*, 1987
 * **Relevance**: [Project Xanadu](../excavations/project-xanadu.md)
@@ -174,7 +174,7 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Authors**: N. P. Brousentsov, S. P. Maslov, V. P. Rozin, A. M. Tishulina
 * **Published**: *Moscow State University Bulletin*, 1960 (Translated to English)
 * **Relevance**: [Balanced Ternary](../excavations/balanced-ternary.md)
-* **Description**: Technical overview of the Setun computer, the only known commercially manufactured balanced ternary computer, describing its use of dual-state magnetic cores to represent base-3 digits.
+* **Description**: Technical overview of the Setun computer, the only known commercially manufactured [balanced ternary](../excavations/balanced-ternary.md) computer, describing its use of dual-state magnetic cores to represent base-3 digits.
 
 #### 28. *Silicon Brains: Neuromorphic Microchips*
 * **Author**: Carver Mead
@@ -182,11 +182,11 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Relevance**: [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
 * **Description**: A foundational paper for neuromorphic engineering. Mead describes how analog subthreshold CMOS circuits can naturally model the biophysics of biological neurons and synapses, bypassing standard digital von Neumann limits.
 
-#### 29. *Wafer-Scale Integration: A Historical Perspective*
+#### 29. *[Wafer-Scale Integration](../excavations/wafer-scale-integration.md): A Historical Perspective*
 * **Authors**: J. F. McDonald, R. J. Campbell, R. Steinvorth, G. F. Taylor, S. P. Jackowic
 * **Published**: *Journal of Vacuum Science & Technology A*, 1986 (Volume 4, Issue 3)
 * **Relevance**: [Wafer-Scale Integration](../excavations/wafer-scale-integration.md)
-* **Description**: Provides a critical overview of early Wafer-Scale Integration (WSI) efforts. It analyzes defect density modeling, repair routing, and power distribution constraints that limited the viability of early monolithic wafer designs like Trilogy.
+* **Description**: Provides a critical overview of early [Wafer-Scale Integration](../excavations/wafer-scale-integration.md) (WSI) efforts. It analyzes defect density modeling, repair routing, and power distribution constraints that limited the viability of early monolithic wafer designs like Trilogy.
 
 #### 30. *RSFQ Logic/Memory Family: A New Josephson-Junction Technology for Sub-Terahertz-Clock-Frequency Digital Systems*
 * **Authors**: Konstantin K. Likharev, Vasily K. Semenov
@@ -194,17 +194,17 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Relevance**: [Superconducting & Cryogenic Microarchitectures](../excavations/superconducting-cryogenic.md)
 * **Description**: The seminal paper introducing Rapid Single Flux Quantum (RSFQ) logic. It outlines how ultra-short, picosecond-wide magnetic flux pulses in Josephson junctions represent bits, achieving operating frequencies up to several hundred gigahertz at cryogenic temperatures.
 
-#### 31. *Digital Optical Computing — A System-Oriented Outlook*
+#### 31. *Digital [Optical Computing](../excavations/optical-computing.md) — A System-Oriented Outlook*
 * **Author**: Alan Huang
 * **Published**: *Proceedings of the IEEE*, 1984 (Volume 72, Issue 7)
 * **Relevance**: [Optical Computing](../excavations/optical-computing.md)
 * **Description**: Proposes a system-level architecture for a digital optical computer, demonstrating how light can be used for interconnects and logical operations to bypass electromagnetic propagation delay in electronic buses.
 
-#### 32. *Stochastic Computing Systems*
+#### 32. *[Stochastic Computing](../excavations/stochastic-computing.md) Systems*
 * **Author**: Brian R. Gaines
 * **Published**: *Advances in Information Systems Science*, Plenum Press, 1969
 * **Relevance**: [Stochastic Computing](../excavations/stochastic-computing.md)
-* **Description**: The classic, foundational paper of stochastic computing. It details how probabilities can be mapped onto random binary streams to perform complex mathematical functions (like multiplication and division) using simple logic gates.
+* **Description**: The classic, foundational paper of [stochastic computing](../excavations/stochastic-computing.md). It details how probabilities can be mapped onto random binary streams to perform complex mathematical functions (like multiplication and division) using simple logic gates.
 
 #### 33. *Logical Reversibility of Computation*
 * **Author**: Charles H. Bennett

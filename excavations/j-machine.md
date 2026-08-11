@@ -10,7 +10,7 @@ The J-Machine (Jellybean Machine) was a landmark, fine-grained, massively parall
 
 The machine was called a "jellybean" machine because its design philosophy argued that high-performance computing should not be built from expensive, specialized processors, but from massive arrays of cheap, single-chip commodity nodes—like jellybeans—that integrated a processor, memory, and a fast routing network on a single die.
 
-The J-Machine's fundamental innovation was its **Message-Driven Processor (MDP)**. Rather than treating communication as a high-latency software OS intervention, the MDP implemented communication mechanisms directly in the silicon. Through **Active Messages**, a message arrival instantly triggered the creation of a hardware-scheduled task and executed the message's target code in a few clock cycles. Coupled with a 3D **wormhole-routing** network, the J-Machine operated as a hardware-enforced, single-level global object namespace, eliminating the distinction between local and remote object references.
+The J-Machine's fundamental innovation was its **Message-Driven Processor (MDP)**. Rather than treating communication as a high-latency software OS intervention, the MDP implemented communication mechanisms directly in the silicon. Through **[Active Messages](../GLOSSARY.md)**, a message arrival instantly triggered the creation of a hardware-scheduled task and executed the message's target code in a few clock cycles. Coupled with a 3D **wormhole-routing** network, the J-Machine operated as a hardware-enforced, single-level global object namespace, eliminating the distinction between local and remote object references.
 
 Ultimately eclipsed by the rapid performance scaling of standard commodity workstation clusters (Beowulf clusters) and the complexity of partitioning software compilers, the J-Machine's architectural concepts live on as the primary infrastructure of modern **Networks-on-Chip (NoCs)**, GPU interconnects, and exascale AI accelerators like the Cerebras Wafer-Scale Engine.
 
@@ -18,7 +18,7 @@ Ultimately eclipsed by the rapid performance scaling of standard commodity works
 
 ## Historical Context
 
-In the mid-1980s, supercomputing was dominated by monolithic, vector processors (like Seymour Cray's designs) and coarse-grained parallel systems (like the Connection Machine or early transputer networks). These architectures suffered from a massive dichotomy: processors computed at nanosecond speeds, but communicating between nodes required milliseconds of software overhead to package data, traverse the operating system network stack, and handle interrupts.
+In the mid-1980s, supercomputing was dominated by monolithic, vector processors (like Seymour Cray's designs) and coarse-grained parallel systems (like the [Connection Machine](connection-machine.md) or early transputer networks). These architectures suffered from a massive dichotomy: processors computed at nanosecond speeds, but communicating between nodes required milliseconds of software overhead to package data, traverse the operating system network stack, and handle interrupts.
 
 ```
        Monolithic Supercomputers / Early MPP (1980s)
@@ -80,17 +80,17 @@ The MDP treated communication as an execution control mechanism. It bypassed the
 * **Zero-Copy Message Buffering:** Arriving messages were streamed directly into a circular buffer in the MDP's on-chip RAM, avoiding memory-copy operations and processor interrupts.
 * **Low-Latency Sending:** A message could be sent via a single `SEND` instruction, injecting flits (flow control units) directly into the router's network interface registers.
 
-### 2. Active Messages
+### 2. [Active Messages](../GLOSSARY.md)
 
-The core software-hardware abstraction of the J-Machine was **Active Messages**, a paradigm co-developed with researchers at UC Berkeley. Instead of traditional post-office message passing (where a message is deposited in a passive queue and must be polled or interrupted by the receiver), an Active Message contains the address of an execution handler in its header:
+The core software-hardware abstraction of the J-Machine was **[Active Messages](../GLOSSARY.md)**, a paradigm co-developed with researchers at UC Berkeley. Instead of traditional post-office message passing (where a message is deposited in a passive queue and must be polled or interrupted by the receiver), an Active Message contains the address of an execution handler in its header:
 
 $$\text{Packet Header} = [ \text{Node Address} \mid \text{Handler Instruction Pointer} \mid \text{Arguments} \dots ]$$
 
 Upon arrival, the handler code executes immediately, using the arguments carried by the packet. Handlers are short, non-blocking routines designed to write data directly into memory or trigger a local task, preventing the network from clogging.
 
-### 3. Tagged Memory & Global Object Namespaces
+### 3. [Tagged Memory](../GLOSSARY.md) & Global Object Namespaces
 
-The MDP used a **36-bit tagged memory** architecture (32 bits of payload + 4 bits of metadata tags). This hardware tagging enforced type-safety and object boundaries:
+The MDP used a **36-bit [tagged memory](../GLOSSARY.md)** architecture (32 bits of payload + 4 bits of metadata tags). This hardware tagging enforced type-safety and object boundaries:
 * **Hardware-Supported Types:** Tags explicitly distinguished between integers, floating-point numbers, code addresses, and unforgeable object identifiers (OIDs).
 * **Dynamic Binding:** When executing object-oriented method dispatches, the MDP's hardware evaluated the object tag to verify access permissions and dynamically route the method dispatch, protecting the distributed execution space from type corruption.
 
@@ -118,7 +118,7 @@ The MDP used a **36-bit tagged memory** architecture (32 bits of payload + 4 bit
 
 1. **The Standard Workstation Revolution (Beowulf Clusters):** In the early 1990s, the performance of standard commodity CPUs (Intel, Alpha, SPARC) grew exponentially due to high clock rates and deep pipelines. It became far more cost-effective to stitch together hundreds of standard workstations using commodity networking (such as Myrinet or Ethernet) than to manufacture custom MDP silicon.
 2. **The Software Standardization on MPI:** The parallel computing industry standardized on coarse-grained, software-driven message-passing interfaces like **MPI (Message Passing Interface)**. While MPI had high latency overhead, it ran on any hardware platform, defeating the proprietary, custom assembly instructions of the J-Machine.
-3. **The Complexity of the Fine-Grained Software Model:** Programming the J-Machine required compilers or languages (like Concurrent Smalltalk or Cantor) that could handle millions of tiny, asynchronous objects. Most developers preferred standard, sequential C or Fortran code wrapped in coarse-grained parallel partitions.
+3. **The Complexity of the Fine-Grained Software Model:** Programming the J-Machine required compilers or languages (like Concurrent [Smalltalk](smalltalk.md) or Cantor) that could handle millions of tiny, asynchronous objects. Most developers preferred standard, sequential C or Fortran code wrapped in coarse-grained parallel partitions.
 
 ---
 
@@ -128,15 +128,15 @@ As silicon scaling reaches its physical limits and the **Von Neumann memory wall
 
 * **Networks-on-Chip (NoCs) in Many-Core Chips:** Modern GPUs, Google TPUs, and multi-core CPUs are no longer structured as a single monolithic processor. Instead, they are composed of a grid of independent execution cores connected via a highly optimized, on-silicon 2D/3D packet-routing network—structurally identical to the J-Machine’s MDP integration.
 * **Cerebras Wafer-Scale Engine (WSE):** The WSE is the ultimate physical realization of the "jellybean" philosophy. By building hundreds of thousands of AI-optimized cores on a single, uncut silicon wafer, Cerebras avoids chip packaging and PCB traces entirely. Cores communicate asynchronously via a fine-grained, localized spatial routing fabric that echoes the J-Machine's wormhole-routing network.
-* **Distributed Actor Frameworks (Ray & Akka):** Modern distributed computing workloads (such as scaling large language models across thousands of GPUs) utilize software-implemented Active Messages. In **Ray**, tasks and objects are routed dynamically across a cluster using global object identifiers and executed asynchronously, mirroring the J-Machine's execution model.
+* **Distributed Actor Frameworks (Ray & Akka):** Modern distributed computing workloads (such as scaling large language models across thousands of GPUs) utilize software-implemented [Active Messages](../GLOSSARY.md). In **Ray**, tasks and objects are routed dynamically across a cluster using global object identifiers and executed asynchronously, mirroring the J-Machine's execution model.
 * **Neuromorphic Spike Routing:** Spiking neuromorphic architectures (like Intel Loihi) route events (spikes) across distributed, asynchronous neural cores using on-chip routers, inheriting the J-Machine's fine-grained, event-driven message dispatch mechanisms.
 
 ---
 
 ## Related Technologies
 
-* **[Transputers](transputers.md):** Both architectures sought to unify processing and communication on a single chip, though the Transputer focused on synchronous CSP channels, while the J-Machine pioneered asynchronous Active Messages.
-* **[Connection Machine](connection-machine.md):** Shared the goal of fine-grained parallelism, but the Connection Machine executed in synchronous lock-step (SIMD), whereas the J-Machine was fully asynchronous and MIMD (Multiple Instruction, Multiple Data).
+* **[Transputers](transputers.md):** Both architectures sought to unify processing and communication on a single chip, though the Transputer focused on [synchronous CSP channels](../GLOSSARY.md), while the J-Machine pioneered asynchronous [Active Messages](../GLOSSARY.md).
+* **[Connection Machine](connection-machine.md):** Shared the goal of fine-grained parallelism, but the [Connection Machine](connection-machine.md) executed in synchronous lock-step (SIMD), whereas the J-Machine was fully asynchronous and MIMD (Multiple Instruction, Multiple Data).
 * **[Asynchronous Microprocessors](asynchronous-processors.md):** Shares the focus on local, clockless, or self-timed synchronization for on-chip communications.
 * **[Wafer-Scale Integration](wafer-scale-integration.md):** Bypasses chip-packaging boundaries to scale fine-grained processing arrays to physical extremes.
 
@@ -154,7 +154,7 @@ As silicon scaling reaches its physical limits and the **Von Neumann memory wall
 
 | Category | Rating | Rationale |
 | --- | --- | --- |
-| Historical Importance | ★★★★☆ | Formulated the concept of Active Messages, wormhole routing, and early Network-on-Chip integration. |
+| Historical Importance | ★★★★☆ | Formulated the concept of [Active Messages](../GLOSSARY.md), wormhole routing, and early Network-on-Chip integration. |
 | Technical Innovation | ★★★★★ | Successfully integrated processor, SRAM, routing, and message handlers in a single chip (MDP). |
 | Commercial Success | ★☆☆☆☆ | Confined to academic prototypes; failed to compete with the commodity PC/workstation clusters. |
 | Modern Potential | ★★★★★ | Directly underpins modern AI tensor cores, many-core GPUs, wafer-scale processors, and distributed actor systems. |
@@ -167,7 +167,7 @@ As silicon scaling reaches its physical limits and the **Von Neumann memory wall
 
 * Dally, W. J., et al. (1989). *The J-Machine: A fine-grain concurrent computer*. In Proceedings of the IFIP 11th World Computer Congress, 1147-1153.
 * Dally, W. J., & Wills, D. S. (1989). *Universal mechanisms for concurrency*. In Proceedings of the 16th Annual International Symposium on Computer Architecture (ISCA), 19-26.
-* von Eicken, T., Culler, D. E., Goldstein, S. C., & Schauser, K. E. (1992). *Active messages: a mechanism for integrated communication and computation*. In Proceedings of the 19th Annual International Symposium on Computer Architecture (ISCA), 256-266.
+* von Eicken, T., Culler, D. E., Goldstein, S. C., & Schauser, K. E. (1992). *[Active messages](../GLOSSARY.md): a mechanism for integrated communication and computation*. In Proceedings of the 19th Annual International Symposium on Computer Architecture (ISCA), 256-266.
 * Noakes, M. D., Wallach, D. A., & Dally, W. J. (1993). *The J-Machine multicomputer: Architecture and multicomputer performance*. In Proceedings of the 20th Annual International Symposium on Computer Architecture (ISCA), 224-235.
 * Dally, W. J. (1990). *Network and Node Architecture for Massively Parallel Computers*. In Organick, E. I. (Ed.), *New Frontiers in Computer Architecture*. Prentice Hall.
 

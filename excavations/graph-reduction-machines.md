@@ -22,7 +22,7 @@ Despite their conceptual elegance and the natural parallelization of referential
 
 ## Historical Context
 
-In 1977, John Backus delivered his famous ACM Turing Award lecture, *"Can Programming Be Liberated from the von Neumann Style? A Functional Style and Its Algebra of Programs."* Backus argued that the sequential, instruction-by-instruction modification of memory—which he termed the **von Neumann bottleneck**—was the single greatest obstacle to both software reliability and parallel hardware scaling.
+In 1977, John Backus delivered his famous ACM Turing Award lecture, *"Can Programming Be Liberated from the von Neumann Style? A Functional Style and Its Algebra of Programs."* Backus argued that the sequential, instruction-by-instruction modification of memory—which he termed the **[von Neumann bottleneck](../GLOSSARY.md)**—was the single greatest obstacle to both software reliability and parallel hardware scaling.
 
 Functional programming languages offered a solution. Lacking side effects, they were naturally parallelizable, but compiling them onto conventional sequential CPUs of the era was incredibly slow due to the massive overhead of managing lexical environments, variable bindings, and function closures in software.
 
@@ -30,13 +30,13 @@ This triggered a major research effort during the late 1970s and 1980s to build 
 
 The first major breakthrough came from **David Turner** in 1979, who demonstrated that any functional program could be translated into a mathematical formalism called **combinatory logic** (specifically, using the combinators `S`, `K`, `I`, `B`, and `C`). Combinators are functions that contain no free variables. Compiling to combinators eliminated the need for variables and runtime environments entirely, turning execution into a simple, mechanical process of substituting and rewriting graph nodes in memory.
 
-During the 1980s, the UK Alvey Programme and the European ESPRIT initiatives poured funding into parallel graph reduction. Projects like **ALICE** (led by John Darlington and Mike Reeve), **GRIP** (led by Simon Peyton Jones), and Sweden's **D-Algorithm** attempted to build massively parallel computers that could natively rewrite graphs. At the same time, hardware projects like the **Lisp Machines** dominated the AI sector, but while Lisp Machines were sequential, environment-based architectures, Graph Reduction Machines were non-sequential and demand-driven.
+During the 1980s, the UK Alvey Programme and the European ESPRIT initiatives poured funding into parallel graph reduction. Projects like **ALICE** (led by John Darlington and Mike Reeve), **GRIP** (led by Simon Peyton Jones), and Sweden's **D-Algorithm** attempted to build massively parallel computers that could natively rewrite graphs. At the same time, hardware projects like the **[Lisp Machines](lisp-machines.md)** dominated the AI sector, but while [Lisp Machines](lisp-machines.md) were sequential, environment-based architectures, Graph Reduction Machines were non-sequential and demand-driven.
 
 ---
 
 ## Technical Overview
 
-Graph reduction is fundamentally a **demand-driven** (or *lazy*) execution model. In contrast to control-flow (which executes instructions sequentially) and dataflow (which executes an instruction as soon as its inputs are available), a graph reduction machine evaluates an expression *only when its value is strictly required* by an output device or an arithmetic operator.
+Graph reduction is fundamentally a **demand-driven** (or *lazy*) execution model. In contrast to control-flow (which executes instructions sequentially) and dataflow (which executes an instruction as soon as its inputs are available), a [graph reduction machine](../GLOSSARY.md) evaluates an expression *only when its value is strictly required* by an output device or an arithmetic operator.
 
 ```
                   GRAPH REDUCTION OF AN S-COMBINATOR
@@ -53,7 +53,7 @@ Graph reduction is fundamentally a **demand-driven** (or *lazy*) execution model
 ```
 
 ### 1. Representation of Expressions in Memory
-In a graph reduction machine, memory is not structured as a flat array of integers, but as a heap of **graph nodes** (often called *cells* or *packets*). Each node typically contains:
+In a [graph reduction machine](../GLOSSARY.md), memory is not structured as a flat array of integers, but as a heap of **graph nodes** (often called *cells* or *packets*). Each node typically contains:
 * **Tag**: Indicates the node type (e.g., an Application operator `@`, a primitive value, or a Combinator).
 * **Left Pointer (Function)**: Pointer to the sub-expression being applied.
 * **Right Pointer (Argument)**: Pointer to the argument of the function.

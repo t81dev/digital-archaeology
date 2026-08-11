@@ -15,9 +15,9 @@ Each lab corresponds directly to one of our functional Python simulators and can
 ## Lab Module 1 — Non-Binary Arithmetic & Signed Radix-3 Economy
 
 ### Core Theoretical Concepts
-- **Radix Economy**: The hardware cost of representing numbers is modeled as $E = R \cdot L$, where $R$ is the radix and $L$ is the number of digits (width) needed to represent a maximum value $N$. The radix that mathematically minimizes representation cost is the transcendental number $e \approx 2.718$. The closest integer radix is **3** (ternary), which has a higher radix economy than binary ($R=2$).
-- **Balanced Ternary**: Utilizing the digit set $\{-1, 0, 1\}$ (often written as $\{T, 0, 1\}$ where $T = -1$).
-- **Zero-Bit Negation**: Unlike two's complement binary, negating a balanced ternary number requires no arithmetic carry operations—it is achieved by a simple bitwise inversion (swapping the Positive and Negative rails in dual-rail hardware).
+- **[Radix Economy](../GLOSSARY.md)**: The hardware cost of representing numbers is modeled as $E = R \cdot L$, where $R$ is the radix and $L$ is the number of digits (width) needed to represent a maximum value $N$. The radix that mathematically minimizes representation cost is the transcendental number $e \approx 2.718$. The closest integer radix is **3** (ternary), which has a higher [radix economy](../GLOSSARY.md) than binary ($R=2$).
+- **[Balanced Ternary](../excavations/balanced-ternary.md)**: Utilizing the digit set $\{-1, 0, 1\}$ (often written as $\{T, 0, 1\}$ where $T = -1$).
+- **Zero-Bit Negation**: Unlike two's complement binary, negating a [balanced ternary](../excavations/balanced-ternary.md) number requires no arithmetic carry operations—it is achieved by a simple bitwise inversion (swapping the Positive and Negative rails in dual-rail hardware).
 
 ### Hands-On Challenge: Designing a Ternary Half-Adder
 In this challenge, you will write a ternary logic mapping for a single-trit half adder.
@@ -128,7 +128,7 @@ engine.run_until_empty()
 
 ### Core Theoretical Concepts
 - **The Principle of Least Privilege**: Memory segments must be strictly confined.
-- **Hardware Tagged Memory**: Memory words are accompanied by out-of-band tag bits. If a memory location holds a capability (base, limit, permissions), the tag is active. If any instruction attempts to write or alter the capability via standard arithmetic, the hardware tag is automatically cleared, rendering it unforgeable.
+- **Hardware [Tagged Memory](../GLOSSARY.md)**: Memory words are accompanied by out-of-band tag bits. If a memory location holds a capability (base, limit, permissions), the tag is active. If any instruction attempts to write or alter the capability via standard arithmetic, the hardware tag is automatically cleared, rendering it unforgeable.
 - **Lisp-Machine Dynamic Type Tagging**: Operations inspect metadata type tags (e.g., `Fixnum`, `Flonum`, `Symbol`) on every clock cycle. An instruction like `lisp_add` automatically triggers an exception if types are mismatched or if an operand is non-numeric, preventing semantic memory corruption.
 - **Burroughs-Style Descriptor Virtualization**: Memory access is mediated by descriptors with a `Presence Bit`. If the requested block is swapped to disk (presence bit is low), the hardware triggers a Page Fault exception, allowing the OS to load the block and resume execution.
 
@@ -386,7 +386,7 @@ print(f"Thermodynamic Heat Loss: {energy} Joules")
 
 ---
 
-## Lab Module 6 — Distributed Namespaces & 9P Protocol Messages
+## Lab Module 6 — Distributed Namespaces & [9P Protocol](../GLOSSARY.md) Messages
 
 ### Core Theoretical Concepts
 - **Universal File Protocol**: 9P handles resources uniformly as hierarchical file trees, translating network actions into standard byte-oriented transactions.
@@ -442,7 +442,7 @@ print(f"✓ Union fallthrough data retrieved: {resp_read['data']}") # BackupData
 
 ---
 
-## Lab Module 7 — Stochastic Computing and Spiking Neuromorphic Co-processors
+## Lab Module 7 — [Stochastic Computing](../excavations/stochastic-computing.md) and Spiking Neuromorphic Co-processors
 
 ### Core Theoretical Concepts
 - **Spiking Neural Dynamics**: Spiking Neural Networks (SNNs) replicate the biological brain's high temporal sparsity. Neurons integrate inputs into a membrane potential $V(t)$, and leak state toward a rest potential $V_{\text{rest}}$ over time constant $\tau_m$. Once potential hits $V_{\text{th}}$, the neuron fires a discrete temporal binary spike event and enters a refractory period.
@@ -508,7 +508,7 @@ for length in [64, 1024]:
 ## Grading Criteria & System Verification
 
 For all submissions, systems engineering students are assessed on:
-1. **Mathematical correctness**: Does the custom balanced ternary arithmetic or dataflow routing yield the exact expected value?
+1. **Mathematical correctness**: Does the custom [balanced ternary](../excavations/balanced-ternary.md) arithmetic or dataflow routing yield the exact expected value?
 2. **Robustness of constraints**: Are capability and descriptor access gates protected against address overflows and tag forgery?
 3. **Liveness**: Does the concurrent design avoid deadlock and satisfy the progress property?
 4. **Thermodynamic Integrity**: Does the reversible logic simulation return intermediate garbage states cleanly to zero to bypass Landauer limits?

@@ -1,12 +1,12 @@
 # Inferno
 
-> A distributed operating system and virtual machine designed for networked, resource-constrained environments, evolving the Plan 9 philosophy for the post-PC world.
+> A distributed operating system and virtual machine designed for networked, resource-constrained environments, evolving the [Plan 9](plan-9.md) philosophy for the post-PC world.
 
 ---
 
 ## Summary
 
-Inferno is a lightweight, portable operating system and virtual machine developed at Bell Labs in the mid-1990s (and later by Vita Nuova). It was explicitly designed as a successor to Plan 9 for the emerging networked, embedded, and mobile computing landscape.
+Inferno is a lightweight, portable operating system and virtual machine developed at Bell Labs in the mid-1990s (and later by Vita Nuova). It was explicitly designed as a successor to [Plan 9](plan-9.md) for the emerging networked, embedded, and mobile computing landscape.
 
 Built around the Dis virtual machine and the Limbo programming language, Inferno emphasizes minimalism, security through capabilities, and seamless distribution across heterogeneous devices. Though it saw limited commercial success, its ideas remain influential in embedded systems, edge computing, and research into distributed operating systems.
 
@@ -14,12 +14,12 @@ Built around the Dis virtual machine and the Limbo programming language, Inferno
 
 ## Historical Context
 
-Following the development of Plan 9, researchers at Bell Labs (including Rob Pike, Ken Thompson, Dennis Ritchie, and Howard Trickey) recognized that the emerging consumer internet, network appliances, and television set-top boxes required a portable, secure execution model.
+Following the development of [Plan 9](plan-9.md), researchers at Bell Labs (including Rob Pike, Ken Thompson, Dennis Ritchie, and Howard Trickey) recognized that the emerging consumer internet, network appliances, and television set-top boxes required a portable, secure execution model.
 
 - **1995**: Inferno development begins at Lucent Technologies (Bell Labs spin-off).
 - **1996**: Lucent publicly launches Inferno, marketing it as a competitor to Sun Microsystems' Java platform.
 - **2000**: Vita Nuova acquires exclusive licensing rights, releasing Inferno 3rd Edition as an open-source product.
-- **2004**: Inferno 4th Edition is released, updating the Styx protocol to match Plan 9's standard 9P2000 protocol.
+- **2004**: Inferno 4th Edition is released, updating the [Styx protocol](../GLOSSARY.md) to match [Plan 9](plan-9.md)'s standard 9P2000 protocol.
 
 ```
        Comparative Lineage of Bell Labs Systems
@@ -63,7 +63,7 @@ Limbo is a strongly typed, concurrent language compiled to Dis bytecode.
 - It natively implements Hoare's **Communicating Sequential Processes (CSP)** model, supporting lightweight concurrency via native typed `channel` constructs.
 - It features modular scoping and prevents raw pointer manipulation, ensuring memory isolation between programs.
 
-### 3. The Styx/9P Protocol
+### 3. The Styx/[9P Protocol](../GLOSSARY.md)
 Styx was Inferno's universal communications protocol (equivalent to 9P). Every Inferno resource (local graphics `/dev/draw`, network stacks `/net`, cryptographic engines `/dev/sec`) is accessed by sending Styx message packets over a wire, making remote and local execution completely identical.
 
 ---
@@ -105,7 +105,7 @@ Inferno's architecture provides a powerful model for modern edge-cloud workloads
 ## Related Technologies
 
 - [Plan 9](../excavations/plan-9.md) — *Direct ancestor; provides the namespace and 9P protocols.*
-- [Transputers](../excavations/transputers.md) — *Shares the language-integrated CSP concurrency model (Limbo inherits from Occam).*
+- [Transputers](../excavations/transputers.md) — *Shares the language-integrated CSP concurrency model (Limbo inherits from [Occam](occam.md)).*
 - [Lisp Machines](../excavations/lisp-machines.md) — *Shares the unified, language-integrated operating system environment paradigm.*
 
 ---
@@ -122,8 +122,8 @@ Inferno's architecture provides a powerful model for modern edge-cloud workloads
 
 | Category | Rating | Rationale |
 | --- | --- | --- |
-| Historical Importance | ★★★☆☆ | Important evolutionary link between Plan 9, Java's concurrent systems, and modern portable runtimes. |
-| Technical Innovation | ★★★★★ | Flawless register-based VM design with CSP channels and unified network-transparent Styx protocol. |
+| Historical Importance | ★★★☆☆ | Important evolutionary link between [Plan 9](plan-9.md), Java's concurrent systems, and modern portable runtimes. |
+| Technical Innovation | ★★★★★ | Flawless register-based VM design with CSP channels and unified network-transparent [Styx protocol](../GLOSSARY.md). |
 | Commercial Success | ★☆☆☆☆ | Overshadowed by Java and embedded Linux, failing to achieve mainstream consumer deployment. |
 | Modern Potential | ★★★★☆ | The core ideas map perfectly to WebAssembly, Edge computing virtual microcontrollers, and lightweight secure enclaves. |
 | AI Synergy | ★★☆☆☆ | Low direct synergy with neural models, but provides secure or distributed runtimes. |

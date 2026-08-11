@@ -38,16 +38,16 @@ Breaking the cycle usually requires either massive disruption (a killer applicat
 
 ## Case Studies from This Repository (Updated)
 
-* **Balanced Ternary** — Superior arithmetic properties could not overcome the entire binary software stack, compilers, OSes, and peripherals.
-* **Burroughs Large Systems** *(new)* — High-level hardware integration and descriptors offered strong safety/productivity, but lost to the vast x86/Unix-compatible commodity ecosystem.
-* **Intel iAPX 432** *(new)* — Object-oriented capability architecture failed partly due to incompatibility with existing x86 software and developer expectations.
-* **Lisp Machines** — Extraordinary hardware/software integration lost to the massive ecosystem built around Unix, C, and commodity workstations.
-* **Transputers** — The elegant occam/CSP model could not overcome the momentum of C/Fortran + MPI on commodity clusters.
-* **Dataflow Computing** — Required fundamentally new programming models and toolchains in a world optimized for imperative control flow.
-* **Capability Systems** — Elegant security model hindered by deep incompatibility with existing permission/ACL-based software ecosystems.
-* **Vector Supercomputing** *(new)* — Superior per-node efficiency displaced by the scalability and software ecosystem of commodity clusters (Beowulf) + MPI.
-* **Plan 9 & Inferno** — The beautiful simplicity of everything-as-a-file 9P protocols and dynamic, private namespaces was completely locked out by standard POSIX socket libraries and the massive open-source momentum surrounding Linux.
-* **Multics** — Tying core segmented memory-mapped persistent files directly to custom GE/Honeywell mainframes locked it out of the portable, general-purpose microprocessor revolution that spawned Unix.
+* **[Balanced Ternary](../excavations/balanced-ternary.md)** — Superior arithmetic properties could not overcome the entire binary software stack, compilers, OSes, and peripherals.
+* **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)** *(new)* — High-level hardware integration and descriptors offered strong safety/productivity, but lost to the vast x86/Unix-compatible commodity ecosystem.
+* **[Intel iAPX 432](../excavations/intel-iapx-432.md)** *(new)* — Object-oriented capability architecture failed partly due to incompatibility with existing x86 software and developer expectations.
+* **[Lisp Machines](../excavations/lisp-machines.md)** — Extraordinary hardware/software integration lost to the massive ecosystem built around Unix, C, and commodity workstations.
+* **[Transputers](../excavations/transputers.md)** — The elegant [occam](../excavations/occam.md)/CSP model could not overcome the momentum of C/Fortran + MPI on commodity clusters.
+* **[Dataflow Computing](../excavations/dataflow-computing.md)** — Required fundamentally new programming models and toolchains in a world optimized for imperative control flow.
+* **[Capability Systems](../excavations/capability-systems.md)** — Elegant security model hindered by deep incompatibility with existing permission/ACL-based software ecosystems.
+* **[Vector Supercomputing](../excavations/vector-supercomputing.md)** *(new)* — Superior per-node efficiency displaced by the scalability and software ecosystem of commodity clusters (Beowulf) + MPI.
+* **[Plan 9](../excavations/plan-9.md) & [Inferno](../excavations/inferno.md)** — The beautiful simplicity of everything-as-a-file 9P protocols and dynamic, private namespaces was completely locked out by standard POSIX socket libraries and the massive open-source momentum surrounding Linux.
+* **[Multics](../excavations/multics.md)** — Tying core segmented memory-mapped persistent files directly to custom GE/Honeywell mainframes locked it out of the portable, general-purpose microprocessor revolution that spawned Unix.
 
 ---
 

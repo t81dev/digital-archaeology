@@ -8,7 +8,7 @@
 
 The Transputer was a pioneering microprocessor architecture developed by the British semiconductor firm INMOS in the 1980s. Conceived as the "building block" of parallel computing—analogous to how the transistor is the building block of electronic circuits—each Transputer integrated a CPU, fast local memory, a hardware-level multitasking scheduler, and four high-speed point-to-point serial communication links on a single silicon die.
 
-Fundamentally co-designed with the **occam** programming language, the Transputer was a physical implementation of C.A.R. Hoare's **Communicating Sequential Processes (CSP)** formal model. Instead of relying on shared memory and complex cache coherence protocols, Transputer networks scaled through distributed, message-passing concurrency. Despite being highly innovative, a combination of manufacturing delays, the rapid rise of general-purpose RISC chips, and the difficulty of breaking mainstream software ecosystems relegated the Transputer to specialized scientific and real-time embedded niches.
+Fundamentally co-designed with the **[occam](occam.md)** programming language, the Transputer was a physical implementation of C.A.R. Hoare's **Communicating Sequential Processes (CSP)** formal model. Instead of relying on shared memory and complex cache coherence protocols, Transputer networks scaled through distributed, message-passing concurrency. Despite being highly innovative, a combination of manufacturing delays, the rapid rise of general-purpose RISC chips, and the difficulty of breaking mainstream software ecosystems relegated the Transputer to specialized scientific and real-time embedded niches.
 
 ---
 
@@ -65,18 +65,18 @@ Two registers, `Front` and `Back`, pointed to a linked list of active processes 
        └───────────────────────────┘                    └───────────────┘
 ```
 
-### The CSP Concurrency Model & occam Linkage
+### The CSP Concurrency Model & [occam](occam.md) Linkage
 
-The Transputer was designed alongside the **occam** programming language, named after William of Ockham (the author of "Occam's Razor"). occam was the native compiler and practically the assembly language of the Transputer.
+The Transputer was designed alongside the **[occam](occam.md)** programming language, named after William of Ockham (the author of "[Occam](occam.md)'s Razor"). [occam](occam.md) was the native compiler and practically the assembly language of the Transputer.
 
-In occam, concurrency and communication are primitive language constructs:
+In [occam](occam.md), concurrency and communication are primitive language constructs:
 - `SEQ`: Executes statements sequentially.
 - `PAR`: Executes statements in parallel.
 - `ALT`: Waits for the first of multiple communication channels to become ready.
 - `!`: Send value on channel.
 - `?`: Receive value on channel.
 
-#### occam CSP Code Example
+#### [occam](occam.md) CSP Code Example
 ```occam
 -- An elegant occam process that reads from an input channel,
 -- doubles the integer, and writes to an output channel.
@@ -101,7 +101,7 @@ In the Transputer, channels could be **internal** (within the same chip) or **ex
 ## Innovations & Core Architectural Claims
 
 - **Silicon-Level Concurrency**: Multitasking and scheduling were handled in hardware microcode, bypassing the software operating system kernel overhead.
-- **Unified Local/Remote Channels**: A program written in occam could run on a single Transputer or be distributed across hundreds of Transputers without changing a single line of channel code—only the physical hardware mapping configuration (the `PLACED PAR` directive) changed.
+- **Unified Local/Remote Channels**: A program written in [occam](occam.md) could run on a single Transputer or be distributed across hundreds of Transputers without changing a single line of channel code—only the physical hardware mapping configuration (the `PLACED PAR` directive) changed.
 - **Scalable Point-to-Point Links**: The on-chip serial links meant that as you added more processors to a system, the aggregate communication bandwidth scaled linearly, avoiding the bus contention limits of shared memory systems.
 - **Fast Local SRAM Integration**: One of the first commercial microprocessors to integrate high-speed local SRAM directly on-die to serve as register-workspace memory.
 
@@ -123,8 +123,8 @@ Commercially, the Transputer was marginalized in the general-purpose desktop com
 
 ### Modern Evaluation
 While the physical Transputer chips died, their architectural DNA is highly dominant in modern software and distributed hardware:
-- **Go and Goroutines**: The programming language Go's core concurrency model—goroutines and channels—is a direct, software-level implementation of the occam/CSP model.
-- **Erlang and the Actor Model**: Shares the message-passing, share-nothing paradigm that made Transputer networks highly resilient and scalable.
+- **Go and Goroutines**: The programming language Go's core concurrency model—goroutines and channels—is a direct, software-level implementation of the [occam](occam.md)/CSP model.
+- **Erlang and the [Actor Model](../GLOSSARY.md)**: Shares the message-passing, share-nothing paradigm that made Transputer networks highly resilient and scalable.
 - **Network-on-Chip (NoC)**: Modern many-core chips (such as the Tilera, Kalray MPPA, or Intel's experimental many-core research chips) interconnect processing elements using on-chip routers and point-to-point networks, directly realizing the Transputer's spatial wiring on a single silicon die.
 - **XMOS Microcontrollers**: Founded by David May, XMOS produces "Software-Defined Silicon" microcontrollers that feature hardware-level multi-threading and deterministic, channel-based communication.
 
@@ -135,12 +135,12 @@ While the physical Transputer chips died, their architectural DNA is highly domi
 ### Related Excavations
 - **[Dataflow Computing](../excavations/dataflow-computing.md)**: Share the emphasis on data-driven execution, but Transputers rely on explicit process control blocks and message channels.
 - **[Connection Machine](../excavations/connection-machine.md)**: Uses fine-grained SIMD processors, whereas Transputer networks are coarse-grained MIMD (Multiple Instruction, Multiple Data) systems.
-- **[Lisp Machines](../excavations/lisp-machines.md)**: Integrated operating system and language in hardware, similar to the Transputer's co-design with occam.
+- **[Lisp Machines](../excavations/lisp-machines.md)**: Integrated operating system and language in hardware, similar to the Transputer's co-design with [occam](occam.md).
 - **[Balanced Ternary](../excavations/balanced-ternary.md)**: Alternative number system, with a synthesizable hardware ALU and ternary representation.
 - **[Systolic Arrays](../excavations/systolic-arrays.md)**: Point-to-point spatial grids for rhythmic numerical pipelines, contrasting with Transputer's message-passing MIMD architecture.
 
 ### Related Patterns
-- **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)**: Explains the high commercial friction of introducing occam in a market dominated by C and Fortran.
+- **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)**: Explains the high commercial friction of introducing [occam](occam.md) in a market dominated by C and Fortran.
 - **[Economic Failures](../patterns/economic-failures.md)**: Highlights how manufacturing delays of the T9000 ruined INMOS's market opportunity.
 - **[Forgotten Abstractions](../patterns/forgotten-abstractions.md)**: Examines how hardware-level process schedulers were largely forgotten by modern general-purpose CPUs.
 - **[Recurring Ideas](../patterns/recurring-ideas.md)**: Traces the return of CSP channels inside Go, Rust, and Erlang software stacks.
@@ -172,6 +172,6 @@ While the physical Transputer chips died, their architectural DNA is highly domi
 - **INMOS Limited** (1988). *Transputer Reference Manual*. Prentice Hall.
 - **May, David** (1987). "The Transputer". *In: Architecture and Algorithms for Parallel Computers*.
 - **Hoare, C.A.R.** (1978). "Communicating Sequential Processes". *Communications of the ACM*, 21(8), 666-677. (The theoretical foundation).
-- **May, David and Taylor, Richard** (1984). "occam—an overview". *Microelectronics Journal*, 15(1), 26-34.
-- **Jones, Geraint and Goldsmith, Michael** (1988). *Programming in occam 2*. Prentice Hall.
+- **May, David and Taylor, Richard** (1984). "[occam](occam.md)—an overview". *Microelectronics Journal*, 15(1), 26-34.
+- **Jones, Geraint and Goldsmith, Michael** (1988). *Programming in [occam](occam.md) 2*. Prentice Hall.
 - **May, David** (2009). "XMOS: XS1 Architecture". *XMOS Ltd Whitepaper*.

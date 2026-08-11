@@ -72,7 +72,7 @@ To demonstrate heterogeneous cross-paradigm execution, the following pipeline fl
   # Triggers process evaluation on the receiving node's cooperative scheduler
   ```
 
-### B. Neuromorphic Spiking Node (Tab A) -> Tuple Space Node (Tab B)
+### B. Neuromorphic Spiking Node (Tab A) -> [Tuple Space](../../GLOSSARY.md) Node (Tab B)
 * **Emitter (Tab A)**: Fires a spike representing a camera or sensory observation.
 * **Receiver (Tab B)**: Decodes the packet and converts the spike amplitude into an unforgeable logical tuple.
 * **Pyodide Injection**:

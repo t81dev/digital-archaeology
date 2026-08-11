@@ -17,14 +17,14 @@ As of August 2026, the repository provides **15 zero-dependency simulators and p
 ### Key Tools & Simulators:
 *   **[Systolic Array Simulator](../reconstructions/systolic-array/)**: Models cycle-accurate Weight-Stationary and Output-Stationary execution dataflows, capturing data-movement energy proxy metrics.
 *   **[Dynamic Token-Matching Dataflow Engine](../reconstructions/dataflow-engine/)**: Demonstrates dynamic out-of-order execution, loop pipelining, and routing mechanics for data-driven token-matching architectures.
-*   **[Balanced Ternary Simulator](../reconstructions/mixed-radix-sim/)**: Explores Pos-Neg (PN) dual-rail hardware representation, three-state arithmetic, and radix economy optimization.
+*   **[Balanced Ternary Simulator](../reconstructions/mixed-radix-sim/)**: Explores Pos-Neg (PN) dual-rail hardware representation, three-state arithmetic, and [radix economy](../GLOSSARY.md) optimization.
 *   **[Stochastic Computing Simulator](../reconstructions/stochastic-computing/)**: Models how continuous real numbers map to randomized binary bitstreams, evaluating error resilience and single-gate multipliers.
 *   **[Neuromorphic Spiking Simulator](../reconstructions/neuromorphic-spiking/)**: Simulates event-driven spike propagation, Leaky Integrate-and-Fire (LIF) dynamics, and Hebbian learning rules.
 *   **[Cryogenic Superconducting Simulator](../reconstructions/cryogenic-superconducting/)**: Simulates Rapid Single Flux Quantum (RSFQ/ERSFQ) pulse-switching, timing windows, and liquid helium thermodynamic cooling penalties.
 *   **[Analog Optical Wave Accelerator](../reconstructions/analog-optical/)**: Models a continuous operational amplifier solver alongside a Mach-Zehnder Interferometer (MZI) photonic tensor core.
 
 ### Synthesizable Hardware Blueprints:
-*   **[ternary_alu.sv](../reconstructions/synthesizable-hardware/ternary_alu.sv)**: A synthesizable SystemVerilog implementation of a 3-trit Balanced Ternary ALU, showcasing real physical layout area and gate count properties on FPGAs.
+*   **[ternary_alu.sv](../reconstructions/synthesizable-hardware/ternary_alu.sv)**: A synthesizable SystemVerilog implementation of a 3-trit [Balanced Ternary](../excavations/balanced-ternary.md) ALU, showcasing real physical layout area and gate count properties on FPGAs.
 *   **[stochastic_multiplier.sv](../reconstructions/synthesizable-hardware/stochastic_multiplier.sv)**: A synthesizable RTL blueprint of a stochastic bitstream multiplier utilizing LFSR pseudorandom number generators and a single AND/XNOR logic gate.
 
 ### Recommended Workflows:
@@ -45,7 +45,7 @@ As of August 2026, the repository provides **15 zero-dependency simulators and p
 *   **[capability_bounds_checker.sv](../reconstructions/synthesizable-hardware/capability_bounds_checker.sv)**: A synthesizable SystemVerilog core implementing an inline memory bounds checker. It monitors CPU address buses and immediately raises hardware security interrupts (traps) on unauthorized boundary violations.
 
 ### Recommended Workflows:
-1.  **Experiment with Tagged Memory**: Run the Capability Security simulator to model memory bounds validation and isolate multi-tenant workloads.
+1.  **Experiment with [Tagged Memory](../GLOSSARY.md)**: Run the Capability Security simulator to model memory bounds validation and isolate multi-tenant workloads.
 2.  **Integrate Hardware Traps**: Review and adapt `capability_bounds_checker.sv` as an inline bus monitor or pipeline stage within a custom RISC-V or Wishbone-based SoC.
 3.  **Reference Academic Curriculum**: Work through **[Lab Module 3 of the Lab Manual](../reconstructions/LAB_MANUAL.md#lab-module-3-micro-segmentation-tagged-architectures)** to study the security proofs of capability-based micro-segmentation.
 
@@ -56,19 +56,19 @@ As of August 2026, the repository provides **15 zero-dependency simulators and p
 **Scenario**: Constructing highly secure, network-transparent, and asynchronously decoupled runtime environments for autonomous multi-agent AI networks and serverless clouds, eliminating fragile REST/gRPC API serialization and ambient privilege.
 
 ### Key Tools & Simulators:
-*   **[9P Namespace Simulator](../reconstructions/plan9-9p/)**: Recreates stateful 9P/Styx protocol transactions, private dynamic namespaces, and union mounts, allowing agents to route IO transparently over remote endpoints.
+*   **[9P Namespace Simulator](../reconstructions/plan9-9p/)**: Recreates stateful 9P/[Styx protocol](../GLOSSARY.md) transactions, private dynamic namespaces, and union mounts, allowing agents to route IO transparently over remote endpoints.
 *   **[Linda Tuple Space Simulator](../reconstructions/tuple-space/)**: Implements a thread-safe, coordinate-free, generative coordination space supporting blocking and non-blocking associative pattern-matching (`out`, `in`, `rd`, `eval`).
 *   **[Multi-Architecture Co-Simulation Fabric](../reconstructions/co-simulation/)**: Orchestrates a hybrid statistical neural network-to-symbolic solver pipeline, routing incident alerts over synchronous CSP concurrent processes, and triggering spatial dataflow graph execution.
 
 ### Single-Command Co-Simulation Experiments:
-Run our integrated multi-paradigm experiments driver to execute three concrete, end-to-end architectural scenarios (cryogenic systolic array mapping, reversible storage uncomputation, and 9P sandboxed capabilities):
+Run our integrated multi-paradigm experiments driver to execute three concrete, end-to-end architectural scenarios (cryogenic [systolic array](../GLOSSARY.md) mapping, reversible storage uncomputation, and 9P sandboxed capabilities):
 ```bash
 python3 -m reconstructions.co-simulation.experiments --all
 ```
 
 ### Recommended Workflows:
 1.  **Secure LLM Agent Workspaces**: Mount isolated, un-addressable dynamic file trees via the 9P Namespace simulator, preventing prompt-injection attacks from reading host memory.
-2.  **Orchestrate Collaborative Swarms**: Deploy the Tuple Space simulator as an asynchronous, coordinate-free blackboard. Agents post task tuples anonymously, while specialized solver nodes associatively query and execute those tasks without knowing each other's network addresses.
+2.  **Orchestrate Collaborative Swarms**: Deploy the [Tuple Space](../GLOSSARY.md) simulator as an asynchronous, coordinate-free blackboard. Agents post task tuples anonymously, while specialized solver nodes associatively query and execute those tasks without knowing each other's network addresses.
 3.  **Model Interoperability**: Adapt the Co-Simulation orchestrator to design heterogeneous, safe, and highly concurrent software-in-the-loop (SIL) system architectures.
 
 ---

@@ -29,7 +29,7 @@ The dominant technology becomes dramatically cheaper through volume production. 
 
 **Examples**: Binary vs. ternary hardware, general-purpose CPUs vs. most specialized architectures.
 
-### 2. Ecosystem Lock-In
+### 2. [Ecosystem Lock-In](ecosystem-lockin.md)
 Software, tools, peripherals, developer skills, standards, and libraries converge around the winner. Switching costs become prohibitive.
 
 **Examples**: x86 dominance, Unix/C ecosystem, CUDA in modern AI.
@@ -37,7 +37,7 @@ Software, tools, peripherals, developer skills, standards, and libraries converg
 ### 3. Timing and Path Dependence
 A technology may be excellent but arrives at the wrong moment — too early (before supporting infrastructure) or too late (after a competing standard has momentum).
 
-**Examples**: Lisp Machines during the commodity workstation explosion, Transputers during the PC/cluster era.
+**Examples**: [Lisp Machines](../excavations/lisp-machines.md) during the commodity workstation explosion, [Transputers](../excavations/transputers.md) during the PC/cluster era.
 
 ### 4. High Capital Requirements & Risk
 Specialized hardware demands large upfront investment with uncertain market size. Investors and companies often prefer incremental improvements on proven platforms.
@@ -61,15 +61,15 @@ Perhaps no single venture better illustrates the extreme risks of **High Capital
 
 ## Case Studies from This Repository (Updated)
 
-* **Wafer-Scale Integration** — Early monolithic attempts (Trilogy) defeated by yield physics and thermal issues; modern modular approaches (Cerebras) show how fabrication economics can shift.
-* **Balanced Ternary** — Superior mathematical properties lost to binary’s massive manufacturing scale advantage.
-* **Burroughs Large Systems** *(new)* — Innovative high-level hardware integration and descriptors offered strong safety and productivity, but lost to cheaper, compatible commodity systems.
-* **Intel iAPX 432** *(new)* — Object-oriented capability architecture with strong security and abstraction; crippled by complex implementation, poor performance on existing software, and x86 momentum.
-* **Lisp Machines** — Extraordinary productivity for symbolic work lost to cheaper general-purpose workstations + Moore’s Law.
-* **Transputers** — Elegant parallel building blocks overtaken by commodity microprocessors and Ethernet clusters.
-* **Vector Supercomputing** *(new)* — Superior per-node efficiency for scientific workloads displaced by cheaper, more scalable commodity clusters (Beowulf) and later GPUs.
-* **Dataflow Computing** — Powerful implicit parallelism model sidelined by easier-to-program control-flow systems.
-* **Capability Systems** — Elegant security model hindered by incompatibility with existing ecosystems.
+* **[Wafer-Scale Integration](../excavations/wafer-scale-integration.md)** — Early monolithic attempts (Trilogy) defeated by yield physics and thermal issues; modern modular approaches (Cerebras) show how fabrication economics can shift.
+* **[Balanced Ternary](../excavations/balanced-ternary.md)** — Superior mathematical properties lost to binary’s massive manufacturing scale advantage.
+* **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)** *(new)* — Innovative high-level hardware integration and descriptors offered strong safety and productivity, but lost to cheaper, compatible commodity systems.
+* **[Intel iAPX 432](../excavations/intel-iapx-432.md)** *(new)* — Object-oriented capability architecture with strong security and abstraction; crippled by complex implementation, poor performance on existing software, and x86 momentum.
+* **[Lisp Machines](../excavations/lisp-machines.md)** — Extraordinary productivity for symbolic work lost to cheaper general-purpose workstations + Moore’s Law.
+* **[Transputers](../excavations/transputers.md)** — Elegant parallel building blocks overtaken by commodity microprocessors and Ethernet clusters.
+* **[Vector Supercomputing](../excavations/vector-supercomputing.md)** *(new)* — Superior per-node efficiency for scientific workloads displaced by cheaper, more scalable commodity clusters (Beowulf) and later GPUs.
+* **[Dataflow Computing](../excavations/dataflow-computing.md)** — Powerful implicit parallelism model sidelined by easier-to-program control-flow systems.
+* **[Capability Systems](../excavations/capability-systems.md)** — Elegant security model hindered by incompatibility with existing ecosystems.
 
 ---
 

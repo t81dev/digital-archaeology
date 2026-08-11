@@ -16,7 +16,7 @@ This approach leverages the strengths of specialized arithmetic while maintainin
 
 Most historical machines committed to a single number system (almost always binary after the 1960s). However, several experimental systems explored alternatives:
 
-- Balanced ternary (Setun)
+- [Balanced ternary](../excavations/balanced-ternary.md) (Setun)
 - Decimal machines
 - Residue Number Systems (RNS)
 - Early proposals for hybrid analog-digital or multi-valued logic
@@ -50,7 +50,7 @@ Modern hardware and AI workloads create fertile ground for mixed-radix designs:
 - Memory systems that store data in compressed or alternative formats while presenting binary interfaces.
 
 ### Specific Historical Revivals
-- **Balanced Ternary** as a specialized arithmetic unit for symmetric operations or certain neural computations. Play with three-state balanced arithmetic modeling using our [ternary_sim.py](../reconstructions/mixed-radix-sim/ternary_sim.py) simulator or study the RTL in [ternary_alu.sv](../reconstructions/synthesizable-hardware/ternary_alu.sv).
+- **[Balanced Ternary](../excavations/balanced-ternary.md)** as a specialized arithmetic unit for symmetric operations or certain neural computations. Play with three-state balanced arithmetic modeling using our [ternary_sim.py](../reconstructions/mixed-radix-sim/ternary_sim.py) simulator or study the RTL in [ternary_alu.sv](../reconstructions/synthesizable-hardware/ternary_alu.sv).
 - **Dataflow engines** using non-binary representations internally, such as the [Dataflow Simulator](../reconstructions/dataflow-engine/).
 - **Transputer-like nodes** with custom arithmetic tuned per node type.
 
@@ -79,7 +79,7 @@ Modern hardware and AI workloads create fertile ground for mixed-radix designs:
 
 The long dominance of binary was largely an accident of history and manufacturing, not proof of universal superiority. As specialization becomes the dominant strategy in high-value domains (especially AI), mixed-radix computing becomes not only viable but attractive.
 
-It represents a mature evolution of the “Forgotten Abstractions” pattern: instead of replacing binary entirely, we intelligently combine multiple systems where each excels.
+It represents a mature evolution of the “[Forgotten Abstractions](../patterns/forgotten-abstractions.md)” pattern: instead of replacing binary entirely, we intelligently combine multiple systems where each excels.
 
 This approach may be one of the most practical ways to bring historical numerical innovations into mainstream computing.
 
@@ -92,9 +92,9 @@ This approach may be one of the most practical ways to bring historical numerica
 - [Transputers](../excavations/transputers.md)
 
 ## Related Patterns
-- Forgotten Abstractions
-- Recurring Ideas
-- Economic Failures
+- [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
+- [Recurring Ideas](../patterns/recurring-ideas.md)
+- [Economic Failures](../patterns/economic-failures.md)
 
 ---
 

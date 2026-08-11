@@ -41,7 +41,7 @@ In 1989, Mead published *Analog VLSI and Neural Systems*, establishing the found
 
 ## Technical Overview
 
-Neuromorphic architectures bypass the von Neumann bottleneck through three primary architectural principles:
+Neuromorphic architectures bypass the [von Neumann bottleneck](../GLOSSARY.md) through three primary architectural principles:
 
 ```
     Traditional von Neumann                        Neuromorphic Mesh
@@ -136,7 +136,7 @@ Because wiring millions of dedicated point-to-point connections on silicon is ph
 
 ## Reasons for Decline (and Niche Containment)
 
-1. **The CUDA & GPU Software Ecosystem Lock-In:** As deep learning exploded in the 2010s, massive capital and software tooling consolidated around synchronous dense matrix algebra (CUDA, cuDNN, PyTorch). Neuromorphic hardware lacked compilers that could ingest standard PyTorch model graphs transparently.
+1. **The CUDA & GPU Software [Ecosystem Lock-In](../patterns/ecosystem-lockin.md):** As deep learning exploded in the 2010s, massive capital and software tooling consolidated around synchronous dense matrix algebra (CUDA, cuDNN, PyTorch). Neuromorphic hardware lacked compilers that could ingest standard PyTorch model graphs transparently.
 2. **The Triumph of "Worse is Better" (GPU Brute Force):** Although GPUs are architecturally inefficient for sparse temporal processing, rapid CMOS scaling (Dennard scaling followed by chiplet packaging) and high-bandwidth memory (HBM) enabled brute-force floating-point acceleration to outpace specialized neuromorphic hardware for mainstream commercial tasks.
 3. **Lack of On-Chip Learning Algorithms:** Biological networks learn locally using mechanisms like **Spike-Timing-Dependent Plasticity (STDP)**. Implementing stable, deep unsupervised local learning algorithms on hardware proved elusive; most commercial neuromorphic deployments were reduced to off-line trained inference engines.
 
@@ -156,7 +156,7 @@ While neuromorphic hardware did not displace general-purpose GPUs in cloud data 
 ## Related Technologies
 
 * **[Dataflow Computing](dataflow-computing.md):** Shared lineage in data-driven, asynchronous execution models where operations execute only when operands arrive.
-* **[Analog Computing](analog-computing.md):** Mead's early subthreshold analog neuromorphic systems were a specialized form of continuous-time analog computing.
+* **[Analog Computing](analog-computing.md):** Mead's early subthreshold analog neuromorphic systems were a specialized form of continuous-time [analog computing](analog-computing.md).
 * **[Connection Machine](connection-machine.md):** Early massive parallelism using simple processing nodes linked via a hypercube mesh topology.
 * **Event-Based Vision (DVS):** Silicon retinas designed specifically to feed asynchronous AER spike streams directly to neuromorphic processors.
 

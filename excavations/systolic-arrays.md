@@ -19,7 +19,7 @@ The late 1970s marked a peak of research into parallel architectures as research
 ### Key Historical Milestones & Metrics
 
 1. **CMU Warp (1984–1986)**:
-   - **Form Factor**: A 10-node linear systolic array developed by Carnegie Mellon University and built by GE and Honeywell.
+   - **Form Factor**: A 10-node linear [systolic array](../GLOSSARY.md) developed by Carnegie Mellon University and built by GE and Honeywell.
    - **Throughput**: Achieved 100 MFLOPS (10 MFLOPS per PE).
    - **Technology**: Built using off-the-shelf components, including Weitek floating-point chips.
    - **Power & Size**: A full Warp machine, including host and interface units, consumed several kilowatts and filled a standard 19-inch rack.
@@ -41,7 +41,7 @@ The general-purpose computing ecosystem of the 1990s temporarily eclipsed these 
 
 ## Technical Overview
 
-A systolic array replaces centralized control and global memory buses with a spatial network of identical (or near-identical) processing elements. Data streams through the array in lockstep, synchronized by a global clock (or locally in wavefront variants).
+A [systolic array](../GLOSSARY.md) replaces centralized control and global memory buses with a spatial network of identical (or near-identical) processing elements. Data streams through the array in lockstep, synchronized by a global clock (or locally in wavefront variants).
 
 ### Processing Element (PE) Schematic
 
@@ -117,13 +117,13 @@ graph TD
 ## Modern Relevance
 
 ### Historical Fact
-In the 1980s and 1990s, the standalone systolic array failed commercially. General-purpose CPUs powered by RISC pipelines and multi-level cache hierarchies scaled rapidly due to massive market demand, eclipsing specialized accelerators. The difficulty of writing software for specialized systolic engines further isolated them to military, high-end radar, and specialized image processing niches.
+In the 1980s and 1990s, the standalone [systolic array](../GLOSSARY.md) failed commercially. General-purpose CPUs powered by RISC pipelines and multi-level cache hierarchies scaled rapidly due to massive market demand, eclipsing specialized accelerators. The difficulty of writing software for specialized systolic engines further isolated them to military, high-end radar, and specialized image processing niches.
 
 ### Modern Evaluation
 In the post-Moore's Law era, the "Memory Wall" and "Power Wall" have made data movement the dominant consumer of energy and time. Simultaneously, deep learning consolidated 90%+ of AI workloads into a single operation: General Matrix Multiplication (GEMM).
 
 These two factors completely inverted the historical economic constraints:
-- **Google TPU v1 (2016)**: Adopted a 256x256 8-bit systolic array running at 700 MHz, delivering 92 TeraOPS peak while drawing only 75W.
+- **Google TPU v1 (2016)**: Adopted a 256x256 8-bit [systolic array](../GLOSSARY.md) running at 700 MHz, delivering 92 TeraOPS peak while drawing only 75W.
 - **NVIDIA Tensor Cores (Volta onwards)**: Internally utilize spatial micro-systolic-like pipelines to perform dense FP16/INT8 matrix-multiply-accumulate operations within GPU streaming multiprocessors.
 - **Cerebras Wafer-Scale Engine**: Implements a wafer-scale spatial mesh of 850,000+ cores utilizing dataflow-driven, systolic-style routing.
 
@@ -170,6 +170,6 @@ The modern consensus is that **systolic arrays did not lose the architectural wa
 * **Annaratone, M., et al.** (1987). *The Warp computer: Architecture, implementation, and performance*. *IEEE Transactions on Computers*, C-36(12), 1523–1538.
   - *Relevance*: Documents the design and performance metrics of the 10-node CMU Warp systolic supercomputer, showcasing real-time image processing.
 * **Jouppi, N. P., et al.** (2017). *In-datacenter performance analysis of a tensor processing unit*. *Proceedings of the 44th Annual International Symposium on Computer Architecture (ISCA)*, 1–12.
-  - *Relevance*: Presents the definitive architectural study of Google's TPU v1, detailing its 256x256 weight-stationary 8-bit systolic array running at 700MHz.
+  - *Relevance*: Presents the definitive architectural study of Google's TPU v1, detailing its 256x256 weight-stationary 8-bit [systolic array](../GLOSSARY.md) running at 700MHz.
 * **Horowitz, M.** (2014). *Computing's energy problem (and what we can do about it)*. *IEEE International Solid-State Circuits Conference (ISSCC) Digest of Technical Papers*, 10–14.
   - *Relevance*: Provides the primary physical data proving that off-chip memory fetches (DRAM) consume $100\times\text{--}1000\times$ more energy than logic MAC operations, establishing the physical justification for spatial systolic structures.

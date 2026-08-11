@@ -26,14 +26,14 @@ Forgotten abstractions typically share these traits:
 
 ### From This Repository
 
-* **Balanced Ternary** — A more symmetric and mathematically elegant number system than binary.
-* **Burroughs Large Systems** *(new)* — Hardware-supported block structure, descriptors, and high-level language integration.
-* **Dataflow Computing** — Execution driven by data availability rather than a program counter.
-* **Lisp Machines** — Tagged architectures with hardware support for dynamic typing, garbage collection, and symbolic computation.
-* **Transputers & Occam** — Communicating Sequential Processes (CSP) and lightweight message-passing concurrency.
-* **Capability Systems** — Fine-grained, unforgeable rights instead of ACLs or ambient permissions.
+* **[Balanced Ternary](../excavations/balanced-ternary.md)** — A more symmetric and mathematically elegant number system than binary.
+* **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)** *(new)* — Hardware-supported block structure, descriptors, and high-level language integration.
+* **[Dataflow Computing](../excavations/dataflow-computing.md)** — Execution driven by data availability rather than a program counter.
+* **[Lisp Machines](../excavations/lisp-machines.md)** — Tagged architectures with hardware support for dynamic typing, garbage collection, and symbolic computation.
+* **[Transputers](../excavations/transputers.md) & [Occam](../excavations/occam.md)** — Communicating Sequential Processes (CSP) and lightweight message-passing concurrency.
+* **[Capability Systems](../excavations/capability-systems.md)** — Fine-grained, unforgeable rights instead of ACLs or ambient permissions.
 * **Vector Chaining & Systolic Dataflow** *(new)* — Rhythmic, streaming spatial computation models.
-* **iAPX 432 / Multics abstractions** *(new)* — Strong object-oriented and protection models in hardware/OS.
+* **iAPX 432 / [Multics](../excavations/multics.md) abstractions** *(new)* — Strong object-oriented and protection models in hardware/OS.
 * **9P/Styx Dynamic Namespaces & Union Mounts** *(new)* — Completely transparent, network-independent resource sharing via stateful, simple file messages, resolving search lookups with fallthrough directory bindings.
 * **Single-Level Store (SLS)** *(new)* — Erasing the logical and physical boundary between volatile register heap memory and persistent filesystem storage.
 
@@ -61,7 +61,7 @@ Many forgotten abstractions are finding new life because the constraints have sh
 
 * **Hardware abundance & specialization** — We can now afford richer abstractions in silicon or domain-specific accelerators.
 * **AI-assisted tools** — Can help manage complexity (code generation, verification, optimization) that was previously prohibitive.
-* **Safety and correctness demands** — As systems grow more complex and critical, abstractions that reduce errors (capabilities, tagged memory, dataflow) become highly valuable.
+* **Safety and correctness demands** — As systems grow more complex and critical, abstractions that reduce errors (capabilities, [tagged memory](../GLOSSARY.md), dataflow) become highly valuable.
 * **New domains** — Distributed systems, multi-agent AI, scientific computing, edge devices, and zero-trust environments often align well with these older ideas.
 * **Energy & Memory Wall** — Abstractions that minimize data movement or improve locality (systolic, vector chaining, dataflow) are newly attractive.
 
@@ -71,7 +71,7 @@ Many forgotten abstractions are finding new life because the constraints have sh
 
 1. “Forgotten” does not mean “inferior.” Many abstractions were simply ahead of their time or mismatched to contemporary constraints.
 2. The best abstractions often feel more complex initially but deliver massive long-term leverage, clarity, and safety.
-3. Hardware and tool evolution periodically makes old abstractions newly practical (e.g., tagged memory, fine-grained capabilities, and spatial dataflow are far more feasible today).
+3. Hardware and tool evolution periodically makes old abstractions newly practical (e.g., [tagged memory](../GLOSSARY.md), fine-grained capabilities, and spatial dataflow are far more feasible today).
 4. Studying forgotten abstractions expands our design vocabulary and helps us avoid poorly reinventing old solutions under new names.
 5. The most powerful future systems will likely be **hybrids** — combining dominant ecosystems with carefully chosen forgotten abstractions as specialized components.
 

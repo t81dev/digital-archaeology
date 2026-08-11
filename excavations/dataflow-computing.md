@@ -8,7 +8,7 @@
 
 Dataflow computing departs from the traditional von Neumann control-flow model. Instead of a program counter stepping through instructions sequentially, computation occurs when data becomes available — operations “fire” automatically as their inputs arrive.
 
-This paradigm promises natural parallelism, simpler synchronization, and elegant handling of streaming and reactive workloads. Ambitious hardware projects explored it from the 1970s through the 1990s, including the MIT Tagged-Token Dataflow Architecture, the Manchester Dataflow Machine, and Japanese efforts like the ETL machines. Although dataflow never displaced conventional processors, its core ideas have profoundly influenced modern GPUs, streaming frameworks, reactive programming, and dataflow-oriented Domain-Specific Languages (DSLs).
+This paradigm promises natural parallelism, simpler synchronization, and elegant handling of streaming and reactive workloads. Ambitious hardware projects explored it from the 1970s through the 1990s, including the MIT Tagged-Token [Dataflow Architecture](../GLOSSARY.md), the Manchester Dataflow Machine, and Japanese efforts like the ETL machines. Although dataflow never displaced conventional processors, its core ideas have profoundly influenced modern GPUs, streaming frameworks, reactive programming, and dataflow-oriented Domain-Specific Languages (DSLs).
 
 ---
 
@@ -16,7 +16,7 @@ This paradigm promises natural parallelism, simpler synchronization, and elegant
 
 By the 1960s–1970s, researchers recognized the limitations of sequential execution for large-scale parallelism. Foundational work by **Jack Dennis** at MIT (1974) formalized static dataflow concepts, which were rapidly extended into dynamic architectures during the parallel computing boom of the 1980s:
 
-### 1. MIT Tagged-Token Dataflow Architecture (TTDA)
+### 1. MIT Tagged-Token [Dataflow Architecture](../GLOSSARY.md) (TTDA)
 * **Design** (Arvind & Kathail, 1981; Arvind & Nikhil, 1990): TTDA pioneered *dynamic dataflow*. Instead of static dataflow nodes (which only allowed a single active instance of an instruction in the execution graph), TTDA tagged every data token with an execution context: `[Context ID, Iteration Number, Destination Node, Port]`.
 * **Mechanisms**: A specialized hardware **Token-Matching Store** compared incoming tokens. When two tokens with identical `[Context ID, Iteration Number]` destined for the same node arrived, they matched and immediately fired. This enabled loops and recursive function calls to execute concurrently in an unfolded spatial representation.
 * **Software**: Programs were compiled from the functional programming language **Id**, which natively exposed non-strict execution and implicit parallelism.
@@ -46,13 +46,13 @@ By the 1960s–1970s, researchers recognized the limitations of sequential execu
                  |                                   |
                  +-----------------------------------+
 ```
-* **Metrics**: The MDM proved that dynamic token-matching could be pipelined in hardware. Utilizing a hardware-level hash table for the Matching Store, it successfully executed real-world functional programs with dynamic instruction scheduling, achieving peak throughputs of over **1 to 2 million instructions per second (MIPS)** across its 20-stage pipeline.
+* **Metrics**: The MDM proved that [dynamic token-matching](../GLOSSARY.md) could be pipelined in hardware. Utilizing a hardware-level hash table for the Matching Store, it successfully executed real-world functional programs with dynamic instruction scheduling, achieving peak throughputs of over **1 to 2 million instructions per second (MIPS)** across its 20-stage pipeline.
 
 ---
 
 ## Technical Overview
 
-In a pure dataflow architecture:
+In a pure [dataflow architecture](../GLOSSARY.md):
 - Programs are represented as **directed acyclic graphs** (dataflow graphs) where nodes are operations (actors) and arcs carry data tokens.
 - Each node waits for all required input tokens before firing.
 - Upon firing, the node consumes inputs, performs the operation, and produces output tokens.
@@ -70,7 +70,7 @@ In a pure dataflow architecture:
 - **Deterministic execution** — For a given set of inputs, results are predictable and mathematically free of race conditions by design.
 - **Fine-grained synchronization** — Data itself carries readiness information, eliminating the overhead of barrier synchronization.
 - **Natural support for streams and pipelines** — Excellent for signal processing, scientific computing, and reactive systems.
-- **Reduced von Neumann bottleneck** — Less pressure on centralized instruction fetch, since instructions are stored locally at nodes and execution is triggered directly by operand arrival.
+- **Reduced [von Neumann bottleneck](../GLOSSARY.md)** — Less pressure on centralized instruction fetch, since instructions are stored locally at nodes and execution is triggered directly by operand arrival.
 
 ---
 
@@ -89,12 +89,12 @@ Dataflow faced major physical and economic barriers:
 ### AI Accelerator Lineage
 * **SambaNova Systems Reconfigurable Dataflow Unit (RDU)**: SambaNova utilizes an array of Pattern Compute Units (PCUs) and Pattern Memory Units (PMUs) linked by an on-chip routing network. Instead of fetching instructions every cycle, the deep learning compiler maps the tensor execution graph directly onto the physical substrate, streaming data tokens continuously through the physical array.
 * **Cerebras Systems Wafer-Scale Engine (WSE)**: Cerebras manufactures a single, massive silicon wafer containing **850,000 AI-optimized compute cores**, 40GB of on-wafer SRAM, and a custom inter-core fabric. It functions as a massive, dynamic dataflow machine where tensors stream between physical processing nodes with sub-microsecond latency, bypassing the off-chip DRAM memory wall entirely.
-* **Google Tensor Processing Units (TPUs)**: The TPU's matrix multiply unit is structured as a **256x256 systolic array** performing 65,536 Multiply-Accumulate (MAC) operations per clock cycle. Data flows statically through an array of processing cells, where inputs from the left and weights from the top meet inside multipliers, demonstrating a highly efficient, deterministic static dataflow model.
+* **Google Tensor Processing Units (TPUs)**: The TPU's matrix multiply unit is structured as a **256x256 [systolic array](../GLOSSARY.md)** performing 65,536 Multiply-Accumulate (MAC) operations per clock cycle. Data flows statically through an array of processing cells, where inputs from the left and weights from the top meet inside multipliers, demonstrating a highly efficient, deterministic static dataflow model.
 * **Graphcore IPU (Intelligence Processing Unit)**: Utilizes an explicitly parallel spatial layout with over 1,472 tile processors, executing structured neural dataflow graphs utilizing a highly-scalable, deterministic Bulk Synchronous Parallel (BSP) exchange fabric.
 
 ---
 
-## Lessons Learned & Constraint Migration
+## Lessons Learned & [Constraint Migration](../patterns/constraint-migration.md)
 
 - **Physical Bottlenecks Dictate Paradigms**: In 1985, transistors were expensive, and memory was relatively fast. In 2026, logic gates are virtually free and consume minimal energy, whereas fetching data from DRAM consumes **1000x more energy** than a floating-point operation. Dataflow-style spatial routing minimizes off-chip memory access, making it highly energy-efficient.
 - **The Specialized vs. General-Purpose Cycle**: While dataflow failed as a general-purpose CPU architecture, it has proved to be the optimal architecture for highly regular, specialized tensor pipelines.
@@ -133,6 +133,6 @@ Dataflow faced major physical and economic barriers:
 1. **Dennis, J. B.** (1974). "First Version of a Data Flow Procedure Language." *Symposium on Programming*, 362-376.
 2. **Arvind, & Kathail, V.** (1981). "A Multiple-Processor Data Flow Machine That Supports Generalized Procedures." *Proceedings of the 8th Annual International Symposium on Computer Architecture (ISCA)*, 291-302.
 3. **Watson, I., & Gurd, J.** (1982). "A Practical Data-Flow Computer." *Computer*, 15(2), 51-57.
-4. **Arvind, & Nikhil, R. S.** (1990). "Executing a Program on the MIT Tagged-Token Dataflow Architecture." *IEEE Transactions on Computers*, 39(3), 300-318.
+4. **Arvind, & Nikhil, R. S.** (1990). "Executing a Program on the MIT Tagged-Token [Dataflow Architecture](../GLOSSARY.md)." *IEEE Transactions on Computers*, 39(3), 300-318.
 5. **Nikhil, R. S.** (1991). *Id (Version 90.1) Reference Manual*. MIT Computation Structures Group.
 6. **Jouppi, N. P., et al.** (2017). "In-Datacenter Performance Analysis of a Tensor Processing Unit." *Proceedings of the 44th Annual International Symposium on Computer Architecture (ISCA)*, 1-12.

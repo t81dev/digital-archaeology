@@ -20,7 +20,7 @@ Early computing frequently relied on coprocessors:
 - **Graphics accelerators** evolving into modern GPUs
 - **Digital Signal Processors (DSPs)**
 - **I/O coprocessors** and network processors
-- **Lisp Machines** and Transputers often functioned as intelligent coprocessors in heterogeneous setups
+- **[Lisp Machines](../excavations/lisp-machines.md)** and [Transputers](../excavations/transputers.md) often functioned as intelligent coprocessors in heterogeneous setups
 
 Many of the “forgotten” architectures explored in this project were originally conceived as potential standalone systems but can now be productively reimagined as specialized coprocessors.
 
@@ -41,22 +41,22 @@ The economics of silicon have changed. Transistors are effectively “free” in
 
 ## Opportunities for Historical Ideas as Coprocessors
 
-**Balanced Ternary**  
+**[Balanced Ternary](../excavations/balanced-ternary.md)**
 Could serve as a specialized arithmetic coprocessor for low-precision inference, probabilistic computing, or certain signal-processing tasks where symmetry around zero provides advantages. Evaluate this arithmetic symmetry using our [Balanced Ternary Simulator](../reconstructions/mixed-radix-sim/) or adapt the synthesizable [ternary_alu.sv](../reconstructions/synthesizable-hardware/ternary_alu.sv) block as a custom RTL coprocessor.
 
-**Dataflow Computing**  
+**[Dataflow Computing](../excavations/dataflow-computing.md)**
 Many modern AI accelerators are essentially dataflow coprocessors. Future designs could incorporate finer-grained dynamic dataflow for irregular or streaming AI workloads. Run our [Dynamic Token-Matching Dataflow Engine](../reconstructions/dataflow-engine/) to model packet execution graphs directly on spatial substrates.
 
-**Lisp Machines / Symbolic Engines**  
-Neuro-symbolic AI and knowledge-augmented systems could benefit from a symbolic coprocessor optimized for fast logical inference, pattern matching, and rule execution alongside neural accelerators. Explore hybrid AI-symbolic pipeline routing via our [Neuro-Symbolic Logic Inference Solver](../reconstructions/neuro-symbolic/).
+**[Lisp Machines](../excavations/lisp-machines.md) / Symbolic Engines**
+Neuro-[symbolic AI](../excavations/symbolic-ai.md) and knowledge-augmented systems could benefit from a symbolic coprocessor optimized for fast logical inference, pattern matching, and rule execution alongside neural accelerators. Explore hybrid AI-symbolic pipeline routing via our [Neuro-Symbolic Logic Inference Solver](../reconstructions/neuro-symbolic/).
 
-**Transputers**  
+**[Transputers](../excavations/transputers.md)**
 The lightweight process and message-passing model maps well to actor-based AI systems, multi-agent simulations, and distributed training frameworks. A modern “Transputer-like” network-on-chip coprocessor could excel at fine-grained parallelism. Check out our [CSP messaging simulator](../reconstructions/csp-messaging/) to explore channel multiplexing and Alt-based concurrent schedulers.
 
 **Other candidates**:
-- Reversible computing coprocessors for ultra-low-power edge devices, evaluated via the [Analog Optical & Reversible Simulator](../reconstructions/analog-optical/).
+- [Reversible computing](../excavations/reversible-computing.md) coprocessors for ultra-low-power edge devices, evaluated via the [Analog Optical & Reversible Simulator](../reconstructions/analog-optical/).
 - Analog/mixed-signal coprocessors for sensor processing, modeled inside our analog dynamic solvers.
-- Capability-based security coprocessors, using our synthesizable inline [capability_bounds_checker.sv](../reconstructions/synthesizable-hardware/capability_bounds_checker.sv).
+- [Capability-based security](../GLOSSARY.md) coprocessors, using our synthesizable inline [capability_bounds_checker.sv](../reconstructions/synthesizable-hardware/capability_bounds_checker.sv).
 
 ---
 
@@ -85,7 +85,7 @@ The coprocessor model represents a practical way to resurrect valuable historica
 
 In the age of AI and specialized hardware, the future is likely heterogeneous — a powerful general-purpose CPU surrounded by a constellation of intelligent, domain-optimized coprocessors.
 
-This approach balances innovation with pragmatism and may be the most viable path for many “forgotten abstractions” to find new life.
+This approach balances innovation with pragmatism and may be the most viable path for many “[forgotten abstractions](../patterns/forgotten-abstractions.md)” to find new life.
 
 ---
 
@@ -96,10 +96,10 @@ This approach balances innovation with pragmatism and may be the most viable pat
 - [Transputers](../excavations/transputers.md)
 
 ## Related Patterns
-- Economic Failures
-- Ecosystem Lock-In
-- Forgotten Abstractions
-- Recurring Ideas
+- [Economic Failures](../patterns/economic-failures.md)
+- [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)
+- [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
+- [Recurring Ideas](../patterns/recurring-ideas.md)
 
 ---
 

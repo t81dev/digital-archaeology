@@ -9,13 +9,13 @@ For a comprehensive, academically citable analysis of our multi-phase horizons, 
 # Phase I — Core Excavations ✅ (Complete)
 
 ## Architectures & Hardware (22)
-- [x] Analog Computing, Associative Processors, Asynchronous Processors, Balanced Ternary, Cellular Automata Hardware, Connection Machine, Dataflow Computing, Explicit Data Graph Execution (EDGE), Graph Reduction Machines, The MIT J-Machine, Molecular & Biocomputing, Neuromorphic Hardware, Optical Computing, Reversible Computing, Stack Machines, Stochastic Computing, Superconducting & Cryogenic Microarchitectures, Systolic Arrays, Transputers, Vector Supercomputing, VLIW/EPIC Architectures, Wafer-Scale Integration
+- [x] [Analog Computing](excavations/analog-computing.md), Associative Processors, Asynchronous Processors, [Balanced Ternary](excavations/balanced-ternary.md), [Cellular Automata Hardware](excavations/cellular-automata-hardware.md), [Connection Machine](excavations/connection-machine.md), [Dataflow Computing](excavations/dataflow-computing.md), Explicit Data Graph Execution (EDGE), Graph Reduction Machines, [The MIT J-Machine](excavations/j-machine.md), Molecular & Biocomputing, [Neuromorphic Hardware](excavations/neuromorphic-hardware.md), [Optical Computing](excavations/optical-computing.md), [Reversible Computing](excavations/reversible-computing.md), [Stack Machines](excavations/stack-machines.md), [Stochastic Computing](excavations/stochastic-computing.md), [Superconducting & Cryogenic Microarchitectures](excavations/superconducting-cryogenic.md), [Systolic Arrays](excavations/systolic-arrays.md), [Transputers](excavations/transputers.md), [Vector Supercomputing](excavations/vector-supercomputing.md), [VLIW/EPIC Architectures](excavations/vliw-epic.md), [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
 
 ## Systems & Operating Environments (9)
-- [x] BeOS / Haiku, Burroughs Large Systems, Capability Systems, Inferno, Intel iAPX 432, Lisp Machines, Multics, Plan 9, Project Xanadu
+- [x] [BeOS / Haiku](excavations/beos-haiku.md), [Burroughs Large Systems](excavations/burroughs-large-systems.md), [Capability Systems](excavations/capability-systems.md), [Inferno](excavations/inferno.md), [Intel iAPX 432](excavations/intel-iapx-432.md), [Lisp Machines](excavations/lisp-machines.md), [Multics](excavations/multics.md), [Plan 9](excavations/plan-9.md), [Project Xanadu](excavations/project-xanadu.md)
 
 ## Languages & AI Paradigms (4)
-- [x] Linda Tuple Spaces, Occam, Smalltalk, Symbolic AI
+- [x] [Linda Tuple Spaces](excavations/linda-tuple-spaces.md), [Occam](excavations/occam.md), [Smalltalk](excavations/smalltalk.md), [Symbolic AI](excavations/symbolic-ai.md)
 
 **Total Excavations**: 35
 
@@ -53,8 +53,8 @@ For a comprehensive, academically citable analysis of our multi-phase horizons, 
 - [x] [compiler-hardware-co-design.md](synthesis/compiler-hardware-co-design.md)
 
 ### Future Horizons: Re-Evaluation & Potential Expansions ✅ (Complete)
-- [x] **Cross-Lineage Convergence Matrix**: Add a pairwise and triple interaction index directly into `synthesis/state-of-revival.md` to formalize how these sidelined ideas interact. For example: How does combining spatial computing (Systolic Arrays) with hardware capabilities (CHERI) impact compiler optimization loops and register renaming pressure?
-- [x] **Quantitative Constraint Migration Curves**: Plot mathematical curves showing the exact crossover points where physical bottlenecks (e.g., copper interconnect resistance scaling at <3nm) make a historical paradigm (e.g., Optical matrix-vector multipliers) economically and thermally superior to general-purpose CMOS arithmetic logic.
+- [x] **Cross-Lineage Convergence Matrix**: Add a pairwise and triple interaction index directly into `synthesis/state-of-revival.md` to formalize how these sidelined ideas interact. For example: How does combining spatial computing ([Systolic Arrays](excavations/systolic-arrays.md)) with hardware capabilities (CHERI) impact compiler optimization loops and register renaming pressure?
+- [x] **Quantitative [Constraint Migration](patterns/constraint-migration.md) Curves**: Plot mathematical curves showing the exact crossover points where physical bottlenecks (e.g., copper interconnect resistance scaling at <3nm) make a historical paradigm (e.g., Optical matrix-vector multipliers) economically and thermally superior to general-purpose CMOS arithmetic logic.
 
 ---
 
@@ -86,7 +86,7 @@ Transitioned from theoretical comparisons to dynamic execution models, implement
 
 ### Future Horizons: Re-Evaluation & Potential Expansions
 - [x] **Standardized BibTeX Integration**: Provided a complete, downloadable `.bib` file (`bibliography/digital_archaeology.bib`) mapping all 25 seminal books in the books index for academic preprint citations.
-- **Interactive Timeline Scrubbers**: Convert static markdown timelines into dynamic, queryable timelines in the `explorer.html` visual interface, allowing users to filter milestones by architectural lineage.
+- [x] **Interactive Timeline Scrubbers**: Convert static markdown timelines into dynamic, queryable timelines in the `explorer.html` visual interface, allowing users to filter milestones by architectural lineage. (Implemented dynamic timelines parsing in `tools/generate_knowledge_graph.py` and rendered an interactive decade scrubber panel inside `explorer.html`)
 
 ---
 
@@ -156,7 +156,7 @@ To elevate the repository from a decoupled database into a highly cohesive, non-
 
 ### Future Horizons: Re-Evaluation & Potential Expansions
 - [x] **Dynamic Clustering Coefficients**: Update `density_analyzer.py` to calculate graph-theoretic metrics like cliquishness, average path length, and eigenvector centrality for excavations. This mathematical analysis can automatically flag which historical ideas are currently under-linked or isolated from modern design paradigms. (Implemented in `tools/density_analyzer.py`)
-- **Automated Cross-Reference Generators**: Build a utility that parses newly written markdown files and uses the `knowledge_graph.json` vocabulary to automatically inject accurate relative markdown links to relevant excavations, patterns, and glossaries.
+- [x] **Automated Cross-Reference Generators**: Build a utility that parses newly written markdown files and uses the `knowledge_graph.json` vocabulary to automatically inject accurate relative markdown links to relevant excavations, patterns, and glossaries. (Implemented via CLI utility `tools/cross_reference_generator.py` and verified via pytest suite)
 
 ---
 
@@ -174,7 +174,7 @@ To transition our comparative research network into a dynamically queryable and 
 - [x] **Inter-Paradigm Fault Injection**: Toggles like `FORCE_EXCEPTION` dynamically override soft-core bounds rules to manually trigger hardware capability violations or ternary carry overflows live in the Wasm sandbox.
 
 ### Future Horizons: Re-Evaluation & Potential Expansions
-- **Save/Export Waveform Capabilities**: Add a "Capture VCD" button to the canvas-based Logic Analyzer. This would allow researchers to export cycle-accurate waveform traces (.vcd format) directly from their in-browser co-simulation runs for offline analysis in tools like GTKWave.
+- [x] **Save/Export Waveform Capabilities**: Add a "Capture VCD" button to the canvas-based Logic Analyzer. This would allow researchers to export cycle-accurate waveform traces (.vcd format) directly from their in-browser co-simulation runs for offline analysis in tools like GTKWave. (Implemented client-side VCD serializer download button on the canvas logic analyzer in `playground.html`)
 - **HIL Hardware Hook**: Provide a standard WebUSB/WebSerial connector interface within `playground.html`, enabling physical development boards (e.g., an FPGA running our synthesizable SystemVerilog IP cores) to stream actual logic transitions directly into the browser's digital logic analyzer canvas.
 
 ---
@@ -235,7 +235,7 @@ To scale alternative computational model testing beyond isolated browser windows
 
 ### 1. Browser-to-Browser Co-Simulation Fabrics
 - [x] **WebRTC Inter-Paradigm Pipelines**: Implemented a complete client-side WebRTC messaging and signaling layer within `playground.html` over HTML5 `BroadcastChannel` and manual SDP exchange, enabling zero-configuration tab clustering.
-- [x] **Distributed Multi-Architecture Pipelines**: Orchestrated cross-browser co-simulations where a remote node runs an event-driven *Neuromorphic Spiking* simulator feeding action voltage spikes over WebRTC data channels to drive concurrent *CSP messaging* or *Linda Tuple Space* process engines in Pyodide.
+- [x] **Distributed Multi-Architecture Pipelines**: Orchestrated cross-browser co-simulations where a remote node runs an event-driven *Neuromorphic Spiking* simulator feeding action voltage spikes over WebRTC data channels to drive concurrent *CSP messaging* or *Linda [Tuple Space](GLOSSARY.md)* process engines in Pyodide.
 
 ### 2. Visual Performance & Network Profiling
 - [x] **Global Logic Analyzer Integration**: Live logic analyzer traces sync across peer channels to monitor and capture inter-paradigm rendezvous events, hardware exceptions, and signal clock phases.

@@ -6,7 +6,7 @@
 
 ## Summary
 
-BeOS was a complete operating system developed in the mid-1990s with the explicit goal of being the best platform for digital media creation and consumption. It featured a modern microkernel-inspired design, pervasive multithreading, a custom 64-bit journaling filesystem (BFS), and a highly responsive graphical interface. Despite technical excellence and passionate users, it failed commercially and was discontinued. The open-source Haiku project has kept its vision alive since the mid-2000s.
+BeOS was a complete operating system developed in the mid-1990s with the explicit goal of being the best platform for digital media creation and consumption. It featured a modern microkernel-inspired design, [pervasive multithreading](../GLOSSARY.md), a custom 64-bit journaling filesystem (BFS), and a highly responsive graphical interface. Despite technical excellence and passionate users, it failed commercially and was discontinued. The open-source Haiku project has kept its vision alive since the mid-2000s.
 
 BeOS/Haiku stands as one of the clearest modern examples of a technically superior OS losing primarily due to ecosystem and market forces.
 
@@ -35,7 +35,7 @@ The entire system was designed around the idea that “the OS should get out of 
 
 ## Innovations
 
-- Pervasive multithreading and SMP support years before it became standard.
+- [Pervasive multithreading](../GLOSSARY.md) and SMP support years before it became standard.
 - Integrated real-time media architecture (Media Kit).
 - Powerful, queryable filesystem metadata model (attributes, live queries).
 - Extremely responsive desktop experience even under heavy load.
@@ -54,7 +54,7 @@ The entire system was designed around the idea that “the OS should get out of 
 
 ## Reasons for Decline
 
-1. **Ecosystem Lock-In** — Windows 95/98/NT and Mac OS had massive application libraries, developer tools, and user bases.
+1. **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)** — Windows 95/98/NT and Mac OS had massive application libraries, developer tools, and user bases.
 2. **Timing** — Arrived during the rise of the web and commodity PC explosion; multimedia capabilities were eventually absorbed by Windows and macOS.
 3. **Platform Wars** — Apple chose NeXT over Be; Microsoft dominated the desktop.
 4. **Business Model** — Focused on premium hardware (BeBox) and later tried licensing, but never gained traction.
@@ -88,7 +88,7 @@ The Haiku project demonstrates the enduring appeal of BeOS’s vision:
 2. A clean-slate modern OS can achieve remarkable responsiveness and elegance.
 3. **User-focused design** (low latency, attributes, media integration) creates loyal users even in small communities.
 4. Open-source resurrection (Haiku) can preserve and evolve abandoned commercial visions.
-5. Strong Ecosystem Lock-In pattern example: once Windows and Mac dominated, a superior alternative had almost no path to mainstream success.
+5. Strong [Ecosystem Lock-In](../patterns/ecosystem-lockin.md) pattern example: once Windows and Mac dominated, a superior alternative had almost no path to mainstream success.
 
 ---
 
@@ -110,7 +110,7 @@ The Haiku project demonstrates the enduring appeal of BeOS’s vision:
 - Interviews with Jean-Louis Gassée and ex-Be engineers.
 - Contemporary reviews and retrospectives (1995–2002).
 
-*Cross-links strongly with Ecosystem Lock-In, Economic Failures, and modern OS design discussions.*
+*Cross-links strongly with [Ecosystem Lock-In](../patterns/ecosystem-lockin.md), [Economic Failures](../patterns/economic-failures.md), and modern OS design discussions.*
 
 ---
 

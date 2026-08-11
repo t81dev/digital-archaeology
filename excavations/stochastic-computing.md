@@ -10,7 +10,7 @@ Stochastic Computing (SC) is a computing paradigm that represents continuous rea
 
 This transformation swaps spatial and structural complexity for temporal latency. In the stochastic domain, complex arithmetic operations collapse into extremely simple digital logic gates: a multiplier is implemented as a single two-input **AND** gate (unipolar representation) or an **XNOR** gate (bipolar representation), and addition is performed via a simple **Multiplexer (MUX)**.
 
-Introduced in the mid-1960s by Brian Gaines, Stochastic Computing offered an elegant bridge between the continuous, noise-tolerant qualities of analog computers and the discrete, reproducible advantages of digital electronics. While the exponential scaling of execution time sidelined SC during the Silicon Boom and Moore's Law era, it is seeing a spectacular revival today in the fields of deep neural network (DNN) accelerators, processing-in-memory (PIM), neuromorphic hardware, and fault-tolerant computing for deep-space and high-radiation environments.
+Introduced in the mid-1960s by Brian Gaines, Stochastic Computing offered an elegant bridge between the continuous, noise-tolerant qualities of analog computers and the discrete, reproducible advantages of digital electronics. While the exponential scaling of execution time sidelined SC during the Silicon Boom and Moore's Law era, it is seeing a spectacular revival today in the fields of deep neural network (DNN) accelerators, processing-in-memory (PIM), [neuromorphic hardware](neuromorphic-hardware.md), and fault-tolerant computing for deep-space and high-radiation environments.
 
 ---
 

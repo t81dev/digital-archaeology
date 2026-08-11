@@ -1,4 +1,4 @@
-# Heterogeneous Revival Synergies
+# [Heterogeneous Revival](../patterns/heterogeneous-revival.md) Synergies
 
 > **A systematic analysis of pairwise and triple computing lineage integrations, demonstrating how hybrid co-design overcomes the physical, security, and data conversion boundaries of isolated non-von Neumann architectures.**
 
@@ -33,7 +33,7 @@ Evaluating alternative lineages in combination completely alters their commercia
 | :---: | :--- | :---: | :---: | :--- | :--- | :--- |
 | **1** | **Spatial / Data-Parallel Mesh + CHERI Capability Protection** (The *CapSystolic* Core) | 4.4 / 3.8 | ★★★★★ (**4.8 / 5.0**) | Retrofits fine-grained memory safety on high-throughput tensor arrays; blocks multi-tenant weight leakage natively in hardware. | Capability propagation through wide parallel register files; boundary address translation overhead. | Standardization of chiplet-level interfaces (e.g., UCIe) and CHERI-enabled LLVM backends. |
 | **2** | **Spiking Neuromorphic / Stochastic + Analog Photonic Crossbars** (The *Optoelectronic SNN*) | 4.2 / 3.6 | ★★★★★ (**4.6 / 5.0**) | Completely bypasses the **Data Conversion Wall** (ADC/DAC) by routing inputs/outputs directly as sparse temporal spike pulses. | High static tuning power of optical microring heaters; memristive cycle-to-cycle conductance drift. | Foundry integration of stable non-volatile Phase-Change Memory (PCM) in standard CMOS PDKs. |
-| **3** | **Plan 9 Dynamic Namespaces + Hardware CHERI Capabilities** (The *Unaddressable Sandbox*) | 3.6 / 3.8 | ★★★★☆ (**4.4 / 5.0**) | Eliminates remote exploit vectors and prompt-injection escapes in autonomous LLM agent tool-calling networks. | Context-switching overhead during dynamic namespace mounts; POSIX software compatibility gaps. | LLM agent tool-calling security standard compliance; 9P filesystem FUSE driver optimization in Linux. |
+| **3** | **[Plan 9](../excavations/plan-9.md) Dynamic Namespaces + Hardware CHERI Capabilities** (The *Unaddressable Sandbox*) | 3.6 / 3.8 | ★★★★☆ (**4.4 / 5.0**) | Eliminates remote exploit vectors and prompt-injection escapes in autonomous LLM agent tool-calling networks. | Context-switching overhead during dynamic namespace mounts; POSIX software compatibility gaps. | LLM agent tool-calling security standard compliance; 9P filesystem FUSE driver optimization in Linux. |
 | **4** | **Wafer-Scale Spatial Meshes + Cryogenic RSFQ Control + Photonic Waveguide Links** | 4.4 / 3.4 | ★★★★☆ (**4.2 / 5.0**) | Enables exascale spatial processing by combining $100\text{--}300\text{ GHz}$ superconducting logic gates with zero-heat photonic communication. | Extreme packaging complexity (integrating laser sources at $4.2\text{ K}$); high thermodynamic refrigeration penalty ($1000\times\text{--}3000\times$). | Fabrication of multi-layer niobium Josephson junction wafers with integrated silicon photonic layers. |
 
 ---
@@ -44,7 +44,7 @@ Evaluating alternative lineages in combination completely alters their commercia
 *   **Target Workload**: Secure, multi-tenant cloud-hosted AI inference (e.g., running untrusted, third-party model weights or processing sensitive user tokens without risk of memory boundary leakage).
 
 #### Complementary Strengths
-Spatial processors (such as systolic arrays or reconfigurable dataflow units) achieve massive parallel throughput by striping data across dense 2D grids of processing elements. However, they lack built-in security abstractions. If a malicious tenant injects an out-of-bounds weight-loading command, they can trigger side-channel leaks or directly read adjacent tenants' weight buffers.
+Spatial processors (such as [systolic arrays](../excavations/systolic-arrays.md) or reconfigurable dataflow units) achieve massive parallel throughput by striping data across dense 2D grids of processing elements. However, they lack built-in security abstractions. If a malicious tenant injects an out-of-bounds weight-loading command, they can trigger side-channel leaks or directly read adjacent tenants' weight buffers.
 By integrating hardware-enforced capability registers (such as CHERI), every direct memory access (DMA) request, weight load, and boundary tensor write is checked against cryptographically unforgeable bounds at the hardware level.
 
 #### Remaining Friction
@@ -161,13 +161,13 @@ Analog drift, photodetector sensitivity thresholds, and laser-source power consu
 *   **Target Workload**: Secure sandbox environments for autonomous multi-agent AI execution, preventing compromised LLM tool-calling agents from executing arbitrary remote code or accessing unauthorized system processes.
 
 #### Complementary Strengths
-Plan 9’s 9P protocol virtualizes all resources (devices, sockets, IPC, networks) into process-private, dynamic namespaces. In a multi-agent system, an agent's access to the world is strictly limited to the file descriptors mounted in its private namespace. By pairing this namespace virtualization with hardware-enforced capabilities (such as CHERI-enabled page tables and pointer safety), the virtual files, memory buffers, and instruction blocks allocated to the agent are guaranteed to be un-bypassable. An agent cannot forge a raw memory address to escape its sandbox, as the CPU hardware physically blocks unauthorized memory writes.
+[Plan 9](../excavations/plan-9.md)’s [9P protocol](../GLOSSARY.md) virtualizes all resources (devices, sockets, IPC, networks) into process-private, dynamic namespaces. In a multi-agent system, an agent's access to the world is strictly limited to the file descriptors mounted in its private namespace. By pairing this namespace virtualization with hardware-enforced capabilities (such as CHERI-enabled page tables and pointer safety), the virtual files, memory buffers, and instruction blocks allocated to the agent are guaranteed to be un-bypassable. An agent cannot forge a raw memory address to escape its sandbox, as the CPU hardware physically blocks unauthorized memory writes.
 
 #### Remaining Friction
 Traditional operating system kernel traps introduce high context-switching overheads when dynamic filesystems are mounted or modified.
 
 #### Minimal Viable Integration Sketch
-*   **Hardware Block**: A RISC-V CPU core supporting **CHERI capability extensions** and **Tagged Memory**. Every file buffer or message queue managed by the 9P server is allocated as a capability range with restricted permissions (e.g., read-only for input streams).
+*   **Hardware Block**: A RISC-V CPU core supporting **CHERI capability extensions** and **[Tagged Memory](../GLOSSARY.md)**. Every file buffer or message queue managed by the 9P server is allocated as a capability range with restricted permissions (e.g., read-only for input streams).
 *   **Software Path**: When an LLM agent spawns a tool-calling process, the operating system mounts a private, transient 9P filesystem containing only the target tools represented as files. The compiler generates capability-guarded function pointers for the tool's API. The OS-level 9P FUSE bridge maps file reads/writes directly to memory-mapped capability buffers, ensuring the agent's code can never read outside its allocated data sandbox.
 
 ```
@@ -203,7 +203,7 @@ Traditional operating system kernel traps introduce high context-switching overh
 *   **Target Workload**: Next-generation, multi-exaFLOPS supercomputing and cryogenic classical control planes for superconducting quantum computers inside dilution refrigerators.
 
 #### Complementary Strengths
-Wafer-scale integration (WSI) collapses package boundaries, allowing hundreds of thousands of cores to communicate with sub-nanosecond latencies. However, WSI is limited by the massive heat dissipation of standard room-temperature CMOS transistors and the physical RC delays of long-distance metal interconnects. Operating spatial meshes in a cryogenic or superconducting environment (using RSFQ/ERSFQ logic) eliminates thermal noise, enables sub-attojoule switching, and supports clock trees ticking at $100\text{--}300 \text{ GHz}$. Integrating photonic wave links allows high-speed communication across long spatial spans without generating Joule heat.
+[Wafer-scale integration](../excavations/wafer-scale-integration.md) (WSI) collapses package boundaries, allowing hundreds of thousands of cores to communicate with sub-nanosecond latencies. However, WSI is limited by the massive heat dissipation of standard room-temperature CMOS transistors and the physical RC delays of long-distance metal interconnects. Operating spatial meshes in a cryogenic or superconducting environment (using RSFQ/ERSFQ logic) eliminates thermal noise, enables sub-attojoule switching, and supports clock trees ticking at $100\text{--}300 \text{ GHz}$. Integrating photonic wave links allows high-speed communication across long spatial spans without generating Joule heat.
 
 #### Remaining Friction
 The extreme difficulty of packaging optical lasers and fiber interfaces onto a cryogenic wafer substrate, and the $1000\times\text{--}3000\times$ thermodynamic refrigeration cooling penalty.
@@ -238,7 +238,7 @@ The extreme difficulty of packaging optical lasers and fiber interfaces onto a c
 
 Pure-lineage scores understate the true commercial and physical viability of non-von Neumann systems. When we evaluate architectures through a **hybrid, heterogeneous co-design lens**, the priorities shift dramatically.
 
-Architects should avoid treating these historical computing lineages as competing, isolated islands. The most successful modern deployments (such as Google’s TPU combining systolic arrays with traditional memory, or Apple’s Neural Engine co-packaged alongside general-purpose ARM cores) prove that **the highest architectural value is unlocked at the boundary interface between complementary systems.**
+Architects should avoid treating these historical computing lineages as competing, isolated islands. The most successful modern deployments (such as Google’s TPU combining [systolic arrays](../excavations/systolic-arrays.md) with traditional memory, or Apple’s Neural Engine co-packaged alongside general-purpose ARM cores) prove that **the highest architectural value is unlocked at the boundary interface between complementary systems.**
 
 ---
 

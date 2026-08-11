@@ -6,9 +6,9 @@
 
 ## Summary
 
-Vector supercomputers, epitomized by Seymour Cray’s designs (Cray-1 in 1976, followed by Cray-2, Cray X-MP, Y-MP, C90, etc.), introduced powerful vector processing capabilities to tackle large-scale numerical simulations. Instead of operating on single data elements (scalars), these machines operated on entire vectors (arrays of numbers) in a pipelined fashion, delivering massive throughput for regular, compute-intensive workloads such as weather modeling, fluid dynamics, linear algebra, and physics simulations.
+Vector supercomputers, epitomized by Seymour Cray’s designs (Cray-1 in 1976, followed by Cray-2, Cray X-MP, Y-MP, C90, etc.), introduced powerful [vector processing](../GLOSSARY.md) capabilities to tackle large-scale numerical simulations. Instead of operating on single data elements (scalars), these machines operated on entire vectors (arrays of numbers) in a pipelined fashion, delivering massive throughput for regular, compute-intensive workloads such as weather modeling, fluid dynamics, linear algebra, and physics simulations.
 
-While general-purpose microprocessor performance eventually caught up for many tasks, the core ideas of vector processing, memory bandwidth engineering, and specialized pipelines live on strongly in modern GPUs, AI accelerators, and vector extensions (AVX-512, SVE, etc.).
+While general-purpose microprocessor performance eventually caught up for many tasks, the core ideas of [vector processing](../GLOSSARY.md), memory bandwidth engineering, and specialized pipelines live on strongly in modern GPUs, AI accelerators, and vector extensions (AVX-512, SVE, etc.).
 
 ---
 
@@ -33,7 +33,7 @@ Classic example: A vector triad `A(i) = B(i) + C(i) * D(i)` could stream through
 
 ## Innovations
 
-- **Vector processing model** as a practical, programmable form of data parallelism.
+- **[Vector processing](../GLOSSARY.md) model** as a practical, programmable form of data parallelism.
 - Sophisticated **memory hierarchy and bandwidth engineering** — often the real performance bottleneck.
 - **Chaining** for compound operations with minimal intermediate storage.
 - **Balanced system design**: Matching compute, memory, and I/O for real scientific workloads rather than peak theoretical FLOPS.
@@ -62,7 +62,7 @@ Classic example: A vector triad `A(i) = B(i) + C(i) * D(i)` could stream through
 ## Modern Relevance
 
 Vector ideas are experiencing a major renaissance:
-- **GPU Architectures**: Modern tensor cores and SIMT execution are direct descendants of vector processing.
+- **GPU Architectures**: Modern tensor cores and SIMT execution are direct descendants of [vector processing](../GLOSSARY.md).
 - **CPU Vector Extensions**: AVX-512, ARM SVE, and RISC-V Vector extensions bring Cray-style operations into mainstream processors.
 - **AI Accelerators**: Matrix and vector operations dominate deep learning training and inference.
 - **Scientific Computing**: Vector-friendly designs remain highly relevant for HPC centers running climate, physics, and engineering codes.
@@ -86,8 +86,8 @@ In the age of specialized hardware and AI, the Cray philosophy — build balance
 
 1. **Specialization Wins for Dominant Kernels**: Vector hardware delivered order-of-magnitude gains on suitable workloads.
 2. **Data Movement is King**: Many of Cray’s breakthroughs were in memory systems, not just compute — a lesson still central to performance engineering.
-3. **Recurring Ideas**: Vector/SIMD concepts keep reappearing at different scales (supercomputers → CPUs → GPUs → AI chips).
-4. **Economic Realities**: Technically elegant architectures can lose to cheaper, more scalable commodity solutions (strong Ecosystem Lock-In + Economic Failures pattern).
+3. **[Recurring Ideas](../patterns/recurring-ideas.md)**: Vector/SIMD concepts keep reappearing at different scales (supercomputers → CPUs → GPUs → AI chips).
+4. **Economic Realities**: Technically elegant architectures can lose to cheaper, more scalable commodity solutions (strong [Ecosystem Lock-In](../patterns/ecosystem-lockin.md) + [Economic Failures](../patterns/economic-failures.md) pattern).
 5. **Balanced Design Matters**: Peak FLOPS are meaningless without matching memory bandwidth and software support.
 
 ---
@@ -110,4 +110,4 @@ In the age of specialized hardware and AI, the Cray philosophy — build balance
 - Hockney & Jesshope, *Parallel Computers 2*.
 - Modern surveys on vector extensions and GPU architecture.
 
-*This excavation cross-links strongly with Systolic Arrays, Connection Machine, patterns/Recurring Ideas, and modern-relevance/ai.md.*
+*This excavation cross-links strongly with [Systolic Arrays](systolic-arrays.md), [Connection Machine](connection-machine.md), patterns/[Recurring Ideas](../patterns/recurring-ideas.md), and modern-relevance/ai.md.*

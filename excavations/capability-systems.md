@@ -6,7 +6,7 @@
 
 ## Summary
 
-Capability-based security offers a powerful alternative to traditional Access Control List (ACL) and Unix-style ambient permission models. In a capability system, possessing an unforgeable reference (a “capability”) to a resource *is* the authority to use it. Capabilities tightly combine designation (“this resource”) with permission (“you may do these operations”) in a single mechanism.
+[Capability-based security](../GLOSSARY.md) offers a powerful alternative to traditional Access Control List (ACL) and Unix-style ambient permission models. In a capability system, possessing an unforgeable reference (a “capability”) to a resource *is* the authority to use it. Capabilities tightly combine designation (“this resource”) with permission (“you may do these operations”) in a single mechanism.
 
 Pioneered in the 1960s and implemented in several influential systems, capability architectures provide elegant solutions to persistent security problems such as privilege escalation, confused deputy attacks, and ambient authority. Despite their strengths, they have remained largely outside the mainstream operating system ecosystem.
 
@@ -84,7 +84,7 @@ This model naturally eliminates many classes of vulnerabilities, including the c
 - **Principle of Least Authority (POLA)** — Enforced by architecture rather than programmer discipline.
 - **Fine-grained, safe delegation** — Easy to grant temporary or limited access.
 - **No ambient authority** — Dramatically reduces the attack surface.
-- **Object-capability model** — Natural fit for object-oriented, distributed, and concurrent systems.
+- **[Object-capability model](../GLOSSARY.md)** — Natural fit for object-oriented, distributed, and concurrent systems.
 - **Strong confinement and composability** — Security boundaries are easier to reason about and verify.
 
 ---
@@ -92,7 +92,7 @@ This model naturally eliminates many classes of vulnerabilities, including the c
 ## Why It Didn’t Win
 
 - **Incompatibility** with dominant Unix and Windows models and the massive existing software base.
-- **Ecosystem lock-in** — Applications and tools were built around ACL-style and path-based permissions.
+- **[Ecosystem lock-in](../patterns/ecosystem-lockin.md)** — Applications and tools were built around ACL-style and path-based permissions.
 - **Perceived performance overhead** (largely addressed in later designs such as EROS and CHERI).
 - **Conceptual and cultural shift** — Capabilities felt unfamiliar compared to familiar `chmod`, file paths, or global permissions.
 - **Timing** — Emerged during the rapid rise of commodity operating systems that prioritized compatibility and developer familiarity over foundational security improvements.
@@ -111,7 +111,7 @@ This model naturally eliminates many classes of vulnerabilities, including the c
 
 ---
 
-## Lessons Learned & Constraint Migration
+## Lessons Learned & [Constraint Migration](../patterns/constraint-migration.md)
 
 The trajectory of capability systems highlights how changing physical and economic realities drive [Constraint Migration](../patterns/constraint-migration.md).
 1. **Security as a Primary Bottleneck**: In the 1970s and 1980s, CPU cycles and memory bandwidth were scarce, making capability-checking indirection too expensive. Today, computing is virtually free, but the economic and geopolitical cost of memory-safety vulnerabilities (composing ~70% of all major CVEs) is catastrophic. The constraint has migrated from *silicon area* to *security integrity*.
@@ -133,7 +133,7 @@ The trajectory of capability systems highlights how changing physical and econom
 
 ## Related Excavations
 - [Lisp Machines](../excavations/lisp-machines.md) (tagged architectures)
-- [Burroughs Large Systems](../excavations/burroughs-large-systems.md) (descriptor-based memory safety)
+- [Burroughs Large Systems](../excavations/burroughs-large-systems.md) ([descriptor-based memory](../GLOSSARY.md) safety)
 - [Intel iAPX 432](../excavations/intel-iapx-432.md) (object-oriented hardware capability attempt)
 
 ## Related Patterns

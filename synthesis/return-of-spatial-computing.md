@@ -38,7 +38,7 @@ Several ambitious spatial systems were developed:
 - **[Associative Processors](../excavations/associative-processors.md)** — Content-addressable parallel computation and vertical bit-slicing
 - **[Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)** — Asynchronous event-driven spiking neural networks bypassing global clock trees
 
-Most struggled commercially due to programming difficulty, ecosystem lock-in, and the continued success of general-purpose CPUs.
+Most struggled commercially due to programming difficulty, [ecosystem lock-in](../patterns/ecosystem-lockin.md), and the continued success of general-purpose CPUs.
 
 ---
 
@@ -47,7 +47,7 @@ Most struggled commercially due to programming difficulty, ecosystem lock-in, an
 These ideas didn't disappear — they were distilled and reborn in new forms:
 
 ### 1. GPU Tensor Cores & SIMT Execution
-Modern GPUs are spiritual descendants of systolic arrays and vector machines. Tensor cores perform massive matrix multiplications using highly regular, spatial dataflow — exactly the workload systolic arrays were designed for.
+Modern GPUs are spiritual descendants of [systolic arrays](../excavations/systolic-arrays.md) and vector machines. Tensor cores perform massive matrix multiplications using highly regular, spatial dataflow — exactly the workload [systolic arrays](../excavations/systolic-arrays.md) were designed for.
 
 ### 2. AI Accelerators (TPU, etc.)
 Google’s TPUs and similar designs use systolic-array-style matrix engines at their heart. The data moves rhythmically through processing elements with minimal control overhead.
@@ -56,7 +56,7 @@ Google’s TPUs and similar designs use systolic-array-style matrix engines at t
 Coarse-Grained Reconfigurable Arrays and spatial computing fabrics (e.g., in some edge AI chips) directly revive grid-based, dataflow-driven execution.
 
 ### 4. Vector Extensions in CPUs
-AVX-512, ARM SVE, and RISC-V Vector extensions bring Cray-style vector processing into mainstream processors.
+AVX-512, ARM SVE, and RISC-V Vector extensions bring Cray-style [vector processing](../GLOSSARY.md) into mainstream processors.
 
 ### 5. On-Chip Networks and Message Passing
 Modern many-core chips and network-on-chip designs echo Transputer-style communication.
@@ -80,7 +80,7 @@ The economics and constraints that killed these architectures in the 90s have la
 ## Lessons from the Spatial Revival
 
 1. **Timing Matters** — An idea can be correct but premature.
-2. **Distillation Wins** — We didn’t revive the full Connection Machine or original Systolic Arrays. We took the best abstractions and embedded them into hybrid systems.
+2. **Distillation Wins** — We didn’t revive the full [Connection Machine](../excavations/connection-machine.md) or original [Systolic Arrays](../excavations/systolic-arrays.md). We took the best abstractions and embedded them into hybrid systems.
 3. **Workload Dominance** — When a new workload (deep learning) becomes extremely important, architectures well-suited to it gain sudden relevance.
 4. **Hybrid Future** — The winning systems combine a general-purpose core with powerful spatial/data-parallel accelerators.
 

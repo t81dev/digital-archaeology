@@ -10,7 +10,7 @@ By prioritizing original patents, technical manuals, seminal conference papers, 
 
 The bibliography is partitioned into three specialized reference documents:
 
-1. **[Seminal Books](books.md)**: Annotates 25 monumental textbooks, research monographs, and manual codices spanning hardware architectures, capability-based security, programming language runtimes, and physical physical/mathematical foundations.
+1. **[Seminal Books](books.md)**: Annotates 25 monumental textbooks, research monographs, and manual codices spanning hardware architectures, [capability-based security](../GLOSSARY.md), programming language runtimes, and physical physical/mathematical foundations.
 2. **[Landmark Research Papers](papers.md)**: Indexes 36 foundational publications, technical reports, and academic papers that originally introduced or rigorously analyzed non-von Neumann models, distributed single-level-store environments, and post-CMOS computing paradigms.
 3. **[Technical & Historical Archives](archives.md)**: Catalogues 16 essential institutional databases, patent search collections, digitized retrocomputing manual repositories (e.g., Bitsavers, CHM), and machine-specific community history registries.
 

@@ -55,7 +55,7 @@ This design traded complex hardware (out-of-order execution, rename registers, e
 
 ## Reasons for Decline
 
-1. **Ecosystem Lock-In** — x86-64 had overwhelming software, OS, and developer momentum.
+1. **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)** — x86-64 had overwhelming software, OS, and developer momentum.
 2. **Compiler & Workload Mismatch** — Many real-world applications didn’t expose enough static ILP for VLIW to shine.
 3. **Economic Realities** — Itanium chips were expensive and initially slower than expected; AMD’s Opteron and Intel’s own Core line won the market.
 4. **Multi-core Shift** — Thread-level parallelism on simpler cores proved more practical than extreme ILP on complex VLIW.
@@ -111,7 +111,7 @@ VLIW/EPIC ideas are alive and influential today:
 - "Itanium: The Road Not Taken" retrospective articles.
 - Modern surveys on explicit parallelism in GPUs and ML compilers.
 
-*Cross-links strongly with Recurring Ideas, Economic Failures, Ecosystem Lock-In, and modern-relevance/ai.md.*
+*Cross-links strongly with [Recurring Ideas](../patterns/recurring-ideas.md), [Economic Failures](../patterns/economic-failures.md), [Ecosystem Lock-In](../patterns/ecosystem-lockin.md), and modern-relevance/ai.md.*
 
 ---
 

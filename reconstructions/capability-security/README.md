@@ -15,7 +15,7 @@ A **Capability System** enforces security directly at the hardware level. Memory
 
 ### Key Architectural Concepts
 
-1. **Tagged Memory**: To prevent software from forging capabilities (e.g., creating a capability by doing integer arithmetic), memory is "tagged" at the hardware level. Every word in RAM has an extra bit (the tag) indicating whether it is plain **Data** or a **Capability**. If software attempts to modify a capability as if it were data, the hardware automatically clears the capability tag, rendering it invalid.
+1. **[Tagged Memory](../../GLOSSARY.md)**: To prevent software from forging capabilities (e.g., creating a capability by doing integer arithmetic), memory is "tagged" at the hardware level. Every word in RAM has an extra bit (the tag) indicating whether it is plain **Data** or a **Capability**. If software attempts to modify a capability as if it were data, the hardware automatically clears the capability tag, rendering it invalid.
 2. **Bounds Checking**: Every load and store instruction must present a valid capability register. The CPU hardware automatically verifies that the accessed address is within the capability's `[Base, Base + Length)` range. If not, the hardware raises a fault.
 3. **Domain Transitions (Object Calls)**: To safely call code in another protection domain (e.g., invoking a microkernel service or a third-party library), the CPU supports safe transitions. A user process calls a "sealed" capability, which the hardware securely unseals, switching the active capability register set to the target domain, and then restores the caller's rights upon return. This is the hardware basis of object-capabilities.
 

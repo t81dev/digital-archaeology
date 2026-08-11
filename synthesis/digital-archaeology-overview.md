@@ -1,6 +1,6 @@
 # Digital Archaeology: An Open-Source Research Framework and Simulation Suite for Sidelined Computing Paradigms
 
-> **An academic overview and citation reference for researchers, computer architects, and systems historians studying constraint migration, alternative execution models, and physical-security hardware revival.**
+> **An academic overview and citation reference for researchers, computer architects, and systems historians studying [constraint migration](../patterns/constraint-migration.md), alternative execution models, and physical-security hardware revival.**
 
 ---
 
@@ -50,8 +50,8 @@ Data-Parallel        Stochastic    Descriptor           Adiabatic     9P Namespa
 
 The research methodology of Digital Archaeology rests on two core claims:
 
-### A. Constraint Migration
-Computer architectures are selected not by absolute conceptual superiority, but by the physical, economic, and ecosystem constraints of their original era. When physical boundaries migrate—for example, as the end of Dennard scaling freezes single-core frequencies or the "Von Neumann memory wall" makes data transfer $100\times$ more expensive than arithmetic—previously sidelined paradigms undergo a *heterogeneous revival*. Abstractions originally deemed unviable (e.g., spatial dataflow or analog crossbars) emerge as highly efficient domain-specific coprocessors when mapped onto modern sub-5nm silicon or post-CMOS substrates.
+### A. [Constraint Migration](../patterns/constraint-migration.md)
+Computer architectures are selected not by absolute conceptual superiority, but by the physical, economic, and ecosystem constraints of their original era. When physical boundaries migrate—for example, as the end of Dennard scaling freezes single-core frequencies or the "Von Neumann memory wall" makes data transfer $100\times$ more expensive than arithmetic—previously sidelined paradigms undergo a *[heterogeneous revival](../patterns/heterogeneous-revival.md)*. Abstractions originally deemed unviable (e.g., spatial dataflow or analog crossbars) emerge as highly efficient domain-specific coprocessors when mapped onto modern sub-5nm silicon or post-CMOS substrates.
 
 ### B. Explanatory Density
 The utility of a computing history repository is proportional to its relational density rather than its sheer bulk. Computing history is non-linear and cyclical. By constructing a dense, machine-readable multidimensional network (`knowledge_graph.json`) mapping 35 distinct excavations across a unified Abstraction Taxonomy (Execution, Memory, Concurrency), the framework demonstrates that "extinct" paradigms represent recurring architectural options.
@@ -62,7 +62,7 @@ The utility of a computing history repository is proportional to its relational 
 
 Researchers can leverage two primary analytical assets within this repository:
 
-* **Modern Revival Readiness Scorecard (`modern-relevance/revival-readiness.md`)**: A quantitative, multidimensional framework scoring the six lineages on *Constraint Migration Status (CMS)*, *Silicon Readiness (SR)*, *Software Friction (SF)*, *Energy Advantage (EA)*, and *AI Synergy (AIS)*. This scorecard evaluates which architectures are ready for immediate production-line integration vs. those requiring specialized ASIC fabrication.
+* **[Modern Revival Readiness Scorecard](../modern-relevance/revival-readiness.md) (`modern-relevance/revival-readiness.md`)**: A quantitative, multidimensional framework scoring the six lineages on *[Constraint Migration](../patterns/constraint-migration.md) Status (CMS)*, *Silicon Readiness (SR)*, *Software Friction (SF)*, *Energy Advantage (EA)*, and *AI Synergy (AIS)*. This scorecard evaluates which architectures are ready for immediate production-line integration vs. those requiring specialized ASIC fabrication.
 * **Architectural Synthesis (`synthesis/state-of-revival.md`)**: A deep evaluation of ready-for-revival abstractions under modern physical limits. It outlines concrete, cross-paradigm experiments—such as a cryogenic systolic matrix-multiplier or 9P-sandboxed LLM agent execution—using the included executable simulators and synthesizable SystemVerilog soft-cores.
 
 ---

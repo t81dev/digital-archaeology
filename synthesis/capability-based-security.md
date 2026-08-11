@@ -1,4 +1,4 @@
-# Capability-Based Security: From Obscurity to Necessity
+# [Capability-Based Security](../GLOSSARY.md): From Obscurity to Necessity
 
 > How an elegant but forgotten security model is quietly becoming one of the most relevant ideas for the AI and zero-trust era.
 
@@ -6,7 +6,7 @@
 
 ## Summary
 
-Capability-based security is one of the clearest examples of architectural distillation in computing history. Originally developed in the 1960s–1980s in systems like Multics, Burroughs Large Systems, and the Intel iAPX 432, it largely lost the mainstream battle to simpler Access Control List (ACL) and page-table-based ambient permission models.
+[Capability-based security](../GLOSSARY.md) is one of the clearest examples of [architectural distillation](architectural-distillation.md) in computing history. Originally developed in the 1960s–1980s in systems like [Multics](../excavations/multics.md), [Burroughs Large Systems](../excavations/burroughs-large-systems.md), and the [Intel iAPX 432](../excavations/intel-iapx-432.md), it largely lost the mainstream battle to simpler Access Control List (ACL) and page-table-based ambient permission models.
 
 Today, it is experiencing a massive revival — not as a complete replacement for existing operating systems, but as a robust hardware-enforced and software-supported compartmentalization primitive integrated into modern CPU instruction sets and distributed clouds.
 
@@ -28,7 +28,7 @@ The development of capability and descriptor-based security progressed through t
 
 1. **[Burroughs Large Systems](../excavations/burroughs-large-systems.md) (1961)**: Barton's team introduced the **tagged-memory and descriptor** architecture. Every pointer was represented as a hardware-checked descriptor containing a segment base, limit, write-protection bit, and a virtual memory presence bit. This was the first commercial implementation of spatial memory safety, rendering buffer overflows and arbitrary memory corruption physically impossible.
 2. **[Multics](../excavations/multics.md) (1965)**: Developed hierarchical ring-based protection and dynamic segmentation, establishing the mathematical foundations of protection domains.
-3. **[Intel iAPX 432](../excavations/intel-iapx-432.md) (1981)**: Intel’s ambitious attempt to implement a pure, two-level object-capability model in silicon. Access descriptors mapped to system-wide object tables, enforcing strict object type safety and fine-grained permissions at the microcode level.
+3. **[Intel iAPX 432](../excavations/intel-iapx-432.md) (1981)**: Intel’s ambitious attempt to implement a pure, two-level [object-capability model](../GLOSSARY.md) in silicon. Access descriptors mapped to system-wide object tables, enforcing strict object type safety and fine-grained permissions at the microcode level.
 4. **[Lisp Machines](../excavations/lisp-machines.md) (1980s)**: Mainstreamed **dynamic type-tag checking** in hardware. Every pointer and data word was paired with an out-of-band tag that protected execution integrity.
 5. **[Capability Systems](../excavations/capability-systems.md)**: Hardware architectures like the Cambridge CAP Computer, HYDRA, and KeyKOS operating system demonstrated pure capabilities, proving least-privilege compartmentalization.
 
@@ -59,7 +59,7 @@ The modern microarchitectural landscape is experiencing a massive convergence ba
 Developed by the University of Cambridge and SRI International, **CHERI** is the most significant hardware security breakthrough of the decade.
 - It extends legacy ISAs (RISC-V, ARM) to support **128-bit capability registers and pointers**.
 - It uses a **1-bit out-of-band hardware tag bit** in RAM to distinguish valid capabilities from raw data.
-- It is the direct spiritual successor to the **Burroughs descriptor** and **Intel iAPX 432 Access Descriptor** models, proving that 64-bit hardware can enforce spatial and temporal memory safety with less than a 5% performance overhead.
+- It is the direct spiritual successor to the **Burroughs descriptor** and **[Intel iAPX 432](../excavations/intel-iapx-432.md) Access Descriptor** models, proving that 64-bit hardware can enforce spatial and temporal memory safety with less than a 5% performance overhead.
 
 ### 2. Arm Memory Tagging Extension (MTE)
 Arm’s MTE provides a lighter-weight form of temporal memory safety.
@@ -86,7 +86,7 @@ Several modern architectural pressures have transformed capabilities from an aca
 
 1. **A paradigm is only "failed" relative to its temporal constraints**: Indirection and bounds-checking were too expensive when memory access took hundreds of nanoseconds on un-cached buses. Today, with massive cache hierarchies, the CPU can easily hide capability checking overhead.
 2. **Specialization yields safety**: General-purpose "flat memory" was an optimization for simple compiler design and raw transistor budgets. Now that transistors are virtually free, we can dedicate silicon area to rich descriptor-validation logic.
-3. **Ecosystem compatibility is the ultimate gatekeeper**: CHERI succeeded where the Intel iAPX 432 failed because CHERI is **backward-compatible**. It allows legacy C/C++ code to run alongside capability-aware compartmentalized code, avoiding the "complete rewrite" trap that killed the Burroughs and 432 platforms.
+3. **Ecosystem compatibility is the ultimate gatekeeper**: CHERI succeeded where the [Intel iAPX 432](../excavations/intel-iapx-432.md) failed because CHERI is **backward-compatible**. It allows legacy C/C++ code to run alongside capability-aware compartmentalized code, avoiding the "complete rewrite" trap that killed the Burroughs and 432 platforms.
 
 ---
 
@@ -94,9 +94,9 @@ Several modern architectural pressures have transformed capabilities from an aca
 
 **Related Excavations**:
 - **[Capability Systems](../excavations/capability-systems.md)** — Hardware compartmentalization and unforgeable rights.
-- **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)** — Landmark descriptor-based memory safety and HLL integration.
+- **[Burroughs Large Systems](../excavations/burroughs-large-systems.md)** — Landmark [descriptor-based memory](../GLOSSARY.md) safety and HLL integration.
 - **[Intel iAPX 432](../excavations/intel-iapx-432.md)** — Highly integrated, object-oriented, capability hardware.
-- **[Lisp Machines](../excavations/lisp-machines.md)** — Tagged memory architecture and dynamic type enforcement.
+- **[Lisp Machines](../excavations/lisp-machines.md)** — [Tagged memory](../GLOSSARY.md) architecture and dynamic type enforcement.
 - **[Multics](../excavations/multics.md)** — Early ring-based boundaries and segment paging.
 
 **Related Patterns**:

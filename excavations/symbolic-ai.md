@@ -44,7 +44,7 @@ The paradigm was formally established at the **1956 Dartmouth Conference**, wher
 
 > **The Physical Symbol System Hypothesis:** *A physical symbol system has the necessary and sufficient means for general intelligent action.*
 
-Throughout the 1970s and 1980s, Symbolic AI shifted from general theorem proving to domain-specific knowledge representation. This culminated in the commercial boom of **Expert Systems** (e.g., MYCIN for medical diagnosis, XCON/R1 for computer configuration) and specialized hardware (Lisp Machines). Massive public initiatives, such as Japan's **Fifth Generation Computer System (FGCS)** project in 1982, attempted to build parallel hardware natively optimized for Prolog and symbolic logic execution.
+Throughout the 1970s and 1980s, Symbolic AI shifted from general theorem proving to domain-specific knowledge representation. This culminated in the commercial boom of **Expert Systems** (e.g., MYCIN for medical diagnosis, XCON/R1 for computer configuration) and specialized hardware ([Lisp Machines](lisp-machines.md)). Massive public initiatives, such as Japan's **Fifth Generation Computer System (FGCS)** project in 1982, attempted to build parallel hardware natively optimized for Prolog and symbolic logic execution.
 
 ---
 
@@ -125,7 +125,7 @@ Because reasoning about combinations of rules creates massive search trees, Symb
 ## Reasons for Decline
 
 1. **The Second AI Winter (1987–1993):** Expert systems became brittle software monoliths that were extremely costly to maintain. High-profile commercial systems failed to scale to dynamic business environments.
-2. **Collapse of Specialized Symbolic Hardware:** Purpose-built Lisp Machines (Symbolics, LMI) and Prolog chips were rapidly eclipsed by commodity x86 and RISC microprocessors running mainstream compilers (the RISC revolution and Moore's Law).
+2. **Collapse of Specialized Symbolic Hardware:** Purpose-built [Lisp Machines](lisp-machines.md) (Symbolics, LMI) and Prolog chips were rapidly eclipsed by commodity x86 and RISC microprocessors running mainstream compilers (the RISC revolution and Moore's Law).
 3. **The Statistical & Neural Shift:** In the 1990s and 2000s, machine learning pivoted toward statistical methods (Hidden Markov Models, Support Vector Machines, and eventually Deep Neural Networks) that thrived on high-dimensional, noisy sensor data (vision, speech, audio) where formal logic failed completely.
 
 ---
