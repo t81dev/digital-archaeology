@@ -9,7 +9,7 @@ import pytest
 COSIM_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, COSIM_DIR)
 
-from experiments import run_experiment_1, run_experiment_2, run_experiment_3
+from experiments import run_experiment_1, run_experiment_2, run_experiment_3, run_experiment_4
 
 
 def test_experiment_1_cryo_systolic():
@@ -41,6 +41,17 @@ def test_experiment_3_plan9_and_capabilities():
     assert metrics["page_fault_counter"] == 1
 
 
+def test_experiment_4_capsystolic():
+    """Verify CapSystolic secure matrix core metrics and multi-tenant isolation."""
+    metrics = run_experiment_4(verbose=False)
+    assert metrics["nominal_execution_success"] is True
+    assert metrics["read_violations_blocked"] is True
+    assert metrics["write_violations_blocked"] is True
+    assert metrics["tenant_2_weights_secure"] is True
+    assert metrics["bmmu_read_faults"] == 1
+    assert metrics["bmmu_write_faults"] == 1
+
+
 def test_cli_execution():
     """Verify that the CLI execution runs successfully via standard Python module execution."""
     import subprocess
@@ -54,4 +65,5 @@ def test_cli_execution():
     assert "EXPERIMENT 1" in res.stdout
     assert "EXPERIMENT 2" in res.stdout
     assert "EXPERIMENT 3" in res.stdout
+    assert "EXPERIMENT 4" in res.stdout
     assert "PASS / observed behavior" in res.stdout
