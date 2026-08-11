@@ -53,6 +53,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Dataflow Computing](excavations/dataflow-computing.md)
 
 ### E
+* **EBCDIC (Extended Binary Coded Decimal Interchange Code)**: An 8-bit character encoding family designed by IBM in 1963 for the System/360 architecture, combining mechanical zone and digit punch mappings from Herman Hollerith's card layouts, resulting in non-contiguous alphabet segments and unique sorting semantics.
+  * *See excavation*: [EBCDIC](excavations/ebcdic.md)
 * **Explicit Data Graph Execution (EDGE)**: An alternative class of microprocessors that partition instructions into logically atomic blocks. Within each block, execution is dataflow-driven, with instructions routing operand tokens directly to their consumers over a physical spatial grid, completely bypassing centralized registers and rename tables.
   * *See excavation*: [Explicit Data Graph Execution (EDGE) & The TRIPS Architecture](excavations/edge-architecture.md)
 * **Explicitly Parallel Instruction Computing (EPIC)**: An instruction set philosophy (co-developed by HP and Intel for Itanium) where the compiler explicitly bundles instructions that can be executed in parallel, moving the complex scheduling logic from hardware to the compiler.
