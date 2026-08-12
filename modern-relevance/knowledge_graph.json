@@ -1921,32 +1921,32 @@
       "path": "excavations/prolog-wam-fgcs-hardware.md",
       "summary": "In the late 1970s and 1980s, computer architecture faced what seemed to be a fundamental semantic gap. Traditional von Neumann instruction sets operated on raw, untyped memory addresses and register blocks, while symbolic Artificial Intelligence and knowledge-representation software demanded abstract reasoning, logical deduction, and automatic search. The logic programming paradigm, pioneered by Alain Colmerauer and formalized by Robert Kowalski, proposed a revolutionary thesis: **Algorithm = Logic + Control**. Programs should be written as declarative logical statements (Horn clauses), and execution should be handled entirely by an underlying inference engine performing resolution and [unification](../GLOSSARY.md).\n\nThis excavation explores the co-design lineage that attempted to run logic programming at hardware speed. At its core stands the **Warren Abstract Machine (WAM)**, designed by David H. D. Warren in 1983. The WAM converted declarative Prolog clauses into an optimized, stack-and-heap execution model featuring explicit choice points, trailing, and register-allocated arguments. The WAM became the de facto compiler target for logic languages on general-purpose CPUs.\n\nConcurrently, the Japanese **Fifth Generation Computer Systems (FGCS)** project (1982–1992) launched an institutional and architectural effort to build specialized sequential and parallel hardware natively optimized for symbolic logic. By developing Personal Sequential Inference (PSI) machines and massively parallel Parallel Inference Machines (PIM), FGCS attempted to replace the sequential von Neumann model with a parallel, concurrent, logic-driven substrate using committed-choice logic languages (such as KL1).\n\nWhile specialized logic-programming hardware was ultimately overwhelmed by commodity RISC processors and sophisticated compiling techniques, the abstract machine models and runtime optimizations (such as clause indexing, tail-recursion/last-call optimization, and hardware type tags) persist as foundational lessons in virtual machine design, constraint satisfaction, and secure, high-performance execution.",
       "scorecard": {
-        "**Historical Importance**": {
+        "Historical Importance": {
           "stars": "★★★★☆",
           "numeric": 4,
           "rationale": "Catalyzed major national research initiatives (FGCS, Alvey), established the declarative programming paradigm, and drove fundamental research in automatic theorem proving."
         },
-        "**Technical Innovation**": {
+        "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
           "rationale": "Created the Warren Abstract Machine, demonstrating that complex nondeterministic search could be compiled into a highly efficient, register-allocated stack/heap machine with zero-overhead chronological backtracking."
         },
-        "**Commercial Success**": {
+        "Commercial Success": {
           "stars": "★★☆☆☆",
           "numeric": 2,
           "rationale": "Achieved a brief period of profitability in specialized AI niches, but specialized sequential and parallel hardware was completely wiped out by commodity RISC processors and compilers."
         },
-        "**Modern Potential**": {
+        "Modern Potential": {
           "stars": "★★★★☆",
           "numeric": 4,
           "rationale": "The core abstractions are highly relevant as verifiable software layers, SMT solvers, and deterministic guardrails for neuro-[symbolic AI](symbolic-ai.md) architectures."
         },
-        "**AI Synergy**": {
+        "AI Synergy": {
           "stars": "★★★★★",
           "numeric": 5,
           "rationale": "Exceptionally high structural synergy; represents computing's primary formal lineage for high-level deductive reasoning, now key to addressing the hallucinations of modern LLMs."
         },
-        "**Difficulty to Recreate**": {
+        "Difficulty to Recreate": {
           "stars": "★★★★☆",
           "numeric": 4,
           "rationale": "Recreating a high-fidelity, cycle-accurate physical simulation of microcoded tagged hardware requires deep assembly-level modeling, though a clean-slate functional emulator of the WAM can be built with medium complexity."

@@ -507,11 +507,11 @@ This lineage is defined by the following machine-readable relationships for inte
 
 | Category | Rating | Rationale |
 | :--- | :---: | :--- |
-| **Historical Importance** | ★★★★☆ | Catalyzed major national research initiatives (FGCS, Alvey), established the declarative programming paradigm, and drove fundamental research in automatic theorem proving. |
-| **Technical Innovation** | ★★★★★ | Created the Warren Abstract Machine, demonstrating that complex nondeterministic search could be compiled into a highly efficient, register-allocated stack/heap machine with zero-overhead chronological backtracking. |
-| **Commercial Success** | ★★☆☆☆ | Achieved a brief period of profitability in specialized AI niches, but specialized sequential and parallel hardware was completely wiped out by commodity RISC processors and compilers. |
-| **Modern Potential** | ★★★★☆ | The core abstractions are highly relevant as verifiable software layers, SMT solvers, and deterministic guardrails for neuro-[symbolic AI](symbolic-ai.md) architectures. |
-| **AI Synergy** | ★★★★★ | Exceptionally high structural synergy; represents computing's primary formal lineage for high-level deductive reasoning, now key to addressing the hallucinations of modern LLMs. |
-| **Difficulty to Recreate** | ★★★★☆ | Recreating a high-fidelity, cycle-accurate physical simulation of microcoded tagged hardware requires deep assembly-level modeling, though a clean-slate functional emulator of the WAM can be built with medium complexity. |
+| Historical Importance | ★★★★☆ | Catalyzed major national research initiatives (FGCS, Alvey), established the declarative programming paradigm, and drove fundamental research in automatic theorem proving. |
+| Technical Innovation | ★★★★★ | Created the Warren Abstract Machine, demonstrating that complex nondeterministic search could be compiled into a highly efficient, register-allocated stack/heap machine with zero-overhead chronological backtracking. |
+| Commercial Success | ★★☆☆☆ | Achieved a brief period of profitability in specialized AI niches, but specialized sequential and parallel hardware was completely wiped out by commodity RISC processors and compilers. |
+| Modern Potential | ★★★★☆ | The core abstractions are highly relevant as verifiable software layers, SMT solvers, and deterministic guardrails for neuro-[symbolic AI](symbolic-ai.md) architectures. |
+| AI Synergy | ★★★★★ | Exceptionally high structural synergy; represents computing's primary formal lineage for high-level deductive reasoning, now key to addressing the hallucinations of modern LLMs. |
+| Difficulty to Recreate | ★★★★☆ | Recreating a high-fidelity, cycle-accurate physical simulation of microcoded tagged hardware requires deep assembly-level modeling, though a clean-slate functional emulator of the WAM can be built with medium complexity. |
 
 ---
