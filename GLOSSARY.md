@@ -39,6 +39,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### C
 * **Capability-Based Security**: An access control model where processors or operating systems reference unforgeable keys called *capabilities*. A capability contains both a memory range (bounds) and specific permissions (read, write, execute), preventing buffer overflows and enforcing micro-segmentation at the hardware level.
   * *See excavation*: [Capability Systems](excavations/capability-systems.md)
+* **Coanda Effect**: The physical phenomenon where a fluid jet attaches itself to a nearby solid surface due to localized low-pressure bubbles created by entrainment. In pure fluidics, it provides the physical foundation for bistable state retention (flip-flops) and switching without moving parts.
+  * *See excavation*: [Fluidic Logic Systems](excavations/fluidic-logic-systems.md)
 * **Chinese Remainder Theorem (CRT)**: A mathematical theorem stating that any integer within a dynamic range can be uniquely reconstructed from its residues modulo a set of pairwise coprime moduli, providing the algebraic foundation of RNS.
   * *See excavation*: [Residue Number System (RNS)](excavations/residue-number-system.md)
 * **Cellular Automata (CA) Hardware**: Spatial computing grids where cells update their state in parallel based on localized transition rules. This model completely bypasses the central ALU bottleneck of Von Neumann architectures.
@@ -79,6 +81,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Explicit Data Graph Execution (EDGE) & The TRIPS Architecture](excavations/edge-architecture.md)
 * **Explicitly Parallel Instruction Computing (EPIC)**: An instruction set philosophy (co-developed by HP and Intel for Itanium) where the compiler explicitly bundles instructions that can be executed in parallel, moving the complex scheduling logic from hardware to the compiler.
   * *See excavation*: [VLIW / EPIC Architectures](excavations/vliw-epic.md)
+
+### F
+* **Fluidic Logic**: A computational and control paradigm that processes continuous or discrete information using the dynamics of fluid media directly within non-moving channels, relying on the Coanda effect, jet interaction, and laminar-to-turbulent transitions.
+  * *See excavation*: [Fluidic Logic Systems](excavations/fluidic-logic-systems.md)
 
 ### G
 * **Generative Communication**: A parallel coordination model pioneered by Linda where processes communicate asynchronously and anonymously by depositing un-addressed, typed data tuples into a globally shared, associative space, which other processes can query by structural pattern matching.
