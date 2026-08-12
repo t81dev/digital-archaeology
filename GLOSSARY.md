@@ -100,6 +100,10 @@ This document provides a conceptual glossary of terms from across the excavation
 * **J-Machine (Jellybean Machine)**: A fine-grained, massively parallel computer architecture that integrated a 3D wormhole-routing network, on-chip SRAM, and a message-driven processor on a single monolithic die to support low-latency active messages.
   * *See excavation*: [The MIT J-Machine](excavations/j-machine.md)
 
+### K
+* **KeyKOS**: A pioneering microkernel/nanokernel capability operating system implementing pure object-capabilities, fine-grained access control keys, dynamic factories, and continuous system-wide orthogonal persistence.
+  * *See excavation*: [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md)
+
 ### L
 * **Landauer's Limit**: A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \ln 2$).
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
@@ -139,7 +143,7 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [BeOS / Haiku](excavations/beos-haiku.md)
 
 * **Object-Capability Model**: A software design pattern that combines object-oriented encapsulation with capability-based security. An object reference *is* the unforgeable authority to perform actions on that object.
-  * *See excavation*: [Intel iAPX 432](excavations/intel-iapx-432.md)
+  * *See excavation*: [Intel iAPX 432](excavations/intel-iapx-432.md), [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md)
 
 ### R
 * **Radix Economy**: A mathematical measure of the efficiency of representing numbers in a given base, defined as $R \times \lfloor \log_R(N) + 1 \rfloor$ for base $R$ and maximum value $N$. It is mathematically optimized at the transcendental base $e \approx 2.718$, which makes base 3 (ternary) more efficient than base 2 (binary).
@@ -153,7 +157,7 @@ This document provides a conceptual glossary of terms from across the excavation
 
 ### S
 * **Single-Level Store (SLS)**: A memory management architecture where all secondary storage (such as disk drives) is integrated into a single, flat, virtually-addressed main memory space, completely eliminating the user-level distinction between file systems and RAM.
-  * *See excavation*: [Multics](excavations/multics.md)
+  * *See excavation*: [Multics](excavations/multics.md), [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md)
 * **Spatial Computing (Hardware)**: Architectures where software logic is mapped directly onto a physical grid of processing elements with localized communication channels (e.g., FPGAs, [Systolic Arrays](excavations/systolic-arrays.md), Cellular Automata), removing global bus bottlenecks.
   * *See excavation*: [Systolic Arrays](excavations/systolic-arrays.md)
 * **Stack Machine**: A processor architecture that uses a hardware evaluation stack rather than general-purpose registers to execute zero-operand instructions.

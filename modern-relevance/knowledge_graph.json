@@ -147,6 +147,10 @@
       "definition": "A fine-grained, massively parallel computer architecture that integrated a 3D wormhole-routing network, on-chip SRAM, and a message-driven processor on a single monolithic die to support low-latency active messages."
     },
     {
+      "term": "KeyKOS",
+      "definition": "A pioneering microkernel/nanokernel capability operating system implementing pure object-capabilities, fine-grained access control keys, dynamic factories, and continuous system-wide orthogonal persistence."
+    },
+    {
       "term": "Landauer's Limit",
       "definition": "A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \\ln 2$)."
     },
@@ -388,6 +392,7 @@
           "ebcdic",
           "inferno",
           "intel-iapx-432",
+          "keykos-nanokernel-capabilities",
           "linux",
           "lisp-machines",
           "microsoft",
@@ -503,7 +508,8 @@
         "mapped_excavations": [
           "burroughs-large-systems",
           "capability-systems",
-          "intel-iapx-432"
+          "intel-iapx-432",
+          "keykos-nanokernel-capabilities"
         ]
       },
       "[Tagged Memory](GLOSSARY.md)": {
@@ -533,6 +539,7 @@
       "Single-Level Store (SLS)": {
         "description": "The operating system abstracts memory and secondary storage into a single, flat, persistent virtual address space.",
         "mapped_excavations": [
+          "keykos-nanokernel-capabilities",
           "multics"
         ]
       },
@@ -583,6 +590,7 @@
         "mapped_excavations": [
           "apple",
           "beos-haiku",
+          "keykos-nanokernel-capabilities",
           "linux",
           "microsoft",
           "openai",
@@ -1218,7 +1226,7 @@
       "id": "fluidic-logic-systems",
       "title": "[Fluidic Logic](../GLOSSARY.md) Systems",
       "path": "excavations/fluidic-logic-systems.md",
-      "summary": "**[Fluidic Logic](../GLOSSARY.md) Systems** (pure fluidics) is a computational and control paradigm that processes continuous or discrete information using the dynamics of fluid media—gases or liquids—directly within non-moving channels. Unlike conventional moving-part pneumatic or hydraulic systems that rely on pistons, diaphragms, and mechanical valves, pure fluidic devices operate entirely through fundamental fluid-dynamic phenomena: the **[Coanda effect](../GLOSSARY.md)** (wall attachment), momentum-driven **jet interaction**, and laminar-to-turbulent flow transitions.\n\nPioneered in 1959 at the **Harry Diamond Laboratories** by Billy Horton, Warren Ledgermood, and Raymond Bowles, [fluidic logic](../GLOSSARY.md) emerged during the Cold War and the Space Race as a promising alternative to early solid-state electronics. Because fluidic gates contain no moving solid parts to wear out and are built from highly stable materials (such as ceramics, glass, or superalloys), they are intrinsically immune to electromagnetic interference (EMI), high-intensity ionizing radiation, extreme thermal fluctuations, and physical shock. \n\nDespite achieving significant success in military missile guidance, aerospace flight control, nuclear reactor monitoring, and industrial safety interlocks, [fluidic logic](../GLOSSARY.md) failed to establish a general-purpose, scale-free computing ecosystem. The rapid, exponential scaling of semiconductor CMOS (Moore’s Law), coupled with the physical limits of speed, integration density, power (constant fluid-source venting), and contamination susceptibility in fluid systems, restricted fluidics to highly specialized niche environments. Today, the core abstractions of [fluidic logic](../GLOSSARY.md) are experiencing a modern renaissance in **microfluidics**, droplet-based \"lab-on-a-chip\" analytical platforms, and compliant logic for **soft robotics**.",
+      "summary": "**[Fluidic Logic](../GLOSSARY.md) Systems** (pure fluidics) is a computational and control paradigm that processes continuous or discrete information using the dynamics of fluid media—gases or liquids—directly within non-moving channels. Unlike conventional moving-part pneumatic or hydraulic systems that rely on pistons, diaphragms, and mechanical valves, pure fluidic devices operate entirely through fundamental fluid-dynamic phenomena: the **[Coanda effect](../GLOSSARY.md)** (wall attachment), momentum-driven **jet interaction**, and laminar-to-turbulent flow transitions.\n\nPioneered in 1959 at the **Harry Diamond Laboratories** by Billy Horton, Warren Ledgermood, and Raymond Bowles, [fluidic logic](../GLOSSARY.md) emerged during the Cold War and the Space Race as a promising alternative to early solid-state electronics. Because fluidic gates contain no moving solid parts to wear out and are built from highly stable materials (such as ceramics, glass, or superalloys), they are intrinsically immune to electromagnetic interference (EMI), high-intensity ionizing radiation, extreme thermal fluctuations, and physical shock.\n\nDespite achieving significant success in military missile guidance, aerospace flight control, nuclear reactor monitoring, and industrial safety interlocks, [fluidic logic](../GLOSSARY.md) failed to establish a general-purpose, scale-free computing ecosystem. The rapid, exponential scaling of semiconductor CMOS (Moore’s Law), coupled with the physical limits of speed, integration density, power (constant fluid-source venting), and contamination susceptibility in fluid systems, restricted fluidics to highly specialized niche environments. Today, the core abstractions of [fluidic logic](../GLOSSARY.md) are experiencing a modern renaissance in **microfluidics**, droplet-based \"lab-on-a-chip\" analytical platforms, and compliant logic for **soft robotics**.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1432,6 +1440,57 @@
         "von Eicken, T., Culler, D. E., Goldstein, S. C., & Schauser, K. E. (1992). *[Active messages](../GLOSSARY.md): a mechanism for integrated communication and computation*. In Proceedings of the 19th Annual International Symposium on Computer Architecture (ISCA), 256-266.",
         "Noakes, M. D., Wallach, D. A., & Dally, W. J. (1993). *The J-Machine multicomputer: Architecture and multicomputer performance*. In Proceedings of the 20th Annual International Symposium on Computer Architecture (ISCA), 224-235.",
         "Dally, W. J. (1990). *Network and Node Architecture for Massively Parallel Computers*. In Organick, E. I. (Ed.), *New Frontiers in Computer Architecture*. Prentice Hall."
+      ]
+    },
+    {
+      "id": "keykos-nanokernel-capabilities",
+      "title": "KeyKOS and the Nanokernel Capability Lineage",
+      "path": "excavations/keykos-nanokernel-capabilities.md",
+      "summary": "The nanokernel capability lineage—pioneered by **KeyKOS** in the 1970s and 1980s and extended by **EROS**, **CapROS**, and **Coyotos**—represents one of computing history’s most radical departures from the dominant ambient-authority paradigm. In this architecture, security is not a boundary layer added to a traditional operating system; rather, the protection model is the operating system itself. By combining pure object-capabilities with an extremely minimal trusted computing base (TCB) and a system-wide single-level store, these systems proved that security, high availability, and performance could be co-designed as a single, coherent platform.\n\nInstead of access-control lists, user IDs, or privilege levels, authority in KeyKOS is mediated exclusively through unforgeable tokens called **keys** (capabilities) that combine designation and permission. The kernel is a \"nanokernel\" (pre-dating the microkernel term) responsible only for managing a tiny set of primitive objects (nodes, pages, keys, and meters) and routing messages. Crucially, the system features **orthogonal persistence**, meaning the entire capability graph and execution state are periodically and transactionally checkpointed to disk. Volatile RAM acts merely as a fast cache for a persistent, single-level memory store, making the system immune to abrupt power loss or sudden crashes.\n\nDespite demonstrating unprecedented security and reliability in commercial environments (such as Tymshare’s mainframe network) and achieving microsecond-level IPC performance in research descendants (EROS), this lineage was locked out of mainstream adoption. This failure was not driven by intrinsic technical limitations, but by severe **ecosystem lock-in** around Unix and Windows, programmer unfamiliarity with capability-based coordination, and the friction of emulation layers. However, as modern systems face catastrophic memory-safety bottlenecks, hardware capability revivals (CHERI), and zero-trust cloud isolation challenges, the abstractions unearthed from the KeyKOS lineage provide essential blueprints for secure, next-generation computing surfaces.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Foundational to microkernel security, least-privilege theory, and seL4 capability designs."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Groundbreaking unification of pure object-capabilities, nanokernels, and orthogonal persistence."
+        },
+        "Commercial Success": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Successful mainframe multi-tenant deployment, but locked out of mainstream PC/server markets."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Crucial design principles reviving via WASI sandboxes, CHERI hardware, and persistent NVMM memory."
+        },
+        "AI Synergy": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Provides absolute isolation and secure compartment boundaries for multi-tenant LLM weights."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Requires deep system-level integration of virtual memory, IPC, and transactional checkpointing."
+        }
+      },
+      "modern_relevance": "",
+      "references": [
+        "**Hardy, N.** (1985). \"The KeyKOS Architecture.\" *ACM SIGOPS Operating Systems Review*, 19(4), 8–25.",
+        "*Relevance*: The seminal primary source detailing the register-level KeyKOS design, primitive objects, and single-level store.",
+        "**Frantz, W. S., & Landau, C. R.** (1993). \"Object-Oriented Security in the KeyKOS Operating System.\" *Proceedings of the 1993 National Computer Security Conference*, 374–381.",
+        "*Relevance*: Explains the implementation of discretionary and mandatory security policies under pure object-capability constraints.",
+        "**Shapiro, J. S., Smith, J. M., & Farber, D. J.** (1999). \"EROS: A Fast Capability System.\" *ACM SIGOPS Operating Systems Review*, 33(5), 72–85.",
+        "*Relevance*: Proves that pure capability-based operating systems can achieve microsecond-level IPC performance on standard commodity hardware.",
+        "**Miller, M. S., Yee, K., & Shapiro, J. S.** (2003). \"Capability Myopia: Addressing the Myths of Capability Security.\" *Technical Report, Johns Hopkins University*.",
+        "*Relevance*: A foundational paper dismantling common misconceptions regarding capability systems, analyzing revocation, and proving superiority over ACLs.",
+        "**Klein, G., et al.** (2009). \"seL4: Formal Verification of an OS Kernel.\" *Proceedings of the ACM SIGOPS 22nd Symposium on Operating Systems Principles (SOSP)*, 207–220.",
+        "*Relevance*: Establishes the formal mathematical lineage linking early capability microkernels to modern verified systems."
       ]
     },
     {
