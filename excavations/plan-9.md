@@ -133,7 +133,7 @@ Plan 9's dynamic namespace design directly prefigures modern virtualization:
 | Category | Rating | Rationale |
 | --- | --- | --- |
 | Historical Importance | ★★★★☆ | Deeply influenced Unix developments (e.g., `/proc`, UTF-8) and modern containerization. |
-| Technical Innovation | ★★★★★ | Flawless unification of networking, device control, and isolation under a single protocol. |
+| Technical Innovation | ★★★★★ | Flawless [unification](../GLOSSARY.md) of networking, device control, and isolation under a single protocol. |
 | Commercial Success | ★☆☆☆☆ | Failed to capture market share due to pricing, timing, and POSIX compatibility issues. |
 | Modern Potential | ★★★★☆ | 9P remains highly active in cloud-mounting layers (VirtFS/WSL2); namespace concepts form the core of containers. |
 | AI Synergy | ★★☆☆☆ | Low direct synergy with neural models, but provides secure or distributed runtimes. |

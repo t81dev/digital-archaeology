@@ -79,6 +79,14 @@
       "definition": "Solving differential equations by mapping physical system variables (e.g., fluid dynamics, acoustics) directly onto equivalent physical currents or voltages in analog circuits."
     },
     {
+      "term": "Choice Point",
+      "definition": "A saved snapshot of the execution state of the Warren Abstract Machine, pushed onto the local stack before attempting alternative clauses in a nondeterministic logic predicate to support backtracking."
+    },
+    {
+      "term": "Committed-Choice Concurrency",
+      "definition": "A concurrent programming paradigm where nondeterminism is restricted (don't-care nondeterminism) so that execution permanently commits to the first clause whose guard conditions are satisfied, eliminating backtracking search in parallel environments."
+    },
+    {
       "term": "Dataflow Architecture",
       "definition": "A non-von Neumann computer architecture where the execution order of instructions is not controlled by a program counter, but is determined dynamically by the availability of data (tokens) at instruction inputs."
     },
@@ -93,6 +101,10 @@
     {
       "term": "Dynamic Token-Matching",
       "definition": "An execution model in dataflow processors where data packets (tokens) carry tag headers specifying their destination, iteration context, and call frame, allowing out-of-order, parallel execution of loops and functions."
+    },
+    {
+      "term": "Dereferencing Chain",
+      "definition": "A sequence of reference pointers that must be traversed dynamically to locate the canonical value or unbound state of a logic variable."
     },
     {
       "term": "EBCDIC (Extended Binary Coded Decimal Interchange Code)",
@@ -243,6 +255,14 @@
       "definition": "A persistent, associative, multi-set memory pool serving as the central coordination medium in generative communication. It stores both passive data tuples and active process tuples."
     },
     {
+      "term": "Trail (WAM)",
+      "definition": "A dedicated memory stack in the Warren Abstract Machine that records the addresses of logic variables bound during unification, enabling those variables to be unbound (reset to free) during chronological backtracking."
+    },
+    {
+      "term": "Unification",
+      "definition": "A mathematical and computational process that binds first-order terms and logic variables dynamically to make two symbolic expressions identical."
+    },
+    {
       "term": "Vector Processing",
       "definition": "A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads."
     },
@@ -265,6 +285,10 @@
     {
       "term": "[Wafer-Scale Integration](excavations/wafer-scale-integration.md) (WSI)",
       "definition": "An advanced semiconductor manufacturing paradigm that builds an entire digital system (incorporating multiple processor nodes, memory blocks, and interconnect networks) on a single, uncut silicon wafer, completely bypassing chip-packaging boundaries."
+    },
+    {
+      "term": "Warren Abstract Machine (WAM)",
+      "definition": "An abstract instruction set and memory architecture developed by David H. D. Warren to execute compiled Prolog efficiently using specialized stacks, heap, trail, and register allocations."
     },
     {
       "term": "Associative / Content-Addressable Execution",
@@ -293,6 +317,10 @@
     {
       "term": "Self-Timed & Asynchronous Control",
       "definition": "Operations and pipeline stages synchronize locally via request-acknowledge handshake signals, executing at the natural physical speed of physical gates rather than relying on a global clock tree."
+    },
+    {
+      "term": "Logical & Inference Execution",
+      "definition": "Computing via backward-chaining resolution, recursive variable unification, and chronological backtracking search over saved choice points."
     },
     {
       "term": "Content-Addressable / Associative Memory",
@@ -333,6 +361,10 @@
     {
       "term": "Generative Tuple Spaces",
       "definition": "Decoupling communication completely in both space (anonymous) and time (asynchronous) via a shared, content-addressable multi-set data pool."
+    },
+    {
+      "term": "Committed-Choice Stream Concurrency",
+      "definition": "Coordinating concurrent goal-processes using shared, write-once logic variables as event-driven, blocking dataflow communication streams."
     }
   ],
   "comparative_index": {
@@ -421,7 +453,8 @@
       "Logical & Inference Engine": {
         "description": "Evaluating rules, forward/backward chaining, and symbolic facts natively.",
         "mapped_excavations": [
-          "symbolic-ai"
+          "symbolic-ai",
+          "prolog-wam-fgcs-hardware"
         ]
       },
       "Associative Hypertext": {
@@ -472,7 +505,8 @@
           "lisp-machines",
           "intel-iapx-432",
           "j-machine",
-          "symbolic-ai"
+          "symbolic-ai",
+          "prolog-wam-fgcs-hardware"
         ]
       },
       "Associative / Content-Addressable Memory": {
@@ -598,9 +632,10 @@
         ]
       },
       "Rule-Based Inference": {
-        "description": "Concurrency controlled by logical implication and dynamic resolution trees.",
+        "description": "Concurrency controlled by logical implication, backward-chaining search, and committed-choice process networks.",
         "mapped_excavations": [
-          "symbolic-ai"
+          "symbolic-ai",
+          "prolog-wam-fgcs-hardware"
         ]
       },
       "Symmetric Math Logic": {
@@ -1484,7 +1519,7 @@
       "id": "logarithmic-number-system",
       "title": "Logarithmic Number System (LNS)",
       "path": "excavations/logarithmic-number-system.md",
-      "summary": "The **Logarithmic Number System (LNS)** is an alternative, non-positional arithmetic system that represents real numbers using their sign and the logarithm of their absolute value to a selected base (typically 2). \n\nUnder LNS, the traditional hierarchy of arithmetic operator complexity is inverted. Multiplication, division, roots, and powers become simple, high-speed, carry-free addition and subtraction operations on the log exponents. Conversely, addition and subtraction—which are trivial in positional systems like fixed-point or floating-point—become complex, non-linear functions requiring lookup tables, polynomial interpolation, or hybrid architectures.\n\nLNS emerged as a digital computer arithmetic design space in the late 1960s and 1970s, independently proposed by researchers like Albert Kinsman Edgar and Lee O. Croxton, and later thoroughly analyzed by Earl Swartzlander and Isidore Koren. While LNS has been repeatedly considered as a general-purpose processor replacement for floating-point arithmetic (most notably through initiatives like the European Union's \"GLUCOSE\" and \"Flysig\" projects), its adoption has remained confined to specialized niches. \n\nToday, LNS is undergoing a quiet revival driven by the massive growth of deep learning and neural accelerators, where low-precision, multiplication-heavy matrix-vector products can be executed with exceptional energy efficiency, bypassing the area and power walls of traditional binary floating-point logic.",
+      "summary": "The **Logarithmic Number System (LNS)** is an alternative, non-positional arithmetic system that represents real numbers using their sign and the logarithm of their absolute value to a selected base (typically 2).\n\nUnder LNS, the traditional hierarchy of arithmetic operator complexity is inverted. Multiplication, division, roots, and powers become simple, high-speed, carry-free addition and subtraction operations on the log exponents. Conversely, addition and subtraction—which are trivial in positional systems like fixed-point or floating-point—become complex, non-linear functions requiring lookup tables, polynomial interpolation, or hybrid architectures.\n\nLNS emerged as a digital computer arithmetic design space in the late 1960s and 1970s, independently proposed by researchers like Albert Kinsman Edgar and Lee O. Croxton, and later thoroughly analyzed by Earl Swartzlander and Isidore Koren. While LNS has been repeatedly considered as a general-purpose processor replacement for floating-point arithmetic (most notably through initiatives like the European Union's \"GLUCOSE\" and \"Flysig\" projects), its adoption has remained confined to specialized niches.\n\nToday, LNS is undergoing a quiet revival driven by the massive growth of deep learning and neural accelerators, where low-precision, multiplication-heavy matrix-vector products can be executed with exceptional energy efficiency, bypassing the area and power walls of traditional binary floating-point logic.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★☆☆",
@@ -1814,7 +1849,7 @@
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Flawless unification of networking, device control, and isolation under a single protocol."
+          "rationale": "Flawless [unification](../GLOSSARY.md) of networking, device control, and isolation under a single protocol."
         },
         "Commercial Success": {
           "stars": "★☆☆☆☆",
@@ -1878,6 +1913,46 @@
         }
       },
       "modern_relevance": "Xanadu’s ideas are experiencing a renaissance:\n- **Bidirectional links** — Tools like Roam Research, Obsidian, and Wikipedia backlinks.\n- **Transclusion** — Modern note-taking apps, component-based web frameworks, and content reuse systems.\n- **Version control** — Git, Wikipedia history, and decentralized web efforts.\n- **Micropayments and creator economy** — Patreon, Substack, and blockchain-based systems echo the economic vision.\n- **Decentralized web** — IPFS, Solid, and various hypertext revival projects draw direct inspiration.\n\nIn the age of information overload and broken links, Xanadu’s deeper vision feels more relevant than ever.\n\nModern systems should recover the abstractions selectively rather than reproduce the entire design: stable content identities and explicit provenance make archival systems and AI retrieval pipelines more auditable; transclusion avoids uncontrolled copying; and visible backlinks improve navigation. The caution is equally enduring: global consistency, rights enforcement, payments, and a novel user interface should be independently deployable layers, not a prerequisite for reading a document.",
+      "references": []
+    },
+    {
+      "id": "prolog-wam-fgcs-hardware",
+      "title": "Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages",
+      "path": "excavations/prolog-wam-fgcs-hardware.md",
+      "summary": "In the late 1970s and 1980s, computer architecture faced what seemed to be a fundamental semantic gap. Traditional von Neumann instruction sets operated on raw, untyped memory addresses and register blocks, while symbolic Artificial Intelligence and knowledge-representation software demanded abstract reasoning, logical deduction, and automatic search. The logic programming paradigm, pioneered by Alain Colmerauer and formalized by Robert Kowalski, proposed a revolutionary thesis: **Algorithm = Logic + Control**. Programs should be written as declarative logical statements (Horn clauses), and execution should be handled entirely by an underlying inference engine performing resolution and [unification](../GLOSSARY.md).\n\nThis excavation explores the co-design lineage that attempted to run logic programming at hardware speed. At its core stands the **Warren Abstract Machine (WAM)**, designed by David H. D. Warren in 1983. The WAM converted declarative Prolog clauses into an optimized, stack-and-heap execution model featuring explicit choice points, trailing, and register-allocated arguments. The WAM became the de facto compiler target for logic languages on general-purpose CPUs.\n\nConcurrently, the Japanese **Fifth Generation Computer Systems (FGCS)** project (1982–1992) launched an institutional and architectural effort to build specialized sequential and parallel hardware natively optimized for symbolic logic. By developing Personal Sequential Inference (PSI) machines and massively parallel Parallel Inference Machines (PIM), FGCS attempted to replace the sequential von Neumann model with a parallel, concurrent, logic-driven substrate using committed-choice logic languages (such as KL1).\n\nWhile specialized logic-programming hardware was ultimately overwhelmed by commodity RISC processors and sophisticated compiling techniques, the abstract machine models and runtime optimizations (such as clause indexing, tail-recursion/last-call optimization, and hardware type tags) persist as foundational lessons in virtual machine design, constraint satisfaction, and secure, high-performance execution.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Catalyzed major national research initiatives (FGCS, Alvey), established the declarative programming paradigm, and drove fundamental research in automatic theorem proving."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Created the Warren Abstract Machine, demonstrating that complex nondeterministic search could be compiled into a highly efficient, register-allocated stack/heap machine with zero-overhead chronological backtracking."
+        },
+        "Commercial Success": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Achieved a brief period of profitability in specialized AI niches, but specialized sequential and parallel hardware was completely wiped out by commodity RISC processors and compilers."
+        },
+        "Modern Potential": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "The core abstractions are highly relevant as verifiable software layers, SMT solvers, and deterministic guardrails for neuro-[symbolic AI](symbolic-ai.md) architectures."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Exceptionally high structural synergy; represents computing's primary formal lineage for high-level deductive reasoning, now key to addressing the hallucinations of modern LLMs."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Recreating a high-fidelity, cycle-accurate physical simulation of microcoded tagged hardware requires deep assembly-level modeling, though a clean-slate functional emulator of the WAM can be built with medium complexity."
+        }
+      },
+      "modern_relevance": "In contemporary computer science, the WAM and FGCS lineages offer vital lessons for addressing modern hardware and software limits:\n\n* **Deterministic Guardrails for Probabilistic AI:** Large Language Models (LLMs) are highly capable at natural language processing but lack deterministic reasoning, mathematical accuracy, and explainability. Modern **Neuro-[Symbolic AI](symbolic-ai.md)** architectures wrap stochastic neural networks in declarative logic guardrails. By parsing unstructured natural language into structured Prolog-style facts, systems can use an underlying inference engine to execute verified reasoning, evaluate legal contracts, or perform exact calculations without the risk of hallucination.\n* **Datalog for Graph and Network Orchestration:** As cloud networks and distributed container meshes scale in complexity, managing routing policies and access control lists becomes a major challenge. Datalog's declarative syntax allows engineers to specify global security constraints (e.g., \"no public subnet can access private databases directly\"), which the engine compile-time validates and pushes to distributed network nodes, guaranteeing zero-trust enforcement at scale.\n* **The Software-to-Hardware Boundary Lesson:** The historical collapse of the FGCS specialized hardware warns modern computer architects against building physical silicon around high-level software abstractions that are still actively evolving. It demonstrates that the most cost-effective path is often to design highly optimized software engines running on commodity hardware, reserving custom silicon acceleration solely for stable, low-level mathematical primitives (such as matrix-multiplication blocks or cryptography units).",
       "references": []
     },
     {
@@ -2132,7 +2207,7 @@
       "id": "symbolic-ai",
       "title": "Symbolic AI",
       "path": "excavations/symbolic-ai.md",
-      "summary": "Symbolic Artificial Intelligence—often termed \"Good Old-Fashioned AI\" (GOFAI)—is an approach to artificial intelligence built on the hypothesis that human thought can be modeled through the manipulation of high-level, human-readable symbols according to formal logical rules. Rather than learning statistical weights from raw numerical data, Symbolic AI systems operate on explicit knowledge bases using inference engines, pattern matching, unification, and state-space graph search.\n\nPioneered in the 1950s by researchers such as Allen Newell, Herbert Simon, John McCarthy, and Marvin Minsky, Symbolic AI dominated artificial intelligence research for over three decades. It produced foundational computing paradigms, including list processing, dynamic memory allocation, functional and logic programming languages (Lisp, Prolog), expert systems, and early automated theorem provers.\n\nSymbolic AI collapsed commercially during the \"AI Winter\" of the late 1980s due to its inability to handle noisy real-world sensory inputs, combinatorial state explosions, and the brittle cost of manually engineering knowledge. However, as modern deep learning hits limits in reasoning, interpretability, and deterministic safety, Symbolic AI is undergoing a major revival through **Neuro-Symbolic AI**—combining statistical pattern recognition with structured logical reasoning.",
+      "summary": "Symbolic Artificial Intelligence—often termed \"Good Old-Fashioned AI\" (GOFAI)—is an approach to artificial intelligence built on the hypothesis that human thought can be modeled through the manipulation of high-level, human-readable symbols according to formal logical rules. Rather than learning statistical weights from raw numerical data, Symbolic AI systems operate on explicit knowledge bases using inference engines, pattern matching, [unification](../GLOSSARY.md), and state-space graph search.\n\nPioneered in the 1950s by researchers such as Allen Newell, Herbert Simon, John McCarthy, and Marvin Minsky, Symbolic AI dominated artificial intelligence research for over three decades. It produced foundational computing paradigms, including list processing, dynamic memory allocation, functional and logic programming languages (Lisp, Prolog), expert systems, and early automated theorem provers.\n\nSymbolic AI collapsed commercially during the \"AI Winter\" of the late 1980s due to its inability to handle noisy real-world sensory inputs, combinatorial state explosions, and the brittle cost of manually engineering knowledge. However, as modern deep learning hits limits in reasoning, interpretability, and deterministic safety, Symbolic AI is undergoing a major revival through **Neuro-Symbolic AI**—combining statistical pattern recognition with structured logical reasoning.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★☆☆",

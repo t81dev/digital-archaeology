@@ -53,6 +53,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Associative Processors](excavations/associative-processors.md)
 * **Continuous Physical Modeling**: Solving differential equations by mapping physical system variables (e.g., fluid dynamics, acoustics) directly onto equivalent physical currents or voltages in analog circuits.
   * *See excavation*: [Analog Computing](excavations/analog-computing.md)
+* **Choice Point**: A saved snapshot of the execution state of the Warren Abstract Machine, pushed onto the local stack before attempting alternative clauses in a nondeterministic logic predicate to support backtracking.
+  * *See excavation*: [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)
+* **Committed-Choice Concurrency**: A concurrent programming paradigm where nondeterminism is restricted (don't-care nondeterminism) so that execution permanently commits to the first clause whose guard conditions are satisfied, eliminating backtracking search in parallel environments.
+  * *See excavation*: [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)
 
 ### D
 * **Dataflow Architecture**: A non-von Neumann computer architecture where the execution order of instructions is not controlled by a program counter, but is determined dynamically by the availability of data (tokens) at instruction inputs.
@@ -63,6 +67,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Burroughs Large Systems](excavations/burroughs-large-systems.md)
 * **Dynamic Token-Matching**: An execution model in dataflow processors where data packets (tokens) carry tag headers specifying their destination, iteration context, and call frame, allowing out-of-order, parallel execution of loops and functions.
   * *See excavation*: [Dataflow Computing](excavations/dataflow-computing.md)
+* **Dereferencing Chain**: A sequence of reference pointers that must be traversed dynamically to locate the canonical value or unbound state of a logic variable.
+  * *See excavation*: [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)
 
 ### E
 * **EBCDIC (Extended Binary Coded Decimal Interchange Code)**: An 8-bit character encoding family designed by IBM in 1963 for the System/360 architecture, combining mechanical zone and digit punch mappings from Herman Hollerith's card layouts, resulting in non-contiguous alphabet segments and unique sorting semantics.
@@ -164,6 +170,12 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)
 * **Tuple Space**: A persistent, associative, multi-set memory pool serving as the central coordination medium in generative communication. It stores both passive data tuples and active process tuples.
   * *See excavation*: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)
+* **Trail (WAM)**: A dedicated memory stack in the Warren Abstract Machine that records the addresses of logic variables bound during unification, enabling those variables to be unbound (reset to free) during chronological backtracking.
+  * *See excavation*: [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)
+
+### U
+* **Unification**: A mathematical and computational process that binds first-order terms and logic variables dynamically to make two symbolic expressions identical.
+  * *See excavation*: [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)
 
 ### V
 * **Vector Processing**: A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads.
@@ -180,6 +192,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Microsoft: The Platform Machine](excavations/microsoft.md)
 * **[Wafer-Scale Integration](excavations/wafer-scale-integration.md) (WSI)**: An advanced semiconductor manufacturing paradigm that builds an entire digital system (incorporating multiple processor nodes, memory blocks, and interconnect networks) on a single, uncut silicon wafer, completely bypassing chip-packaging boundaries.
   * *See excavation*: [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
+* **Warren Abstract Machine (WAM)**: An abstract instruction set and memory architecture developed by David H. D. Warren to execute compiled Prolog efficiently using specialized stacks, heap, trail, and register allocations.
+  * *See excavation*: [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)
 
 ---
 
@@ -221,6 +235,8 @@ These models depart from standard sequential, instruction-pointer-driven (von Ne
   * *Example*: [Analog Computing](excavations/analog-computing.md), [Optical Computing](excavations/optical-computing.md), [Molecular & Biocomputing](excavations/molecular-biocomputing.md), [Stochastic Computing](excavations/stochastic-computing.md)
 * **Self-Timed & Asynchronous Control**: Operations and pipeline stages synchronize locally via request-acknowledge handshake signals, executing at the natural physical speed of physical gates rather than relying on a global clock tree.
   * *Example*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md), [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)
+* **Logical & Inference Execution**: Computing via backward-chaining resolution, recursive variable unification, and chronological backtracking search over saved choice points.
+  * *Example*: [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)
 
 ### 2. Memory & Protection Abstractions
 
@@ -231,7 +247,7 @@ These abstractions define how memory is organized, addressed, and secured agains
 * **Object Capabilities & Descriptors**: Moving access control from software operating system layers to hardware unforgeable tokens. If a processor does not possess the physical capability token, it is physically impossible to construct the memory address.
   * *Example*: [Capability Systems](excavations/capability-systems.md), [Intel iAPX 432](excavations/intel-iapx-432.md)
 * **Tagged Memory**: Enforcing data type safety in hardware. An integer can never be executed as instruction code, and a data word can never be treated as a pointer, eliminating entire classes of exploit vectors.
-  * *Example*: [Lisp Machines](excavations/lisp-machines.md), [Burroughs Large Systems](excavations/burroughs-large-systems.md), [The MIT J-Machine](excavations/j-machine.md)
+  * *Example*: [Lisp Machines](excavations/lisp-machines.md), [Burroughs Large Systems](excavations/burroughs-large-systems.md), [The MIT J-Machine](excavations/j-machine.md), [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)
 * **Single-Level Store (SLS)**: Removing the mental and structural wall between volatile memory (RAM) and non-volatile storage (Disk). Everything exists inside a singular, persistent, universally addressable space.
   * *Example*: [Multics](excavations/multics.md)
 * **Hierarchical Ring Protection**: Defining access control as concentric rings of privilege. Inner rings (e.g., Ring 0) have full access, while outer rings must cross formal gates to request services, preventing privilege escalation.
@@ -251,3 +267,5 @@ These abstractions define how parallel computational threads or systems coordina
   * *Example*: [Connection Machine](excavations/connection-machine.md)
 * **Generative Tuple Spaces**: Decoupling communication completely in both space (anonymous) and time (asynchronous) via a shared, content-addressable multi-set data pool.
   * *Example*: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)
+* **Committed-Choice Stream Concurrency**: Coordinating concurrent goal-processes using shared, write-once logic variables as event-driven, blocking dataflow communication streams.
+  * *Example*: [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)

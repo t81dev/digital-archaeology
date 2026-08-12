@@ -156,7 +156,7 @@ As conventional CMOS fabrication approaches 1-nanometer quantum tunneling thresh
 
 1. **Physical Limits Eventually Dictate Software Paradigms:** As long as silicon fabrication sidesteps physical limits, irreversible brute-force methods will win due to software simplicity. Once hard physical boundaries are reached ([Landauer's limit](../GLOSSARY.md), thermal power density), long-ignored physical compute paradigms become imperative.
 2. **Space vs. Energy Trade-offs Are Fundamental:** Reversible computing trades spatial memory overhead (holding history bits) and extra execution steps (uncomputation) for physical energy efficiency. Engineering is always a balance between thermodynamic energy, time, and spatial area.
-3. **Hardware Unification Across Domains:** The concepts developed by Landauer, Bennett, Toffoli, and Fredkin in the 1970s now form the foundational compiler tools for modern quantum logic synthesis—proving that theoretical research outlives transient hardware limitations.
+3. **Hardware [Unification](../GLOSSARY.md) Across Domains:** The concepts developed by Landauer, Bennett, Toffoli, and Fredkin in the 1970s now form the foundational compiler tools for modern quantum logic synthesis—proving that theoretical research outlives transient hardware limitations.
 
 ---
 

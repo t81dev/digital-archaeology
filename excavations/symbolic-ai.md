@@ -6,7 +6,7 @@
 
 ## Summary
 
-Symbolic Artificial Intelligence—often termed "Good Old-Fashioned AI" (GOFAI)—is an approach to artificial intelligence built on the hypothesis that human thought can be modeled through the manipulation of high-level, human-readable symbols according to formal logical rules. Rather than learning statistical weights from raw numerical data, Symbolic AI systems operate on explicit knowledge bases using inference engines, pattern matching, unification, and state-space graph search.
+Symbolic Artificial Intelligence—often termed "Good Old-Fashioned AI" (GOFAI)—is an approach to artificial intelligence built on the hypothesis that human thought can be modeled through the manipulation of high-level, human-readable symbols according to formal logical rules. Rather than learning statistical weights from raw numerical data, Symbolic AI systems operate on explicit knowledge bases using inference engines, pattern matching, [unification](../GLOSSARY.md), and state-space graph search.
 
 Pioneered in the 1950s by researchers such as Allen Newell, Herbert Simon, John McCarthy, and Marvin Minsky, Symbolic AI dominated artificial intelligence research for over three decades. It produced foundational computing paradigms, including list processing, dynamic memory allocation, functional and logic programming languages (Lisp, Prolog), expert systems, and early automated theorem provers.
 
@@ -85,11 +85,11 @@ $$\forall X, Y, Z \, (\text{Parent}(X, Z) \land \text{Parent}(Z, Y) \implies \te
 
 * **Frames & Semantic Nets (Minsky):** Class hierarchies with slot-value structures, inheritance, and default assumptions (precursors to Object-Oriented Programming).
 
-### 2. Inference Engines & Unification
+### 2. Inference Engines & [Unification](../GLOSSARY.md)
 
 Instead of matrix multiplications, computation consists of symbolic matching and substitution:
 
-* **Unification:** An algorithm that finds a variable substitution $\theta$ to make two symbolic expressions identical (e.g., unifying $\text{Parent}(\text{Charles}, x)$ with $\text{Parent}(y, \text{William})$ yields $\{y \mapsto \text{Charles}, x \mapsto \text{William}\}$).
+* **[Unification](../GLOSSARY.md):** An algorithm that finds a variable substitution $\theta$ to make two symbolic expressions identical (e.g., unifying $\text{Parent}(\text{Charles}, x)$ with $\text{Parent}(y, \text{William})$ yields $\{y \mapsto \text{Charles}, x \mapsto \text{William}\}$).
 * **Execution Paradigms:**
 * *Forward Chaining:* Data-driven inference (deriving new facts from known premises using algorithms like **Rete**).
 * *Backward Chaining:* Goal-driven deduction (working backward from a target query to find supporting facts).

@@ -71,6 +71,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Occam](excavations/occam.md) — *Concurrent language based on Communicating Sequential Processes (CSP).*
 - [Smalltalk](excavations/smalltalk.md) — *Pure image-based object-oriented environment and dynamic messaging.*
 - [Symbolic AI](excavations/symbolic-ai.md) — *Logic programming, inference engines, and formal knowledge representation.*
+- [Prolog, the Warren Abstract Machine, and FGCS Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md) — *Logic programming compiled execution, stack-heap-trail environments, and committed-choice process networks.*
 
 ---
 
