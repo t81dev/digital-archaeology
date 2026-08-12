@@ -152,6 +152,7 @@ Advanced thematic essays analyzing how failed physical systems leave behind endu
 * **[Architectural Distillation](synthesis/architectural-distillation.md)** — The process of preserving the logical core of failed hardware paradigms.
 * **[Capability-Based Security](synthesis/capability-based-security.md)** — The modern revival of hardware-level capabilities in micro-segmentation and zero-trust computing.
 * **[Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md)** — Why modern performance gains rely on treating compilers and custom ASICs as a single system.
+* **[Cross-Excavation Recent Inclusions Synthesis](synthesis/recent-inclusions-crosscut.md)** — High-density architectural and mechanistic synthesis of RNS, LNS, fluidic logic, KeyKOS capabilities, and Prolog/WAM/FGCS hardware.
 * **[The Return of Spatial Computing](synthesis/return-of-spatial-computing.md)** — How dataflow, parallel grid, and neuromorphic models are taking over AI acceleration.
 
 ### 4. [Modern Relevance](modern-relevance/) (Practical Application)

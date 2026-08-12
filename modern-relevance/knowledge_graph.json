@@ -2615,6 +2615,12 @@
       "summary": "**A systematic analysis of pairwise and triple computing lineage integrations, demonstrating how hybrid co-design overcomes the physical, security, and data conversion boundaries of isolated non-von Neumann architectures.**"
     },
     {
+      "id": "recent-inclusions-crosscut",
+      "title": "Cross-Excavation Synthesis: Alternative Mathematical, Protection, and Substrate Paradigms",
+      "path": "synthesis/recent-inclusions-crosscut.md",
+      "summary": "**An architectural and mechanistic synthesis of the Residue Number System (RNS), Logarithmic Number System (LNS), Fluidic Logic, KeyKOS-style Object Capabilities, and Prolog/WAM/FGCS Logic-Programming Hardware.**"
+    },
+    {
       "id": "return-of-spatial-computing",
       "title": "The Return of Spatial Computing",
       "path": "synthesis/return-of-spatial-computing.md",
