@@ -134,7 +134,7 @@ This annotated bibliography contains foundational research papers, technical rep
 * **Authors**: Sean Dorward, Rob Pike, David Presotto, Dennis M. Ritchie, Howard Trickey, Phil Winterbottom
 * **Published**: *COMPCON '97 Proceedings*, 1997
 * **Relevance**: [Inferno](../excavations/inferno.md), [Plan 9](../excavations/plan-9.md)
-* **Description**: Presents the [Inferno](../excavations/inferno.md) distributed operating system, describing the Limbo language, the Dis virtual machine, and the adaptation of [Plan 9](../excavations/plan-9.md)'s Styx/9P namespace unification for heterogeneous, resource-constrained network devices.
+* **Description**: Presents the [Inferno](../excavations/inferno.md) distributed operating system, describing the Limbo language, the Dis virtual machine, and the adaptation of [Plan 9](../excavations/plan-9.md)'s Styx/9P namespace [unification](../GLOSSARY.md) for heterogeneous, resource-constrained network devices.
 
 #### 22. *The architecture of the Burroughs B5000: stack-oriented evaluation and language-directed machines*
 * **Authors**: John G. Cleary

@@ -1,8 +1,8 @@
 # Comparative Index of Excavations
 
-> **A multi-dimensional index mapping our 37 excavations across execution models, memory protection schemes, and concurrency paradigms.**
+> **A multi-dimensional index mapping our 38 excavations across execution models, memory protection schemes, and concurrency paradigms.**
 
-Digital Archaeology studies systems from different eras and physical media. To enable comparative research, this index organizes all 37 core excavations into structured technical categories rather than chronological timelines.
+Digital Archaeology studies systems from different eras and physical media. To enable comparative research, this index organizes all 38 core excavations into structured technical categories rather than chronological timelines.
 
 ---
 
@@ -21,7 +21,7 @@ How does the processor sequence and execute instruction streams?
 | **Analog / Continuous** | Solving math models directly via continuous physical phenomena (voltages, currents, fluid flow) instead of discrete bits. | - [Analog Computing](excavations/analog-computing.md)<br>- [Stochastic Computing](excavations/stochastic-computing.md)<br>- [Balanced Ternary](excavations/balanced-ternary.md) (ternary logic scaling)<br>- [Residue Number System (RNS)](excavations/residue-number-system.md) (carry-free modular channels)<br>- [Logarithmic Number System (LNS)](excavations/logarithmic-number-system.md) (signed logarithmic scale execution) |
 | **Photonic / Optical** | Using light propagation, interference, and wavelength division multiplexing to perform matrix operations. | - [Optical Computing](excavations/optical-computing.md) |
 | **Biological / Molecular** | Leveraging DNA hybridization, enzymatic reactions, or bacterial states for massively parallel computing. | - [Molecular & Biocomputing](excavations/molecular-biocomputing.md) |
-| **Logical & Inference Engine** | Evaluating rules, forward/backward chaining, and symbolic facts natively. | - [Symbolic AI](excavations/symbolic-ai.md) |
+| **Logical & Inference Engine** | Evaluating rules, forward/backward chaining, and symbolic facts natively. | - [Symbolic AI](excavations/symbolic-ai.md)<br>- [Prolog, the Warren Abstract Machine, and FGCS Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md) |
 | **Associative Hypertext** | Graph-structured, bi-directional versioned information retrieval. | - [Project Xanadu](excavations/project-xanadu.md) |
 | **VLIW / EPIC** | Multi-issue execution where the compiler explicitly schedules and bundles instructions for parallel pipelines. | - [VLIW / EPIC Architectures](excavations/vliw-epic.md) |
 | **Reversible Logic** | Information-preserving gates that compute bijectively to prevent thermodynamic energy dissipation. | - [Reversible Computing](excavations/reversible-computing.md) |
@@ -37,7 +37,7 @@ How does the system partition memory, enforce safety, and protect system integri
 | Memory & Protection Model | Key Mechanism | Mapped Excavations |
 |----------------------------|---------------|---------------------|
 | **Hardware Capabilities & Descriptors** | Unforgeable pointers and descriptors containing base/bound and permissions enforced at register and ALU levels. | - [Burroughs Large Systems](excavations/burroughs-large-systems.md)<br>- [Capability Systems](excavations/capability-systems.md)<br>- [Intel iAPX 432](excavations/intel-iapx-432.md) |
-| **[Tagged Memory](GLOSSARY.md)** | Extra hardware metadata bits on every word in RAM indicating data type, restricting invalid pointer arithmetic or data execution. | - [Burroughs Large Systems](excavations/burroughs-large-systems.md)<br>- [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md)<br>- [Lisp Machines](excavations/lisp-machines.md)<br>- [Intel iAPX 432](excavations/intel-iapx-432.md)<br>- [The MIT J-Machine](excavations/j-machine.md)<br>- [Symbolic AI](excavations/symbolic-ai.md) (types/symbols) |
+| **[Tagged Memory](GLOSSARY.md)** | Extra hardware metadata bits on every word in RAM indicating data type, restricting invalid pointer arithmetic or data execution. | - [Burroughs Large Systems](excavations/burroughs-large-systems.md)<br>- [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md)<br>- [Lisp Machines](excavations/lisp-machines.md)<br>- [Intel iAPX 432](excavations/intel-iapx-432.md)<br>- [The MIT J-Machine](excavations/j-machine.md)<br>- [Symbolic AI](excavations/symbolic-ai.md) (types/symbols)<br>- [Prolog, the Warren Abstract Machine, and FGCS Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md) (types/free-variables) |
 | **Associative / Content-Addressable Memory** | Memory queried and written in parallel by content match values rather than physical address decoders, completely bypassing the location boundaries. | - [Associative Processors & Content-Addressable Computing](excavations/associative-processors.md) |
 | **[Hierarchical Ring Protection](GLOSSARY.md)** | Concentric rings of hardware privilege (e.g., Rings 0–3) preventing direct access to more privileged supervisor segments. | - [Multics](excavations/multics.md) |
 | **Single-Level Store (SLS)** | The operating system abstracts memory and secondary storage into a single, flat, persistent virtual address space. | - [Multics](excavations/multics.md) |
@@ -62,7 +62,7 @@ How do independent execution units coordinate and share information?
 | **Parallel Graph Reduction** | Concurrent rewriting of a shared expression graph using distributed active packet/node pools and lock-free synchronization. | - [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md) |
 | **[Generative Communication](GLOSSARY.md)** | Coordinate-free, associative, time-and-space decoupled communication via a shared multi-set pool. | - [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) |
 | **Bi-Directional Hyperlink Coordination** | Structuring parallel synchronization as bidirectional links over versioned publication graphs. | - [Project Xanadu](excavations/project-xanadu.md) |
-| **Rule-Based Inference** | Concurrency controlled by logical implication and dynamic resolution trees. | - [Symbolic AI](excavations/symbolic-ai.md) |
+| **Rule-Based Inference** | Concurrency controlled by logical implication, backward-chaining search, and committed-choice process networks. | - [Symbolic AI](excavations/symbolic-ai.md)<br>- [Prolog, the Warren Abstract Machine, and FGCS Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md) |
 | **Symmetric Math Logic** | Balancing concurrency through sign-bit-free mathematical trits or independent, carry-free modular channels. | - [Balanced Ternary](excavations/balanced-ternary.md)<br>- [Residue Number System (RNS)](excavations/residue-number-system.md)<br>- [Logarithmic Number System (LNS)](excavations/logarithmic-number-system.md) |
 
 ---
