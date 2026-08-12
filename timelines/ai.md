@@ -66,6 +66,9 @@ The table below maps the six core lineages within the context of AI progression,
 
 ## 2020–Present: The Hybrid & Physical AI Era
 
+- **2020**: OpenAI publishes empirical scaling laws for transformer model capabilities, establishing "scaling" as a predictable systems engineering projection. **Key excavation link**: [OpenAI](../excavations/openai.md)
+- **2022**: OpenAI productizes InstructGPT and launches ChatGPT, demonstrating conversational interfaces and post-training alignment (RLHF) as dominant software platform models. **Key excavation link**: [OpenAI](../excavations/openai.md)
+- **2023**: OpenAI introduces the stateful Assistants API thread run loop and schema-validated tool calling, moving foundation models toward agentic runtime engines. **Key excavation link**: [OpenAI](../excavations/openai.md)
 - **2020s**: Large Language Models (LLMs) scale to trillions of parameters, demonstrating reasoning capabilities but suffering from hallucinations, lack of formal truth models, and extreme energy costs.
 - **2020s**: Active research shifts toward **neuro-symbolic integration**, combining deep learning's statistical power with deterministic symbolic reasoning and formal verification. **Key excavation link**: [Symbolic AI](../excavations/symbolic-ai.md)
 - **2020s**: Shifting physical limits force a migration toward continuous physical mediums for AI inference, including analog memristive crossbar arrays and photonic tensor processors. **Key excavation links**: [Analog Computing](../excavations/analog-computing.md) | [Optical Computing](../excavations/optical-computing.md)
