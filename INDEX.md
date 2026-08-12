@@ -55,6 +55,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Burroughs Large Systems](excavations/burroughs-large-systems.md) — *High-level language hardware integration with descriptors and stack architecture.*
 - [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models (KeyKOS, EROS, CHERI).*
 - [Inferno](excavations/inferno.md) — *Distributed VM OS utilizing Limbo and the Styx/[9P protocol](GLOSSARY.md).*
+- [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md) — *Pure object-capability security, minimal nanokernel trusted computing bases, and Continuous Orthogonal Persistence.*
 - [Intel iAPX 432](excavations/intel-iapx-432.md) — *Capability-based object-oriented architecture.*
 - [Linux: The Ubiquitous Substrate](excavations/linux.md) — *How the decoupling of a stable SCI from dynamic kernel internals coupled with open, collaborative production turned a monolithic Unix-like kernel into ubiquitous platform infrastructure.*
 - [Lisp Machines](excavations/lisp-machines.md) — *Single-user, hardware-integrated dynamic environment.*
