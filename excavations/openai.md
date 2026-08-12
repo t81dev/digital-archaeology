@@ -271,7 +271,7 @@ Just as Microsoft converted Windows into a "platform machine" by binding develop
 
 1. **Stateful Lock-In via Threads**: Storing conversational thread histories and vector search embeddings (RAG) directly on OpenAI’s servers makes the migration cost of switching model providers prohibitive. A developer cannot easily export a live, multi-turn Assistant thread to a competitor’s API without completely rebuilding the database synchronization logic.
 2. **Standardization of Tokenizer Spaces**: Designing developer tooling, vector search chunks, and prompt lengths around specific token boundaries (`cl100k_base`) forces downstream database schemas (e.g., Pinecone, pgvector) to conform to OpenAI specifications, aligning adjacent database software markets to its standards.
-3. **The SDK and Library Lock-In**: Because the OpenAI client libraries and API schemas were the first to achieve massive scale, competing model providers (such as Anthropic, Google Gemini, and open-source stacks like Llama.cpp and Ollama) are forced to support the OpenAI API format (e.g., exposing a `/v1/chat/completions` endpoint) to enable developers to drop in their models, admitting that OpenAI defined the default interface protocol of modern AI.
+3. **The SDK and Library Lock-In**: Because the OpenAI client libraries and API schemas were the first to achieve massive scale, competing model providers (such as Anthropic, Google Gemini, and open-source stacks like Llama.cpp and Ollama) are forced to support the [OpenAI API](../GLOSSARY.md) format (e.g., exposing a `/v1/chat/completions` endpoint) to enable developers to drop in their models, admitting that OpenAI defined the default interface protocol of modern AI.
 
 ---
 
@@ -323,9 +323,9 @@ The table below contrasts OpenAI's architectural and platform strategies against
 
 ---
 
-## Constraint Migration
+## [Constraint Migration](../patterns/constraint-migration.md)
 
-Apply the project's **Constraint Migration** framework to analyze how OpenAI navigated physical and software limits:
+Apply the project's **[Constraint Migration](../patterns/constraint-migration.md)** framework to analyze how OpenAI navigated physical and software limits:
 
 ```
                             Constraint Migration
@@ -351,7 +351,7 @@ OpenAI’s computational lineage demonstrates the cyclical nature of computer ar
 
 * **Statistical Language Models $\rightarrow$ Autoregressive Transformers**: The 1990s concept of modeling language statistically via n-gram frequency distributions has re-emerged on an extraordinary scale inside massive autoregressive transformers, trading simple n-gram lookup tables for billion-parameter self-attention maps.
 * **Remote Procedure Calls (RPC) $\rightarrow$ Tool Call / Function Calling**: The classic 1980s concept of calling functions on remote machines (RPC/gRPC) has returned as **Tool Call schemas**, where the model generates structured JSON instructions mapping user intentions to external APIs.
-* **Knowledge Retrieval DBs $\rightarrow$ Retrieval-Augmented Generation (RAG)**: The symbolic AI concept of querying static database indexes has returned as RAG, where the model queries vector indexes to fetch relevant document contexts, dynamically inserting them into the model's context window.
+* **Knowledge Retrieval DBs $\rightarrow$ Retrieval-Augmented Generation (RAG)**: The [symbolic AI](symbolic-ai.md) concept of querying static database indexes has returned as RAG, where the model queries vector indexes to fetch relevant document contexts, dynamically inserting them into the model's context window.
 
 ---
 

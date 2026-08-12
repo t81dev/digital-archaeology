@@ -93,6 +93,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
 * **Linear Feedback Shift Register (LFSR)**: A hardware-efficient shift register whose input bit is a linear function (typically XOR) of its previous states. In alternative architectures like [Stochastic Computing](excavations/stochastic-computing.md), LFSRs serve as compact, high-speed pseudo-random number generators.
   * *See excavation*: [Stochastic Computing](excavations/stochastic-computing.md)
+* **Logarithmic Number System (LNS)**: An alternative real-number arithmetic representation that encodes values by their sign and the logarithm of their absolute value to a selected base. LNS simplifies multiplication, division, and exponentiation into simple fixed-point additions and subtractions while shifting the complexity bottleneck to non-linear addition/subtraction approximations and format conversions.
+  * *See excavation*: [Logarithmic Number System (LNS)](excavations/logarithmic-number-system.md)
 
 ### M
 * **Mixed-Radix Conversion (MRC)**: A non-homogeneous weighted representation conversion algorithm used to decode Residue Number System values into a weighted format, facilitating sign detection and comparison.

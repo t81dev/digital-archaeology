@@ -135,6 +135,10 @@
       "definition": "A hardware-efficient shift register whose input bit is a linear function (typically XOR) of its previous states. In alternative architectures like Stochastic Computing, LFSRs serve as compact, high-speed pseudo-random number generators."
     },
     {
+      "term": "Logarithmic Number System (LNS)",
+      "definition": "An alternative real-number arithmetic representation that encodes values by their sign and the logarithm of their absolute value to a selected base. LNS simplifies multiplication, division, and exponentiation into simple fixed-point additions and subtractions while shifting the complexity bottleneck to non-linear addition/subtraction approximations and format conversions."
+    },
+    {
       "term": "Mixed-Radix Conversion (MRC)",
       "definition": "A non-homogeneous weighted representation conversion algorithm used to decode Residue Number System values into a weighted format, facilitating sign detection and comparison."
     },
@@ -398,7 +402,8 @@
           "analog-computing",
           "stochastic-computing",
           "balanced-ternary",
-          "residue-number-system"
+          "residue-number-system",
+          "logarithmic-number-system"
         ]
       },
       "Photonic / Optical": {
@@ -510,7 +515,8 @@
           "transputers",
           "balanced-ternary",
           "ebcdic",
-          "residue-number-system"
+          "residue-number-system",
+          "logarithmic-number-system"
         ]
       },
       "Bi-Directional Graph Address Space": {
@@ -601,7 +607,8 @@
         "description": "Balancing concurrency through sign-bit-free mathematical trits or independent, carry-free modular channels.",
         "mapped_excavations": [
           "balanced-ternary",
-          "residue-number-system"
+          "residue-number-system",
+          "logarithmic-number-system"
         ]
       }
     }
@@ -1474,6 +1481,46 @@
       ]
     },
     {
+      "id": "logarithmic-number-system",
+      "title": "Logarithmic Number System (LNS)",
+      "path": "excavations/logarithmic-number-system.md",
+      "summary": "The **Logarithmic Number System (LNS)** is an alternative, non-positional arithmetic system that represents real numbers using their sign and the logarithm of their absolute value to a selected base (typically 2). \n\nUnder LNS, the traditional hierarchy of arithmetic operator complexity is inverted. Multiplication, division, roots, and powers become simple, high-speed, carry-free addition and subtraction operations on the log exponents. Conversely, addition and subtraction—which are trivial in positional systems like fixed-point or floating-point—become complex, non-linear functions requiring lookup tables, polynomial interpolation, or hybrid architectures.\n\nLNS emerged as a digital computer arithmetic design space in the late 1960s and 1970s, independently proposed by researchers like Albert Kinsman Edgar and Lee O. Croxton, and later thoroughly analyzed by Earl Swartzlander and Isidore Koren. While LNS has been repeatedly considered as a general-purpose processor replacement for floating-point arithmetic (most notably through initiatives like the European Union's \"GLUCOSE\" and \"Flysig\" projects), its adoption has remained confined to specialized niches. \n\nToday, LNS is undergoing a quiet revival driven by the massive growth of deep learning and neural accelerators, where low-precision, multiplication-heavy matrix-vector products can be executed with exceptional energy efficiency, bypassing the area and power walls of traditional binary floating-point logic.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Explored deeply during the VLSI era for military DSP and flight systems, though eclipsed by commodity floating-point scaling."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "An incredibly elegant mathematical cost inversion that turns multi-bit multiplication into trivial additions, representing a profound alternative to positional systems."
+        },
+        "Commercial Success": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Achieved minor success in niche 3D graphics chips and low-power embedded DSPs, but failed to penetrate general-purpose computing."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Highly relevant for post-CMOS energy-limited accelerators, low-precision AI edge hardware, and silicon photonics pipelines."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Exceptionally matched for quantized neural network inference, mapping transformer weight-activation matrix products to simple, low-power fixed-point adder grids."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Modeling bipartite tables, piecewise polynomial interpolators, and handling the subtraction singularity near zero requires high-fidelity mathematical simulation."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
+    },
+    {
       "id": "microsoft",
       "title": "Microsoft: The Platform Machine",
       "path": "excavations/microsoft.md",
@@ -1837,7 +1884,7 @@
       "id": "residue-number-system",
       "title": "Residue Number System (RNS)",
       "path": "excavations/residue-number-system.md",
-      "summary": "The **Residue Number System (RNS)** is a non-positional, parallel numeral system that represents integers using their remainders (residues) modulo a set of pairwise coprime integers, known as the *moduli set*. \n\nUnlike traditional positional systems (such as binary or decimal), where arithmetic operations must propagate carry signals from the least-significant to the most-significant digits, RNS executes addition, subtraction, and multiplication componentwise without any carry propagation between modular channels. An RNS arithmetic unit can decompose a wide, high-latency calculation (e.g., a 1024-bit cryptographic addition) into multiple narrow, low-latency, and completely independent parallel channels running on simple, small arithmetic blocks.\n\nHistorically, RNS was explored in the late 1950s and early 1960s as a candidate for general-purpose digital computer processors, most notably in Czechoslovakia under Jan Svoboda and Miroslav Valach, and in the United States by researchers such as Harvey Garner, Richard Szabo, and Nicholas Tanaka. While the fundamental non-local nature of division, magnitude comparison, sign detection, and overflow handling eventually locked RNS out of general-purpose microprocessors, the system established deep persistence inside specialized domains. \n\nToday, RNS functions as a critical mathematical backbone for high-speed Digital Signal Processing (DSP), multi-precision public-key cryptography (RSA, Elliptic Curve Cryptography), Fully Homomorphic Encryption (FHE), and emerging high-throughput energy-efficient AI/ML accelerators.",
+      "summary": "The **Residue Number System (RNS)** is a non-positional, parallel numeral system that represents integers using their remainders (residues) modulo a set of pairwise coprime integers, known as the *moduli set*.\n\nUnlike traditional positional systems (such as binary or decimal), where arithmetic operations must propagate carry signals from the least-significant to the most-significant digits, RNS executes addition, subtraction, and multiplication componentwise without any carry propagation between modular channels. An RNS arithmetic unit can decompose a wide, high-latency calculation (e.g., a 1024-bit cryptographic addition) into multiple narrow, low-latency, and completely independent parallel channels running on simple, small arithmetic blocks.\n\nHistorically, RNS was explored in the late 1950s and early 1960s as a candidate for general-purpose digital computer processors, most notably in Czechoslovakia under Jan Svoboda and Miroslav Valach, and in the United States by researchers such as Harvey Garner, Richard Szabo, and Nicholas Tanaka. While the fundamental non-local nature of division, magnitude comparison, sign detection, and overflow handling eventually locked RNS out of general-purpose microprocessors, the system established deep persistence inside specialized domains.\n\nToday, RNS functions as a critical mathematical backbone for high-speed Digital Signal Processing (DSP), multi-precision public-key cryptography (RSA, Elliptic Curve Cryptography), Fully Homomorphic Encryption (FHE), and emerging high-throughput energy-efficient AI/ML accelerators.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
