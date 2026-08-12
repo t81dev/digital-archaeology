@@ -39,6 +39,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### C
 * **Capability-Based Security**: An access control model where processors or operating systems reference unforgeable keys called *capabilities*. A capability contains both a memory range (bounds) and specific permissions (read, write, execute), preventing buffer overflows and enforcing micro-segmentation at the hardware level.
   * *See excavation*: [Capability Systems](excavations/capability-systems.md)
+* **Chinese Remainder Theorem (CRT)**: A mathematical theorem stating that any integer within a dynamic range can be uniquely reconstructed from its residues modulo a set of pairwise coprime moduli, providing the algebraic foundation of RNS.
+  * *See excavation*: [Residue Number System (RNS)](excavations/residue-number-system.md)
 * **Cellular Automata (CA) Hardware**: Spatial computing grids where cells update their state in parallel based on localized transition rules. This model completely bypasses the central ALU bottleneck of Von Neumann architectures.
   * *See excavation*: [Cellular Automata Hardware](excavations/cellular-automata-hardware.md)
 * **Communicating Sequential Processes (CSP)**: A formal language and mathematical model (introduced by Tony Hoare) for concurrent systems where processes communicate solely through synchronous, unbuffered/buffered channels.
@@ -93,6 +95,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Stochastic Computing](excavations/stochastic-computing.md)
 
 ### M
+* **Mixed-Radix Conversion (MRC)**: A non-homogeneous weighted representation conversion algorithm used to decode Residue Number System values into a weighted format, facilitating sign detection and comparison.
+  * *See excavation*: [Residue Number System (RNS)](excavations/residue-number-system.md)
+
+### M
 * **Massively Parallel Processing (MPP)**: A computer architecture that coordinates thousands of independent, single-bit processors in a tightly integrated network to perform highly fine-grained parallel computation.
   * *See excavation*: [Connection Machine](excavations/connection-machine.md)
 * **Micropipelines**: A modular, clockless architecture framework that utilizes localized transition-signaling handshakes to synchronize data flow between pipeline stages.
@@ -124,6 +130,10 @@ This document provides a conceptual glossary of terms from across the excavation
 ### R
 * **Radix Economy**: A mathematical measure of the efficiency of representing numbers in a given base, defined as $R \times \lfloor \log_R(N) + 1 \rfloor$ for base $R$ and maximum value $N$. It is mathematically optimized at the transcendental base $e \approx 2.718$, which makes base 3 (ternary) more efficient than base 2 (binary).
   * *See excavation*: [Balanced Ternary](excavations/balanced-ternary.md)
+* **Residue Number System (RNS)**: A non-positional numeral system representing integers via remainders modulo pairwise coprime integers. RNS eliminates carry propagation for additions, subtractions, and multiplications, executing them in independent parallel channels.
+  * *See excavation*: [Residue Number System (RNS)](excavations/residue-number-system.md)
+* **Redundant Residue Number System (RRNS)**: An extension of RNS incorporating extra (redundant) coprime moduli to form an error-detecting or error-correcting arithmetic code capable of real-time fault isolation.
+  * *See excavation*: [Residue Number System (RNS)](excavations/residue-number-system.md)
 * **[Reversible Computing](excavations/reversible-computing.md)**: A paradigm where logic gates perform bijective (one-to-one) mapping between inputs and outputs, allowing computation to run backward and theoretically bypassing Landauer's thermodynamic limit.
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
 

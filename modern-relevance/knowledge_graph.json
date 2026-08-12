@@ -51,6 +51,10 @@
       "definition": "An access control model where processors or operating systems reference unforgeable keys called *capabilities*. A capability contains both a memory range (bounds) and specific permissions (read, write, execute), preventing buffer overflows and enforcing micro-segmentation at the hardware level."
     },
     {
+      "term": "Chinese Remainder Theorem (CRT)",
+      "definition": "A mathematical theorem stating that any integer within a dynamic range can be uniquely reconstructed from its residues modulo a set of pairwise coprime moduli, providing the algebraic foundation of RNS."
+    },
+    {
       "term": "Cellular Automata (CA) Hardware",
       "definition": "Spatial computing grids where cells update their state in parallel based on localized transition rules. This model completely bypasses the central ALU bottleneck of Von Neumann architectures."
     },
@@ -131,6 +135,10 @@
       "definition": "A hardware-efficient shift register whose input bit is a linear function (typically XOR) of its previous states. In alternative architectures like Stochastic Computing, LFSRs serve as compact, high-speed pseudo-random number generators."
     },
     {
+      "term": "Mixed-Radix Conversion (MRC)",
+      "definition": "A non-homogeneous weighted representation conversion algorithm used to decode Residue Number System values into a weighted format, facilitating sign detection and comparison."
+    },
+    {
       "term": "Massively Parallel Processing (MPP)",
       "definition": "A computer architecture that coordinates thousands of independent, single-bit processors in a tightly integrated network to perform highly fine-grained parallel computation."
     },
@@ -173,6 +181,14 @@
     {
       "term": "Radix Economy",
       "definition": "A mathematical measure of the efficiency of representing numbers in a given base, defined as $R \\times \\lfloor \\log_R(N) + 1 \\rfloor$ for base $R$ and maximum value $N$. It is mathematically optimized at the transcendental base $e \\approx 2.718$, which makes base 3 (ternary) more efficient than base 2 (binary)."
+    },
+    {
+      "term": "Residue Number System (RNS)",
+      "definition": "A non-positional numeral system representing integers via remainders modulo pairwise coprime integers. RNS eliminates carry propagation for additions, subtractions, and multiplications, executing them in independent parallel channels."
+    },
+    {
+      "term": "Redundant Residue Number System (RRNS)",
+      "definition": "An extension of RNS incorporating extra (redundant) coprime moduli to form an error-detecting or error-correcting arithmetic code capable of real-time fault isolation."
     },
     {
       "term": "[Reversible Computing](excavations/reversible-computing.md)",
@@ -381,7 +397,8 @@
         "mapped_excavations": [
           "analog-computing",
           "stochastic-computing",
-          "balanced-ternary"
+          "balanced-ternary",
+          "residue-number-system"
         ]
       },
       "Photonic / Optical": {
@@ -492,7 +509,8 @@
           "stochastic-computing",
           "transputers",
           "balanced-ternary",
-          "ebcdic"
+          "ebcdic",
+          "residue-number-system"
         ]
       },
       "Bi-Directional Graph Address Space": {
@@ -580,9 +598,10 @@
         ]
       },
       "Symmetric Math Logic": {
-        "description": "Balancing concurrency through sign-bit-free, self-balancing mathematical trits.",
+        "description": "Balancing concurrency through sign-bit-free mathematical trits or independent, carry-free modular channels.",
         "mapped_excavations": [
-          "balanced-ternary"
+          "balanced-ternary",
+          "residue-number-system"
         ]
       }
     }
@@ -1812,6 +1831,46 @@
         }
       },
       "modern_relevance": "Xanadu’s ideas are experiencing a renaissance:\n- **Bidirectional links** — Tools like Roam Research, Obsidian, and Wikipedia backlinks.\n- **Transclusion** — Modern note-taking apps, component-based web frameworks, and content reuse systems.\n- **Version control** — Git, Wikipedia history, and decentralized web efforts.\n- **Micropayments and creator economy** — Patreon, Substack, and blockchain-based systems echo the economic vision.\n- **Decentralized web** — IPFS, Solid, and various hypertext revival projects draw direct inspiration.\n\nIn the age of information overload and broken links, Xanadu’s deeper vision feels more relevant than ever.\n\nModern systems should recover the abstractions selectively rather than reproduce the entire design: stable content identities and explicit provenance make archival systems and AI retrieval pipelines more auditable; transclusion avoids uncontrolled copying; and visible backlinks improve navigation. The caution is equally enduring: global consistency, rights enforcement, payments, and a novel user interface should be independently deployable layers, not a prerequisite for reading a document.",
+      "references": []
+    },
+    {
+      "id": "residue-number-system",
+      "title": "Residue Number System (RNS)",
+      "path": "excavations/residue-number-system.md",
+      "summary": "The **Residue Number System (RNS)** is a non-positional, parallel numeral system that represents integers using their remainders (residues) modulo a set of pairwise coprime integers, known as the *moduli set*. \n\nUnlike traditional positional systems (such as binary or decimal), where arithmetic operations must propagate carry signals from the least-significant to the most-significant digits, RNS executes addition, subtraction, and multiplication componentwise without any carry propagation between modular channels. An RNS arithmetic unit can decompose a wide, high-latency calculation (e.g., a 1024-bit cryptographic addition) into multiple narrow, low-latency, and completely independent parallel channels running on simple, small arithmetic blocks.\n\nHistorically, RNS was explored in the late 1950s and early 1960s as a candidate for general-purpose digital computer processors, most notably in Czechoslovakia under Jan Svoboda and Miroslav Valach, and in the United States by researchers such as Harvey Garner, Richard Szabo, and Nicholas Tanaka. While the fundamental non-local nature of division, magnitude comparison, sign detection, and overflow handling eventually locked RNS out of general-purpose microprocessors, the system established deep persistence inside specialized domains. \n\nToday, RNS functions as a critical mathematical backbone for high-speed Digital Signal Processing (DSP), multi-precision public-key cryptography (RSA, Elliptic Curve Cryptography), Fully Homomorphic Encryption (FHE), and emerging high-throughput energy-efficient AI/ML accelerators.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Played a pivotal role in early Eastern European computing, became a foundational architecture for military DSP filtering, and is now the critical accelerator for FHE."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "An incredibly elegant mathematical abstraction that completely eliminates carry-propagation pipelines, representing the ultimate physical limit of parallel addition/multiplication."
+        },
+        "Commercial Success": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Highly successful in highly specialized defense niches (radar/sonar DSP) and modern cryptographic secure coprocessors, but failed to capture the mass consumer CPU market."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Essential for post-CMOS computing paradigms, FHE cloud computing, privacy-preserving MPC, and highly efficient edge AI/ML hardware accelerators."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Directly accelerates dense matrix-vector multiplications for low-precision neural networks, enabling massive parallel multiplier arrays using simple, low-power gates."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Simulating parallel modular channels with floating-point-free fractional CRT sign detection, base extensions, and MRC triangular networks requires high-fidelity integer arithmetic."
+        }
+      },
+      "modern_relevance": "",
       "references": []
     },
     {
