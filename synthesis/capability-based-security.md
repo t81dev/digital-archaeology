@@ -24,13 +24,14 @@ This represents a paradigm shift from traditional **Access Control Lists (ACLs)*
 
 ## Historical Wave & Alternative Lineages
 
-The development of capability and descriptor-based security progressed through three major historical waves:
+The development of capability and descriptor-based security progressed through several major historical waves and alternative microkernel paradigms:
 
 1. **[Burroughs Large Systems](../excavations/burroughs-large-systems.md) (1961)**: Barton's team introduced the **tagged-memory and descriptor** architecture. Every pointer was represented as a hardware-checked descriptor containing a segment base, limit, write-protection bit, and a virtual memory presence bit. This was the first commercial implementation of spatial memory safety, rendering buffer overflows and arbitrary memory corruption physically impossible.
 2. **[Multics](../excavations/multics.md) (1965)**: Developed hierarchical ring-based protection and dynamic segmentation, establishing the mathematical foundations of protection domains.
-3. **[Intel iAPX 432](../excavations/intel-iapx-432.md) (1981)**: Intel’s ambitious attempt to implement a pure, two-level [object-capability model](../GLOSSARY.md) in silicon. Access descriptors mapped to system-wide object tables, enforcing strict object type safety and fine-grained permissions at the microcode level.
-4. **[Lisp Machines](../excavations/lisp-machines.md) (1980s)**: Mainstreamed **dynamic type-tag checking** in hardware. Every pointer and data word was paired with an out-of-band tag that protected execution integrity.
-5. **[Capability Systems](../excavations/capability-systems.md)**: Hardware architectures like the Cambridge CAP Computer, HYDRA, and KeyKOS operating system demonstrated pure capabilities, proving least-privilege compartmentalization.
+3. **[KeyKOS](../GLOSSARY.md) micro-capabilities / nanokernel capabilities (1980s)**: [KeyKOS](../GLOSSARY.md) demonstrated a pure object-capability software system enforced inside a minimal nanokernel Trusted Computing Base (TCB). Rather than using hardware-enforced pointers like Burroughs, [KeyKOS](../GLOSSARY.md) designed unforgeable **capabilities (keys)** at the software system layer. Possession of a key acted as the sole, non-ambient path to object method invocation and resources, providing extreme compartmentalization. [KeyKOS](../GLOSSARY.md) combined object-capabilities with continuous, system-wide **orthogonal persistence** (a single-level store) that automatically checkpointed the active capability graph, preventing cold-reboot state losses.
+4. **[Intel iAPX 432](../excavations/intel-iapx-432.md) (1981)**: Intel’s ambitious attempt to implement a pure, two-level [object-capability model](../GLOSSARY.md) in silicon. Access descriptors mapped to system-wide object tables, enforcing strict object type safety and fine-grained permissions at the microcode level.
+5. **[Lisp Machines](../excavations/lisp-machines.md) (1980s)**: Mainstreamed **dynamic type-tag checking** in hardware. Every pointer and data word was paired with an out-of-band tag that protected execution integrity.
+6. **[Capability Systems](../excavations/capability-systems.md)**: Hardware architectures like the Cambridge CAP Computer, HYDRA, and [KeyKOS](../GLOSSARY.md) operating system demonstrated pure capabilities, proving least-privilege compartmentalization.
 
 Most of these efforts failed commercially due to the high performance cost of descriptor indirection, serial bus latencies in early silicon, and the overwhelming economic momentum of simpler CISC/RISC lines (x86, Motorola 68000) that prioritized raw clock speeds over security.
 
@@ -98,6 +99,7 @@ Several modern architectural pressures have transformed capabilities from an aca
 - **[Intel iAPX 432](../excavations/intel-iapx-432.md)** — Highly integrated, object-oriented, capability hardware.
 - **[Lisp Machines](../excavations/lisp-machines.md)** — [Tagged memory](../GLOSSARY.md) architecture and dynamic type enforcement.
 - **[Multics](../excavations/multics.md)** — Early ring-based boundaries and segment paging.
+- **[KeyKOS and the Nanokernel Capability Lineage](../excavations/keykos-nanokernel-capabilities.md)** — Pure object-capability security, minimal TCB, and continuous system-wide orthogonal persistence.
 
 **Related Patterns**:
 - **[Recurring Ideas](../patterns/recurring-ideas.md)** — Core concepts that keep returning under shifting resource limits.

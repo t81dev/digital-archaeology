@@ -1,8 +1,8 @@
 # Digital Archaeology
 
 [![Research Phase: Active](https://img.shields.io/badge/Research--Phase-Active-success.svg)](ROADMAP.md)
-[![Reconstructions: 15 Simulators & Models](https://img.shields.io/badge/Reconstructions-15%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
-[![Completed Excavations: 43](https://img.shields.io/badge/Completed--Excavations-43-orange.svg)](#project-pillars)
+[![Reconstructions: 18 Simulators & Models](https://img.shields.io/badge/Reconstructions-18%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
+[![Completed Excavations: 48](https://img.shields.io/badge/Completed--Excavations-48-orange.svg)](#project-pillars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > *Excavating forgotten ideas. Recovering lost innovations. Reconstructing alternate futures.*
@@ -36,7 +36,7 @@ Digital Archaeology bridges systems history with modern hardware/software co-des
 4. **Distributed Systems & Single-Level-Store OS**: Decoupled, location-transparent namespaces. Features **Plan 9 Dynamic Namespaces**, **9P Protocol message servers**, **Multics SLS**, and **Inferno VM**.
 
 * **Where is the Revival Scorecard?** Explore the [Modern Revival Readiness Scorecard](modern-relevance/revival-readiness.md) for a quantitative, analytical comparative scorecard and high-density constraint-migration synthesis evaluating these lineages under modern sub-5nm silicon constraints.
-* **Where are the Simulators?** We maintain **15 zero-dependency simulators** and synthesizable SystemVerilog soft-cores. Run them instantly (e.g., `python3 reconstructions/systolic-array/systolic_sim.py` or `python3 reconstructions/plan9-9p/namespace_sim.py`).
+* **Where are the Simulators?** We maintain **18 zero-dependency simulators** and synthesizable SystemVerilog soft-cores. Run them instantly (e.g., `python3 reconstructions/systolic-array/systolic_sim.py` or `python3 reconstructions/plan9-9p/namespace_sim.py`).
 
 ---
 
@@ -72,7 +72,7 @@ Select your specialization to discover immediate entry points into the repositor
         ┌───────────────────────────────┼───────────────────────────────┐
         ▼                               ▼                               ▼
   [EXCAVATIONS]                    [SYNTHESIS]                   [RECONSTRUCTIONS]
- 35 deep dives into              Comparative and                15 executable models
+ 40 deep dives into              Comparative and                18 executable models
  historical paradigms.          architectural essays.           and simulators.
         │                               │                               │
         └───────────────────────────────┼───────────────────────────────┘
@@ -186,6 +186,9 @@ Moving from historical theory to active software and hardware prototyping, we ma
 | 🧮 **[Systolic Array Simulator](reconstructions/systolic-array/)** | [Systolic Arrays](excavations/systolic-arrays.md) | Cycle-accurate simulation of Weight-Stationary and Output-Stationary dataflows with CMOS energy proxy metrics. | `reconstructions/systolic-array/systolic_sim.py` |
 | 🧠 **[Neuromorphic Spiking Simulator](reconstructions/neuromorphic-spiking/)** | [Neuromorphic Hardware](excavations/neuromorphic-hardware.md) | Event-driven SNN routing using Leaky Integrate-and-Fire (LIF) dynamics and STDP learning rules. | `reconstructions/neuromorphic-spiking/spiking_sim.py` |
 | 🎲 **[Predictive Hypothesis Engine](reconstructions/predictive-hypothesis/)** | [Constraint Migration](patterns/constraint-migration.md) • [Recurring Ideas](patterns/recurring-ideas.md) | Forecaster modeling emerging post-CMOS physics and predicting alternative hardware lineage revival scores. | `reconstructions/predictive-hypothesis/predictive_engine.py` |
+| 🧮 **[RNS Arithmetic Simulator](reconstructions/rns-arithmetic/)** | [Residue Number System (RNS)](excavations/residue-number-system.md) | Parallel, carry-free componentwise modular addition/multiplication and CRT decoding. | `reconstructions/rns-arithmetic/rns_sim.py` |
+| 🧮 **[LNS Arithmetic Simulator](reconstructions/lns-arithmetic/)** | [Logarithmic Number System (LNS)](excavations/logarithmic-number-system.md) | Logarithmic encoding/decoding, multiplication/division, and Jacobian log adder. | `reconstructions/lns-arithmetic/lns_sim.py` |
+| 🛡️ **[KeyKOS-style Capability Simulator](reconstructions/keykos-capabilities/)** | [KeyKOS Capabilities](excavations/keykos-nanokernel-capabilities.md) | Unforgeable keys, attenuation, message-invocation routing, and orthogonal persistence. | `reconstructions/keykos-capabilities/keykos_sim.py` |
 
 ### Quick Start: Running the Simulators
 You can run all simulators locally out-of-the-box. They are written in standard Python 3 and require no third-party libraries:
@@ -236,6 +239,15 @@ python3 reconstructions/neuromorphic-spiking/spiking_sim.py
 
 # Run the Constraint Migration Predictive Hypothesis Engine
 python3 reconstructions/predictive-hypothesis/predictive_engine.py
+
+# Run the RNS Arithmetic Simulator
+python3 reconstructions/rns-arithmetic/rns_sim.py
+
+# Run the LNS Arithmetic Simulator
+python3 reconstructions/lns-arithmetic/lns_sim.py
+
+# Run the KeyKOS Capability Simulator
+python3 reconstructions/keykos-capabilities/keykos_sim.py
 ```
 
 ---

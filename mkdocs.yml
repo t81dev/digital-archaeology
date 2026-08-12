@@ -74,6 +74,7 @@ nav:
   - Excavations:
     - Overview: excavations/README.md
     - Analog Computing: excavations/analog-computing.md
+    - Apple: excavations/apple.md
     - Associative Processors: excavations/associative-processors.md
     - Asynchronous Processors: excavations/asynchronous-processors.md
     - Balanced Ternary: excavations/balanced-ternary.md
@@ -83,20 +84,29 @@ nav:
     - Cellular Automata: excavations/cellular-automata-hardware.md
     - Connection Machine: excavations/connection-machine.md
     - Dataflow Computing: excavations/dataflow-computing.md
+    - EBCDIC: excavations/ebcdic.md
     - Explicit Data Graph Execution (EDGE): excavations/edge-architecture.md
+    - Fluidic Logic Systems: excavations/fluidic-logic-systems.md
     - Graph Reduction Machines: excavations/graph-reduction-machines.md
     - Inferno: excavations/inferno.md
     - Intel iAPX 432: excavations/intel-iapx-432.md
     - MIT J-Machine: excavations/j-machine.md
+    - KeyKOS & Nanokernel Capabilities: excavations/keykos-nanokernel-capabilities.md
     - Lisp Machines: excavations/lisp-machines.md
+    - Linux: excavations/linux.md
     - Linda Tuple Spaces: excavations/linda-tuple-spaces.md
+    - Logarithmic Number System: excavations/logarithmic-number-system.md
+    - Microsoft: excavations/microsoft.md
     - Molecular Biocomputing: excavations/molecular-biocomputing.md
     - Multics: excavations/multics.md
     - Neuromorphic Hardware: excavations/neuromorphic-hardware.md
     - Occam: excavations/occam.md
+    - OpenAI: excavations/openai.md
     - Optical Computing: excavations/optical-computing.md
     - Plan 9: excavations/plan-9.md
     - Project Xanadu: excavations/project-xanadu.md
+    - Prolog & FGCS WAM Hardware: excavations/prolog-wam-fgcs-hardware.md
+    - Residue Number System: excavations/residue-number-system.md
     - Reversible Computing: excavations/reversible-computing.md
     - Smalltalk: excavations/smalltalk.md
     - Stack Machines: excavations/stack-machines.md
@@ -119,10 +129,12 @@ nav:
   - Comparative Synthesis:
     - Research & Academic Overview: synthesis/digital-archaeology-overview.md
     - Architectural Distillation: synthesis/architectural-distillation.md
+    - Architectural Roadmap Re-Evaluation: synthesis/architectural-roadmap-re-evaluation.md
     - Alternative Mathematical Execution Paradigms: synthesis/alternative-mathematical-execution-paradigms.md
     - Capability-Based Security: synthesis/capability-based-security.md
     - Compiler-Hardware Co-Design: synthesis/compiler-hardware-co-design.md
     - The Evolution of Coordination Abstractions: synthesis/evolution-of-coordination-abstractions.md
+    - Heterogeneous Revival Synergies: synthesis/heterogeneous-revival-synergies.md
     - Return of Spatial Computing: synthesis/return-of-spatial-computing.md
     - State of Revival Synthesis: synthesis/state-of-revival.md
   - Modern Relevance:

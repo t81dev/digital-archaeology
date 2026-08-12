@@ -53,7 +53,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Apple: The Integrated Platform Surface](excavations/apple.md) — *How hardware, system software, runtimes, sandboxes, and distribution were co-designed into a resilient, vertically [integrated platform surface](GLOSSARY.md).*
 - [BeOS / Haiku](excavations/beos-haiku.md) — *Media-optimized, responsive OS with modern design (revived as open-source Haiku).*
 - [Burroughs Large Systems](excavations/burroughs-large-systems.md) — *High-level language hardware integration with descriptors and stack architecture.*
-- [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models (KeyKOS, EROS, CHERI).*
+- [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models ([KeyKOS](GLOSSARY.md), EROS, CHERI).*
 - [Inferno](excavations/inferno.md) — *Distributed VM OS utilizing Limbo and the Styx/[9P protocol](GLOSSARY.md).*
 - [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md) — *Pure object-capability security, minimal nanokernel trusted computing bases, and Continuous Orthogonal Persistence.*
 - [Intel iAPX 432](excavations/intel-iapx-432.md) — *Capability-based object-oriented architecture.*
@@ -133,6 +133,9 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Neuromorphic Spiking Simulator](reconstructions/neuromorphic-spiking/) — *An event-driven SNN routing simulator modeling Leaky Integrate-and-Fire (LIF) dynamics and STDP learning rules.*
 - [OpenAI Assistants Thread & Tool Run Loop Simulator](reconstructions/openai_sim/) — *An interactive agentic runtime executing turn-based ChatML tokenizer frames, stateful server-managed threads, and schema-validated tool output run steps.*
 - [Constraint Migration Predictive Hypothesis Engine](reconstructions/predictive-hypothesis/) — *A Python-based forecasting tool that maps historically sidelined architectural failures to emerging post-CMOS physical limits, predicting their revival potential.*
+- [RNS Arithmetic Simulator](reconstructions/rns-arithmetic/) — *Parallel, carry-free componentwise modular addition/multiplication and Chinese Remainder Theorem decoding.*
+- [LNS Arithmetic Simulator](reconstructions/lns-arithmetic/) — *Logarithmic encoding/decoding, multiplication/division, and Jacobian log adder.*
+- [KeyKOS-style Capability Simulator](reconstructions/keykos-capabilities/) — *Unforgeable keys, attenuation, message-invocation routing, and continuous orthogonal persistence.*
 
 ---
 
