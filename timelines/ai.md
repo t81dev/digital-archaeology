@@ -48,6 +48,7 @@ The table below maps the six core lineages within the context of AI progression,
 ## 1990s–2000s: Statistical Dominance & The Symbolic Winter
 
 - **1990s**: The "First AI Winter" hits symbolic systems; specialized [Lisp Machines](../excavations/lisp-machines.md) go out of business due to cheap commodity x86 chips. **Key excavation link**: [Lisp Machines](../excavations/lisp-machines.md)
+- **1991**: Linus Torvalds releases Linux v0.01, starting the OS ecosystem that later hosted commodity cluster and cloud computing for AI workloads. **Key excavation link**: [Linux](../excavations/linux.md)
 - **1997**: IBM's **Deep Blue** defeats Garry Kasparov, combining massively parallel alpha-beta search with a handcrafted evaluation function. **Key excavation link**: [Associative Processors](../excavations/associative-processors.md)
 - **2000s**: Support Vector Machines (SVMs) and Bayesian networks dominate AI research; neural networks and symbolic logic are largely marginalized.
 
@@ -57,6 +58,7 @@ The table below maps the six core lineages within the context of AI progression,
 
 - **2012**: **AlexNet** wins the ImageNet competition using a convolutional neural network accelerated on standard graphics GPUs, launching the modern Deep Learning era. **Key excavation link**: [Associative Processors](../excavations/associative-processors.md)
 - **2014**: IBM reveals **TrueNorth**, an asynchronous spiking neuromorphic processor with 1 million digital neurons. **Key excavation link**: [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
+- **2014**: Linux integrates eBPF, enabling dynamic network monitoring and execution telemetry in massive high-performance distributed AI computing clusters. **Key excavation link**: [Linux](../excavations/linux.md)
 - **2016**: Google deploys the first **Tensor Processing Unit (TPU)**, resurrecting synchronous 2D [systolic array](../GLOSSARY.md) meshes to perform matrix multiplications. **Key excavation link**: [Systolic Arrays](../excavations/systolic-arrays.md)
 - **2017**: The Transformer architecture is introduced, scaling to billions of parameters and demonstrating massive parallel training capability on GPU clusters.
 

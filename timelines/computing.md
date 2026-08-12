@@ -67,6 +67,7 @@ The table below maps the six core lineages across historical computing eras, ill
 
 ## 1990s: Commodity Consolidation & The Software Backlash
 
+- **1991**: Linus Torvalds releases Linux v0.01, establishing a monolithic hardware-decoupled kernel with a highly stable SCI. **Key excavation link**: [Linux](../excavations/linux.md)
 - **1992**: Bell Labs begins distribution of **[Plan 9](../excavations/plan-9.md)**, a distributed successor to Unix implementing private dynamic namespaces via the Styx/[9P protocol](../GLOSSARY.md). **Key excavation link**: [Plan 9](../excavations/plan-9.md)
 - **1994**: Leonard Adleman performs the first DNA-based molecular calculation. **Key excavation link**: [Molecular & Biocomputing](../excavations/molecular-biocomputing.md)
 - **1995**: Be Inc. releases **BeOS**, a multi-threaded media-centric operating system optimized for responsive symmetrical multiprocessing. **Key excavation link**: [BeOS / Haiku](../excavations/beos-haiku.md)
@@ -82,6 +83,7 @@ The table below maps the six core lineages across historical computing eras, ill
 - **2001**: Intel releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](../excavations/vliw-epic.md)
 - **2003–2006**: The DARPA-funded **TRIPS (EDGE)** processor demonstrates instruction-level spatial dataflow compilation and block-structured scheduling. **Key excavation link**: [Explicit Data Graph Execution (EDGE)](../excavations/edge-architecture.md)
 - **2004**: Dennard scaling breaks down (the Power Wall), ending the era of single-thread frequency scaling and forcing the industry toward multi-core CPUs.
+- **2007**: Linux integrates the Kernel-based Virtual Machine (KVM) and container groups (cgroups), laying the foundation for modern cloud density. **Key excavation link**: [Linux](../excavations/linux.md)
 - **Late 2000s**: The GPU revolution begins, repurposing 3D graphics hardware for massively parallel vector math. **Key excavation link**: [Associative Processors](../excavations/associative-processors.md)
 
 ---
@@ -89,6 +91,7 @@ The table below maps the six core lineages across historical computing eras, ill
 ## 2010s–Present: Post-CMOS Re-Emergence & AI Dominance
 
 - **2014**: IBM reveals **TrueNorth**, a 1-million-neuron asynchronous spiking processor. **Key excavation link**: [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
+- **2014**: eBPF is integrated into the Linux kernel, turning supervisor space into a safe, programmable infrastructure substrate. **Key excavation link**: [Linux](../excavations/linux.md)
 - **2019**: Cerebras launches the **Wafer-Scale Engine (WSE)**, bypassing package boundaries with a 400,000-core monolithic silicon wafer for AI workloads. **Key excavation link**: [Wafer-Scale Integration](../excavations/wafer-scale-integration.md)
 - **2020s**: AI hardware developers resurrect **[Systolic Arrays](../excavations/systolic-arrays.md)** (Google TPUs), **[Stochastic Computing](../excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors).
 - **2020s**: Proliferation of heterogeneous coprocessors as general-purpose Moore's Law slows down.

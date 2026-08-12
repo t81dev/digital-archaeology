@@ -15,6 +15,10 @@
       "definition": "A lineage of custom-designed, ARM-based System-on-Chip (SoC) architectures integrating high-bandwidth Unified Memory, Secure Enclave processors, and dynamic matrix-multiplication co-processors tightly integrated with the system compilers."
     },
     {
+      "term": "ABI (Application Binary Interface)",
+      "definition": "The low-level interface between compiled binary user-space software and the operating system kernel, encompassing registers, calling conventions, and system calls."
+    },
+    {
       "term": "Active Messages",
       "definition": "A communication paradigm for high-performance parallel systems where each message packet contains in its header the address of an execution handler. Upon arrival, the handler executes immediately using the packet's payload as arguments, bypassing operating system scheduling and context-switching overhead."
     },
@@ -85,6 +89,10 @@
     {
       "term": "EBCDIC (Extended Binary Coded Decimal Interchange Code)",
       "definition": "An 8-bit character encoding family designed by IBM in 1963 for the System/360 architecture, combining mechanical zone and digit punch mappings from Herman Hollerith's card layouts, resulting in non-contiguous alphabet segments and unique sorting semantics."
+    },
+    {
+      "term": "eBPF (Extended Berkeley Packet Filter)",
+      "definition": "An in-kernel, register-based virtual machine and safe bytecode runtime executing verified programs dynamically inside the supervisor-mode event path of the Linux kernel."
     },
     {
       "term": "Explicit Data Graph Execution (EDGE)",
@@ -211,6 +219,10 @@
       "definition": "A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads."
     },
     {
+      "term": "VFS (Virtual File System)",
+      "definition": "An in-kernel polymorphic file dispatcher and object-oriented abstraction mapping uniform system-calls (`read`, `write`, `open`) to diverse physical filesystem drivers."
+    },
+    {
       "term": "Very Long Instruction Word (VLIW)",
       "definition": "A processor design where the compiler groups independent, parallel operations into a single, very wide instruction word, relying on compile-time analysis rather than dynamic out-of-order execution hardware."
     },
@@ -308,6 +320,7 @@
           "ebcdic",
           "inferno",
           "intel-iapx-432",
+          "linux",
           "lisp-machines",
           "microsoft",
           "multics",
@@ -454,6 +467,7 @@
         "mapped_excavations": [
           "apple",
           "inferno",
+          "linux",
           "microsoft",
           "smalltalk",
           "smalltalk",
@@ -491,6 +505,7 @@
         "mapped_excavations": [
           "apple",
           "beos-haiku",
+          "linux",
           "microsoft",
           "plan-9",
           "GLOSSARY",
@@ -612,7 +627,7 @@
       "id": "apple",
       "title": "Apple: The Integrated Platform Surface",
       "path": "excavations/apple.md",
-      "summary": "The Apple computational lineage is commonly analyzed through corporate biography, industrial design aesthetic, or consumer marketing narratives. From the perspective of digital archaeology, however, **Apple represents a highly specialized paradigm of hardware–software–runtime vertical integration**. \n\nApple's primary architectural achievement was not any single computer or operating system, but rather the **engineering of a cohesive, vertically integrated platform surface**. By treating the entire stack—from custom silicon co-processors to system APIs, developer toolchains, dynamic runtimes, and centralized application distribution engines—as a single designed surface, Apple solved the classic coordination problems of software compatibility and hardware advancement. This integration enabled Apple to execute multiple rapid, high-fidelity platform transitions (e.g., 68000 $\\rightarrow$ PowerPC $\\rightarrow$ Intel $\\rightarrow$ Apple Silicon; Classic Mac OS $\\rightarrow$ NeXTSTEP/OS X; desktop computing $\\rightarrow$ mobile $\\rightarrow$ on-device AI) while maintaining strict developer control, high ecosystem-scale persistence, and powerful user lock-in.",
+      "summary": "The Apple computational lineage is commonly analyzed through corporate biography, industrial design aesthetic, or consumer marketing narratives. From the perspective of digital archaeology, however, **Apple represents a highly specialized paradigm of hardware–software–runtime vertical integration**.\n\nApple's primary architectural achievement was not any single computer or operating system, but rather the **engineering of a cohesive, vertically integrated platform surface**. By treating the entire stack—from custom silicon co-processors to system APIs, developer toolchains, dynamic runtimes, and centralized application distribution engines—as a single designed surface, Apple solved the classic coordination problems of software compatibility and hardware advancement. This integration enabled Apple to execute multiple rapid, high-fidelity platform transitions (e.g., 68000 $\\rightarrow$ PowerPC $\\rightarrow$ Intel $\\rightarrow$ Apple Silicon; Classic Mac OS $\\rightarrow$ NeXTSTEP/OS X; desktop computing $\\rightarrow$ mobile $\\rightarrow$ on-device AI) while maintaining strict developer control, high ecosystem-scale persistence, and powerful user lock-in.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -1341,6 +1356,46 @@
         "Gelernter, D., & Carriero, N. (1992). *Coordination languages and their significance*. Communications of the ACM, 35(2), 97-107.",
         "Leler, W. (1990). *Linda meets Unix*. Computer, 23(2), 43-54."
       ]
+    },
+    {
+      "id": "linux",
+      "title": "Linux: The Ubiquitous Substrate",
+      "path": "excavations/linux.md",
+      "summary": "The Linux computational lineage is frequently analyzed through popular narratives of open-source triumph, community activism, or the personal biography of Linus Torvalds. In digital archaeology, however, **Linux represents a highly successful paradigm of interface stability, internal structural dynamism, and adaptive packaging**.\n\nLinux's primary architectural achievement was not the design of a clean, theoretical operating system, but rather the **engineering of a robust, highly portable monolithic abstraction layer**. By establishing an uncompromisingly stable user-space ABI (system-call interface) while allowing the internal kernel implementation to remain in a state of continuous, aggressive refactoring, Linux decoupled user-space software from hardware progression. This design, paired with a collaborative, hierarchical review process and the copyleft dynamics of the GPLv2 license, allowed Linux to absorb drivers, filesystems, and architectures faster than any proprietary competitor. Consequently, Linux repeatedly migrated across shifting physical and computational constraints—from hobbyist x86 clones to enterprise SMP servers, virtualized hypervisors, sandboxed container clusters, Android mobile platforms, and modern multi-accelerator AI infrastructure.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Standardized global server infrastructure, powered the cloud-native revolution, and established the baseline execution target for modern computing."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Mastered composable container isolation (namespaces/cgroups), in-kernel verified virtual machines (eBPF), and polymorphic VFS interfaces."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Generated trillions of dollars in downstream enterprise value, capturing the server, supercomputing, cloud, and mobile domains."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Positioned as the default orchestration layer connecting heterogeneous compute hardware, GPUs, NPUs, and cloud resources."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Core platform hosting distributed AI training, low-latency GPUDirect bypass pipelines, and containerized runtime reproducibility."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Rebuilding the thirty-million-line kernel tree and its global device driver catalog is technically and economically impossible."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
     },
     {
       "id": "lisp-machines",
@@ -2700,6 +2755,24 @@
       "description": "Carver Mead publishes *Analog VLSI and Neural Systems*, establishing the physical foundation for silicon brain-inspired computing. **Key excavation link**: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)"
     },
     {
+      "category": "AI",
+      "time": "1991",
+      "sort_year": 1991,
+      "description": "Linus Torvalds releases Linux v0.01, starting the OS ecosystem that later hosted commodity cluster and cloud computing for AI workloads. **Key excavation link**: [Linux](excavations/linux.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1991",
+      "sort_year": 1991,
+      "description": "Linus Torvalds releases Linux v0.01, establishing a monolithic hardware-decoupled kernel with a highly stable SCI. **Key excavation link**: [Linux](excavations/linux.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "1991",
+      "sort_year": 1991,
+      "description": "Linus Torvalds releases Linux v0.01, establishing a monolithic hardware-decoupled kernel with a highly stable SCI. **Key excavation link**: [Linux](excavations/linux.md)"
+    },
+    {
       "category": "COMPUTING",
       "time": "1992",
       "sort_year": 1992,
@@ -2766,6 +2839,18 @@
       "description": "Dennard scaling breaks down (the Power Wall), ending the era of single-thread frequency scaling and forcing the industry toward multi-core CPUs."
     },
     {
+      "category": "COMPUTING",
+      "time": "2007",
+      "sort_year": 2007,
+      "description": "Linux integrates the Kernel-based Virtual Machine (KVM) and container groups (cgroups), laying the foundation for modern cloud density. **Key excavation link**: [Linux](excavations/linux.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "2007",
+      "sort_year": 2007,
+      "description": "Linux integrates the Kernel-based Virtual Machine (KVM) and container groups (cgroups), laying the foundation for modern cloud density. **Key excavation link**: [Linux](excavations/linux.md)"
+    },
+    {
       "category": "AI",
       "time": "2012",
       "sort_year": 2012,
@@ -2778,16 +2863,34 @@
       "description": "IBM reveals **TrueNorth**, an asynchronous spiking neuromorphic processor with 1 million digital neurons. **Key excavation link**: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)"
     },
     {
+      "category": "AI",
+      "time": "2014",
+      "sort_year": 2014,
+      "description": "Linux integrates eBPF, enabling dynamic network monitoring and execution telemetry in massive high-performance distributed AI computing clusters. **Key excavation link**: [Linux](excavations/linux.md)"
+    },
+    {
       "category": "COMPUTING",
       "time": "2014",
       "sort_year": 2014,
       "description": "IBM reveals **TrueNorth**, a 1-million-neuron asynchronous spiking processor. **Key excavation link**: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)"
     },
     {
+      "category": "COMPUTING",
+      "time": "2014",
+      "sort_year": 2014,
+      "description": "eBPF is integrated into the Linux kernel, turning supervisor space into a safe, programmable infrastructure substrate. **Key excavation link**: [Linux](excavations/linux.md)"
+    },
+    {
       "category": "HARDWARE",
       "time": "2014",
       "sort_year": 2014,
       "description": "IBM reveals **TrueNorth**, an asynchronous spiking neuromorphic processor with 1 million digital neurons. **Key excavation link**: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)"
+    },
+    {
+      "category": "HARDWARE",
+      "time": "2014",
+      "sort_year": 2014,
+      "description": "eBPF is integrated into the Linux kernel, turning supervisor space into a safe, programmable infrastructure substrate. **Key excavation link**: [Linux](excavations/linux.md)"
     },
     {
       "category": "AI",
