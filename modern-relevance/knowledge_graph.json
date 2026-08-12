@@ -1444,9 +1444,9 @@
     },
     {
       "id": "keykos-nanokernel-capabilities",
-      "title": "KeyKOS and the Nanokernel Capability Lineage",
+      "title": "[KeyKOS](../GLOSSARY.md) and the Nanokernel Capability Lineage",
       "path": "excavations/keykos-nanokernel-capabilities.md",
-      "summary": "The nanokernel capability lineage—pioneered by **KeyKOS** in the 1970s and 1980s and extended by **EROS**, **CapROS**, and **Coyotos**—represents one of computing history’s most radical departures from the dominant ambient-authority paradigm. In this architecture, security is not a boundary layer added to a traditional operating system; rather, the protection model is the operating system itself. By combining pure object-capabilities with an extremely minimal trusted computing base (TCB) and a system-wide single-level store, these systems proved that security, high availability, and performance could be co-designed as a single, coherent platform.\n\nInstead of access-control lists, user IDs, or privilege levels, authority in KeyKOS is mediated exclusively through unforgeable tokens called **keys** (capabilities) that combine designation and permission. The kernel is a \"nanokernel\" (pre-dating the microkernel term) responsible only for managing a tiny set of primitive objects (nodes, pages, keys, and meters) and routing messages. Crucially, the system features **orthogonal persistence**, meaning the entire capability graph and execution state are periodically and transactionally checkpointed to disk. Volatile RAM acts merely as a fast cache for a persistent, single-level memory store, making the system immune to abrupt power loss or sudden crashes.\n\nDespite demonstrating unprecedented security and reliability in commercial environments (such as Tymshare’s mainframe network) and achieving microsecond-level IPC performance in research descendants (EROS), this lineage was locked out of mainstream adoption. This failure was not driven by intrinsic technical limitations, but by severe **ecosystem lock-in** around Unix and Windows, programmer unfamiliarity with capability-based coordination, and the friction of emulation layers. However, as modern systems face catastrophic memory-safety bottlenecks, hardware capability revivals (CHERI), and zero-trust cloud isolation challenges, the abstractions unearthed from the KeyKOS lineage provide essential blueprints for secure, next-generation computing surfaces.",
+      "summary": "The nanokernel capability lineage—pioneered by **[KeyKOS](../GLOSSARY.md)** in the 1970s and 1980s and extended by **EROS**, **CapROS**, and **Coyotos**—represents one of computing history’s most radical departures from the dominant ambient-authority paradigm. In this architecture, security is not a boundary layer added to a traditional operating system; rather, the protection model is the operating system itself. By combining pure object-capabilities with an extremely minimal trusted computing base (TCB) and a system-wide single-level store, these systems proved that security, high availability, and performance could be co-designed as a single, coherent platform.\n\nInstead of access-control lists, user IDs, or privilege levels, authority in [KeyKOS](../GLOSSARY.md) is mediated exclusively through unforgeable tokens called **keys** (capabilities) that combine designation and permission. The kernel is a \"nanokernel\" (pre-dating the microkernel term) responsible only for managing a tiny set of primitive objects (nodes, pages, keys, and meters) and routing messages. Crucially, the system features **orthogonal persistence**, meaning the entire capability graph and execution state are periodically and transactionally checkpointed to disk. Volatile RAM acts merely as a fast cache for a persistent, single-level memory store, making the system immune to abrupt power loss or sudden crashes.\n\nDespite demonstrating unprecedented security and reliability in commercial environments (such as Tymshare’s mainframe network) and achieving microsecond-level IPC performance in research descendants (EROS), this lineage was locked out of mainstream adoption. This failure was not driven by intrinsic technical limitations, but by severe **[ecosystem lock-in](../patterns/ecosystem-lockin.md)** around Unix and Windows, programmer unfamiliarity with capability-based coordination, and the friction of emulation layers. However, as modern systems face catastrophic memory-safety bottlenecks, hardware capability revivals (CHERI), and zero-trust cloud isolation challenges, the abstractions unearthed from the [KeyKOS](../GLOSSARY.md) lineage provide essential blueprints for secure, next-generation computing surfaces.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1456,7 +1456,7 @@
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Groundbreaking unification of pure object-capabilities, nanokernels, and orthogonal persistence."
+          "rationale": "Groundbreaking [unification](../GLOSSARY.md) of pure object-capabilities, nanokernels, and orthogonal persistence."
         },
         "Commercial Success": {
           "stars": "★★☆☆☆",
@@ -1481,14 +1481,14 @@
       },
       "modern_relevance": "",
       "references": [
-        "**Hardy, N.** (1985). \"The KeyKOS Architecture.\" *ACM SIGOPS Operating Systems Review*, 19(4), 8–25.",
-        "*Relevance*: The seminal primary source detailing the register-level KeyKOS design, primitive objects, and single-level store.",
-        "**Frantz, W. S., & Landau, C. R.** (1993). \"Object-Oriented Security in the KeyKOS Operating System.\" *Proceedings of the 1993 National Computer Security Conference*, 374–381.",
+        "**Hardy, N.** (1985). \"The [KeyKOS](../GLOSSARY.md) Architecture.\" *ACM SIGOPS Operating Systems Review*, 19(4), 8–25.",
+        "*Relevance*: The seminal primary source detailing the register-level [KeyKOS](../GLOSSARY.md) design, primitive objects, and single-level store.",
+        "**Frantz, W. S., & Landau, C. R.** (1993). \"Object-Oriented Security in the [KeyKOS](../GLOSSARY.md) Operating System.\" *Proceedings of the 1993 National Computer Security Conference*, 374–381.",
         "*Relevance*: Explains the implementation of discretionary and mandatory security policies under pure object-capability constraints.",
         "**Shapiro, J. S., Smith, J. M., & Farber, D. J.** (1999). \"EROS: A Fast Capability System.\" *ACM SIGOPS Operating Systems Review*, 33(5), 72–85.",
         "*Relevance*: Proves that pure capability-based operating systems can achieve microsecond-level IPC performance on standard commodity hardware.",
         "**Miller, M. S., Yee, K., & Shapiro, J. S.** (2003). \"Capability Myopia: Addressing the Myths of Capability Security.\" *Technical Report, Johns Hopkins University*.",
-        "*Relevance*: A foundational paper dismantling common misconceptions regarding capability systems, analyzing revocation, and proving superiority over ACLs.",
+        "*Relevance*: A foundational paper dismantling common misconceptions regarding [capability systems](capability-systems.md), analyzing revocation, and proving superiority over ACLs.",
         "**Klein, G., et al.** (2009). \"seL4: Formal Verification of an OS Kernel.\" *Proceedings of the ACM SIGOPS 22nd Symposium on Operating Systems Principles (SOSP)*, 207–220.",
         "*Relevance*: Establishes the formal mathematical lineage linking early capability microkernels to modern verified systems."
       ]
@@ -2670,6 +2670,20 @@
       "description": "Executable simulator for the Dataflow Engine paradigm."
     },
     {
+      "id": "keykos-capabilities",
+      "title": "Keykos Capabilities",
+      "path": "reconstructions/keykos-capabilities/",
+      "entry_point": "reconstructions/keykos-capabilities/keykos_sim.py",
+      "description": "Executable simulator for the Keykos Capabilities paradigm."
+    },
+    {
+      "id": "lns-arithmetic",
+      "title": "Lns Arithmetic",
+      "path": "reconstructions/lns-arithmetic/",
+      "entry_point": "reconstructions/lns-arithmetic/lns_sim.py",
+      "description": "Executable simulator for the Lns Arithmetic paradigm."
+    },
+    {
       "id": "mixed-radix-sim",
       "title": "Mixed Radix Sim",
       "path": "reconstructions/mixed-radix-sim/",
@@ -2710,6 +2724,13 @@
       "path": "reconstructions/predictive-hypothesis/",
       "entry_point": "reconstructions/predictive-hypothesis/predictive_engine.py",
       "description": "Executable simulator for the Predictive Hypothesis paradigm."
+    },
+    {
+      "id": "rns-arithmetic",
+      "title": "Rns Arithmetic",
+      "path": "reconstructions/rns-arithmetic/",
+      "entry_point": "reconstructions/rns-arithmetic/rns_sim.py",
+      "description": "Executable simulator for the Rns Arithmetic paradigm."
     },
     {
       "id": "stochastic-computing",

@@ -43,6 +43,8 @@ To ensure architectural rigor, this scorecard moves beyond single-point scaling 
 | **4. Physical & Optical** | Zero power for passive wave propagation; sub-attojoule analog memristor addition. | $10\text{--}30 \text{ TOPS/W}$ core-level matrix-multiply-accumulate (Analog In-Memory / Photonic). | $1.5\times$ to $3\times$ net system-level throughput-per-Watt at scale. | **Data conversion wall:** ADC/DAC conversions consume $>80\%$ of total active chip power. **Thermal drift:** High cooling cost for laser source tuning and thermal-optical stabilization. |
 | **5. Distributed & SLS OS** | $0$ serialization overhead via network-transparent shared memory. | Run on commodity x86/ARM/RISC-V silicon; zero specialized hardware overhead. | $1.2\times$ to $1.8\times$ orchestration energy savings vs. microservice gRPC layers. | **Network latency floor:** Single-level-store structures and 9P protocols are bound by network latency and protocol framing costs. **Developer training cost:** Complete departure from POSIX system assumptions. |
 | **6. Superconducting & Cryogenic** | Sub-attojoule switching ($0.2\text{ aJ}$ per Josephson junction). | $100\text{--}340 \text{ GHz}$ clock rates demonstrated on micro-level research lines (MIT LL 130nm). | $2\times$ to $10\times$ net power efficiency improvement *after* factoring in refrigeration overhead. | **Cryogenic penalty:** Carnot efficiency limits require $1000\text{W}\text{--}3000\text{W}$ of room-temperature utility wall power to cool $1\text{W}$ of active heat dissipation at $4.2\text{ K}$. |
+| **7. Logarithmic (LNS)** | Mul/div simplified to low-power additions/subtractions. | $\approx 2\text{--}4\text{ pJ/op}$ core multiplication at 28nm. | $1.5\times$ to $2\times$ energy savings for mul-heavy kernels (e.g. quantization DSP). | **Jacobian addition bottleneck:** Subtraction/addition approximations require wide lookup tables and interpolation. |
+| **8. Residue (RNS)** | Carry-free parallel modular logic adder/multiplier. | $\approx 1.5\text{--}3\text{ pJ/op}$ modular MAC at 28nm. | $2\times$ to $4\times$ execution throughput in cryptography & DSP accelerators. | **Conversion tax:** Complex sign comparisons, division, and CRT backward-conversions. |
 
 ---
 
@@ -227,6 +229,37 @@ For a detailed exploration of pairwise and triple architectural combinations, re
 1. **Spatial meshes + Capability protection**: Preventing out-of-bounds leakage of private multi-tenant AI weights during high-throughput systolic execution.
 2. **Neuromorphic/stochastic + Analog optical crossbars**: Feeding asynchronous temporal event streams directly into optical interference matrix cores, bypassing the DAC/ADC conversion wall.
 3. **9P dynamic namespaces + Hardware capabilities**: Constructing un-addressable, memory-isolated sandbox environments for autonomous multi-agent systems coordination.
+
+---
+
+## Alternative Mathematical & Niche Paradigms
+
+Beyond the six primary architectural lineages, several specialized mathematical and physical paradigms provide crucial lessons and niche revival indicators under modern constraints:
+
+### 1. Residue Number System (RNS)
+RNS splits traditional integers into independent modular channels mod $m_i$ where moduli are pairwise coprime.
+* **Modern Revival Signals**: The carry-free nature of RNS makes it extremely attractive for **Fully Homomorphic Encryption (FHE)** and massive parallel modular multipliers in high-density cryptographic cores. It eliminates word-level carry-propagation delay.
+* **Ecosystem Friction (SEF)**: High. RNS-to-positional and positional-to-RNS conversions via CRT remain very expensive. Similarly, sign checking and divisions are complex, limiting RNS to specialized, non-branching DSP, cryptographic, or neural accelerator subroutines.
+
+### 2. Logarithmic Number System (LNS)
+LNS encodes values in log-space, making multiplication and division trivial fixed-point additions and subtractions.
+* **Modern Revival Signals**: Fits perfectly within low-precision neural network regimes (such as FP8 and INT4 quantization), where multiply-heavy kernels dominate energy profiles.
+* **Ecosystem Friction (SEF)**: High. Addition and subtraction require complex Jacobian approximations ($\log_b(1 \pm b^{-d})$) executed via power-hungry lookup tables and interpolation. This restricts LNS to systems where multiplications vastly outnumber additions.
+
+### 3. [Fluidic Logic](../GLOSSARY.md) Systems
+[Fluidic logic](../GLOSSARY.md) operates purely on fluid-dynamic phenomena (the [Coanda effect](../GLOSSARY.md) and jet interaction) without moving solid parts.
+* **Modern Revival Signals**: Soft robotics (where elastomeric logic is embedded directly within pneumatic actuators) and droplet-based biochemical diagnostic chips (where the fluid acts as both the computational bit and the physical sample).
+* **Ecosystem Friction (SEF)**: Extreme. Bandwidth is physically capped by the speed of sound in the fluid medium ($\approx 343\text{ m/s}$ in air), limiting switching speeds to $<3\text{ kHz}$. It is completely locked out of electronic computing.
+
+### 4. [KeyKOS](../GLOSSARY.md) Nanokernel Capabilities
+[KeyKOS](../GLOSSARY.md) demonstrated a pure object-capability operating system backed by unforgeable key tokens and continuous, system-wide orthogonal persistence.
+* **Modern Revival Signals**: High-assurance zero-trust microkernels and secure multi-agent AI sandboxing, where ambient authority models represent a critical vulnerability.
+* **Ecosystem Friction (SEF)**: Low-to-Medium. Successfully mitigable via software-supported sandboxed runtimes (like WebAssembly) and hardware compartmentalization (like CHERI).
+
+### 5. Prolog / Warren Abstract Machine / FGCS Hardware
+The Warren Abstract Machine (WAM) compiled logic programs into high-speed backtracking execution trees using specialized stack-trail layouts, supported by 1980s Parallel Inference Machines.
+* **Modern Revival Signals**: The dynamic resolution loops survive as abstract-machine models for modern Neuro-[Symbolic AI](../excavations/symbolic-ai.md), logic theorem provers, and deterministic semantic guardrails.
+* **Ecosystem Friction (SEF)**: High. Parallel [unification](../GLOSSARY.md) and backtracking schemes do not compile cleanly to standard out-of-order sequential register machines without heavy stack-indirection overheads.
 
 ---
 

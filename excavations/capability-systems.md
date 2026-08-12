@@ -22,13 +22,13 @@ Early hardware-enforced and software-mediated systems evolved through distinct g
 * **CAP Computer** (University of Cambridge, Wilkes and Needham, 1979): The first computer system in which the CPU directly enforced capabilities at the hardware instruction level. It utilized separate capability segments in memory, requiring hardware-enforced descriptor loading to execute memory reads or writes.
 * **Hydra** (Carnegie Mellon University, Wulf et al., 1974): A capability-based operating system designed for the C.mmp multiprocessor system. Hydra pioneered the concept of user-defined type-extension, enabling applications to declare custom resources and specify custom permissions on capabilities.
 
-### 2. KeyKOS (1983)
-* Developed by Key Systems, KeyKOS was a commercial microkernel-based OS designed for high-availability mainframe banking environments.
-* **Architecture**: KeyKOS implemented a *single-level store*, mapping disk blocks and RAM into a unified, persistent address space. Objects were represented by "keys" (capabilities).
-* **Mechanisms**: Disk pages themselves acted as capabilities (disc pages as objects), mediated securely by the microkernel. To handle performance constraints, KeyKOS utilized highly optimized kernel-mediated message passing (IPC). Despite a compact microkernel codebase of approximately $20,000\text{--}100,000$ lines of code, it demonstrated unprecedented reliability and security, achieving years of continuous uptime without security breaches.
+### 2. [KeyKOS](../GLOSSARY.md) (1983)
+* Developed by Key Systems, [KeyKOS](../GLOSSARY.md) was a commercial microkernel-based OS designed for high-availability mainframe banking environments.
+* **Architecture**: [KeyKOS](../GLOSSARY.md) implemented a *single-level store*, mapping disk blocks and RAM into a unified, persistent address space. Objects were represented by "keys" (capabilities).
+* **Mechanisms**: Disk pages themselves acted as capabilities (disc pages as objects), mediated securely by the microkernel. To handle performance constraints, [KeyKOS](../GLOSSARY.md) utilized highly optimized kernel-mediated message passing (IPC). Despite a compact microkernel codebase of approximately $20,000\text{--}100,000$ lines of code, it demonstrated unprecedented reliability and security, achieving years of continuous uptime without security breaches.
 
 ### 3. EROS: Extremely Reliable Operating System (1999)
-* Developed by Jonathan Shapiro et al. at the University of Pennsylvania, EROS modernized the KeyKOS single-level store and capability mechanisms.
+* Developed by Jonathan Shapiro et al. at the University of Pennsylvania, EROS modernized the [KeyKOS](../GLOSSARY.md) single-level store and capability mechanisms.
 * **Performance**: EROS resolved long-standing criticisms regarding capability overhead. It achieved extremely fast synchronous IPC performance—taking only $50\text{--}200$ clock cycles depending on the processor state, which outperformed traditional microkernels like Mach by an order of magnitude.
 * **Persistence & Safety**: EROS implemented periodic, synchronous system-wide checkpointing (continuous orthogonal persistence). It provided a clean substrate for formal verification, establishing mathematical proofs of isolation and authority confinement.
 
@@ -152,10 +152,10 @@ The trajectory of capability systems highlights how changing physical and econom
 
 * **Dennis, J. B., & Van Horn, E. C.** (1966). "Programming Semantics for Multiprogrammed Computations." *Communications of the ACM*, 9(3), 143–155.
   - *Relevance*: The seminal publication that defined the formal concept of "capabilities" as unforgeable references to system-managed resource descriptors.
-* **Hardy, N.** (1985). "The KeyKOS Architecture." *ACM SIGOPS Operating Systems Review*, 19(4), 8–25.
-  - *Relevance*: Details the implementation of the microkernel-based KeyKOS operating system, demonstrating commercial viability, single-level stores, and orthogonal persistence using capabilities.
+* **Hardy, N.** (1985). "The [KeyKOS](../GLOSSARY.md) Architecture." *ACM SIGOPS Operating Systems Review*, 19(4), 8–25.
+  - *Relevance*: Details the implementation of the microkernel-based [KeyKOS](../GLOSSARY.md) operating system, demonstrating commercial viability, single-level stores, and orthogonal persistence using capabilities.
 * **Shapiro, J. S., Smith, J. M., & Farber, D. J.** (1999). "EROS: A Fast Capability System." *ACM SIGOPS Operating Systems Review*, 33(5), 72–85.
-  - *Relevance*: Modernizes the KeyKOS single-level store, demonstrating that synchronous, capability-based message passing can be executed in under 50 clock cycles.
+  - *Relevance*: Modernizes the [KeyKOS](../GLOSSARY.md) single-level store, demonstrating that synchronous, capability-based message passing can be executed in under 50 clock cycles.
 * **Woodruff, J., et al.** (2014). "CHERI: Concentrating Capability Is Safe, Fast, and Easy." *Proceedings of the 41st Annual International Symposium on Computer Architecture (ISCA)*, 487–498.
   - *Relevance*: Formulates the hardware-compressed 128-bit capability layout and extensions to the MIPS ISA, establishing a low-overhead path for hardware pointer validation.
 * **Watson, R. N. M., et al.** (2015). "CHERI: A Hybrid Capability-System Architecture for Scalable Software Compartmentalization." *IEEE Symposium on Security and Privacy*, 20–37.
