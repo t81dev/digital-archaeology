@@ -43,6 +43,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Cellular Automata Hardware](excavations/cellular-automata-hardware.md)
 * **Communicating Sequential Processes (CSP)**: A formal language and mathematical model (introduced by Tony Hoare) for concurrent systems where processes communicate solely through synchronous, unbuffered/buffered channels.
   * *See excavation*: [Occam](excavations/occam.md), [Transputers](excavations/transputers.md)
+* **Chat Markup Language (ChatML)**: A structured role-based representation protocol that delimits user, system, and assistant messages inside explicit unforgeable boundary tokens to prevent prompt-injection attacks.
+  * *See excavation*: [OpenAI: The Model-as-Platform Substrate](excavations/openai.md)
 * **Component Object Model (COM)**: A language-agnostic binary interface standard enabling location-transparent object communication via structured virtual function table (vtable) layouts.
   * *See excavation*: [Microsoft: The Platform Machine](excavations/microsoft.md)
 * **Content-Addressable Memory (CAM)**: A specialized computer memory that searches its entire contents in a single clock cycle and returns the address(es) where matching data is found.
@@ -109,6 +111,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### O
 * **[Optical Computing](excavations/optical-computing.md)**: A hardware paradigm using light waves (photons) instead of electrical currents (electrons) to perform logic operations, leveraging wave interference, spatial division multiplexing, and sub-nanosecond matrix-vector multiplication.
   * *See excavation*: [Optical Computing](excavations/optical-computing.md)
+* **OpenAI API**: A stable, remote remote intelligence service that platformizes large-scale learned weights into versioned, billable completions, chat turns, and stateful multi-step agent run loops.
+  * *See excavation*: [OpenAI: The Model-as-Platform Substrate](excavations/openai.md)
 
 ### P
 * **Pervasive Multithreading**: An operating system design featuring granular, per-thread scheduling, heavy optimization for symmetric multiprocessing (SMP), and pervasive multi-threading across both the kernel and media-rich user-space applications.

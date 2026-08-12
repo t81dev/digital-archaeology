@@ -59,6 +59,10 @@
       "definition": "A formal language and mathematical model (introduced by Tony Hoare) for concurrent systems where processes communicate solely through synchronous, unbuffered/buffered channels."
     },
     {
+      "term": "Chat Markup Language (ChatML)",
+      "definition": "A structured role-based representation protocol that delimits user, system, and assistant messages inside explicit unforgeable boundary tokens to prevent prompt-injection attacks."
+    },
+    {
       "term": "Component Object Model (COM)",
       "definition": "A language-agnostic binary interface standard enabling location-transparent object communication via structured virtual function table (vtable) layouts."
     },
@@ -153,6 +157,10 @@
     {
       "term": "[Optical Computing](excavations/optical-computing.md)",
       "definition": "A hardware paradigm using light waves (photons) instead of electrical currents (electrons) to perform logic operations, leveraging wave interference, spatial division multiplexing, and sub-nanosecond matrix-vector multiplication."
+    },
+    {
+      "term": "OpenAI API",
+      "definition": "A stable, remote remote intelligence service that platformizes large-scale learned weights into versioned, billable completions, chat turns, and stateful multi-step agent run loops."
     },
     {
       "term": "Pervasive Multithreading",
@@ -324,6 +332,7 @@
           "lisp-machines",
           "microsoft",
           "multics",
+          "openai",
           "plan-9",
           "smalltalk",
           "stack-machines",
@@ -469,6 +478,7 @@
           "inferno",
           "linux",
           "microsoft",
+          "openai",
           "smalltalk",
           "smalltalk",
           "lisp-machines"
@@ -507,6 +517,7 @@
           "beos-haiku",
           "linux",
           "microsoft",
+          "openai",
           "plan-9",
           "GLOSSARY",
           "inferno",
@@ -625,9 +636,9 @@
     },
     {
       "id": "apple",
-      "title": "Apple: The Integrated Platform Surface",
+      "title": "Apple: The [Integrated Platform Surface](../GLOSSARY.md)",
       "path": "excavations/apple.md",
-      "summary": "The Apple computational lineage is commonly analyzed through corporate biography, industrial design aesthetic, or consumer marketing narratives. From the perspective of digital archaeology, however, **Apple represents a highly specialized paradigm of hardware–software–runtime vertical integration**.\n\nApple's primary architectural achievement was not any single computer or operating system, but rather the **engineering of a cohesive, vertically integrated platform surface**. By treating the entire stack—from custom silicon co-processors to system APIs, developer toolchains, dynamic runtimes, and centralized application distribution engines—as a single designed surface, Apple solved the classic coordination problems of software compatibility and hardware advancement. This integration enabled Apple to execute multiple rapid, high-fidelity platform transitions (e.g., 68000 $\\rightarrow$ PowerPC $\\rightarrow$ Intel $\\rightarrow$ Apple Silicon; Classic Mac OS $\\rightarrow$ NeXTSTEP/OS X; desktop computing $\\rightarrow$ mobile $\\rightarrow$ on-device AI) while maintaining strict developer control, high ecosystem-scale persistence, and powerful user lock-in.",
+      "summary": "The Apple computational lineage is commonly analyzed through corporate biography, industrial design aesthetic, or consumer marketing narratives. From the perspective of digital archaeology, however, **Apple represents a highly specialized paradigm of hardware–software–runtime vertical integration**.\n\nApple's primary architectural achievement was not any single computer or operating system, but rather the **engineering of a cohesive, vertically [integrated platform surface](../GLOSSARY.md)**. By treating the entire stack—from custom silicon co-processors to system APIs, developer toolchains, dynamic runtimes, and centralized application distribution engines—as a single designed surface, Apple solved the classic coordination problems of software compatibility and hardware advancement. This integration enabled Apple to execute multiple rapid, high-fidelity platform transitions (e.g., 68000 $\\rightarrow$ PowerPC $\\rightarrow$ Intel $\\rightarrow$ [Apple Silicon](../GLOSSARY.md); Classic Mac OS $\\rightarrow$ NeXTSTEP/OS X; desktop computing $\\rightarrow$ mobile $\\rightarrow$ on-device AI) while maintaining strict developer control, high ecosystem-scale persistence, and powerful user lock-in.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -657,7 +668,7 @@
         "Difficulty to Recreate": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Rebuilding the massive, proprietary vertical stack from Apple Silicon up through Darwin, Cocoa, and Xcode is economically prohibitive."
+          "rationale": "Rebuilding the massive, proprietary vertical stack from [Apple Silicon](../GLOSSARY.md) up through Darwin, Cocoa, and Xcode is economically prohibitive."
         }
       },
       "modern_relevance": "",
@@ -1644,6 +1655,46 @@
       "references": []
     },
     {
+      "id": "openai",
+      "title": "OpenAI: The Model-as-Platform Substrate",
+      "path": "excavations/openai.md",
+      "summary": "The OpenAI computational lineage is frequently evaluated through popular narratives of corporate drama, venture scale investment, or science-fiction timelines of artificial general intelligence (AGI). From the perspective of digital archaeology, however, **OpenAI represents a highly successful paradigm of interface stabilization, scaling empirical laws, and the platformization of learned weights**.\n\nOpenAI's primary architectural achievement was not the design of clean-slate core model architectures (relying primarily on Google's pre-existing [Transformer](../GLOSSARY.md) block), but rather **the translation of large-scale autoregressive sequence predictors into a stable, programmable, remote runtime platform**. By demonstrating that empirical scaling laws govern transformer model convergence, stabilizing the remote API-as-model abstraction, and productizing human-aligned post-training (RLHF/Instruct), OpenAI decoupled software logic from classical deterministic compilation. This created a new stratum of computing: a model-as-platform substrate where natural language, multi-step reasoning, and tool invoking function as standard execution primitives above traditional operating systems and clouds. This excavation dissects the technical layers of this substrate, traces its transitions from reinforcement learning environments to agentic runtimes, and analyzes the feedback loops and lock-in patterns that sustain its platform dominance.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Popularized the Transformer architecture at scale, established the model-as-platform paradigm, and initiated the global generative AI revolution."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Mastered large-scale empirical scaling laws, structured ChatML boundaries, and stateful Assistants thread execution engines."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Constructed the fastest-growing consumer application in history (ChatGPT) and captured the enterprise API model market."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Positioned as the default intelligence substrate across software engineering, cloud computing, and knowledge-work systems."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "The benchmark lineage of modern artificial intelligence, defining the core interfaces through which learned systems are consumed."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Recreating the massive scale of pre-trained parameters, custom Azure GPU fabrics, and human-aligned post-training datasets is economically prohibitive."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
+    },
+    {
       "id": "optical-computing",
       "title": "Optical Computing",
       "path": "excavations/optical-computing.md",
@@ -2349,6 +2400,13 @@
       "description": "Event-driven Spiking Neural Network (SNN) simulator modeling Leaky Integrate-and-Fire (LIF) dynamics, Address-Event Representation (AER), and Spike-Timing-Dependent Plasticity (STDP) learning rules."
     },
     {
+      "id": "openai_sim",
+      "title": "Openai_Sim",
+      "path": "reconstructions/openai_sim/",
+      "entry_point": "reconstructions/openai_sim/openai_sim.py",
+      "description": "Executable simulator for the Openai_Sim paradigm."
+    },
+    {
       "id": "plan9-9p",
       "title": "Plan9 9P",
       "path": "reconstructions/plan9-9p/",
@@ -2915,6 +2973,42 @@
       "time": "2019",
       "sort_year": 2019,
       "description": "Cerebras launches the **Wafer-Scale Engine (WSE)**, bypassing package boundaries with a 400,000-core monolithic silicon wafer for AI workloads. **Key excavation link**: [Wafer-Scale Integration](excavations/wafer-scale-integration.md)"
+    },
+    {
+      "category": "AI",
+      "time": "2020",
+      "sort_year": 2020,
+      "description": "OpenAI publishes empirical scaling laws for transformer model capabilities, establishing \"scaling\" as a predictable systems engineering projection. **Key excavation link**: [OpenAI](excavations/openai.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "2020",
+      "sort_year": 2020,
+      "description": "OpenAI publishes empirical scaling laws for transformers, shifting machine learning systems from heuristic trial-and-error to predictable systems engineering. **Key excavation link**: [OpenAI](excavations/openai.md)"
+    },
+    {
+      "category": "AI",
+      "time": "2022",
+      "sort_year": 2022,
+      "description": "OpenAI productizes InstructGPT and launches ChatGPT, demonstrating conversational interfaces and post-training alignment (RLHF) as dominant software platform models. **Key excavation link**: [OpenAI](excavations/openai.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "2022",
+      "sort_year": 2022,
+      "description": "OpenAI launches ChatGPT, demonstrating conversational interfaces and remote API-as-model abstractions as standard platform layers. **Key excavation link**: [OpenAI](excavations/openai.md)"
+    },
+    {
+      "category": "AI",
+      "time": "2023",
+      "sort_year": 2023,
+      "description": "OpenAI introduces the stateful Assistants API thread run loop and schema-validated tool calling, moving foundation models toward agentic runtime engines. **Key excavation link**: [OpenAI](excavations/openai.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "2023",
+      "sort_year": 2023,
+      "description": "OpenAI introduces the Assistants API, standardizing stateful thread run loops and tool call schemas above traditional operating systems. **Key excavation link**: [OpenAI](excavations/openai.md)"
     },
     {
       "category": "AI",

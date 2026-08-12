@@ -93,6 +93,9 @@ The table below maps the six core lineages across historical computing eras, ill
 - **2014**: IBM reveals **TrueNorth**, a 1-million-neuron asynchronous spiking processor. **Key excavation link**: [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
 - **2014**: eBPF is integrated into the Linux kernel, turning supervisor space into a safe, programmable infrastructure substrate. **Key excavation link**: [Linux](../excavations/linux.md)
 - **2019**: Cerebras launches the **Wafer-Scale Engine (WSE)**, bypassing package boundaries with a 400,000-core monolithic silicon wafer for AI workloads. **Key excavation link**: [Wafer-Scale Integration](../excavations/wafer-scale-integration.md)
+- **2020**: OpenAI publishes empirical scaling laws for transformers, shifting machine learning systems from heuristic trial-and-error to predictable systems engineering. **Key excavation link**: [OpenAI](../excavations/openai.md)
+- **2022**: OpenAI launches ChatGPT, demonstrating conversational interfaces and remote API-as-model abstractions as standard platform layers. **Key excavation link**: [OpenAI](../excavations/openai.md)
+- **2023**: OpenAI introduces the Assistants API, standardizing stateful thread run loops and tool call schemas above traditional operating systems. **Key excavation link**: [OpenAI](../excavations/openai.md)
 - **2020s**: AI hardware developers resurrect **[Systolic Arrays](../excavations/systolic-arrays.md)** (Google TPUs), **[Stochastic Computing](../excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors).
 - **2020s**: Proliferation of heterogeneous coprocessors as general-purpose Moore's Law slows down.
 
