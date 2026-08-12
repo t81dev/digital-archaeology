@@ -51,6 +51,10 @@
       "definition": "An access control model where processors or operating systems reference unforgeable keys called *capabilities*. A capability contains both a memory range (bounds) and specific permissions (read, write, execute), preventing buffer overflows and enforcing micro-segmentation at the hardware level."
     },
     {
+      "term": "Coanda Effect",
+      "definition": "The physical phenomenon where a fluid jet attaches itself to a nearby solid surface due to localized low-pressure bubbles created by entrainment. In pure fluidics, it provides the physical foundation for bistable state retention (flip-flops) and switching without moving parts."
+    },
+    {
       "term": "Chinese Remainder Theorem (CRT)",
       "definition": "A mathematical theorem stating that any integer within a dynamic range can be uniquely reconstructed from its residues modulo a set of pairwise coprime moduli, providing the algebraic foundation of RNS."
     },
@@ -121,6 +125,10 @@
     {
       "term": "Explicitly Parallel Instruction Computing (EPIC)",
       "definition": "An instruction set philosophy (co-developed by HP and Intel for Itanium) where the compiler explicitly bundles instructions that can be executed in parallel, moving the complex scheduling logic from hardware to the compiler."
+    },
+    {
+      "term": "Fluidic Logic",
+      "definition": "A computational and control paradigm that processes continuous or discrete information using the dynamics of fluid media directly within non-moving channels, relying on the Coanda effect, jet interaction, and laminar-to-turbulent transitions."
     },
     {
       "term": "Generative Communication",
@@ -435,7 +443,8 @@
           "stochastic-computing",
           "balanced-ternary",
           "residue-number-system",
-          "logarithmic-number-system"
+          "logarithmic-number-system",
+          "fluidic-logic-systems"
         ]
       },
       "Photonic / Optical": {
@@ -550,7 +559,8 @@
           "balanced-ternary",
           "ebcdic",
           "residue-number-system",
-          "logarithmic-number-system"
+          "logarithmic-number-system",
+          "fluidic-logic-systems"
         ]
       },
       "Bi-Directional Graph Address Space": {
@@ -643,7 +653,8 @@
         "mapped_excavations": [
           "balanced-ternary",
           "residue-number-system",
-          "logarithmic-number-system"
+          "logarithmic-number-system",
+          "fluidic-logic-systems"
         ]
       }
     }
@@ -1202,6 +1213,46 @@
         "Nagarajan, R., Sankaralingam, K., Burger, D., & Keckler, S. W. (2001). *A class of single-instruction-multiple-dataholder processor architectures*. In Proceedings of the 28th Annual International Symposium on Computer Architecture (ISCA), 282-293.",
         "Keckler, S. W., Burger, D., Moore, C. R., Sankaralingam, K., Nagarajan, R., Liu, H., ... & McDonald, R. (2009). *The TRIPS processor: A polymorphous EDGE architecture*. IEEE Micro, 29(1), 18-32."
       ]
+    },
+    {
+      "id": "fluidic-logic-systems",
+      "title": "[Fluidic Logic](../GLOSSARY.md) Systems",
+      "path": "excavations/fluidic-logic-systems.md",
+      "summary": "**[Fluidic Logic](../GLOSSARY.md) Systems** (pure fluidics) is a computational and control paradigm that processes continuous or discrete information using the dynamics of fluid media—gases or liquids—directly within non-moving channels. Unlike conventional moving-part pneumatic or hydraulic systems that rely on pistons, diaphragms, and mechanical valves, pure fluidic devices operate entirely through fundamental fluid-dynamic phenomena: the **[Coanda effect](../GLOSSARY.md)** (wall attachment), momentum-driven **jet interaction**, and laminar-to-turbulent flow transitions.\n\nPioneered in 1959 at the **Harry Diamond Laboratories** by Billy Horton, Warren Ledgermood, and Raymond Bowles, [fluidic logic](../GLOSSARY.md) emerged during the Cold War and the Space Race as a promising alternative to early solid-state electronics. Because fluidic gates contain no moving solid parts to wear out and are built from highly stable materials (such as ceramics, glass, or superalloys), they are intrinsically immune to electromagnetic interference (EMI), high-intensity ionizing radiation, extreme thermal fluctuations, and physical shock. \n\nDespite achieving significant success in military missile guidance, aerospace flight control, nuclear reactor monitoring, and industrial safety interlocks, [fluidic logic](../GLOSSARY.md) failed to establish a general-purpose, scale-free computing ecosystem. The rapid, exponential scaling of semiconductor CMOS (Moore’s Law), coupled with the physical limits of speed, integration density, power (constant fluid-source venting), and contamination susceptibility in fluid systems, restricted fluidics to highly specialized niche environments. Today, the core abstractions of [fluidic logic](../GLOSSARY.md) are experiencing a modern renaissance in **microfluidics**, droplet-based \"lab-on-a-chip\" analytical platforms, and compliant logic for **soft robotics**.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Played a vital role in Cold War military missile autopilots, aerospace controls, and high-radiation nuclear instrumentation when early solid-state electronics were unreliable."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Achieved digital switching, analog amplification, and state retention purely through the natural dynamics of fluid flow without a single moving solid mechanical part."
+        },
+        "Commercial Success": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Found widespread deployment in specialized, harsh-environment industrial and military niches, but failed to sustain a general-purpose, high-volume consumer ecosystem."
+        },
+        "Modern Potential": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Crucial paradigm for droplet-based chemical/biological analytical chips (lab-on-a-chip) and compliant, electronics-free locomotion controllers in soft robotics."
+        },
+        "AI Synergy": {
+          "stars": "★☆☆☆☆",
+          "numeric": 1,
+          "rationale": "Extremely low bandwidth, layout density, and lack of electrical interfacing preclude any direct role in accelerating modern neural network training or high-throughput inference."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Modeling dynamic fluid jets, boundary layer wall attachment, acoustic channel delays, and turbulent state transitions requires high-fidelity partial differential equation solvers or precise transmission-line network analogs."
+        }
+      },
+      "modern_relevance": "An evidence-based evaluation of [fluidic logic](../GLOSSARY.md)'s modern relevance yields several critical system-level insights:\n\n* **Substrate-Task Alignment:** [Fluidic logic](../GLOSSARY.md) proves that for certain physical tasks (e.g., chemical routing, pneumatic locomotion, extreme-heat monitoring), the most efficient controller is one that **shares the physical medium of the task**. Forcing an electronic-to-fluidic conversion step introduces a severe efficiency and reliability penalty.\n* **Thermodynamic Limits of Analog Substrates:** [Fluidic logic](../GLOSSARY.md) serves as a stark historical warning about **constant venting power (static leakage)**. Because fluidic amplifiers must bleed off fluid continuously to maintain stability, their static power dissipation is immense. This is highly relevant to modern **leakage-dominated sub-nanometer CMOS** and analog AI accelerators, highlighting that static power can completely overwhelm dynamic efficiency gains if left unaddressed.\n* **The Interconnect and Packaging Bottleneck:** Just as classical fluidics hit an \"acoustic reflection wall\" where gate-to-gate channel lengths had to be manually matched to prevent feedback loop failures, modern high-frequency electronic chips are hitting the **memory and interconnect walls** where wire parasitics and resistance-capacitance (RC) delays dominate performance. The packaging and routing challenges of alternative substrates are rarely logical; they are almost always physical, spatial, and acoustic.",
+      "references": []
     },
     {
       "id": "graph-reduction-machines",
