@@ -32,6 +32,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Molecular & Biocomputing](excavations/molecular-biocomputing.md) — *Computation using molecules, DNA strands, chemical reactions, and synthetic biology.*
 - [Neuromorphic Hardware](excavations/neuromorphic-hardware.md) — *Asynchronous, event-driven spiking neural networks and in-memory compute.*
 - [Optical Computing](excavations/optical-computing.md) — *Photonic interference, spatial WDM, and sub-nanosecond matrix processing.*
+- [Logarithmic Number System (LNS)](excavations/logarithmic-number-system.md) — *Real-number logarithmic representation simplifying multiplication, division, and exponentiation into addition and subtraction.*
 - [Residue Number System (RNS)](excavations/residue-number-system.md) — *Carry-free parallel arithmetic representing integers modulo coprime sets for DSP, cryptography, and FHE.*
 - [Reversible Computing](excavations/reversible-computing.md) — *Information-preserving logic gates bypassing Landauer's thermodynamic limit.*
 - [Stack Machines](excavations/stack-machines.md) — *Hardware zero-operand evaluation stack evaluation architectures.*
