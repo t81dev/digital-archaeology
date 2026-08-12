@@ -15,6 +15,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### A
 * **Apple Silicon**: A lineage of custom-designed, ARM-based System-on-Chip (SoC) architectures integrating high-bandwidth Unified Memory, Secure Enclave processors, and dynamic matrix-multiplication co-processors tightly integrated with the system compilers.
   * *See excavation*: [Apple: The Integrated Platform Surface](excavations/apple.md)
+* **ABI (Application Binary Interface)**: The low-level interface between compiled binary user-space software and the operating system kernel, encompassing registers, calling conventions, and system calls.
+  * *See excavation*: [Linux: The Ubiquitous Substrate](excavations/linux.md)
 
 ### A
 * **Active Messages**: A communication paradigm for high-performance parallel systems where each message packet contains in its header the address of an execution handler. Upon arrival, the handler executes immediately using the packet's payload as arguments, bypassing operating system scheduling and context-switching overhead.
@@ -61,6 +63,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### E
 * **EBCDIC (Extended Binary Coded Decimal Interchange Code)**: An 8-bit character encoding family designed by IBM in 1963 for the System/360 architecture, combining mechanical zone and digit punch mappings from Herman Hollerith's card layouts, resulting in non-contiguous alphabet segments and unique sorting semantics.
   * *See excavation*: [EBCDIC](excavations/ebcdic.md)
+* **eBPF (Extended Berkeley Packet Filter)**: An in-kernel, register-based virtual machine and safe bytecode runtime executing verified programs dynamically inside the supervisor-mode event path of the Linux kernel.
+  * *See excavation*: [Linux: The Ubiquitous Substrate](excavations/linux.md)
 * **Explicit Data Graph Execution (EDGE)**: An alternative class of microprocessors that partition instructions into logically atomic blocks. Within each block, execution is dataflow-driven, with instructions routing operand tokens directly to their consumers over a physical spatial grid, completely bypassing centralized registers and rename tables.
   * *See excavation*: [Explicit Data Graph Execution (EDGE) & The TRIPS Architecture](excavations/edge-architecture.md)
 * **Explicitly Parallel Instruction Computing (EPIC)**: An instruction set philosophy (co-developed by HP and Intel for Itanium) where the compiler explicitly bundles instructions that can be executed in parallel, moving the complex scheduling logic from hardware to the compiler.
@@ -148,6 +152,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### V
 * **Vector Processing**: A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads.
   * *See excavation*: [Vector Supercomputing](excavations/vector-supercomputing.md)
+* **VFS (Virtual File System)**: An in-kernel polymorphic file dispatcher and object-oriented abstraction mapping uniform system-calls (`read`, `write`, `open`) to diverse physical filesystem drivers.
+  * *See excavation*: [Linux: The Ubiquitous Substrate](excavations/linux.md)
 * **Very Long Instruction Word (VLIW)**: A processor design where the compiler groups independent, parallel operations into a single, very wide instruction word, relying on compile-time analysis rather than dynamic out-of-order execution hardware.
   * *See excavation*: [VLIW / EPIC Architectures](excavations/vliw-epic.md)
 * **Von Neumann Bottleneck**: The throughput limitation on computer systems caused by the physical separation of the central processing unit and memory, requiring all instruction and data transfers to share a single bus.

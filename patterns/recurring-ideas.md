@@ -36,7 +36,7 @@ This pattern catalog identifies recurring ideas, documents their historical appe
 
 ### 6. Single-Level Storage / Persistent Object Models
 - **Original**: Early Lisp/[Smalltalk](../excavations/smalltalk.md) environments, [Multics](../excavations/multics.md), Burroughs
-- **Modern forms**: Persistent memory (Optane-style), unified memory architectures (e.g., Apple Silicon), and object-capability storage systems.
+- **Modern forms**: Persistent memory (Optane-style), unified memory architectures (e.g., [Apple Silicon](../GLOSSARY.md)), and object-capability storage systems.
 
 ### 7. Vector / Spatial / Streaming Data Parallelism (new)
 - **Original**: Cray [Vector Supercomputing](../excavations/vector-supercomputing.md), [Systolic Arrays](../excavations/systolic-arrays.md), [Connection Machine](../excavations/connection-machine.md)

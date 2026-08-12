@@ -66,11 +66,13 @@ The table below maps the six core lineages across historical computing eras from
 
 ## 1990s–2000s: Commodity x86 Consolidation & Multi-Core Limits
 
+- **1991**: Linus Torvalds releases Linux v0.01, establishing a monolithic hardware-decoupled kernel with a highly stable SCI. **Key excavation link**: [Linux](../excavations/linux.md)
 - **1990s**: The ARM-based **AMULET** asynchronous microprocessor series demonstrates high-performance, clockless self-timed logic. **Key excavation link**: [Asynchronous Microprocessors](../excavations/asynchronous-processors.md)
 - **1990s**: Proliferation of compile-time explicit instruction scheduling. **Key excavation link**: [VLIW / EPIC Architectures](../excavations/vliw-epic.md)
 - **2001**: Intel releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](../excavations/vliw-epic.md)
 - **2003–2006**: The DARPA-funded **TRIPS (EDGE)** processor demonstrates instruction-level spatial dataflow compilation and block-structured scheduling. **Key excavation link**: [Explicit Data Graph Execution (EDGE)](../excavations/edge-architecture.md)
 - **2004**: Dennard scaling breaks down (the Power Wall), ending the era of single-thread frequency scaling and forcing the industry toward multi-core CPUs.
+- **2007**: Linux integrates the Kernel-based Virtual Machine (KVM) and container groups (cgroups), laying the foundation for modern cloud density. **Key excavation link**: [Linux](../excavations/linux.md)
 - **Late 2000s**: The GPGPU revolution begins, repurposing 3D graphics hardware for massively parallel vector math. **Key excavation link**: [Associative Processors](../excavations/associative-processors.md)
 
 ---
@@ -78,6 +80,7 @@ The table below maps the six core lineages across historical computing eras from
 ## 2010s–Present: Post-CMOS Re-Emergence & Physical Acceleration
 
 - **2014**: IBM reveals **TrueNorth**, an asynchronous spiking neuromorphic processor with 1 million digital neurons. **Key excavation link**: [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
+- **2014**: eBPF is integrated into the Linux kernel, turning supervisor space into a safe, programmable infrastructure substrate. **Key excavation link**: [Linux](../excavations/linux.md)
 - **2019**: Cerebras launches the **Wafer-Scale Engine (WSE)**, bypassing package boundaries with a 400,000-core monolithic silicon wafer for AI workloads. **Key excavation link**: [Wafer-Scale Integration](../excavations/wafer-scale-integration.md)
 - **2020s**: AI hardware developers resurrect **[Systolic Arrays](../excavations/systolic-arrays.md)** (Google TPUs), **[Stochastic Computing](../excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors).
 - **2020s**: Exploration of synthetic biological circuits for low-power edge processing. **Key excavation link**: [Molecular & Biocomputing](../excavations/molecular-biocomputing.md)

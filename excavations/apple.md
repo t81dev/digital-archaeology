@@ -1,4 +1,4 @@
-# Apple: The Integrated Platform Surface
+# Apple: The [Integrated Platform Surface](../GLOSSARY.md)
 
 > An archaeological excavation of Apple Inc. (and Apple Computer) as a computational lineage, investigating how the repeated integration of hardware, system software, runtime environments, application packaging, and controlled distribution channels created a resilient platform surface capable of rapid migration across physical and architectural constraints.
 
@@ -8,7 +8,7 @@
 
 The Apple computational lineage is commonly analyzed through corporate biography, industrial design aesthetic, or consumer marketing narratives. From the perspective of digital archaeology, however, **Apple represents a highly specialized paradigm of hardware–software–runtime vertical integration**.
 
-Apple's primary architectural achievement was not any single computer or operating system, but rather the **engineering of a cohesive, vertically integrated platform surface**. By treating the entire stack—from custom silicon co-processors to system APIs, developer toolchains, dynamic runtimes, and centralized application distribution engines—as a single designed surface, Apple solved the classic coordination problems of software compatibility and hardware advancement. This integration enabled Apple to execute multiple rapid, high-fidelity platform transitions (e.g., 68000 $\rightarrow$ PowerPC $\rightarrow$ Intel $\rightarrow$ Apple Silicon; Classic Mac OS $\rightarrow$ NeXTSTEP/OS X; desktop computing $\rightarrow$ mobile $\rightarrow$ on-device AI) while maintaining strict developer control, high ecosystem-scale persistence, and powerful user lock-in.
+Apple's primary architectural achievement was not any single computer or operating system, but rather the **engineering of a cohesive, vertically [integrated platform surface](../GLOSSARY.md)**. By treating the entire stack—from custom silicon co-processors to system APIs, developer toolchains, dynamic runtimes, and centralized application distribution engines—as a single designed surface, Apple solved the classic coordination problems of software compatibility and hardware advancement. This integration enabled Apple to execute multiple rapid, high-fidelity platform transitions (e.g., 68000 $\rightarrow$ PowerPC $\rightarrow$ Intel $\rightarrow$ [Apple Silicon](../GLOSSARY.md); Classic Mac OS $\rightarrow$ NeXTSTEP/OS X; desktop computing $\rightarrow$ mobile $\rightarrow$ on-device AI) while maintaining strict developer control, high ecosystem-scale persistence, and powerful user lock-in.
 
 ---
 
@@ -60,7 +60,7 @@ To analyze Apple as an architectural lineage, we decompose the ecosystem into se
 * **Early 8-bit Family (1976–1993)**: Apple II/III series utilizing real-mode 6502/65C02/65816 processors, relying on direct-to-hardware port manipulation and memory-mapped video buffers.
 * **Classic Macintosh (1984–1996)**: Motorola 68000/68020/68030/68040 CISC processors running on custom logic boards, transitioning to PowerPC (601, 603, 604, G3, G4, G5) RISC processors under a joint Apple-IBM-Motorola (AIM) alliance.
 * **Commodity Transition (2006–2020)**: Intel x86/x86_64 processors, integrating standard EFI boot architectures, PCIe busses, and AMD/Intel graphics.
-* **Apple Silicon (2010–Present)**: Proprietary, highly customized ARM-based System-on-Chip (SoC) architectures (A-series for mobile, M-series for workstations). Featuring a high-bandwidth **Unified Memory Architecture (UMA)**, custom GPU cores with tile-based deferred rendering, dedicated Secure Enclave co-processors, custom media decoders (ProRes), and the Neural Engine (NPU).
+* **[Apple Silicon](../GLOSSARY.md) (2010–Present)**: Proprietary, highly customized ARM-based System-on-Chip (SoC) architectures (A-series for mobile, M-series for workstations). Featuring a high-bandwidth **Unified Memory Architecture (UMA)**, custom GPU cores with tile-based deferred rendering, dedicated Secure Enclave co-processors, custom media decoders (ProRes), and the Neural Engine (NPU).
 
 ### 2. Operating Systems and System Software
 * **Apple DOS / ProDOS (1978–1993)**: Real-mode, single-tasking disk operating systems managing sector allocations via basic file control blocks.
@@ -71,7 +71,7 @@ To analyze Apple as an architectural lineage, we decompose the ecosystem into se
 ### 3. Programming Languages and Runtimes
 * **Applesoft BASIC**: An early interpretative coding environment mapped into real-mode ROM.
 * **Object Pascal / MacApp (1985–1992)**: Pioneered early object-oriented desktop application modeling on the 68000 under the guidance of Larry Tesler.
-* **Objective-C (1997–Present)**: Inherited from NeXTSTEP; combines the efficiency of C with a dynamic Smalltalk-style runtime. Leverages message-passing semantics (`objc_msgSend`), dynamic dispatch, and late binding.
+* **Objective-C (1997–Present)**: Inherited from NeXTSTEP; combines the efficiency of C with a dynamic [Smalltalk](smalltalk.md)-style runtime. Leverages message-passing semantics (`objc_msgSend`), dynamic dispatch, and late binding.
 * **Swift (2014–Present)**: A type-safe, compiled language designed to replace Objective-C. Features value types, memory safety without garbage collection via Automatic Reference Counting (ARC), protocol-oriented programming, and compile-time optimization.
 * **Metal Shading Language (MSL)**: C++14-based language compiled directly into GPU machine code for high-throughput rasterization, compute, and ray-tracing pipelines.
 
@@ -144,7 +144,7 @@ For every major transition, we identify the exact architectural mechanics:
 | **Classic OS $\rightarrow$ Mac OS X** | Swapped unstable cooperative kernel with preemptive Unix-based XNU kernel. | Carbon APIs, QuickTime, HFS filesystem, Carbonized binaries. | **Classic Environment**: A virtualized System 9 instance running in an isolated user-space thread on Mach, routing Toolbox requests to OS X. | Cooperative multitasking, shared global address spaces, direct interrupt manipulation. | Frequent system crashes due to memory corruption and lack of preemptive thread isolation. |
 | **PowerPC $\rightarrow$ Intel** | Swapped PowerPC RISC with Intel x86 CISC hardware execution. | Mach/BSD kernel, Cocoa APIs, PEF/Mach-O binary format wrappers. | **Rosetta 1**: A dynamic binary translator (licensed from Transitive) that translated PowerPC instructions to x86 instructions at runtime. | Native PowerPC execution, Classic OS environment support. | IBM's failure to deliver a low-power PowerPC G5 processor for laptops (the Thermal/Watt Wall). |
 | **Desktop $\rightarrow$ Mobile (iOS)** | Shifted from open desktop workspaces to sandboxed mobile architectures. | Darwin XNU kernel, Objective-C runtime, Foundation libraries. | **Shared CoreOS/CoreServices**: High-fidelity reuse of the macOS kernel and system frameworks. | Overlapping window systems, Finder file system browser, Garbage Collection. | Severe battery, thermal, memory, and physical space limits on pocket-sized devices. |
-| **Intel $\rightarrow$ Apple Silicon** | Replaced commodity Intel x86_64 with custom ARM64-based System-on-Chips. | macOS Aqua desktop, Metal graphics, Swift, Cocoa, App Bundles. | **Rosetta 2**: An advanced static and ahead-of-time (AOT) binary translator compiling x86_64 binaries to ARM64 at installation. | 32-bit x86 compatibility support, external GPU compatibility. | Intel's stagnant performance-per-watt curves and high on-chip thermal dissipation. |
+| **Intel $\rightarrow$ [Apple Silicon](../GLOSSARY.md)** | Replaced commodity Intel x86_64 with custom ARM64-based System-on-Chips. | macOS Aqua desktop, Metal graphics, Swift, Cocoa, App Bundles. | **Rosetta 2**: An advanced static and ahead-of-time (AOT) binary translator compiling x86_64 binaries to ARM64 at installation. | 32-bit x86 compatibility support, external GPU compatibility. | Intel's stagnant performance-per-watt curves and high on-chip thermal dissipation. |
 
 ---
 
@@ -187,7 +187,7 @@ In NeXTSTEP, a developer constructed an interface visually by dragging UI object
 
 At runtime, the application loaded the NIB file using `NSUnarchiver`. The runtime read the serialized object schemas, re-instantiated the objects inside the memory heap, and reconstructed the object relationships and target-action connections instantly, bypassing the CPU overhead of execution-phase parsing and layout algorithms.
 
-### 3. Apple Silicon Unified Memory Architecture (UMA)
+### 3. [Apple Silicon](../GLOSSARY.md) Unified Memory Architecture (UMA)
 In conventional PCs, the CPU and GPU maintain separate, isolated memory pools (system RAM and VRAM) connected over a narrow PCIe bus. This layout requires applications to continuously copy massive datasets (textures, geometry, or AI model weights) across the bus, introducing latency and high power dissipation.
 
 ```
@@ -216,7 +216,7 @@ In conventional PCs, the CPU and GPU maintain separate, isolated memory pools (s
     └─────────┘                             └─────────┘
 ```
 
-Apple Silicon introduces a monolithic, ultra-wide **Unified Memory Architecture**. The CPU, GPU, and Neural Engine are collocated on the same package, sharing a high-bandwidth coherent memory fabric. Because they access the exact same physical memory addresses, there is no need to copy data. The CPU can write an AI tensor into memory, and the NPU can immediately perform inference on that tensor in place, eliminating the PCIe bottleneck and dramatically reducing dynamic power consumption.
+[Apple Silicon](../GLOSSARY.md) introduces a monolithic, ultra-wide **Unified Memory Architecture**. The CPU, GPU, and Neural Engine are collocated on the same package, sharing a high-bandwidth coherent memory fabric. Because they access the exact same physical memory addresses, there is no need to copy data. The CPU can write an AI tensor into memory, and the NPU can immediately perform inference on that tensor in place, eliminating the PCIe bottleneck and dramatically reducing dynamic power consumption.
 
 ---
 
@@ -308,11 +308,11 @@ To resolve the security and stability risks of manual memory management, Apple i
 The engine of Apple's platform continuity is its ability to execute clean-break hardware transitions without destroying developer software investments.
 
 ### Rosetta 2 Binary Translation
-During the Apple Silicon transition, macOS utilized **Rosetta 2** to bridge x86_64 to ARM64. Rosetta 2 operates as a two-phase engine:
+During the [Apple Silicon](../GLOSSARY.md) transition, macOS utilized **Rosetta 2** to bridge x86_64 to ARM64. Rosetta 2 operates as a two-phase engine:
 1. **Ahead-of-Time (AOT) Translation**: When an x86_64 application is installed, Rosetta parses the Mach-O binary, translates the x86 instruction segments to ARM64 equivalents, and writes an optimized ARM64 cache binary.
 2. **Just-in-Time (JIT) Translation**: For dynamically generated code (e.g., JavaScript runtimes), Rosetta dynamically translates x86 instruction blocks on the fly inside memory.
 
-To make this execution efficient, **Apple modified its custom silicon**. Apple Silicon processors include a hardware register state (`ACTLR_EL1`) that switches the memory page consistency model from ARM's weak ordering to Intel’s strict **Total Store Order (TSO)**. This hardware-level compatibility switch eliminated the massive software performance overhead of emulating Intel's memory-ordering invariants, achieving near-native execution speeds for translated code.
+To make this execution efficient, **Apple modified its custom silicon**. [Apple Silicon](../GLOSSARY.md) processors include a hardware register state (`ACTLR_EL1`) that switches the memory page consistency model from ARM's weak ordering to Intel’s strict **Total Store Order (TSO)**. This hardware-level compatibility switch eliminated the massive software performance overhead of emulating Intel's memory-ordering invariants, achieving near-native execution speeds for translated code.
 
 ---
 
@@ -394,7 +394,7 @@ Apple migrated its abstractions across successive physical and software boundari
 2. **Display & Layout Limits (Classic Mac Era)**: Addressed by the Trap Dispatcher and the Macintosh Toolbox, baking optimized graphic routines into ROM to conserve precious RAM.
 3. **Preemptive Stability Limits (macOS Transition)**: Solved by importing NeXTSTEP’s Mach/BSD microkernel architecture, isolating buggy user applications from kernel memory space.
 4. **Mobile Power & Thermal Limits (iOS Era)**: Managed by sandboxed, single-active-application execution lifecycles, and aggressive compiler-driven memory management (ARC).
-5. **Silicon Performance Limits (Apple Silicon Era)**: Bypassed x86 thermal boundaries by moving to customized ARM SoCs featuring Unified Memory and hardware-accelerated TSO translation.
+5. **Silicon Performance Limits ([Apple Silicon](../GLOSSARY.md) Era)**: Bypassed x86 thermal boundaries by moving to customized ARM SoCs featuring Unified Memory and hardware-accelerated TSO translation.
 
 ---
 
@@ -440,8 +440,8 @@ In the modern AI landscape, Apple’s competitive posture focuses on **on-device
 ### High-Bandwidth Local Memory for Large Models
 Large Language Models (LLMs) are severely constrained by memory bandwidth. In traditional PCs, running a 70-billion-parameter model requires multiple expensive enterprise GPUs connected via PCIe. On an M-series Mac with Unified Memory and up to 192 GB of high-speed system memory, the GPU can run massive models directly in system RAM at up to 800 GB/s bandwidth. This makes Apple workstations the default development environment for high-density local model inference.
 
-### Core ML and Apple Silicon Compilation
-Rather than utilizing standard cloud APIs, Apple compiles model graphs using **Core ML**. The Core ML compiler parses PyTorch or ONNX graphs and maps the tensor operations to Apple Silicon’s specialized hardware accelerators, dynamically routing workloads across the CPU, GPU, and Neural Engine depending on power limits and memory constraints.
+### Core ML and [Apple Silicon](../GLOSSARY.md) Compilation
+Rather than utilizing standard cloud APIs, Apple compiles model graphs using **Core ML**. The Core ML compiler parses PyTorch or ONNX graphs and maps the tensor operations to [Apple Silicon](../GLOSSARY.md)’s specialized hardware accelerators, dynamically routing workloads across the CPU, GPU, and Neural Engine depending on power limits and memory constraints.
 
 ---
 
@@ -541,7 +541,7 @@ The following entity relationships define Apple's position in the Digital Archae
 | Commercial Success | ★★★★★ | Constructed the most profitable hardware and services ecosystem in computing history. |
 | Modern Potential | ★★★★★ | Positioned at the forefront of local AI inference, custom silicon design, and advanced spatial computing models. |
 | AI Synergy | ★★★★★ | Leverages massive on-device unified memory bandwidth and custom Neural Engines to execute local LLM inference efficiently. |
-| Difficulty to Recreate | ★★★★★ | Rebuilding the massive, proprietary vertical stack from Apple Silicon up through Darwin, Cocoa, and Xcode is economically prohibitive. |
+| Difficulty to Recreate | ★★★★★ | Rebuilding the massive, proprietary vertical stack from [Apple Silicon](../GLOSSARY.md) up through Darwin, Cocoa, and Xcode is economically prohibitive. |
 
 ---
 

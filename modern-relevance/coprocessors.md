@@ -33,7 +33,7 @@ The economics of silicon have changed. Transistors are effectively “free” in
 ### Key Drivers Today
 
 - **AI/ML acceleration** — Tensor cores, NPUs, and dedicated matrix engines function as advanced coprocessors.
-- **Heterogeneous computing** — CPUs + GPUs + NPUs + FPGAs working together (e.g., Apple Silicon, modern datacenter chips).
+- **Heterogeneous computing** — CPUs + GPUs + NPUs + FPGAs working together (e.g., [Apple Silicon](../GLOSSARY.md), modern datacenter chips).
 - **Domain-specific architectures** — The return of specialization after decades of general-purpose dominance.
 - **Energy efficiency** — Coprocessors can use exotic arithmetic or execution models optimized for narrow workloads.
 
