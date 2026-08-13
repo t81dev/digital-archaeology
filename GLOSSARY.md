@@ -93,6 +93,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)
 * **Graph Reduction Machine**: A non-von Neumann computer architecture designed to natively execute pure functional programming languages. Instead of sequentially executing compiled assembly instructions, it represents programs as directed acyclic graphs in memory and executes them by repeatedly simplifying and rewriting reducible expressions (redexes) in-place.
   * *See excavation*: [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md)
+* **GGML**: A minimal, raw tensor and evaluation graph library written in plain C, designed to pre-allocate memory arenas topologically to perform high-performance neural network inference with zero dynamic memory allocation overhead.
+  * *See excavation*: [llama.cpp](excavations/llama-cpp.md)
+* **GGUF**: A unified, self-describing, and single-file model packaging format designed for memory-mapped (`mmap`) zero-copy loading of large neural weights and structured key-value metadata.
+  * *See excavation*: [llama.cpp](excavations/llama-cpp.md)
 
 ### I
 * **Integrated Platform Surface**: An architectural paradigm of hardware-software-distribution vertical integration where custom silicon, core operating system managers, dynamic runtimes, developer toolchains, and centralized monetization gates are co-designed as a single surface.
@@ -109,6 +113,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### L
 * **Landauer's Limit**: A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \ln 2$).
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
+* **llama.cpp**: A highly optimized, dependency-free C/C++ inference runtime engine that popularized quantization-first execution, unified memory-bandwidth-aware model loading, and dynamic CPU-GPU offloading.
+  * *See excavation*: [llama.cpp](excavations/llama-cpp.md)
 * **Linear Feedback Shift Register (LFSR)**: A hardware-efficient shift register whose input bit is a linear function (typically XOR) of its previous states. In alternative architectures like [Stochastic Computing](excavations/stochastic-computing.md), LFSRs serve as compact, high-speed pseudo-random number generators.
   * *See excavation*: [Stochastic Computing](excavations/stochastic-computing.md)
 * **Logarithmic Number System (LNS)**: An alternative real-number arithmetic representation that encodes values by their sign and the logarithm of their absolute value to a selected base. LNS simplifies multiplication, division, and exponentiation into simple fixed-point additions and subtractions while shifting the complexity bottleneck to non-linear addition/subtraction approximations and format conversions.
