@@ -1,8 +1,8 @@
 # Digital Archaeology
 
 [![Research Phase: Active](https://img.shields.io/badge/Research--Phase-Active-success.svg)](ROADMAP.md)
-[![Reconstructions: 18 Simulators & Models](https://img.shields.io/badge/Reconstructions-18%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
-[![Completed Excavations: 48](https://img.shields.io/badge/Completed--Excavations-48-orange.svg)](#project-pillars)
+[![Reconstructions: 20 Simulators & Models](https://img.shields.io/badge/Reconstructions-20%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
+[![Completed Excavations: 50](https://img.shields.io/badge/Completed--Excavations-50-orange.svg)](#project-pillars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > *Excavating forgotten ideas. Recovering lost innovations. Reconstructing alternate futures.*
@@ -135,7 +135,7 @@ The project structure is organized to bridge historical research with modern exe
 ### 1. [Excavations](excavations/) (Historical Deep Dives)
 Comprehensive, primary-source-backed investigations of 38 landmark computing paradigms, evaluated using a standardized evaluation format and rating system.
 * **Architectures**: [Analog Computing](excavations/analog-computing.md) • [Associative Processors](excavations/associative-processors.md) • [Asynchronous Processors](excavations/asynchronous-processors.md) • [Balanced Ternary](excavations/balanced-ternary.md) • [Cellular Automata Hardware](excavations/cellular-automata-hardware.md) • [Connection Machine](excavations/connection-machine.md) • [Dataflow Computing](excavations/dataflow-computing.md) • [EBCDIC](excavations/ebcdic.md) • [Explicit Data Graph Execution (EDGE)](excavations/edge-architecture.md) • [Fluidic Logic Systems](excavations/fluidic-logic-systems.md) • [Graph Reduction Machines](excavations/graph-reduction-machines.md) • [Logarithmic Number System (LNS)](excavations/logarithmic-number-system.md) • [Molecular/Biocomputing](excavations/molecular-biocomputing.md) • [Neuromorphic](excavations/neuromorphic-hardware.md) • [Optical Computing](excavations/optical-computing.md) • [Residue Number System (RNS)](excavations/residue-number-system.md) • [Reversible Computing](excavations/reversible-computing.md) • [Stack Machines](excavations/stack-machines.md) • [Stochastic Computing](excavations/stochastic-computing.md) • [Superconducting/Cryogenic](excavations/superconducting-cryogenic.md) • [Systolic Arrays](excavations/systolic-arrays.md) • [Transputers](excavations/transputers.md) • [Vector Supercomputing](excavations/vector-supercomputing.md) • [VLIW/EPIC](excavations/vliw-epic.md) • [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
-* **Operating Systems**: [Apple](excavations/apple.md) • [BeOS / Haiku](excavations/beos-haiku.md) • [Burroughs Large Systems](excavations/burroughs-large-systems.md) • [Capability Systems](excavations/capability-systems.md) • [Inferno](excavations/inferno.md) • [Intel iAPX 432](excavations/intel-iapx-432.md) • [KeyKOS & Nanokernel Capabilities](excavations/keykos-nanokernel-capabilities.md) • [Linux](excavations/linux.md) • [Lisp Machines](excavations/lisp-machines.md) • [Microsoft](excavations/microsoft.md) • [Multics](excavations/multics.md) • [Plan 9](excavations/plan-9.md) • [Project Xanadu](excavations/project-xanadu.md)
+* **Operating Systems**: [Apple](excavations/apple.md) • [BeOS / Haiku](excavations/beos-haiku.md) • [Burroughs Large Systems](excavations/burroughs-large-systems.md) • [Capability Systems](excavations/capability-systems.md) • [Inferno](excavations/inferno.md) • [Intel iAPX 432](excavations/intel-iapx-432.md) • [KeyKOS & Nanokernel Capabilities](excavations/keykos-nanokernel-capabilities.md) • [Linux](excavations/linux.md) • [Lisp Machines](excavations/lisp-machines.md) • [llama.cpp](excavations/llama-cpp.md) • [Microsoft](excavations/microsoft.md) • [Multics](excavations/multics.md) • [Plan 9](excavations/plan-9.md) • [Project Xanadu](excavations/project-xanadu.md)
 * **Languages, Concurrency & AI**: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) • [Occam](excavations/occam.md) • [Smalltalk](excavations/smalltalk.md) • [Symbolic AI](excavations/symbolic-ai.md) • [Prolog, WAM & FGCS Hardware](excavations/prolog-wam-fgcs-hardware.md)
 
 ### 2. [Patterns](patterns/) (Architectural Dynamics)
@@ -190,6 +190,7 @@ Moving from historical theory to active software and hardware prototyping, we ma
 | 🧮 **[RNS Arithmetic Simulator](reconstructions/rns-arithmetic/)** | [Residue Number System (RNS)](excavations/residue-number-system.md) | Parallel, carry-free componentwise modular addition/multiplication and CRT decoding. | `reconstructions/rns-arithmetic/rns_sim.py` |
 | 🧮 **[LNS Arithmetic Simulator](reconstructions/lns-arithmetic/)** | [Logarithmic Number System (LNS)](excavations/logarithmic-number-system.md) | Logarithmic encoding/decoding, multiplication/division, and Jacobian log adder. | `reconstructions/lns-arithmetic/lns_sim.py` |
 | 🛡️ **[KeyKOS-style Capability Simulator](reconstructions/keykos-capabilities/)** | [KeyKOS Capabilities](excavations/keykos-nanokernel-capabilities.md) | Unforgeable keys, attenuation, message-invocation routing, and orthogonal persistence. | `reconstructions/keykos-capabilities/keykos_sim.py` |
+| 🧮 **[llama.cpp Local Simulator](reconstructions/llama_cpp/)** | [llama.cpp Quantization](excavations/llama-cpp.md) | GGUF aligned packing/unpacking, block-wise Q4_0 integer quantization, and dequantization-on-the-fly matmul. | `reconstructions/llama_cpp/llama_cpp_sim.py` |
 
 ### Quick Start: Running the Simulators
 You can run all simulators locally out-of-the-box. They are written in standard Python 3 and require no third-party libraries:
@@ -249,6 +250,9 @@ python3 reconstructions/lns-arithmetic/lns_sim.py
 
 # Run the KeyKOS Capability Simulator
 python3 reconstructions/keykos-capabilities/keykos_sim.py
+
+# Run the llama.cpp Local Quantization and GGUF Simulator
+python3 reconstructions/llama_cpp/llama_cpp_sim.py
 ```
 
 ---

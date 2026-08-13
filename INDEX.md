@@ -61,6 +61,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Lisp Machines](excavations/lisp-machines.md) — *Single-user, hardware-integrated dynamic environment.*
 - [Microsoft: The Platform Machine](excavations/microsoft.md) — *How architectural compatibility, APIs (Win32, COM, .NET), and developer-facing abstractions converted software into a self-reinforcing platform machine.*
 - [Multics](excavations/multics.md) — *Influential secure, multi-user timesharing system with segmentation and rings.*
+- [llama.cpp: Quantization-First local Inference](excavations/llama-cpp.md) — *How low-bit block quantization, unified memory-bandwidth-aware containers, and decoupled execution runtimes shifted large language models to consumer devices.*
 - [OpenAI: The Model-as-Platform Substrate](excavations/openai.md) — *How the standardization of foundation models, remote APIs, alignment, and stateful agentic threads turned learned weights into stable platform infrastructure.*
 - [Plan 9](excavations/plan-9.md) — *Distributed UNIX successor ("Everything is a 9P service").*
 - [Project Xanadu](excavations/project-xanadu.md) — *[Bi-directional hypermedia](GLOSSARY.md) network and deep versioning system.*
@@ -137,6 +138,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [RNS Arithmetic Simulator](reconstructions/rns-arithmetic/) — *Parallel, carry-free componentwise modular addition/multiplication and Chinese Remainder Theorem decoding.*
 - [LNS Arithmetic Simulator](reconstructions/lns-arithmetic/) — *Logarithmic encoding/decoding, multiplication/division, and Jacobian log adder.*
 - [KeyKOS-style Capability Simulator](reconstructions/keykos-capabilities/) — *Unforgeable keys, attenuation, message-invocation routing, and continuous orthogonal persistence.*
+- [llama.cpp Local Quantization and GGUF Simulator](reconstructions/llama_cpp/) — *A high-fidelity simulator demonstrating aligned GGUF container packing/unpacking, block-wise Q4_0 integer quantization, dequantization-on-the-fly matrix multiplications, and autoregressive KV-cache tracking.*
 
 ---
 

@@ -143,6 +143,14 @@
       "definition": "A non-von Neumann computer architecture designed to natively execute pure functional programming languages. Instead of sequentially executing compiled assembly instructions, it represents programs as directed acyclic graphs in memory and executes them by repeatedly simplifying and rewriting reducible expressions (redexes) in-place."
     },
     {
+      "term": "GGML",
+      "definition": "A minimal, raw tensor and evaluation graph library written in plain C, designed to pre-allocate memory arenas topologically to perform high-performance neural network inference with zero dynamic memory allocation overhead."
+    },
+    {
+      "term": "GGUF",
+      "definition": "A unified, self-describing, and single-file model packaging format designed for memory-mapped (`mmap`) zero-copy loading of large neural weights and structured key-value metadata."
+    },
+    {
       "term": "Integrated Platform Surface",
       "definition": "An architectural paradigm of hardware-software-distribution vertical integration where custom silicon, core operating system managers, dynamic runtimes, developer toolchains, and centralized monetization gates are co-designed as a single surface."
     },
@@ -157,6 +165,10 @@
     {
       "term": "Landauer's Limit",
       "definition": "A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \\ln 2$)."
+    },
+    {
+      "term": "llama.cpp",
+      "definition": "A highly optimized, dependency-free C/C++ inference runtime engine that popularized quantization-first execution, unified memory-bandwidth-aware model loading, and dynamic CPU-GPU offloading."
     },
     {
       "term": "Linear Feedback Shift Register (LFSR)",
@@ -407,6 +419,7 @@
           "keykos-nanokernel-capabilities",
           "linux",
           "lisp-machines",
+          "llama-cpp",
           "microsoft",
           "multics",
           "openai",
@@ -562,6 +575,7 @@
           "apple",
           "inferno",
           "linux",
+          "llama-cpp",
           "microsoft",
           "onnx",
           "openai",
@@ -1641,6 +1655,46 @@
       ]
     },
     {
+      "id": "llama-cpp",
+      "title": "llama.cpp: Quantization-First local Inference and the Portable LLM Runtime Ecosystem",
+      "path": "excavations/llama-cpp.md",
+      "summary": "In deep learning history, the **llama.cpp** lineage represents a decisive paradigm shift that decoupled Large Language Model (LLM) execution from cloud-native, Python-dependent, and massive GPU acceleration infrastructures. Originally authored by Georgi Gerganov in March 2023 following the leak and open release of Meta's LLaMA weights, llama.cpp was engineered as a plain C/C++ implementation of the transformer architecture, initially targeted for Apple Silicon (macOS CPU/GPU) via Apple Metal and ARM NEON.\n\nThe lineage's core architectural achievement was **establishing quantization-first, low-dependency execution as a primary design driver rather than a post-hoc compression step**. While traditional ML systems (e.g., PyTorch, Hugging Face transformers) treated float16 and float32 precision as the native computational formats and quantized models primarily to save disk space or memory at the cost of high runtime translation overhead, llama.cpp structured its entire memory layout and computational kernels around low-bit (e.g., 2, 3, 4, 5, 6, 8-bit) integer block quantization.\n\nBy pairing **GGML** (its core tensor and evaluation engine) and **GGUF** (its unified, single-file model and metadata packaging format) with aggressive hardware-specific SIMD compilation targets (AVX, NEON, Metal, CUDA), llama.cpp converted local LLM inference from an inaccessible high-performance computing challenge into an efficient, memory-bandwidth-aware commodity utility. In doing so, it established a massive local application ecosystem (Ollama, LM Studio, local Web UIs, and language bindings) that hard-wired the GGUF container as the de facto standardized distribution artifact of the open-weights AI community.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Successfully broke the cloud/Python monopoly on LLM deployment, initiating the modern local and portable open-weights AI movement."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Popularized block-wise quantization formats, memory-mapped self-describing GGUF files, and dynamic CPU-GPU evaluation graph offloading."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Serves as the computational engine powering massive downstream platforms (Ollama, LM Studio) and enabling enterprise air-gapped local deployment."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Crucial framework for running optimized local AI, performing energy-efficient on-device edge computing, and driving local NPU hardware enablement."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Bridges the gap between research-level Python model training and high-speed, zero-dependency local application development and deployment."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Writing high-performance assembly/intrinsic math kernels for modern CPUs/GPUs and coordinating heterogeneous memory paths is highly complex."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
+    },
+    {
       "id": "logarithmic-number-system",
       "title": "Logarithmic Number System (LNS)",
       "path": "excavations/logarithmic-number-system.md",
@@ -1884,7 +1938,7 @@
       "id": "onnx",
       "title": "ONNX: The Portable Computational Graph and Runtime Substrate",
       "path": "excavations/onnx.md",
-      "summary": "In deep learning history, the **Open Neural Network Exchange (ONNX)** represents the primary structural attempt to establish a standard intermediate representation (IR) and runtime execution layer for trained neural network graphs. \n\nONNX's core architectural achievement is the **formal decoupling of framework-specific computational graphs from target hardware compilers**. By standardizing a graph IR based on Protocol Buffers (protobuf) and a strictly versioned, mathematical operator vocabulary (Opsets), ONNX created a clean \"compile-target\" boundary. This decoupled structure allowed research frameworks (such as PyTorch, TensorFlow, MXNet, and Caffe2) and hardware deployment backends (such as Intel OpenVINO, NVIDIA TensorRT, Qualcomm SNPE, and Apple CoreML) to evolve independently. \n\nHowever, the lineage demonstrates that interoperability is not a passive file-format problem, but an **active runtime and translation event**. The real-world survival and dominance of ONNX was not secured by the format itself, but by **ONNX Runtime (ORT)** and its **Execution Provider (EP)** abstraction layer. ORT transformed ONNX from an exchange format into high-performance execution infrastructure. Pluggable EPs insulated software developers from vendor-specific driver APIs (CUDA, ROCm, DirectML, CoreML) by performing graph optimizations, node fusions, and memory-allocation planning on the portable IR before compiling to target backends. Through these mechanisms, ONNX absorbed the \"conversion tax\" at the ecosystem boundaries, persisting as the default deployment handoff substrate of cloud-native and edge AI infrastructure.",
+      "summary": "In deep learning history, the **Open Neural Network Exchange (ONNX)** represents the primary structural attempt to establish a standard intermediate representation (IR) and runtime execution layer for trained neural network graphs.\n\nONNX's core architectural achievement is the **formal decoupling of framework-specific computational graphs from target hardware compilers**. By standardizing a graph IR based on Protocol Buffers (protobuf) and a strictly versioned, mathematical operator vocabulary (Opsets), ONNX created a clean \"compile-target\" boundary. This decoupled structure allowed research frameworks (such as PyTorch, TensorFlow, MXNet, and Caffe2) and hardware deployment backends (such as Intel OpenVINO, NVIDIA TensorRT, Qualcomm SNPE, and Apple CoreML) to evolve independently.\n\nHowever, the lineage demonstrates that interoperability is not a passive file-format problem, but an **active runtime and translation event**. The real-world survival and dominance of ONNX was not secured by the format itself, but by **ONNX Runtime (ORT)** and its **Execution Provider (EP)** abstraction layer. ORT transformed ONNX from an exchange format into high-performance execution infrastructure. Pluggable EPs insulated software developers from vendor-specific driver APIs (CUDA, ROCm, DirectML, CoreML) by performing graph optimizations, node fusions, and memory-allocation planning on the portable IR before compiling to target backends. Through these mechanisms, ONNX absorbed the \"conversion tax\" at the ecosystem boundaries, persisting as the default deployment handoff substrate of cloud-native and edge AI infrastructure.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -2754,6 +2808,13 @@
       "path": "reconstructions/keykos-capabilities/",
       "entry_point": "reconstructions/keykos-capabilities/keykos_sim.py",
       "description": "Executable simulator for the Keykos Capabilities paradigm."
+    },
+    {
+      "id": "llama_cpp",
+      "title": "Llama_Cpp",
+      "path": "reconstructions/llama_cpp/",
+      "entry_point": "reconstructions/llama_cpp/llama_cpp_sim.py",
+      "description": "Executable simulator for the Llama_Cpp paradigm."
     },
     {
       "id": "lns-arithmetic",
