@@ -77,6 +77,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [EBCDIC](excavations/ebcdic.md)
 * **eBPF (Extended Berkeley Packet Filter)**: An in-kernel, register-based virtual machine and safe bytecode runtime executing verified programs dynamically inside the supervisor-mode event path of the Linux kernel.
   * *See excavation*: [Linux: The Ubiquitous Substrate](excavations/linux.md)
+* **Execution Provider (EP)**: A pluggable compiler and driver adapter inside ONNX Runtime that intercepts, optimizes, and compiles subgraphs for specialized hardware backends (such as CUDA, TensorRT, and OpenVINO).
+  * *See excavation*: [ONNX (Open Neural Network Exchange) & The Interoperability Lineage](excavations/onnx.md)
 * **Explicit Data Graph Execution (EDGE)**: An alternative class of microprocessors that partition instructions into logically atomic blocks. Within each block, execution is dataflow-driven, with instructions routing operand tokens directly to their consumers over a physical spatial grid, completely bypassing centralized registers and rename tables.
   * *See excavation*: [Explicit Data Graph Execution (EDGE) & The TRIPS Architecture](excavations/edge-architecture.md)
 * **Explicitly Parallel Instruction Computing (EPIC)**: An instruction set philosophy (co-developed by HP and Intel for Itanium) where the compiler explicitly bundles instructions that can be executed in parallel, moving the complex scheduling logic from hardware to the compiler.
@@ -133,6 +135,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)
 
 ### O
+* **ONNX (Open Neural Network Exchange)**: An open-standard intermediate representation format and runtime specification for deep learning graphs, enabling trained models to migrate across training frameworks and deployment environments.
+  * *See excavation*: [ONNX (Open Neural Network Exchange) & The Interoperability Lineage](excavations/onnx.md)
+* **Opset (Operator Set)**: A mathematically strict, versioned library of neural network operators defined inside ONNX, ensuring backward-compatible execution semantics of portable graphs over time.
+  * *See excavation*: [ONNX (Open Neural Network Exchange) & The Interoperability Lineage](excavations/onnx.md)
 * **[Optical Computing](excavations/optical-computing.md)**: A hardware paradigm using light waves (photons) instead of electrical currents (electrons) to perform logic operations, leveraging wave interference, spatial division multiplexing, and sub-nanosecond matrix-vector multiplication.
   * *See excavation*: [Optical Computing](excavations/optical-computing.md)
 * **OpenAI API**: A stable, remote remote intelligence service that platformizes large-scale learned weights into versioned, billable completions, chat turns, and stateful multi-step agent run loops.

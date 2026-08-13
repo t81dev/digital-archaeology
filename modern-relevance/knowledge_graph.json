@@ -119,6 +119,10 @@
       "definition": "An in-kernel, register-based virtual machine and safe bytecode runtime executing verified programs dynamically inside the supervisor-mode event path of the Linux kernel."
     },
     {
+      "term": "Execution Provider (EP)",
+      "definition": "A pluggable compiler and driver adapter inside ONNX Runtime that intercepts, optimizes, and compiles subgraphs for specialized hardware backends (such as CUDA, TensorRT, and OpenVINO)."
+    },
+    {
       "term": "Explicit Data Graph Execution (EDGE)",
       "definition": "An alternative class of microprocessors that partition instructions into logically atomic blocks. Within each block, execution is dataflow-driven, with instructions routing operand tokens directly to their consumers over a physical spatial grid, completely bypassing centralized registers and rename tables."
     },
@@ -189,6 +193,14 @@
     {
       "term": "[Neuromorphic Hardware](excavations/neuromorphic-hardware.md)",
       "definition": "Silicon architectures designed to mimic the neural structures of the brain, utilizing asynchronous, event-driven spiking neural networks and in-memory computation."
+    },
+    {
+      "term": "ONNX (Open Neural Network Exchange)",
+      "definition": "An open-standard intermediate representation format and runtime specification for deep learning graphs, enabling trained models to migrate across training frameworks and deployment environments."
+    },
+    {
+      "term": "Opset (Operator Set)",
+      "definition": "A mathematically strict, versioned library of neural network operators defined inside ONNX, ensuring backward-compatible execution semantics of portable graphs over time."
     },
     {
       "term": "[Optical Computing](excavations/optical-computing.md)",
@@ -409,7 +421,8 @@
         "description": "Non-sequential, asynchronous execution driven entirely by input operand availability (tokens).",
         "mapped_excavations": [
           "dataflow-computing",
-          "edge-architecture"
+          "edge-architecture",
+          "onnx"
         ]
       },
       "Demand-Driven (Graph Reduction)": {
@@ -550,6 +563,7 @@
           "inferno",
           "linux",
           "microsoft",
+          "onnx",
           "openai",
           "smalltalk",
           "smalltalk",
@@ -616,6 +630,7 @@
           "vector-supercomputing",
           "systolic-arrays",
           "associative-processors",
+          "onnx",
           "stochastic-computing"
         ]
       },
@@ -1866,6 +1881,46 @@
       "references": []
     },
     {
+      "id": "onnx",
+      "title": "ONNX: The Portable Computational Graph and Runtime Substrate",
+      "path": "excavations/onnx.md",
+      "summary": "In deep learning history, the **Open Neural Network Exchange (ONNX)** represents the primary structural attempt to establish a standard intermediate representation (IR) and runtime execution layer for trained neural network graphs. \n\nONNX's core architectural achievement is the **formal decoupling of framework-specific computational graphs from target hardware compilers**. By standardizing a graph IR based on Protocol Buffers (protobuf) and a strictly versioned, mathematical operator vocabulary (Opsets), ONNX created a clean \"compile-target\" boundary. This decoupled structure allowed research frameworks (such as PyTorch, TensorFlow, MXNet, and Caffe2) and hardware deployment backends (such as Intel OpenVINO, NVIDIA TensorRT, Qualcomm SNPE, and Apple CoreML) to evolve independently. \n\nHowever, the lineage demonstrates that interoperability is not a passive file-format problem, but an **active runtime and translation event**. The real-world survival and dominance of ONNX was not secured by the format itself, but by **ONNX Runtime (ORT)** and its **Execution Provider (EP)** abstraction layer. ORT transformed ONNX from an exchange format into high-performance execution infrastructure. Pluggable EPs insulated software developers from vendor-specific driver APIs (CUDA, ROCm, DirectML, CoreML) by performing graph optimizations, node fusions, and memory-allocation planning on the portable IR before compiling to target backends. Through these mechanisms, ONNX absorbed the \"conversion tax\" at the ecosystem boundaries, persisting as the default deployment handoff substrate of cloud-native and edge AI infrastructure.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Successfully unified model-exchange pipelines across competing corporate ecosystems, establishing a reliable \"compile-target\" boundary."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Standardized semantic Opset version decoupling, pluggable dynamic Execution Provider partitioning, and level-fused graph optimizations."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Adopted as the definitive inference execution standard across major cloud platforms (Azure, AWS), desktop OS platforms, and mobile NPUs."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Essential substrate for deploying optimized edge AI, performing low-precision quantization, and driving local NPU hardware enablement."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Bridges the gap between high-speed research iteration in dynamic PyTorch and stable, low-latency, cloud-scale or edge serving deployments."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "The physical engineering of the mathematically strict Opset catalog and its highly-optimized C++ runtime compilation engine is extremely costly."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
+    },
+    {
       "id": "openai",
       "title": "OpenAI: The Model-as-Platform Substrate",
       "path": "excavations/openai.md",
@@ -2633,6 +2688,12 @@
       "summary": "**An architectural and mechanistic synthesis of the Residue Number System (RNS), Logarithmic Number System (LNS), [Fluidic Logic](../GLOSSARY.md), [KeyKOS](../GLOSSARY.md)-style Object Capabilities, and Prolog/WAM/FGCS Logic-Programming Hardware.**"
     },
     {
+      "id": "repo-consistency-audit",
+      "title": "Digital Archaeology: Full-Repository Consistency & Cross-Reference Audit",
+      "path": "synthesis/repo-consistency-audit.md",
+      "summary": "**An evidence-based structural, conceptual, and relational consistency audit of the Digital Archaeology repository following the integration of recent excavations and pattern revisions.**"
+    },
+    {
       "id": "return-of-spatial-computing",
       "title": "The Return of Spatial Computing",
       "path": "synthesis/return-of-spatial-computing.md",
@@ -2721,6 +2782,13 @@
       "path": "reconstructions/neuromorphic-spiking/",
       "entry_point": "reconstructions/neuromorphic-spiking/spiking_sim.py",
       "description": "Event-driven Spiking Neural Network (SNN) simulator modeling Leaky Integrate-and-Fire (LIF) dynamics, Address-Event Representation (AER), and Spike-Timing-Dependent Plasticity (STDP) learning rules."
+    },
+    {
+      "id": "onnx-ir",
+      "title": "Onnx Ir",
+      "path": "reconstructions/onnx-ir/",
+      "entry_point": "reconstructions/onnx-ir/onnx_sim.py",
+      "description": "Executable simulator for the Onnx Ir paradigm."
     },
     {
       "id": "openai_sim",
