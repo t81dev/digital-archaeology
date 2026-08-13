@@ -35,7 +35,12 @@ Forgotten abstractions typically share these traits:
 * **Vector Chaining & Systolic Dataflow** *(new)* — Rhythmic, streaming spatial computation models.
 * **iAPX 432 / [Multics](../excavations/multics.md) abstractions** *(new)* — Strong object-oriented and protection models in hardware/OS.
 * **9P/Styx Dynamic Namespaces & Union Mounts** *(new)* — Completely transparent, network-independent resource sharing via stateful, simple file messages, resolving search lookups with fallthrough directory bindings.
-* **Single-Level Store (SLS)** *(new)* — Erasing the logical and physical boundary between volatile register heap memory and persistent filesystem storage.
+* **Single-Level Store (SLS)** *(new)* — Erasing the logical and physical boundary between volatile register heap memory and persistent filesystem storage (e.g., Multics, KeyKOS).
+* **Unforgeable Object Capabilities** *(new)* — Integrating designation and authority into unforgeable hardware-checked keys (e.g., KeyKOS, iAPX 432).
+* **Carry-Free Modular Arithmetic** *(new)* — Decomposing wide mathematical calculations into mutually independent modular channels to bypass carry-propagation bottlenecks (e.g., RNS).
+* **Log-domain Cost Inversion** *(new)* — Trading representation formats to simplify high-order arithmetic operations like multiplication and division into fixed-point additions (e.g., LNS).
+* **Non-moving Fluidic Switching** *(new)* — Relying on boundary fluid attachment (Coanda effect) and momentum-driven jet amplification to perform logic operations without moving parts (e.g., Fluidic logic).
+* **Two-way Logical Unification & Backtracking** *(new)* — Computing via bidirectional pattern matching and chronological state unbinding over choice points (e.g., Prolog, Warren Abstract Machine).
 
 ### Other Classic Cases
 * Persistent / single-level object stores (vs. filesystems + databases)
@@ -99,6 +104,11 @@ The goal is not nostalgia, but **technological optionality** — keeping powerfu
 - [Vector Supercomputing](../excavations/vector-supercomputing.md)
 - [Plan 9](../excavations/plan-9.md)
 - [Inferno](../excavations/inferno.md)
+- [Residue Number System](../excavations/residue-number-system.md)
+- [Logarithmic Number System](../excavations/logarithmic-number-system.md)
+- [Fluidic Logic Systems](../excavations/fluidic-logic-systems.md)
+- [KeyKOS and the Nanokernel Capability Lineage](../excavations/keykos-nanokernel-capabilities.md)
+- [Prolog / WAM / FGCS Hardware](../excavations/prolog-wam-fgcs-hardware.md)
 
 ---
 

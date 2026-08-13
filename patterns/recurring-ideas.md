@@ -27,16 +27,16 @@ This pattern catalog identifies recurring ideas, documents their historical appe
 - **Modern forms**: CHERI hardware capabilities, ARM Memory Tagging Extension (MTE), typed memory in managed runtimes, and object-capability models.
 
 ### 4. Alternative Number Systems & Representations
-- **Original**: [Balanced Ternary](../excavations/balanced-ternary.md) (Setun), decimal machines, residue number systems
-- **Modern forms**: Posits, logarithmic number systems, mixed-precision AI formats, [stochastic computing](../excavations/stochastic-computing.md), and multi-valued logic research.
+- **Original**: [Balanced Ternary](../excavations/balanced-ternary.md) (Setun), decimal machines, [Residue Number System](../excavations/residue-number-system.md) (RNS), [Logarithmic Number System](../excavations/logarithmic-number-system.md) (LNS).
+- **Modern forms**: Posits, logarithmic tensor core math formats (LNS8/FP8) in NPUs, RNS-accelerated Fully Homomorphic Encryption (FHE) cloud processors, [stochastic computing](../excavations/stochastic-computing.md) filters, and multi-valued logic research.
 
 ### 5. Deep Language-Hardware Integration
 - **Original**: [Lisp Machines](../excavations/lisp-machines.md), [Burroughs Large Systems](../excavations/burroughs-large-systems.md), Symbolics Genera (microcode + rich runtime)
 - **Modern forms**: Domain-specific accelerators with tight compiler co-design, e-graph rewriting, hardware support for garbage collection, dynamic typing, and high-level operations.
 
 ### 6. Single-Level Storage / Persistent Object Models
-- **Original**: Early Lisp/[Smalltalk](../excavations/smalltalk.md) environments, [Multics](../excavations/multics.md), Burroughs
-- **Modern forms**: Persistent memory (Optane-style), unified memory architectures (e.g., [Apple Silicon](../GLOSSARY.md)), and object-capability storage systems.
+- **Original**: Early Lisp/[Smalltalk](../excavations/smalltalk.md) environments, [Multics](../excavations/multics.md), Burroughs, [KeyKOS and the Nanokernel Capability Lineage](../excavations/keykos-nanokernel-capabilities.md) (Continuous Orthogonal Persistence).
+- **Modern forms**: Persistent non-volatile memory (NVMM) and CXL fabrics, unified memory architectures (e.g., [Apple Silicon](../GLOSSARY.md)), and object-capability database storage engines.
 
 ### 7. Vector / Spatial / Streaming Data Parallelism (new)
 - **Original**: Cray [Vector Supercomputing](../excavations/vector-supercomputing.md), [Systolic Arrays](../excavations/systolic-arrays.md), [Connection Machine](../excavations/connection-machine.md)
@@ -87,6 +87,11 @@ Many ideas that failed commercially in the past may now be worth revisiting — 
 - [Systolic Arrays](../excavations/systolic-arrays.md)
 - [Transputers](../excavations/transputers.md)
 - [Vector Supercomputing](../excavations/vector-supercomputing.md)
+- [Residue Number System](../excavations/residue-number-system.md)
+- [Logarithmic Number System](../excavations/logarithmic-number-system.md)
+- [Fluidic Logic Systems](../excavations/fluidic-logic-systems.md)
+- [KeyKOS and the Nanokernel Capability Lineage](../excavations/keykos-nanokernel-capabilities.md)
+- [Prolog / WAM / FGCS Hardware](../excavations/prolog-wam-fgcs-hardware.md)
 
 ## Related Patterns
 

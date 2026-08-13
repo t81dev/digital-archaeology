@@ -44,10 +44,20 @@ A constraint typically migrates when there is:
 * **Modern**: Computing is dominated by hyper-scale, multi-agent serverless clusters and distributed edge IoT networks. Shared physical memory cannot scale across networks, and microservice REST APIs introduce extreme spatial and temporal coupling.
 * **Result**: Unified network-transparent message-passing protocols (9P/Styx) and private dynamic namespaces are resurrected to organize secure, decoupled distributed systems.
 
+### 5. Packaging and Interconnections vs. Processing Nodes (The Interconnect Wall)
+* **Historically**: Performance was dictated by individual logic gate delays and silicon switching times. Interconnect wiring delays were secondary.
+* **Modern**: Transistors are incredibly small, cheap, and fast, but sending signals across long on-die copper wires is extremely power-hungry and high-latency.
+* **Result**: Spatial processing architectures, in-memory processing, and non-electronic routing models (such as optical wave propagation and fluidic manifolds) are revived because they bypass the parasitic resistance and thermal limits of electrical wire networks.
+
 ---
 
 ## Case Studies from This Repository
 
+* **[Residue Number System (RNS)](../excavations/residue-number-system.md)** *(new)* — Deemed too complex on early silicon due to non-local operations like comparison and division. Today, the rise of Fully Homomorphic Encryption (FHE) polynomial modular multiplications and the end of Dennard scaling has turned RNS (with its carry-free, mutually independent, low-toggle parallel channels) into an essential mathematical accelerator for zero-trust cloud servers.
+* **[Logarithmic Number System (LNS)](../excavations/logarithmic-number-system.md)** *(new)* — Sidelined because high-precision addition and subtraction required massive transcendental approximation tables. Today, low-precision AI training and inference (LNS8/FP8) do not require high precision; they require high matrix-multiplication throughput under tight thermal envelopes, reviving LNS to replace power-hungry floating-point multipliers with cheap, low-bit fixed-point adders.
+* **[Fluidic Logic Systems](../excavations/fluidic-logic-systems.md)** *(new)* — Eclipsed by standard silicon microchips because pneumatic switching speeds are bounded by the speed of sound. Today, standard silicon cannot operate in extreme high-radiation, electromagnetic, or high-temperature environments. Fluidics survives because its material-independent wall-attachment switching relies on the raw physics of the fluid medium itself, allowing computing to occur natively within flexible soft-robotic manifolds or microfluidic biochips.
+* **[KeyKOS-style Nanokernel Capabilities](../excavations/keykos-nanokernel-capabilities.md)** *(new)* — Ambitious pure capability systems were too slow because of memory protection indirection and CPU trap latencies. Today, spatial and temporal memory safety are existential security demands. CHERI revives capabilities by surgically adding them to standard 64-bit hardware registers, eliminating microkernel trap latencies while enforcing fine-grained, unforgeable memory bounds.
+* **[Prolog / WAM / FGCS Hardware](../excavations/prolog-wam-fgcs-hardware.md)** *(new)* — High-level hardware accelerators for logic programming were outpaced by general-purpose RISC CPUs. Today, logic processing is revived via high-performance software virtual machines (the Warren Abstract Machine) running on top of commodity multi-core hosts, and compiled logic rules are used as zero-trust cloud network security controllers.
 * **[Dataflow Computing](../excavations/dataflow-computing.md)** — Sidelined because imperative CPUs scaled so quickly with Moore's Law and out-of-order execution. With sequential scaling stalled, and AI workloads requiring massive computation graph execution, the dataflow model (event-driven, dependency-driven execution) has been resurrected in modern AI accelerators.
 * **[Capability Systems](../excavations/capability-systems.md)** — Deemed too slow and complex on 16-bit or 32-bit hardware because capability checks introduced indirection and address space overhead. Today, CHERI (Capability Hardware Enhanced RISC Instructions) proves that modern 64-bit processors can afford the minor silicon and cycle overhead to prevent 70%+ of typical software vulnerabilities.
 * **[Balanced Ternary](../excavations/balanced-ternary.md)** — Sidelined because binary logic gates (on/off vacuum tubes or transistors) were far simpler to manufacture at high yields. With Silicon nearing its physical atomic scaling limits, researchers are looking at multi-valued logic and alternative materials where three stable states are natively available, unlocking higher information density.
@@ -101,6 +111,11 @@ If the limiting constraints have migrated (e.g., if memory latency is now the bo
 - [Plan 9](../excavations/plan-9.md)
 - [Inferno](../excavations/inferno.md)
 - [Multics](../excavations/multics.md)
+- [Residue Number System](../excavations/residue-number-system.md)
+- [Logarithmic Number System](../excavations/logarithmic-number-system.md)
+- [Fluidic Logic Systems](../excavations/fluidic-logic-systems.md)
+- [KeyKOS and the Nanokernel Capability Lineage](../excavations/keykos-nanokernel-capabilities.md)
+- [Prolog / WAM / FGCS Hardware](../excavations/prolog-wam-fgcs-hardware.md)
 
 ## Related Modern Perspectives
 
