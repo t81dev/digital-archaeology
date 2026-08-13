@@ -2615,6 +2615,18 @@
       "summary": "**A systematic analysis of pairwise and triple computing lineage integrations, demonstrating how hybrid co-design overcomes the physical, security, and data conversion boundaries of isolated non-von Neumann architectures.**"
     },
     {
+      "id": "pattern-catalog-revision-report",
+      "title": "Pattern Catalog Revision Report: Recent Inclusions",
+      "path": "synthesis/pattern-catalog-revision-report.md",
+      "summary": "**A detailed report documenting the promotion of new architectural patterns, the refinement of existing core patterns, and the meta-conclusions derived from alternative computing paradigms.**"
+    },
+    {
+      "id": "pattern-impact-audit-recent-inclusions",
+      "title": "Pattern Impact Audit: Recent Inclusions",
+      "path": "synthesis/pattern-impact-audit-recent-inclusions.md",
+      "summary": "**An systematic mapping of architectural insights from Residue Number System (RNS), Logarithmic Number System (LNS), Fluidic Logic, KeyKOS-style capabilities, and Prolog/WAM/FGCS logic-programming hardware against the Digital Archaeology pattern catalog.**"
+    },
+    {
       "id": "recent-inclusions-crosscut",
       "title": "Cross-Excavation Synthesis: Alternative Mathematical, Protection, and Substrate Paradigms",
       "path": "synthesis/recent-inclusions-crosscut.md",

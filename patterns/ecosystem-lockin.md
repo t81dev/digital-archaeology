@@ -45,6 +45,9 @@ Breaking the cycle usually requires either massive disruption (a killer applicat
 * **[Transputers](../excavations/transputers.md)** — The elegant [occam](../excavations/occam.md)/CSP model could not overcome the momentum of C/Fortran + MPI on commodity clusters.
 * **[Dataflow Computing](../excavations/dataflow-computing.md)** — Required fundamentally new programming models and toolchains in a world optimized for imperative control flow.
 * **[Capability Systems](../excavations/capability-systems.md)** — Elegant security model hindered by deep incompatibility with existing permission/ACL-based software ecosystems.
+* **[KeyKOS-style Nanokernel Capabilities](../excavations/keykos-nanokernel-capabilities.md)** *(new)* — Highly efficient, zero-trust microkernel design was locked out because mainstream applications assumed ambient authority and global file paths.
+* **[Residue Number System (RNS)](../excavations/residue-number-system.md)** *(new)* — Mathematically elegant and carry-free addition/multiplication was locked out of general-purpose use due to the inability of standard compilers (GCC/LLVM) and languages (C/C++) to handle non-positional arithmetic without massive comparison overheads.
+* **[Prolog / WAM / FGCS Hardware](../excavations/prolog-wam-fgcs-hardware.md)** *(new)* — Dedicated hardware built to accelerate logic programming was economically locked out of the general market once RISC processors achieved comparable logic execution speeds via highly optimized software virtual machines.
 * **[Vector Supercomputing](../excavations/vector-supercomputing.md)** *(new)* — Superior per-node efficiency displaced by the scalability and software ecosystem of commodity clusters (Beowulf) + MPI.
 * **[Plan 9](../excavations/plan-9.md) & [Inferno](../excavations/inferno.md)** — The beautiful simplicity of everything-as-a-file 9P protocols and dynamic, private namespaces was completely locked out by standard POSIX socket libraries and the massive open-source momentum surrounding Linux.
 * **[Multics](../excavations/multics.md)** — Tying core segmented memory-mapped persistent files directly to custom GE/Honeywell mainframes locked it out of the portable, general-purpose microprocessor revolution that spawned Unix.
@@ -80,6 +83,7 @@ Nevertheless, lock-in around x86/ARM, CUDA, and major ML frameworks continues to
 - [Economic Failures](../patterns/economic-failures.md)
 - [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
 - [Recurring Ideas](../patterns/recurring-ideas.md)
+- [Interface / Conversion Tax](../patterns/interface-conversion-tax.md)
 
 ## Related Excavations
 
@@ -94,6 +98,9 @@ Nevertheless, lock-in around x86/ARM, CUDA, and major ML frameworks continues to
 - [Plan 9](../excavations/plan-9.md)
 - [Inferno](../excavations/inferno.md)
 - [Multics](../excavations/multics.md)
+- [Residue Number System](../excavations/residue-number-system.md)
+- [KeyKOS and the Nanokernel Capability Lineage](../excavations/keykos-nanokernel-capabilities.md)
+- [Prolog / WAM / FGCS Hardware](../excavations/prolog-wam-fgcs-hardware.md)
 
 ---
 

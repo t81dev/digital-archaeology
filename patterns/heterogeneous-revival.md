@@ -19,6 +19,7 @@ A technology experiences a "Heterogeneous Revival" when:
 2. **It targets a killer application**: It focuses on high-value, highly specific workloads (like machine learning, cryptography, vector math, or network packet processing).
 3. **The boundary is managed by compilers and APIs**: Developers target the accelerator via high-level libraries, frameworks (e.g., CUDA, PyTorch, OpenCL), or domain-specific languages rather than writing low-level assembly for the specialized core.
 4. **It utilizes high-bandwidth interconnects**: On-chip Networks-on-Chip (NoC), coherent buses, or system-on-chip (SoC) integration allow rapid communication between the host and the accelerator.
+5. **Hybridization as the Primary Survival Mode**: Pure alternative architectures rarely succeed as standalone replacements of the mainstream stack; they persist and reappear strictly as co-processing layers, instructions, or sub-modules embedded within dominant hosts.
 
 ---
 
@@ -45,6 +46,10 @@ Independent processors with their own dedicated high-speed memory pools, communi
 * **[Lisp Machines](../excavations/lisp-machines.md) & Dynamic Tagged Architectures** — Standalone hardware running dynamic Lisp environments died in the late 1980s due to the rise of cheap RISC workstations. Today, the core abstractions are revived in software managed runtimes (JVM, V8) running on standard CPUs, and hardware tagging is returning as a specialized security accelerator (ARM Memory Tagging Extension) to prevent memory corruption.
 * **[Transputers](../excavations/transputers.md) & CSP Concurrency** — [Transputers](../excavations/transputers.md) attempted to replace sequential CPUs with modular, message-passing microprocessors. While the hardware failed, its lightweight process and native message-passing channel abstractions have been revived in software platforms (Go, Erlang, actor frameworks) running on top of heterogeneous multi-core architectures.
 * **[Capability Systems](../excavations/capability-systems.md)** — Ambitious pure [capability systems](../excavations/capability-systems.md) (like the [Intel iAPX 432](../excavations/intel-iapx-432.md) or CAP computer) failed due to radical instruction sets and performance overheads. Today, CHERI (Capability Hardware Enhanced RISC Instructions) revives capabilities by surgically adding them to existing, highly optimized instruction sets (ARM and RISC-V), allowing legacy code to run alongside secure, compartmentalized capability-aware software.
+* **[Residue Number System (RNS)](../excavations/residue-number-system.md)** *(new)* — General-purpose modular computers (like EPOS) failed. Today, RNS is revived as a specialized, multi-channel cryptographic co-processor to accelerate Fully Homomorphic Encryption (FHE) polynomial multiplications alongside standard x86/ARM CPUs.
+* **[Logarithmic Number System (LNS)](../excavations/logarithmic-number-system.md)** *(new)* — Standalone LNS CPUs failed. Today, LNS has returned as low-precision tensor core arithmetic blocks (LNS8/FP8) inside standard NPUs and GPUs, accelerating matrix dot-products under tight energy budgets.
+* **[Fluidic Logic Systems](../excavations/fluidic-logic-systems.md)** *(new)* — Standalone fluidic digital computers failed. Today, fluidic switching logic is revived as integrated, compliant control manifolds in soft-robotic hands or microfluidic biochip channels, operating in symbiosis with standard electronic microcontrollers.
+* **[Prolog / WAM / FGCS Hardware](../excavations/prolog-wam-fgcs-hardware.md)** *(new)* — Microcoded logic workstations failed. The logic abstractions are revived as embedded, high-performance software virtual machines (the Warren Abstract Machine) running as library modules inside standard imperative applications, or compiled as static security rules engines.
 
 ---
 
@@ -75,6 +80,8 @@ For digital archaeologists and hardware architects, this means:
 - [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
 - [Recurring Ideas](../patterns/recurring-ideas.md)
 - [Constraint Migration](../patterns/constraint-migration.md)
+- [Interface / Conversion Tax](../patterns/interface-conversion-tax.md)
+- [Abstract Machine Persistence](../patterns/abstract-machine-persistence.md)
 
 ## Related Excavations
 
@@ -85,6 +92,11 @@ For digital archaeologists and hardware architects, this means:
 - [Systolic Arrays](../excavations/systolic-arrays.md)
 - [Transputers](../excavations/transputers.md)
 - [Vector Supercomputing](../excavations/vector-supercomputing.md)
+- [Residue Number System](../excavations/residue-number-system.md)
+- [Logarithmic Number System](../excavations/logarithmic-number-system.md)
+- [Fluidic Logic Systems](../excavations/fluidic-logic-systems.md)
+- [KeyKOS and the Nanokernel Capability Lineage](../excavations/keykos-nanokernel-capabilities.md)
+- [Prolog / WAM / FGCS Hardware](../excavations/prolog-wam-fgcs-hardware.md)
 
 ---
 

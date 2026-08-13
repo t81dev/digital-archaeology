@@ -30,6 +30,10 @@ These patterns help transform isolated historical case studies into a coherent f
 
 - **[Constraint Migration](constraint-migration.md)** — How shifting technological, physical, and economic bottlenecks turn previously impractical ideas into optimal modern solutions.
 - **[Heterogeneous Revival](heterogeneous-revival.md)** — How historically sidelined architectures return as specialized coprocessors or instruction set extensions inside hybrid general-purpose systems.
+- **[Interface / Conversion Tax](interface-conversion-tax.md)** — The performance, resource, or security penalty paid when translating alternative abstractions to interface with mainstream systems.
+- **[Abstract Machine Persistence](abstract-machine-persistence.md)** — Decoupling execution models into software-defined virtual machines to survive on commodity hardware.
+- **[Operator-Cost Inversion](operator-cost-inversion.md)** — Changing underlying representations to invert relative mathematical operator latencies and silicon costs.
+- **[Explicit Authority Substrate](explicit-authority-substrate.md)** — Replacing ambient permissions with unforgeable, fine-grained object-capabilities.
 
 ---
 

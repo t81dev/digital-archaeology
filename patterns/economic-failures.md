@@ -70,6 +70,10 @@ Perhaps no single venture better illustrates the extreme risks of **High Capital
 * **[Vector Supercomputing](../excavations/vector-supercomputing.md)** *(new)* — Superior per-node efficiency for scientific workloads displaced by cheaper, more scalable commodity clusters (Beowulf) and later GPUs.
 * **[Dataflow Computing](../excavations/dataflow-computing.md)** — Powerful implicit parallelism model sidelined by easier-to-program control-flow systems.
 * **[Capability Systems](../excavations/capability-systems.md)** — Elegant security model hindered by incompatibility with existing ecosystems.
+* **[Residue Number System (RNS)](../excavations/residue-number-system.md)** *(new)* — General-purpose RNS architectures (such as Czechoslovakia's EPOS) were defeated because general control flow and branching required frequent, high-overhead magnitude comparison operations.
+* **[Logarithmic Number System (LNS)](../excavations/logarithmic-number-system.md)** *(new)* — Standalone LNS chips (such as Flysig) were defeated by the massive manufacturing scale and continuous Fused Multiply-Add (FMA) latency improvements of standard binary floating-point.
+* **[Fluidic Logic Systems](../excavations/fluidic-logic-systems.md)** *(new)* — Pure fluidic logic computers (such as GE's FLUIDIC-1) were completely out-scaled by semiconductor integrated circuits, which scaled exponentially in switching speed and density under CMOS economics.
+* **[Prolog / WAM / FGCS Hardware](../excavations/prolog-wam-fgcs-hardware.md)** *(new)* — Dedicated, microcoded symbolic logic workstations (such as the Japanese PSI and PIM hardware) could not match the volume-driven performance scaling and compiled execution speeds of commodity RISC microprocessors.
 
 ---
 
@@ -100,6 +104,8 @@ Understanding economic failures helps us avoid romanticizing lost technologies w
 - [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)
 - [Forgotten Abstractions](../patterns/forgotten-abstractions.md)
 - [Recurring Ideas](../patterns/recurring-ideas.md)
+- [Interface / Conversion Tax](../patterns/interface-conversion-tax.md)
+- [Abstract Machine Persistence](../patterns/abstract-machine-persistence.md)
 
 ## Related Excavations
 
@@ -112,6 +118,11 @@ Understanding economic failures helps us avoid romanticizing lost technologies w
 - [Transputers](../excavations/transputers.md)
 - [Vector Supercomputing](../excavations/vector-supercomputing.md)
 - [Wafer-Scale Integration](../excavations/wafer-scale-integration.md)
+- [Residue Number System](../excavations/residue-number-system.md)
+- [Logarithmic Number System](../excavations/logarithmic-number-system.md)
+- [Fluidic Logic Systems](../excavations/fluidic-logic-systems.md)
+- [KeyKOS and the Nanokernel Capability Lineage](../excavations/keykos-nanokernel-capabilities.md)
+- [Prolog / WAM / FGCS Hardware](../excavations/prolog-wam-fgcs-hardware.md)
 
 ---
 
