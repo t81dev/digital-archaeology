@@ -1,0 +1,83 @@
+[
+  {
+    "path": "INDEX.md",
+    "status": "OK",
+    "issue": "Missing relative cross-reference links for newly promoted patterns and glossary terms",
+    "recommended_action": "Run tools/cross_reference_generator.py to inject links",
+    "priority": "P1",
+    "related_files": ["patterns/README.md"],
+    "notes": "Completed successfully"
+  },
+  {
+    "path": "patterns/abstract-machine-persistence.md",
+    "status": "OK",
+    "issue": "Implicit terms such as stack machine and unification not linked to glossary",
+    "recommended_action": "Run tools/cross_reference_generator.py to inject links",
+    "priority": "P1",
+    "related_files": ["GLOSSARY.md"],
+    "notes": "Completed successfully"
+  },
+  {
+    "path": "patterns/interface-conversion-tax.md",
+    "status": "OK",
+    "issue": "Stale references to lock-in variables and signal converters",
+    "recommended_action": "Run tools/cross_reference_generator.py to inject links",
+    "priority": "P1",
+    "related_files": ["patterns/ecosystem-lockin.md"],
+    "notes": "Completed successfully"
+  },
+  {
+    "path": "patterns/operator-cost-inversion.md",
+    "status": "OK",
+    "issue": "Mathematical representation terms lacked explicit cross-references",
+    "recommended_action": "Run tools/cross_reference_generator.py to inject links",
+    "priority": "P1",
+    "related_files": ["GLOSSARY.md"],
+    "notes": "Completed successfully"
+  },
+  {
+    "path": "patterns/explicit-authority-substrate.md",
+    "status": "OK",
+    "issue": "Pointers to capability-systems and KeyKOS lacked active links",
+    "recommended_action": "Run tools/cross_reference_generator.py to inject links",
+    "priority": "P1",
+    "related_files": ["excavations/capability-systems.md"],
+    "notes": "Completed successfully"
+  },
+  {
+    "path": "synthesis/recent-inclusions-crosscut.md",
+    "status": "OK",
+    "issue": "Dense terminology links missing for new inclusions",
+    "recommended_action": "Run tools/cross_reference_generator.py to inject links",
+    "priority": "P1",
+    "related_files": ["GLOSSARY.md"],
+    "notes": "Completed successfully"
+  },
+  {
+    "path": "synthesis/pattern-impact-audit-recent-inclusions.md",
+    "status": "OK",
+    "issue": "Terminology decoupling for promoted patterns",
+    "recommended_action": "Run tools/cross_reference_generator.py to inject links",
+    "priority": "P1",
+    "related_files": ["patterns/README.md"],
+    "notes": "Completed successfully"
+  },
+  {
+    "path": "synthesis/pattern-catalog-revision-report.md",
+    "status": "OK",
+    "issue": "Structural and boundary links missing",
+    "recommended_action": "Run tools/cross_reference_generator.py to inject links",
+    "priority": "P1",
+    "related_files": ["patterns/README.md"],
+    "notes": "Completed successfully"
+  },
+  {
+    "path": "modern-relevance/knowledge_graph.json",
+    "status": "OK",
+    "issue": "Needs regeneration to reflect the newly injected edges and nodes",
+    "recommended_action": "Run tools/generate_knowledge_graph.py to compile the graph database",
+    "priority": "P1",
+    "related_files": ["tools/generate_knowledge_graph.py"],
+    "notes": "Completed successfully"
+  }
+]
