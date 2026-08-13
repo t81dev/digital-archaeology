@@ -230,6 +230,8 @@ class KnowledgeGraphGenerator:
                 desc = f"Executable simulator for the {folder.replace('-', ' ').title()} paradigm."
                 if folder == "plan9-9p":
                     desc = "Stateful 9P/Styx protocol and private distributed namespace simulator."
+                elif folder == "mapreduce":
+                    desc = "Fault-tolerant MapReduce coordinator simulator executing dynamic partitioning, intermediate sorting, key hashing, and map-task recovery on node crashes."
                 elif folder == "systolic-array":
                     desc = "Cycle-accurate Weight-Stationary and Output-Stationary systolic matrix multiplier with energy proxy counters."
                 elif folder == "neuromorphic-spiking":

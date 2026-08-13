@@ -54,6 +54,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [BeOS / Haiku](excavations/beos-haiku.md) — *Media-optimized, responsive OS with modern design (revived as open-source Haiku).*
 - [Burroughs Large Systems](excavations/burroughs-large-systems.md) — *High-level language hardware integration with descriptors and stack architecture.*
 - [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models ([KeyKOS](GLOSSARY.md), EROS, CHERI).*
+- [Google: The Platform Machine of Scale](excavations/google.md) — *How the repeated conversion of warehouse-scale operational problems into narrow, exportable software abstractions established the datacenter as the computer.*
 - [Inferno](excavations/inferno.md) — *Distributed VM OS utilizing Limbo and the Styx/[9P protocol](GLOSSARY.md).*
 - [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md) — *Pure object-capability security, minimal nanokernel trusted computing bases, and Continuous Orthogonal Persistence.*
 - [Intel iAPX 432](excavations/intel-iapx-432.md) — *Capability-based object-oriented architecture.*
@@ -139,6 +140,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [LNS Arithmetic Simulator](reconstructions/lns-arithmetic/) — *Logarithmic encoding/decoding, multiplication/division, and Jacobian log adder.*
 - [KeyKOS-style Capability Simulator](reconstructions/keykos-capabilities/) — *Unforgeable keys, attenuation, message-invocation routing, and continuous orthogonal persistence.*
 - [llama.cpp Local Quantization and GGUF Simulator](reconstructions/llama_cpp/) — *A high-fidelity simulator demonstrating aligned GGUF container packing/unpacking, block-wise Q4_0 integer quantization, dequantization-on-the-fly matrix multiplications, and autoregressive KV-cache tracking.*
+- [MapReduce Distributed Compute Simulator](reconstructions/mapreduce/) — *Fault-tolerant MapReduce coordinator executing functional partitioning, intermediate shuffling, key hashing, and map-task recovery on node failure.*
 
 ---
 

@@ -139,6 +139,14 @@
       "definition": "A parallel coordination model pioneered by Linda where processes communicate asynchronously and anonymously by depositing un-addressed, typed data tuples into a globally shared, associative space, which other processes can query by structural pattern matching."
     },
     {
+      "term": "Google",
+      "definition": "A multi-generational platform machine of scale that pioneered the concept of warehouse-scale computing, converting datacenter operational constraints into narrow, exportable software abstractions."
+    },
+    {
+      "term": "Google File System (GFS)",
+      "definition": "A highly-scalable, fault-tolerant distributed file system designed to run on large clusters of commodity hardware, optimizing for append-only streaming workloads and multi-megabyte files."
+    },
+    {
       "term": "Graph Reduction Machine",
       "definition": "A non-von Neumann computer architecture designed to natively execute pure functional programming languages. Instead of sequentially executing compiled assembly instructions, it represents programs as directed acyclic graphs in memory and executes them by repeatedly simplifying and rewriting reducible expressions (redexes) in-place."
     },
@@ -283,6 +291,10 @@
       "definition": "A hardware mechanism where every word in memory is accompanied by a few extra non-addressable bits (tags) indicating its data type (e.g., integer, float, code pointer, capability), allowing hardware to prevent type safety violations and unauthorized execution."
     },
     {
+      "term": "TrueTime API",
+      "definition": "A hardware-backed clock synchronization abstraction that provides bounded time uncertainty intervals, enabling global transactional external consistency without central lock bottlenecks."
+    },
+    {
       "term": "Transition Signaling (2-Phase Handshaking)",
       "definition": "A clockless communication protocol where any voltage transition (either low-to-high or high-to-low) represents a control event, enabling high-speed handshake transactions with minimal signal lines and state changes."
     },
@@ -414,6 +426,7 @@
           "burroughs-large-systems",
           "capability-systems",
           "ebcdic",
+          "google",
           "inferno",
           "intel-iapx-432",
           "keykos-nanokernel-capabilities",
@@ -573,6 +586,7 @@
         "description": "Enforcing type-safety and isolation inside a managed runtime environment or interpreter instead of hardware.",
         "mapped_excavations": [
           "apple",
+          "google",
           "inferno",
           "linux",
           "llama-cpp",
@@ -618,6 +632,7 @@
         "mapped_excavations": [
           "apple",
           "beos-haiku",
+          "google",
           "keykos-nanokernel-capabilities",
           "linux",
           "microsoft",
@@ -1289,6 +1304,46 @@
         }
       },
       "modern_relevance": "An evidence-based evaluation of [fluidic logic](../GLOSSARY.md)'s modern relevance yields several critical system-level insights:\n\n* **Substrate-Task Alignment:** [Fluidic logic](../GLOSSARY.md) proves that for certain physical tasks (e.g., chemical routing, pneumatic locomotion, extreme-heat monitoring), the most efficient controller is one that **shares the physical medium of the task**. Forcing an electronic-to-fluidic conversion step introduces a severe efficiency and reliability penalty.\n* **Thermodynamic Limits of Analog Substrates:** [Fluidic logic](../GLOSSARY.md) serves as a stark historical warning about **constant venting power (static leakage)**. Because fluidic amplifiers must bleed off fluid continuously to maintain stability, their static power dissipation is immense. This is highly relevant to modern **leakage-dominated sub-nanometer CMOS** and analog AI accelerators, highlighting that static power can completely overwhelm dynamic efficiency gains if left unaddressed.\n* **The Interconnect and Packaging Bottleneck:** Just as classical fluidics hit an \"acoustic reflection wall\" where gate-to-gate channel lengths had to be manually matched to prevent feedback loop failures, modern high-frequency electronic chips are hitting the **memory and interconnect walls** where wire parasitics and resistance-capacitance (RC) delays dominate performance. The packaging and routing challenges of alternative substrates are rarely logical; they are almost always physical, spatial, and acoustic.",
+      "references": []
+    },
+    {
+      "id": "google",
+      "title": "Google: The Platform Machine of Scale",
+      "path": "excavations/google.md",
+      "summary": "The Google computational lineage is frequently evaluated through popular narratives of search engine dominance, corporate brand competition, or antitrust debate. In digital archaeology, however, **Google represents a historical computational ecosystem** that transformed the relationship between software and hardware by treating the **data center itself as the primary computer**.\n\nGoogle's primary architectural achievement was the engineering of a platform machine of scale: a self-reinforcing loop that converted raw, low-cost commodity hardware into highly reliable, globally-distributed virtualized abstractions ([GFS](../GLOSSARY.md), MapReduce, Bigtable, Spanner, Borg), bound developers to these abstractions via narrow APIs, and exported selected models to the broader industry (either as influential research papers, open-source projects like Kubernetes and TensorFlow, or managed cloud services). This excavation dissects the mechanisms of this machine, traces its evolution from PageRank link analysis to multi-accelerator AI infrastructure, and analyzes how its abstractions survive even as the underlying constraints of physical silicon and network bandwidth shift.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Reshaped distributed computing, established the warehouse-scale computer, and defined the modern web/mobile application architectures."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Engineered global consistency engines (Spanner), functional parallel scaling (MapReduce), browser process sandboxing (Chrome), and ML hardware co-design (TPU)."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Captured the global search and digital advertising markets, generating trillions in economic value and self-funding massive infrastructure expansion."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Maintains a dominant position in cloud virtualization, container orchestration (Kubernetes), and high-performance ML platforms (JAX/TPU pods)."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Deep co-designed stack running from custom TPU silicon and XLA compilers to distributed JAX training and Gemini scale platforms."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Replicating Google's global multi-datacenter physical server footprints, fiber networks, and rubidium-clock Spanner deployments is economically prohibitive."
+        }
+      },
+      "modern_relevance": "",
       "references": []
     },
     {
@@ -2822,6 +2877,13 @@
       "path": "reconstructions/lns-arithmetic/",
       "entry_point": "reconstructions/lns-arithmetic/lns_sim.py",
       "description": "Executable simulator for the Lns Arithmetic paradigm."
+    },
+    {
+      "id": "mapreduce",
+      "title": "Mapreduce",
+      "path": "reconstructions/mapreduce/",
+      "entry_point": "reconstructions/mapreduce/mapreduce_sim.py",
+      "description": "Fault-tolerant MapReduce coordinator simulator executing dynamic partitioning, intermediate sorting, key hashing, and map-task recovery on node crashes."
     },
     {
       "id": "mixed-radix-sim",

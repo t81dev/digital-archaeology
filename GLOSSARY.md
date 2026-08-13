@@ -91,6 +91,10 @@ This document provides a conceptual glossary of terms from across the excavation
 ### G
 * **Generative Communication**: A parallel coordination model pioneered by Linda where processes communicate asynchronously and anonymously by depositing un-addressed, typed data tuples into a globally shared, associative space, which other processes can query by structural pattern matching.
   * *See excavation*: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)
+* **Google**: A multi-generational platform machine of scale that pioneered the concept of warehouse-scale computing, converting datacenter operational constraints into narrow, exportable software abstractions.
+  * *See excavation*: [Google: The Platform Machine of Scale](excavations/google.md)
+* **Google File System (GFS)**: A highly-scalable, fault-tolerant distributed file system designed to run on large clusters of commodity hardware, optimizing for append-only streaming workloads and multi-megabyte files.
+  * *See excavation*: [Google: The Platform Machine of Scale](excavations/google.md)
 * **Graph Reduction Machine**: A non-von Neumann computer architecture designed to natively execute pure functional programming languages. Instead of sequentially executing compiled assembly instructions, it represents programs as directed acyclic graphs in memory and executes them by repeatedly simplifying and rewriting reducible expressions (redexes) in-place.
   * *See excavation*: [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md)
 * **GGML**: A minimal, raw tensor and evaluation graph library written in plain C, designed to pre-allocate memory arenas topologically to perform high-performance neural network inference with zero dynamic memory allocation overhead.
@@ -188,6 +192,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### T
 * **Tagged Memory**: A hardware mechanism where every word in memory is accompanied by a few extra non-addressable bits (tags) indicating its data type (e.g., integer, float, code pointer, capability), allowing hardware to prevent type safety violations and unauthorized execution.
   * *See excavation*: [Lisp Machines](excavations/lisp-machines.md)
+* **TrueTime API**: A hardware-backed clock synchronization abstraction that provides bounded time uncertainty intervals, enabling global transactional external consistency without central lock bottlenecks.
+  * *See excavation*: [Google: The Platform Machine of Scale](excavations/google.md)
 * **Transition Signaling (2-Phase Handshaking)**: A clockless communication protocol where any voltage transition (either low-to-high or high-to-low) represents a control event, enabling high-speed handshake transactions with minimal signal lines and state changes.
   * *See excavation*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)
 * **Tuple Space**: A persistent, associative, multi-set memory pool serving as the central coordination medium in generative communication. It stores both passive data tuples and active process tuples.
