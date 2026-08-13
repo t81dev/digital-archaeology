@@ -1,6 +1,6 @@
 # Cross-Excavation Synthesis: Alternative Mathematical, Protection, and Substrate Paradigms
 
-> **An architectural and mechanistic synthesis of the Residue Number System (RNS), Logarithmic Number System (LNS), Fluidic Logic, KeyKOS-style Object Capabilities, and Prolog/WAM/FGCS Logic-Programming Hardware.**
+> **An architectural and mechanistic synthesis of the Residue Number System (RNS), Logarithmic Number System (LNS), [Fluidic Logic](../GLOSSARY.md), [KeyKOS](../GLOSSARY.md)-style Object Capabilities, and Prolog/WAM/FGCS Logic-Programming Hardware.**
 
 ---
 
@@ -11,16 +11,16 @@ This document provides a higher-order architectural synthesis of five newly inte
 *   **[`excavations/residue-number-system.md`](../excavations/residue-number-system.md)** (RNS)
 *   **[`excavations/logarithmic-number-system.md`](../excavations/logarithmic-number-system.md)** (LNS)
 *   **[`excavations/fluidic-logic-systems.md`](../excavations/fluidic-logic-systems.md)** (Fluidics)
-*   **[`excavations/keykos-nanokernel-capabilities.md`](../excavations/keykos-nanokernel-capabilities.md)** (KeyKOS)
+*   **[`excavations/keykos-nanokernel-capabilities.md`](../excavations/keykos-nanokernel-capabilities.md)** ([KeyKOS](../GLOSSARY.md))
 *   **[`excavations/prolog-wam-fgcs-hardware.md`](../excavations/prolog-wam-fgcs-hardware.md)** (Prolog/WAM/FGCS)
 
-Our goal is not to present a simple summary anthology or an advocate's case for resurrection. Instead, we extract recurring abstractions, trace constraint-migration pathways, analyze the mechanisms of ecosystem lock-in/lock-out, and evaluate the survival patterns of these five sidelined lineages under modern (post-Dennard, sub-5nm, zero-trust, and AI-dominated) constraints.
+Our goal is not to present a simple summary anthology or an advocate's case for resurrection. Instead, we extract recurring abstractions, trace constraint-migration pathways, analyze the mechanisms of [ecosystem lock-in](../patterns/ecosystem-lockin.md)/lock-out, and evaluate the survival patterns of these five sidelined lineages under modern (post-Dennard, sub-5nm, zero-trust, and AI-dominated) constraints.
 
 ---
 
 ## 2. Central Synthesis Thesis
 
-> **After integrating RNS, LNS, fluidic logic, KeyKOS nanokernel capabilities, and Prolog/WAM/FGCS hardware, the Digital Archaeology project shows that alternative computational abstractions persist less as standalone rival universes and more as specialized co-processing layers, abstract machines, mathematical practice, and hybrid integrations whose long-term survival depends on managing interface/conversion costs and mitigating ecosystem asymmetry.**
+> **After integrating RNS, LNS, [fluidic logic](../GLOSSARY.md), [KeyKOS](../GLOSSARY.md) nanokernel capabilities, and Prolog/WAM/FGCS hardware, the Digital Archaeology project shows that alternative computational abstractions persist less as standalone rival universes and more as specialized co-processing layers, abstract machines, mathematical practice, and hybrid integrations whose long-term survival depends on managing interface/conversion costs and mitigating ecosystem asymmetry.**
 
 When computing paradigms depart from the dominant *positional-binary / ambient-authority / von Neumann / electronic-digital* mainstream, they encounter a highly regular set of physical, systemic, and socio-technical forces. Rather than achieving wholesale displacement, successful alternatives survive by mutating from "pure" systems into hybrid layers that directly augment the mainstream where it experiences physical or security bottlenecks.
 
@@ -57,16 +57,16 @@ Evaluating these five diverse lineages reveals several recurring design patterns
 
 1.  **Inverting Operator Cost Profiles by Changing Representation (RNS & LNS)**:
     Both number systems leverage non-positional or logarithmic mappings to trade operator complexity. LNS simplifies multiplication, division, and exponents into fixed-point additions and shifts at the cost of non-linear additions and subtractions. RNS splits multi-precision math into carry-free, parallel modular channels ($O(1)$ constant latency) at the cost of extremely complex magnitude comparisons and divisions.
-2.  **Minimizing the Trusted Core & Moving Policy Upward (KeyKOS & Fluidics)**:
-    KeyKOS restricts the supervisor state to a 20,000-line "nanokernel" that manages only four primitive objects (Pages, Nodes, Domains, Meters), forcing all filesystems, schedulers, and drivers into unprivileged user domains. Pure fluidic NOR or turbulence gates similarly stripped out all solid moving parts, relying on the raw physics of the fluid medium itself to perform switching, moving physical regulation to peripheral manifold shapes.
+2.  **Minimizing the Trusted Core & Moving Policy Upward ([KeyKOS](../GLOSSARY.md) & Fluidics)**:
+    [KeyKOS](../GLOSSARY.md) restricts the supervisor state to a 20,000-line "nanokernel" that manages only four primitive objects (Pages, Nodes, Domains, Meters), forcing all filesystems, schedulers, and drivers into unprivileged user domains. Pure fluidic NOR or turbulence gates similarly stripped out all solid moving parts, relying on the raw physics of the fluid medium itself to perform switching, moving physical regulation to peripheral manifold shapes.
 3.  **The Interfacing and Conversion Tax as a First-Class Constraint**:
     For RNS/LNS, the forward and reverse conversion boundaries (e.g., CRT/MRC or log/anti-log lookup tables) govern the net efficiency of the processor. For Fluidics, the "transducer tax" of translating fluid pressures to electrical voltages limits mixed-substrate deployments. For Prolog/FGCS, the "foreign-function tax" of marshaling WAM stack frames and tagged words to and from C libraries locked the language out of general utility.
-4.  **Abstract Machines as Durable Portability Layers (Prolog/WAM & KeyKOS)**:
-    When custom hardware foundations crumble, the software abstractions survive if they are compiled to a clean virtual machine. The Warren Abstract Machine (WAM) outlived the Japanese Personal Sequential Inference (PSI) hardware by decades, flourishing as a high-performance software virtual machine (YAP, SWI-Prolog) on commodity x86 and ARM lines. KeyKOS's object-capability patterns similarly migrated to modern software execution runtimes (Wasm/WASI and Google Zircon).
+4.  **Abstract Machines as Durable Portability Layers (Prolog/WAM & [KeyKOS](../GLOSSARY.md))**:
+    When custom hardware foundations crumble, the software abstractions survive if they are compiled to a clean virtual machine. The Warren Abstract Machine (WAM) outlived the Japanese Personal Sequential Inference (PSI) hardware by decades, flourishing as a high-performance software virtual machine (YAP, SWI-Prolog) on commodity x86 and ARM lines. [KeyKOS](../GLOSSARY.md)'s object-capability patterns similarly migrated to modern software execution runtimes (Wasm/WASI and Google Zircon).
 
 ---
 
-## 4. Constraint Migration Map
+## 4. [Constraint Migration](../patterns/constraint-migration.md) Map
 
 The evolutionary trajectory of these alternative paradigms is governed by the systematic movement of physical and systemic bottlenecks. The map below tracks how constraints migrate across different stages of maturity, marking the decisive points where these alternatives retreated or persisted:
 
@@ -89,8 +89,8 @@ Selective modern reappearance under new constraints (Post-Dennard Power Wall, Ze
 ### Decisive Bottlenecks:
 *   **RNS & LNS**: Dominated by the *conversion and approximation costs*. They were temporarily eclipsed in the 1980s by the introduction of binary **Carry-Lookahead Adders** and **Fused Multiply-Add (FMA)** units on standard silicon. They re-emerged in the 2020s because low-precision tensor operations (LNS8/FP8) and post-quantum Fully Homomorphic Encryption (FHE) polynomial multiplications hit the physical **Memory and Power Walls**.
 *   **Fluidics**: Dominated by *viscous drag* (decay of the Reynolds number at sub-millimeter scales) and *constant venting power* (static leakage). It retreated into aerospace engine fuel controllers and explosive environments, reviving in droplet-based lab-on-a-chip microfluidics and flexible soft robotics.
-*   **KeyKOS**: Dominated by *software ecosystem fit*. The standard **POSIX/UNIX** model of ambient authority and global file paths locked out capabilities due to compile-time assumptions. It revived inside software sandboxes (Wasm/WASI) and hardware registers (CHERI).
-*   **Prolog/WAM/FGCS**: Dominated by *competition with rapidly improving general-purpose CMOS RISC workhorses*. Microcoded type-tagging and unification on custom hardware became economically unviable once commodity workstations running highly optimized threaded compilers (such as YAP or the Aquarius compiler) achieved comparable execution speeds on standard RISC chips.
+*   **[KeyKOS](../GLOSSARY.md)**: Dominated by *software ecosystem fit*. The standard **POSIX/UNIX** model of ambient authority and global file paths locked out capabilities due to compile-time assumptions. It revived inside software sandboxes (Wasm/WASI) and hardware registers (CHERI).
+*   **Prolog/WAM/FGCS**: Dominated by *competition with rapidly improving general-purpose CMOS RISC workhorses*. Microcoded type-tagging and [unification](../GLOSSARY.md) on custom hardware became economically unviable once commodity workstations running highly optimized threaded compilers (such as YAP or the Aquarius compiler) achieved comparable execution speeds on standard RISC chips.
 
 ---
 
@@ -109,22 +109,22 @@ A critical question of Digital Archaeology is whether alternative computational 
 3.  **Pure vs. Hybrid Fluidics**:
     Stand-alone fluidic digital computers (like the GE FLUIDIC-1) were completely bypassed by electronic chips. Fluidics survived as **optoelectronic and electromechanical hybrids**, such as high-temperature jet engine fuel controllers (where fluidic sensors directly regulate fuel flow) and soft robots (where fluidic manifolds are embedded in compliant, flexible elastomeric bodies controlled by external microcontrollers).
 4.  **Pure vs. Hybrid Capabilities**:
-    Stand-alone pure capability operating systems (like KeyKOS or Coyotos) struggled to find a commercial market. However, capability protection has succeeded through **selective hybridization**: hardware registers (CHERI) retrofitting spatial memory safety onto standard RISC pipelines (RISC-V/ARM), and sandboxed software runtimes (WebAssembly/WASI) running on top of conventional monolithic kernels.
+    Stand-alone pure capability operating systems (like [KeyKOS](../GLOSSARY.md) or Coyotos) struggled to find a commercial market. However, capability protection has succeeded through **selective hybridization**: hardware registers (CHERI) retrofitting spatial memory safety onto standard RISC pipelines (RISC-V/ARM), and sandboxed software runtimes (WebAssembly/WASI) running on top of conventional monolithic kernels.
 5.  **Specialized Prolog Hardware vs. Software WAM**:
     Specialized sequential and parallel inference machines (PSI and PIM hypercubes) were abandoned. The logic abstractions survived as **software-defined abstract machines (WAM)** and **embedded Datalog modules** compiled directly to run as native software libraries inside imperative host environments (such as Soufflé or SWI-Prolog embedded in C++).
 
 ---
 
-## 6. Ecosystem Lock-In & Lock-Out Analysis
+## 6. [Ecosystem Lock-In](../patterns/ecosystem-lockin.md) & Lock-Out Analysis
 
 The failure of these alternative architectures to capture the mass consumer market was rarely caused by clean technical inferiority. Instead, it was driven by self-reinforcing **socio-technical lock-in loops** that protected the positional-binary / ambient-authority / von Neumann mainstream.
 
 The table below contrasts the specific lock-out mechanisms encountered by each alternative lineage:
 
-| Mechanism | RNS | LNS | Fluidics | KeyKOS Capabilities | Prolog / WAM / FGCS |
+| Mechanism | RNS | LNS | Fluidics | [KeyKOS](../GLOSSARY.md) Capabilities | Prolog / WAM / FGCS |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Dominant Toolchain Assumptions** | Compilers (GCC/LLVM) assume positional weighted integer representation. | Math libraries assume IEEE-754 binary floating-point. | Electronic EDA tools (SPICE) do not model fluid dynamics easily. | Languages (C/C++) assume an ambient-authority, flat memory space. | High-level languages assume imperative, sequential control-flow. |
-| **Interface / Conversion Tax** | High forward and reverse conversion cost (CRT/MRC overhead). | High log and anti-log conversion tables. | Inefficient pressure-to-voltage transducers. | Context-switching trap latency during IPC domain crossings. | Foreign-function interface (FFI) memory marshaling layers. |
+| **[Interface / Conversion Tax](../patterns/interface-conversion-tax.md)** | High forward and reverse conversion cost (CRT/MRC overhead). | High log and anti-log conversion tables. | Inefficient pressure-to-voltage transducers. | Context-switching trap latency during IPC domain crossings. | Foreign-function interface (FFI) memory marshaling layers. |
 | **Educational Familiarity** | Binary math taught globally; RNS restricted to specialty DSP. | Decades of training on linear, positional binary math. | Fluid dynamics restricted to civil/mechanical engineering. | Programmers accustomed to global paths and ambient permissions. | Declarative logic programming requires a different mental model. |
 | **Performance Narrative** | CLA and Kogge-Stone adders minimized the carry bottleneck. | Fused Multiply-Add (FMA) halved floating-point latency. | Semiconductor clock trees scaled from kHz to GHz. | Raw CPU clock speed prioritized over system security. | RISC workstations surpassed custom microcoded chips. |
 | **Institutional Sponsorship** | Czechoslovakian Academy, specialized US defense. | European Union Flysig, academic research. | Cold War military rocket and missile autopilots. | Tymshare, Key Logic, small academic research labs. | Japanese MITI Fifth Generation Computer Systems. |
@@ -156,12 +156,12 @@ Applying the Digital Archaeology framework, we separate historical failure from 
 *   **What Persisted**: Exponent-based cost inversion, Mitchell's logarithmic approximations, and bipartite table interpolation designs.
 *   **Modern Form**: Low-precision machine learning accelerators (NPU tensor cores executing LNS8 or hybrid FP8 quantization) and battery-constrained edge smart implants.
 
-### 3. Fluidic Logic Systems
+### 3. [Fluidic Logic](../GLOSSARY.md) Systems
 *   **What Disappeared**: Gas-driven digital logic computers and multi-gate fluidic flip-flop arithmetic processors.
-*   **What Persisted**: Pure fluidic switching (Coanda effect), momentum-driven jet amplification, and laminar-to-turbulent transition NOR gates.
+*   **What Persisted**: Pure fluidic switching ([Coanda effect](../GLOSSARY.md)), momentum-driven jet amplification, and laminar-to-turbulent transition NOR gates.
 *   **Modern Form**: Droplet-based microfluidics (lab-on-a-chip), compliant controllers for flexible soft robotics, and high-temperature jet engine fuel regulators.
 
-### 4. KeyKOS-style Nanokernel Capabilities
+### 4. [KeyKOS](../GLOSSARY.md)-style Nanokernel Capabilities
 *   **What Disappeared**: Proprietary time-sharing mainframe capability operating systems.
 *   **What Persisted**: Unforgeable object-capabilities, nanokernel trusted computing bases, hierarchical resource meter trees, and continuous orthogonal persistence (single-level store).
 *   **Modern Form**: WebAssembly System Interface (WASI) sandboxes, CHERI hardware instructions (Morello/RISC-V), and byte-addressable persistent CXL memory.
@@ -173,14 +173,14 @@ Applying the Digital Archaeology framework, we separate historical failure from 
 
 ---
 
-## 8. Recurring Ideas
+## 8. [Recurring Ideas](../patterns/recurring-ideas.md)
 
 The integration of these five excavations makes several crucial system-level ideas newly visible:
 
 1.  **Exploiting Physics Directly to Compute (Fluidics, LNS, RNS)**:
     Instead of forcing a substrate to emulate abstract Boolean gates, these systems exploit the *natural, unforced physical behavior* of the medium. Fluidics uses Navier-Stokes aerodynamics (Coanda wall attachment) to store state; LNS maps multiplication to the logarithmic conductance states of multi-state memristors or photodetector sensors; RNS maps carry-free arithmetic to isolated wave-propagation or phase-shifting channels.
-2.  **Decoupling Policy from Mechanism through Abstraction Layers (KeyKOS & WAM)**:
-    KeyKOS decoupled security policy from the kernel mechanism by using unforgeable keys, forcing the OS to be agnostic to identity. The WAM decoupled declarative search from hardware execution, translating high-level logical implications into a standardized, register-rich, three-stack memory machine.
+2.  **Decoupling Policy from Mechanism through Abstraction Layers ([KeyKOS](../GLOSSARY.md) & WAM)**:
+    [KeyKOS](../GLOSSARY.md) decoupled security policy from the kernel mechanism by using unforgeable keys, forcing the OS to be agnostic to identity. The WAM decoupled declarative search from hardware execution, translating high-level logical implications into a standardized, register-rich, three-stack memory machine.
 3.  **Paying a Conversion Tax to Enter the Dominant Ecosystem**:
     Whenever a divergent paradigm must interface with the dominant positional-binary mainstream, it must pay an "interface tax." If the algorithm is highly arithmetic-bound (like FHE polynomial multiplications or deep learning dot-products), the internal execution gains easily amortize the conversion tax. If the workload is control-flow heavy, the conversion tax crushes performance.
 4.  **Institutional Mega-programmes as Accelerator Catalysts**:
@@ -235,19 +235,19 @@ The table below contrasts their microarchitectural properties:
 
 ## 11. Capability Nanokernel Synthesis Hooks
 
-The KeyKOS nanokernel capability protection model provides key hooks that reinforce the patterns in `synthesis/capability-based-security.md`:
+The [KeyKOS](../GLOSSARY.md) nanokernel capability protection model provides key hooks that reinforce the patterns in `synthesis/capability-based-security.md`:
 
-*   **Retrofitting Spatial Safety**: KeyKOS showed that object-capabilities are the software equivalent of hardware-checked base/bounds descriptors. While KeyKOS enforced these boundaries in the supervisor nanokernel (introducing context-switching overhead), modern **CHERI** pipelines compile these boundaries directly into hardware registers, eliminating the kernel trap penalty.
-*   **The Factory Pattern for Multi-Agent AI**: In multi-agent networks, spawning an untrusted agent module requires strict privilege confinement. KeyKOS's **Factory** pattern is the direct conceptual ancestor of modern WebAssembly System Interface (**WASI**) sandboxing. An agent's WASI container has zero ambient access to the host system; it can only invoke resources (files, APIs, memory) explicitly passed to it as capability handles during instantiation.
+*   **Retrofitting Spatial Safety**: [KeyKOS](../GLOSSARY.md) showed that object-capabilities are the software equivalent of hardware-checked base/bounds descriptors. While [KeyKOS](../GLOSSARY.md) enforced these boundaries in the supervisor nanokernel (introducing context-switching overhead), modern **CHERI** pipelines compile these boundaries directly into hardware registers, eliminating the kernel trap penalty.
+*   **The Factory Pattern for Multi-Agent AI**: In multi-agent networks, spawning an untrusted agent module requires strict privilege confinement. [KeyKOS](../GLOSSARY.md)'s **Factory** pattern is the direct conceptual ancestor of modern WebAssembly System Interface (**WASI**) sandboxing. An agent's WASI container has zero ambient access to the host system; it can only invoke resources (files, APIs, memory) explicitly passed to it as capability handles during instantiation.
 
 ---
 
 ## 12. Non-Electronic Logic & Control Implications
 
-The physical realities of fluidic logic systems provide crucial warnings and design principles for non-electronic substrates:
+The physical realities of [fluidic logic](../GLOSSARY.md) systems provide crucial warnings and design principles for non-electronic substrates:
 
 *   **The Fluidic Static Leakage Warning**: Fluidic gates require continuous, pressurized flow from a power jet, meaning the system continuously consumes energy (vents fluid) regardless of computational activity. This is highly analogous to the **static gate leakage** dominating sub-nanometer CMOS processes today, proving that static energy losses can completely overwhelm dynamic computation gains if left unaddressed.
-*   **The Packaging & Interconnect Bottleneck**: Fluidic logic hit a physical boundary where gate-to-gate channel lengths had to be manually matched to prevent acoustic pressure wave reflections from self-exciting and switching upstream Coanda-effect states. Modern high-frequency electronic chips are hitting a similar **interconnect and packaging wall**, where wire parasitic resistances, on-chip crosstalk, and thermal dissipation delays dominate performance over raw gate switching.
+*   **The Packaging & Interconnect Bottleneck**: [Fluidic logic](../GLOSSARY.md) hit a physical boundary where gate-to-gate channel lengths had to be manually matched to prevent acoustic pressure wave reflections from self-exciting and switching upstream Coanda-effect states. Modern high-frequency electronic chips are hitting a similar **interconnect and packaging wall**, where wire parasitic resistances, on-chip crosstalk, and thermal dissipation delays dominate performance over raw gate switching.
 *   **Substrate-Task Alignment**: Fluidics proves that the most efficient controller is often one that **shares the physical medium of the task**. In flexible soft robotics and microfluidic biochips, computing natively inside the fluidic medium (using Coanda-effect routing and droplet logic) completely eliminates the energy, weight, and reliability penalties of electronic-to-fluidic transduction layers.
 
 ---
@@ -310,7 +310,7 @@ The synthesis of these five inclusions refines and extends several core patterns
 
 1.  **The FFI Transduction Latency Wall**: Can we mathematically model the exact boundary threshold where the latency of marshaling data across the foreign-function interface (FFI) or the physical transducer boundary completely cancels out the sub-nanosecond execution gains of an alternative core (such as an optical RNS multiplier or a fluidic robotic sensor)?
 2.  **Dynamic Moduli-Set Compilation**: Is it possible to design an automated LLVM compiler backend that dynamically profiles a mathematical program at runtime, selects an optimal coprime moduli set ($\mathcal{M}$), synthesizes a custom virtual RNS coprocessor, and executes the code without programmer intervention?
-3.  **Orthogonal Persistence over NVMM-CXL Networks**: How does the continuous, system-wide checkpointing model of KeyKOS scale to modern byte-addressable Non-Volatile Main Memory (NVMM) and high-speed Compute Express Link (CXL) networks without causing synchronization freezes or storage bus congestion?
+3.  **Orthogonal Persistence over NVMM-CXL Networks**: How does the continuous, system-wide checkpointing model of [KeyKOS](../GLOSSARY.md) scale to modern byte-addressable Non-Volatile Main Memory (NVMM) and high-speed Compute Express Link (CXL) networks without causing synchronization freezes or storage bus congestion?
 
 ---
 
@@ -329,8 +329,8 @@ The primary primary and secondary sources cited across the five excavations:
 1.  **Garner, H. L.** (1959). "The Residue Number System." *IRE Transactions on Electronic Computers*, EC-8(2), 140-147. (Foundational RNS introduction).
 2.  **Swartzlander, E. E., & Merkovsky, A. F.** (1975). "The Sign/Logarithm Number System." *IEEE Transactions on Computers*, C-24(12), 1238-1242. (First comprehensive digital LNS pipeline design).
 3.  **Bowles, R. E., & Horton, B. M.** (1961). *Fluidics: State of the Art*. *Proceedings of the Fluid Amplification Symposium*, Harry Diamond Laboratories, 1, 9–23. (Foundational pure fluidics paper).
-4.  **Hardy, N.** (1985). "The KeyKOS Architecture." *ACM SIGOPS Operating Systems Review*, 19(4), 8–25. (The primary primary source detailing KeyKOS's nanokernel design).
+4.  **Hardy, N.** (1985). "The [KeyKOS](../GLOSSARY.md) Architecture." *ACM SIGOPS Operating Systems Review*, 19(4), 8–25. (The primary primary source detailing [KeyKOS](../GLOSSARY.md)'s nanokernel design).
 5.  **Warren, David H. D.** (1983). *"An Abstract Prolog Instruction Set."* Technical Note 309, SRI International. (The definitive specification of the Warren Abstract Machine).
-6.  **Prakash, M., & Gershenfeld, N.** (2007). "Microfluidic Bubble Logic." *Science*, 315(5813), 819–822. (The landmark modern paper reviving fluidic logic abstractions at the microfluidic scale).
+6.  **Prakash, M., & Gershenfeld, N.** (2007). "Microfluidic Bubble Logic." *Science*, 315(5813), 819–822. (The landmark modern paper reviving [fluidic logic](../GLOSSARY.md) abstractions at the microfluidic scale).
 7.  **Shapiro, J. S., Smith, J. M., & Farber, D. J.** (1999). "EROS: A Fast Capability System." *ACM SIGOPS Operating Systems Review*, 33(5), 72–85. (Proves microsecond-level capability IPC on commodity hardware).
 8.  **Van Roy, Peter** (1990). *"Can Logic Programming Execute as Fast as Imperative Programming?"* Ph.D. Thesis, University of California, Berkeley. (Definitive analysis of high-performance logic compilers bypassing the sequential WAM bottleneck).
