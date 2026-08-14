@@ -37,6 +37,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Associative Processors](excavations/associative-processors.md)
 
 ### C
+* **CPUID**: An x86 assembly instruction that returns feature bitfields describing processor family, model, and supported ISA extensions (SSE, AVX, AMX, VT-x), enabling dynamic runtime vector fastpath dispatching.
+  * *See excavation*: [Intel: The Architectural & Compatibility Substrate](excavations/intel.md)
 * **Capability-Based Security**: An access control model where processors or operating systems reference unforgeable keys called *capabilities*. A capability contains both a memory range (bounds) and specific permissions (read, write, execute), preventing buffer overflows and enforcing micro-segmentation at the hardware level.
   * *See excavation*: [Capability Systems](excavations/capability-systems.md)
 * **Coanda Effect**: The physical phenomenon where a fluid jet attaches itself to a nearby solid surface due to localized low-pressure bubbles created by entrainment. In pure fluidics, it provides the physical foundation for bistable state retention (flip-flops) and switching without moving parts.
@@ -103,6 +105,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [llama.cpp](excavations/llama-cpp.md)
 
 ### I
+* **Intel**: A historical computational lineage whose artifacts include instruction-set architectures (x86, x86-64), microcode µop decoders, CPUID dynamic feature discovery, System Management Mode (SMM), platform chipsets, and long-lived binary compatibility contracts.
+  * *See excavation*: [Intel: The Architectural & Compatibility Substrate](excavations/intel.md)
 * **Integrated Platform Surface**: An architectural paradigm of hardware-software-distribution vertical integration where custom silicon, core operating system managers, dynamic runtimes, developer toolchains, and centralized monetization gates are co-designed as a single surface.
   * *See excavation*: [Apple: The Integrated Platform Surface](excavations/apple.md)
 

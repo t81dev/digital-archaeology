@@ -47,6 +47,10 @@
       "definition": "An execution technique where operations are performed on one bit-slice of all words in memory simultaneously in parallel, typical of early associative processors like STARAN."
     },
     {
+      "term": "CPUID",
+      "definition": "An x86 assembly instruction that returns feature bitfields describing processor family, model, and supported ISA extensions (SSE, AVX, AMX, VT-x), enabling dynamic runtime vector fastpath dispatching."
+    },
+    {
       "term": "Capability-Based Security",
       "definition": "An access control model where processors or operating systems reference unforgeable keys called *capabilities*. A capability contains both a memory range (bounds) and specific permissions (read, write, execute), preventing buffer overflows and enforcing micro-segmentation at the hardware level."
     },
@@ -157,6 +161,10 @@
     {
       "term": "GGUF",
       "definition": "A unified, self-describing, and single-file model packaging format designed for memory-mapped (`mmap`) zero-copy loading of large neural weights and structured key-value metadata."
+    },
+    {
+      "term": "Intel",
+      "definition": "A historical computational lineage whose artifacts include instruction-set architectures (x86, x86-64), microcode µop decoders, CPUID dynamic feature discovery, System Management Mode (SMM), platform chipsets, and long-lived binary compatibility contracts."
     },
     {
       "term": "Integrated Platform Surface",
@@ -429,6 +437,7 @@
           "google",
           "inferno",
           "intel-iapx-432",
+          "intel",
           "keykos-nanokernel-capabilities",
           "linux",
           "lisp-machines",
@@ -572,6 +581,7 @@
       "[Hierarchical Ring Protection](GLOSSARY.md)": {
         "description": "Concentric rings of hardware privilege (e.g., Rings 0–3) preventing direct access to more privileged supervisor segments.",
         "mapped_excavations": [
+          "intel",
           "multics"
         ]
       },
@@ -672,6 +682,7 @@
       "Shared Memory Multiprocessing": {
         "description": "Synchronous access to global memory segments managed by semaphores, lock instructions, or segment attributes.",
         "mapped_excavations": [
+          "intel",
           "multics"
         ]
       },
@@ -1479,6 +1490,46 @@
         "**Myers, Glenford J.** (1982). *\"Advances in Computer Architecture.\"* John Wiley & Sons.",
         "**Levy, Henry M.** (1984). *\"Capability-Based Computer Systems.\"* Digital Press."
       ]
+    },
+    {
+      "id": "intel",
+      "title": "Intel: The Architectural & Compatibility Substrate",
+      "path": "excavations/intel.md",
+      "summary": "In corporate histories, Intel is often portrayed through the lens of semiconductor manufacturing dominance, business rivalries, or the simplistic refrain that \"x86 won because of the IBM PC selection.\" In digital archaeology, however, **Intel represents a computational lineage whose primary artifact is the long-lived x86 compatibility-and-platform contract**. \n\nIntel’s fundamental achievement was not any single clean-sheet architectural design, but the engineering of a **multi-generational compatibility engine**. By separating the stable architectural surface (x86 instruction-set architecture) from the underlying, rapidly changing execution machinery (dynamically scheduled RISC micro-operations via microcode translation), Intel enabled decades of microarchitectural and process innovations without breaking the installed binary software base. Surrounding this instruction surface with standardized platform contracts—chipsets, bus protocols, firmware interfaces, and system management layers—Intel transformed microprocessors into essential industry infrastructure.\n\nThis excavation dissects the technical mechanisms of Intel's platform machine, analyzes its core abstractions, traces its microarchitectural and ISA transitions, evaluates its clean-slate displacement failures ([intel-iapx-432](intel-iapx-432.md) and [vliw-epic](vliw-epic.md)), and explores how its compatibility surface migrates under modern heterogeneous computing pressures.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Created the x86 compatibility contract that served as the primary computational substrate for personal and server computing for four decades."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Pioneered dynamic CISC-to-RISC micro-op translation, CPUID feature negotiation, SMM, and FinFET 3D transistor scaling."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Built the most profitable hardware platform franchise in semiconductor history, driving the PC and server expansions."
+        },
+        "Modern Potential": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Retains massive cloud/datacenter deployment footprints and is evolving through chiplets, hybrid cores, and AMX matrix acceleration."
+        },
+        "AI Synergy": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Efficient for production CPU inference via AVX-512/AMX, but secondary to discrete GPUs for large-scale AI model training."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Recreating four decades of backwards-compatible x86 instruction semantics, microcode ROMs, and platform chipset contracts is practically impossible."
+        }
+      },
+      "modern_relevance": "In modern cloud and enterprise infrastructure, Intel’s architecture remains a critical foundation:",
+      "references": []
     },
     {
       "id": "j-machine",
@@ -2961,6 +3012,13 @@
       "path": "reconstructions/tuple-space/",
       "entry_point": "reconstructions/tuple-space/tuple_space_sim.py",
       "description": "Executable simulator for the Tuple Space paradigm."
+    },
+    {
+      "id": "x86_uop_translation",
+      "title": "X86_Uop_Translation",
+      "path": "reconstructions/x86_uop_translation/",
+      "entry_point": "reconstructions/x86_uop_translation/x86_uop_sim.py",
+      "description": "Executable simulator for the X86_Uop_Translation paradigm."
     },
     {
       "id": "synthesizable-hardware",
