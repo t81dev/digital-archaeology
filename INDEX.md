@@ -51,6 +51,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 ## Operating Systems & Environments
 
 - [Apple: The Integrated Platform Surface](excavations/apple.md) — *How hardware, system software, runtimes, sandboxes, and distribution were co-designed into a resilient, vertically [integrated platform surface](GLOSSARY.md).*
+- [Apple Metal Architecture: The Vertically Integrated GPU Substrate](excavations/apple-metal.md) — *How a low-overhead, explicit GPU command model co-evolved with Apple Silicon, TBDR rasterization, unified memory, and OS framework pipelines to create an ecosystem-scale platform substrate.*
 - [BeOS / Haiku](excavations/beos-haiku.md) — *Media-optimized, responsive OS with modern design (revived as open-source Haiku).*
 - [Burroughs Large Systems](excavations/burroughs-large-systems.md) — *High-level language hardware integration with descriptors and stack architecture.*
 - [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models ([KeyKOS](GLOSSARY.md), EROS, CHERI).*
@@ -143,6 +144,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [llama.cpp Local Quantization and GGUF Simulator](reconstructions/llama_cpp/) — *A high-fidelity simulator demonstrating aligned GGUF container packing/unpacking, block-wise Q4_0 integer quantization, dequantization-on-the-fly matrix multiplications, and autoregressive KV-cache tracking.*
 - [MapReduce Distributed Compute Simulator](reconstructions/mapreduce/) — *Fault-tolerant MapReduce coordinator executing functional partitioning, intermediate shuffling, key hashing, and map-task recovery on node failure.*
 - [x86 Microcode µop & Platform Architecture Simulator](reconstructions/x86_uop_translation/) — *CISC macro-instruction microcode decoding into RISC µops, CPUID feature negotiation, and multi-mode memory address translation.*
+- [Apple Metal Command & UMA Simulator](reconstructions/apple_metal/) — *Low-overhead explicit command encoding, immutable pipeline state objects, TBDR load/store actions, and explicit UMA memory storage modes.*
 
 ---
 

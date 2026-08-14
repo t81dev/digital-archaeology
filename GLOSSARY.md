@@ -129,6 +129,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Logarithmic Number System (LNS)](excavations/logarithmic-number-system.md)
 
 ### M
+* **Metal**: A low-overhead, explicit GPU command and resource architecture engineered by Apple to replace legacy OpenGL/OpenCL stacks with immutable Pipeline State Objects, thread-safe command encoding, explicit UMA memory storage modes, and TBDR rasterization integration across Apple platforms.
+  * *See excavation*: [Apple Metal Architecture](excavations/apple-metal.md)
+* **Metal Shading Language (MSL)**: A C++14-based graphics and compute shading language compiled ahead-of-time into LLVM bitcode (`.air`/`.metallib`) and specialized at runtime for Apple Silicon GPUs.
+  * *See excavation*: [Apple Metal Architecture](excavations/apple-metal.md)
 * **Mixed-Radix Conversion (MRC)**: A non-homogeneous weighted representation conversion algorithm used to decode Residue Number System values into a weighted format, facilitating sign detection and comparison.
   * *See excavation*: [Residue Number System (RNS)](excavations/residue-number-system.md)
 

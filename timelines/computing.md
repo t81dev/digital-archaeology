@@ -91,6 +91,7 @@ The table below maps the six core lineages across historical computing eras, ill
 ## 2010s–Present: Post-CMOS Re-Emergence & AI Dominance
 
 - **2014**: IBM reveals **TrueNorth**, a 1-million-neuron asynchronous spiking processor. **Key excavation link**: [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
+- **2014**: Apple introduces **[Metal](../excavations/apple-metal.md)**, pioneering low-overhead explicit command encoding, precompiled immutable PSOs, and explicit UMA memory storage modes, leading the transition away from OpenGL/OpenCL. **Key excavation link**: [Apple Metal Architecture](../excavations/apple-metal.md)
 - **2014**: eBPF is integrated into the Linux kernel, turning supervisor space into a safe, programmable infrastructure substrate. **Key excavation link**: [Linux](../excavations/linux.md)
 - **2019**: Cerebras launches the **Wafer-Scale Engine (WSE)**, bypassing package boundaries with a 400,000-core monolithic silicon wafer for AI workloads. **Key excavation link**: [Wafer-Scale Integration](../excavations/wafer-scale-integration.md)
 - **2020**: OpenAI publishes empirical scaling laws for transformers, shifting machine learning systems from heuristic trial-and-error to predictable systems engineering. **Key excavation link**: [OpenAI](../excavations/openai.md)
