@@ -207,6 +207,10 @@
       "definition": "A pioneering microkernel/nanokernel capability operating system implementing pure object-capabilities, fine-grained access control keys, dynamic factories, and continuous system-wide orthogonal persistence."
     },
     {
+      "term": "Large Language Models (LLMs)",
+      "definition": "A computational paradigm and execution substrate that converts statistical next-token prediction over transformer neural sequence architectures into a general-purpose soft interface layer over software systems, APIs, and accelerators."
+    },
+    {
       "term": "Landauer's Limit",
       "definition": "A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \\ln 2$)."
     },
@@ -567,6 +571,7 @@
           "intel-iapx-432",
           "intel",
           "keykos-nanokernel-capabilities",
+          "large-language-models",
           "linux",
           "lisp-machines",
           "llama-cpp",
@@ -736,6 +741,7 @@
           "gentoo",
           "google",
           "inferno",
+          "large-language-models",
           "linux",
           "llama-cpp",
           "microsoft",
@@ -788,6 +794,7 @@
           "beos-haiku",
           "google",
           "keykos-nanokernel-capabilities",
+          "large-language-models",
           "linux",
           "microsoft",
           "netscape",
@@ -1938,6 +1945,46 @@
         "**Klein, G., et al.** (2009). \"seL4: Formal Verification of an OS Kernel.\" *Proceedings of the ACM SIGOPS 22nd Symposium on Operating Systems Principles (SOSP)*, 207–220.",
         "*Relevance*: Establishes the formal mathematical lineage linking early capability microkernels to modern verified systems."
       ]
+    },
+    {
+      "id": "large-language-models",
+      "title": "Large Language Models: The Autoregressive Sequence Substrate",
+      "path": "excavations/large-language-models.md",
+      "summary": "The Large Language Model (LLM) computational lineage is often viewed through the lens of popular consumer products, enterprise market valuations, or debates over machine consciousness and artificial general intelligence (AGI). From the perspective of digital archaeology, however, **LLMs represent a fundamental paradigm shift in computer architecture: the conversion of statistical next-token prediction into a general-purpose, software-programmable execution substrate**.\n\nRather than treating language models as monolithic chatbots or single-vendor products, this excavation analyzes the LLM stack as a multi-layered computational ecosystem. We trace the lineage from statistical $n$-gram language modeling and recurrent neural sequence networks through the unreflective consolidation of the Transformer architecture, compute-data-parameter scaling regimes, instruction-following post-training, KV-cache serving infrastructures, prompt-and-tool interfaces, and heterogeneous agentic orchestration. The core architectural achievement of the LLM lineage is the creation of a probabilistic, soft interface layer over deterministic software systems—where natural language, in-context demonstrations, and structured function calls act as programmable execution primitives above physical silicon, accelerators, and operating systems.\n\n```text\n                  THE LLM COMPUTATIONAL SUBSTRATE STACK\n\n ┌──────────────────────────────────────────────────────────────────┐\n │            Application & Agent Orchestration Layer               │\n │       (IDE Agents, RAG Pipelines, Multi-Step Tool Loops)         │\n └────────────────────────────────┬─────────────────────────────────┘\n                                  ▼\n ┌──────────────────────────────────────────────────────────────────┐\n │                  Interface & Protocol Layer                      │\n │    (ChatML, Structured Prompts, Function Schemas, SSE Streams)   │\n └────────────────────────────────┬─────────────────────────────────┘\n                                  ▼\n ┌──────────────────────────────────────────────────────────────────┐\n │             Inference & Serving Execution System                 │\n │     (PagedAttention, KV-Cache, Quantization, FlashAttention)     │\n └────────────────────────────────┬─────────────────────────────────┘\n                                  ▼\n ┌──────────────────────────────────────────────────────────────────┐\n │              Post-Training & Behavior Sculpting                  │\n │          (SFT, RLHF / DPO, Refusal & Alignment Boundaries)       │\n └────────────────────────────────┬─────────────────────────────────┘\n                                  ▼\n ┌──────────────────────────────────────────────────────────────────┐\n │              Pretrained Foundation Model Substrate               │\n │      (Decoder-Only Transformer, RoPE, Multi-Head / GQA)          │\n └────────────────────────────────┬─────────────────────────────────┘\n                                  ▼\n ┌──────────────────────────────────────────────────────────────────┐\n │              Data Curation & Tokenization Layer                  │\n │          (BPE / SentencePiece, Deduplication, Quality Mix)        │\n └────────────────────────────────┬─────────────────────────────────┘\n                                  ▼\n ┌──────────────────────────────────────────────────────────────────┐\n │            Heterogeneous Hardware & Distributed Compute        │\n │       (GPU SIMT Arrays, NVLink, High-Bandwidth Memory / HBM)      │\n └──────────────────────────────────────────────────────────────────┘\n```",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Unified diverse NLP tasks into a single next-token sequence modeling paradigm, initiating a global revolution in software production and computing interfaces."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Pioneered parallel self-attention, power-law empirical scaling laws, instruction tuning, PagedAttention KV cache virtualization, and schema-validated tool calling."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Generated multi-billion dollar platform markets, drove global cloud hardware expansion, and became the central driver of modern technology valuations."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "The dominant substrate for software engineering assistants, enterprise knowledge work, multi-modal systems, and autonomous agent development."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "The central foundation of modern artificial intelligence, acting as the cognitive executive layer over classical software tools and physical hardware."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Recreating frontier models requires tens of thousands of GPU clusters, tens of millions of dollars in compute capital, and multi-trillion token datasets."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
     },
     {
       "id": "linda-tuple-spaces",
