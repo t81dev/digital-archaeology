@@ -47,6 +47,10 @@
       "definition": "An execution technique where operations are performed on one bit-slice of all words in memory simultaneously in parallel, typical of early associative processors like STARAN."
     },
     {
+      "term": "[C++](excavations/cpp.md)",
+      "definition": "A foundational systems programming language and computational lineage combining low-level machine control with user-defined abstractions via zero-overhead mechanisms, deterministic scope lifetimes (RAII), value semantics, compile-time template monomorphization, and ISO standardization governance."
+    },
+    {
       "term": "CUDA",
       "definition": "A parallel computing platform and programming model introduced by NVIDIA in 2006 that exposes GPUs for general-purpose computing using C/C++ language extensions, a grid/block/thread hierarchy, and driver/runtime APIs."
     },
@@ -271,6 +275,10 @@
       "definition": "A software design pattern that combines object-oriented encapsulation with capability-based security. An object reference *is* the unforgeable authority to perform actions on that object."
     },
     {
+      "term": "RAII (Resource Acquisition Is Initialization)",
+      "definition": "A deterministic resource management paradigm pioneered in C++ where system resources (heap memory, file descriptors, locks) are bound to stack object lifetimes, ensuring automatic cleanup upon scope exit or stack unwinding during exception paths."
+    },
+    {
       "term": "Radix Economy",
       "definition": "A mathematical measure of the efficiency of representing numbers in a given base, defined as $R \\times \\lfloor \\log_R(N) + 1 \\rfloor$ for base $R$ and maximum value $N$. It is mathematically optimized at the transcendental base $e \\approx 2.718$, which makes base 3 (ternary) more efficient than base 2 (binary)."
     },
@@ -365,6 +373,10 @@
     {
       "term": "Von Neumann Bottleneck",
       "definition": "The throughput limitation on computer systems caused by the physical separation of the central processing unit and memory, requiring all instruction and data transfers to share a single bus."
+    },
+    {
+      "term": "Zero-Overhead Abstraction",
+      "definition": "The core design principle formulated by Bjarne Stroustrup stating that what you don't use, you don't pay for, and what you do use, you couldn't write any better by hand. Higher-level language constructs must compile down to direct machine code matching or exceeding manual C assembly."
     },
     {
       "term": "Warp",
@@ -469,6 +481,7 @@
           "asynchronous-processors",
           "beos-haiku",
           "burroughs-large-systems",
+          "cpp",
           "capability-systems",
           "ebcdic",
           "google",
@@ -636,6 +649,7 @@
         "mapped_excavations": [
           "apple-metal",
           "apple",
+          "cpp",
           "google",
           "inferno",
           "linux",
@@ -699,6 +713,7 @@
       "Object-Oriented Dynamic Messaging": {
         "description": "Virtual machine dynamic dispatch and runtime messaging between objects.",
         "mapped_excavations": [
+          "cpp",
           "smalltalk",
           "intel-iapx-432"
         ]
@@ -1233,6 +1248,46 @@
         }
       },
       "modern_relevance": "### Historical Fact\nCommercially, the Connection Machine was a magnificent failure. The company pivoted from fine-grained SIMD (CM-1/2) to MIMD (CM-5) in 1991, shedding the 1-bit processors and the hypercube router in favor of SPARC cores and fat trees. Despite this pivot, TMC declared bankruptcy in 1994, unable to survive the \"killer micro\" wave where cheap, commodity workstations out-scaled specialized supercomputers on a price-to-performance basis.",
+      "references": []
+    },
+    {
+      "id": "cpp",
+      "title": "C++: [Zero-Overhead Abstraction](../GLOSSARY.md) & Deterministic Resource Control",
+      "path": "excavations/cpp.md",
+      "summary": "In systems programming history, the **C++** lineage represents a fundamental architectural synthesis: uniting low-level C-style machine control with high-level user-defined abstractions without imposing an automatic runtime performance penalty. Created by Bjarne Stroustrup at AT&T Bell Laboratories in 1979 as \"C with Classes\" and evolving into C++ by 1983, the language responded to a profound systems crisis: procedural C lacked structured mechanisms to organize complex, multi-million-line software architectures, while object-oriented alternatives (such as [Smalltalk](smalltalk.md) and Simula) required dynamic runtimes, garbage collection, or indirect dispatch overheads unacceptable for operating system kernels, device drivers, and real-time execution.\n\nC++ solved this tension by establishing the **Zero-Overhead Principle**: *what you don't use, you don't pay for; and what you do use, you couldn't write better by hand*. This philosophy was operationalized through three key structural mechanisms:\n1. **Deterministic Lifetime Management (RAII)**: Coupling resource acquisition and release directly to stack and block scope boundaries, replacing both manual error-prone `free()` calls and non-deterministic garbage collection.\n2. **Value-Oriented Object Model**: Storing objects directly in contiguous memory (stack or array layouts) by default, making dynamic heap allocation and vtable indirect dispatch explicit, opt-in mechanisms.\n3. **Compile-Time Generic Programming**: Utilizing templates as a language-integrated code-generation and specialization engine, allowing generic algorithms to compile into inline, zero-cost machine instructions matching or exceeding hand-tuned C loops.\n\nBy standardizing these abstractions through ISO/IEC 14882 (starting with C++98 and modernizing through C++11, C++14, C++17, C++20, and C++23), C++ became the ubiquitous infrastructure substrate for operating system kernels (Windows NT, macOS XNU, Symbian), Web browser engines (Blink, Gecko, WebKit), high-performance databases, game engines (Unreal Engine), finance/low-latency trading platforms, and AI acceleration backends ([CUDA](../GLOSSARY.md), PyTorch C++ core, [llama.cpp](../GLOSSARY.md), TensorRT). In doing so, it created a massive, self-reinforcing lock-in loop anchored by binary ABIs, compiler toolchains, C-interoperability, and millions of software engineering lifetimes.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Transformed systems programming by uniting high-level object/generic abstractions with zero-overhead low-level machine control."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Pioneered RAII scope-bound resource control, monomorphized template generic programming, move semantics, and value-first object layouts."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "The foundation of modern operating systems, web engines, game platforms, financial trading infrastructure, and AI execution backends."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Powers local AI inference ([llama.cpp](../GLOSSARY.md), [CUDA](../GLOSSARY.md)), real-time graphics (Vulkan, [Metal](../GLOSSARY.md)), and high-performance computing platforms."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Provides the zero-overhead C++ execution backends that accelerate machine learning operations, tensor math, and quantized models."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Building a modern C++ compiler, template instantiation engine, and optimizer compliant with ISO C++ standards requires hundreds of engineering person-years."
+        }
+      },
+      "modern_relevance": "",
       "references": []
     },
     {
@@ -3016,6 +3071,13 @@
       "path": "reconstructions/capability-security/",
       "entry_point": "reconstructions/capability-security/capability_sim.py",
       "description": "Executable simulator for the Capability Security paradigm."
+    },
+    {
+      "id": "cpp_raii",
+      "title": "Cpp_Raii",
+      "path": "reconstructions/cpp_raii/",
+      "entry_point": "reconstructions/cpp_raii/cpp_raii_sim.py",
+      "description": "Executable simulator for the Cpp_Raii paradigm."
     },
     {
       "id": "cryogenic-superconducting",

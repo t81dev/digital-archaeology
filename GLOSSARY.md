@@ -37,6 +37,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Associative Processors](excavations/associative-processors.md)
 
 ### C
+* **[C++](excavations/cpp.md)**: A foundational systems programming language and computational lineage combining low-level machine control with user-defined abstractions via zero-overhead mechanisms, deterministic scope lifetimes (RAII), value semantics, compile-time template monomorphization, and ISO standardization governance.
+  * *See excavation*: [C++: Zero-Overhead Abstraction & Deterministic Resource Control](excavations/cpp.md)
 * **CUDA**: A parallel computing platform and programming model introduced by NVIDIA in 2006 that exposes GPUs for general-purpose computing using C/C++ language extensions, a grid/block/thread hierarchy, and driver/runtime APIs.
   * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
 * **cuDNN**: A software library of hand-optimized primitives for deep neural networks (convolutions, activations, normalizations, attention) that acts as the primary execution surface for AI frameworks on NVIDIA GPUs.
@@ -178,6 +180,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Intel iAPX 432](excavations/intel-iapx-432.md), [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md)
 
 ### R
+* **RAII (Resource Acquisition Is Initialization)**: A deterministic resource management paradigm pioneered in C++ where system resources (heap memory, file descriptors, locks) are bound to stack object lifetimes, ensuring automatic cleanup upon scope exit or stack unwinding during exception paths.
+  * *See excavation*: [C++: Zero-Overhead Abstraction & Deterministic Resource Control](excavations/cpp.md)
 * **Radix Economy**: A mathematical measure of the efficiency of representing numbers in a given base, defined as $R \times \lfloor \log_R(N) + 1 \rfloor$ for base $R$ and maximum value $N$. It is mathematically optimized at the transcendental base $e \approx 2.718$, which makes base 3 (ternary) more efficient than base 2 (binary).
   * *See excavation*: [Balanced Ternary](excavations/balanced-ternary.md)
 * **Residue Number System (RNS)**: A non-positional numeral system representing integers via remainders modulo pairwise coprime integers. RNS eliminates carry propagation for additions, subtractions, and multiplications, executing them in independent parallel channels.
@@ -234,6 +238,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [VLIW / EPIC Architectures](excavations/vliw-epic.md)
 * **Von Neumann Bottleneck**: The throughput limitation on computer systems caused by the physical separation of the central processing unit and memory, requiring all instruction and data transfers to share a single bus.
   * *See modern relevance*: [AI & Hardware Bottlenecks](modern-relevance/ai.md)
+
+### Z
+* **Zero-Overhead Abstraction**: The core design principle formulated by Bjarne Stroustrup stating that what you don't use, you don't pay for, and what you do use, you couldn't write any better by hand. Higher-level language constructs must compile down to direct machine code matching or exceeding manual C assembly.
+  * *See excavation*: [C++: Zero-Overhead Abstraction & Deterministic Resource Control](excavations/cpp.md)
 
 ### W
 * **Warp**: A group of 32 parallel threads in NVIDIA GPU architectures that execute instructions in lockstep over SIMT execution lanes.

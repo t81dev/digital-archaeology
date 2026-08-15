@@ -74,6 +74,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 
 ## Programming Languages & AI Paradigms
 
+- [C++: Zero-Overhead Abstraction & Deterministic Resource Control](excavations/cpp.md) — *Combining low-level machine control with user-defined abstractions via zero-overhead mechanisms, RAII resource control, value semantics, and template generic programming.*
 - [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) — *Coordinate-free parallel coordination, [generative communication](GLOSSARY.md), and associative pattern-matching.*
 - [Occam](excavations/occam.md) — *Concurrent language based on Communicating Sequential Processes (CSP).*
 - [Smalltalk](excavations/smalltalk.md) — *Pure image-based object-oriented environment and dynamic messaging.*
@@ -146,6 +147,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [MapReduce Distributed Compute Simulator](reconstructions/mapreduce/) — *Fault-tolerant MapReduce coordinator executing functional partitioning, intermediate shuffling, key hashing, and map-task recovery on node failure.*
 - [x86 Microcode µop & Platform Architecture Simulator](reconstructions/x86_uop_translation/) — *CISC macro-instruction microcode decoding into RISC µops, CPUID feature negotiation, and multi-mode memory address translation.*
 - [Apple Metal Command & UMA Simulator](reconstructions/apple_metal/) — *Low-overhead explicit command encoding, immutable pipeline state objects, TBDR load/store actions, and explicit UMA memory storage modes.*
+- [C++ RAII & Zero-Overhead Dispatch Simulator](reconstructions/cpp_raii/) — *Interactive simulator modeling scope-bound RAII resource cleanup, exception stack unwinding, static template monomorphization vs. vtable dynamic dispatch metrics, and iterator contracts.*
 - [NVIDIA SIMT Microarchitecture Simulator](reconstructions/nvidia_simt/) — *Warp-level SIMT execution, branch divergence mask stacks, warp scheduler latency hiding, shared memory bank conflicts, Tensor Core WMMA matrix operations, and Unified Memory page migration.*
 
 ---
