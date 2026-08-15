@@ -53,6 +53,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Residue Number System (RNS)](excavations/residue-number-system.md)
 * **Cellular Automata (CA) Hardware**: Spatial computing grids where cells update their state in parallel based on localized transition rules. This model completely bypasses the central ALU bottleneck of Von Neumann architectures.
   * *See excavation*: [Cellular Automata Hardware](excavations/cellular-automata-hardware.md)
+* **Cursor IDE**: An AI-native software editing substrate forked from VS Code that integrates codebase vector/AST context assembly, spec-diff edit previews, fast speculative code application, and supervised workspace agent loops.
+  * *See excavation*: [Cursor IDE: The AI-Native Editor Substrate & Agentic Workspace](excavations/cursor-ide.md)
 * **Communicating Sequential Processes (CSP)**: A formal language and mathematical model (introduced by Tony Hoare) for concurrent systems where processes communicate solely through synchronous, unbuffered/buffered channels.
   * *See excavation*: [Occam](excavations/occam.md), [Transputers](excavations/transputers.md)
 * **Chat Markup Language (ChatML)**: A structured role-based representation protocol that delimits user, system, and assistant messages inside explicit unforgeable boundary tokens to prevent prompt-injection attacks.
