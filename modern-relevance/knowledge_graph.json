@@ -239,6 +239,14 @@
       "definition": "A fundamental state-retaining logical component in asynchronous control circuits that acts as an \"event AND-gate\"—its output transitions only when all of its inputs have transitioned to match."
     },
     {
+      "term": "Netscape",
+      "definition": "A foundational web runtime lineage whose artifacts transformed the browser from a static hypertext viewer into a programmable, securable application platform through JavaScript, NPAPI plugins, SSL/TLS, HTTP Cookies, and the Mozilla open-source transition."
+    },
+    {
+      "term": "NPAPI (Netscape Plugin Application Programming Interface)",
+      "definition": "A low-level C-ABI function pointer jump-table interface (`NPP_`/`NPN_`) enabling third-party compiled shared libraries (Flash, Java Applets, QuickTime) to render directly inside browser document bounding boxes and stream media."
+    },
+    {
       "term": "NVIDIA",
       "definition": "A computational lineage whose artifacts include programmable GPU architectures, Streaming Multiprocessors, SIMT execution, the CUDA platform, NVLink interconnects, and Tensor Core matrix acceleration engines."
     },
@@ -293,6 +301,14 @@
     {
       "term": "[Reversible Computing](excavations/reversible-computing.md)",
       "definition": "A paradigm where logic gates perform bijective (one-to-one) mapping between inputs and outputs, allowing computation to run backward and theoretically bypassing Landauer's thermodynamic limit."
+    },
+    {
+      "term": "Same-Origin Policy (SOP)",
+      "definition": "A foundational web security boundary introduced in Netscape Navigator 2.02 restricting scripts running on origin $A$ ($\\langle\\text{scheme, host, port}\\rangle$) from accessing or mutating document properties and session data belonging to origin $B$."
+    },
+    {
+      "term": "SSL (Secure Sockets Layer)",
+      "definition": "A transport-layer cryptographic protocol stack (SSL 2.0/3.0) and public key infrastructure engineered by Netscape to enable encrypted communication, certificate authority trust verification, and HTTPS e-commerce."
     },
     {
       "term": "SIMT (Single Instruction, Multiple Threads)",
@@ -502,6 +518,7 @@
           "llama-cpp",
           "microsoft",
           "multics",
+          "netscape",
           "openai",
           "plan-9",
           "smalltalk",
@@ -664,6 +681,7 @@
           "linux",
           "llama-cpp",
           "microsoft",
+          "netscape",
           "nvidia",
           "onnx",
           "openai",
@@ -711,6 +729,7 @@
           "keykos-nanokernel-capabilities",
           "linux",
           "microsoft",
+          "netscape",
           "openai",
           "plan-9",
           "GLOSSARY",
@@ -2110,6 +2129,46 @@
       "references": []
     },
     {
+      "id": "netscape",
+      "title": "Netscape: The Programmable Web Runtime & Network Client Substrate",
+      "path": "excavations/netscape.md",
+      "summary": "In mainstream technology history, Netscape is often reduced to a corporate biography, a sports narrative of the late-1990s \"browser wars,\" or a business case study on AOL's acquisition and subsequent decline. In digital archaeology, however, **Netscape represents a foundational computational ecosystem**: the architectural lineage that transformed the World Wide Web from a passive, static hypertext viewer into a **programmable, securable, distributed application platform**.\n\nNetscape Navigator did not merely render HTML tags; it engineered the core runtime abstractions that made client-side web computing possible. By introducing **JavaScript** (making document nodes dynamic and event-driven), the **Netscape Plugin Application Programming Interface (NPAPI)** (enabling loadable native media runtimes), **Secure Sockets Layer (SSL)** (mainstreaming public-key cryptography and HTTPS e-commerce), and **HTTP Cookies** (layering persistent session state onto a stateless transport protocol), Netscape defined the operational surface of the modern web client.\n\nWhen competitive pressure and operating system integration displaced Netscape Navigator's distribution dominance, Netscape executed a historically unprecedented move: open-sourcing its client codebase as the **Mozilla Project**. Through Mozilla, Netscape's rendering ideas, script engines, security protocols, and platform abstractions survived product brand collapse, evolving directly into Gecko, Firefox, modern web standards, and the contemporary \"browser-as-operating-system\" paradigm.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Transformed the web browser from a static hypertext viewer into a programmable, securable global application runtime platform."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Created JavaScript, NPAPI, SSL/TLS, HTTP Cookies, Same-Origin Policy, and pioneering stream-oriented HTML rendering engines."
+        },
+        "Commercial Success": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Achieved 80%+ market dominance in mid-1990s, but suffered commercial collapse due to OS bundling distribution displacement."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Netscape's abstractions (JavaScript, HTTPS, cookies, browser runtime host) form the operational foundation of modern global computing."
+        },
+        "AI Synergy": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Modern web browsers execute AI workloads client-side via JavaScript, WebAssembly, and WebGPU, inheriting Netscape's client execution model."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Implementing a complete web browser engine requires millions of lines of C++; replicating core runtime/scripting mechanics is achievable."
+        }
+      },
+      "modern_relevance": "Netscape's legacy is embedded in the operational architecture of contemporary computing:",
+      "references": []
+    },
+    {
       "id": "neuromorphic-hardware",
       "title": "Neuromorphic Hardware",
       "path": "excavations/neuromorphic-hardware.md",
@@ -2972,7 +3031,7 @@
       "id": "winamp",
       "title": "Winamp: The Modular Media Substrate & Extensible Application Platform",
       "path": "excavations/winamp.md",
-      "summary": "In software history, Winamp is frequently discussed through the lens of late-1990s desktop culture, visual aesthetics (\"skins\"), or corporate ownership transitions between Nullsoft, AOL, and subsequent entities. In digital archaeology, however, **Winamp represents a historical computational ecosystem**: an early and exceptionally influential model of a **consumer application operating as an extensible platform host**.\n\nWinamp succeeded not merely by playing MP3 files efficiently on commodity PCs, but by engineering a **modular, decoupled architecture** around C-style binary plugin jump-tables, data-driven declarative UI skinning, and lightweight local file metadata indexing. By opening well-defined extension points for decoders (input), audio processors (DSP/equalizer), hardware output devices (output), and general system integration plugins, Winamp converted a standalone media player into an extensible software substrate. \n\nThis excavation dissects the architectural layers of the Winamp platform, traces its technical evolution from early MP3 frame decoders to the object-oriented WASABI application framework, analyzes the feedback loops that drove its ecosystem gravity, and examines how its core abstractions migrated or dissolved as digital music shifted from user-owned local files to remote cloud streams.",
+      "summary": "In software history, Winamp is frequently discussed through the lens of late-1990s desktop culture, visual aesthetics (\"skins\"), or corporate ownership transitions between Nullsoft, AOL, and subsequent entities. In digital archaeology, however, **Winamp represents a historical computational ecosystem**: an early and exceptionally influential model of a **consumer application operating as an extensible platform host**.\n\nWinamp succeeded not merely by playing MP3 files efficiently on commodity PCs, but by engineering a **modular, decoupled architecture** around C-style binary plugin jump-tables, data-driven declarative UI skinning, and lightweight local file metadata indexing. By opening well-defined extension points for decoders (input), audio processors (DSP/equalizer), hardware output devices (output), and general system integration plugins, Winamp converted a standalone media player into an extensible software substrate.\n\nThis excavation dissects the architectural layers of the Winamp platform, traces its technical evolution from early MP3 frame decoders to the object-oriented WASABI application framework, analyzes the feedback loops that drove its ecosystem gravity, and examines how its core abstractions migrated or dissolved as digital music shifted from user-owned local files to remote cloud streams.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -3185,6 +3244,13 @@
       "path": "reconstructions/mixed-radix-sim/",
       "entry_point": "reconstructions/mixed-radix-sim/ternary_sim.py",
       "description": "Executable simulator for the Mixed Radix Sim paradigm."
+    },
+    {
+      "id": "netscape_browser_runtime",
+      "title": "Netscape_Browser_Runtime",
+      "path": "reconstructions/netscape_browser_runtime/",
+      "entry_point": "reconstructions/netscape_browser_runtime/netscape_sim.py",
+      "description": "Executable simulator for the Netscape_Browser_Runtime paradigm."
     },
     {
       "id": "neuro-symbolic",

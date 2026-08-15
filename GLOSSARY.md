@@ -155,6 +155,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)
 
 ### N
+* **Netscape**: A foundational web runtime lineage whose artifacts transformed the browser from a static hypertext viewer into a programmable, securable application platform through JavaScript, NPAPI plugins, SSL/TLS, HTTP Cookies, and the Mozilla open-source transition.
+  * *See excavation*: [Netscape](excavations/netscape.md)
+* **NPAPI (Netscape Plugin Application Programming Interface)**: A low-level C-ABI function pointer jump-table interface (`NPP_`/`NPN_`) enabling third-party compiled shared libraries (Flash, Java Applets, QuickTime) to render directly inside browser document bounding boxes and stream media.
+  * *See excavation*: [Netscape](excavations/netscape.md)
 * **NVIDIA**: A computational lineage whose artifacts include programmable GPU architectures, Streaming Multiprocessors, SIMT execution, the CUDA platform, NVLink interconnects, and Tensor Core matrix acceleration engines.
   * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
 * **NVLink**: A high-speed point-to-point and crossbar (NVSwitch) interconnect fabric engineered by NVIDIA to bypass PCIe bottlenecks and enable high-bandwidth inter-GPU memory sharing across multi-GPU data-center clusters.
@@ -192,6 +196,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
 
 ### S
+* **Same-Origin Policy (SOP)**: A foundational web security boundary introduced in Netscape Navigator 2.02 restricting scripts running on origin $A$ ($\langle\text{scheme, host, port}\rangle$) from accessing or mutating document properties and session data belonging to origin $B$.
+  * *See excavation*: [Netscape](excavations/netscape.md)
+* **SSL (Secure Sockets Layer)**: A transport-layer cryptographic protocol stack (SSL 2.0/3.0) and public key infrastructure engineered by Netscape to enable encrypted communication, certificate authority trust verification, and HTTPS e-commerce.
+  * *See excavation*: [Netscape](excavations/netscape.md)
 * **SIMT (Single Instruction, Multiple Threads)**: An execution model where multiple scalar threads execute the same instruction in lockstep groups (warps), managing control-flow divergence automatically via execution mask stacks.
   * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
 * **Single-Level Store (SLS)**: A memory management architecture where all secondary storage (such as disk drives) is integrated into a single, flat, virtually-addressed main memory space, completely eliminating the user-level distinction between file systems and RAM.
