@@ -79,6 +79,10 @@
       "definition": "Spatial computing grids where cells update their state in parallel based on localized transition rules. This model completely bypasses the central ALU bottleneck of Von Neumann architectures."
     },
     {
+      "term": "Cursor IDE",
+      "definition": "An AI-native software editing substrate forked from VS Code that integrates codebase vector/AST context assembly, spec-diff edit previews, fast speculative code application, and supervised workspace agent loops."
+    },
+    {
       "term": "Communicating Sequential Processes (CSP)",
       "definition": "A formal language and mathematical model (introduced by Tony Hoare) for concurrent systems where processes communicate solely through synchronous, unbuffered/buffered channels."
     },
@@ -555,6 +559,7 @@
           "burroughs-large-systems",
           "cpp",
           "capability-systems",
+          "cursor-ide",
           "ebcdic",
           "gentoo",
           "google",
@@ -1373,6 +1378,46 @@
           "stars": "★★★★★",
           "numeric": 5,
           "rationale": "Building a modern C++ compiler, template instantiation engine, and optimizer compliant with ISO C++ standards requires hundreds of engineering person-years."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
+    },
+    {
+      "id": "cursor-ide",
+      "title": "Cursor IDE: The AI-Native Editor Substrate & Agentic Workspace",
+      "path": "excavations/cursor-ide.md",
+      "summary": "The **Cursor IDE** lineage represents a pivotal transition in software engineering tooling: the conversion of the integrated development environment (IDE) from a deterministic text-editing and Language Server Protocol (LSP) host into an **AI-native software production substrate**. While popular discourse often frames Cursor in terms of developer productivity hype or LLM benchmark competition, digital archaeology evaluates Cursor as a structural transformation in the developer workspace.\n\nCursor's core technical achievement was not the creation of proprietary foundation models, but rather the **architectural synthesis of four distinct developer-tooling abstractions**:\n1. **An Editor Substrate Compatibility Bridge**: Forking VS Code (Code - OSS) to inherit its extension ecosystem, keybindings, and UI contracts while replacing the core buffer-mutation and rendering paths with deep model hooks.\n2. **Budgeted Context Packet Assembly**: Transitioning from single-file or current-selection prompt windows to repo-scale hybrid retrieval (combining AST parsing, vector embeddings, lexical BM25/ripgrep searching, and linter diagnostic feeds).\n3. **Diff-Mediated Mutation & Trust Boundaries**: Replacing opaque text replacement with speculative patch generation, spec-diff inline previews, line-level acceptance/rejection, and multi-file transactional checkpoints.\n4. **Supervised Workspace Agent Loops**: Elevating model interactions from passive autocomplete and conversational sidebars to stateful, tool-executing loops (reading workspace files, searching symbols, executing terminal commands, evaluating test/linter failures, and self-correcting edits).\n\nThis excavation analyzes how Cursor's abstractions emerged, how they leveraged the gravity of the VS Code ecosystem, where their structural failure modes lie, and which architectural residues are likely to persist as permanent primitives of future software development environments.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Catalyzed the industry-wide shift from text editors to AI-native workspace substrates."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Pioneer in combining VS Code source forks, hybrid codebase RAG, fast speculative diff apply, and supervised agent loops."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Rapid widespread adoption across software developers and enterprise engineering teams."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Established the standard interaction paradigm for modern AI-assisted software production environments."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Purpose-built around LLM capability integration as the central execution engine of the development environment."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Core abstractions (RAG, diff apply, agent loops) are straightforward to conceptualize, but zero-latency UI integration and high-speed speculative models require significant engineering effort."
         }
       },
       "modern_relevance": "",
@@ -3420,6 +3465,13 @@
       "path": "reconstructions/csp-messaging/",
       "entry_point": "reconstructions/csp-messaging/csp_sim.py",
       "description": "Executable simulator for the Csp Messaging paradigm."
+    },
+    {
+      "id": "cursor_ide",
+      "title": "Cursor_Ide",
+      "path": "reconstructions/cursor_ide/",
+      "entry_point": "reconstructions/cursor_ide/cursor_sim.py",
+      "description": "Executable simulator for the Cursor_Ide paradigm."
     },
     {
       "id": "dataflow-engine",
