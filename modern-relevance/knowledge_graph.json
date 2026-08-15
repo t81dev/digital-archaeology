@@ -47,6 +47,14 @@
       "definition": "An execution technique where operations are performed on one bit-slice of all words in memory simultaneously in parallel, typical of early associative processors like STARAN."
     },
     {
+      "term": "CUDA",
+      "definition": "A parallel computing platform and programming model introduced by NVIDIA in 2006 that exposes GPUs for general-purpose computing using C/C++ language extensions, a grid/block/thread hierarchy, and driver/runtime APIs."
+    },
+    {
+      "term": "cuDNN",
+      "definition": "A software library of hand-optimized primitives for deep neural networks (convolutions, activations, normalizations, attention) that acts as the primary execution surface for AI frameworks on NVIDIA GPUs."
+    },
+    {
       "term": "CPUID",
       "definition": "An x86 assembly instruction that returns feature bitfields describing processor family, model, and supported ISA extensions (SSE, AVX, AMX, VT-x), enabling dynamic runtime vector fastpath dispatching."
     },
@@ -227,6 +235,14 @@
       "definition": "A fundamental state-retaining logical component in asynchronous control circuits that acts as an \"event AND-gate\"—its output transitions only when all of its inputs have transitioned to match."
     },
     {
+      "term": "NVIDIA",
+      "definition": "A computational lineage whose artifacts include programmable GPU architectures, Streaming Multiprocessors, SIMT execution, the CUDA platform, NVLink interconnects, and Tensor Core matrix acceleration engines."
+    },
+    {
+      "term": "NVLink",
+      "definition": "A high-speed point-to-point and crossbar (NVSwitch) interconnect fabric engineered by NVIDIA to bypass PCIe bottlenecks and enable high-bandwidth inter-GPU memory sharing across multi-GPU data-center clusters."
+    },
+    {
       "term": "[Neuromorphic Hardware](excavations/neuromorphic-hardware.md)",
       "definition": "Silicon architectures designed to mimic the neural structures of the brain, utilizing asynchronous, event-driven spiking neural networks and in-memory computation."
     },
@@ -271,6 +287,10 @@
       "definition": "A paradigm where logic gates perform bijective (one-to-one) mapping between inputs and outputs, allowing computation to run backward and theoretically bypassing Landauer's thermodynamic limit."
     },
     {
+      "term": "SIMT (Single Instruction, Multiple Threads)",
+      "definition": "An execution model where multiple scalar threads execute the same instruction in lockstep groups (warps), managing control-flow divergence automatically via execution mask stacks."
+    },
+    {
       "term": "Single-Level Store (SLS)",
       "definition": "A memory management architecture where all secondary storage (such as disk drives) is integrated into a single, flat, virtually-addressed main memory space, completely eliminating the user-level distinction between file systems and RAM."
     },
@@ -301,6 +321,10 @@
     {
       "term": "Systolic Array",
       "definition": "A network of homogeneous, tightly-coupled processing elements that rhythmically compute and pass data through the system, optimizing matrix multiplication and other highly structured, compute-bound workloads."
+    },
+    {
+      "term": "Tensor Core",
+      "definition": "A specialized microarchitectural execution unit inside NVIDIA GPUs designed to perform 2D Warp Matrix Multiply-Accumulate (WMMA) operations in a single micro-op using mixed-precision numerical formats."
     },
     {
       "term": "Tagged Memory",
@@ -341,6 +365,10 @@
     {
       "term": "Von Neumann Bottleneck",
       "definition": "The throughput limitation on computer systems caused by the physical separation of the central processing unit and memory, requiring all instruction and data transfers to share a single bus."
+    },
+    {
+      "term": "Warp",
+      "definition": "A group of 32 parallel threads in NVIDIA GPU architectures that execute instructions in lockstep over SIMT execution lanes."
     },
     {
       "term": "Win32 API",
@@ -496,6 +524,7 @@
         "mapped_excavations": [
           "apple-metal",
           "connection-machine",
+          "nvidia",
           "vector-supercomputing"
         ]
       },
@@ -612,6 +641,7 @@
           "linux",
           "llama-cpp",
           "microsoft",
+          "nvidia",
           "onnx",
           "openai",
           "smalltalk",
@@ -678,6 +708,7 @@
         "mapped_excavations": [
           "apple-metal",
           "connection-machine",
+          "nvidia",
           "vector-supercomputing",
           "systolic-arrays",
           "associative-processors",
@@ -783,9 +814,9 @@
     },
     {
       "id": "apple-metal",
-      "title": "Apple Metal Architecture: The Vertically Integrated GPU Substrate",
+      "title": "Apple [Metal](../GLOSSARY.md) Architecture: The Vertically Integrated GPU Substrate",
       "path": "excavations/apple-metal.md",
-      "summary": "In graphics and heterogeneous computing history, **Apple's Metal architecture** represents the primary structural demonstration of a **vertically integrated, low-overhead GPU software contract**. Introduced in 2014 at WWDC alongside iOS 8, Metal was created to eliminate the severe CPU driver overhead, implicit state machine tracking, and unpredictable runtime compilation stalls inherent in legacy APIs such as OpenGL, OpenGL ES, and OpenCL.\n\nMetal's central architectural achievement was the **decoupling of expensive GPU pipeline compilation and resource allocation from frame-time execution loops**, replacing massive mutable global state machines with immutable Pipeline State Objects (PSOs), explicit command buffer encoding, and direct memory resource management. As Apple transitioned from consumer mobile GPUs to proprietary workstation-class [Apple Silicon](../GLOSSARY.md) (A-series and M-series SoCs), Metal co-evolved with Apple's **Tile-Based Deferred Rendering (TBDR)** rasterization hardware and **Unified Memory Architecture (UMA)**. This integration turned Metal from a mobile graphics API into the universal substrate for UI compositing (Core Animation), image processing (Core Image), video editing (AVFoundation), spatial rendering (RealityKit), and on-device machine learning acceleration (Core ML, MPS, Metal Performance Shaders Graph).\n\nThrough total platform control, aggressive deprecation of OpenGL/OpenCL, and tight integration with Xcode and Instruments profiling, Apple established Metal as an ecosystem-scale platform lock-in mechanism. This excavation analyzes the computational abstractions Metal created, preserved, transformed, and standardized, evaluating its mechanics as a vertically integrated GPU contract co-designed with silicon.",
+      "summary": "In graphics and heterogeneous computing history, **Apple's [Metal](../GLOSSARY.md) architecture** represents the primary structural demonstration of a **vertically integrated, low-overhead GPU software contract**. Introduced in 2014 at WWDC alongside iOS 8, [Metal](../GLOSSARY.md) was created to eliminate the severe CPU driver overhead, implicit state machine tracking, and unpredictable runtime compilation stalls inherent in legacy APIs such as OpenGL, OpenGL ES, and OpenCL.\n\n[Metal](../GLOSSARY.md)'s central architectural achievement was the **decoupling of expensive GPU pipeline compilation and resource allocation from frame-time execution loops**, replacing massive mutable global state machines with immutable Pipeline State Objects (PSOs), explicit command buffer encoding, and direct memory resource management. As Apple transitioned from consumer mobile GPUs to proprietary workstation-class [Apple Silicon](../GLOSSARY.md) (A-series and M-series SoCs), [Metal](../GLOSSARY.md) co-evolved with Apple's **Tile-Based Deferred Rendering (TBDR)** rasterization hardware and **Unified Memory Architecture (UMA)**. This integration turned [Metal](../GLOSSARY.md) from a mobile graphics API into the universal substrate for UI compositing (Core Animation), image processing (Core Image), video editing (AVFoundation), spatial rendering (RealityKit), and on-device machine learning acceleration (Core ML, MPS, [Metal](../GLOSSARY.md) Performance Shaders Graph).\n\nThrough total platform control, aggressive deprecation of OpenGL/OpenCL, and tight integration with Xcode and Instruments profiling, Apple established [Metal](../GLOSSARY.md) as an ecosystem-scale platform lock-in mechanism. This excavation analyzes the computational abstractions [Metal](../GLOSSARY.md) created, preserved, transformed, and standardized, evaluating its mechanics as a vertically integrated GPU contract co-designed with silicon.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -815,10 +846,10 @@
         "Difficulty to Recreate": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Replicating the full Metal software stack, MSL compiler pipeline, Xcode frame capture tools, and tight Apple Silicon co-design is economically prohibitive outside Apple."
+          "rationale": "Replicating the full [Metal](../GLOSSARY.md) software stack, MSL compiler pipeline, Xcode frame capture tools, and tight [Apple Silicon](../GLOSSARY.md) co-design is economically prohibitive outside Apple."
         }
       },
-      "modern_relevance": "In contemporary computing, Metal occupies a critical strategic position as Apple's universal device acceleration substrate:",
+      "modern_relevance": "In contemporary computing, [Metal](../GLOSSARY.md) occupies a critical strategic position as Apple's universal device acceleration substrate:",
       "references": []
     },
     {
@@ -2053,6 +2084,46 @@
       "references": []
     },
     {
+      "id": "nvidia",
+      "title": "NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform",
+      "path": "excavations/nvidia.md",
+      "summary": "In computer architecture history, **NVIDIA's parallel computing substrate** represents the definitive structural demonstration of transforming a domain-specific throughput accelerator—the 3D Graphics Processing Unit (GPU)—into a universal platform for high-performance scientific computing and machine learning. Originally engineered to accelerate fixed-function rasterization and fragment shading for 3D graphics markets, NVIDIA systematically evolved the GPU through programmable vertex and pixel shaders, unified shader execution units, the **Single Instruction, Multiple Threads (SIMT)** execution abstraction, and the **CUDA (Compute Unified Device Architecture)** programming and runtime model.\n\nNVIDIA's central architectural achievement was not merely building raw floating-point throughput, but establishing an integrated **software-hardware platform machine**. By providing a C/C++ programming language extension model (grids, blocks, warps, threads), explicit and managed memory hierarchies (global, shared, register, unified memory), domain-optimized performance libraries (cuBLAS, cuDNN, NCCL, TensorRT), and high-bandwidth multi-GPU system interconnects (NVLink, NVSwitch), NVIDIA converted discrete silicon chips into a long-lived computational contract.\n\nAs machine learning workloads shifted toward dense matrix operations and Transformer models, NVIDIA specialized the hardware layer with **Tensor Cores** (mixed-precision Warp Matrix Multiply-Accumulate units) while preserving CUDA as the unifying platform surface. This excavation analyzes the computational abstractions NVIDIA created, preserved, transformed, and standardized, evaluating the technical and systemic mechanisms by which those abstractions achieved ecosystem-scale persistence across high-performance computing (HPC) and artificial intelligence infrastructure.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Transformed fixed-function graphics chips into a universal parallel computing substrate, pioneering GPGPU and CUDA."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Mastered SIMT warp execution, active mask divergence handling, Shared Memory, Tensor Cores, and NVLink interconnect fabrics."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Dominates global high-performance scientific computing, enterprise cloud datacenters, and artificial intelligence infrastructure."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Universal substrate for training and serving foundation models, LLMs, robotics, and high-performance scientific simulations."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Essential hardware-software accelerator layer for deep learning, PyTorch execution, mixed-precision matrix math, and multi-node training."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Replicating two decades of hand-optimized CUDA libraries, driver stacks, compiler toolchains, and NVLink fabrics requires multi-billion-dollar investments."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
+    },
+    {
       "id": "occam",
       "title": "Occam",
       "path": "excavations/occam.md",
@@ -3015,6 +3086,13 @@
       "path": "reconstructions/neuromorphic-spiking/",
       "entry_point": "reconstructions/neuromorphic-spiking/spiking_sim.py",
       "description": "Event-driven Spiking Neural Network (SNN) simulator modeling Leaky Integrate-and-Fire (LIF) dynamics, Address-Event Representation (AER), and Spike-Timing-Dependent Plasticity (STDP) learning rules."
+    },
+    {
+      "id": "nvidia_simt",
+      "title": "Nvidia_Simt",
+      "path": "reconstructions/nvidia_simt/",
+      "entry_point": "reconstructions/nvidia_simt/simt_sim.py",
+      "description": "Executable simulator for the Nvidia_Simt paradigm."
     },
     {
       "id": "onnx-ir",

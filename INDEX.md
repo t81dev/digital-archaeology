@@ -63,6 +63,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Linux: The Ubiquitous Substrate](excavations/linux.md) — *How the decoupling of a stable SCI from dynamic kernel internals coupled with open, collaborative production turned a monolithic Unix-like kernel into ubiquitous platform infrastructure.*
 - [Lisp Machines](excavations/lisp-machines.md) — *Single-user, hardware-integrated dynamic environment.*
 - [Microsoft: The Platform Machine](excavations/microsoft.md) — *How architectural compatibility, APIs (Win32, COM, .NET), and developer-facing abstractions converted software into a self-reinforcing platform machine.*
+- [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md) — *How fixed-function graphics hardware evolved into a general-purpose SIMT compute substrate, and how the CUDA platform and Tensor Cores established platform persistence for HPC and AI.*
 - [Multics](excavations/multics.md) — *Influential secure, multi-user timesharing system with segmentation and rings.*
 - [llama.cpp: Quantization-First local Inference](excavations/llama-cpp.md) — *How low-bit block quantization, unified memory-bandwidth-aware containers, and decoupled execution runtimes shifted large language models to consumer devices.*
 - [OpenAI: The Model-as-Platform Substrate](excavations/openai.md) — *How the standardization of foundation models, remote APIs, alignment, and stateful agentic threads turned learned weights into stable platform infrastructure.*
@@ -145,6 +146,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [MapReduce Distributed Compute Simulator](reconstructions/mapreduce/) — *Fault-tolerant MapReduce coordinator executing functional partitioning, intermediate shuffling, key hashing, and map-task recovery on node failure.*
 - [x86 Microcode µop & Platform Architecture Simulator](reconstructions/x86_uop_translation/) — *CISC macro-instruction microcode decoding into RISC µops, CPUID feature negotiation, and multi-mode memory address translation.*
 - [Apple Metal Command & UMA Simulator](reconstructions/apple_metal/) — *Low-overhead explicit command encoding, immutable pipeline state objects, TBDR load/store actions, and explicit UMA memory storage modes.*
+- [NVIDIA SIMT Microarchitecture Simulator](reconstructions/nvidia_simt/) — *Warp-level SIMT execution, branch divergence mask stacks, warp scheduler latency hiding, shared memory bank conflicts, Tensor Core WMMA matrix operations, and Unified Memory page migration.*
 
 ---
 

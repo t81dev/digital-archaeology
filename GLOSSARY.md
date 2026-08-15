@@ -37,6 +37,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Associative Processors](excavations/associative-processors.md)
 
 ### C
+* **CUDA**: A parallel computing platform and programming model introduced by NVIDIA in 2006 that exposes GPUs for general-purpose computing using C/C++ language extensions, a grid/block/thread hierarchy, and driver/runtime APIs.
+  * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
+* **cuDNN**: A software library of hand-optimized primitives for deep neural networks (convolutions, activations, normalizations, attention) that acts as the primary execution surface for AI frameworks on NVIDIA GPUs.
+  * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
 * **CPUID**: An x86 assembly instruction that returns feature bitfields describing processor family, model, and supported ISA extensions (SSE, AVX, AMX, VT-x), enabling dynamic runtime vector fastpath dispatching.
   * *See excavation*: [Intel: The Architectural & Compatibility Substrate](excavations/intel.md)
 * **Capability-Based Security**: An access control model where processors or operating systems reference unforgeable keys called *capabilities*. A capability contains both a memory range (bounds) and specific permissions (read, write, execute), preventing buffer overflows and enforcing micro-segmentation at the hardware level.
@@ -149,6 +153,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)
 
 ### N
+* **NVIDIA**: A computational lineage whose artifacts include programmable GPU architectures, Streaming Multiprocessors, SIMT execution, the CUDA platform, NVLink interconnects, and Tensor Core matrix acceleration engines.
+  * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
+* **NVLink**: A high-speed point-to-point and crossbar (NVSwitch) interconnect fabric engineered by NVIDIA to bypass PCIe bottlenecks and enable high-bandwidth inter-GPU memory sharing across multi-GPU data-center clusters.
+  * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
 * **[Neuromorphic Hardware](excavations/neuromorphic-hardware.md)**: Silicon architectures designed to mimic the neural structures of the brain, utilizing asynchronous, event-driven spiking neural networks and in-memory computation.
   * *See excavation*: [Neuromorphic Hardware](excavations/neuromorphic-hardware.md)
 
@@ -180,6 +188,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
 
 ### S
+* **SIMT (Single Instruction, Multiple Threads)**: An execution model where multiple scalar threads execute the same instruction in lockstep groups (warps), managing control-flow divergence automatically via execution mask stacks.
+  * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
 * **Single-Level Store (SLS)**: A memory management architecture where all secondary storage (such as disk drives) is integrated into a single, flat, virtually-addressed main memory space, completely eliminating the user-level distinction between file systems and RAM.
   * *See excavation*: [Multics](excavations/multics.md), [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md)
 * **Spatial Computing (Hardware)**: Architectures where software logic is mapped directly onto a physical grid of processing elements with localized communication channels (e.g., FPGAs, [Systolic Arrays](excavations/systolic-arrays.md), Cellular Automata), removing global bus bottlenecks.
@@ -198,6 +208,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Systolic Arrays](excavations/systolic-arrays.md)
 
 ### T
+* **Tensor Core**: A specialized microarchitectural execution unit inside NVIDIA GPUs designed to perform 2D Warp Matrix Multiply-Accumulate (WMMA) operations in a single micro-op using mixed-precision numerical formats.
+  * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
 * **Tagged Memory**: A hardware mechanism where every word in memory is accompanied by a few extra non-addressable bits (tags) indicating its data type (e.g., integer, float, code pointer, capability), allowing hardware to prevent type safety violations and unauthorized execution.
   * *See excavation*: [Lisp Machines](excavations/lisp-machines.md)
 * **TrueTime API**: A hardware-backed clock synchronization abstraction that provides bounded time uncertainty intervals, enabling global transactional external consistency without central lock bottlenecks.
@@ -224,6 +236,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See modern relevance*: [AI & Hardware Bottlenecks](modern-relevance/ai.md)
 
 ### W
+* **Warp**: A group of 32 parallel threads in NVIDIA GPU architectures that execute instructions in lockstep over SIMT execution lanes.
+  * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
 * **Win32 API**: A highly stable, multi-decade 32-bit flat application programming interface designed to decouple application target software from dynamic kernel changes.
   * *See excavation*: [Microsoft: The Platform Machine](excavations/microsoft.md)
 * **[Wafer-Scale Integration](excavations/wafer-scale-integration.md) (WSI)**: An advanced semiconductor manufacturing paradigm that builds an entire digital system (incorporating multiple processor nodes, memory blocks, and interconnect networks) on a single, uncut silicon wafer, completely bypassing chip-packaging boundaries.
