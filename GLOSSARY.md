@@ -133,6 +133,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md)
 
 ### L
+* **Large Language Models (LLMs)**: A computational paradigm and execution substrate that converts statistical next-token prediction over transformer neural sequence architectures into a general-purpose soft interface layer over software systems, APIs, and accelerators.
+  * *See excavation*: [Large Language Models](excavations/large-language-models.md)
 * **Landauer's Limit**: A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \ln 2$).
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
 * **llama.cpp**: A highly optimized, dependency-free C/C++ inference runtime engine that popularized quantization-first execution, unified memory-bandwidth-aware model loading, and dynamic CPU-GPU offloading.
