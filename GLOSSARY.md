@@ -246,8 +246,12 @@ This document provides a conceptual glossary of terms from across the excavation
 ### W
 * **Warp**: A group of 32 parallel threads in NVIDIA GPU architectures that execute instructions in lockstep over SIMT execution lanes.
   * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
+* **WASABI Framework**: Winamp Advanced Software Architecture Building Infrastructure—an object-oriented application and skinning framework introduced in Winamp 3 featuring a declarative XML layout tree and an embedded stack-based virtual machine executing MAKI bytecode scripts.
+  * *See excavation*: [Winamp](excavations/winamp.md)
 * **Win32 API**: A highly stable, multi-decade 32-bit flat application programming interface designed to decouple application target software from dynamic kernel changes.
   * *See excavation*: [Microsoft: The Platform Machine](excavations/microsoft.md)
+* **Winamp Plugin C-ABI**: A low-overhead C struct jump-table interface specification defined by Nullsoft (`In_Module`, `Out_Module`, `winampDSPModule`, `winampGeneralPurposePlugin`) enabling third-party dynamic libraries to plug into host decoding, audio DSP, and UI control pipelines without name mangling or runtime vtable dependencies.
+  * *See excavation*: [Winamp](excavations/winamp.md)
 * **[Wafer-Scale Integration](excavations/wafer-scale-integration.md) (WSI)**: An advanced semiconductor manufacturing paradigm that builds an entire digital system (incorporating multiple processor nodes, memory blocks, and interconnect networks) on a single, uncut silicon wafer, completely bypassing chip-packaging boundaries.
   * *See excavation*: [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
 * **Warren Abstract Machine (WAM)**: An abstract instruction set and memory architecture developed by David H. D. Warren to execute compiled Prolog efficiently using specialized stacks, heap, trail, and register allocations.
