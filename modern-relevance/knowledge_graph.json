@@ -131,6 +131,10 @@
       "definition": "An 8-bit character encoding family designed by IBM in 1963 for the System/360 architecture, combining mechanical zone and digit punch mappings from Herman Hollerith's card layouts, resulting in non-contiguous alphabet segments and unique sorting semantics."
     },
     {
+      "term": "Ebuild",
+      "definition": "An executable package definition script written in Bash for Gentoo's Portage system, defining software lifecycle phases (`src_unpack`, `src_configure`, `src_compile`, `src_install`) and conditional dependencies."
+    },
+    {
       "term": "eBPF (Extended Berkeley Packet Filter)",
       "definition": "An in-kernel, register-based virtual machine and safe bytecode runtime executing verified programs dynamically inside the supervisor-mode event path of the Linux kernel."
     },
@@ -153,6 +157,10 @@
     {
       "term": "Generative Communication",
       "definition": "A parallel coordination model pioneered by Linda where processes communicate asynchronously and anonymously by depositing un-addressed, typed data tuples into a globally shared, associative space, which other processes can query by structural pattern matching."
+    },
+    {
+      "term": "Gentoo",
+      "definition": "A source-centric Linux distribution architecture and platform construction lineage that elevates compile-time feature selection (`USE` flags), executable package recipes (`ebuilds`), cascading profiles, version slotting (`SLOT`), and additive overlays into a first-class operating-system management paradigm."
     },
     {
       "term": "Google",
@@ -295,6 +303,10 @@
       "definition": "An operating system design featuring granular, per-thread scheduling, heavy optimization for symmetric multiprocessing (SMP), and pervasive multi-threading across both the kernel and media-rich user-space applications."
     },
     {
+      "term": "Portage",
+      "definition": "The Python and Bash-based package management and dependency resolution engine created for Gentoo, incorporating constraint graph solvers, version slotting, cascading profiles, LD_PRELOAD build sandboxing, and an on-disk plain-text Var Database (`/var/db/pkg/`)."
+    },
+    {
       "term": "Object-Capability Model",
       "definition": "A software design pattern that combines object-oriented encapsulation with capability-based security. An object reference *is* the unforgeable authority to perform actions on that object."
     },
@@ -397,6 +409,10 @@
     {
       "term": "Unification",
       "definition": "A mathematical and computational process that binds first-order terms and logic variables dynamically to make two symbolic expressions identical."
+    },
+    {
+      "term": "USE Flags",
+      "definition": "Bi-level compile-time configuration toggles (global in `make.conf`, per-package in `package.use`) in Gentoo's Portage system that dynamically mutate the package dependency graph (`DEPEND`/`RDEPEND`) and configure build parameters prior to compilation."
     },
     {
       "term": "Vector Processing",
@@ -540,6 +556,7 @@
           "cpp",
           "capability-systems",
           "ebcdic",
+          "gentoo",
           "google",
           "inferno",
           "intel-iapx-432",
@@ -710,6 +727,7 @@
           "apple-metal",
           "apple",
           "cpp",
+          "gentoo",
           "google",
           "inferno",
           "linux",
@@ -1521,6 +1539,46 @@
         }
       },
       "modern_relevance": "An evidence-based evaluation of [fluidic logic](../GLOSSARY.md)'s modern relevance yields several critical system-level insights:\n\n* **Substrate-Task Alignment:** [Fluidic logic](../GLOSSARY.md) proves that for certain physical tasks (e.g., chemical routing, pneumatic locomotion, extreme-heat monitoring), the most efficient controller is one that **shares the physical medium of the task**. Forcing an electronic-to-fluidic conversion step introduces a severe efficiency and reliability penalty.\n* **Thermodynamic Limits of Analog Substrates:** [Fluidic logic](../GLOSSARY.md) serves as a stark historical warning about **constant venting power (static leakage)**. Because fluidic amplifiers must bleed off fluid continuously to maintain stability, their static power dissipation is immense. This is highly relevant to modern **leakage-dominated sub-nanometer CMOS** and analog AI accelerators, highlighting that static power can completely overwhelm dynamic efficiency gains if left unaddressed.\n* **The Interconnect and Packaging Bottleneck:** Just as classical fluidics hit an \"acoustic reflection wall\" where gate-to-gate channel lengths had to be manually matched to prevent feedback loop failures, modern high-frequency electronic chips are hitting the **memory and interconnect walls** where wire parasitics and resistance-capacitance (RC) delays dominate performance. The packaging and routing challenges of alternative substrates are rarely logical; they are almost always physical, spatial, and acoustic.",
+      "references": []
+    },
+    {
+      "id": "gentoo",
+      "title": "Gentoo: Source-Based Distribution Architecture & Compile-Time Configuration",
+      "path": "excavations/gentoo.md",
+      "summary": "In Linux history, Gentoo is frequently discussed through the lens of enthusiast desktop customization, \"ricing\" culture, compilation benchmarks, or distro-war tribalism. In digital archaeology, however, **Gentoo represents a landmark computational ecosystem**: a pioneering and highly influential model of a **source-centric, build-configured operating system distribution architecture**.\n\nGentoo's primary architectural achievement was not merely running compiler optimizations on local hardware, but **elevating compile-time software selection into a first-class operating-system management paradigm**. By constructing Portage around executable bash package recipes (`ebuilds`), fine-grained feature flags (`USE` flags), version slotting (`SLOT`), cascading system policies (`profiles`), and additive repository namespaces (`overlays`), Gentoo transformed package management from static prebuilt binary payloads into a programmable, constraint-driven build engine.\n\nThis excavation dissects the architectural layers of Gentoo, traces its technical evolution from early FreeBSD Ports-inspired scripts to modern Portage dependency solvers, analyzes the ecosystem feedback loops and lock-in mechanisms that sustained its high-control niche, and examines how its core abstractions migrated into modern container build fabrics, embedded Linux meta-distributions (such as Yocto and ChromeOS), and declarative package systems.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Transformed Linux distribution architecture by pioneering source-based package management, ebuild recipes, and USE flag abstractions."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Engineered programmable ebuild recipes, USE flag dependency mutation, cascading profiles, slotting, and LD_PRELOAD build sandboxing."
+        },
+        "Commercial Success": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Maintained a specialized enthusiast niche as an end-user desktop distro, but achieved enterprise scale as the build fabric for ChromeOS."
+        },
+        "Modern Potential": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Essential paradigm for custom embedded OS construction (Yocto/ChromeOS), minimal security container builds, and feature-flagged package graphs."
+        },
+        "AI Synergy": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Source build customization allows tailoring C++/[CUDA](../GLOSSARY.md)/ROCm compilation flags for specific AI accelerator microarchitectures."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Rebuilding the Portage dependency engine, eclass hierarchy, and the vast official ebuild package universe requires immense engineering effort."
+        }
+      },
+      "modern_relevance": "Gentoo's lasting contribution to computer engineering is not the romantic ideal of compiling everything from source on a desktop, but **the standardization of explicit build-time feature configuration and programmable package recipes into an operating-system construction methodology**.",
       "references": []
     },
     {
@@ -3327,6 +3385,13 @@
       "path": "reconstructions/dataflow-engine/",
       "entry_point": "reconstructions/dataflow-engine/dataflow_sim.py",
       "description": "Executable simulator for the Dataflow Engine paradigm."
+    },
+    {
+      "id": "gentoo_portage",
+      "title": "Gentoo_Portage",
+      "path": "reconstructions/gentoo_portage/",
+      "entry_point": "reconstructions/gentoo_portage/portage_sim.py",
+      "description": "Executable simulator for the Gentoo_Portage paradigm."
     },
     {
       "id": "keykos-capabilities",

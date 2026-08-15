@@ -53,6 +53,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Apple: The Integrated Platform Surface](excavations/apple.md) — *How hardware, system software, runtimes, sandboxes, and distribution were co-designed into a resilient, vertically [integrated platform surface](GLOSSARY.md).*
 - [Apple Metal Architecture: The Vertically Integrated GPU Substrate](excavations/apple-metal.md) — *How a low-overhead, explicit GPU command model co-evolved with Apple Silicon, TBDR rasterization, unified memory, and OS framework pipelines to create an ecosystem-scale platform substrate.*
 - [BeOS / Haiku](excavations/beos-haiku.md) — *Media-optimized, responsive OS with modern design (revived as open-source Haiku).*
+- [Gentoo: Source-Based Distribution Architecture & Compile-Time Configuration](excavations/gentoo.md) — *Portage package manager, ebuild executable recipes, USE flag compile-time feature selection, cascading profile policy hierarchy, and binhost hybridization.*
 - [Burroughs Large Systems](excavations/burroughs-large-systems.md) — *High-level language hardware integration with descriptors and stack architecture.*
 - [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models ([KeyKOS](GLOSSARY.md), EROS, CHERI).*
 - [Google: The Platform Machine of Scale](excavations/google.md) — *How the repeated conversion of warehouse-scale operational problems into narrow, exportable software abstractions established the datacenter as the computer.*
@@ -157,6 +158,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Netscape Browser Runtime & Network Client Simulator](reconstructions/netscape_browser_runtime/) — *DOM event-driven JS host, Same-Origin Policy (SOP), NPAPI plugin dispatcher, HTTP cookie session state, and SSL/TLS certificate trust evaluation.*
 - [Safari & WebKit Runtime Simulator](reconstructions/safari_webkit_runtime/) — *WebKit2 multi-process IPC message passing, WKWebView host app process insulation, and Intelligent Tracking Prevention (ITP) double-keyed storage partitioning.*
 - [Qt Meta-Object & Signals Simulator](reconstructions/qt_meta_object_signals/) — *`QObject` parent-child ownership trees, Meta-Object Compiler introspection metadata, type-safe signals/slots dispatch, central event loop, and QML reactive property bindings.*
+- [Portage Engine & USE-Flag Simulator](reconstructions/gentoo_portage/) — *Cascading profile policy inheritance, USE flag dependency graph mutation, slotting, LD_PRELOAD build sandboxing, and Var Database (VDB) tracking.*
 
 ---
 
