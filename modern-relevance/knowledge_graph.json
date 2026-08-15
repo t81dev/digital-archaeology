@@ -383,8 +383,16 @@
       "definition": "A group of 32 parallel threads in NVIDIA GPU architectures that execute instructions in lockstep over SIMT execution lanes."
     },
     {
+      "term": "WASABI Framework",
+      "definition": "Winamp Advanced Software Architecture Building Infrastructure—an object-oriented application and skinning framework introduced in Winamp 3 featuring a declarative XML layout tree and an embedded stack-based virtual machine executing MAKI bytecode scripts."
+    },
+    {
       "term": "Win32 API",
       "definition": "A highly stable, multi-decade 32-bit flat application programming interface designed to decouple application target software from dynamic kernel changes."
+    },
+    {
+      "term": "Winamp Plugin C-ABI",
+      "definition": "A low-overhead C struct jump-table interface specification defined by Nullsoft (`In_Module`, `Out_Module`, `winampDSPModule`, `winampGeneralPurposePlugin`) enabling third-party dynamic libraries to plug into host decoding, audio DSP, and UI control pipelines without name mangling or runtime vtable dependencies."
     },
     {
       "term": "[Wafer-Scale Integration](excavations/wafer-scale-integration.md) (WSI)",
@@ -499,7 +507,8 @@
           "smalltalk",
           "stack-machines",
           "j-machine",
-          "transputers"
+          "transputers",
+          "winamp"
         ]
       },
       "Dataflow (Non-von Neumann)": {
@@ -660,7 +669,8 @@
           "openai",
           "smalltalk",
           "smalltalk",
-          "lisp-machines"
+          "lisp-machines",
+          "winamp"
         ]
       },
       "Flat / Unprotected Memory": {
@@ -707,7 +717,8 @@
           "inferno",
           "GLOSSARY",
           "j-machine",
-          "GLOSSARY"
+          "GLOSSARY",
+          "winamp"
         ]
       },
       "Object-Oriented Dynamic Messaging": {
@@ -2956,6 +2967,46 @@
         "Lie, S. (2023). *Wafer-Scale Compute: The Cerebras Architecture*. IEEE Micro, 43(3), 28–36.",
         "Tegze, M., & Janac, J. (1991). *Wafer Scale Integration: Architectures and Algorithms*. Academic Press."
       ]
+    },
+    {
+      "id": "winamp",
+      "title": "Winamp: The Modular Media Substrate & Extensible Application Platform",
+      "path": "excavations/winamp.md",
+      "summary": "In software history, Winamp is frequently discussed through the lens of late-1990s desktop culture, visual aesthetics (\"skins\"), or corporate ownership transitions between Nullsoft, AOL, and subsequent entities. In digital archaeology, however, **Winamp represents a historical computational ecosystem**: an early and exceptionally influential model of a **consumer application operating as an extensible platform host**.\n\nWinamp succeeded not merely by playing MP3 files efficiently on commodity PCs, but by engineering a **modular, decoupled architecture** around C-style binary plugin jump-tables, data-driven declarative UI skinning, and lightweight local file metadata indexing. By opening well-defined extension points for decoders (input), audio processors (DSP/equalizer), hardware output devices (output), and general system integration plugins, Winamp converted a standalone media player into an extensible software substrate. \n\nThis excavation dissects the architectural layers of the Winamp platform, traces its technical evolution from early MP3 frame decoders to the object-oriented WASABI application framework, analyzes the feedback loops that drove its ecosystem gravity, and examines how its core abstractions migrated or dissolved as digital music shifted from user-owned local files to remote cloud streams.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Standardized modular media player architectures, skinning culture, and MP3 desktop playback for a generation."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Pioneered low-overhead C-ABI plugin host contracts, declarative bitmap skinning, and the WASABI XML/MAKI engine."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Achieved overwhelming desktop dominance in the late 1990s and 2000s with over 100 million active users."
+        },
+        "Modern Potential": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Local-first audio architectures remain vital for audiophiles, DAWs, and offline media, though displaced in consumer mainstream by streaming."
+        },
+        "AI Synergy": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Modular C-ABI pipeline concepts inform local AI inference graph pipelines (`llama.cpp`), though direct AI synergy is limited."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "The C-ABI plugin engine and skinning layout are straightforward to replicate, but recreating the vast community ecosystem is impossible."
+        }
+      },
+      "modern_relevance": "While mainstream digital audio consumption has moved to cloud streaming, Winamp’s architectural lessons remain highly relevant to modern software engineering:",
+      "references": []
     }
   ],
   "synthesis_essays": [
@@ -3211,6 +3262,13 @@
       "path": "reconstructions/tuple-space/",
       "entry_point": "reconstructions/tuple-space/tuple_space_sim.py",
       "description": "Executable simulator for the Tuple Space paradigm."
+    },
+    {
+      "id": "winamp_plugin_host",
+      "title": "Winamp_Plugin_Host",
+      "path": "reconstructions/winamp_plugin_host/",
+      "entry_point": "reconstructions/winamp_plugin_host/winamp_sim.py",
+      "description": "Executable simulator for the Winamp_Plugin_Host paradigm."
     },
     {
       "id": "x86_uop_translation",
