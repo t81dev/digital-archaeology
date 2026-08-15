@@ -70,6 +70,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [OpenAI: The Model-as-Platform Substrate](excavations/openai.md) — *How the standardization of foundation models, remote APIs, alignment, and stateful agentic threads turned learned weights into stable platform infrastructure.*
 - [Plan 9](excavations/plan-9.md) — *Distributed UNIX successor ("Everything is a 9P service").*
 - [Project Xanadu](excavations/project-xanadu.md) — *[Bi-directional hypermedia](GLOSSARY.md) network and deep versioning system.*
+- [Qt: The Cross-Platform Application Substrate & Meta-Object Runtime Lineage](excavations/qt.md) — *Meta-Object Compiler (`moc`), signals/slots communication, hierarchical QObject ownership, platform backends (QPA), and Qt Quick / QML declarative scene graph.*
 - [Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate](excavations/safari.md) — *KHTML engine fork, WebKit2 multi-process architecture, JavaScriptCore JIT VMs, app-embedded WKWebView substrate, and Intelligent Tracking Prevention privacy runtime.*
 - [Winamp: The Modular Media Substrate & Extensible Application Platform](excavations/winamp.md) — *C-ABI plugin host architecture, decoupled audio pipelines, declarative skinning layers, and local collection metadata substrate.*
 
@@ -155,6 +156,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Winamp Plugin Host & Pipeline Simulator](reconstructions/winamp_plugin_host/) — *C-ABI plugin jump-tables, decoupled audio pipelines (Input/DSP/Output), classic skin sprite mapping, and M3U/PLS media library indexing.*
 - [Netscape Browser Runtime & Network Client Simulator](reconstructions/netscape_browser_runtime/) — *DOM event-driven JS host, Same-Origin Policy (SOP), NPAPI plugin dispatcher, HTTP cookie session state, and SSL/TLS certificate trust evaluation.*
 - [Safari & WebKit Runtime Simulator](reconstructions/safari_webkit_runtime/) — *WebKit2 multi-process IPC message passing, WKWebView host app process insulation, and Intelligent Tracking Prevention (ITP) double-keyed storage partitioning.*
+- [Qt Meta-Object & Signals Simulator](reconstructions/qt_meta_object_signals/) — *`QObject` parent-child ownership trees, Meta-Object Compiler introspection metadata, type-safe signals/slots dispatch, central event loop, and QML reactive property bindings.*
 
 ---
 
