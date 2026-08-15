@@ -65,6 +65,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Microsoft: The Platform Machine](excavations/microsoft.md) — *How architectural compatibility, APIs (Win32, COM, .NET), and developer-facing abstractions converted software into a self-reinforcing platform machine.*
 - [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md) — *How fixed-function graphics hardware evolved into a general-purpose SIMT compute substrate, and how the CUDA platform and Tensor Cores established platform persistence for HPC and AI.*
 - [Multics](excavations/multics.md) — *Influential secure, multi-user timesharing system with segmentation and rings.*
+- [Netscape: The Programmable Web Runtime & Network Client Substrate](excavations/netscape.md) — *Browser as an application platform, embedded JavaScript runtime, NPAPI plugin architecture, SSL/TLS security stack, HTTP cookies, and Mozilla open-source transition.*
 - [llama.cpp: Quantization-First local Inference](excavations/llama-cpp.md) — *How low-bit block quantization, unified memory-bandwidth-aware containers, and decoupled execution runtimes shifted large language models to consumer devices.*
 - [OpenAI: The Model-as-Platform Substrate](excavations/openai.md) — *How the standardization of foundation models, remote APIs, alignment, and stateful agentic threads turned learned weights into stable platform infrastructure.*
 - [Plan 9](excavations/plan-9.md) — *Distributed UNIX successor ("Everything is a 9P service").*
@@ -151,6 +152,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [C++ RAII & Zero-Overhead Dispatch Simulator](reconstructions/cpp_raii/) — *Interactive simulator modeling scope-bound RAII resource cleanup, exception stack unwinding, static template monomorphization vs. vtable dynamic dispatch metrics, and iterator contracts.*
 - [NVIDIA SIMT Microarchitecture Simulator](reconstructions/nvidia_simt/) — *Warp-level SIMT execution, branch divergence mask stacks, warp scheduler latency hiding, shared memory bank conflicts, Tensor Core WMMA matrix operations, and Unified Memory page migration.*
 - [Winamp Plugin Host & Pipeline Simulator](reconstructions/winamp_plugin_host/) — *C-ABI plugin jump-tables, decoupled audio pipelines (Input/DSP/Output), classic skin sprite mapping, and M3U/PLS media library indexing.*
+- [Netscape Browser Runtime & Network Client Simulator](reconstructions/netscape_browser_runtime/) — *DOM event-driven JS host, Same-Origin Policy (SOP), NPAPI plugin dispatcher, HTTP cookie session state, and SSL/TLS certificate trust evaluation.*
 
 ---
 
