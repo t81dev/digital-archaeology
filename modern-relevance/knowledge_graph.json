@@ -239,6 +239,10 @@
       "definition": "A non-silicon hardware paradigm that utilizes biological molecules, DNA strands, or enzymatic chemical reactions to store data and execute highly parallel combinatorial logic."
     },
     {
+      "term": "Meta-Object Compiler (moc)",
+      "definition": "A domain-specific C++ code-generator pre-processor designed for Qt that parses class declarations containing `Q_OBJECT` macros to emit static C++ compilation units containing runtime reflection metadata tables, property introspection descriptions, and signal/slot dispatch functions."
+    },
+    {
       "term": "Muller C-element",
       "definition": "A fundamental state-retaining logical component in asynchronous control circuits that acts as an \"event AND-gate\"—its output transitions only when all of its inputs have transitioned to match."
     },
@@ -279,6 +283,14 @@
       "definition": "A stable, remote remote intelligence service that platformizes large-scale learned weights into versioned, billable completions, chat turns, and stateful multi-step agent run loops."
     },
     {
+      "term": "QML (Qt Modeling Language)",
+      "definition": "An object-oriented declarative programming language running over a reactive property binding engine and a hardware-accelerated scene graph (OpenGL/Vulkan/Metal), decoupling presentation UI layout from underlying C++ application backends."
+    },
+    {
+      "term": "Qt Platform Abstraction (QPA)",
+      "definition": "A plugin-based windowing and rendering abstraction layer in Qt that isolates GUI application code from platform-specific OS windowing handles (Win32, Cocoa, X11, Wayland, or direct framebuffers)."
+    },
+    {
       "term": "Pervasive Multithreading",
       "definition": "An operating system design featuring granular, per-thread scheduling, heavy optimization for symmetric multiprocessing (SMP), and pervasive multi-threading across both the kernel and media-rich user-space applications."
     },
@@ -309,6 +321,10 @@
     {
       "term": "Safari",
       "definition": "An excavation of Apple's browser application architecture, WebKit rendering engine lineage, JavaScriptCore JIT virtual machine, multi-process content isolation, WKWebView app-embedding substrate, and Intelligent Tracking Prevention."
+    },
+    {
+      "term": "Signals and Slots",
+      "definition": "A type-safe, compile-time verified publish/subscribe event communication paradigm introduced by Qt that decouples event emitters from receiver slots without requiring callback function pointers or explicit header dependencies."
     },
     {
       "term": "Same-Origin Policy (SOP)",
@@ -537,6 +553,7 @@
           "netscape",
           "openai",
           "plan-9",
+          "qt",
           "safari",
           "smalltalk",
           "stack-machines",
@@ -702,6 +719,7 @@
           "nvidia",
           "onnx",
           "openai",
+          "qt",
           "safari",
           "smalltalk",
           "smalltalk",
@@ -753,6 +771,7 @@
           "GLOSSARY",
           "inferno",
           "GLOSSARY",
+          "qt",
           "safari",
           "j-machine",
           "GLOSSARY",
@@ -2548,6 +2567,46 @@
       "references": []
     },
     {
+      "id": "qt",
+      "title": "Qt: The Cross-Platform Application Substrate & Meta-Object Runtime Lineage",
+      "path": "excavations/qt.md",
+      "summary": "",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Defined cross-platform C++ GUI development, powered KDE, and served as the desktop application substrate for three decades."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Engineered the Meta-Object Compiler (`moc`), signals/slots event dispatch, QPA platform abstraction, and QML declarative UI scene graphs."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Broad commercial adoption across desktop software, medical systems, industrial HMI, and automotive digital cockpits."
+        },
+        "Modern Potential": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Essential platform substrate for embedded systems, automotive HMIs, and high-performance native desktop applications."
+        },
+        "AI Synergy": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Acts as a native presentation layer for local AI desktop tools (e.g., local LLM interfaces, computer vision GUIs), though not an AI compute core."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "The core meta-object system and signals/slots are straightforward to simulate, but replicating the vast platform backend support and QML scene graph engine is complex."
+        }
+      },
+      "modern_relevance": "Qt's durable contribution to computer science is not merely a collection of GUI widgets, but a **long-lived application runtime model**—meta-objects, signals and slots, hierarchical parent-child ownership, event loop integration, and platform abstraction layers—that enabled portable [C++](cpp.md) applications to remain viable across three decades of changing operating system architectures.\n\nIn modern systems engineering:\n* **Qt Quick / QML** remains a dominant declarative UI stack for industrial HMI, medical devices, and automotive digital cockpits (e.g., Mercedes-Benz, Tesla, LG webOS).\n* **Qt 6's Render Hardware Interface (RHI)** provides a blueprint for abstracting modern low-level graphics APIs (Vulkan, [Metal](../GLOSSARY.md), Direct3D 12) underneath declarative UI scene graphs.\n* **C++ Integration**: Qt demonstrates how legacy C++ infrastructure can seamlessly co-exist with modern declarative UI paradigms without requiring complete application rewrites.",
+      "references": []
+    },
+    {
       "id": "residue-number-system",
       "title": "Residue Number System (RNS)",
       "path": "excavations/residue-number-system.md",
@@ -3359,6 +3418,13 @@
       "path": "reconstructions/predictive-hypothesis/",
       "entry_point": "reconstructions/predictive-hypothesis/predictive_engine.py",
       "description": "Executable simulator for the Predictive Hypothesis paradigm."
+    },
+    {
+      "id": "qt_meta_object_signals",
+      "title": "Qt_Meta_Object_Signals",
+      "path": "reconstructions/qt_meta_object_signals/",
+      "entry_point": "reconstructions/qt_meta_object_signals/qt_sim.py",
+      "description": "Executable simulator for the Qt_Meta_Object_Signals paradigm."
     },
     {
       "id": "rns-arithmetic",

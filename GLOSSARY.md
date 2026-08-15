@@ -153,6 +153,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See modern relevance*: [Mixed-Radix & Alternative Number Systems](modern-relevance/mixed-radix.md)
 * **Molecular/Biocomputing**: A non-silicon hardware paradigm that utilizes biological molecules, DNA strands, or enzymatic chemical reactions to store data and execute highly parallel combinatorial logic.
   * *See excavation*: [Molecular & Biocomputing](excavations/molecular-biocomputing.md)
+* **Meta-Object Compiler (moc)**: A domain-specific C++ code-generator pre-processor designed for Qt that parses class declarations containing `Q_OBJECT` macros to emit static C++ compilation units containing runtime reflection metadata tables, property introspection descriptions, and signal/slot dispatch functions.
+  * *See excavation*: [Qt](excavations/qt.md)
 * **Muller C-element**: A fundamental state-retaining logical component in asynchronous control circuits that acts as an "event AND-gate"—its output transitions only when all of its inputs have transitioned to match.
   * *See excavation*: [Asynchronous Microprocessors](excavations/asynchronous-processors.md)
 
@@ -178,6 +180,12 @@ This document provides a conceptual glossary of terms from across the excavation
 * **OpenAI API**: A stable, remote remote intelligence service that platformizes large-scale learned weights into versioned, billable completions, chat turns, and stateful multi-step agent run loops.
   * *See excavation*: [OpenAI: The Model-as-Platform Substrate](excavations/openai.md)
 
+### Q
+* **QML (Qt Modeling Language)**: An object-oriented declarative programming language running over a reactive property binding engine and a hardware-accelerated scene graph (OpenGL/Vulkan/Metal), decoupling presentation UI layout from underlying C++ application backends.
+  * *See excavation*: [Qt](excavations/qt.md)
+* **Qt Platform Abstraction (QPA)**: A plugin-based windowing and rendering abstraction layer in Qt that isolates GUI application code from platform-specific OS windowing handles (Win32, Cocoa, X11, Wayland, or direct framebuffers).
+  * *See excavation*: [Qt](excavations/qt.md)
+
 ### P
 * **Pervasive Multithreading**: An operating system design featuring granular, per-thread scheduling, heavy optimization for symmetric multiprocessing (SMP), and pervasive multi-threading across both the kernel and media-rich user-space applications.
   * *See excavation*: [BeOS / Haiku](excavations/beos-haiku.md)
@@ -200,6 +208,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### S
 * **Safari**: An excavation of Apple's browser application architecture, WebKit rendering engine lineage, JavaScriptCore JIT virtual machine, multi-process content isolation, WKWebView app-embedding substrate, and Intelligent Tracking Prevention.
   * *See excavation*: [Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate](excavations/safari.md)
+* **Signals and Slots**: A type-safe, compile-time verified publish/subscribe event communication paradigm introduced by Qt that decouples event emitters from receiver slots without requiring callback function pointers or explicit header dependencies.
+  * *See excavation*: [Qt](excavations/qt.md)
 * **Same-Origin Policy (SOP)**: A foundational web security boundary introduced in Netscape Navigator 2.02 restricting scripts running on origin $A$ ($\langle\text{scheme, host, port}\rangle$) from accessing or mutating document properties and session data belonging to origin $B$.
   * *See excavation*: [Netscape](excavations/netscape.md)
 * **SSL (Secure Sockets Layer)**: A transport-layer cryptographic protocol stack (SSL 2.0/3.0) and public key infrastructure engineered by Netscape to enable encrypted communication, certificate authority trust verification, and HTTPS e-commerce.
