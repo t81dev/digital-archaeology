@@ -1,0 +1,825 @@
+[
+  {
+    "path": "excavations/README.md",
+    "status": "Template/meta",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [
+      "Index table only lists Balanced Ternary under Current Excavations"
+    ],
+    "cross_reference_issues": [
+      "Missing index links to the other 59 excavations in excavations/"
+    ],
+    "priority": "P2",
+    "recommended_actions": [
+      "Update excavations/README.md table or index to reference all 60 active excavations or link to COMPARATIVE_INDEX.md"
+    ]
+  },
+  {
+    "path": "excavations/analog-computing.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/apple-metal.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/apple.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/associative-processors.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/asynchronous-processors.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/balanced-ternary.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/beos-haiku.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/burroughs-large-systems.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/capability-systems.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/cellular-automata-hardware.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/connection-machine.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/cpp.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/cursor-ide.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/dataflow-computing.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/ebcdic.md",
+    "status": "Mostly complete (minor gaps)",
+    "completeness_score": "4/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [
+      "Decline / Why It Didn't Win"
+    ],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/edge-architecture.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/excavation-template.md",
+    "status": "Template/meta",
+    "completeness_score": "2/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [
+      "Template is minimal legacy outline (19 lines); lags modern platform-machine structure used in mature excavations"
+    ],
+    "cross_reference_issues": [],
+    "priority": "P2",
+    "recommended_actions": [
+      "Update excavation-template.md to offer both Standard Architecture and Platform Substrate schemas",
+      "Include standard scorecard table template in excavation-template.md"
+    ]
+  },
+  {
+    "path": "excavations/fluidic-logic-systems.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/gentoo.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "2/3",
+    "missing_required_sections": [],
+    "formatting_issues": [
+      "Contains # comments inside code blocks parsed as top-level H1 headings"
+    ],
+    "cross_reference_issues": [],
+    "priority": "P2",
+    "recommended_actions": [
+      "Adjust code block comments from `# ` to `## ` or indented code comments to prevent H1 parser collision"
+    ]
+  },
+  {
+    "path": "excavations/google.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "4/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [
+      "Modern Relevance"
+    ],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/graph-reduction-machines.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/inferno.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/intel-iapx-432.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/intel.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/j-machine.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/keykos-nanokernel-capabilities.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/large-language-models.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/linda-tuple-spaces.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/linux.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/lisp-machines.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/llama-cpp.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/logarithmic-number-system.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/microsoft.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/molecular-biocomputing.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/multics.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/netscape.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/neuromorphic-hardware.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/nvidia.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/occam.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/onnx.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/openai.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/optical-computing.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/plan-9.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/portage.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "2/3",
+    "missing_required_sections": [],
+    "formatting_issues": [
+      "Contains # comments inside code blocks parsed as top-level H1 headings"
+    ],
+    "cross_reference_issues": [],
+    "priority": "P2",
+    "recommended_actions": [
+      "Adjust code block comments from `# ` to `## ` or indented code comments to prevent H1 parser collision"
+    ]
+  },
+  {
+    "path": "excavations/project-xanadu.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/prolog-wam-fgcs-hardware.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/qt.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/residue-number-system.md",
+    "status": "Mostly complete (minor gaps)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [
+      "Low relative cross-reference density (0 cross-links found)"
+    ],
+    "priority": "P2",
+    "recommended_actions": [
+      "Inject relative cross-links to related excavations, GLOSSARY.md, or patterns/"
+    ]
+  },
+  {
+    "path": "excavations/reversible-computing.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/safari.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/smalltalk.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/stack-machines.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/stochastic-computing.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/superconducting-cryogenic.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/symbolic-ai.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/systolic-arrays.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/transputers.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/vector-supercomputing.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/vliw-epic.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/wafer-scale-integration.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  },
+  {
+    "path": "excavations/winamp.md",
+    "status": "Complete (schema-compliant)",
+    "completeness_score": "5/5",
+    "formatting_score": "3/3",
+    "missing_required_sections": [],
+    "formatting_issues": [],
+    "cross_reference_issues": [],
+    "priority": "P3",
+    "recommended_actions": [
+      "None - schema compliant and verified"
+    ]
+  }
+]
