@@ -183,6 +183,10 @@
       "definition": "An architectural paradigm of hardware-software-distribution vertical integration where custom silicon, core operating system managers, dynamic runtimes, developer toolchains, and centralized monetization gates are co-designed as a single surface."
     },
     {
+      "term": "Intelligent Tracking Prevention (ITP)",
+      "definition": "A client-side privacy architecture introduced in WebKit that integrates machine learning classification, double-keyed storage partitioning, and cookie expiration caps directly into network and storage execution paths."
+    },
+    {
       "term": "J-Machine (Jellybean Machine)",
       "definition": "A fine-grained, massively parallel computer architecture that integrated a 3D wormhole-routing network, on-chip SRAM, and a message-driven processor on a single monolithic die to support low-latency active messages."
     },
@@ -303,6 +307,10 @@
       "definition": "A paradigm where logic gates perform bijective (one-to-one) mapping between inputs and outputs, allowing computation to run backward and theoretically bypassing Landauer's thermodynamic limit."
     },
     {
+      "term": "Safari",
+      "definition": "An excavation of Apple's browser application architecture, WebKit rendering engine lineage, JavaScriptCore JIT virtual machine, multi-process content isolation, WKWebView app-embedding substrate, and Intelligent Tracking Prevention."
+    },
+    {
       "term": "Same-Origin Policy (SOP)",
       "definition": "A foundational web security boundary introduced in Netscape Navigator 2.02 restricting scripts running on origin $A$ ($\\langle\\text{scheme, host, port}\\rangle$) from accessing or mutating document properties and session data belonging to origin $B$."
     },
@@ -397,6 +405,14 @@
     {
       "term": "Warp",
       "definition": "A group of 32 parallel threads in NVIDIA GPU architectures that execute instructions in lockstep over SIMT execution lanes."
+    },
+    {
+      "term": "WebKit",
+      "definition": "A portable, embeddable web rendering and execution engine lineage forked from KHTML/KJS, comprising WebCore, JavaScriptCore, and the WebKit2 multi-process architecture."
+    },
+    {
+      "term": "WKWebView",
+      "definition": "An out-of-process, sandboxed application framework interface exposing WebKit execution to native applications with host memory insulation and full JIT capabilities."
     },
     {
       "term": "WASABI Framework",
@@ -521,6 +537,7 @@
           "netscape",
           "openai",
           "plan-9",
+          "safari",
           "smalltalk",
           "stack-machines",
           "j-machine",
@@ -685,6 +702,7 @@
           "nvidia",
           "onnx",
           "openai",
+          "safari",
           "smalltalk",
           "smalltalk",
           "lisp-machines",
@@ -735,6 +753,7 @@
           "GLOSSARY",
           "inferno",
           "GLOSSARY",
+          "safari",
           "j-machine",
           "GLOSSARY",
           "winamp"
@@ -2609,6 +2628,46 @@
       "references": []
     },
     {
+      "id": "safari",
+      "title": "Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate",
+      "path": "excavations/safari.md",
+      "summary": "",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Created WebKit, defined mobile web runtime constraints on iPhone, pioneered multi-process web engines, and transformed privacy into client runtime architecture."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Engineered JavaScriptCore multi-tier JIT (FTL/B3), WebKit2 XPC multi-process isolation, declarative content blocking, and double-keyed storage partitioning."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Deployed across two billion active Apple devices as default web runtime, powering Safari and millions of native application WebViews."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Serves as the primary independent web engine alternative to Chromium, leading privacy engineering standards and on-device web runtime execution."
+        },
+        "AI Synergy": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Enables local client-side neural network and LLM inference inside WebKit viewports via WebGPU, WebAssembly, and [Apple Silicon](../GLOSSARY.md) Unified Memory."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Rebuilding a standards-compliant, multi-process web engine with advanced JIT compilers and platform graphics pipelines requires hundreds of engineering person-years."
+        }
+      },
+      "modern_relevance": "Safari and WebKit remain central to modern computing architecture in several key respects:",
+      "references": []
+    },
+    {
       "id": "smalltalk",
       "title": "Smalltalk",
       "path": "excavations/smalltalk.md",
@@ -3307,6 +3366,13 @@
       "path": "reconstructions/rns-arithmetic/",
       "entry_point": "reconstructions/rns-arithmetic/rns_sim.py",
       "description": "Executable simulator for the Rns Arithmetic paradigm."
+    },
+    {
+      "id": "safari_webkit_runtime",
+      "title": "Safari_Webkit_Runtime",
+      "path": "reconstructions/safari_webkit_runtime/",
+      "entry_point": "reconstructions/safari_webkit_runtime/safari_sim.py",
+      "description": "Executable simulator for the Safari_Webkit_Runtime paradigm."
     },
     {
       "id": "stochastic-computing",

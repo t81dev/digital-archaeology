@@ -115,6 +115,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Intel: The Architectural & Compatibility Substrate](excavations/intel.md)
 * **Integrated Platform Surface**: An architectural paradigm of hardware-software-distribution vertical integration where custom silicon, core operating system managers, dynamic runtimes, developer toolchains, and centralized monetization gates are co-designed as a single surface.
   * *See excavation*: [Apple: The Integrated Platform Surface](excavations/apple.md)
+* **Intelligent Tracking Prevention (ITP)**: A client-side privacy architecture introduced in WebKit that integrates machine learning classification, double-keyed storage partitioning, and cookie expiration caps directly into network and storage execution paths.
+  * *See excavation*: [Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate](excavations/safari.md)
 
 ### J
 * **J-Machine (Jellybean Machine)**: A fine-grained, massively parallel computer architecture that integrated a 3D wormhole-routing network, on-chip SRAM, and a message-driven processor on a single monolithic die to support low-latency active messages.
@@ -196,6 +198,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
 
 ### S
+* **Safari**: An excavation of Apple's browser application architecture, WebKit rendering engine lineage, JavaScriptCore JIT virtual machine, multi-process content isolation, WKWebView app-embedding substrate, and Intelligent Tracking Prevention.
+  * *See excavation*: [Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate](excavations/safari.md)
 * **Same-Origin Policy (SOP)**: A foundational web security boundary introduced in Netscape Navigator 2.02 restricting scripts running on origin $A$ ($\langle\text{scheme, host, port}\rangle$) from accessing or mutating document properties and session data belonging to origin $B$.
   * *See excavation*: [Netscape](excavations/netscape.md)
 * **SSL (Secure Sockets Layer)**: A transport-layer cryptographic protocol stack (SSL 2.0/3.0) and public key infrastructure engineered by Netscape to enable encrypted communication, certificate authority trust verification, and HTTPS e-commerce.
@@ -254,6 +258,10 @@ This document provides a conceptual glossary of terms from across the excavation
 ### W
 * **Warp**: A group of 32 parallel threads in NVIDIA GPU architectures that execute instructions in lockstep over SIMT execution lanes.
   * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
+* **WebKit**: A portable, embeddable web rendering and execution engine lineage forked from KHTML/KJS, comprising WebCore, JavaScriptCore, and the WebKit2 multi-process architecture.
+  * *See excavation*: [Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate](excavations/safari.md)
+* **WKWebView**: An out-of-process, sandboxed application framework interface exposing WebKit execution to native applications with host memory insulation and full JIT capabilities.
+  * *See excavation*: [Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate](excavations/safari.md)
 * **WASABI Framework**: Winamp Advanced Software Architecture Building Infrastructure—an object-oriented application and skinning framework introduced in Winamp 3 featuring a declarative XML layout tree and an embedded stack-based virtual machine executing MAKI bytecode scripts.
   * *See excavation*: [Winamp](excavations/winamp.md)
 * **Win32 API**: A highly stable, multi-decade 32-bit flat application programming interface designed to decouple application target software from dynamic kernel changes.
