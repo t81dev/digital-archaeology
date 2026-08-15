@@ -570,6 +570,7 @@
           "netscape",
           "openai",
           "plan-9",
+          "portage",
           "qt",
           "safari",
           "smalltalk",
@@ -737,6 +738,7 @@
           "nvidia",
           "onnx",
           "openai",
+          "portage",
           "qt",
           "safari",
           "smalltalk",
@@ -2542,6 +2544,46 @@
         }
       },
       "modern_relevance": "",
+      "references": []
+    },
+    {
+      "id": "portage",
+      "title": "[Portage](../GLOSSARY.md): Package Management as Policy-Constrained Recipe Execution",
+      "path": "excavations/portage.md",
+      "summary": "",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Pioneered programmable [ebuild](../GLOSSARY.md) recipes, USE flag predicate resolution, cascading system profiles, and sandboxed build staging."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Transformed package management from static binary file payload extraction into a policy-constrained recipe execution engine."
+        },
+        "Commercial Success": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Maintained a specialized desktop niche, but achieved commercial scale as the core operating system build fabric for [Google](../GLOSSARY.md) ChromeOS."
+        },
+        "Modern Potential": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Essential paradigm for custom OS image construction, minimal security container base builds, and feature-flagged dependency solvers."
+        },
+        "AI Synergy": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Enables automated tuning of compiler build flags (`CFLAGS`, target ISA flags) for specialized AI hardware microarchitectures."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Reconstructing the full [Portage](../GLOSSARY.md) dependency graph solver, eclass library, and vast [ebuild](../GLOSSARY.md) repository tree requires substantial engineering effort."
+        }
+      },
+      "modern_relevance": "[Portage](../GLOSSARY.md) offers valuable architectural insights for contemporary systems engineering:",
       "references": []
     },
     {

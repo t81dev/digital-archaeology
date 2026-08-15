@@ -84,7 +84,7 @@ This document provides a conceptual glossary of terms from across the excavation
 * **EBCDIC (Extended Binary Coded Decimal Interchange Code)**: An 8-bit character encoding family designed by IBM in 1963 for the System/360 architecture, combining mechanical zone and digit punch mappings from Herman Hollerith's card layouts, resulting in non-contiguous alphabet segments and unique sorting semantics.
   * *See excavation*: [EBCDIC](excavations/ebcdic.md)
 * **Ebuild**: An executable package definition script written in Bash for [Gentoo](excavations/gentoo.md)'s Portage system, defining software lifecycle phases (`src_unpack`, `src_configure`, `src_compile`, `src_install`) and conditional dependencies.
-  * *See excavation*: [Gentoo: Source-Based Distribution Architecture & Compile-Time Configuration](excavations/gentoo.md)
+  * *See excavation*: [Portage: Package Management as Policy-Constrained Recipe Execution](excavations/portage.md), [Gentoo](excavations/gentoo.md)
 * **eBPF (Extended Berkeley Packet Filter)**: An in-kernel, register-based virtual machine and safe bytecode runtime executing verified programs dynamically inside the supervisor-mode event path of the Linux kernel.
   * *See excavation*: [Linux: The Ubiquitous Substrate](excavations/linux.md)
 * **Execution Provider (EP)**: A pluggable compiler and driver adapter inside ONNX Runtime that intercepts, optimizes, and compiles subgraphs for specialized hardware backends (such as CUDA, TensorRT, and OpenVINO).
@@ -194,7 +194,7 @@ This document provides a conceptual glossary of terms from across the excavation
 * **Pervasive Multithreading**: An operating system design featuring granular, per-thread scheduling, heavy optimization for symmetric multiprocessing (SMP), and pervasive multi-threading across both the kernel and media-rich user-space applications.
   * *See excavation*: [BeOS / Haiku](excavations/beos-haiku.md)
 * **Portage**: The Python and Bash-based package management and dependency resolution engine created for Gentoo, incorporating constraint graph solvers, version slotting, cascading profiles, LD_PRELOAD build sandboxing, and an on-disk plain-text Var Database (`/var/db/pkg/`).
-  * *See excavation*: [Gentoo: Source-Based Distribution Architecture & Compile-Time Configuration](excavations/gentoo.md)
+  * *See excavation*: [Portage: Package Management as Policy-Constrained Recipe Execution](excavations/portage.md)
 
 * **Object-Capability Model**: A software design pattern that combines object-oriented encapsulation with capability-based security. An object reference *is* the unforgeable authority to perform actions on that object.
   * *See excavation*: [Intel iAPX 432](excavations/intel-iapx-432.md), [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md)
@@ -257,7 +257,7 @@ This document provides a conceptual glossary of terms from across the excavation
 * **Unification**: A mathematical and computational process that binds first-order terms and logic variables dynamically to make two symbolic expressions identical.
   * *See excavation*: [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)
 * **USE Flags**: Bi-level compile-time configuration toggles (global in `make.conf`, per-package in `package.use`) in Gentoo's Portage system that dynamically mutate the package dependency graph (`DEPEND`/`RDEPEND`) and configure build parameters prior to compilation.
-  * *See excavation*: [Gentoo: Source-Based Distribution Architecture & Compile-Time Configuration](excavations/gentoo.md)
+  * *See excavation*: [Portage: Package Management as Policy-Constrained Recipe Execution](excavations/portage.md), [Gentoo](excavations/gentoo.md)
 
 ### V
 * **Vector Processing**: A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads.
