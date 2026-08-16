@@ -122,11 +122,13 @@ Balanced ternary failed for primarily **non-mathematical and physical fabricatio
 
 ---
 
-## Primary Sources & Further Reading
+## Bibliography
 
-1. **Brusentsov, N. P.** (1960). "The Ternary Calculating Machine 'Setun' of Moscow State University." *Soviet Cybernetics Technology*, 115-120.
-2. **Brusentsov, N. P., et al.** (1984). "Development of Ternary Computers at Moscow State University." *Vychislitelnaya Tekhnika i Voprosy Kibernetiki*, 21, 3-22.
-3. **Knuth, Donald E.** (1997). *The Art of Computer Programming, Volume 2: Seminumerical Algorithms* (3rd ed.). Addison-Wesley (Section 4.1 discusses balanced ternary).
-4. **Hurst, S. L.** (1984). "Multiple-valued Logic: Its Status and Its Future." *IEEE Transactions on Computers*, C-33(12), 1160-1179.
-5. **Kameyama, M.** (1990). "Design and Implementation of Multiple-Valued Integrated Circuits." *Proceedings of the 20th International Symposium on Multiple-Valued Logic (ISMVL)*, 10-17.
-6. **Vranesic, Z. G., & Smith, K. C.** (1977). "Engineering Aspects of Multiple-Valued Logic Systems." *Computer*, 10(9), 34-41.
+1. **Brusentsov, N. P.** (1960). "The Ternary Calculating Machine 'Setun' of Moscow State University." *Soviet Cybernetics Technology*, 115-120. (Foundational archival description of the Setun ternary vacuum-tube/ferrite-core computer).
+2. **Brusentsov, N. P., et al.** (1984). "Development of Ternary Computers at Moscow State University." *Vychislitelnaya Tekhnika i Voprosy Kibernetiki*, 21, 3-22. (Primary Moscow State University retrospective on Setun-70 and ternary instruction set design).
+3. **Knuth, Donald E.** (1997). *The Art of Computer Programming, Volume 2: Seminumerical Algorithms* (3rd ed.). Addison-Wesley. (Section 4.1 provides mathematical proofs for balanced ternary arithmetic and notation).
+4. **Hurst, S. L.** (1984). "Multiple-valued Logic: Its Status and Its Future." *IEEE Transactions on Computers*, C-33(12), 1160-1179. (Comprehensive survey of ternary and multi-valued logic gates).
+5. **Yoeli, M., & Rosenfeld, G.** (1965). "Ternary Arithmetic Units." *IEEE Transactions on Electronic Computers*, EC-14(4), 622-629. (Seminal hardware equations for balanced ternary full adders and dual-rail logic).
+6. **USPTO Patent 3,610,913** (1971). *Ternary Logic and Arithmetic Circuits*. United States Patent and Trademark Office. (Patented circuit design for solid-state ternary switching logic).
+7. **Kameyama, M.** (1990). "Design and Implementation of Multiple-Valued Integrated Circuits." *Proceedings of the 20th International Symposium on Multiple-Valued Logic (ISMVL)*, 10-17.
+8. **Vranesic, Z. G., & Smith, K. C.** (1977). "Engineering Aspects of Multiple-Valued Logic Systems." *Computer*, 10(9), 34-41.

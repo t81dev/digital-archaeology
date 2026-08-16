@@ -650,7 +650,7 @@ The following entity relationships define C++'s position in the Digital Archaeol
 
 ---
 
-## 25. Bibliography
+## Bibliography
 
 1. Stroustrup, B. (1994). *The Design and Evolution of C++*. Addison-Wesley Professional.
 2. Stroustrup, B. (2013). *The C++ Programming Language* (4th Edition). Addison-Wesley Professional.

@@ -77,3 +77,19 @@ def test_co_simulation_profiling_and_rebalancing():
     assert "bottleneck" in rebalance_log
     assert "recommendation" in rebalance_log
     assert len(rebalance_log["action_plan"]) > 0
+
+
+def test_p2p_grid_workload_partitioning():
+    """Verify WebRTC P2P grid co-simulation workload partitioning and telemetry."""
+    orchestrator = CoSimulationOrchestrator(verbose=False)
+    peers = [
+        {"id": "node_a", "capacity": 2.0, "rtt_ms": 10.0},
+        {"id": "node_b", "capacity": 1.0, "rtt_ms": 25.0}
+    ]
+    partition_map = orchestrator.simulate_p2p_grid_partitioning(peers)
+
+    assert "node_a" in partition_map
+    assert "node_b" in partition_map
+    assert partition_map["node_a"]["allocated_weight"] == pytest.approx(2/3)
+    assert partition_map["node_b"]["allocated_weight"] == pytest.approx(1/3)
+    assert partition_map["node_a"]["status"] == "connected"

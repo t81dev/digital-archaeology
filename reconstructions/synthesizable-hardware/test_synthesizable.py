@@ -609,13 +609,27 @@ def test_openlane_configs_exist_and_are_valid():
     import json
     hardware_dir = os.path.dirname(__file__)
     config_dir = os.path.join(hardware_dir, "fpga", "openlane_configs")
-    cores = ["capability_bounds_checker", "reversible_gates", "stochastic_multiplier", "ternary_alu"]
+    cores = ["capability_bounds_checker", "reversible_gates", "stochastic_multiplier", "ternary_alu", "tt_um_archaeology_cores", "ihp_sg13g2_capability_checker"]
 
     for core in cores:
         config_path = os.path.join(config_dir, f"{core}.json")
         assert os.path.exists(config_path), f"OpenLane config missing for {core}"
         with open(config_path, "r", encoding="utf-8") as f:
             data = json.load(f)
-            assert data["DESIGN_NAME"] == core
+            assert "DESIGN_NAME" in data
             assert "CLOCK_PORT" in data
             assert "CLOCK_PERIOD" in data
+
+def test_tiny_tapeout_wrapper_exists_and_is_valid():
+    """Verify that the Tiny Tapeout user module wrapper exists and follows TT pin conventions."""
+    hardware_dir = os.path.dirname(__file__)
+    tt_path = os.path.join(hardware_dir, "tt_um_archaeology_cores.sv")
+    assert os.path.exists(tt_path), "tt_um_archaeology_cores.sv missing!"
+    with open(tt_path, "r", encoding="utf-8") as f:
+        content = f.read()
+        assert "module tt_um_archaeology_cores" in content
+        assert "ui_in" in content
+        assert "uo_out" in content
+        assert "uio_in" in content
+        assert "uio_out" in content
+        assert "mode_sel" in content

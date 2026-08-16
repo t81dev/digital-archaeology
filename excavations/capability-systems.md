@@ -148,17 +148,13 @@ The trajectory of capability systems highlights how changing physical and econom
 
 ---
 
-## Primary Sources & Further Reading
+## Bibliography
 
-* **Dennis, J. B., & Van Horn, E. C.** (1966). "Programming Semantics for Multiprogrammed Computations." *Communications of the ACM*, 9(3), 143–155.
-  - *Relevance*: The seminal publication that defined the formal concept of "capabilities" as unforgeable references to system-managed resource descriptors.
-* **Hardy, N.** (1985). "The [KeyKOS](../GLOSSARY.md) Architecture." *ACM SIGOPS Operating Systems Review*, 19(4), 8–25.
-  - *Relevance*: Details the implementation of the microkernel-based [KeyKOS](../GLOSSARY.md) operating system, demonstrating commercial viability, single-level stores, and orthogonal persistence using capabilities.
-* **Shapiro, J. S., Smith, J. M., & Farber, D. J.** (1999). "EROS: A Fast Capability System." *ACM SIGOPS Operating Systems Review*, 33(5), 72–85.
-  - *Relevance*: Modernizes the [KeyKOS](../GLOSSARY.md) single-level store, demonstrating that synchronous, capability-based message passing can be executed in under 50 clock cycles.
-* **Woodruff, J., et al.** (2014). "CHERI: Concentrating Capability Is Safe, Fast, and Easy." *Proceedings of the 41st Annual International Symposium on Computer Architecture (ISCA)*, 487–498.
-  - *Relevance*: Formulates the hardware-compressed 128-bit capability layout and extensions to the MIPS ISA, establishing a low-overhead path for hardware pointer validation.
-* **Watson, R. N. M., et al.** (2015). "CHERI: A Hybrid Capability-System Architecture for Scalable Software Compartmentalization." *IEEE Symposium on Security and Privacy*, 20–37.
-  - *Relevance*: Explains how the CHERI model can be used to run legacy, un-modified C/C++ codebases while retrofitting fine-grained spatial and temporal memory bounds checks at the hardware level.
-* **Watson, R. N. M., et al.** (2020). *Capability Hardware Enhanced RISC Instructions (CHERI): Instruction-Set Architecture (Version 8)*. *Technical Report UCAM-CL-TR-951*, University of Cambridge Computer Laboratory.
-  - *Relevance*: The authoritative, primary specification detailing the tag-integrity, permission maps, and instructions for modern CHERI implementations.
+1. **Dennis, J. B., & Van Horn, E. C.** (1966). "Programming Semantics for Multiprogrammed Computations." *Communications of the ACM*, 9(3), 143–155. (The seminal publication defining capabilities as unforgeable references).
+2. **Fabry, R. S.** (1974). "Capability-Based Addressing." *Communications of the ACM*, 17(7), 403-412. (Establishes capability-based addressing as a hardware paradigm).
+3. **Hardy, N.** (1985). "The [KeyKOS](../GLOSSARY.md) Architecture." *ACM SIGOPS Operating Systems Review*, 19(4), 8–25. (Primary paper detailing KeyKOS pure object-capability persistence).
+4. **Shapiro, J. S., Smith, J. M., & Farber, D. J.** (1999). "EROS: A Fast Capability System." *ACM SIGOPS Operating Systems Review*, 33(5), 72–85. (Reconstructs KeyKOS semantics into a sub-50-cycle IPC capability microkernel).
+5. **USPTO Patent 3,786,427** (1974). *Data Processing System Utilizing Capabilities for Memory Protection*. United States Patent and Trademark Office. (Foundational hardware capability patent for memory tagging).
+6. **Woodruff, J., et al.** (2014). "CHERI: Concentrating Capability Is Safe, Fast, and Easy." *Proceedings of ISCA*, 487–498. (Hardware-compressed 128-bit capability representation).
+7. **Watson, R. N. M., et al.** (2015). "CHERI: A Hybrid Capability-System Architecture for Scalable Software Compartmentalization." *IEEE Symposium on Security and Privacy*, 20–37.
+8. **Watson, R. N. M., et al.** (2020). *Capability Hardware Enhanced RISC Instructions (CHERI): Instruction-Set Architecture (Version 8)*. *Technical Report UCAM-CL-TR-951*, University of Cambridge Computer Laboratory.

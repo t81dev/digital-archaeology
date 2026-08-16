@@ -329,9 +329,14 @@
             <div class="flex-1 bg-slate-950 border border-gray-800 rounded-lg p-3.5 flex flex-col space-y-2 min-h-[260px]">
                 <h3 class="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center justify-between">
                     <span class="flex items-center gap-1"><i data-lucide="activity" class="w-3.5 h-3.5 text-emerald-400"></i> Logic Analyzer</span>
-                    <button onclick="exportWaveformToVCD()" class="flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold text-emerald-400 bg-emerald-950/40 hover:bg-emerald-950/80 border border-emerald-500/20 rounded transition-colors cursor-pointer">
-                        <i data-lucide="download" class="w-3 h-3"></i> Export VCD
-                    </button>
+                    <div class="flex items-center gap-1.5">
+                        <button id="btn-webserial" onclick="toggleWebSerialHIL()" class="flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold text-cyan-400 bg-cyan-950/40 hover:bg-cyan-950/80 border border-cyan-500/20 rounded transition-colors cursor-pointer" title="Connect physical FPGA board via WebSerial / WebUSB UART HIL">
+                            <i data-lucide="cpu" class="w-3 h-3"></i> <span id="webserial-btn-text">Connect FPGA (HIL)</span>
+                        </button>
+                        <button onclick="exportWaveformToVCD()" class="flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold text-emerald-400 bg-emerald-950/40 hover:bg-emerald-950/80 border border-emerald-500/20 rounded transition-colors cursor-pointer">
+                            <i data-lucide="download" class="w-3 h-3"></i> Export VCD
+                        </button>
+                    </div>
                 </h3>
 
                 <!-- Waveforms Grid -->
@@ -1080,6 +1085,135 @@ except Exception as e:
                 executePythonCode();
             }
         });
+
+        // =========================================================================
+        // WebUSB / WebSerial Hardware-in-the-Loop (HIL) Streaming Integration
+        // =========================================================================
+        let portWebSerial = null;
+        let readerWebSerial = null;
+        let isWebSerialConnected = false;
+
+        async function toggleWebSerialHIL() {
+            if (isWebSerialConnected) {
+                await disconnectWebSerialHIL();
+                return;
+            }
+            if (!('serial' in navigator) && !('usb' in navigator)) {
+                alert('WebSerial / WebUSB API is not supported in this browser. Please use Google Chrome or Microsoft Edge.');
+                return;
+            }
+            try {
+                if ('serial' in navigator) {
+                    portWebSerial = await navigator.serial.requestPort();
+                    await portWebSerial.open({ baudRate: 115200 });
+                    isWebSerialConnected = true;
+                    document.getElementById('webserial-btn-text').innerText = 'Disconnect FPGA';
+                    readWebSerialLoop();
+                } else if ('usb' in navigator) {
+                    const usbDevice = await navigator.usb.requestDevice({ filters: [] });
+                    await usbDevice.open();
+                    await usbDevice.selectConfiguration(1);
+                    await usbDevice.claimInterface(0);
+                    isWebSerialConnected = true;
+                    document.getElementById('webserial-btn-text').innerText = 'Disconnect FPGA';
+                    readWebUSBLoop(usbDevice);
+                }
+            } catch (err) {
+                console.error('WebSerial/WebUSB connection failed:', err);
+                alert('Could not connect to FPGA board: ' + err.message);
+            }
+        }
+
+        async function disconnectWebSerialHIL() {
+            isWebSerialConnected = false;
+            if (readerWebSerial) {
+                try { await readerWebSerial.cancel(); } catch(e){}
+            }
+            if (portWebSerial) {
+                try { await portWebSerial.close(); } catch(e){}
+            }
+            portWebSerial = null;
+            readerWebSerial = null;
+            document.getElementById('webserial-btn-text').innerText = 'Connect FPGA (HIL)';
+        }
+
+        async function readWebSerialLoop() {
+            const textDecoder = new TextDecoderStream();
+            const readableStreamClosed = portWebSerial.readable.pipeTo(textDecoder.writable);
+            readerWebSerial = textDecoder.readable.getReader();
+            let buffer = '';
+            while (isWebSerialConnected) {
+                try {
+                    const { value, done } = await readerWebSerial.read();
+                    if (done) break;
+                    if (value) {
+                        buffer += value;
+                        let lines = buffer.split('\n');
+                        buffer = lines.pop(); // keep partial line
+                        for (let line of lines) {
+                            parseHILTelemetryLine(line.trim());
+                        }
+                    }
+                } catch (err) {
+                    console.error('Error reading WebSerial stream:', err);
+                    break;
+                }
+            }
+        }
+
+        async function readWebUSBLoop(usbDevice) {
+            while (isWebSerialConnected) {
+                try {
+                    const result = await usbDevice.transferIn(1, 64);
+                    const decoder = new TextDecoder();
+                    const text = decoder.decode(result.data);
+                    let lines = text.split('\n');
+                    for (let line of lines) {
+                        parseHILTelemetryLine(line.trim());
+                    }
+                } catch (err) {
+                    console.error('Error reading WebUSB endpoint:', err);
+                    break;
+                }
+            }
+        }
+
+        function parseHILTelemetryLine(line) {
+            if (!line) return;
+            // Expected format: HIL:CLK=1,SEN=1,DEC=0,RDV=1,DF=1,WR=0,EXC=0 or comma-separated bits
+            let clk = 1, sen = 0, dec = 0, rdv = 0, df = 0, wr = 0, exc = 0;
+            if (line.startsWith('HIL:')) {
+                let pairs = line.substring(4).split(',');
+                for (let p of pairs) {
+                    let [k, v] = p.split('=');
+                    let num = parseInt(v, 10) || 0;
+                    if (k === 'CLK') clk = num;
+                    else if (k === 'SEN') sen = num;
+                    else if (k === 'DEC') dec = num;
+                    else if (k === 'RDV') rdv = num;
+                    else if (k === 'DF') df = num;
+                    else if (k === 'WR') wr = num;
+                    else if (k === 'EXC') exc = num;
+                }
+            } else {
+                let bits = line.split(',').map(x => parseInt(x.trim(), 10) || 0);
+                if (bits.length >= 7) {
+                    [clk, sen, dec, rdv, df, wr, exc] = bits;
+                }
+            }
+            // Shift signals array and push live sample from FPGA
+            for (let key in signals) {
+                signals[key].shift();
+            }
+            signals['CLK'].push(clk);
+            signals['SEN_TRIG'].push(sen);
+            signals['LOGIC_DEC'].push(dec);
+            signals['CSP_RDV'].push(rdv);
+            signals['DF_OP'].push(df);
+            signals['EDGE_WR'].push(wr);
+            signals['HW_EXC'].push(exc);
+            drawWaveforms();
+        }
 
         // =========================================================================
         // PHASE VIII: Save/Export Waveform Capabilities

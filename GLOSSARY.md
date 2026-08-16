@@ -208,6 +208,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [C++: Zero-Overhead Abstraction & Deterministic Resource Control](excavations/cpp.md)
 * **Radix Economy**: A mathematical measure of the efficiency of representing numbers in a given base, defined as $R \times \lfloor \log_R(N) + 1 \rfloor$ for base $R$ and maximum value $N$. It is mathematically optimized at the transcendental base $e \approx 2.718$, which makes base 3 (ternary) more efficient than base 2 (binary).
   * *See excavation*: [Balanced Ternary](excavations/balanced-ternary.md)
+* **Posit Arithmetic**: A tapered, variable-dynamic-range real number representation (Type-3 Unum) that uses regime bits to dynamically shift precision near 1.0, eliminating subnormal numbers and NaN redundancy while enabling exact quire dot-product accumulation.
+  * *See excavation*: [Posit Arithmetic](excavations/posit-arithmetic.md)
 * **Residue Number System (RNS)**: A non-positional numeral system representing integers via remainders modulo pairwise coprime integers. RNS eliminates carry propagation for additions, subtractions, and multiplications, executing them in independent parallel channels.
   * *See excavation*: [Residue Number System (RNS)](excavations/residue-number-system.md)
 * **Redundant Residue Number System (RRNS)**: An extension of RNS incorporating extra (redundant) coprime moduli to form an error-detecting or error-correcting arithmetic code capable of real-time fault isolation.

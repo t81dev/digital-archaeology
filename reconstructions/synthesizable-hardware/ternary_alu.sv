@@ -33,27 +33,35 @@ module ternary_alu (
 );
 
     // =========================================================================
-    // FORMAL VERIFICATION PROPERTIES (SVA Friendly Comments)
+    // FORMAL VERIFICATION PROPERTIES (SystemVerilog Assertions SVA Block)
     // =========================================================================
-    //
-    // RESET BEHAVIOR:
-    // - When !rst_n is asserted, 'Out' must immediately and asynchronously
-    //   clear to 6'b000000 and 'CarryOut' to 2'b00, regardless of clk or 'en'.
-    //
-    // FORMAL ASSUMPTIONS:
-    // - Input encodings for A and B must restrict each 2-bit trit to valid
-    //   Pos-Neg dual-rail states: (trit != 2'b11).
-    //   `assume property (@(posedge clk) A[1:0] != 2'b11 && A[3:2] != 2'b11 && A[5:4] != 2'b11);`
-    //   `assume property (@(posedge clk) B[1:0] != 2'b11 && B[3:2] != 2'b11 && B[5:4] != 2'b11);`
-    //
-    // FORMAL INVARIANTS:
-    // - When 'en' is high and 'rst_n' is high, the registered 'Out' and 'CarryOut'
-    //   on the subsequent clock cycle must exactly match the combinational function
-    //   of inputs A, B, and Op evaluated during the current cycle.
-    // - Negation Involution: Op == 3'b010 (NEG) twice is equivalent to identity.
-    //   `assert property (@(posedge clk) (en && Op == 3'b010) ##1 (en && Op == 3'b010) => Out == $past(A, 2));`
-    // - Zero Element Addition: When B is zero (all trits 2'b00) and Op is ADD (3'b000), Out must equal A.
-    //   `assert property (@(posedge clk) (en && Op == 3'b000 && B == 6'b000000) ##1 Out == $past(A));`
+    `ifdef FORMAL
+        // Immediate Reset Behavior
+        always @(*) begin
+            if (!rst_n) begin
+                assert(Out == 6'b000000);
+                assert(CarryOut == 2'b00);
+            end
+        end
+
+        // Zero Element Addition Invariant:
+        // Adding zero (B == 0) to A must yield Out == A on the next clock cycle.
+        property p_add_zero_identity;
+            @(posedge clk) disable iff (!rst_n)
+            (en && Op == 3'b000 && B == 6'b000000 && A[1:0] != 2'b11 && A[3:2] != 2'b11 && A[5:4] != 2'b11) |=>
+            (Out == $past(A) && CarryOut == 2'b00);
+        endproperty
+        assert_add_zero_identity: assert property(p_add_zero_identity);
+
+        // Negation Involution Invariant:
+        // Negating A twice in consecutive cycles produces the original input A.
+        property p_negation_involution;
+            @(posedge clk) disable iff (!rst_n)
+            (en && Op == 3'b010) ##1 (en && Op == 3'b010 && $stable(A)) |=>
+            (Out == $past(A, 2));
+        endproperty
+        assert_negation_involution: assert property(p_negation_involution);
+    `endif
     // =========================================================================
 
     // Decoding helper function: convert 2-bit PN encoding to 8-bit signed integer
