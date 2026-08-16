@@ -43,15 +43,15 @@ The result was that simpler, more general solutions often won in the marketplace
 Today, compiler-hardware co-design is thriving — especially in AI and specialized computing:
 
 ### AI Accelerators
-- Google TPUs, Cerebras, Grok chips, and many others are designed hand-in-hand with frameworks like XLA, TVM, and MLIR.
+- [Google](../GLOSSARY.md) TPUs, Cerebras, Grok chips, and many others are designed hand-in-hand with frameworks like XLA, TVM, and MLIR.
 - The hardware is built around what the compiler can reliably target (matrix operations, dataflow graphs, quantization, etc.).
 
 ### GPUs and Spatial Architectures
-- NVIDIA CUDA + PTX is a textbook example of co-design: the hardware ISA is heavily influenced by what the compiler can express.
+- [NVIDIA](../GLOSSARY.md) [CUDA](../GLOSSARY.md) + PTX is a textbook example of co-design: the hardware ISA is heavily influenced by what the compiler can express.
 - Modern GPU tensor cores are essentially [systolic arrays](../excavations/systolic-arrays.md) exposed through high-level compiler abstractions.
 
 ### Domain-Specific Architectures
-- AWS Inferentia, Google Edge TPU, and many startups design custom instructions and memory hierarchies specifically for what compilers can optimize.
+- AWS Inferentia, [Google](../GLOSSARY.md) Edge TPU, and many startups design custom instructions and memory hierarchies specifically for what compilers can optimize.
 - MLIR and LLVM-based toolchains make co-design more practical than ever.
 
 ---

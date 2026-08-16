@@ -26,7 +26,7 @@ This resource guide links to primary online archives, repositories, emulators, a
 * **Relevance**: All excavations
 * **Description**: Holds complete digitized transaction records and conference proceedings for key IEEE societies (including Solid-State Circuits, Computers, and Superconductivity).
 
-#### 5. *USPTO & Google Patents Databases*
+#### 5. *USPTO & [Google](../GLOSSARY.md) Patents Databases*
 * **Link**: [patents.google.com](https://patents.google.com) / [uspto.gov](https://www.uspto.gov)
 * **Relevance**: [Systolic Arrays](../excavations/systolic-arrays.md), [Transputers](../excavations/transputers.md), [Superconducting & Cryogenic Microarchitectures](../excavations/superconducting-cryogenic.md)
 * **Description**: The primary source repository for original patent documents filed by historic designers, including H. T. Kung's [systolic arrays](../excavations/systolic-arrays.md), INMOS transputer circuitry, and early Josephson junction logic cells.

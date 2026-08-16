@@ -99,7 +99,7 @@ This approach may be one of the most practical ways to bring historical numerica
 ---
 
 ## References
-- Research on Posit arithmetic, multiple-valued logic (MVL), and hybrid number systems in AI.
+- Research on [Posit arithmetic](../GLOSSARY.md), multiple-valued logic (MVL), and hybrid number systems in AI.
 - Papers on heterogeneous computing and domain-specific accelerators.
 - Historical analyses of Setun and other non-binary machines.
 - Modern FPGA implementations of mixed-radix systems.

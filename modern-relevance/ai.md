@@ -29,7 +29,7 @@ These shifts reopen the door for architectures and techniques that previously lo
 ## Relevance of Excavated Ideas
 
 ### Spatial & Data-Parallel Lineage
-Deep learning is inherently dataflow-oriented. Modern frameworks (TensorFlow, PyTorch, JAX) compile models into dataflow graphs. Many AI accelerators (Google TPU, Groq chips, Graphcore IPUs, Cerebras) use dataflow-inspired scheduling and execution. The old dream of efficient dataflow hardware is partially realized in today’s AI silicon. You can explore these execution styles via our [Systolic Array Simulator](../reconstructions/systolic-array/) and [Dynamic Token-Matching Dataflow Engine](../reconstructions/dataflow-engine/).
+Deep learning is inherently dataflow-oriented. Modern frameworks (TensorFlow, PyTorch, JAX) compile models into dataflow graphs. Many AI accelerators ([Google](../GLOSSARY.md) TPU, Groq chips, Graphcore IPUs, Cerebras) use dataflow-inspired scheduling and execution. The old dream of efficient dataflow hardware is partially realized in today’s AI silicon. You can explore these execution styles via our [Systolic Array Simulator](../reconstructions/systolic-array/) and [Dynamic Token-Matching Dataflow Engine](../reconstructions/dataflow-engine/).
 
 ### Neuromorphic & Stochastic Lineage
 Pairing spiking neural models or stochastic computation with standard pipelines offers immense energy advantages. Our [Neuromorphic Spiking Simulator](../reconstructions/neuromorphic-spiking/) models event-driven temporal spikes and Hebbian learning directly, while the [Stochastic Computing Simulator](../reconstructions/stochastic-computing/) showcases single-gate multiplication of probabilistic bitstreams.

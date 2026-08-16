@@ -56,7 +56,7 @@ Analyzing the intersections of these parameters reveals four specific abstractio
 
 ### A. 2D [Systolic Array](../GLOSSARY.md) Meshes (Spatial & Data Parallel)
 *   **The Abstraction**: Bypassing the instruction-fetch cycle by rhythmically routing data tokens through localized, 2D neighbor-connected grids of execution units.
-*   **Why it leads**: This abstraction has completed a full cycle of resurrection. Because deep learning workloads are composed of static, regular linear algebra structures (matrix multiplications), spatial localized routing completely bypasses the Memory Wall. This represents the primary arithmetic engine of modern AI chips (such as Google TPUs and Tensor Cores).
+*   **Why it leads**: This abstraction has completed a full cycle of resurrection. Because deep learning workloads are composed of static, regular linear algebra structures (matrix multiplications), spatial localized routing completely bypasses the Memory Wall. This represents the primary arithmetic engine of modern AI chips (such as [Google](../GLOSSARY.md) TPUs and Tensor Cores).
 
 ### B. Hardware Capability Bounds Registers ([Capability Systems](../excavations/capability-systems.md))
 *   **The Abstraction**: Moving pointer authorization and memory range checks from software operating system tables directly into unforgeable hardware capability registers.

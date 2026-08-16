@@ -8,7 +8,7 @@
 
 VLIW (Very Long Instruction Word) and its descendant EPIC (Explicitly Parallel Instruction Computing) architectures shift the burden of scheduling parallel operations from hardware to the compiler. Instead of complex out-of-order execution engines, the compiler statically schedules instructions into long "bundles" or "packets" that the hardware executes in parallel. 
 
-The most prominent commercial example is Intel’s Itanium (IA-64) architecture, developed in partnership with HP. While Itanium ultimately underperformed commercially, VLIW/EPIC concepts have influenced modern GPU designs, DSPs, and some AI accelerators.
+The most prominent commercial example is [Intel](../GLOSSARY.md)’s Itanium (IA-64) architecture, developed in partnership with HP. While Itanium ultimately underperformed commercially, VLIW/EPIC concepts have influenced modern GPU designs, DSPs, and some AI accelerators.
 
 ---
 
@@ -16,7 +16,7 @@ The most prominent commercial example is Intel’s Itanium (IA-64) architecture,
 
 In the 1980s and 1990s, processor designers faced diminishing returns from deeper pipelines and more complex superscalar hardware. Researchers at universities (e.g., Multiflow, Cydra) and companies explored VLIW as a way to achieve high performance with simpler, more efficient hardware by trusting the compiler. 
 
-HP and Intel’s joint Itanium project (announced 1997, first silicon 2001) was the most ambitious attempt to bring VLIW/EPIC into mainstream computing, aiming to replace x86 with a cleaner, highly parallel 64-bit architecture. Itanium ultimately struggled against x86-64 and was discontinued for servers in the 2010s.
+HP and [Intel](../GLOSSARY.md)’s joint Itanium project (announced 1997, first silicon 2001) was the most ambitious attempt to bring VLIW/EPIC into mainstream computing, aiming to replace x86 with a cleaner, highly parallel 64-bit architecture. Itanium ultimately struggled against x86-64 and was discontinued for servers in the 2010s.
 
 ---
 
@@ -57,7 +57,7 @@ This design traded complex hardware (out-of-order execution, rename registers, e
 
 1. **[Ecosystem Lock-In](../patterns/ecosystem-lockin.md)** — x86-64 had overwhelming software, OS, and developer momentum.
 2. **Compiler & Workload Mismatch** — Many real-world applications didn’t expose enough static ILP for VLIW to shine.
-3. **Economic Realities** — Itanium chips were expensive and initially slower than expected; AMD’s Opteron and Intel’s own Core line won the market.
+3. **Economic Realities** — Itanium chips were expensive and initially slower than expected; AMD’s Opteron and [Intel](../GLOSSARY.md)’s own Core line won the market.
 4. **Multi-core Shift** — Thread-level parallelism on simpler cores proved more practical than extreme ILP on complex VLIW.
 
 ---
@@ -106,7 +106,7 @@ VLIW/EPIC ideas are alive and influential today:
 
 ## References (Selected)
 
-- Intel Itanium Architecture manuals and HP collaboration papers.
+- [Intel](../GLOSSARY.md) Itanium Architecture manuals and HP collaboration papers.
 - Fisher, Rau, et al. — foundational VLIW papers (Multiflow, etc.).
 - "Itanium: The Road Not Taken" retrospective articles.
 - Modern surveys on explicit parallelism in GPUs and ML compilers.

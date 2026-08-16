@@ -14,7 +14,7 @@ Linux's primary architectural achievement was not the design of a clean, theoret
 
 ## Historical Context
 
-The Linux lineage emerged in 1991 when Linus Torvalds, then a student at the University of Helsinki, sought a free Unix-like operating system to run on his Intel 80386 personal computer. Frustrated by the licensing restrictions and educational limitations of Andrew Tanenbaum's Minix, Torvalds developed a clean-slate terminal emulator that rapidly evolved into a general-purpose monolithic kernel.
+The Linux lineage emerged in 1991 when Linus Torvalds, then a student at the University of Helsinki, sought a free Unix-like operating system to run on his [Intel](../GLOSSARY.md) 80386 personal computer. Frustrated by the licensing restrictions and educational limitations of Andrew Tanenbaum's Minix, Torvalds developed a clean-slate terminal emulator that rapidly evolved into a general-purpose monolithic kernel.
 
 ```
                   Linux Adaptive Infrastructure Feedback Loop
@@ -70,7 +70,7 @@ To analyze Linux as an architectural lineage, we decompose the ecosystem into te
 * **Init & Service Systems**: The historical SysV init (sequential shell scripts), Upstart, and **systemd**—which unified service management, device hotplugging, cgroup tracking, and system logging into a centralized supervisor daemon.
 
 ### 4. Distributions & Curation Layers
-* **Package Management**: Early formats (Slackware tarballs) evolving into dependency-resolving package graphs (`dpkg`/APT, RPM/YUM/DNF), source-based distribution engines (Gentoo Portage), and declarative immutable models (NixOS, Guix, Silverblue).
+* **Package Management**: Early formats (Slackware tarballs) evolving into dependency-resolving package graphs (`dpkg`/APT, RPM/YUM/DNF), source-based distribution engines ([Gentoo](../GLOSSARY.md) [Portage](../GLOSSARY.md)), and declarative immutable models (NixOS, Guix, Silverblue).
 * **Curation & Coordination**: The distribution acting as an administrative gatekeeper, stabilizing package sets, managing security updates, and defining standard filesystem structures (FHS).
 
 ### 5. Filesystems & Storage
@@ -82,7 +82,7 @@ To analyze Linux as an architectural lineage, we decompose the ecosystem into te
 * **Packet Filtering**: The progression from `ipfw` to `ipchains`, `iptables` (netfilter), `nftables`, and ultimately eBPF-driven packet bypass paths (XDP - eXpress Data Path).
 
 ### 7. Virtualization & Containers
-* **Hypervisors**: The Kernel-based Virtual Machine (**KVM**), converting the Linux kernel directly into a Type-1 hypervisor via hardware virtualization extensions (Intel VT-x, AMD-V).
+* **Hypervisors**: The Kernel-based Virtual Machine (**KVM**), converting the Linux kernel directly into a Type-1 hypervisor via hardware virtualization extensions ([Intel](../GLOSSARY.md) VT-x, AMD-V).
 * **Container Isolation**: The composition of **Namespaces** (isolating system views: PID, mount, network, IPC, UTS, user) and **Control Groups (cgroups)** (enforcing resource limits: CPU, memory, I/O), standardizing lightweight virtualization.
 
 ### 8. Hardware Relationships & Driver Models
@@ -216,7 +216,7 @@ The execution of a container (e.g., via Docker or `runc`) is not a specialized e
 - If the process attempts to view active system processes, the **PID Namespace** filter intercepts the query, returning only processes within the container’s sub-tree.
 - If the process attempts to allocate memory beyond its allocated cgroup quota, the **Memory Controller** triggers page reclamation or fires the Out-Of-Memory (OOM) killer, preserving host stability.
 
-This composable design yields container boot latencies measured in milliseconds and memory overhead profiles nearly identical to native bare-metal processes, establishing a density paradigm that made cloud-scale multi-tenancy economically viable.
+This composable design yields container boot latencies measured in milliseconds and memory overhead profiles nearly identical to native bare-[metal](../GLOSSARY.md) processes, establishing a density paradigm that made cloud-scale multi-tenancy economically viable.
 
 ### 3. eBPF Programmable Kernel Extension
 eBPF represents a profound architectural shift: **the transition from a static supervisor-mode executive to a highly programmable infrastructure substrate**.
@@ -364,7 +364,7 @@ The distribution coordinates the compilation of the kernel, the standard C libra
 Linux transformed virtualization from a specialized, proprietary enterprise hosting model to lightweight cloud orchestration substrate.
 
 ### The Kernel-based Virtual Machine (KVM)
-Introduced in 2007, KVM turned the Linux kernel directly into a Type-1 hypervisor. By exposing `/dev/kvm` as a system interface, KVM leverages CPU hardware-assisted virtualization extensions (Intel VT, AMD-V). When a virtual machine executes:
+Introduced in 2007, KVM turned the Linux kernel directly into a Type-1 hypervisor. By exposing `/dev/kvm` as a system interface, KVM leverages CPU hardware-assisted virtualization extensions ([Intel](../GLOSSARY.md) VT, AMD-V). When a virtual machine executes:
 - The virtual guest processes run as standard Linux threads scheduled by the Completely Fair Scheduler (CFS).
 - KVM switches the CPU into guest execution mode, routing I/O requests and memory page faults back to user-space host managers (like QEMU) via highly optimized kernel interfaces.
 
@@ -382,7 +382,7 @@ The Linux lineage is reinforced by powerful, self-reinforcing technical and soci
 1. **Uncompromised ABI Stability**: The stable system-call interface guarantees that enterprise software investments remain functional across decades, raising the switching costs of migrating to newer operating system lineages.
 2. **Universal Driver Enablement**: Because Linux has compiled and integrated drivers for virtually every commercial CPU, GPU, chipset, network controller, and storage controller manufactured since 1991, launching new hardware relies on writing a Linux driver. This creates a massive advantage over clean-slate operating systems that lack driver catalogs.
 3. **Operator Skill Saturation**: Multiple generations of software engineers, cloud architects, database administrators, and network operators have spent decades mastering Linux-specific mechanics (bash scripting, systemd service configuration, eBPF diagnostics, iptables routing, procfs configuration). This massive, global pool of human capital binds corporate IT choices to Linux.
-4. **Android & Mobile Domain**: By selecting the Linux kernel as the low-level abstraction substrate for the Android operating system, Google anchored the global mobile ecosystem (representing billions of active devices) to the Linux kernel lineage, ensuring multi-decade maintenance and optimization of ARM and mobile SoC driver pipelines.
+4. **Android & Mobile Domain**: By selecting the Linux kernel as the low-level abstraction substrate for the Android operating system, [Google](../GLOSSARY.md) anchored the global mobile ecosystem (representing billions of active devices) to the Linux kernel lineage, ensuring multi-decade maintenance and optimization of ARM and mobile SoC driver pipelines.
 
 ---
 
@@ -399,7 +399,7 @@ Linux's lineage features several critical failures that shaped its modern abstra
 While specific projects died, their concepts survived:
 * **LXC (LinuX Containers)** was largely displaced by Docker and Kubernetes, but its underlying abstractions—namespaces and cgroups—became the universal standards of modern cloud infrastructure.
 * **The cooperative SysV init** model was abandoned by major distributions, but its conceptual model of system-boot sequencing remains preserved inside systemd compatibility scripts.
-* **The MINIX** execution model failed to capture mainstream dominance, but its microkernel ideas survive actively inside the management engines of modern Intel x86 chipsets and secure hardware enclaves.
+* **The MINIX** execution model failed to capture mainstream dominance, but its microkernel ideas survive actively inside the management engines of modern [Intel](../GLOSSARY.md) x86 chipsets and secure hardware enclaves.
 
 ---
 
@@ -416,10 +416,10 @@ Linux migrated its abstractions across successive physical and software boundari
  Multi-Accelerator AI ◄── eBPF Programmable Substrate ◄── Container Density (cgroups/ns)
 ```
 
-1. **Workstation Memory Limits (1991)**: Solved by raw assembly hardware register configuration, real-mode memory swaps, and utilizing the high-speed cache structures of the Intel 80386 processor.
+1. **Workstation Memory Limits (1991)**: Solved by raw assembly hardware register configuration, real-mode memory swaps, and utilizing the high-speed cache structures of the [Intel](../GLOSSARY.md) 80386 processor.
 2. **PC Clone Driver Fragmentation (1990s)**: Addressed by GPLv2 licensing and the mainline upstreaming model, converting fragmented hardware-vendor driver efforts into a unified kernel repository.
 3. **Multi-Core SMP Scaling (2000s)**: Managed by replacing the Big Kernel Lock with fine-grained locking schemes, directory-entry caches (`dentry`), and the Completely Fair Scheduler (CFS).
-4. **Cloud Multi-Tenancy Density (2010s)**: Bypassed virtual machine hypervisor overheads by standardizing cgroups and namespaces, achieving bare-metal container execution speeds.
+4. **Cloud Multi-Tenancy Density (2010s)**: Bypassed virtual machine hypervisor overheads by standardizing cgroups and namespaces, achieving bare-[metal](../GLOSSARY.md) container execution speeds.
 5. **Supervisor Performance & Diagnostic Safety (2010s–Present)**: Solved by embedding the eBPF static-verified virtual machine directly in the supervisor address space, eliminating user-kernel boundary crossings for monitoring.
 6. **AI Accelerator & Multi-Core Congestion (2020s)**: Managed by routing network packets and storage directly to hardware accelerators (e.g., GPUDirect RDMA, GPUDirect Storage) and integrating heterogeneous accelerator schedulers into the core kernel.
 
@@ -454,7 +454,7 @@ As general-purpose CPU scaling slows, Linux has transitioned from a standard ope
                    [ Unified Kernel Address Space & VFS / SCI ]
 ```
 
-* **GPU / NPU Compute Arrays**: Linux serves as the default host substrate for machine learning acceleration, managing driver stacks (NVIDIA CUDA, AMD ROCm), and allocating accelerator page tables directly from host memory using unified memory architectures (IOMMU).
+* **GPU / NPU Compute Arrays**: Linux serves as the default host substrate for machine learning acceleration, managing driver stacks ([NVIDIA](../GLOSSARY.md) [CUDA](../GLOSSARY.md), AMD ROCm), and allocating accelerator page tables directly from host memory using unified memory architectures (IOMMU).
 * **SmartNIC and DPU Integration**: In modern datacenters, high-throughput network packet processing is offloaded from the host CPU to specialized Data Processing Units (DPUs). These DPUs execute isolated, embedded Linux instances, running eBPF filters directly on network controllers to route data without host intervention.
 * **Windows Subsystem for Linux (WSL2)**: Linux increasingly acts as a universal developer engine, executing natively inside Microsoft Windows via customized Hyper-V hypervisors to provide developers with stable POSIX interfaces on proprietary desktops.
 
@@ -470,7 +470,7 @@ Modern Large Language Models (LLMs) are severely constrained by PCIe bus latency
 - **GPUDirect Storage**: Routes file data directly from NVMe storage controllers to GPU high-bandwidth memory (HBM) using the Linux VFS direct-I/O bypass paths.
 
 ### Distributed Orchestration and Environment Portability
-Because AI training workloads must scale across thousands of nodes, developers require absolute reproducibility. The Linux container abstraction (OCI, Docker) ensures that deep learning environments (comprising specific CUDA versions, PyTorch binaries, and compiler frameworks) can be captured as immutable images and deployed dynamically across heterogeneous clusters via Kubernetes, making Linux the definitive plumbing of the global AI revolution.
+Because AI training workloads must scale across thousands of nodes, developers require absolute reproducibility. The Linux container abstraction (OCI, Docker) ensures that deep learning environments (comprising specific [CUDA](../GLOSSARY.md) versions, PyTorch binaries, and compiler frameworks) can be captured as immutable images and deployed dynamically across heterogeneous clusters via Kubernetes, making Linux the definitive plumbing of the global AI revolution.
 
 ---
 

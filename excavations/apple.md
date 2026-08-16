@@ -8,7 +8,7 @@
 
 The Apple computational lineage is commonly analyzed through corporate biography, industrial design aesthetic, or consumer marketing narratives. From the perspective of digital archaeology, however, **Apple represents a highly specialized paradigm of hardware–software–runtime vertical integration**.
 
-Apple's primary architectural achievement was not any single computer or operating system, but rather the **engineering of a cohesive, vertically [integrated platform surface](../GLOSSARY.md)**. By treating the entire stack—from custom silicon co-processors to system APIs, developer toolchains, dynamic runtimes, and centralized application distribution engines—as a single designed surface, Apple solved the classic coordination problems of software compatibility and hardware advancement. This integration enabled Apple to execute multiple rapid, high-fidelity platform transitions (e.g., 68000 $\rightarrow$ PowerPC $\rightarrow$ Intel $\rightarrow$ [Apple Silicon](../GLOSSARY.md); Classic Mac OS $\rightarrow$ NeXTSTEP/OS X; desktop computing $\rightarrow$ mobile $\rightarrow$ on-device AI) while maintaining strict developer control, high ecosystem-scale persistence, and powerful user lock-in.
+Apple's primary architectural achievement was not any single computer or operating system, but rather the **engineering of a cohesive, vertically [integrated platform surface](../GLOSSARY.md)**. By treating the entire stack—from custom silicon co-processors to system APIs, developer toolchains, dynamic runtimes, and centralized application distribution engines—as a single designed surface, Apple solved the classic coordination problems of software compatibility and hardware advancement. This integration enabled Apple to execute multiple rapid, high-fidelity platform transitions (e.g., 68000 $\rightarrow$ PowerPC $\rightarrow$ [Intel](../GLOSSARY.md) $\rightarrow$ [Apple Silicon](../GLOSSARY.md); Classic Mac OS $\rightarrow$ NeXTSTEP/OS X; desktop computing $\rightarrow$ mobile $\rightarrow$ on-device AI) while maintaining strict developer control, high ecosystem-scale persistence, and powerful user lock-in.
 
 ---
 
@@ -59,7 +59,7 @@ To analyze Apple as an architectural lineage, we decompose the ecosystem into se
 ### 1. Hardware Architectures and Silicon
 * **Early 8-bit Family (1976–1993)**: Apple II/III series utilizing real-mode 6502/65C02/65816 processors, relying on direct-to-hardware port manipulation and memory-mapped video buffers.
 * **Classic Macintosh (1984–1996)**: Motorola 68000/68020/68030/68040 CISC processors running on custom logic boards, transitioning to PowerPC (601, 603, 604, G3, G4, G5) RISC processors under a joint Apple-IBM-Motorola (AIM) alliance.
-* **Commodity Transition (2006–2020)**: Intel x86/x86_64 processors, integrating standard EFI boot architectures, PCIe busses, and AMD/Intel graphics.
+* **Commodity Transition (2006–2020)**: [Intel](../GLOSSARY.md) x86/x86_64 processors, integrating standard EFI boot architectures, PCIe busses, and AMD/[Intel](../GLOSSARY.md) graphics.
 * **[Apple Silicon](../GLOSSARY.md) (2010–Present)**: Proprietary, highly customized ARM-based System-on-Chip (SoC) architectures (A-series for mobile, M-series for workstations). Featuring a high-bandwidth **Unified Memory Architecture (UMA)**, custom GPU cores with tile-based deferred rendering, dedicated Secure Enclave co-processors, custom media decoders (ProRes), and the Neural Engine (NPU).
 
 ### 2. Operating Systems and System Software
@@ -73,7 +73,7 @@ To analyze Apple as an architectural lineage, we decompose the ecosystem into se
 * **Object Pascal / MacApp (1985–1992)**: Pioneered early object-oriented desktop application modeling on the 68000 under the guidance of Larry Tesler.
 * **Objective-C (1997–Present)**: Inherited from NeXTSTEP; combines the efficiency of C with a dynamic [Smalltalk](smalltalk.md)-style runtime. Leverages message-passing semantics (`objc_msgSend`), dynamic dispatch, and late binding.
 * **Swift (2014–Present)**: A type-safe, compiled language designed to replace Objective-C. Features value types, memory safety without garbage collection via Automatic Reference Counting (ARC), protocol-oriented programming, and compile-time optimization.
-* **Metal Shading Language (MSL)**: C++14-based language compiled directly into GPU machine code for high-throughput rasterization, compute, and ray-tracing pipelines.
+* **[Metal](../GLOSSARY.md) Shading Language (MSL)**: C++14-based language compiled directly into GPU machine code for high-throughput rasterization, compute, and ray-tracing pipelines.
 
 ### 4. Frameworks, APIs, and Component Models
 * **Macintosh Toolbox / ROM (1984–2001)**: Hardware-bound APIs (QuickDraw, Window Manager, Menu Manager) hardcoded into read-only memory, exposing standard structures to 16-bit Pascal/C programs.
@@ -142,9 +142,9 @@ For every major transition, we identify the exact architectural mechanics:
 |:---|:---|:---|:---|:---|:---|
 | **68000 $\rightarrow$ PowerPC** | Replaced 16/32-bit Motorola CISC with 32-bit PowerPC RISC instruction set. | QuickDraw, ROM Toolbox, Finder, cooperative multitasking. | **Mac 68K Emulator**: A highly optimized interpreter and dynamic recompiler embedded in ROM, running legacy code alongside native RISC. | Direct 68K assembler hacks, direct physical trap manipulation. | CISC scaling limits versus emerging high-performance RISC pipelines. |
 | **Classic OS $\rightarrow$ Mac OS X** | Swapped unstable cooperative kernel with preemptive Unix-based XNU kernel. | Carbon APIs, QuickTime, HFS filesystem, Carbonized binaries. | **Classic Environment**: A virtualized System 9 instance running in an isolated user-space thread on Mach, routing Toolbox requests to OS X. | Cooperative multitasking, shared global address spaces, direct interrupt manipulation. | Frequent system crashes due to memory corruption and lack of preemptive thread isolation. |
-| **PowerPC $\rightarrow$ Intel** | Swapped PowerPC RISC with Intel x86 CISC hardware execution. | Mach/BSD kernel, Cocoa APIs, PEF/Mach-O binary format wrappers. | **Rosetta 1**: A dynamic binary translator (licensed from Transitive) that translated PowerPC instructions to x86 instructions at runtime. | Native PowerPC execution, Classic OS environment support. | IBM's failure to deliver a low-power PowerPC G5 processor for laptops (the Thermal/Watt Wall). |
+| **PowerPC $\rightarrow$ [Intel](../GLOSSARY.md)** | Swapped PowerPC RISC with [Intel](../GLOSSARY.md) x86 CISC hardware execution. | Mach/BSD kernel, Cocoa APIs, PEF/Mach-O binary format wrappers. | **Rosetta 1**: A dynamic binary translator (licensed from Transitive) that translated PowerPC instructions to x86 instructions at runtime. | Native PowerPC execution, Classic OS environment support. | IBM's failure to deliver a low-power PowerPC G5 processor for laptops (the Thermal/Watt Wall). |
 | **Desktop $\rightarrow$ Mobile (iOS)** | Shifted from open desktop workspaces to sandboxed mobile architectures. | Darwin XNU kernel, Objective-C runtime, Foundation libraries. | **Shared CoreOS/CoreServices**: High-fidelity reuse of the macOS kernel and system frameworks. | Overlapping window systems, Finder file system browser, Garbage Collection. | Severe battery, thermal, memory, and physical space limits on pocket-sized devices. |
-| **Intel $\rightarrow$ [Apple Silicon](../GLOSSARY.md)** | Replaced commodity Intel x86_64 with custom ARM64-based System-on-Chips. | macOS Aqua desktop, Metal graphics, Swift, Cocoa, App Bundles. | **Rosetta 2**: An advanced static and ahead-of-time (AOT) binary translator compiling x86_64 binaries to ARM64 at installation. | 32-bit x86 compatibility support, external GPU compatibility. | Intel's stagnant performance-per-watt curves and high on-chip thermal dissipation. |
+| **[Intel](../GLOSSARY.md) $\rightarrow$ [Apple Silicon](../GLOSSARY.md)** | Replaced commodity [Intel](../GLOSSARY.md) x86_64 with custom ARM64-based System-on-Chips. | macOS Aqua desktop, [Metal](../GLOSSARY.md) graphics, Swift, Cocoa, App Bundles. | **Rosetta 2**: An advanced static and ahead-of-time (AOT) binary translator compiling x86_64 binaries to ARM64 at installation. | 32-bit x86 compatibility support, external GPU compatibility. | [Intel](../GLOSSARY.md)'s stagnant performance-per-watt curves and high on-chip thermal dissipation. |
 
 ---
 
@@ -312,7 +312,7 @@ During the [Apple Silicon](../GLOSSARY.md) transition, macOS utilized **Rosetta 
 1. **Ahead-of-Time (AOT) Translation**: When an x86_64 application is installed, Rosetta parses the Mach-O binary, translates the x86 instruction segments to ARM64 equivalents, and writes an optimized ARM64 cache binary.
 2. **Just-in-Time (JIT) Translation**: For dynamically generated code (e.g., JavaScript runtimes), Rosetta dynamically translates x86 instruction blocks on the fly inside memory.
 
-To make this execution efficient, **Apple modified its custom silicon**. [Apple Silicon](../GLOSSARY.md) processors include a hardware register state (`ACTLR_EL1`) that switches the memory page consistency model from ARM's weak ordering to Intel’s strict **Total Store Order (TSO)**. This hardware-level compatibility switch eliminated the massive software performance overhead of emulating Intel's memory-ordering invariants, achieving near-native execution speeds for translated code.
+To make this execution efficient, **Apple modified its custom silicon**. [Apple Silicon](../GLOSSARY.md) processors include a hardware register state (`ACTLR_EL1`) that switches the memory page consistency model from ARM's weak ordering to [Intel](../GLOSSARY.md)’s strict **Total Store Order (TSO)**. This hardware-level compatibility switch eliminated the massive software performance overhead of emulating [Intel](../GLOSSARY.md)'s memory-ordering invariants, achieving near-native execution speeds for translated code.
 
 ---
 
@@ -352,7 +352,7 @@ Every application runs inside a locked down directory container. The Darwin kern
 
 Apple's ecosystem is reinforced by multiple technical feedback loops that raise consumer and developer migration costs:
 
-1. **API and Language Bound-ness**: Developers who invest in mastering SwiftUI, Metal, and Core ML are tightly coupled to Apple Xcode toolchains. Porting an application to Android or Windows requires rewriting the entire presentation and system interaction layer.
+1. **API and Language Bound-ness**: Developers who invest in mastering SwiftUI, [Metal](../GLOSSARY.md), and Core ML are tightly coupled to Apple Xcode toolchains. Porting an application to Android or Windows requires rewriting the entire presentation and system interaction layer.
 2. **Multi-Device State Synchrony (Continuity)**: Features like Handoff, Universal Clipboard, and AirDrop rely on localized Bluetooth Low Energy (BLE) advertisement schemas paired with iCloud peer state tables. Decoupling from a single device breaks this integrated fabric.
 3. **App Store curation and Notarization**: By restricting application installation to its own App Store on mobile, Apple establishes an absolute administrative and economic choke point, controlling both monetization and software provenance.
 4. **Proprietary Peripherals and Protocols**: Customized accessory communication stacks (e.g., AirDrop, customized W1/H1 headphone pairing chips) create hardware-level dependencies that degrade in performance when used with non-Apple systems.
@@ -449,13 +449,13 @@ Rather than utilizing standard cloud APIs, Apple compiles model graphs using **C
 
 The table below contrasts Apple's vertically integrated platform strategy against the architectural strategies of historical and modern alternatives:
 
-| Dimension | Apple | Microsoft | Unix / Linux | Google (Android) |
+| Dimension | Apple | Microsoft | Unix / Linux | [Google](../GLOSSARY.md) (Android) |
 |:---|:---|:---|:---|:---|
 | **Hardware Relationship** | **Vertically Integrated**: Custom proprietary Silicon, unified memory, tightly controlled motherboards. | **Decoupled**: Relies on third-party OEMs and commodity silicon (x86/ARM). | **De-coupled**: Multi-platform, community-driven hardware adaptation. | **Semi-Decoupled**: Standard hardware designs wrapped in customized silicon. |
 | **OS Abstraction** | **Layered XNU Kernel**: Hybrid Mach/BSD kernel wrapping services in Cocoa/SwiftUI. | **Unified Object Executive**: Modular kernel managers insulating users via Win32. | **Filesystem Centric**: Unified, simple text-stream file trees (`everything is a file`). | **Sandboxed Linux**: Linux kernel wrapped in specialized runtimes (Android ART, Chrome). |
 | **API Strategy** | **Rapid Deprecation**: Frequent removal of legacy APIs (Carbon, Open Transport, 32-bit apps) to force platform modernization. | **Multi-Decade Stability**: Absolute backward compatibility of Win32 binaries. | **POSIX Standards**: Source-level API conformity; weak binary compatibility across distros. | **Web/Runtime Centric**: Rapid API evolution managed through cloud updates. |
 | **Developer Ecosystem** | **Curated & Closed**: Xcode, Swift, SwiftUI, and Instruments bound tightly to Apple OS hosts. | **Integrated Cockpit**: High-fidelity tools (Visual Studio, VS Code) bound to OS runtimes. | **Command-Line & Open**: Highly fragmented compilers, text editors, and build tools. | **Managed Runtimes**: Multi-platform languages (Dart, Kotlin, Web) decoupled from OS. |
-| **Distribution & Control** | **Cryptographic Curation**: Code signing, Sandboxing, App Store gating, and Notarization. | **OEM & Volume**: Pre-installed licensing agreements and enterprise subscription models. | **Open-Source (GPL/BSD)**: Free redistribution, community package managers. | **Curated Store + Side-loading**: Google Play Store paired with open sideloading hooks. |
+| **Distribution & Control** | **Cryptographic Curation**: Code signing, Sandboxing, App Store gating, and Notarization. | **OEM & Volume**: Pre-installed licensing agreements and enterprise subscription models. | **Open-Source (GPL/BSD)**: Free redistribution, community package managers. | **Curated Store + Side-loading**: [Google](../GLOSSARY.md) Play Store paired with open sideloading hooks. |
 
 ---
 
@@ -552,7 +552,7 @@ The following entity relationships define Apple's position in the Digital Archae
 3. Singh, A. (2006). *Mac OS X Internals: A Systems Approach*. Addison-Wesley.
 4. Lattner, C. (2014). *Swift: A New Programming Language for iOS and OS X*. WWDC Session.
 5. Apple Computer, Inc. (1985). *Inside Macintosh*. Addison-Wesley.
-6. Thompson, T. (2006). *Rosetta: How Mac OS X translates PowerPC code to Intel*. Macworld.
+6. Thompson, T. (2006). *Rosetta: How Mac OS X translates PowerPC code to [Intel](../GLOSSARY.md)*. Macworld.
 7. Garfinkel, S. L., & Mahoney, M. K. (1993). *NeXTSTEP Programming: Step One: Object-Oriented Applications*. Springer.
 
 ---

@@ -39,7 +39,7 @@ The table below maps the six core lineages across historical computing eras from
 
 ## 1970s: Microprocessors, Vector Pipes & Capability Registers
 
-- **1971**: Intel releases the **4004** microprocessor, consolidating CPU logic onto a single silicon die and starting the microprocessor era.
+- **1971**: [Intel](../GLOSSARY.md) releases the **4004** microprocessor, consolidating CPU logic onto a single silicon die and starting the microprocessor era.
 - **1972**: Plessey launches **System 250**, featuring hardware-enforced capabilities to prevent memory-safety exploits at the register level. **Key excavation links**: [Capability Systems](../excavations/capability-systems.md)
 - **1973**: Charles Bennett proves that reversible, non-dissipative thermodynamic computation is possible. **Key excavation link**: [Reversible Computing](../excavations/reversible-computing.md)
 - **1976**: Seymour Cray introduces the **Cray-1**, utilizing highly pipelined vector register processors for dense scientific workloads. **Key excavation link**: [Vector Supercomputing](../excavations/vector-supercomputing.md)
@@ -49,7 +49,7 @@ The table below maps the six core lineages across historical computing eras from
 
 ## 1980s: The Peak of Architectural Diversity & Experimentation
 
-- **1981**: Intel ships the **iAPX 432**, a microcoded 32-bit CPU implementing object-oriented capabilities directly in hardware. **Key excavation link**: [Intel iAPX 432](../excavations/intel-iapx-432.md)
+- **1981**: [Intel](../GLOSSARY.md) ships the **iAPX 432**, a microcoded 32-bit CPU implementing object-oriented capabilities directly in hardware. **Key excavation link**: [Intel iAPX 432](../excavations/intel-iapx-432.md)
 - **1981**: The **Manchester Dataflow Computer** proves the viability of [dynamic token-matching](../GLOSSARY.md) execution in hardware, bypassing sequential program counter control-flow. **Key excavation link**: [Dataflow Computing](../excavations/dataflow-computing.md)
 - **1982**: Symbolics launches the **3600 Lisp Machine**, offering hardware-tagged pointers and dynamic type-checking inside hardware registers. **Key excavation link**: [Lisp Machines](../excavations/lisp-machines.md)
 - **1983**: Inmos introduces the **IMS T414 Transputer** and the concurrent language **[Occam](../excavations/occam.md)**, establishing native channel-based CSP messaging in hardware. **Key excavation links**: [Transputers](../excavations/transputers.md) | [Occam](../excavations/occam.md)
@@ -69,7 +69,7 @@ The table below maps the six core lineages across historical computing eras from
 - **1991**: Linus Torvalds releases Linux v0.01, establishing a monolithic hardware-decoupled kernel with a highly stable SCI. **Key excavation link**: [Linux](../excavations/linux.md)
 - **1990s**: The ARM-based **AMULET** asynchronous microprocessor series demonstrates high-performance, clockless self-timed logic. **Key excavation link**: [Asynchronous Microprocessors](../excavations/asynchronous-processors.md)
 - **1990s**: Proliferation of compile-time explicit instruction scheduling. **Key excavation link**: [VLIW / EPIC Architectures](../excavations/vliw-epic.md)
-- **2001**: Intel releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](../excavations/vliw-epic.md)
+- **2001**: [Intel](../GLOSSARY.md) releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](../excavations/vliw-epic.md)
 - **2003–2006**: The DARPA-funded **TRIPS (EDGE)** processor demonstrates instruction-level spatial dataflow compilation and block-structured scheduling. **Key excavation link**: [Explicit Data Graph Execution (EDGE)](../excavations/edge-architecture.md)
 - **2004**: Dennard scaling breaks down (the Power Wall), ending the era of single-thread frequency scaling and forcing the industry toward multi-core CPUs.
 - **2007**: Linux integrates the Kernel-based Virtual Machine (KVM) and container groups (cgroups), laying the foundation for modern cloud density. **Key excavation link**: [Linux](../excavations/linux.md)
@@ -82,7 +82,7 @@ The table below maps the six core lineages across historical computing eras from
 - **2014**: IBM reveals **TrueNorth**, an asynchronous spiking neuromorphic processor with 1 million digital neurons. **Key excavation link**: [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
 - **2014**: eBPF is integrated into the Linux kernel, turning supervisor space into a safe, programmable infrastructure substrate. **Key excavation link**: [Linux](../excavations/linux.md)
 - **2019**: Cerebras launches the **Wafer-Scale Engine (WSE)**, bypassing package boundaries with a 400,000-core monolithic silicon wafer for AI workloads. **Key excavation link**: [Wafer-Scale Integration](../excavations/wafer-scale-integration.md)
-- **2020s**: AI hardware developers resurrect **[Systolic Arrays](../excavations/systolic-arrays.md)** (Google TPUs), **[Stochastic Computing](../excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors).
+- **2020s**: AI hardware developers resurrect **[Systolic Arrays](../excavations/systolic-arrays.md)** ([Google](../GLOSSARY.md) TPUs), **[Stochastic Computing](../excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors).
 - **2020s**: Exploration of synthetic biological circuits for low-power edge processing. **Key excavation link**: [Molecular & Biocomputing](../excavations/molecular-biocomputing.md)
 - **2020s**: Proliferation of heterogeneous coprocessors as general-purpose Moore's Law slows down.
 
@@ -117,7 +117,7 @@ The table below maps the six core lineages across historical computing eras from
    - **Software Ecosystem Friction (SEF)**: Can compiler advancements (e.g., MLIR) bypass the historical code-generation walls?
    - **Energy Advantage (EA)**: Does the physical medium bypass the capacitive charging energy penalty ($CV^2f$)?
    - **AI Synergy (AIS)**: Does the hardware structure map directly to dense matrix algebra or sparse SNN spiking?
-2. **Specialization beats general-purpose** when the value and computational volume of a workload is high enough. Modern deep learning has made specialized silicon (e.g., Google's TPU, Cerebras WSE) highly profitable, shattering the standard x86 CPU monoculture.
+2. **Specialization beats general-purpose** when the value and computational volume of a workload is high enough. Modern deep learning has made specialized silicon (e.g., [Google](../GLOSSARY.md)'s TPU, Cerebras WSE) highly profitable, shattering the standard x86 CPU monoculture.
 3. **FPGAs and advanced emulation act as hardware time machines**. Modern reconfigurable logic allows researchers to synthesize, parameterize, and test historically sidelined microarchitectures (e.g., [balanced ternary](../excavations/balanced-ternary.md), [stack machines](../excavations/stack-machines.md)) in real-world silicon within hours.
 
 ---

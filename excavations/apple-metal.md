@@ -536,7 +536,7 @@ The table below contrasts [Metal](../GLOSSARY.md)'s architecture against legacy 
 | **Shading Language** | **[Metal](../GLOSSARY.md) Shading Language (MSL)**: C++14 based, precompiled to bitcode (`.air`/`.metallib`). | **GLSL**: Text strings JIT-compiled by driver at runtime. | **OpenCL C**: C99-based, JIT-compiled by runtime driver. | **SPIR-V**: Standardized binary intermediate representation. | **HLSL**: High-level shading language compiled to DXIL bitcode. |
 | **Memory Model** | **Explicit Storage Modes**: Native UMA integration (`Shared`, `Private`, `Memoryless`). | **Implicit Driver Buffers**: Opaque driver-managed driver allocations. | **Host/Device Buffers**: Explicit host copy and buffer mapping. | **Explicit Vulkan Allocations**: Manual memory type queries and heap offsets. | **Explicit Resource Heaps**: Manual residency and heap allocation management. |
 | **TBDR Hardware Support** | **First-Class Primitive**: Native load/store actions and tile memory imageblocks. | **Poor / Extension-Based**: Implicit tile flushes cause memory bandwidth waste. | **N/A**: Compute-only focus; no direct tile rasterization integration. | **Supported via Subpasses**: Explicit render pass subpasses and input attachments. | **Extension-Based**: Secondary support for mobile tile hardware. |
-| **Tooling & Profiling** | **Deep System Integration**: Built-in Xcode GPU Debugger, Instruments, MPSGraph. | **Fragmented**: Third-party vendor tools (RenderDoc, gpa). | **Fragmented**: Vendor-specific profilers (NVIDIA Nsight, AMD RGP). | **Community / Vendor**: RenderDoc, Vulkan Validation Layers. | **First-Party**: PIX on Windows, Visual Studio Graphics Diagnostics. |
+| **Tooling & Profiling** | **Deep System Integration**: Built-in Xcode GPU Debugger, Instruments, MPSGraph. | **Fragmented**: Third-party vendor tools (RenderDoc, gpa). | **Fragmented**: Vendor-specific profilers ([NVIDIA](../GLOSSARY.md) Nsight, AMD RGP). | **Community / Vendor**: RenderDoc, Vulkan Validation Layers. | **First-Party**: PIX on Windows, Visual Studio Graphics Diagnostics. |
 
 ---
 
@@ -620,7 +620,7 @@ The following entity relationships define [Metal](../GLOSSARY.md)'s position in 
 
 ## Research Questions
 
-1. **Does single-vendor GPU API optimization fundamentally outperform multi-vendor standards?** Did [Metal](../GLOSSARY.md) achieve higher efficiency on Apple hardware because it was better engineered, or because it did not have to accommodate NVIDIA, AMD, and Qualcomm hardware variances in a single API?
+1. **Does single-vendor GPU API optimization fundamentally outperform multi-vendor standards?** Did [Metal](../GLOSSARY.md) achieve higher efficiency on Apple hardware because it was better engineered, or because it did not have to accommodate [NVIDIA](../GLOSSARY.md), AMD, and Qualcomm hardware variances in a single API?
 2. **Can cross-platform translation layers (e.g., MoltenVK, DXVK, Game Porting Toolkit) permanently bridge the API divide?** Does running Vulkan or Direct3D 12 over [Metal](../GLOSSARY.md) introduce an inescapable performance penalty, or does unified memory negate translation overhead?
 3. **How will [Metal](../GLOSSARY.md) evolve as AI models shift from dense matrix multiplication to dynamic, sparse agentic execution?** Will static pipeline state objects and command buffers remain efficient for dynamic graph architectures?
 

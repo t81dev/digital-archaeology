@@ -14,7 +14,7 @@ For Digital Archaeology, FPGAs serve as one of the most practical tools for movi
 
 ## Historical Context
 
-Early FPGAs (1980s–1990s) were relatively small and slow, limiting them to simple glue logic or small state machines. Modern FPGAs (Xilinx/AMD UltraScale+, Intel Stratix/Agilex, Lattice, etc.) offer:
+Early FPGAs (1980s–1990s) were relatively small and slow, limiting them to simple glue logic or small state machines. Modern FPGAs (Xilinx/AMD UltraScale+, [Intel](../GLOSSARY.md) Stratix/Agilex, Lattice, etc.) offer:
 
 - Millions of logic elements
 - High-speed transceivers
@@ -98,7 +98,7 @@ As FPGA tools improve (especially with better high-level synthesis and AI-assist
 ---
 
 ## References
-- AMD Xilinx & Intel FPGA documentation and whitepapers.
+- AMD Xilinx & [Intel](../GLOSSARY.md) FPGA documentation and whitepapers.
 - Academic projects implementing historical architectures on modern FPGAs.
 - High-Level Synthesis (HLS) tools research.
 - Papers on reconfigurable computing architectures.

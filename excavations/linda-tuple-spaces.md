@@ -23,7 +23,7 @@ By replacing explicit sender-recipient links with associative, content-addressab
 
 The Linda model was developed in the early 1980s by **David Gelernter** and his colleagues at Yale University. The naming of the project carries a famous historical anecdote: it was chosen as a lighthearted, affectionate reference to the actress Linda Lovelace, deliberately contrasting with the United States Department of Defense's parallel programming language project, **Ada**, which was named after Ada Lovelace.
 
-At the time, parallel computing was transitioning from a theoretical specialty to a physical reality with the arrival of early commercial multiprocessors and parallel clusters (such as the Sequent Balance, SGI multiprocessors, and Intel's early hypercubes). Parallel programming was notoriously difficult, requiring developers to manage low-level hardware interrupts, shared-memory race conditions, or complex point-to-point network topologies.
+At the time, parallel computing was transitioning from a theoretical specialty to a physical reality with the arrival of early commercial multiprocessors and parallel clusters (such as the Sequent Balance, SGI multiprocessors, and [Intel](../GLOSSARY.md)'s early hypercubes). Parallel programming was notoriously difficult, requiring developers to manage low-level hardware interrupts, shared-memory race conditions, or complex point-to-point network topologies.
 
 Gelernter argued that existing parallel languages were overly complex because they tried to conflate two distinct concerns:
 1. **Execution**: The computation performed by individual sequential processes.

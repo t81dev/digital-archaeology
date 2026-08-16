@@ -8,7 +8,7 @@
 
 **Explicit Data Graph Execution (EDGE)** is an alternative class of microprocessor architectures designed to replace standard Instruction Set Architectures (ISAs) like x86, ARM, and RISC. Developed in the early 2000s, EDGE was created to resolve the physical scalability walls of conventional Out-of-Order (OoO) superscalar processors—namely, the high power consumption and wire-delay bottlenecks associated with instruction decode, rename registers, and centralized reservation stations.
 
-The primary hardware realization of the EDGE paradigm was the **TRIPS (Tera-op Reliable Intellectually Protorecursive System)** processor, developed by the University of Texas at Austin in collaboration with DARPA, IBM, and Intel between 2001 and 2007.
+The primary hardware realization of the EDGE paradigm was the **TRIPS (Tera-op Reliable Intellectually Protorecursive System)** processor, developed by the University of Texas at Austin in collaboration with DARPA, IBM, and [Intel](../GLOSSARY.md) between 2001 and 2007.
 
 Rather than processing a continuous stream of sequential instructions, an EDGE compiler partitions programs into coarse-grained, logically atomic **blocks** of instructions. Within each block, instruction execution is fully **dataflow-driven**: instructions do not read or write a centralized register file to pass intermediate operands. Instead, instructions explicitly declare their consumers, routing data tokens directly from one execution node's output to another's input over a physical spatial grid of execution units. By combining block-structured control flow with instruction-level spatial routing, EDGE architectures achieve massive instruction-level parallelism (ILP) with minimal microarchitectural overhead.
 
@@ -117,7 +117,7 @@ The TRIPS core is structured as a $4 \times 4$ grid of Execution Nodes (each con
 
 ## Why It Didn't Win
 
-1. **The Multicore Shift (2004–2006):** Just as TRIPS was being prototyped, the semiconductor industry abandoned the chase for single-threaded clock speed. Instead of seeking "Tera-ops" on a single complex core, Intel, AMD, and IBM pivoted to **CMP (Chip Multiprocessing)**—putting multiple simple, standard RISC/x86 cores on a single die. CMP was far easier for compilers and programmers to target using standard multi-threading models.
+1. **The Multicore Shift (2004–2006):** Just as TRIPS was being prototyped, the semiconductor industry abandoned the chase for single-threaded clock speed. Instead of seeking "Tera-ops" on a single complex core, [Intel](../GLOSSARY.md), AMD, and IBM pivoted to **CMP (Chip Multiprocessing)**—putting multiple simple, standard RISC/x86 cores on a single die. CMP was far easier for compilers and programmers to target using standard multi-threading models.
 2. **The "Good Enough" Out-of-Order Optimizations:** Traditional microarchitects developed clever localized bypass and clustered register-file optimizations that allowed standard out-of-order cores to keep scaling, delaying the physical wire-delay wall that EDGE was designed to solve.
 3. **The Software Legacy Lock-In:** The absolute necessity of backward compatibility with x86 and ARM meant that the industry rejected clean-slate ISAs, regardless of their technical elegance.
 

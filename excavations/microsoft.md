@@ -458,7 +458,7 @@ As physical silicon scaling slows, Microsoft has transitioned from a vendor of x
 ```
 
 * **WSL2 (Windows Subsystem for Linux)**: Rather than attempting to port Linux applications to Win32, Microsoft embedded a highly optimized Hyper-V utility VM running a genuine Linux kernel. WSL2 uses highly optimized [9P protocol](../GLOSSARY.md) mounts and virtual network adapters to share file paths and ports seamlessly, merging Windows and Linux execution.
-* **ONNX Runtime (Open Neural Network Exchange)**: Standardizes machine learning model compilation and execution across diverse hardware backends (Intel CPUs, NVIDIA GPUs, Qualcomm NPUs), allowing developers to deploy AI models without rewriting execution logic for specific silicon details.
+* **ONNX Runtime (Open Neural Network Exchange)**: Standardizes machine learning model compilation and execution across diverse hardware backends ([Intel](../GLOSSARY.md) CPUs, [NVIDIA](../GLOSSARY.md) GPUs, Qualcomm NPUs), allowing developers to deploy AI models without rewriting execution logic for specific silicon details.
 
 ---
 
@@ -478,7 +478,7 @@ In 2018, Microsoft acquired GitHub. From an archaeological perspective, this rep
 
 The table below contrasts Microsoft's platform-centric strategy against the architectural strategies of historical and modern alternatives:
 
-| Dimension | Microsoft | Unix / Linux | Apple | Google |
+| Dimension | Microsoft | Unix / Linux | Apple | [Google](../GLOSSARY.md) |
 |:---|:---|:---|:---|:---|
 | **Hardware Relationship** | **Decoupled**: Relies on third-party OEMs and commodity silicon (x86/ARM). | **De-coupled**: Multi-platform, community-driven hardware adaptation. | **Tightly Bound**: Vertical integration of proprietary hardware and custom [Apple Silicon](../GLOSSARY.md). | **Decoupled**: Commodity consumer devices; custom TPU infrastructure. |
 | **OS Abstraction** | **Unified Object Executive**: Modular kernel managers insulating users via Win32. | **Filesystem Centric**: Unified, simple text-stream file trees (`everything is a file`). | **Layered BSD/Mach**: Object-oriented frameworks (Cocoa/SwiftUI) over UNIX base. | **Sandboxed Linux**: Linux kernel wrapped in specialized runtimes (Android ART, Chrome). |

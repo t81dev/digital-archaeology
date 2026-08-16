@@ -95,7 +95,7 @@ Commercially, the Connection Machine was a magnificent failure. The company pivo
 
 ### Modern Evaluation
 While the business failed, the core architectural paradigms of the Connection Machine are highly active today:
-- **GPUs and GPGPU (SIMT)**: Modern GPU streaming multiprocessors (SMs) execute instructions in a highly data-parallel SIMD/SIMT (Single Instruction, Multiple Threads) fashion. A modern NVIDIA GPU contains tens of thousands of active execution threads executing the same kernel over distinct data—a direct realization of Hillis's data-parallel model.
+- **GPUs and GPGPU (SIMT)**: Modern GPU streaming multiprocessors (SMs) execute instructions in a highly data-parallel SIMD/SIMT (Single Instruction, Multiple Threads) fashion. A modern [NVIDIA](../GLOSSARY.md) GPU contains tens of thousands of active execution threads executing the same kernel over distinct data—a direct realization of Hillis's data-parallel model.
 - **[Wafer-Scale Integration](wafer-scale-integration.md)**: The high-density spatial grids of the CM prefigured ultra-dense accelerators like the Cerebras Wafer-Scale Engine, which routes data across thousands of small integrated cores.
 - **Graph Processing Engines**: Hillis's original goal of using the CM to navigate complex semantic networks in physical hardware is reflected in today's distributed graph databases and graph neural network (GNN) engines.
 

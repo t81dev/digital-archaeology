@@ -50,7 +50,7 @@ These ideas didn't disappear — they were distilled and reborn in new forms:
 Modern GPUs are spiritual descendants of [systolic arrays](../excavations/systolic-arrays.md) and vector machines. Tensor cores perform massive matrix multiplications using highly regular, spatial dataflow — exactly the workload [systolic arrays](../excavations/systolic-arrays.md) were designed for.
 
 ### 2. AI Accelerators (TPU, etc.)
-Google’s TPUs and similar designs use systolic-array-style matrix engines at their heart. The data moves rhythmically through processing elements with minimal control overhead.
+[Google](../GLOSSARY.md)’s TPUs and similar designs use systolic-array-style matrix engines at their heart. The data moves rhythmically through processing elements with minimal control overhead.
 
 ### 3. Spatial Architectures & CGRAs
 Coarse-Grained Reconfigurable Arrays and spatial computing fabrics (e.g., in some edge AI chips) directly revive grid-based, dataflow-driven execution.

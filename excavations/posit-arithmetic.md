@@ -1,4 +1,4 @@
-# Posit Arithmetic & Type-3 Unum Systems
+# [Posit Arithmetic](../GLOSSARY.md) & Type-3 Unum Systems
 
 > A tapered, variable-dynamic-range floating-point representation that eliminates overflow/underflow exception traps, maximizes entropy per bit, and provides exact quire accumulation for modern AI and scientific workloads.
 
@@ -6,13 +6,13 @@
 
 ## Summary
 
-**Posit Arithmetic** (also known as Type-3 Universal Numbers or Unums) is an alternative numerical representation for real numbers invented by John L. Gustafson in 2017 as a direct replacement for IEEE 754 floating-point standards.
+**[Posit Arithmetic](../GLOSSARY.md)** (also known as Type-3 Universal Numbers or Unums) is an alternative numerical representation for real numbers invented by John L. Gustafson in 2017 as a direct replacement for IEEE 754 floating-point standards.
 
 Unlike IEEE 754 floats, which allocate a fixed number of bits to the exponent and fraction fields regardless of the magnitude of the number, posits introduce a dynamic **regime field** that acts as a scale factor. This tapered precision allocation provides higher precision (more fraction bits) near 1.0 where numerical calculations concentrate, while dynamically expanding dynamic range (more exponent bits) for extremely large or small numbers.
 
-Furthermore, posit arithmetic mandates the **Quire**—a wide fused accumulator register that enables exact dot-product accumulation without intermediate rounding errors or catastrophic cancellation.
+Furthermore, [posit arithmetic](../GLOSSARY.md) mandates the **Quire**—a wide fused accumulator register that enables exact dot-product accumulation without intermediate rounding errors or catastrophic cancellation.
 
-Today, posit arithmetic is emerging as a critical mathematical substrate for low-precision Deep Learning inference (P8/P4 posit formats), climate modeling, spatial tensor acceleration, and post-CMOS AI chips.
+Today, [posit arithmetic](../GLOSSARY.md) is emerging as a critical mathematical substrate for low-precision Deep Learning inference (P8/P4 posit formats), climate modeling, spatial tensor acceleration, and post-CMOS AI chips.
 
 ---
 
@@ -22,7 +22,7 @@ The development of numerical representations on digital computers has passed thr
 * **The Fixed-Point & Custom Era (1940s - 1970s)**: Early digital computers utilized custom fixed-point or early floating-point formats, leading to severe portability issues and software rounding bugs across different hardware vendors.
 * **The IEEE 754 Standardization (1985)**: Led by William Kahan, the IEEE 754 standard unified binary floating-point representation (`float32`, `double64`). While IEEE 754 enabled global software portability, it introduced substantial silicon overheads: multiple NaN representations, subnormal denormalized numbers requiring complex handling logic, overflow/underflow exception traps, and non-associative rounding errors.
 * **Type-1 and Type-2 Unums (2015 - 2016)**: John Gustafson introduced Unum Type-1 (variable-length interval arithmetic) and Type-2 (lookup-table based projectively extended real line). While mathematically rigorous, variable bitwidth intervals proved expensive to synthesize in hardware.
-* **Posit Arithmetic / Type-3 Unum (2017 - Present)**: Gustafson refined Unum theory into fixed-bitwidth **Posits**. By retaining fixed total word lengths (e.g. 8, 16, or 32 bits) while allowing internal bitfield boundaries to shift dynamically, posits achieve superior bitwise information entropy compared to IEEE 754.
+* **[Posit Arithmetic](../GLOSSARY.md) / Type-3 Unum (2017 - Present)**: Gustafson refined Unum theory into fixed-bitwidth **Posits**. By retaining fixed total word lengths (e.g. 8, 16, or 32 bits) while allowing internal bitfield boundaries to shift dynamically, posits achieve superior bitwise information entropy compared to IEEE 754.
 
 ---
 
@@ -68,10 +68,10 @@ IEEE 754 contains millions of bit patterns dedicated to redundant `NaN` states a
 ## Core Abstractions
 
 ### 1. Information-Entropy Tapered Precision
-Posit arithmetic aligns numerical precision with probability distribution. In physical simulations and neural network activations, numbers cluster heavily around $\pm 1.0$. Posit regime encoding allocates the maximum number of bits to the fraction field when $k \approx 0$, maximizing precision near 1.0 while gracefully tapering precision at extreme scales.
+[Posit arithmetic](../GLOSSARY.md) aligns numerical precision with probability distribution. In physical simulations and neural network activations, numbers cluster heavily around $\pm 1.0$. Posit regime encoding allocates the maximum number of bits to the fraction field when $k \approx 0$, maximizing precision near 1.0 while gracefully tapering precision at extreme scales.
 
 ### 2. Exact Quire Accumulation
-A **Quire** is a wide fixed-point accumulator register embedded in the posit arithmetic unit. For $N$-bit posits, the quire is typically $16N$ bits wide. Matrix dot products ($\sum A_i B_i$) are accumulated directly into the quire without intermediate rounding, eliminating cancellation errors.
+A **Quire** is a wide fixed-point accumulator register embedded in the [posit arithmetic](../GLOSSARY.md) unit. For $N$-bit posits, the quire is typically $16N$ bits wide. Matrix dot products ($\sum A_i B_i$) are accumulated directly into the quire without intermediate rounding, eliminating cancellation errors.
 
 ```
                   Exact Quire Matrix Dot-Product Pipeline
@@ -113,7 +113,7 @@ A **Quire** is a wide fixed-point accumulator register embedded in the posit ari
 
 ## Knowledge-Graph Relationships
 
-* **Posit Arithmetic** `[Entity]`
+* **[Posit Arithmetic](../GLOSSARY.md)** `[Entity]`
   * `is_a` $\rightarrow$ `Alternative Number System`
   * `related_arithmetic` $\rightarrow$ `[Logarithmic Number System](logarithmic-number-system.md)`
   * `related_arithmetic` $\rightarrow$ `[Residue Number System](residue-number-system.md)`
@@ -127,11 +127,11 @@ A **Quire** is a wide fixed-point accumulator register embedded in the posit ari
 
 ## Bibliography
 
-1. **Gustafson, J. L., & Yonemoto, I.** (2017). "Beating Floating Point at Its Own Game: Posit Arithmetic." *Supercomputing Frontiers and Innovations*, 4(2), 71-86. (Foundational paper defining Posits / Type-3 Unums).
+1. **Gustafson, J. L., & Yonemoto, I.** (2017). "Beating Floating Point at Its Own Game: [Posit Arithmetic](../GLOSSARY.md)." *Supercomputing Frontiers and Innovations*, 4(2), 71-86. (Foundational paper defining Posits / Type-3 Unums).
 2. **Gustafson, J. L.** (2015). *The End of Error: Unum Computing*. CRC Press. (Monograph introducing Universal Number arithmetic).
 3. **Lindstrom, P., Lloyd, S., & Hittinger, J.** (2018). "Universal Numbers Unpacked: High-Precision Computing with Low-Precision Data." *IEEE Design & Test*, 35(4), 46-52.
-4. **Cocije, S., et al.** (2020). "PositNN: Accelerating Deep Neural Networks with Posit Arithmetic." *IEEE Transactions on Computers*, 69(8), 1210-1223.
-5. **USPTO Patent 10,698,658** (2020). *Computing Device with Posit Arithmetic Unit*. United States Patent and Trademark Office. (Primary patent on posit regime decoders and quire accumulation registers).
+4. **Cocije, S., et al.** (2020). "PositNN: Accelerating Deep Neural Networks with [Posit Arithmetic](../GLOSSARY.md)." *IEEE Transactions on Computers*, 69(8), 1210-1223.
+5. **USPTO Patent 10,698,658** (2020). *Computing Device with [Posit Arithmetic](../GLOSSARY.md) Unit*. United States Patent and Trademark Office. (Primary patent on posit regime decoders and quire accumulation registers).
 
 ---
 

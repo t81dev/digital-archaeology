@@ -16,7 +16,7 @@ The coprocessor approach offers a pragmatic middle ground between fully general-
 
 Early computing frequently relied on coprocessors:
 
-- **Floating-point coprocessors** (Intel 8087, Motorola 68881)
+- **Floating-point coprocessors** ([Intel](../GLOSSARY.md) 8087, Motorola 68881)
 - **Graphics accelerators** evolving into modern GPUs
 - **Digital Signal Processors (DSPs)**
 - **I/O coprocessors** and network processors

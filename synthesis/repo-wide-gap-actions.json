@@ -1,0 +1,91 @@
+[
+  {
+    "id": "GAP-P1-01",
+    "category": "Navigation",
+    "priority": "P1",
+    "evidence": "16 excavations missing from mkdocs.yml nav",
+    "status": "fixed",
+    "files_touched": [
+      "mkdocs.yml"
+    ],
+    "notes": "Added all 16 missing excavation files to mkdocs.yml navigation under Excavations section."
+  },
+  {
+    "id": "GAP-P1-02",
+    "category": "Navigation",
+    "priority": "P1",
+    "evidence": "4 architectural patterns missing from mkdocs.yml nav",
+    "status": "fixed",
+    "files_touched": [
+      "mkdocs.yml"
+    ],
+    "notes": "Added abstract-machine-persistence, explicit-authority-substrate, interface-conversion-tax, and operator-cost-inversion to mkdocs.yml."
+  },
+  {
+    "id": "GAP-P1-03",
+    "category": "Navigation",
+    "priority": "P1",
+    "evidence": "5 synthesis essays missing from mkdocs.yml nav",
+    "status": "fixed",
+    "files_touched": [
+      "mkdocs.yml"
+    ],
+    "notes": "Added audit reports and cross-cut synthesis essays to mkdocs.yml under Comparative Synthesis."
+  },
+  {
+    "id": "GAP-P1-04",
+    "category": "Documentation / Reconstructions",
+    "priority": "P1",
+    "evidence": "22 reconstruction packages missing from reconstructions/README.md",
+    "status": "fixed",
+    "files_touched": [
+      "reconstructions/README.md"
+    ],
+    "notes": "Comprehensive rewrite of reconstructions/README.md listing all 33 simulators with detailed descriptions, paradigms, and entry points."
+  },
+  {
+    "id": "GAP-P1-05",
+    "category": "Index / README Sync",
+    "priority": "P1",
+    "evidence": "INDEX.md and README.md missing entries for onnx.md, posit-arithmetic.md, j-machine.md, openai.md",
+    "status": "fixed",
+    "files_touched": [
+      "INDEX.md",
+      "README.md"
+    ],
+    "notes": "Updated INDEX.md and README.md to list missing excavations and updated total badge counts (61 excavations, 33 reconstructions)."
+  },
+  {
+    "id": "GAP-P2-01",
+    "category": "Cross-References",
+    "priority": "P2",
+    "evidence": "940 cross-reference links missing across 71 markdown files",
+    "status": "fixed",
+    "files_touched": [
+      "71 markdown files across excavations, patterns, synthesis, reconstructions, timelines"
+    ],
+    "notes": "Executed tools/cross_reference_generator.py --all to inject relative links for glossary terms, excavations, and patterns."
+  },
+  {
+    "id": "GAP-P2-02",
+    "category": "Knowledge Graph",
+    "priority": "P2",
+    "evidence": "modern-relevance/knowledge_graph.json lagging behind updated corpus",
+    "status": "fixed",
+    "files_touched": [
+      "modern-relevance/knowledge_graph.json"
+    ],
+    "notes": "Ran tools/generate_knowledge_graph.py to compile updated JSON database covering 61 excavations, 16 synthesis essays, 33 reconstructions, and 137 glossary terms."
+  },
+  {
+    "id": "GAP-P2-03",
+    "category": "Docs Source Symlinks",
+    "priority": "P2",
+    "evidence": "docs_source directory symlinks needed refresh",
+    "status": "fixed",
+    "files_touched": [
+      "docs_source/"
+    ],
+    "notes": "Ran tools/setup_docs.py to re-link all docs_source symlinks."
+  }
+]

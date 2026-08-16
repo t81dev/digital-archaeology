@@ -289,7 +289,7 @@ The Logarithmic Number System represents a classic case of **[Ecosystem Lock-In]
 ```
 
 1. **The Standardization of IEEE-754 (1985)**:
-   The standardization of IEEE-754 floating-point stabilized the computing industry, providing uniform numerical reproducibility across hardware platforms. CPU manufacturers (Intel, Motorola, IBM) invested heavily in optimizing positional binary floating-point ALUs. The massive capital scale of the CPU market ensured that binary multipliers benefited from rapid technological scaling, reducing the relative performance advantage of LNS.
+   The standardization of IEEE-754 floating-point stabilized the computing industry, providing uniform numerical reproducibility across hardware platforms. CPU manufacturers ([Intel](../GLOSSARY.md), Motorola, IBM) invested heavily in optimizing positional binary floating-point ALUs. The massive capital scale of the CPU market ensured that binary multipliers benefited from rapid technological scaling, reducing the relative performance advantage of LNS.
 
 2. **The "Compiler/Language Tax"**:
    Modern programming languages (such as C, C++, and Fortran) and standard compilers (GCC, LLVM) were built from the ground up assuming the semantics of positional weighted floating-point. Implementing LNS on these platforms requires emulating log arithmetic in software or maintaining complex compiler backends, creating immense engineering friction for developers.

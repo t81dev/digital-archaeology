@@ -70,7 +70,7 @@ Styx was Inferno's universal communications protocol (equivalent to 9P). Every I
 
 ## Innovations
 
-- **Unified Virtual Machine Operating System**: Inferno can run as a standalone "native" OS directly on bare metal (x86, ARM, MIPS), or as a "hosted" user-space application on top of Windows, Linux, or macOS. Hosted applications access host services transparently via Styx.
+- **Unified Virtual Machine Operating System**: Inferno can run as a standalone "native" OS directly on bare [metal](../GLOSSARY.md) (x86, ARM, MIPS), or as a "hosted" user-space application on top of Windows, Linux, or macOS. Hosted applications access host services transparently via Styx.
 - **Register-Based VM Execution**: Offered faster execution and significantly smaller JIT compiler code footprints than the stack-based JVM.
 - **Deterministic Memory Cleanup**: Reference counting ensured that objects (like open network connections or graphic buffers) were freed the exact instant they fell out of scope, preventing memory-leak crashes on embedded hardware.
 - **Dynamic Module Loading**: Limbo modules are loaded and bound dynamically at runtime via the `sys->load()` API, allowing secure dynamic code updates over active network connections.
