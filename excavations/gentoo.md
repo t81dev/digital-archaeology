@@ -20,7 +20,7 @@ In the late 1990s, the Linux distribution landscape was dominated by binary pack
 
 Users seeking feature customization or architecture-specific compiler optimizations (such as `mno-cyrix`, `march=pentium2`, or custom GCC flags) were forced to manually download, patch, configure, and compile software from source tarballs into `/usr/local/`, breaking package tracking and system maintenance.
 
-```
+```text
                  The Gentoo Source-Configured System Architecture
 
              ┌─────────────────────────────────────────┐
@@ -61,7 +61,7 @@ Gentoo demonstrated that an operating system distribution could be defined as **
 
 To analyze Gentoo as an architectural lineage, we decompose the distribution into nine distinct computational layers:
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ Layer 9: Overlays & Extended Package Universe (Layman, Repoman, Git)   │
 ├─────────────────────────────────────────────────────────────────────────┤
@@ -116,7 +116,7 @@ A hybrid mode enabling pre-compiled binary packages (`.tbz2` / `.gpkg` via `quic
 
 Gentoo's evolution represents a progression from simple source build scripts to an enterprise-grade package management specification (EAPI).
 
-```
+```text
                    Gentoo Architectural Progression
 
  1999   Enoch Linux / Early Ports-inspired Shell Scripts
@@ -247,7 +247,7 @@ When evaluated, Portage passes these flags to the ebuild's `src_configure` phase
 ### 3. Build Isolation via LD_PRELOAD (`libsandbox.so`)
 To prevent poorly written upstream build scripts (`Makefile`, `CMakeLists.txt`) from modifying the live host system during the build phase (e.g., executing `make install` directly into `/usr/lib/` instead of the staging destination `${D}`), Portage implements a lightweight sandbox wrapper.
 
-```
+```text
                     Portage LD_PRELOAD Sandbox Mechanism
 
     [ Build Process: ebuild src_compile / src_install ]
@@ -297,7 +297,7 @@ Portage introduced version slotting (`SLOT`) and sub-slot operators (`:=`), solv
 
 Portage is structured around a central dependency solver, an environment orchestration shell, and an on-disk database of installed software.
 
-```
+```text
                       Portage Engine Architecture
 
    [ CLI Interface: emerge / eclean ]
@@ -360,7 +360,7 @@ To decouple software requirements from specific upstream implementations, Gentoo
 
 A Portage **Profile** defines the distribution's opinions, defaults, and system constraints. Profiles are organized as inherited directory trees linked via `parent` files.
 
-```
+```text
                       Profile Inheritance Cascade
 
                      [ base/ Profile ]
@@ -425,7 +425,7 @@ While source-based builds offer extreme configurability and hardware optimizatio
 
 To mitigate this constraint without abandoning compile-time configuration control, Gentoo developed **Binhost Hybridization**.
 
-```
+```text
                    Binhost Hybridization Dataflow
 
    [ Central Build Server (Binhost) ]
@@ -460,7 +460,7 @@ To mitigate this constraint without abandoning compile-time configuration contro
 
 Gentoo's architecture creates powerful, self-reinforcing technical and cognitive feedback loops that bind high-control users and system engineers to its lineage:
 
-```
+```text
                   Gentoo Ecosystem Lock-In Dynamics
 
                  ┌───────────────────────────────────────┐
@@ -514,7 +514,7 @@ Despite remaining a niche desktop distribution relative to Ubuntu or Fedora, Gen
 
 The table below traces how physical, software, and scale constraints migrated over time, reshaping Gentoo's architectural role:
 
-```
+```text
                               Constraint Migration
 
  Local Hardware Speed (1999) ──► Massive C++ Codebases (2008) ──► Cloud & Container Era (2015)

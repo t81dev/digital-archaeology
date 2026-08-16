@@ -212,18 +212,14 @@ To assist contemporary computer architects, we strictly distinguish between veri
 
 ---
 
-## Primary Sources & Further Reading
+## Bibliography
 
-* **Likharev, K. K., & Semenov, V. K.** (1991). *RSFQ logic/memory family: a new Josephson-junction technology for sub-terahertz-clock-frequency digital systems*. *IEEE Transactions on Applied Superconductivity*, 1(1), 3–28.
-  - *Relevance*: Introduces the foundational equations and cell layouts for Rapid Single Flux Quantum (RSFQ) logic. It explains how non-latching picosecond-pulse logic achieves operating rates above $100\text{ GHz}$.
-* **Mukhanov, O. A.** (2011). *Energy-efficient single flux quantum technology*. *IEEE Transactions on Applied Superconductivity*, 21(3), 760–769.
-  - *Relevance*: Formulates the architecture of Energy-Efficient RSFQ (ERSFQ) which replaces passive bias resistors with inductors, eliminating static heat dissipation.
-* **Takeuchi, N., Yamanashi, Y., & Yoshikawa, N.** (2014). *Measurement of thermodynamic minimum energy dissipation of an adiabatic quantum flux parametron*. *Scientific Reports*, 4(1), 1–5.
-  - *Relevance*: Demonstrates and measures physical heat dissipation of AQFP gates, proving they can operate adiabatically to bypass standard thermodynamic limits.
-* **Tolpygo, S. K., et al.** (2016). *Superconducting multi-project active chips fabrication process with self-aligned Josephson junctions and two active layers*. *IEEE Transactions on Applied Superconductivity*, 26(3), 1–8.
-  - *Relevance*: Details the multi-layer fabrication processes used at MIT Lincoln Laboratory for modern high-density Josephson junction integration, establishing the density boundary of $10^5 \text{ junctions/mm}^2$ under $250\text{ nm}$ lithography.
-* **Holmes, D. S., Ripple, A. L., & Manheimer, M. A.** (2013). *Energy-efficient superconducting computing—power budgets and requirements*. *IEEE Transactions on Applied Superconductivity*, 23(3), 1701610.
-  - *Relevance*: Rigorously models the thermodynamic cryogenic cooling penalty ($1000\times\text{--}3000\times$ penalty at $4\text{ K}$) and calculates the net utility power requirements for exascale cryogenic data centers.
+1. **Likharev, K. K., & Semenov, V. K.** (1991). *RSFQ logic/memory family: a new Josephson-junction technology for sub-terahertz-clock-frequency digital systems*. *IEEE Transactions on Applied Superconductivity*, 1(1), 3–28. (Foundational equations and cell layouts for RSFQ picosecond-pulse logic).
+2. **USPTO Patent 5,381,021** (1995). *Rapid Single Flux Quantum Digital Devices*. United States Patent and Trademark Office. (Primary patent on RSFQ pulse-logic gates and Josephson transmission lines).
+3. **Mukhanov, O. A.** (2011). *Energy-efficient single flux quantum technology*. *IEEE Transactions on Applied Superconductivity*, 21(3), 760–769. (ERSFQ logic replacing bias resistors with inductors).
+4. **Takeuchi, N., Yamanashi, Y., & Yoshikawa, N.** (2014). *Measurement of thermodynamic minimum energy dissipation of an adiabatic quantum flux parametron*. *Scientific Reports*, 4(1), 1–5. (Sub-Landauer adiabatic superconducting logic).
+5. **Tolpygo, S. K., et al.** (2016). *Superconducting multi-project active chips fabrication process with self-aligned Josephson junctions*. *IEEE Transactions on Applied Superconductivity*, 26(3), 1–8. (MIT Lincoln Laboratory fabrication process).
+6. **Holmes, D. S., Ripple, A. L., & Manheimer, M. A.** (2013). *Energy-efficient superconducting computing—power budgets and requirements*. *IEEE Transactions on Applied Superconductivity*, 23(3), 1701610. (Thermodynamic cooling penalty analysis).
 
 ---
 

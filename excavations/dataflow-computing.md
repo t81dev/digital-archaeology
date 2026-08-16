@@ -128,11 +128,12 @@ Dataflow faced major physical and economic barriers:
 
 ---
 
-## Primary Sources & Further Reading
+## Bibliography
 
-1. **Dennis, J. B.** (1974). "First Version of a Data Flow Procedure Language." *Symposium on Programming*, 362-376.
-2. **Arvind, & Kathail, V.** (1981). "A Multiple-Processor Data Flow Machine That Supports Generalized Procedures." *Proceedings of the 8th Annual International Symposium on Computer Architecture (ISCA)*, 291-302.
-3. **Watson, I., & Gurd, J.** (1982). "A Practical Data-Flow Computer." *Computer*, 15(2), 51-57.
-4. **Arvind, & Nikhil, R. S.** (1990). "Executing a Program on the MIT Tagged-Token [Dataflow Architecture](../GLOSSARY.md)." *IEEE Transactions on Computers*, 39(3), 300-318.
-5. **Nikhil, R. S.** (1991). *Id (Version 90.1) Reference Manual*. MIT Computation Structures Group.
-6. **Jouppi, N. P., et al.** (2017). "In-Datacenter Performance Analysis of a Tensor Processing Unit." *Proceedings of the 44th Annual International Symposium on Computer Architecture (ISCA)*, 1-12.
+1. **Dennis, J. B.** (1974). "First Version of a Data Flow Procedure Language." *Symposium on Programming*, 362-376. (Foundational paper introducing static dataflow graph execution).
+2. **Arvind, & Kathail, V.** (1981). "A Multiple-Processor Data Flow Machine That Supports Generalized Procedures." *Proceedings of ISCA*, 291-302. (Pioneers dynamic tagged-token dataflow processing).
+3. **Watson, I., & Gurd, J.** (1982). "A Practical Data-Flow Computer." *Computer*, 15(2), 51-57. (Primary architecture paper on the Manchester Dataflow Machine).
+4. **USPTO Patent 3,962,706** (1976). *Data Driven Processing System*. United States Patent and Trademark Office. (Foundational patent for hardware data-driven execution matching stores).
+5. **Arvind, & Nikhil, R. S.** (1990). "Executing a Program on the MIT Tagged-Token [Dataflow Architecture](../GLOSSARY.md)." *IEEE Transactions on Computers*, 39(3), 300-318.
+6. **Nikhil, R. S.** (1991). *Id (Version 90.1) Reference Manual*. MIT Computation Structures Group.
+7. **Jouppi, N. P., et al.** (2017). "In-Datacenter Performance Analysis of a Tensor Processing Unit." *Proceedings of ISCA*, 1-12. (Modern revival of static dataflow systolic arrays).

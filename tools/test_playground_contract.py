@@ -45,3 +45,10 @@ def test_vcd_export_has_standard_headers_and_download_path():
         assert marker in body
     assert "new Blob([vcd]" in body
     assert "_waveform.vcd" in body
+
+
+def test_playground_has_webserial_webusb_hil_hooks():
+    page = read_playground()
+    assert "toggleWebSerialHIL" in page
+    assert "parseHILTelemetryLine" in page
+    assert "navigator.serial.requestPort" in page

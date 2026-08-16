@@ -12,7 +12,7 @@ Unlike traditional positional systems (such as binary or decimal), where arithme
 
 Historically, RNS was explored in the late 1950s and early 1960s as a candidate for general-purpose digital computer processors, most notably in Czechoslovakia under Jan Svoboda and Miroslav Valach, and in the United States by researchers such as Harvey Garner, Richard Szabo, and Nicholas Tanaka. While the fundamental non-local nature of division, magnitude comparison, sign detection, and overflow handling eventually locked RNS out of general-purpose microprocessors, the system established deep persistence inside specialized domains.
 
-Today, RNS functions as a critical mathematical backbone for high-speed Digital Signal Processing (DSP), multi-precision public-key cryptography (RSA, Elliptic Curve Cryptography), Fully Homomorphic Encryption (FHE), and emerging high-throughput energy-efficient AI/ML accelerators.
+Today, RNS functions as a critical mathematical backbone for high-speed Digital Signal Processing (DSP), multi-precision public-key cryptography (RSA, Elliptic Curve Cryptography), Fully Homomorphic Encryption (FHE), and emerging high-throughput energy-efficient AI/ML accelerators, alongside complementary non-positional or specialized arithmetic lineages such as the [Logarithmic Number System](logarithmic-number-system.md) and [Balanced Ternary](balanced-ternary.md).
 
 ---
 
@@ -323,7 +323,7 @@ One of the primary historical points of friction for RNS was the difficulty of d
 
 The table below contrasts RNS's architectural properties with standard and alternative number representation frameworks:
 
-| Dimension | Residue Number System (RNS) | Positional Binary (Two's Complement) | Carry-Save & Signed-Digit | Logarithmic Number System (LNS) |
+| Dimension | Residue Number System (RNS) | Positional Binary (Two's Complement) | Carry-Save & Signed-Digit | [Logarithmic Number System](logarithmic-number-system.md) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Representation Type** | Non-positional, modular remainders. | Positional, weighted binary digits. | Positional, redundant representation. | Positional, binary logarithm of absolute value. |
 | **Addition / Subtraction** | Carry-free, $O(1)$ constant parallel execution. | Carry-propagate, $O(\log L)$ parallel prefix. | Carry-free, $O(1)$ constant parallel execution. | Highly complex, requires large interpolating ROM tables. |
@@ -417,6 +417,8 @@ To integrate RNS into the repository's machine-readable knowledge graph, the fol
 
 * **Residue Number System (RNS)** `[Entity]`
   * `is_a` $\rightarrow$ `Alternative Number System`
+  * `related_arithmetic` $\rightarrow$ `[Logarithmic Number System](logarithmic-number-system.md)`
+  * `related_arithmetic` $\rightarrow$ `[Balanced Ternary](balanced-ternary.md)`
   * `based_on` $\rightarrow$ `Chinese Remainder Theorem (CRT)`
   * `enables` $\rightarrow$ `carry_free_addition_multiplication`
   * `enables` $\rightarrow$ `position_independent_parallel_channels`

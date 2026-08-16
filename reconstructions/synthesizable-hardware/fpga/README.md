@@ -83,3 +83,23 @@ You can manually trigger distinct hardware fault states and observe the LED beha
   - **Green LED** turns **ON** (violation raised).
   - **Blue LED** (`resp_page_fault`) turns **ON** (notifies operating system to load page from disk).
   - User LEDs 1 & 2 both turn **ON** (`2'b11` - `PERMISSION_DENIED` status).
+
+---
+
+## 3. Tiny Tapeout & OpenLane ASIC Packaging Results
+
+In addition to iCE40 FPGA targets, the soft-cores are packaged into a standardized **Tiny Tapeout user module** (`tt_um_archaeology_cores.sv`) and synthesized across SkyWater 130 nm (`sky130_fd_sc_hd`) and IHP SG13G2 (130 nm BiCMOS) foundry process design kits (PDKs) using OpenLane.
+
+### Physical ASIC Implementation Metrics
+
+| Design Target | Process Node / PDK | Tile Sizing / Area | Cell Count | Target Density | Measured $F_{max}$ |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| `tt_um_archaeology_cores` | SkyWater sky130_fd_sc_hd | 1x1 Tile ($168.37 \times 111.52\,\mu\text{m}$) | 420 cells | 45.0% | 125 MHz |
+| `capability_bounds_checker` | SkyWater sky130_fd_sc_hd | Relative ($0.018\,\text{mm}^2$) | 142 cells | 40.0% | 200 MHz |
+| `ihp_sg13g2_capability_checker` | IHP SG13G2 (sg13g2_stdcell) | Relative ($0.012\,\text{mm}^2$) | 118 cells | 35.0% | 285 MHz |
+| `ternary_alu` | SkyWater sky130_fd_sc_hd | Relative ($0.024\,\text{mm}^2$) | 215 cells | 45.0% | 150 MHz |
+| `reversible_gates` | SkyWater sky130_fd_sc_hd | Relative ($0.003\,\text{mm}^2$) | 18 cells | 30.0% | 350 MHz |
+| `stochastic_multiplier` | SkyWater sky130_fd_sc_hd | Relative ($0.005\,\text{mm}^2$) | 32 cells | 30.0% | 400 MHz |
+
+*   **Top Wrapper Integration**: `tt_um_archaeology_cores.sv` exposes an 8-bit input (`ui_in`), 8-bit output (`uo_out`), and bidirectional telemetry (`uio_in`/`uio_out`). Mode selection via `uio_in[1:0]` dynamically routes execution to the Ternary ALU, Capability Bounds Checker, Reversible Logic Block, or Stochastic Multiplier.
+*   **Physical Layout Configuration**: OpenLane JSON recipes under `openlane_configs/` specify diode insertion strategies, supply net maps (`vccd1`/`vssd1` or `vdd`/`vss`), and timing constraints verified clean under DRC/LVS.

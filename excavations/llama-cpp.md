@@ -598,7 +598,7 @@ The following entity relationships define llama.cpp's position in the Digital Ar
 
 ---
 
-## 23. Bibliography
+## Bibliography
 
 1. Gerganov, G. (2023). *llama.cpp: Port of Facebook's LLaMA model in pure C/C++*. GitHub Repository. [https://github.com/ggerganov/llama.cpp](https://github.com/ggerganov/llama.cpp).
 2. Gerganov, G. (2023). *GGML: Tensor library for machine learning*. GitHub Repository. [https://github.com/ggerganov/ggml](https://github.com/ggerganov/ggml).
