@@ -136,7 +136,7 @@ While pure GOFAI is no longer used for perception tasks, symbolic logic is seein
 
 * **Neuro-Symbolic AI:** Pairing Large Language Models (LLMs) or neural network perception heads with symbolic backends. Neural nets handle fuzzy sensory perception, while symbolic reasoners handle exact math, rule-checking, and spatial logic.
 * **Automated Theorem Proving & Code Verification:** Tools like Lean, Coq, and Z3 (SMT solvers) use advanced symbolic logic to formally prove software correctness, verify smart contracts, and ensure safety in autonomous vehicle controllers.
-* **Knowledge Graphs & Ontologies:** Modern search engines (Google Knowledge Graph) and enterprise data platforms rely on semantic networks and OWL/RDF triples to organize structured relationships at scale.
+* **Knowledge Graphs & Ontologies:** Modern search engines ([Google](../GLOSSARY.md) Knowledge Graph) and enterprise data platforms rely on semantic networks and OWL/RDF triples to organize structured relationships at scale.
 * **Deterministic Guardrails for AI:** Symbolic reasoners act as execution guardrails around stochastic LLMs, preventing hallucinations and guaranteeing compliance with strict safety or legal rules.
 
 ---

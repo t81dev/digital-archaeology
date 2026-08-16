@@ -29,7 +29,7 @@ In 1978, the UK National Enterprise Board established INMOS to establish a footh
 | **Transistor Count** | ~175,000 | ~250,000 | ~1,500,000 |
 | **Fabrication Node** | 1.5-micron CMOS | 1.5-micron CMOS | 1.0-micron CMOS |
 
-Delays in releasing the advanced pipelined **T9000** allowed general-purpose processors (Intel x86 and various RISC chips) to surpass Transputer raw speeds, leading to INMOS's eventual acquisition by SGS-Thomson (now STMicroelectronics) and the cancellation of the line.
+Delays in releasing the advanced pipelined **T9000** allowed general-purpose processors ([Intel](../GLOSSARY.md) x86 and various RISC chips) to surpass Transputer raw speeds, leading to INMOS's eventual acquisition by SGS-Thomson (now STMicroelectronics) and the cancellation of the line.
 
 ---
 
@@ -125,7 +125,7 @@ Commercially, the Transputer was marginalized in the general-purpose desktop com
 While the physical Transputer chips died, their architectural DNA is highly dominant in modern software and distributed hardware:
 - **Go and Goroutines**: The programming language Go's core concurrency model—goroutines and channels—is a direct, software-level implementation of the [occam](occam.md)/CSP model.
 - **Erlang and the [Actor Model](../GLOSSARY.md)**: Shares the message-passing, share-nothing paradigm that made Transputer networks highly resilient and scalable.
-- **Network-on-Chip (NoC)**: Modern many-core chips (such as the Tilera, Kalray MPPA, or Intel's experimental many-core research chips) interconnect processing elements using on-chip routers and point-to-point networks, directly realizing the Transputer's spatial wiring on a single silicon die.
+- **Network-on-Chip (NoC)**: Modern many-core chips (such as the Tilera, Kalray MPPA, or [Intel](../GLOSSARY.md)'s experimental many-core research chips) interconnect processing elements using on-chip routers and point-to-point networks, directly realizing the Transputer's spatial wiring on a single silicon die.
 - **XMOS Microcontrollers**: Founded by David May, XMOS produces "Software-Defined Silicon" microcontrollers that feature hardware-level multi-threading and deterministic, channel-based communication.
 
 ---

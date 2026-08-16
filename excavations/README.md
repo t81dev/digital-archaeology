@@ -60,7 +60,7 @@ The objective is to recover useful ideas.
 
 # Complete Excavations Inventory
 
-The repository maintains a full, active inventory of over 60 detailed excavations spanning physical logic paradigms, alternative arithmetic, capability-based security, operating system substrates, language runtimes, and AI agent environments.
+The repository maintains a full, active inventory of over 60 detailed excavations spanning physical logic paradigms, alternative arithmetic, [capability-based security](../GLOSSARY.md), operating system substrates, language runtimes, and AI agent environments.
 
 For the comprehensive multi-dimensional classification of all excavations across execution models, memory protection, and concurrency paradigms, see:
 

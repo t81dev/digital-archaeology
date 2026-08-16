@@ -14,7 +14,7 @@ The table below maps the six core lineages within the context of AI progression,
 | **Capability, Tagged & Descriptor** | 1980s (Symbolic [Lisp Machines](../excavations/lisp-machines.md)) | Private LLM Memory Protection, Zero-Trust Multi-Tenant Cloud Security |
 | **Physical, Thermodynamic & Optical**| 1950s (Analog analyzers) | In-Situ Matrix Multiplication (Memristor Crossbars, Photonic Tensor Cores) |
 | **Distributed & Single-Level-Store OS**| 1990s ([Plan 9](../excavations/plan-9.md), [Inferno](../excavations/inferno.md)) | Multi-Agent LLM Coordination & Sandboxed Resource Sharing |
-| **Neuromorphic & Stochastic** | 1960s (Stochastic logic), 1980s (Mead) | Ultra-Low-Power Edge Inference (Spiking SNNs, Intel Loihi) |
+| **Neuromorphic & Stochastic** | 1960s (Stochastic logic), 1980s (Mead) | Ultra-Low-Power Edge Inference (Spiking SNNs, [Intel](../GLOSSARY.md) Loihi) |
 | **Superconducting & Cryogenic** | 1980s (Cryogenic logic ideas) | Ultra-High-Frequency (100+ GHz) Tensor Co-Processors, Quantum Control |
 
 ---
@@ -59,7 +59,7 @@ The table below maps the six core lineages within the context of AI progression,
 - **2012**: **AlexNet** wins the ImageNet competition using a convolutional neural network accelerated on standard graphics GPUs, launching the modern Deep Learning era. **Key excavation link**: [Associative Processors](../excavations/associative-processors.md)
 - **2014**: IBM reveals **TrueNorth**, an asynchronous spiking neuromorphic processor with 1 million digital neurons. **Key excavation link**: [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
 - **2014**: Linux integrates eBPF, enabling dynamic network monitoring and execution telemetry in massive high-performance distributed AI computing clusters. **Key excavation link**: [Linux](../excavations/linux.md)
-- **2016**: Google deploys the first **Tensor Processing Unit (TPU)**, resurrecting synchronous 2D [systolic array](../GLOSSARY.md) meshes to perform matrix multiplications. **Key excavation link**: [Systolic Arrays](../excavations/systolic-arrays.md)
+- **2016**: [Google](../GLOSSARY.md) deploys the first **Tensor Processing Unit (TPU)**, resurrecting synchronous 2D [systolic array](../GLOSSARY.md) meshes to perform matrix multiplications. **Key excavation link**: [Systolic Arrays](../excavations/systolic-arrays.md)
 - **2017**: The Transformer architecture is introduced, scaling to billions of parameters and demonstrating massive parallel training capability on GPU clusters.
 
 ---

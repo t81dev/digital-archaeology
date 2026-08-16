@@ -6,7 +6,7 @@
 
 ## Summary
 
-Superconducting electronics replace traditional resistive silicon-doped CMOS transistors with superconducting Josephson junctions (JJs) that switch at picosecond speeds using macroscopic quantum phase differences. Rather than charging and discharging high-capacitance metal wires with continuous voltage rails (which induces $C V^2 f$ power dissipation), Single Flux Quantum (SFQ) logic encodes, processes, and transmits binary information as discrete, ultra-fast magnetic flux quantum pulses:
+Superconducting electronics replace traditional resistive silicon-doped CMOS transistors with superconducting Josephson junctions (JJs) that switch at picosecond speeds using macroscopic quantum phase differences. Rather than charging and discharging high-capacitance [metal](../GLOSSARY.md) wires with continuous voltage rails (which induces $C V^2 f$ power dissipation), Single Flux Quantum (SFQ) logic encodes, processes, and transmits binary information as discrete, ultra-fast magnetic flux quantum pulses:
 
 $$\Phi_0 = \frac{h}{2e} \approx 2.0678 \times 10^{-15} \text{ Weber (or Volt-seconds)}$$
 

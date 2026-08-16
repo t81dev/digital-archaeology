@@ -1,6 +1,6 @@
 # Continuous Analog & Optical Wave Accelerator Simulator
 
-> *Continuous physical simulation modeling differential equations (using an op-amp computer) and matrix-vector multiplication (using a Mach-Zehnder Interferometer photonic tensor core).*
+> *Continuous physical simulation modeling differential equations (using an op-amp computer) and matrix-vector multiplication (using a Mach-Zehnder Interferometer photonic [tensor core](../../GLOSSARY.md)).*
 
 ---
 

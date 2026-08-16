@@ -261,7 +261,7 @@ Key skin artifacts included:
 
 The host application contained hardcoded pixel offset maps (e.g., "Play button normal state is at (0, 0) to (23, 18) in `MAIN.BMP`; pressed state is at (24, 0) to (47, 18)"). The skin author simply edited the bitmap sprite sheet. Drawing was executed via fast BitBlt (Bit Block Transfer) GDI calls directly to off-screen memory device contexts (DCs) before blitting to the screen.
 
-### 4. WASABI Framework & MAKI Script Execution Engine
+### 4. [WASABI Framework](../GLOSSARY.md) & MAKI Script Execution Engine
 With Winamp 3, Nullsoft developed **WASABI** (Winamp Advanced Software Architecture Building Infrastructure). WASABI was a full object-oriented C++ application framework designed to make every UI element a dynamic, scriptable node in an XML tree.
 
 To support scriptable UI behavior without giving skins unchecked access to host memory, WASABI introduced **MAKI** (Make Anything Cool Interface). MAKI files were written in a C-like scripting language and compiled into binary bytecode (`.maki` files) executed by an embedded stack-based virtual machine inside Winamp.
@@ -541,7 +541,7 @@ Winamp became an application platform through powerful self-reinforcing feedback
 ## Displacement, Decline & Residue
 
 ### The WASABI Transition Tax (Winamp 3 Failure)
-In 2002, Nullsoft released **Winamp 3**, a complete ground-up rewrite based on the WASABI framework. Winamp 3 attempted to elevate Winamp from an audio player into a general-purpose cross-platform cross-media application framework.
+In 2002, Nullsoft released **Winamp 3**, a complete ground-up rewrite based on the [WASABI framework](../GLOSSARY.md). Winamp 3 attempted to elevate Winamp from an audio player into a general-purpose cross-platform cross-media application framework.
 
 The architecture proved to be a severe engineering failure:
 * **Memory & CPU Explosion**: Idle memory usage jumped from ~4 MB to over 30 MB; CPU utilization during UI redraws spiked dramatically.
@@ -740,7 +740,7 @@ The following entity relationships define Winamp's position in the Digital Archa
 ## Limitations and Uncertainties
 
 * **Closed-Source Nullsoft Codebase**: While official SDK header files (`IN2.H`, `OUT.H`, `WA_IPC.H`) and reverse-engineered documentation are available, parts of Winamp's internal thread synchronization and equalizer FFT implementations remain proprietary commercial artifacts.
-* **WASABI Internal Runtime Specification**: Historical documentation for the WASABI framework and MAKI bytecode compiler is incomplete, relying on community reverse-engineering efforts from the Winamp skinning community.
+* **WASABI Internal Runtime Specification**: Historical documentation for the [WASABI framework](../GLOSSARY.md) and MAKI bytecode compiler is incomplete, relying on community reverse-engineering efforts from the Winamp skinning community.
 
 ---
 

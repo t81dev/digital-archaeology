@@ -49,7 +49,7 @@ As silicon scaling slows (the end of Dennard scaling and slowing of Moore's Law)
 Historically, testing a novel architecture required millions of dollars in ASIC fabrication (tape-out) costs, locking out independent researchers and academic labs. The open-source silicon movement has democratized access to physical silicon.
 
 ### Open-Source EDA Toolchains & The FOSSI Foundation
-* **Ecosystem Components:** Yosys (synthesis), nextpnr (place-and-route), OpenLane (ASIC flow), and Google's Tiny Tapeout.
+* **Ecosystem Components:** Yosys (synthesis), nextpnr (place-and-route), OpenLane (ASIC flow), and [Google](../GLOSSARY.md)'s Tiny Tapeout.
 * **Core Connection:** Allows rapid, physical instantiation of radical architectures—such as [Balanced Ternary](../excavations/balanced-ternary.md) arithmetic units, [Stack Machines](../excavations/stack-machines.md), or [Transputer](../excavations/transputers.md)-like communicating sequential processes (CSP) nodes.
 * **Opportunities:**
   - **Tiny Tapeout:** Enables low-cost fabrication of custom digital circuits on the SkyWater 130nm open-source PDK, perfect for testing toy-scale reconstructions. We provide synthesizable SystemVerilog blocks under [Synthesizable Hardware Blueprints](../reconstructions/synthesizable-hardware/) designed directly for open layout integration.
@@ -76,7 +76,7 @@ The following matrix maps Digital Archaeology excavations to modern research tra
 To bridge the gap between historical digital archaeology and modern hardware engineering, we propose three collaborative initiatives:
 
 1. **Academic Soft-Core Repositories:** Package our interactive simulators and conceptual reconstructions into synthesizable SystemVerilog/Chisel IP cores and make them available to academic Chipyard users.
-2. **Tiny Tapeout Submissions:** Leverage Google's Tiny Tapeout program to fabricate physical prototypes of our synthesizable 3-trit [Balanced Ternary](../excavations/balanced-ternary.md) ALU core and the inline RAM capability bounds checker.
+2. **Tiny Tapeout Submissions:** Leverage [Google](../GLOSSARY.md)'s Tiny Tapeout program to fabricate physical prototypes of our synthesizable 3-trit [Balanced Ternary](../excavations/balanced-ternary.md) ALU core and the inline RAM capability bounds checker.
 3. **Formal Verification Case Studies:** Partner with formal verification researchers to apply automated theorem proving to our [CSP messaging](../reconstructions/csp-messaging/README.md) and dataflow models, establishing rigorous safety standards for clean-slate systems.
 
 ---

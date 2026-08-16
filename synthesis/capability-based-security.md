@@ -29,7 +29,7 @@ The development of capability and descriptor-based security progressed through s
 1. **[Burroughs Large Systems](../excavations/burroughs-large-systems.md) (1961)**: Barton's team introduced the **tagged-memory and descriptor** architecture. Every pointer was represented as a hardware-checked descriptor containing a segment base, limit, write-protection bit, and a virtual memory presence bit. This was the first commercial implementation of spatial memory safety, rendering buffer overflows and arbitrary memory corruption physically impossible.
 2. **[Multics](../excavations/multics.md) (1965)**: Developed hierarchical ring-based protection and dynamic segmentation, establishing the mathematical foundations of protection domains.
 3. **[KeyKOS](../GLOSSARY.md) micro-capabilities / nanokernel capabilities (1980s)**: [KeyKOS](../GLOSSARY.md) demonstrated a pure object-capability software system enforced inside a minimal nanokernel Trusted Computing Base (TCB). Rather than using hardware-enforced pointers like Burroughs, [KeyKOS](../GLOSSARY.md) designed unforgeable **capabilities (keys)** at the software system layer. Possession of a key acted as the sole, non-ambient path to object method invocation and resources, providing extreme compartmentalization. [KeyKOS](../GLOSSARY.md) combined object-capabilities with continuous, system-wide **orthogonal persistence** (a single-level store) that automatically checkpointed the active capability graph, preventing cold-reboot state losses.
-4. **[Intel iAPX 432](../excavations/intel-iapx-432.md) (1981)**: Intel’s ambitious attempt to implement a pure, two-level [object-capability model](../GLOSSARY.md) in silicon. Access descriptors mapped to system-wide object tables, enforcing strict object type safety and fine-grained permissions at the microcode level.
+4. **[Intel iAPX 432](../excavations/intel-iapx-432.md) (1981)**: [Intel](../GLOSSARY.md)’s ambitious attempt to implement a pure, two-level [object-capability model](../GLOSSARY.md) in silicon. Access descriptors mapped to system-wide object tables, enforcing strict object type safety and fine-grained permissions at the microcode level.
 5. **[Lisp Machines](../excavations/lisp-machines.md) (1980s)**: Mainstreamed **dynamic type-tag checking** in hardware. Every pointer and data word was paired with an out-of-band tag that protected execution integrity.
 6. **[Capability Systems](../excavations/capability-systems.md)**: Hardware architectures like the Cambridge CAP Computer, HYDRA, and [KeyKOS](../GLOSSARY.md) operating system demonstrated pure capabilities, proving least-privilege compartmentalization.
 
@@ -67,9 +67,9 @@ Arm’s MTE provides a lighter-weight form of temporal memory safety.
 - It pairs 4 bits of metadata with every 16 bytes of memory, checking the tag on pointer load/store.
 - This is a direct architectural adaptation of the **Lisp Machine's data-tagging** model, re-architected for bug detection and exploit prevention.
 
-### 3. WebAssembly (Wasm) and Google Fuchsia
+### 3. WebAssembly (Wasm) and [Google](../GLOSSARY.md) Fuchsia
 - **WebAssembly**: Uses a sandboxed, stack-based evaluation model that mirrors the B5000 stack architecture. Wasm modules cannot reference arbitrary memory; they are bound to isolated linear memory segments, representing software-enforced capabilities.
-- **Google Fuchsia**: The Zircon microkernel is designed entirely around capability-based handles, preventing privilege escalation and enforcing the Principle of Least Authority (POLA).
+- **[Google](../GLOSSARY.md) Fuchsia**: The Zircon microkernel is designed entirely around capability-based handles, preventing privilege escalation and enforcing the Principle of Least Authority (POLA).
 
 ---
 

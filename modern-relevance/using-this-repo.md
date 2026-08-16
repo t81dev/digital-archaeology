@@ -21,7 +21,7 @@ As of August 2026, the repository provides **15 zero-dependency simulators and p
 *   **[Stochastic Computing Simulator](../reconstructions/stochastic-computing/)**: Models how continuous real numbers map to randomized binary bitstreams, evaluating error resilience and single-gate multipliers.
 *   **[Neuromorphic Spiking Simulator](../reconstructions/neuromorphic-spiking/)**: Simulates event-driven spike propagation, Leaky Integrate-and-Fire (LIF) dynamics, and Hebbian learning rules.
 *   **[Cryogenic Superconducting Simulator](../reconstructions/cryogenic-superconducting/)**: Simulates Rapid Single Flux Quantum (RSFQ/ERSFQ) pulse-switching, timing windows, and liquid helium thermodynamic cooling penalties.
-*   **[Analog Optical Wave Accelerator](../reconstructions/analog-optical/)**: Models a continuous operational amplifier solver alongside a Mach-Zehnder Interferometer (MZI) photonic tensor core.
+*   **[Analog Optical Wave Accelerator](../reconstructions/analog-optical/)**: Models a continuous operational amplifier solver alongside a Mach-Zehnder Interferometer (MZI) photonic [tensor core](../GLOSSARY.md).
 
 ### Synthesizable Hardware Blueprints:
 *   **[ternary_alu.sv](../reconstructions/synthesizable-hardware/ternary_alu.sv)**: A synthesizable SystemVerilog implementation of a 3-trit [Balanced Ternary](../excavations/balanced-ternary.md) ALU, showcasing real physical layout area and gate count properties on FPGAs.

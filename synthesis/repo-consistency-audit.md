@@ -10,8 +10,8 @@ This audit was conducted by comprehensively crawling and reviewing the declared 
 
 *   **Residue Number System (RNS)** (`excavations/residue-number-system.md`)
 *   **Logarithmic Number System (LNS)** (`excavations/logarithmic-number-system.md`)
-*   **Fluidic Logic Systems** (`excavations/fluidic-logic-systems.md`)
-*   **KeyKOS Nanokernel Capabilities** (`excavations/keykos-nanokernel-capabilities.md`)
+*   **[Fluidic Logic](../GLOSSARY.md) Systems** (`excavations/fluidic-logic-systems.md`)
+*   **[KeyKOS](../GLOSSARY.md) Nanokernel Capabilities** (`excavations/keykos-nanokernel-capabilities.md`)
 *   **Prolog / WAM / FGCS Hardware** (`excavations/prolog-wam-fgcs-hardware.md`)
 
 And subsequent pattern revisions and synthesis files:
@@ -99,7 +99,7 @@ tools/... (12+ parser and schema checks) ...   [100%]
 
 ### 4.1 Core Control Documents
 *   **Status**: `OK` (Fully synced).
-*   **Analysis**: `COMPARATIVE_INDEX.md` successfully integrates all 38 classic and newly integrated excavations into structural execution, memory, and concurrency categories. `GLOSSARY.md` includes critical definitions like *Chinese Remainder Theorem*, *Coanda Effect*, and *Warren Abstract Machine*. `ROADMAP.md` is complete up to Phase XIII.
+*   **Analysis**: `COMPARATIVE_INDEX.md` successfully integrates all 38 classic and newly integrated excavations into structural execution, memory, and concurrency categories. `GLOSSARY.md` includes critical definitions like *Chinese Remainder Theorem*, *[Coanda Effect](../GLOSSARY.md)*, and *Warren Abstract Machine*. `ROADMAP.md` is complete up to Phase XIII.
 
 ### 4.2 Excavations
 *   **Status**: `OK` (Strong alignment).

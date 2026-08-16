@@ -203,7 +203,7 @@ Traditional operating system kernel traps introduce high context-switching overh
 *   **Target Workload**: Next-generation, multi-exaFLOPS supercomputing and cryogenic classical control planes for superconducting quantum computers inside dilution refrigerators.
 
 #### Complementary Strengths
-[Wafer-scale integration](../excavations/wafer-scale-integration.md) (WSI) collapses package boundaries, allowing hundreds of thousands of cores to communicate with sub-nanosecond latencies. However, WSI is limited by the massive heat dissipation of standard room-temperature CMOS transistors and the physical RC delays of long-distance metal interconnects. Operating spatial meshes in a cryogenic or superconducting environment (using RSFQ/ERSFQ logic) eliminates thermal noise, enables sub-attojoule switching, and supports clock trees ticking at $100\text{--}300 \text{ GHz}$. Integrating photonic wave links allows high-speed communication across long spatial spans without generating Joule heat.
+[Wafer-scale integration](../excavations/wafer-scale-integration.md) (WSI) collapses package boundaries, allowing hundreds of thousands of cores to communicate with sub-nanosecond latencies. However, WSI is limited by the massive heat dissipation of standard room-temperature CMOS transistors and the physical RC delays of long-distance [metal](../GLOSSARY.md) interconnects. Operating spatial meshes in a cryogenic or superconducting environment (using RSFQ/ERSFQ logic) eliminates thermal noise, enables sub-attojoule switching, and supports clock trees ticking at $100\text{--}300 \text{ GHz}$. Integrating photonic wave links allows high-speed communication across long spatial spans without generating Joule heat.
 
 #### Remaining Friction
 The extreme difficulty of packaging optical lasers and fiber interfaces onto a cryogenic wafer substrate, and the $1000\times\text{--}3000\times$ thermodynamic refrigeration cooling penalty.
@@ -238,7 +238,7 @@ The extreme difficulty of packaging optical lasers and fiber interfaces onto a c
 
 Pure-lineage scores understate the true commercial and physical viability of non-von Neumann systems. When we evaluate architectures through a **hybrid, heterogeneous co-design lens**, the priorities shift dramatically.
 
-Architects should avoid treating these historical computing lineages as competing, isolated islands. The most successful modern deployments (such as Google’s TPU combining [systolic arrays](../excavations/systolic-arrays.md) with traditional memory, or Apple’s Neural Engine co-packaged alongside general-purpose ARM cores) prove that **the highest architectural value is unlocked at the boundary interface between complementary systems.**
+Architects should avoid treating these historical computing lineages as competing, isolated islands. The most successful modern deployments (such as [Google](../GLOSSARY.md)’s TPU combining [systolic arrays](../excavations/systolic-arrays.md) with traditional memory, or Apple’s Neural Engine co-packaged alongside general-purpose ARM cores) prove that **the highest architectural value is unlocked at the boundary interface between complementary systems.**
 
 ---
 

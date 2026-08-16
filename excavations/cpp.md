@@ -13,7 +13,7 @@ C++ solved this tension by establishing the **Zero-Overhead Principle**: *what y
 2. **Value-Oriented Object Model**: Storing objects directly in contiguous memory (stack or array layouts) by default, making dynamic heap allocation and vtable indirect dispatch explicit, opt-in mechanisms.
 3. **Compile-Time Generic Programming**: Utilizing templates as a language-integrated code-generation and specialization engine, allowing generic algorithms to compile into inline, zero-cost machine instructions matching or exceeding hand-tuned C loops.
 
-By standardizing these abstractions through ISO/IEC 14882 (starting with C++98 and modernizing through C++11, C++14, C++17, C++20, and C++23), C++ became the ubiquitous infrastructure substrate for operating system kernels (Windows NT, macOS XNU, Symbian), Web browser engines (Blink, Gecko, WebKit), high-performance databases, game engines (Unreal Engine), finance/low-latency trading platforms, and AI acceleration backends ([CUDA](../GLOSSARY.md), PyTorch C++ core, [llama.cpp](../GLOSSARY.md), TensorRT). In doing so, it created a massive, self-reinforcing lock-in loop anchored by binary ABIs, compiler toolchains, C-interoperability, and millions of software engineering lifetimes.
+By standardizing these abstractions through ISO/IEC 14882 (starting with C++98 and modernizing through C++11, C++14, C++17, C++20, and C++23), C++ became the ubiquitous infrastructure substrate for operating system kernels (Windows NT, macOS XNU, Symbian), Web browser engines (Blink, Gecko, [WebKit](../GLOSSARY.md)), high-performance databases, game engines (Unreal Engine), finance/low-latency trading platforms, and AI acceleration backends ([CUDA](../GLOSSARY.md), PyTorch C++ core, [llama.cpp](../GLOSSARY.md), TensorRT). In doing so, it created a massive, self-reinforcing lock-in loop anchored by binary ABIs, compiler toolchains, C-interoperability, and millions of software engineering lifetimes.
 
 ---
 
@@ -438,7 +438,7 @@ C++'s persistence is concentrated in systems domains where memory footprint, exe
   └───────────────────────────┘   └───────────────────────────┘   └───────────────────────────┘
 ```
 
-1. **Browsers & Web Engines**: Chromium (Blink), Firefox (Gecko), Safari (WebKit) represent multi-ten million line C++ codebases where layout rendering, JavaScript JIT compilation, and networking demand zero-overhead performance.
+1. **Browsers & Web Engines**: Chromium (Blink), Firefox (Gecko), [Safari](../GLOSSARY.md) ([WebKit](../GLOSSARY.md)) represent multi-ten million line C++ codebases where layout rendering, JavaScript JIT compilation, and networking demand zero-overhead performance.
 2. **Game Engines & Graphics Real-Time**: Unreal Engine, Frostbite, Direct3D, and Vulkan rely on explicit memory alignment, direct GPU memory mapping, and predictable frame budgets (16.6ms / 8.33ms) incompatible with garbage collection pauses.
 3. **Low-Latency Finance**: High-frequency trading systems use specialized C++ subsets, custom ring-buffer arenas, and static template metaprogramming to execute market orders in sub-microsecond timeframes.
 4. **AI & High-Performance Computing**: ML frameworks (PyTorch, TensorFlow, [llama.cpp](../GLOSSARY.md), [CUDA](../GLOSSARY.md) runtime) execute Python interfaces on top of core C++ tensor processing runtimes.

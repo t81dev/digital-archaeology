@@ -62,7 +62,7 @@ Evaluating these five diverse lineages reveals several recurring design patterns
 3.  **The Interfacing and Conversion Tax as a First-Class Constraint**:
     For RNS/LNS, the forward and reverse conversion boundaries (e.g., CRT/MRC or log/anti-log lookup tables) govern the net efficiency of the processor. For Fluidics, the "transducer tax" of translating fluid pressures to electrical voltages limits mixed-substrate deployments. For Prolog/FGCS, the "foreign-function tax" of marshaling WAM stack frames and tagged words to and from C libraries locked the language out of general utility.
 4.  **Abstract Machines as Durable Portability Layers (Prolog/WAM & [KeyKOS](../GLOSSARY.md))**:
-    When custom hardware foundations crumble, the software abstractions survive if they are compiled to a clean virtual machine. The Warren Abstract Machine (WAM) outlived the Japanese Personal Sequential Inference (PSI) hardware by decades, flourishing as a high-performance software virtual machine (YAP, SWI-Prolog) on commodity x86 and ARM lines. [KeyKOS](../GLOSSARY.md)'s object-capability patterns similarly migrated to modern software execution runtimes (Wasm/WASI and Google Zircon).
+    When custom hardware foundations crumble, the software abstractions survive if they are compiled to a clean virtual machine. The Warren Abstract Machine (WAM) outlived the Japanese Personal Sequential Inference (PSI) hardware by decades, flourishing as a high-performance software virtual machine (YAP, SWI-Prolog) on commodity x86 and ARM lines. [KeyKOS](../GLOSSARY.md)'s object-capability patterns similarly migrated to modern software execution runtimes (Wasm/WASI and [Google](../GLOSSARY.md) Zircon).
 
 ---
 

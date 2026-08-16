@@ -50,7 +50,7 @@ The table below maps the six core lineages across historical computing eras, ill
 
 ## 1980s: The Great Architectural Renaissance (Peak Experimentation)
 
-- **1981**: Intel ships the **iAPX 432**, a microcoded 32-bit CPU implementing object-oriented capabilities directly in hardware. **Key excavation link**: [Intel iAPX 432](../excavations/intel-iapx-432.md)
+- **1981**: [Intel](../GLOSSARY.md) ships the **iAPX 432**, a microcoded 32-bit CPU implementing object-oriented capabilities directly in hardware. **Key excavation link**: [Intel iAPX 432](../excavations/intel-iapx-432.md)
 - **1981**: Arthur John Codd and colleagues build the **Manchester Dataflow Computer**, proving the viability of [dynamic token-matching](../GLOSSARY.md) execution. **Key excavation link**: [Dataflow Computing](../excavations/dataflow-computing.md)
 - **1982**: Symbolics launches the **3600 Lisp Machine**, offering a hardware-tagged dynamic object-oriented environment. **Key excavation link**: [Lisp Machines](../excavations/lisp-machines.md)
 - **1983**: Inmos introduces the **IMS T414 Transputer** and the concurrent language **[Occam](../excavations/occam.md)**, establishing native channel-based CSP messaging in hardware. **Key excavation links**: [Transputers](../excavations/transputers.md) | [Occam](../excavations/occam.md)
@@ -80,7 +80,7 @@ The table below maps the six core lineages across historical computing eras, ill
 
 ## 2000s: The Power Wall & Heterogeneous Offloading
 
-- **2001**: Intel releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](../excavations/vliw-epic.md)
+- **2001**: [Intel](../GLOSSARY.md) releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](../excavations/vliw-epic.md)
 - **2003–2006**: The DARPA-funded **TRIPS (EDGE)** processor demonstrates instruction-level spatial dataflow compilation and block-structured scheduling. **Key excavation link**: [Explicit Data Graph Execution (EDGE)](../excavations/edge-architecture.md)
 - **2004**: Dennard scaling breaks down (the Power Wall), ending the era of single-thread frequency scaling and forcing the industry toward multi-core CPUs.
 - **2007**: Linux integrates the Kernel-based Virtual Machine (KVM) and container groups (cgroups), laying the foundation for modern cloud density. **Key excavation link**: [Linux](../excavations/linux.md)
@@ -97,7 +97,7 @@ The table below maps the six core lineages across historical computing eras, ill
 - **2020**: OpenAI publishes empirical scaling laws for transformers, shifting machine learning systems from heuristic trial-and-error to predictable systems engineering. **Key excavation link**: [OpenAI](../excavations/openai.md)
 - **2022**: OpenAI launches ChatGPT, demonstrating conversational interfaces and remote API-as-model abstractions as standard platform layers. **Key excavation link**: [OpenAI](../excavations/openai.md)
 - **2023**: OpenAI introduces the Assistants API, standardizing stateful thread run loops and tool call schemas above traditional operating systems. **Key excavation link**: [OpenAI](../excavations/openai.md)
-- **2020s**: AI hardware developers resurrect **[Systolic Arrays](../excavations/systolic-arrays.md)** (Google TPUs), **[Stochastic Computing](../excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors).
+- **2020s**: AI hardware developers resurrect **[Systolic Arrays](../excavations/systolic-arrays.md)** ([Google](../GLOSSARY.md) TPUs), **[Stochastic Computing](../excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors).
 - **2020s**: Proliferation of heterogeneous coprocessors as general-purpose Moore's Law slows down.
 
 ---

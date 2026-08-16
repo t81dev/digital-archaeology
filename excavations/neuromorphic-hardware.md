@@ -10,7 +10,7 @@ Neuromorphic hardware refers to integrated circuits designed to mimic the neuro-
 
 Instead of executing clock-synchronized, sequential instructions on continuous floating-point tensors, neuromorphic hardware processes discrete, asynchronous temporal signals called **spikes**. Computation is strictly event-driven: individual core clusters consume negligible static power and wake up only when incoming electrical spikes trigger a state change.
 
-Initially pioneered by Carver Mead in the late 1980s using subthreshold analog CMOS circuits, neuromorphic architecture has evolved across analog, digital, and memristive mediums (e.g., IBM TrueNorth, Intel Loihi, BrainScaleS, and SpiNNaker). While long overshadowed by mainstream synchronous GPUs and TPUs, neuromorphic hardware is experiencing a renaissance as modern AI hits the power and bandwidth limits of von Neumann architectures—particularly in sparse, low-latency edge processing.
+Initially pioneered by Carver Mead in the late 1980s using subthreshold analog CMOS circuits, neuromorphic architecture has evolved across analog, digital, and memristive mediums (e.g., IBM TrueNorth, [Intel](../GLOSSARY.md) Loihi, BrainScaleS, and SpiNNaker). While long overshadowed by mainstream synchronous GPUs and TPUs, neuromorphic hardware is experiencing a renaissance as modern AI hits the power and bandwidth limits of von Neumann architectures—particularly in sparse, low-latency edge processing.
 
 ---
 
@@ -35,7 +35,7 @@ In 1989, Mead published *Analog VLSI and Neural Systems*, establishing the found
 | **BrainScaleS** (2011) | Heidelberg University | 180nm wafer-scale | 200k Neurons / 50M Synapses | ~1.0 Kilowatts | Continuous-time analog physical model; operates at a 10,000× physical acceleration speedup compared to real biological time. |
 | **SpiNNaker** (2014) | University of Manchester | 130nm CMOS | 1M ARM968 cores / 1B Neurons | ~1.0 Kilowatts | Massively parallel digital packet-switched toroidal mesh; schedules real-time biological neural networks. |
 | **TrueNorth** (2014) | IBM (DARPA SyNAPSE) | 28nm CMOS | 1M Neurons / 256M Synapses | 63 Milliwatts | Fully digital, asynchronous non-von Neumann spatial mesh; active power density of only $20\text{ mW/cm}^2$. |
-| **Loihi** (2017) | Intel Labs | 14nm FinFET | 131k Neurons / 130M Synapses | ~100 Milliwatts | Fully digital, asynchronous many-core mesh supporting on-chip Spike-Timing-Dependent Plasticity (STDP) learning. |
+| **Loihi** (2017) | [Intel](../GLOSSARY.md) Labs | 14nm FinFET | 131k Neurons / 130M Synapses | ~100 Milliwatts | Fully digital, asynchronous many-core mesh supporting on-chip Spike-Timing-Dependent Plasticity (STDP) learning. |
 
 ---
 
@@ -130,13 +130,13 @@ Because wiring millions of dedicated point-to-point connections on silicon is ph
 * **The Backpropagation & Training Instability Barrier**: The non-differentiable step function of a firing spike ($\Theta(V - V_{\text{th}})$) breaks standard gradient descent backpropagation. While techniques like *surrogate gradients* and *ANN-to-SNN conversion* have narrowed the gap, training deep SNNs is highly unstable, suffering from vanishing or exploding temporal gradients in networks deeper than a few dozen layers, limiting them on complex vision and NLP tasks.
 * **Algorithmic Mismatch with Modern LLMs/Transformers**: Standard LLMs and Transformer architectures rely heavily on dense matrix-matrix multiplications ($\text{GEMM}$), which map with extreme efficiency onto GPU SIMD/Tensor cores. Converting attention mechanisms to temporal spiking representations without losing precision, introducing severe latency, or increasing routing overhead remains an unresolved open challenge.
 * **Device Mismatch, Noise, and Precision Limits**: Analog and memristive neuromorphic systems suffer from device mismatch, thermal noise, and process-voltage-temperature (PVT) variations. This limits synaptic weight precision to the equivalent of **4 to 6 bits**, requiring specialized *hardware-in-the-loop (HIL)* training schemes to run networks without massive accuracy loss. Digital asynchronous systems (like Loihi) escape this noise but suffer from severe routing bottlenecks as spike density increases, leading to network-on-chip congestion and latency.
-* **Programming Toolchain Gap & Deployment Horizon (2035+)**: Software toolchains lack standardized, mature abstractions. Writing and optimizing code for a neuromorphic processor requires managing stateful differential equations, spatial mesh topology, temporal coding schemes, and asynchronous spike timing—far more complex than PyTorch or CUDA tensor operations. Consequently, while specialized sub-watt edge AI edge co-processors (e.g., for keyword spotting or drone odometry) are entering production (2026--2028), large-scale cloud-level neuromorphic general computation is not anticipated to compete with conventional accelerators before the **2035+ calendar horizon**.
+* **Programming Toolchain Gap & Deployment Horizon (2035+)**: Software toolchains lack standardized, mature abstractions. Writing and optimizing code for a neuromorphic processor requires managing stateful differential equations, spatial mesh topology, temporal coding schemes, and asynchronous spike timing—far more complex than PyTorch or [CUDA](../GLOSSARY.md) tensor operations. Consequently, while specialized sub-watt edge AI edge co-processors (e.g., for keyword spotting or drone odometry) are entering production (2026--2028), large-scale cloud-level neuromorphic general computation is not anticipated to compete with conventional accelerators before the **2035+ calendar horizon**.
 
 ---
 
 ## Reasons for Decline (and Niche Containment)
 
-1. **The CUDA & GPU Software [Ecosystem Lock-In](../patterns/ecosystem-lockin.md):** As deep learning exploded in the 2010s, massive capital and software tooling consolidated around synchronous dense matrix algebra (CUDA, cuDNN, PyTorch). Neuromorphic hardware lacked compilers that could ingest standard PyTorch model graphs transparently.
+1. **The [CUDA](../GLOSSARY.md) & GPU Software [Ecosystem Lock-In](../patterns/ecosystem-lockin.md):** As deep learning exploded in the 2010s, massive capital and software tooling consolidated around synchronous dense matrix algebra ([CUDA](../GLOSSARY.md), [cuDNN](../GLOSSARY.md), PyTorch). Neuromorphic hardware lacked compilers that could ingest standard PyTorch model graphs transparently.
 2. **The Triumph of "Worse is Better" (GPU Brute Force):** Although GPUs are architecturally inefficient for sparse temporal processing, rapid CMOS scaling (Dennard scaling followed by chiplet packaging) and high-bandwidth memory (HBM) enabled brute-force floating-point acceleration to outpace specialized neuromorphic hardware for mainstream commercial tasks.
 3. **Lack of On-Chip Learning Algorithms:** Biological networks learn locally using mechanisms like **Spike-Timing-Dependent Plasticity (STDP)**. Implementing stable, deep unsupervised local learning algorithms on hardware proved elusive; most commercial neuromorphic deployments were reduced to off-line trained inference engines.
 
@@ -176,7 +176,7 @@ While neuromorphic hardware did not displace general-purpose GPUs in cloud data 
 | --- | --- | --- |
 | Historical Importance | ★★★★☆ | Re-engineered silicon around biological principles, laying foundations for non-von Neumann hardware and event-based sensor processing. |
 | Technical Innovation | ★★★★★ | Completely eliminated global clocks, unified compute/memory, and pioneered subthreshold analog circuit design for continuous differential modeling. |
-| Commercial Success | ★★☆☆☆ | Consistently limited to academic labs and research prototypes due to the sheer dominance of GPU scaling and CUDA ecosystems. |
+| Commercial Success | ★★☆☆☆ | Consistently limited to academic labs and research prototypes due to the sheer dominance of GPU scaling and [CUDA](../GLOSSARY.md) ecosystems. |
 | Modern Potential | ★★★★★ | Essential for sub-watt edge AI, bio-interfaces, high-speed robotics, and neuromorphic co-processors in heterogeneous systems. |
 | AI Synergy | ★★★★★ | Direct structural mapping to spiking neural networks, temporal models, and sparse event-driven computing. |
 | Difficulty to Recreate | ★★★★★ | Extremely high design complexity, requiring mixed-signal asynchronous circuit layout or complex high-fidelity simulation models. |
@@ -189,7 +189,7 @@ While neuromorphic hardware did not displace general-purpose GPUs in cloud data 
 * **Merolla, P. A., et al.** (2014). *A million spiking-neuron integrated circuit with a scalable communication network and architecture*. *Science*, 345(6197), 668–673.
   - *Relevance*: Details the architecture of IBM's TrueNorth chip, demonstrating a fully digital, asynchronous, non-von Neumann 1-million neuron spatial mesh drawing only $20 \text{ mW/cm}^2$.
 * **Davies, M., et al.** (2018). *Loihi: A Neuromorphic Manycore Processor with On-Chip Learning*. *IEEE Micro*, 38(1), 82–99.
-  - *Relevance*: Introduces Intel's 14nm digital asynchronous Loihi chip, detailing the on-chip implementation of STDP learning rules and the Network-on-Chip (NoC) architecture.
+  - *Relevance*: Introduces [Intel](../GLOSSARY.md)'s 14nm digital asynchronous Loihi chip, detailing the on-chip implementation of STDP learning rules and the Network-on-Chip (NoC) architecture.
 * **Neftci, E. O., Mostafa, H., & Zenke, F.** (2019). *Surrogate gradient learning algorithms: Classifying scenes and sounds with spiking neural networks*. *IEEE Signal Processing Magazine*, 36(6), 51–63.
   - *Relevance*: Formulates the surrogate gradient descent method for SNN training, explaining how to bypass the non-differentiability of spike functions during backpropagation.
 * **Sebastian, A., et al.** (2020). *Memory devices and applications for in-memory computing*. *Nature Nanotechnology*, 15(7), 529–544.

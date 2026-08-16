@@ -75,7 +75,7 @@ Numbers are represented in powers of 3, with each position weighted **3ⁿ** and
 Balanced ternary failed for primarily **non-mathematical and physical fabrication reasons**:
 
 1. **The Binary Yield Advantage**: Transistors operate most reliably as simple on/off switches (fully saturated or cut-off). Designing a reliable silicon-level transistor that supports three distinct voltage states (e.g., negative voltage, ground, positive voltage) with high noise margins proved far more complex and costly than standard binary logic gates.
-2. **Manufacturing scale & economics**: The Western computer industry, led by IBM and Intel, standardized on binary. This funneled billions of dollars of capital into optimizing binary fabrication processes, driving down transistor costs exponentially (Moore's Law). Ternary could not compete with binary's raw economic scale.
+2. **Manufacturing scale & economics**: The Western computer industry, led by IBM and [Intel](../GLOSSARY.md), standardized on binary. This funneled billions of dollars of capital into optimizing binary fabrication processes, driving down transistor costs exponentially (Moore's Law). Ternary could not compete with binary's raw economic scale.
 3. **Ecosystem and Software Lock-in**: All digital peripherals, physical communication lines, compiler abstractions, and programming languages were built from the ground up on the assumption of two-state binary storage and addressing.
 
 ---

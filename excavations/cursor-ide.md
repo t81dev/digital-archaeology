@@ -1,12 +1,12 @@
-# Cursor IDE: The AI-Native Editor Substrate & Agentic Workspace
+# [Cursor IDE](../GLOSSARY.md): The AI-Native Editor Substrate & Agentic Workspace
 
-> An archaeological excavation of Cursor IDE as a computational lineage, investigating how the integration of codebase context indexing, supervised multi-file edit agents, diff-mediated trust boundaries, and VS Code extension-host compatibility transformed the code editor from a text/LSP interface into an AI-mediated software production environment.
+> An archaeological excavation of [Cursor IDE](../GLOSSARY.md) as a computational lineage, investigating how the integration of codebase context indexing, supervised multi-file edit agents, diff-mediated trust boundaries, and VS Code extension-host compatibility transformed the code editor from a text/LSP interface into an AI-mediated software production environment.
 
 ---
 
 ## Summary
 
-The **Cursor IDE** lineage represents a pivotal transition in software engineering tooling: the conversion of the integrated development environment (IDE) from a deterministic text-editing and Language Server Protocol (LSP) host into an **AI-native software production substrate**. While popular discourse often frames Cursor in terms of developer productivity hype or LLM benchmark competition, digital archaeology evaluates Cursor as a structural transformation in the developer workspace.
+The **[Cursor IDE](../GLOSSARY.md)** lineage represents a pivotal transition in software engineering tooling: the conversion of the integrated development environment (IDE) from a deterministic text-editing and Language Server Protocol (LSP) host into an **AI-native software production substrate**. While popular discourse often frames Cursor in terms of developer productivity hype or LLM benchmark competition, digital archaeology evaluates Cursor as a structural transformation in the developer workspace.
 
 Cursor's core technical achievement was not the creation of proprietary foundation models, but rather the **architectural synthesis of four distinct developer-tooling abstractions**:
 1. **An Editor Substrate Compatibility Bridge**: Forking VS Code (Code - OSS) to inherit its extension ecosystem, keybindings, and UI contracts while replacing the core buffer-mutation and rendering paths with deep model hooks.
@@ -50,7 +50,7 @@ Cursor addressed these limitations by taking an explicit architectural risk: **f
 
 ## Archaeological Scope
 
-This excavation covers the architecture of Cursor IDE and its surrounding ecosystem across seven key dimensions:
+This excavation covers the architecture of [Cursor IDE](../GLOSSARY.md) and its surrounding ecosystem across seven key dimensions:
 
 ```
                       Cursor Archaeological Scope
@@ -508,7 +508,7 @@ Applying the repository's [Recurring Ideas](../patterns/recurring-ideas.md) patt
 
 ## Comparative Analysis
 
-| Dimension | Classical VS Code + LSP | GitHub Copilot Plugin | **Cursor IDE** | CLI Coding Agents (Aider / Claude Code) |
+| Dimension | Classical VS Code + LSP | GitHub Copilot Plugin | **[Cursor IDE](../GLOSSARY.md)** | CLI Coding Agents (Aider / Claude Code) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Substrate Strategy** | Upstream Editor | Standard Extension API | **Source-Forked Editor (Code - OSS)** | Terminal Process / Headless Shell |
 | **Context Retrieval** | LSP Symbol Table | Active Tab / Neighboring Files | **Hybrid Vector + AST + Diagnostic RAG** | Git Diff + Tree-sitter Repo Map |
@@ -531,7 +531,7 @@ Applying the repository's [Recurring Ideas](../patterns/recurring-ideas.md) patt
 
 ## Reconstruction Proposal: AI-Native Editor Substrate Simulator
 
-To demonstrate the core mechanisms of Cursor IDE without cloud dependencies or complex Electron UI builds, a zero-dependency Python simulator is implemented in `reconstructions/cursor_ide/cursor_sim.py`.
+To demonstrate the core mechanisms of [Cursor IDE](../GLOSSARY.md) without cloud dependencies or complex Electron UI builds, a zero-dependency Python simulator is implemented in `reconstructions/cursor_ide/cursor_sim.py`.
 
 ### Simulated Subsystems
 1. **Context Packet Assembly Engine**: Combines active file buffers, LSP diagnostic errors, user instructions, project rules (`.cursorrules`), and AST/vector codebase search results into a budgeted token packet.

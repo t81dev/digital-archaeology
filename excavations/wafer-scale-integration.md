@@ -98,7 +98,7 @@ When a defective cell is detected during wafer-level testing, hardware fuses or 
 ## Innovations
 
 * **Massive On-Wafer Memory Bandwidth:** By replacing external DRAM/HBM channels with millions of distributed, localized SRAM banks across the entire wafer, WSI delivers tens of petabytes-per-second of memory bandwidth ($\sim 20\text{ PByte/s}$ on modern WSE engines).
-* **Elimination of Reticle-Boundary Constraints:** Standard lithography machines step across a wafer printing individual "reticle fields" (typically capped at $\sim 858\text{ mm}^2$). Modern WSI bridges scribe lines between reticle fields using short high-density metal lines, presenting a uniform, continuous 2D grid to software.
+* **Elimination of Reticle-Boundary Constraints:** Standard lithography machines step across a wafer printing individual "reticle fields" (typically capped at $\sim 858\text{ mm}^2$). Modern WSI bridges scribe lines between reticle fields using short high-density [metal](../GLOSSARY.md) lines, presenting a uniform, continuous 2D grid to software.
 * **Unprecedented Communication Density:** Direct 2D mesh fabrics span hundreds of thousands of identical processing cores with sub-nanosecond core-to-core latencies.
 
 ---
@@ -106,7 +106,7 @@ When a defective cell is detected during wafer-level testing, hardware fuses or 
 ## Limitations
 
 * **Extreme Thermal and Power Delivery Challenges:** A single $300\text{mm}$ wafer drawing $15\text{ to }20\text{ kW}$ of power cannot be air-cooled. Modern WSI systems require specialized direct-to-wafer liquid cooling cold plates and custom perpendicular power delivery manifolds.
-* **Thermal Expansion Mismatch (CTE):** A giant silicon wafer expands at a different rate than surrounding metal chassis components. Mechanical strain can crack the silicon substrate if thermal expansion coefficients are not precisely matched.
+* **Thermal Expansion Mismatch (CTE):** A giant silicon wafer expands at a different rate than surrounding [metal](../GLOSSARY.md) chassis components. Mechanical strain can crack the silicon substrate if thermal expansion coefficients are not precisely matched.
 * **Capital Cost and Manufacturing Barrier:** Photolithography, wafer-scale testing equipment, and custom packaging hardware require massive upfront capital investment, limiting commercial viability to high-density datacenter AI supercomputing.
 
 ---
@@ -124,7 +124,7 @@ When a defective cell is detected during wafer-level testing, hardware fuses or 
 WSI principles have transitioned from an architectural pipe dream into a cornerstone of modern high-performance AI hardware:
 
 * **Cerebras Wafer-Scale Engine (WSE-3):** Fabricated on TSMC's 5nm process, the WSE-3 integrates **4 trillion transistors**, **900,000 AI-optimized compute cores**, and **44 Gigabytes of on-wafer SRAM** onto a single $46,225\text{ mm}^2$ wafer.
-* **2.5D / 3D Chiplets & Advanced Packaging (TSMC CoWoS, Intel EMIB):** While not full-wafer WSI, modern chiplet architectures (such as AMD EPYC, Apple Ultra, and NVIDIA Blackwell) use silicon interposers to stitch multiple reticle-sized dies together—directly inheriting WSI’s low-capacitance, high-density interconnect physics.
+* **2.5D / 3D Chiplets & Advanced Packaging (TSMC CoWoS, [Intel](../GLOSSARY.md) EMIB):** While not full-wafer WSI, modern chiplet architectures (such as AMD EPYC, Apple Ultra, and [NVIDIA](../GLOSSARY.md) Blackwell) use silicon interposers to stitch multiple reticle-sized dies together—directly inheriting WSI’s low-capacitance, high-density interconnect physics.
 * **Wafer-Level System-in-Package (WL-SiP):** Tesla's Dojo AI training system uses custom wafer-scale integrated modules (Dojo System-on-Wafer) combining 25 individual D1 chips bonded onto an integrated liquid-cooled substrate.
 
 ---

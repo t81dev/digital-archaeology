@@ -6,7 +6,7 @@
 
 ## Summary
 
-The J-Machine (Jellybean Machine) was a landmark, fine-grained, massively parallel computer architecture developed in the late 1980s and early 1990s by the Concurrent VLSI Architecture Group at MIT, led by parallel-computing pioneer **William Dally**, in collaboration with Intel.
+The J-Machine (Jellybean Machine) was a landmark, fine-grained, massively parallel computer architecture developed in the late 1980s and early 1990s by the Concurrent VLSI Architecture Group at MIT, led by parallel-computing pioneer **William Dally**, in collaboration with [Intel](../GLOSSARY.md).
 
 The machine was called a "jellybean" machine because its design philosophy argued that high-performance computing should not be built from expensive, specialized processors, but from massive arrays of cheap, single-chip commodity nodes—like jellybeans—that integrated a processor, memory, and a fast routing network on a single die.
 
@@ -39,7 +39,7 @@ In the mid-1980s, supercomputing was dominated by monolithic, vector processors 
 
 William Dally and his research team at MIT realized that scaling parallel machines to tens of thousands of processors required reducing the cost of communication to match the cost of arithmetic. If sending a message could be made as cheap as a register addition, programs could be decomposed into highly fine-grained parallel processes.
 
-Under this premise, the MIT team, along with Intel's Component Research Group, designed and fabricated the **MDP (Message-Driven Processor)** chip. Completed in 1991, each MDP integrated a 32-bit integer execution unit, a 3D network router, a message coprocessor, and 4,000 words (16 KB) of on-chip SRAM. An experimental 512-node system was built at MIT, demonstrating that fine-grained object-oriented coordination could run on a hardware-supported distributed fabric.
+Under this premise, the MIT team, along with [Intel](../GLOSSARY.md)'s Component Research Group, designed and fabricated the **MDP (Message-Driven Processor)** chip. Completed in 1991, each MDP integrated a 32-bit integer execution unit, a 3D network router, a message coprocessor, and 4,000 words (16 KB) of on-chip SRAM. An experimental 512-node system was built at MIT, demonstrating that fine-grained object-oriented coordination could run on a hardware-supported distributed fabric.
 
 Despite showcasing unprecedented communication speeds, the J-Machine failed to achieve commercial traction. It was swept away in the mid-1990s by the explosive growth of Moore's Law, which made standard, high-volume commodity microprocessors so fast and cheap that custom parallel silicon could not compete economically.
 
@@ -116,7 +116,7 @@ The MDP used a **36-bit [tagged memory](../GLOSSARY.md)** architecture (32 bits 
 
 ## Reasons for Decline
 
-1. **The Standard Workstation Revolution (Beowulf Clusters):** In the early 1990s, the performance of standard commodity CPUs (Intel, Alpha, SPARC) grew exponentially due to high clock rates and deep pipelines. It became far more cost-effective to stitch together hundreds of standard workstations using commodity networking (such as Myrinet or Ethernet) than to manufacture custom MDP silicon.
+1. **The Standard Workstation Revolution (Beowulf Clusters):** In the early 1990s, the performance of standard commodity CPUs ([Intel](../GLOSSARY.md), Alpha, SPARC) grew exponentially due to high clock rates and deep pipelines. It became far more cost-effective to stitch together hundreds of standard workstations using commodity networking (such as Myrinet or Ethernet) than to manufacture custom MDP silicon.
 2. **The Software Standardization on MPI:** The parallel computing industry standardized on coarse-grained, software-driven message-passing interfaces like **MPI (Message Passing Interface)**. While MPI had high latency overhead, it ran on any hardware platform, defeating the proprietary, custom assembly instructions of the J-Machine.
 3. **The Complexity of the Fine-Grained Software Model:** Programming the J-Machine required compilers or languages (like Concurrent [Smalltalk](smalltalk.md) or Cantor) that could handle millions of tiny, asynchronous objects. Most developers preferred standard, sequential C or Fortran code wrapped in coarse-grained parallel partitions.
 
@@ -126,10 +126,10 @@ The MDP used a **36-bit [tagged memory](../GLOSSARY.md)** architecture (32 bits 
 
 As silicon scaling reaches its physical limits and the **Von Neumann memory wall** chokes general-purpose performance, the core principles of the J-Machine are undergoing a major renaissance:
 
-* **Networks-on-Chip (NoCs) in Many-Core Chips:** Modern GPUs, Google TPUs, and multi-core CPUs are no longer structured as a single monolithic processor. Instead, they are composed of a grid of independent execution cores connected via a highly optimized, on-silicon 2D/3D packet-routing network—structurally identical to the J-Machine’s MDP integration.
+* **Networks-on-Chip (NoCs) in Many-Core Chips:** Modern GPUs, [Google](../GLOSSARY.md) TPUs, and multi-core CPUs are no longer structured as a single monolithic processor. Instead, they are composed of a grid of independent execution cores connected via a highly optimized, on-silicon 2D/3D packet-routing network—structurally identical to the J-Machine’s MDP integration.
 * **Cerebras Wafer-Scale Engine (WSE):** The WSE is the ultimate physical realization of the "jellybean" philosophy. By building hundreds of thousands of AI-optimized cores on a single, uncut silicon wafer, Cerebras avoids chip packaging and PCB traces entirely. Cores communicate asynchronously via a fine-grained, localized spatial routing fabric that echoes the J-Machine's wormhole-routing network.
 * **Distributed Actor Frameworks (Ray & Akka):** Modern distributed computing workloads (such as scaling large language models across thousands of GPUs) utilize software-implemented [Active Messages](../GLOSSARY.md). In **Ray**, tasks and objects are routed dynamically across a cluster using global object identifiers and executed asynchronously, mirroring the J-Machine's execution model.
-* **Neuromorphic Spike Routing:** Spiking neuromorphic architectures (like Intel Loihi) route events (spikes) across distributed, asynchronous neural cores using on-chip routers, inheriting the J-Machine's fine-grained, event-driven message dispatch mechanisms.
+* **Neuromorphic Spike Routing:** Spiking neuromorphic architectures (like [Intel](../GLOSSARY.md) Loihi) route events (spikes) across distributed, asynchronous neural cores using on-chip routers, inheriting the J-Machine's fine-grained, event-driven message dispatch mechanisms.
 
 ---
 

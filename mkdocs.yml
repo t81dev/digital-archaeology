@@ -74,7 +74,8 @@ nav:
   - Excavations:
     - Overview: excavations/README.md
     - Analog Computing: excavations/analog-computing.md
-    - Apple: excavations/apple.md
+    - Apple Platform: excavations/apple.md
+    - Apple Metal: excavations/apple-metal.md
     - Associative Processors: excavations/associative-processors.md
     - Asynchronous Processors: excavations/asynchronous-processors.md
     - Balanced Ternary: excavations/balanced-ternary.md
@@ -83,31 +84,45 @@ nav:
     - Capability Systems: excavations/capability-systems.md
     - Cellular Automata: excavations/cellular-automata-hardware.md
     - Connection Machine: excavations/connection-machine.md
+    - C++ Systems Lineage: excavations/cpp.md
+    - Cursor IDE & Agentic Workspace: excavations/cursor-ide.md
     - Dataflow Computing: excavations/dataflow-computing.md
     - EBCDIC: excavations/ebcdic.md
     - Explicit Data Graph Execution (EDGE): excavations/edge-architecture.md
     - Fluidic Logic Systems: excavations/fluidic-logic-systems.md
+    - Gentoo Linux: excavations/gentoo.md
+    - Google Platform Machine: excavations/google.md
     - Graph Reduction Machines: excavations/graph-reduction-machines.md
     - Inferno: excavations/inferno.md
+    - Intel Architecture: excavations/intel.md
     - Intel iAPX 432: excavations/intel-iapx-432.md
     - MIT J-Machine: excavations/j-machine.md
     - KeyKOS & Nanokernel Capabilities: excavations/keykos-nanokernel-capabilities.md
-    - Lisp Machines: excavations/lisp-machines.md
-    - Linux: excavations/linux.md
+    - Large Language Models: excavations/large-language-models.md
     - Linda Tuple Spaces: excavations/linda-tuple-spaces.md
+    - Linux Operating Substrate: excavations/linux.md
+    - Lisp Machines: excavations/lisp-machines.md
+    - llama.cpp Local Inference: excavations/llama-cpp.md
     - Logarithmic Number System: excavations/logarithmic-number-system.md
-    - Microsoft: excavations/microsoft.md
+    - Microsoft Platform: excavations/microsoft.md
     - Molecular Biocomputing: excavations/molecular-biocomputing.md
     - Multics: excavations/multics.md
+    - Netscape Runtime Substrate: excavations/netscape.md
     - Neuromorphic Hardware: excavations/neuromorphic-hardware.md
+    - NVIDIA SIMT & CUDA: excavations/nvidia.md
     - Occam: excavations/occam.md
-    - OpenAI: excavations/openai.md
+    - ONNX IR & Graph Runtime: excavations/onnx.md
+    - OpenAI Platform Substrate: excavations/openai.md
     - Optical Computing: excavations/optical-computing.md
     - Plan 9: excavations/plan-9.md
+    - Portage Package Manager: excavations/portage.md
+    - Posit Arithmetic & Unums: excavations/posit-arithmetic.md
     - Project Xanadu: excavations/project-xanadu.md
     - Prolog & FGCS WAM Hardware: excavations/prolog-wam-fgcs-hardware.md
+    - Qt Meta-Object Runtime: excavations/qt.md
     - Residue Number System: excavations/residue-number-system.md
     - Reversible Computing: excavations/reversible-computing.md
+    - Safari & WebKit Runtime: excavations/safari.md
     - Smalltalk: excavations/smalltalk.md
     - Stack Machines: excavations/stack-machines.md
     - Stochastic Computing: excavations/stochastic-computing.md
@@ -118,13 +133,18 @@ nav:
     - Vector Supercomputing: excavations/vector-supercomputing.md
     - VLIW & EPIC: excavations/vliw-epic.md
     - Wafer-Scale Integration: excavations/wafer-scale-integration.md
+    - Winamp Plugin Substrate: excavations/winamp.md
   - Architectural Patterns:
     - Overview: patterns/README.md
+    - Abstract Machine Persistence: patterns/abstract-machine-persistence.md
     - Constraint Migration: patterns/constraint-migration.md
     - Economic Failures: patterns/economic-failures.md
     - Ecosystem Lock-in: patterns/ecosystem-lockin.md
+    - Explicit Authority Substrate: patterns/explicit-authority-substrate.md
     - Forgotten Abstractions: patterns/forgotten-abstractions.md
     - Heterogeneous Revival: patterns/heterogeneous-revival.md
+    - Interface / Conversion Tax: patterns/interface-conversion-tax.md
+    - Operator-Cost Inversion: patterns/operator-cost-inversion.md
     - Recurring Ideas: patterns/recurring-ideas.md
   - Comparative Synthesis:
     - Research & Academic Overview: synthesis/digital-archaeology-overview.md
@@ -134,7 +154,12 @@ nav:
     - Capability-Based Security: synthesis/capability-based-security.md
     - Compiler-Hardware Co-Design: synthesis/compiler-hardware-co-design.md
     - The Evolution of Coordination Abstractions: synthesis/evolution-of-coordination-abstractions.md
+    - Excavation Completeness Audit: synthesis/excavation-completeness-formatting-audit.md
     - Heterogeneous Revival Synergies: synthesis/heterogeneous-revival-synergies.md
+    - Pattern Catalog Revision Report: synthesis/pattern-catalog-revision-report.md
+    - Pattern Impact Audit: synthesis/pattern-impact-audit-recent-inclusions.md
+    - Recent Inclusions Cross-Cut Synthesis: synthesis/recent-inclusions-crosscut.md
+    - Repository Consistency Audit: synthesis/repo-consistency-audit.md
     - Return of Spatial Computing: synthesis/return-of-spatial-computing.md
     - State of Revival Synthesis: synthesis/state-of-revival.md
   - Modern Relevance:

@@ -2,6 +2,16 @@
 
 All notable changes to the Digital Archaeology repository will be documented in this file.
 
+## [Phase XI: Repo-Wide Gap Analysis & Structural Alignment] - August 2026
+
+### Fixed & Synced
+- **Navigation & Documentation Site Alignment**: Fully synchronized `mkdocs.yml` navigation structure to include all 61 excavations, 10 architectural patterns, and 15 comparative synthesis essays.
+- **Reconstructions Inventory Refresh**: Rewrote `reconstructions/README.md` to catalog all 33 zero-dependency Python simulator packages, synthesizable hardware soft-cores, and co-simulation orchestrators with entry points and paradigm mappings.
+- **Repository Index & Badge Alignment**: Synced `INDEX.md` and `README.md` to include missing excavations (`onnx.md`, `posit-arithmetic.md`, `j-machine.md`, `openai.md`) and updated shield badges to accurately reflect 61 completed excavations and 33 interactive reconstructions.
+- **Automated Cross-Reference Injections**: Ran `tools/cross_reference_generator.py --all` across 131 files, injecting 940 relative links across 71 markdown files to maximize relational density.
+- **Knowledge Graph JSON Database**: Re-generated `modern-relevance/knowledge_graph.json` covering 61 excavations, 16 synthesis essays, 33 reconstructions, and 137 glossary terms.
+- **Gap Analysis Artifacts**: Created `synthesis/repo-wide-gap-analysis.md` and `synthesis/repo-wide-gap-actions.json` documenting the gap taxonomy, discovery results, implemented fixes, and residual maintenance protocols.
+
 ## [Phase X: [Constraint Migration](patterns/constraint-migration.md) Predictive Hypothesis Engine & Alternative Hardware Forecasting] - August 2026
 
 ### Added
@@ -61,7 +71,7 @@ All notable changes to the Digital Archaeology repository will be documented in 
 ### Improved
 - **[Stochastic Computing](excavations/stochastic-computing.md) Simulator Expansion**: Upgraded `reconstructions/stochastic-computing/stochastic_sim.py` with multi-input stochastic artificial neuron and 1-D moving-average smoothing filter workloads. Added a quantitative accuracy-vs-energy proxy (active CMOS logic gate transitions) trade-off evaluation comparing stochastic multipliers with standard 8-bit binary multipliers.
 - **Sourced Historical Documentation**:
-  - Deepened `excavations/neuromorphic-hardware.md` with MOSFET subthreshold exponential physics, ASCII diagrams of LIF neuron and AER routing mechanics, and a detailed comparison table of historical metrics (IBM TrueNorth, Stanford Neurogrid, Heidelberg BrainScaleS, Manchester SpiNNaker, Intel Loihi).
+  - Deepened `excavations/neuromorphic-hardware.md` with MOSFET subthreshold exponential physics, ASCII diagrams of LIF neuron and AER routing mechanics, and a detailed comparison table of historical metrics (IBM TrueNorth, Stanford Neurogrid, Heidelberg BrainScaleS, Manchester SpiNNaker, [Intel](GLOSSARY.md) Loihi).
   - Deepened `excavations/stochastic-computing.md` with Gaines' saturating state counter FSM activation math, unipolar/bipolar SCG comparator diagrams, and historical metrics (Gaines' ADDIE, RASCEL).
 - **Relational Density & scorecards**: Integrated the Neuromorphic & Stochastic cluster as the 5th scored lineage inside `modern-relevance/revival-readiness.md`. Strengthened bidirectional links from excavations to `patterns/constraint-migration.md`, `modern-relevance/ai.md`, and `synthesis/return-of-spatial-computing.md`. Updated the top-of-README simulator index to 13 simulators and featured new co-processor paths in `using-this-repo.md`.
 
@@ -129,7 +139,7 @@ Now that the major physical and systems lineages are fully covered, mapped, and 
 - **Academic Lab Manual Deepening**:
   - `reconstructions/LAB_MANUAL.md`: Expanded Lab Module 3 with two new graduate-level hands-on challenges (Challenge 3B on Lisp dynamic typing and Challenge 3C on Burroughs descriptor page fault recovery).
 - **Deepened Spatial & Parallel Excavations**:
-  - `excavations/systolic-arrays.md`: Greatly expanded historical specifications of Carnegie Mellon Warp (100 MFLOPS, Weitek FP chips) and Intel-CMU iWarp (1.2-micron CMOS, 20 MFLOPS/node, 320 MB/s links), illustrated detailed Weight-Stationary and Output-Stationary ASCII/Mermaid structures, and discussed Google TPU and GPU Tensor Core design lineages.
+  - `excavations/systolic-arrays.md`: Greatly expanded historical specifications of Carnegie Mellon [Warp](GLOSSARY.md) (100 MFLOPS, Weitek FP chips) and [Intel](GLOSSARY.md)-CMU iWarp (1.2-micron CMOS, 20 MFLOPS/node, 320 MB/s links), illustrated detailed Weight-Stationary and Output-Stationary ASCII/Mermaid structures, and discussed [Google](GLOSSARY.md) TPU and GPU [Tensor Core](GLOSSARY.md) design lineages.
   - `excavations/connection-machine.md`: Grounded in Danny Hillis's MIT dissertation, providing specific metrics on CM-1 (65,536 1-bit nodes, 4 MHz, 32 MB RAM), CM-2 (Weitek FPU accelerators, 2.5 GFLOPS peak), and CM-5 (SPARC cores, fat-tree MIMD topology). Mapped dynamic packet routing, the Virtual Processor Ratio (VPR), and processing-in-memory to modern SIMT and wafer-scale architectures.
   - `excavations/transputers.md`: Fully documented INMOS T414 (15 MIPS), T800 (FPU-on-die, 1.5-micron, 250k transistors), and T9000 milestones. Highlighted the microcoded low/high priority hardware multitasking scheduler, internal/external zero-copy channel rendezvous mechanisms, and the elegant [occam](excavations/occam.md) compiler CSP-to-silicon co-design. Mapped concepts to Go channels, Erlang actors, and modern Networks-on-Chip (NoC).
 - **Relational Density & Bidirectional Linking**: Strengthened link intersections from excavations to spatial computing, AI, and FPGA relevance files (`synthesis/return-of-spatial-computing.md`, `patterns/constraint-migration.md`, `modern-relevance/ai.md`, `modern-relevance/fpga.md`, and `synthesis/capability-based-security.md`).

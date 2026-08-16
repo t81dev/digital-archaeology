@@ -30,7 +30,7 @@ This audit assesses the impact of five newly integrated excavations on the repos
 *   **Significance**: This "tax" is the primary economic and physical force that determines why a localized technical advantage (like 1-cycle logarithmic multiplication) fails to displace the mainstream. It shifts the design bottleneck from the execution core to the boundary interface.
 
 ### Candidate C: [Abstract Machine Persistence](../patterns/abstract-machine-persistence.md)
-*   **Recurrence**: Demonstrates how the Warren Abstract Machine (WAM) preserved declarative logic programming past the collapse of FGCS hardware; similarly, the object-capability patterns of [KeyKOS](../GLOSSARY.md) survived by migrating into the WebAssembly VM (WASI) and Google's Zircon runtime.
+*   **Recurrence**: Demonstrates how the Warren Abstract Machine (WAM) preserved declarative logic programming past the collapse of FGCS hardware; similarly, the object-capability patterns of [KeyKOS](../GLOSSARY.md) survived by migrating into the WebAssembly VM (WASI) and [Google](../GLOSSARY.md)'s Zircon runtime.
 *   **Significance**: It provides a concrete predictive signal for digital archaeology: software-defined virtual machines are highly durable carriers of alternative paradigms, outliving their specialized physical silicon hosts.
 
 ### Candidate D: [Operator-Cost Inversion](../patterns/operator-cost-inversion.md)

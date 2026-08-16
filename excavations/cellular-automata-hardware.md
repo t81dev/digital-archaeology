@@ -125,7 +125,7 @@ While stand-alone "Cellular Automata Machines" vanished as commercial products, 
 
 * **Field-Programmable Gate Arrays (FPGAs):** Modern FPGAs are directly descended from CA architecture principles—consisting of a 2D spatial grid of Lookup Tables (LUTs), flip-flops, and configurable neighbor routing channels.
 * **Wafer-Scale AI Processors (Cerebras WSE):** The Cerebras Wafer-Scale Engine utilizes a 2D mesh of hundreds of thousands of independent processing cores connected via a high-speed spatial fabric, executing tensor computations as localized spatial stencil operations.
-* **[Systolic Arrays](systolic-arrays.md) and Stencil Accelerators:** Google’s Tensor Processing Unit (TPU) and domain-specific physics accelerators use spatial 2D grid meshes to push data through neighboring processing elements without central register file access.
+* **[Systolic Arrays](systolic-arrays.md) and Stencil Accelerators:** [Google](../GLOSSARY.md)’s Tensor Processing Unit (TPU) and domain-specific physics accelerators use spatial 2D grid meshes to push data through neighboring processing elements without central register file access.
 * **Lattice-Boltzmann Physics Solvers:** Modern fluid dynamics and aerodynamic solvers (e.g., in aerospace and automotive design) run parallelized Lattice-Boltzmann Method (LBM) algorithms on massive GPU grids, directly inheriting the physics model of 1980s lattice-gas cellular automata.
 
 ---

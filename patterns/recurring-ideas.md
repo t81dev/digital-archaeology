@@ -28,7 +28,7 @@ This pattern catalog identifies recurring ideas, documents their historical appe
 
 ### 4. Alternative Number Systems & Representations
 - **Original**: [Balanced Ternary](../excavations/balanced-ternary.md) (Setun), decimal machines, [Residue Number System](../excavations/residue-number-system.md) (RNS), [Logarithmic Number System](../excavations/logarithmic-number-system.md) (LNS).
-- **Modern forms**: Posits, logarithmic tensor core math formats (LNS8/FP8) in NPUs, RNS-accelerated Fully Homomorphic Encryption (FHE) cloud processors, [stochastic computing](../excavations/stochastic-computing.md) filters, and multi-valued logic research.
+- **Modern forms**: Posits, logarithmic [tensor core](../GLOSSARY.md) math formats (LNS8/FP8) in NPUs, RNS-accelerated Fully Homomorphic Encryption (FHE) cloud processors, [stochastic computing](../excavations/stochastic-computing.md) filters, and multi-valued logic research.
 
 ### 5. Deep Language-Hardware Integration
 - **Original**: [Lisp Machines](../excavations/lisp-machines.md), [Burroughs Large Systems](../excavations/burroughs-large-systems.md), Symbolics Genera (microcode + rich runtime)

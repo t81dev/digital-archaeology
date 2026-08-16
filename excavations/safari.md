@@ -1,16 +1,16 @@
-# Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate
+# [Safari](../GLOSSARY.md): The [WebKit](../GLOSSARY.md) Engine Lineage & Platform Web Runtime Substrate
 
-> An archaeological excavation of Safari and the WebKit engine lineage, investigating how the KHTML fork, deep OS integration, JavaScriptCore JIT architectures, WebKit2 multi-process separation, WKWebView application embedding, and Intelligent Tracking Prevention transformed the browser from an application product into Apple's policy-bearing web runtime substrate.
+> An archaeological excavation of [Safari](../GLOSSARY.md) and the [WebKit](../GLOSSARY.md) engine lineage, investigating how the KHTML fork, deep OS integration, JavaScriptCore JIT architectures, WebKit2 multi-process separation, [WKWebView](../GLOSSARY.md) application embedding, and Intelligent Tracking Prevention transformed the browser from an application product into Apple's policy-bearing web runtime substrate.
 
 ---
 
 ## Historical Context
 
-In consumer technology history, Safari is frequently categorized as a bundled macOS/iOS browser application or evaluated through benchmark contests, battery efficiency marketing, and market-share debates. In digital archaeology, however, **Safari represents a foundational web engine lineage and platform runtime machine**: the architectural stack that transformed the KHTML open-source rendering core into **WebKit**, pioneered mobile web constraints on the iPhone, established multi-process content sandboxing (`WebKit2`), and turned privacy enforcement (Intelligent Tracking Prevention) into runtime policy-in-code.
+In consumer technology history, [Safari](../GLOSSARY.md) is frequently categorized as a bundled macOS/iOS browser application or evaluated through benchmark contests, battery efficiency marketing, and market-share debates. In digital archaeology, however, **[Safari](../GLOSSARY.md) represents a foundational web engine lineage and platform runtime machine**: the architectural stack that transformed the KHTML open-source rendering core into **[WebKit](../GLOSSARY.md)**, pioneered mobile web constraints on the iPhone, established multi-process content sandboxing (`WebKit2`), and turned privacy enforcement (Intelligent Tracking Prevention) into runtime policy-in-code.
 
-When Apple launched Safari in January 2003, personal computer web browsing on Mac OS X was dominated by third-party ports: Microsoft Internet Explorer for Mac (based on the Tasman engine), [Netscape](../GLOSSARY.md)/Mozilla (Gecko), and Opera. Apple needed an engine it controlled—one lightweight enough to embed across system applications, tight enough to leverage macOS Cocoa and Quartz graphics primitives, and flexible enough to scale down to low-power, memory-constrained mobile silicon.
+When Apple launched [Safari](../GLOSSARY.md) in January 2003, personal computer web browsing on Mac OS X was dominated by third-party ports: Microsoft Internet Explorer for Mac (based on the Tasman engine), [Netscape](../GLOSSARY.md)/Mozilla (Gecko), and Opera. Apple needed an engine it controlled—one lightweight enough to embed across system applications, tight enough to leverage macOS Cocoa and Quartz graphics primitives, and flexible enough to scale down to low-power, memory-constrained mobile silicon.
 
-Rather than building a clean-slate engine or adopting Gecko, Apple selected **KHTML and KJS**—the lightweight C++ rendering and JavaScript libraries developed by the KDE project for the Konqueror desktop. Apple forked KHTML into **WebKit** (comprising WebCore and JavaScriptCore), establishing an engine architecture designed for embedding (`WebView`), deep platform integration, and fine-grained resource control.
+Rather than building a clean-slate engine or adopting Gecko, Apple selected **KHTML and KJS**—the lightweight C++ rendering and JavaScript libraries developed by the KDE project for the Konqueror desktop. Apple forked KHTML into **[WebKit](../GLOSSARY.md)** (comprising WebCore and JavaScriptCore), establishing an engine architecture designed for embedding (`WebView`), deep platform integration, and fine-grained resource control.
 
 ```
        Safari / WebKit Vertically Integrated Runtime Architecture
@@ -37,17 +37,17 @@ Rather than building a clean-slate engine or adopting Gecko, Apple selected **KH
  └────────────────────────────────────────────────────────────────────────┘
 ```
 
-Through WebKit, Safari achieved ecosystem-scale persistence:
-1. **The Mobile Web Substrate**: In 2007, iPhone OS shipped with a mobile-optimized WebKit runtime, defining viewport scaling, touch event handling, and hardware-accelerated CSS compositing for the mobile web.
-2. **The Open-Source Engine Engine**: WebKit was adopted beyond Apple by [Google](../GLOSSARY.md) (Chrome/Android until the 2013 Blink fork), Nokia (S60), BlackBerry (BB10), Samsung, and thousands of embedded platforms.
-3. **App-Embedded Web Views**: Through `WebKit.framework` (`WebView` and `WKWebView`), WebKit became the universal rendering substrate for desktop and mobile native applications across macOS, iOS, watchOS, and visionOS.
+Through [WebKit](../GLOSSARY.md), [Safari](../GLOSSARY.md) achieved ecosystem-scale persistence:
+1. **The Mobile Web Substrate**: In 2007, iPhone OS shipped with a mobile-optimized [WebKit](../GLOSSARY.md) runtime, defining viewport scaling, touch event handling, and hardware-accelerated CSS compositing for the mobile web.
+2. **The Open-Source Engine Engine**: [WebKit](../GLOSSARY.md) was adopted beyond Apple by [Google](../GLOSSARY.md) (Chrome/Android until the 2013 Blink fork), Nokia (S60), BlackBerry (BB10), Samsung, and thousands of embedded platforms.
+3. **App-Embedded Web Views**: Through `WebKit.framework` (`WebView` and `WKWebView`), [WebKit](../GLOSSARY.md) became the universal rendering substrate for desktop and mobile native applications across macOS, iOS, watchOS, and visionOS.
 4. **Privacy Enforcement Architecture**: Through Intelligent Tracking Prevention (ITP) and storage partitioning, Apple shifted privacy from user settings into strict runtime mechanics.
 
 ---
 
 ## Archaeological Scope
 
-To excavate Safari as a computational lineage, we decompose its architecture into eight technical layers:
+To excavate [Safari](../GLOSSARY.md) as a computational lineage, we decompose its architecture into eight technical layers:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -70,7 +70,7 @@ To excavate Safari as a computational lineage, we decompose its architecture int
 ```
 
 ### 1. OS Adaptation & Platform Graphics Pipeline
-The hardware-abstraction and compositing bridge mapping WebKit rendering operations directly to Apple platform graphics stacks: CoreGraphics, Quartz, Cocoa text rendering, CoreAnimation, and [Apple Metal](apple-metal.md) tile-based deferred rendering (TBDR).
+The hardware-abstraction and compositing bridge mapping [WebKit](../GLOSSARY.md) rendering operations directly to Apple platform graphics stacks: CoreGraphics, Quartz, Cocoa text rendering, CoreAnimation, and [Apple Metal](apple-metal.md) tile-based deferred rendering (TBDR).
 
 ### 2. Web Engine Core (WebCore)
 The layout, HTML/XML parsing, CSS matching, and DOM tree layout engine inherited from KHTML. WebCore performs layout reflows, builds render trees, calculates geometry, and dispatches platform events.
@@ -81,23 +81,23 @@ The high-performance ECMAScript execution engine. JSC progressed from an interpr
 ### 4. Multi-Process Isolation & Sandbox Boundary (WebKit2)
 The architectural split introduced in 2010 dividing the monolithic browser process into isolated UI, Web Content, Network, and GPU processes communicating via asynchronous XPC/Mach IPC channels under strict Darwin kernel entitlements.
 
-### 5. App-Embedded Browser Substrate (WKWebView)
-The framework interface (`WebKit.framework`) exposing WebKit execution to host applications, allowing iOS and macOS applications to embed sandboxed web content with full JIT capabilities while enforcing process isolation.
+### 5. App-Embedded Browser Substrate ([WKWebView](../GLOSSARY.md))
+The framework interface (`WebKit.framework`) exposing [WebKit](../GLOSSARY.md) execution to host applications, allowing iOS and macOS applications to embed sandboxed web content with full JIT capabilities while enforcing process isolation.
 
 ### 6. Privacy Runtime Architecture (ITP & Storage Control)
 The client-side privacy protection system integrating machine learning classifier models, dynamic storage partitioning, cookie expiry caps, and referrer restrictions directly into the network and storage execution paths.
 
 ### 7. Extension & Content Blocking Substrate
-The constrained extension surface replacing un-sandboxed NPAPI/Safari extensions with declarative JSON content-blocking rules compiled into optimized bytecode executed natively inside the network stack.
+The constrained extension surface replacing un-sandboxed NPAPI/[Safari](../GLOSSARY.md) extensions with declarative JSON content-blocking rules compiled into optimized bytecode executed natively inside the network stack.
 
 ### 8. Platform Distribution & Engine Governance
-The structural enforcement mechanism mandating WebKit as the sole allowed browser engine binary on iOS/iPadOS, establishing a self-reinforcing developer web-compatibility standard across Apple devices.
+The structural enforcement mechanism mandating [WebKit](../GLOSSARY.md) as the sole allowed browser engine binary on iOS/iPadOS, establishing a self-reinforcing developer web-compatibility standard across Apple devices.
 
 ---
 
 ## Historical Lineage
 
-Safari's progression represents an evolution from a lightweight desktop rendering engine to a multi-process, privacy-enforcing platform substrate.
+[Safari](../GLOSSARY.md)'s progression represents an evolution from a lightweight desktop rendering engine to a multi-process, privacy-enforcing platform substrate.
 
 ```
                     Safari & WebKit Architectural Progression
@@ -130,8 +130,8 @@ For every major architectural transition, we identify the exact mechanics:
 
 | Transition | What Changed? | What Survived? | Compatibility Layer | Deliberately Abandoned | New Constraint |
 |:---|:---|:---|:---|:---|:---|
-| **KHTML $\rightarrow$ WebKit (2001–2003)** | Forked KDE C++ layout/JS engine; wrapped DOM in Objective-C (`WebCore`/`JavaScriptCore`). | KHTML DOM parser, CSS matcher, layout box trees. | C++ wrapper macros bridging KDE KWQ abstractions to Cocoa/Quartz APIs. | KParts component architecture, KDE desktop dependencies. | Need for a lightweight, embeddable, fast-starting engine for Mac OS X and Safari. |
-| **Desktop WebKit $\rightarrow$ iPhone Safari (2007)** | Introduced touch events, dynamic viewport scaling, tile-based rendering, and hardware-accelerated CSS layers. | WebCore layout engine, JavaScriptCore interpreter. | Touch event to mouse event translation layer (`touchstart` $\rightarrow$ `mousedown`). | Fixed-width desktop assumptions, synchronous full-page layout reflows. | Pocket-sized touch devices with severe RAM limits (128 MB), low-power ARM CPUs, and mobile battery bounds. |
+| **KHTML $\rightarrow$ [WebKit](../GLOSSARY.md) (2001–2003)** | Forked KDE C++ layout/JS engine; wrapped DOM in Objective-C (`WebCore`/`JavaScriptCore`). | KHTML DOM parser, CSS matcher, layout box trees. | C++ wrapper macros bridging KDE KWQ abstractions to Cocoa/Quartz APIs. | KParts component architecture, KDE desktop dependencies. | Need for a lightweight, embeddable, fast-starting engine for Mac OS X and [Safari](../GLOSSARY.md). |
+| **Desktop [WebKit](../GLOSSARY.md) $\rightarrow$ iPhone [Safari](../GLOSSARY.md) (2007)** | Introduced touch events, dynamic viewport scaling, tile-based rendering, and hardware-accelerated CSS layers. | WebCore layout engine, JavaScriptCore interpreter. | Touch event to mouse event translation layer (`touchstart` $\rightarrow$ `mousedown`). | Fixed-width desktop assumptions, synchronous full-page layout reflows. | Pocket-sized touch devices with severe RAM limits (128 MB), low-power ARM CPUs, and mobile battery bounds. |
 | **Interpreter $\rightarrow$ Tiered JIT JSC (2008–2014)** | Introduced multi-tier JIT compilation (SquirrelFish $\rightarrow$ DFG $\rightarrow$ FTL LLVM compiler). | JSC bytecode instruction set, C++ DOM binding wrappers. | LLInt (Low Level Interpreter) fallback for non-JIT platforms (e.g., watchOS). | Pure stack-based execution interpreter loops. | Explosive growth of JavaScript web application complexity requiring near-native execution speed. |
 | **WebKit1 $\rightarrow$ WebKit2 Multi-Process (2010–2014)** | Separated monolithic process into UI process and isolated Web Content processes connected via Mach/XPC IPC. | WebCore DOM/rendering code, JSC engine. | Legacy `WebView` compatibility wrappers mapping to out-of-process `WKWebView`. | In-process plugin rendering, direct C++ DOM object access from host app process. | Untrusted web content crashes or exploits compromising the main browser UI process or host OS. |
 | **NPAPI / Legacy Extensions $\rightarrow$ Content Blockers & WebExtensions (2015–2020)** | Deprecated un-sandboxed binary plugins and injected JS extensions; introduced declarative rule-compilation. | Browser extension APIs, WebExtension manifest format. | Declarative rule converter parsing AdBlock rules into compiled regex bytearrays. | NPAPI C-ABI jump tables (`NPP_`/`NPN_`), un-sandboxed background scripts. | High battery consumption, performance degradation, and tracking risks from third-party extension scripts. |
@@ -197,7 +197,7 @@ To mitigate JIT-based security exploits (such as write-XOR-execute memory corrup
 * **Gigacage**: JSC allocates all JavaScript objects, ArrayBuffers, and Strings inside a isolated 32 GB virtual address space ("cage"), enforcing masked 32-bit offset arithmetic to prevent out-of-bounds pointer tampering.
 
 ### 3. Intelligent Tracking Prevention (ITP) Classifier Engine
-Introduced in 2017, **Intelligent Tracking Prevention (ITP)** transformed privacy from an end-user toggle into a real-time machine-learning runtime engine embedded inside the WebKit UI process.
+Introduced in 2017, **Intelligent Tracking Prevention (ITP)** transformed privacy from an end-user toggle into a real-time machine-learning runtime engine embedded inside the [WebKit](../GLOSSARY.md) UI process.
 
 ```
                       ITP Storage & Network Runtime Flow
@@ -226,20 +226,20 @@ Introduced in 2017, **Intelligent Tracking Prevention (ITP)** transformed privac
 ITP collects statistics on domain relationships (e.g., subresource loading frequency, user interaction frequency, redirects). An on-device machine-learning classifier identifies domains with cross-site tracking capabilities and automatically enforces runtime constraints:
 1. **Third-Party Cookie Blocking**: All third-party cookies are blocked by default unless granted access via the Storage Access API (`document.requestStorageAccess()`).
 2. **First-Party Cookie Cap**: Client-side cookies set via `document.cookie` (frequently used by trackers to bypass third-party restrictions) are capped at 7 days (or 24 hours if arriving via decorated URLs).
-3. **CNAME Cloak Cloaking Defense**: WebKit inspects DNS resolution records (CNAME) in the network process to detect third-party tracking domains cloaked under first-party subdomains.
+3. **CNAME Cloak Cloaking Defense**: [WebKit](../GLOSSARY.md) inspects DNS resolution records (CNAME) in the network process to detect third-party tracking domains cloaked under first-party subdomains.
 
 ---
 
 ## Extracted Abstractions
 
 ### 1. Web Engine as Embeddable System Infrastructure
-WebKit decoupled the web rendering engine from the desktop browser application. By exposing `WebKit.framework` (`WebView` / `WKWebView`), WebKit transformed the web engine into standard system infrastructure available to any application (e.g., Mail, Help Viewer, native hybrid iOS apps), establishing a unified web rendering model across the operating system.
+[WebKit](../GLOSSARY.md) decoupled the web rendering engine from the desktop browser application. By exposing `WebKit.framework` (`WebView` / `WKWebView`), [WebKit](../GLOSSARY.md) transformed the web engine into standard system infrastructure available to any application (e.g., Mail, Help Viewer, native hybrid iOS apps), establishing a unified web rendering model across the operating system.
 
 ### 2. Multi-Process Content Isolation via IPC
 WebKit2 established the pattern of separating untrusted web content execution from the host application process. Web page parsing, layout, and script execution occur in restricted worker processes (`com.apple.WebKit.WebContent`), insulating host application stability and preventing untrusted web content from reading host memory.
 
 ### 3. Mobile-First Touch & Viewport Abstractions
-iPhone Safari introduced the core viewport and input abstractions of the mobile web: the `<meta name="viewport" content="width=device-width, initial-scale=1.0">` tag, pinch-to-zoom touch gesture scaling, CSS hardware-accelerated compositing layers (`transform: translateZ(0)`), and touch event models (`touchstart`, `touchmove`, `touchend`).
+iPhone [Safari](../GLOSSARY.md) introduced the core viewport and input abstractions of the mobile web: the `<meta name="viewport" content="width=device-width, initial-scale=1.0">` tag, pinch-to-zoom touch gesture scaling, CSS hardware-accelerated compositing layers (`transform: translateZ(0)`), and touch event models (`touchstart`, `touchmove`, `touchend`).
 
 ### 4. Declarative Content Blocking
 Replacing imperative JavaScript extensions with declarative JSON rules compiled ahead-of-time into optimized regular-expression state machines. Content blocking logic executes directly inside the network process before network sockets are opened, providing privacy and ad-blocking without granting third-party extensions access to user browsing data.
@@ -249,9 +249,9 @@ ITP demonstrated that user privacy can be enforced through runtime architecture 
 
 ---
 
-## WebKit Engine Lineage
+## [WebKit](../GLOSSARY.md) Engine Lineage
 
-The history of WebKit is defined by its origin in KHTML, its rapid fork by Apple, its open-source proliferation, and its subsequent split by [Google](../GLOSSARY.md) into Blink.
+The history of [WebKit](../GLOSSARY.md) is defined by its origin in KHTML, its rapid fork by Apple, its open-source proliferation, and its subsequent split by [Google](../GLOSSARY.md) into Blink.
 
 ```
                     The WebKit Engine Lineage Tree
@@ -280,22 +280,22 @@ The history of WebKit is defined by its origin in KHTML, its rapid fork by Apple
 ### The KHTML Fork and the KWQ Bridge
 In 2001, Apple needed a rendering engine for Mac OS X. KHTML (built for the KDE desktop on Linux using the Qt toolkit) was selected because it was written in clean C++, had a small memory footprint, and parsed HTML accurately.
 
-To adapt KHTML to Mac OS X, Apple created **KWQ (Konqueror WebKit Quality)**—a C++ abstraction layer that emulated Qt classes (`QString`, `QPaintDevice`, `QWidget`) using Cocoa and CoreGraphics calls. Over time, Apple refactored KWQ out of the codebase, replacing Qt abstractions directly with WebCore platform wrappers.
+To adapt KHTML to Mac OS X, Apple created **KWQ (Konqueror [WebKit](../GLOSSARY.md) Quality)**—a C++ abstraction layer that emulated Qt classes (`QString`, `QPaintDevice`, `QWidget`) using Cocoa and CoreGraphics calls. Over time, Apple refactored KWQ out of the codebase, replacing Qt abstractions directly with WebCore platform wrappers.
 
-When Apple publicly released WebKit as open source in 2005 (`webkit.org`), external developers and major hardware vendors adopted it. WebKit became the universal engine for mobile browsing: Nokia integrated WebKit into S60 smartphones, [Google](../GLOSSARY.md) adopted WebKit for Android and Chrome, and BlackBerry used WebKit for OS 6+.
+When Apple publicly released [WebKit](../GLOSSARY.md) as open source in 2005 (`webkit.org`), external developers and major hardware vendors adopted it. [WebKit](../GLOSSARY.md) became the universal engine for mobile browsing: Nokia integrated [WebKit](../GLOSSARY.md) into S60 smartphones, [Google](../GLOSSARY.md) adopted [WebKit](../GLOSSARY.md) for Android and Chrome, and BlackBerry used [WebKit](../GLOSSARY.md) for OS 6+.
 
 ### The WebKit2 Split and the Blink Fork
-As web applications grew in complexity, single-process browser engines suffered from instability: a single crashing web page took down the entire browser. In 2010, Apple introduced **WebKit2**, a multi-process architecture where the process boundary was built directly into the WebKit API layer rather than the browser application wrapper.
+As web applications grew in complexity, single-process browser engines suffered from instability: a single crashing web page took down the entire browser. In 2010, Apple introduced **WebKit2**, a multi-process architecture where the process boundary was built directly into the [WebKit](../GLOSSARY.md) API layer rather than the browser application wrapper.
 
-[Google](../GLOSSARY.md), however, maintained its own multi-process architecture inside Chromium (`content/` layer). The divergence between Apple's WebKit2 process model and Chromium's process architecture created architectural friction inside the shared WebKit source tree.
+[Google](../GLOSSARY.md), however, maintained its own multi-process architecture inside Chromium (`content/` layer). The divergence between Apple's WebKit2 process model and Chromium's process architecture created architectural friction inside the shared [WebKit](../GLOSSARY.md) source tree.
 
-In April 2013, [Google](../GLOSSARY.md) formally forked WebCore, creating the **Blink** rendering engine. [Google](../GLOSSARY.md) removed over 7 million lines of WebKit code, including WebKit2 IPC, build systems, and Apple platform abstractions. This split created the modern dual-engine landscape: **Blink/Chromium** dominating cross-platform desktop/Android browsing, and **WebKit** dominating Apple's ecosystem.
+In April 2013, [Google](../GLOSSARY.md) formally forked WebCore, creating the **Blink** rendering engine. [Google](../GLOSSARY.md) removed over 7 million lines of [WebKit](../GLOSSARY.md) code, including WebKit2 IPC, build systems, and Apple platform abstractions. This split created the modern dual-engine landscape: **Blink/Chromium** dominating cross-platform desktop/Android browsing, and **[WebKit](../GLOSSARY.md)** dominating Apple's ecosystem.
 
 ---
 
 ## JavaScriptCore Runtime
 
-JavaScriptCore (JSC) is the default JavaScript and WebAssembly engine for WebKit and Apple platforms. JSC operates as an independent C++ framework (`JavaScriptCore.framework`) embedded inside Safari, app WebViews, and native system processes.
+JavaScriptCore (JSC) is the default JavaScript and WebAssembly engine for [WebKit](../GLOSSARY.md) and Apple platforms. JSC operates as an independent C++ framework (`JavaScriptCore.framework`) embedded inside [Safari](../GLOSSARY.md), app WebViews, and native system processes.
 
 ### Memory Layout and Object Representation (NaN-Boxing)
 To achieve high-performance dynamic typing, JSC uses **64-bit NaN-boxing** (JSValue encoding). In JSC, every JavaScript value (`undefined`, `null`, `boolean`, `integer`, `double`, or `object pointer`) is represented as a single 64-bit word:
@@ -365,7 +365,7 @@ WebKit2 enforces a multi-process architecture designed to contain untrusted web 
 1. **UI Process (Host)**: Executes the browser application shell or host iOS app (`WKWebView`). Possesses full user OS privileges and handles window management, user interactions, and permission prompts.
 2. **Web Content Process (`com.apple.WebKit.WebContent`)**: Executes WebCore rendering, DOM manipulation, and JavaScript execution. A separate Web Content Process is spawned per origin (Site Isolation).
 3. **Network Process (`com.apple.WebKit.Networking`)**: Isolated process handling all HTTP/HTTPS network connections, socket allocations, TLS certificate checks, disk caching, and cookie state storage.
-4. **GPU Process (`com.apple.WebKit.GPU`)**: Dedicated process isolated in modern WebKit to execute [Metal](../GLOSSARY.md) rasterization, WebGL/WebGPU acceleration, and hardware video decoding, moving graphics driver attack surfaces out of the Web Content process.
+4. **GPU Process (`com.apple.WebKit.GPU`)**: Dedicated process isolated in modern [WebKit](../GLOSSARY.md) to execute [Metal](../GLOSSARY.md) rasterization, WebGL/WebGPU acceleration, and hardware video decoding, moving graphics driver attack surfaces out of the Web Content process.
 
 ### Sandbox Entitlements
 The Web Content Process executes inside a strict Darwin kernel sandbox (`AppSandbox.kext`). The process is restricted from:
@@ -380,7 +380,7 @@ If a malicious web page executes an arbitrary code execution exploit inside WebC
 
 ## Platform Integration & WebViews
 
-A defining characteristic of Safari and WebKit is its deep coupling to Apple platform frameworks and graphics infrastructure.
+A defining characteristic of [Safari](../GLOSSARY.md) and [WebKit](../GLOSSARY.md) is its deep coupling to Apple platform frameworks and graphics infrastructure.
 
 ```
                     WebKit Integration with Apple OS Services
@@ -436,7 +436,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
 
 ## Extension / Content-Blocker Model
 
-Safari's extension model underwent a structural transformation, shifting from un-sandboxed binary plugins and injected scripts to sandboxed extensions and declarative content blocking.
+[Safari](../GLOSSARY.md)'s extension model underwent a structural transformation, shifting from un-sandboxed binary plugins and injected scripts to sandboxed extensions and declarative content blocking.
 
 ```
             Evolution of Safari Extensibility Models
@@ -471,18 +471,18 @@ In iOS 9 and OS X El Capitan, Apple introduced **Declarative Content Blockers**.
 ]
 ```
 
-When an extension loads, WebKit compiles the JSON ruleset into a highly optimized byte-array state machine. The WebKit Network Process evaluates incoming resource requests against this state machine in $O(1)$ time before network sockets are allocated. The extension process receives zero feedback regarding which pages the user visits, ensuring user privacy while eliminating extension-induced rendering latency.
+When an extension loads, [WebKit](../GLOSSARY.md) compiles the JSON ruleset into a highly optimized byte-array state machine. The [WebKit](../GLOSSARY.md) Network Process evaluates incoming resource requests against this state machine in $O(1)$ time before network sockets are allocated. The extension process receives zero feedback regarding which pages the user visits, ensuring user privacy while eliminating extension-induced rendering latency.
 
 ---
 
 ## Privacy Runtime Architecture
 
-Safari treats privacy as a fundamental architectural constraint rather than a set of configurable settings. **Intelligent Tracking Prevention (ITP)** and associated mechanisms represent an active policy enforcement layer operating inside the client runtime.
+[Safari](../GLOSSARY.md) treats privacy as a fundamental architectural constraint rather than a set of configurable settings. **Intelligent Tracking Prevention (ITP)** and associated mechanisms represent an active policy enforcement layer operating inside the client runtime.
 
 ### Storage Partitioning
 In traditional web browsers, storage primitives (`localStorage`, `indexedDB`, `cookies`) were indexed solely by the domain that created them. This allowed tracking scripts embedded across multiple websites (`tracker.com`) to read a shared identifier, constructing a cross-site browsing profile.
 
-WebKit introduced **Double-Keyed Storage Partitioning**. All client storage mechanisms are keyed by both the **Top-Level Frame Origin** and the **Subresource Origin**:
+[WebKit](../GLOSSARY.md) introduced **Double-Keyed Storage Partitioning**. All client storage mechanisms are keyed by both the **Top-Level Frame Origin** and the **Subresource Origin**:
 
 $$\text{Storage Key} = \langle \text{TopLevelDomain}, \text{SubresourceDomain} \rangle$$
 
@@ -508,21 +508,21 @@ Because `tracker.com` embedded on `site-a.com` receives a completely isolated st
 
 ## Distribution & Engine Governance
 
-Safari's persistence and influence are inextricably linked to its distribution model and platform policy governance.
+[Safari](../GLOSSARY.md)'s persistence and influence are inextricably linked to its distribution model and platform policy governance.
 
 ### Default Distribution on Apple Platforms
-Safari is pre-installed as the default web browser across macOS, iOS, iPadOS, watchOS, and visionOS. This provides WebKit with an install base of over two billion active devices.
+[Safari](../GLOSSARY.md) is pre-installed as the default web browser across macOS, iOS, iPadOS, watchOS, and visionOS. This provides [WebKit](../GLOSSARY.md) with an install base of over two billion active devices.
 
 ### iOS App Store Engine Restriction
-From the launch of the App Store in 2008 until recent regulatory shifts (such as the EU Digital Markets Act), Apple enforced a strict platform policy: **all web browsers and apps rendering web content on iOS/iPadOS must use the WebKit engine (`WKWebView`)**.
+From the launch of the App Store in 2008 until recent regulatory shifts (such as the EU Digital Markets Act), Apple enforced a strict platform policy: **all web browsers and apps rendering web content on iOS/iPadOS must use the [WebKit](../GLOSSARY.md) engine (`WKWebView`)**.
 
-Competing browser vendors ([Google](../GLOSSARY.md) Chrome, Mozilla Firefox, Opera, Microsoft Edge) operating on iOS were prohibited from shipping their own rendering engines (Blink or Gecko). Instead, iOS versions of Chrome and Firefox operated as customized UI wrappers built on top of Apple's `WKWebView` framework. This policy ensured that WebKit's rendering behavior, performance characteristics, and privacy rules remained the universal runtime constraint for all web traffic on iOS devices.
+Competing browser vendors ([Google](../GLOSSARY.md) Chrome, Mozilla Firefox, Opera, Microsoft Edge) operating on iOS were prohibited from shipping their own rendering engines (Blink or Gecko). Instead, iOS versions of Chrome and Firefox operated as customized UI wrappers built on top of Apple's `WKWebView` framework. This policy ensured that [WebKit](../GLOSSARY.md)'s rendering behavior, performance characteristics, and privacy rules remained the universal runtime constraint for all web traffic on iOS devices.
 
 ---
 
 ## [Ecosystem Lock-In](../patterns/ecosystem-lockin.md)
 
-Safari and WebKit maintain a self-reinforcing [ecosystem lock-in](../patterns/ecosystem-lockin.md) model on Apple platforms, balanced against external cross-platform pressures.
+[Safari](../GLOSSARY.md) and [WebKit](../GLOSSARY.md) maintain a self-reinforcing [ecosystem lock-in](../patterns/ecosystem-lockin.md) model on Apple platforms, balanced against external cross-platform pressures.
 
 ```
                WebKit Platform Lock-In Dynamics
@@ -547,32 +547,32 @@ Safari and WebKit maintain a self-reinforcing [ecosystem lock-in](../patterns/ec
 ```
 
 ### Technical Lock-In Mechanisms
-1. **iOS Engine Mandate**: By requiring WebKit for all iOS browsing, Apple ensured that web developers could not ignore WebKit compatibility, regardless of Chrome's desktop dominance.
-2. **Deep OS Integration**: WebKit leverages Apple hardware primitives—such as [Apple Silicon](../GLOSSARY.md) Unified Memory Architecture (UMA), [Metal](../GLOSSARY.md) graphics compositing, and hardware video decoders—achieving power efficiency and battery lifespans unmatched by third-party runtimes.
-3. **App-Embedded Web Views**: Millions of iOS and macOS applications depend on `WKWebView` for authentication flows, embedded content, and hybrid UI rendering, embedding WebKit into the native app ecosystem.
+1. **iOS Engine Mandate**: By requiring [WebKit](../GLOSSARY.md) for all iOS browsing, Apple ensured that web developers could not ignore [WebKit](../GLOSSARY.md) compatibility, regardless of Chrome's desktop dominance.
+2. **Deep OS Integration**: [WebKit](../GLOSSARY.md) leverages Apple hardware primitives—such as [Apple Silicon](../GLOSSARY.md) Unified Memory Architecture (UMA), [Metal](../GLOSSARY.md) graphics compositing, and hardware video decoders—achieving power efficiency and battery lifespans unmatched by third-party runtimes.
+3. **App-Embedded Web Views**: Millions of iOS and macOS applications depend on `WKWebView` for authentication flows, embedded content, and hybrid UI rendering, embedding [WebKit](../GLOSSARY.md) into the native app ecosystem.
 
 ### Counter-Pressures and Feature Lag
-Concurrently, Safari faces lock-in pressures from [Google](../GLOSSARY.md)'s Chromium ecosystem. Web applications designed exclusively for Chromium APIs (e.g., WebGPU early drafts, File System Access API, Web Bluetooth) sometimes experience feature lag on Safari, creating developer friction and debates over web platform standards.
+Concurrently, [Safari](../GLOSSARY.md) faces lock-in pressures from [Google](../GLOSSARY.md)'s Chromium ecosystem. Web applications designed exclusively for Chromium APIs (e.g., WebGPU early drafts, File System Access API, Web Bluetooth) sometimes experience feature lag on [Safari](../GLOSSARY.md), creating developer friction and debates over web platform standards.
 
 ---
 
 ## Limits, Competition & Persistence
 
 ### Product Limitations
-* **Extension Ecosystem Constraints**: Safari's strict extension sandboxing and App Extension packaging model resulted in a smaller extension library compared to Chrome's WebStore.
-* **Web API Conservatism**: Apple's rejection of certain powerful web APIs (e.g., Web Bluetooth, Web USB, ambient sensor access) due to privacy and security concerns has led critics to argue that WebKit holds back web application capabilities.
+* **Extension Ecosystem Constraints**: [Safari](../GLOSSARY.md)'s strict extension sandboxing and App Extension packaging model resulted in a smaller extension library compared to Chrome's WebStore.
+* **Web API Conservatism**: Apple's rejection of certain powerful web APIs (e.g., Web Bluetooth, Web USB, ambient sensor access) due to privacy and security concerns has led critics to argue that [WebKit](../GLOSSARY.md) holds back web application capabilities.
 
 ### Abstraction Survival
-Despite market competition from Chromium, WebKit's architectural abstractions remain dominant:
+Despite market competition from Chromium, [WebKit](../GLOSSARY.md)'s architectural abstractions remain dominant:
 * Multi-process browser architecture (`WebKit2`) is standard across all modern web engines.
-* Viewport touch scaling and mobile compositing rules pioneered in iPhone Safari define mobile web engineering globally.
-* Double-keyed storage partitioning and declarative content blocking have been adopted across rival browser engines, establishing WebKit as an architectural trendsetter for privacy engineering.
+* Viewport touch scaling and mobile compositing rules pioneered in iPhone [Safari](../GLOSSARY.md) define mobile web engineering globally.
+* Double-keyed storage partitioning and declarative content blocking have been adopted across rival browser engines, establishing [WebKit](../GLOSSARY.md) as an architectural trendsetter for privacy engineering.
 
 ---
 
 ## [Constraint Migration](../patterns/constraint-migration.md)
 
-The table below traces how constraints migrated across two decades of Safari and WebKit evolution:
+The table below traces how constraints migrated across two decades of [Safari](../GLOSSARY.md) and [WebKit](../GLOSSARY.md) evolution:
 
 ```
                               Constraint Migration
@@ -583,20 +583,20 @@ The table below traces how constraints migrated across two decades of Safari and
  Apple Silicon UMA / Metal (Present) ◄── Privacy & Ad-Tech Surveillance (2017) ◄── App-Embedded WKWebView (2014)
 ```
 
-| Era | Dominant Physical / System Constraint | Architectural Response | WebKit Abstraction / Mechanism | Migration Outcome |
+| Era | Dominant Physical / System Constraint | Architectural Response | [WebKit](../GLOSSARY.md) Abstraction / Mechanism | Migration Outcome |
 |:---|:---|:---|:---|:---|
 | **Mac OS X Launch (2001–2003)** | Heavy memory footprints and slow startup times of Gecko/IE ports on OS X. | Fork lightweight C++ KHTML engine and create Cocoa/Quartz wrapper bridge (KWQ). | WebCore & JavaScriptCore embedded frameworks. | Provided Mac OS X with a lightweight, fast-starting native browser core. |
-| **Mobile Smartphone Era (2007)** | Low RAM (128 MB), battery limits, and touch input on early ARM mobile silicon. | Introduce viewport scaling, touch event dispatching, and hardware-accelerated CSS compositing layers. | Mobile WebKit Touch & Tile Compositor. | Established the touch-based mobile web runtime model used across smartphones. |
+| **Mobile Smartphone Era (2007)** | Low RAM (128 MB), battery limits, and touch input on early ARM mobile silicon. | Introduce viewport scaling, touch event dispatching, and hardware-accelerated CSS compositing layers. | Mobile [WebKit](../GLOSSARY.md) Touch & Tile Compositor. | Established the touch-based mobile web runtime model used across smartphones. |
 | **Web App Complexity (2008–2010)** | Heavy JavaScript execution and browser crashes caused by untrusted web pages. | Develop multi-tier JIT compilation (JSC Nitro) and multi-process architecture (WebKit2). | Tiered JSC JIT & WebKit2 XPC Process Isolation. | Insulated browser UI and host OS from web page crashes while achieving near-native JS execution. |
 | **App-Embedded Web Content (2014)** | Legacy in-process `WebView` allowed untrusted web pages to crash host apps or exploit app memory. | Replace in-process `WebView` with out-of-process sandboxed `WKWebView` framework. | `WKWebView` Framework. | Granted native iOS/macOS apps secure, high-performance web embedding with JIT compilation. |
 | **Cross-Site Surveillance (2017–Present)** | Mass user tracking by ad-tech networks abusing unpartitioned browser storage and cookies. | Implement machine-learning domain classification, storage partitioning, and cookie caps. | Intelligent Tracking Prevention (ITP) & Storage Partitioning. | Converted tracking protection from user toggles into enforced runtime system mechanics. |
-| **Post-Dennard Silicon Scaling (2020–Present)** | CPU power walls requiring hardware-software co-design for power efficiency. | Integrate WebKit rendering and [Metal](../GLOSSARY.md) compositing directly with [Apple Silicon](../GLOSSARY.md) Unified Memory (UMA). | [Metal](../GLOSSARY.md) Compositor & JSC Gigacage / W^X Hardware Tightly Bound to Silicon. | Delivered class-leading battery efficiency and web performance on [Apple Silicon](../GLOSSARY.md) devices. |
+| **Post-Dennard Silicon Scaling (2020–Present)** | CPU power walls requiring hardware-software co-design for power efficiency. | Integrate [WebKit](../GLOSSARY.md) rendering and [Metal](../GLOSSARY.md) compositing directly with [Apple Silicon](../GLOSSARY.md) Unified Memory (UMA). | [Metal](../GLOSSARY.md) Compositor & JSC Gigacage / W^X Hardware Tightly Bound to Silicon. | Delivered class-leading battery efficiency and web performance on [Apple Silicon](../GLOSSARY.md) devices. |
 
 ---
 
 ## [Recurring Ideas](../patterns/recurring-ideas.md)
 
-Safari and WebKit illustrate several recurring patterns in computer science:
+[Safari](../GLOSSARY.md) and [WebKit](../GLOSSARY.md) illustrate several recurring patterns in computer science:
 
 1. **Forking an Engine to Co-Evolve with a Platform**: Forking an existing open-source core (KHTML) to customize it for a specific platform surface, parallel to NeXTSTEP adopting BSD/Mach or Android adopting Linux.
 2. **Runtime Engine as System Infrastructure**: Decoupling execution engines from products and offering them as OS framework services (`WKWebView`).
@@ -607,14 +607,14 @@ Safari and WebKit illustrate several recurring patterns in computer science:
 
 ## Comparative Analysis
 
-The table below contrasts Safari/WebKit's architectural choices against competing browser platforms:
+The table below contrasts [Safari](../GLOSSARY.md)/[WebKit](../GLOSSARY.md)'s architectural choices against competing browser platforms:
 
-| Dimension | Safari / WebKit | [Google](../GLOSSARY.md) Chrome / Blink | Mozilla Firefox / Gecko | Native Platform Apps (Cocoa/Win32) |
+| Dimension | [Safari](../GLOSSARY.md) / [WebKit](../GLOSSARY.md) | [Google](../GLOSSARY.md) Chrome / Blink | Mozilla Firefox / Gecko | Native Platform Apps (Cocoa/Win32) |
 |:---|:---|:---|:---|:---|
-| **Engine Governance** | **Apple-Led Open Source**: Controlled by Apple WebKit team with external contributors. | **[Google](../GLOSSARY.md)-Led Open Source**: Controlled by [Google](../GLOSSARY.md) Chromium project. | **Community / Non-Profit**: Governance by Mozilla Foundation. | **Vendor Proprietary**: OS vendor system software teams. |
+| **Engine Governance** | **Apple-Led Open Source**: Controlled by Apple [WebKit](../GLOSSARY.md) team with external contributors. | **[Google](../GLOSSARY.md)-Led Open Source**: Controlled by [Google](../GLOSSARY.md) Chromium project. | **Community / Non-Profit**: Governance by Mozilla Foundation. | **Vendor Proprietary**: OS vendor system software teams. |
 | **OS Integration Depth** | **Vertically Integrated**: Deep coupling to Cocoa, Quartz, [Metal](../GLOSSARY.md), Core ML, and [Apple Silicon](../GLOSSARY.md). | **Cross-Platform Abstraction**: Uses Skia graphics and custom cross-platform abstraction layers. | **Cross-Platform Abstraction**: Uses WebRender and Rust/C++ abstraction layers. | **Native OS APIs**: Direct compiled execution on system frameworks. |
 | **Process/Security Model** | **WebKit2 XPC Multi-Process**: OS-level XPC/Mach IPC separating UI, Content, Network, and GPU processes. | **Chromium Content Layer**: Process-per-site isolation using OS sandboxes (Seccomp, AppContainer). | **Fission Architecture**: Multi-process site isolation using Gecko IPC handles. | **OS Kernel Sandbox**: Managed by OS process execution rings and entitlements. |
-| **Mobile Runtime Strategy** | **Unified WebKit**: Identical engine core across desktop (macOS) and mobile (iOS). | **Blink Android / iOS Wrapper**: Blink on Android; WebKit wrapper on iOS. | **GeckoView Android / iOS Wrapper**: Gecko on Android; WebKit wrapper on iOS. | **Native Compiled UI**: Platform-specific compiled binary layouts. |
+| **Mobile Runtime Strategy** | **Unified [WebKit](../GLOSSARY.md)**: Identical engine core across desktop (macOS) and mobile (iOS). | **Blink Android / iOS Wrapper**: Blink on Android; [WebKit](../GLOSSARY.md) wrapper on iOS. | **GeckoView Android / iOS Wrapper**: Gecko on Android; [WebKit](../GLOSSARY.md) wrapper on iOS. | **Native Compiled UI**: Platform-specific compiled binary layouts. |
 | **Extensibility Model** | **Declarative Content Blockers & WebExtensions**: Strict, compiled declarative rulesets. | **Manifest V3 Extensions**: Declarative Net Request API and service workers. | **WebExtensions API**: Full extension API support with persistent background scripts. | **Dynamic Library Loading**: OS dynamic library shared objects (`.dylib`, `.dll`). |
 | **Privacy Enforcement** | **ITP & Storage Partitioning**: Machine-learning driven storage isolation and cookie caps. | **Privacy Sandbox**: Federated learning / Privacy Budget APIs balanced with ad ecosystem. | **Enhanced Tracking Protection**: Disconnect blocklist matching and storage partitioning. | **OS Entitlements**: Permission prompts (Camera, Location, Contacts). |
 | **Distribution Strategy** | **OS Default Bundle & Engine Mandate**: Pre-installed on all Apple hardware; enforced on iOS. | **Cross-Platform Download & Android Pre-install**: Bundled on Android; web downloads. | **Independent Web Download**: User-initiated download across desktop and mobile. | **OS System Installation**: Pre-installed or installed via App Stores. |
@@ -623,33 +623,33 @@ The table below contrasts Safari/WebKit's architectural choices against competin
 
 ## Modern Relevance
 
-Safari and WebKit remain central to modern computing architecture in several key respects:
+[Safari](../GLOSSARY.md) and [WebKit](../GLOSSARY.md) remain central to modern computing architecture in several key respects:
 
 ### 1. Web Engine Diversity and the Dual-Engine Reality
-In an era where Chromium powers Chrome, Edge, Brave, Opera, and V8-based runtimes, WebKit represents the primary independent architectural counterweight to Blink. WebKit's engine independence prevents the web from collapsing into a single-implementation monoculture.
+In an era where Chromium powers Chrome, Edge, Brave, Opera, and V8-based runtimes, [WebKit](../GLOSSARY.md) represents the primary independent architectural counterweight to Blink. [WebKit](../GLOSSARY.md)'s engine independence prevents the web from collapsing into a single-implementation monoculture.
 
 ### 2. Privacy Architecture as Industry Benchmark
-WebKit's implementation of Intelligent Tracking Prevention, double-keyed storage partitioning, and CNAME cloaking defenses forced the broader web industry—including [Google](../GLOSSARY.md) Chrome and Mozilla Firefox—to adopt similar storage partitioning and third-party cookie restriction roadmaps.
+[WebKit](../GLOSSARY.md)'s implementation of Intelligent Tracking Prevention, double-keyed storage partitioning, and CNAME cloaking defenses forced the broader web industry—including [Google](../GLOSSARY.md) Chrome and Mozilla Firefox—to adopt similar storage partitioning and third-party cookie restriction roadmaps.
 
 ### 3. On-Device AI Integration with Web Runtimes
-With the rise of local AI inference, WebKit's integration with WebGPU, WebAssembly, and [Apple Silicon](../GLOSSARY.md)'s Neural Engine enables large language models (LLMs) and neural networks to execute client-side directly inside WebKit viewports with high memory bandwidth.
+With the rise of local AI inference, [WebKit](../GLOSSARY.md)'s integration with WebGPU, WebAssembly, and [Apple Silicon](../GLOSSARY.md)'s Neural Engine enables large language models (LLMs) and neural networks to execute client-side directly inside [WebKit](../GLOSSARY.md) viewports with high memory bandwidth.
 
 ---
 
-## Reconstruction Proposal: WebKit Runtime & ITP Simulator
+## Reconstruction Proposal: [WebKit](../GLOSSARY.md) Runtime & ITP Simulator
 
-To expose the core architectural mechanisms of WebKit—including **WebKit2 multi-process IPC message passing, WKWebView host isolation, and Intelligent Tracking Prevention (ITP) double-keyed storage partitioning**—we implement a zero-dependency Python simulator in `reconstructions/safari_webkit_runtime/`.
+To expose the core architectural mechanisms of [WebKit](../GLOSSARY.md)—including **WebKit2 multi-process IPC message passing, [WKWebView](../GLOSSARY.md) host isolation, and Intelligent Tracking Prevention (ITP) double-keyed storage partitioning**—we implement a zero-dependency Python simulator in `reconstructions/safari_webkit_runtime/`.
 
 ### Reconstructed Mechanics
 1. **WebKit2 Multi-Process IPC Coordinator (`WebKit2ProcessCoordinator`)**: Models the UI Process, Web Content Process, and Network Process, demonstrating asynchronous Mach/XPC IPC message passing, navigation policy checks, and process crash isolation.
-2. **WKWebView App Host Substrate (`WKWebViewHost`)**: Simulates native application embedding of out-of-process web content, verifying that host application memory remains insulated from Web Content execution.
+2. **[WKWebView](../GLOSSARY.md) App Host Substrate (`WKWebViewHost`)**: Simulates native application embedding of out-of-process web content, verifying that host application memory remains insulated from Web Content execution.
 3. **ITP Double-Keyed Storage Engine (`ITPStorageEngine`)**: Implements double-keyed storage partitioning ($\langle\text{TopOrigin}, \text{SubOrigin}\rangle$), client cookie capping (7-day rule), and Storage Access API (`requestStorageAccess()`) permission prompts.
 
 ---
 
 ## Knowledge-Graph Relationships
 
-The following entity relationships define Safari and WebKit's position in the Digital Archaeology knowledge base:
+The following entity relationships define [Safari](../GLOSSARY.md) and [WebKit](../GLOSSARY.md)'s position in the Digital Archaeology knowledge base:
 
 ```json
 [
@@ -709,8 +709,8 @@ The following entity relationships define Safari and WebKit's position in the Di
 
 ## Limitations and Uncertainties
 
-* **Proprietary Hardware Interfaces**: While WebKit is open source, its interactions with proprietary [Apple Silicon](../GLOSSARY.md) microarchitecture features (such as undocumented GPU registers and AMX coprocessors) remain closed implementation details inside private Apple system frameworks.
-* **ITP Classifier Models**: The exact machine-learning weights and heuristic thresholds used by ITP on-device models are continuously updated via OS software updates and are not fully exposed in open-source WebKit code drops.
+* **Proprietary Hardware Interfaces**: While [WebKit](../GLOSSARY.md) is open source, its interactions with proprietary [Apple Silicon](../GLOSSARY.md) microarchitecture features (such as undocumented GPU registers and AMX coprocessors) remain closed implementation details inside private Apple system frameworks.
+* **ITP Classifier Models**: The exact machine-learning weights and heuristic thresholds used by ITP on-device models are continuously updated via OS software updates and are not fully exposed in open-source [WebKit](../GLOSSARY.md) code drops.
 
 ---
 
@@ -718,24 +718,24 @@ The following entity relationships define Safari and WebKit's position in the Di
 
 | Category | Rating | Rationale |
 | :--- | :--- | :--- |
-| Historical Importance | ★★★★★ | Created WebKit, defined mobile web runtime constraints on iPhone, pioneered multi-process web engines, and transformed privacy into client runtime architecture. |
+| Historical Importance | ★★★★★ | Created [WebKit](../GLOSSARY.md), defined mobile web runtime constraints on iPhone, pioneered multi-process web engines, and transformed privacy into client runtime architecture. |
 | Technical Innovation | ★★★★★ | Engineered JavaScriptCore multi-tier JIT (FTL/B3), WebKit2 XPC multi-process isolation, declarative content blocking, and double-keyed storage partitioning. |
-| Commercial Success | ★★★★★ | Deployed across two billion active Apple devices as default web runtime, powering Safari and millions of native application WebViews. |
+| Commercial Success | ★★★★★ | Deployed across two billion active Apple devices as default web runtime, powering [Safari](../GLOSSARY.md) and millions of native application WebViews. |
 | Modern Potential | ★★★★★ | Serves as the primary independent web engine alternative to Chromium, leading privacy engineering standards and on-device web runtime execution. |
-| AI Synergy | ★★★★☆ | Enables local client-side neural network and LLM inference inside WebKit viewports via WebGPU, WebAssembly, and [Apple Silicon](../GLOSSARY.md) Unified Memory. |
+| AI Synergy | ★★★★☆ | Enables local client-side neural network and LLM inference inside [WebKit](../GLOSSARY.md) viewports via WebGPU, WebAssembly, and [Apple Silicon](../GLOSSARY.md) Unified Memory. |
 | Difficulty to Recreate | ★★★★★ | Rebuilding a standards-compliant, multi-process web engine with advanced JIT compilers and platform graphics pipelines requires hundreds of engineering person-years. |
 
 ---
 
 ## Bibliography
 
-1. Apple Inc. (2003). *Safari and WebKit Open Source Announcement*. Apple Developer Documentation.
-2. Stachowiak, M. (2008). *SquirrelFish Extreme: The JavaScriptCore JIT Compiler*. WebKit Official Technical Blog.
-3. Pizlo, F. (2016). *Filip Pizlo on the B3 JIT Compiler and JavaScriptCore Architecture*. WebKit Technical Papers.
-4. Wilander, J. (2017). *Intelligent Tracking Prevention*. WebKit Security & Privacy Documentation.
+1. Apple Inc. (2003). *[Safari](../GLOSSARY.md) and [WebKit](../GLOSSARY.md) Open Source Announcement*. Apple Developer Documentation.
+2. Stachowiak, M. (2008). *SquirrelFish Extreme: The JavaScriptCore JIT Compiler*. [WebKit](../GLOSSARY.md) Official Technical Blog.
+3. Pizlo, F. (2016). *Filip Pizlo on the B3 JIT Compiler and JavaScriptCore Architecture*. [WebKit](../GLOSSARY.md) Technical Papers.
+4. Wilander, J. (2017). *Intelligent Tracking Prevention*. [WebKit](../GLOSSARY.md) Security & Privacy Documentation.
 5. [Google](../GLOSSARY.md) Inc. (2013). *Blink: A new open source browser engine*. Chromium Blog.
 6. Hyatt, D., & Melton, N. (2005). *The WebCore Rendering Engine Architecture*. Apple Engineering Notes.
-7. WebKit Open Source Project. (2010). *WebKit2 High-Level Architecture Overview*. webkit.org Documentation.
+7. [WebKit](../GLOSSARY.md) Open Source Project. (2010). *WebKit2 High-Level Architecture Overview*. [webkit](../GLOSSARY.md).org Documentation.
 
 ---
 

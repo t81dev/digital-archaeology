@@ -327,6 +327,10 @@
       "definition": "A mathematical measure of the efficiency of representing numbers in a given base, defined as $R \\times \\lfloor \\log_R(N) + 1 \\rfloor$ for base $R$ and maximum value $N$. It is mathematically optimized at the transcendental base $e \\approx 2.718$, which makes base 3 (ternary) more efficient than base 2 (binary)."
     },
     {
+      "term": "Posit Arithmetic",
+      "definition": "A tapered, variable-dynamic-range real number representation (Type-3 Unum) that uses regime bits to dynamically shift precision near 1.0, eliminating subnormal numbers and NaN redundancy while enabling exact quire dot-product accumulation."
+    },
+    {
       "term": "Residue Number System (RNS)",
       "definition": "A non-positional numeral system representing integers via remainders modulo pairwise coprime integers. RNS eliminates carry propagation for additions, subtractions, and multiplications, executing them in independent parallel channels."
     },
@@ -637,6 +641,7 @@
           "balanced-ternary",
           "residue-number-system",
           "logarithmic-number-system",
+          "posit-arithmetic",
           "fluidic-logic-systems"
         ]
       },
@@ -739,6 +744,8 @@
           "apple",
           "cpp",
           "gentoo",
+          "GLOSSARY",
+          "GLOSSARY",
           "google",
           "inferno",
           "large-language-models",
@@ -747,9 +754,11 @@
           "microsoft",
           "netscape",
           "nvidia",
+          "GLOSSARY",
           "onnx",
           "openai",
           "portage",
+          "GLOSSARY",
           "qt",
           "safari",
           "smalltalk",
@@ -769,6 +778,7 @@
           "ebcdic",
           "residue-number-system",
           "logarithmic-number-system",
+          "posit-arithmetic",
           "fluidic-logic-systems"
         ]
       },
@@ -875,6 +885,7 @@
           "balanced-ternary",
           "residue-number-system",
           "logarithmic-number-system",
+          "posit-arithmetic",
           "fluidic-logic-systems"
         ]
       }
@@ -971,7 +982,7 @@
       "id": "apple",
       "title": "Apple: The [Integrated Platform Surface](../GLOSSARY.md)",
       "path": "excavations/apple.md",
-      "summary": "The Apple computational lineage is commonly analyzed through corporate biography, industrial design aesthetic, or consumer marketing narratives. From the perspective of digital archaeology, however, **Apple represents a highly specialized paradigm of hardware–software–runtime vertical integration**.\n\nApple's primary architectural achievement was not any single computer or operating system, but rather the **engineering of a cohesive, vertically [integrated platform surface](../GLOSSARY.md)**. By treating the entire stack—from custom silicon co-processors to system APIs, developer toolchains, dynamic runtimes, and centralized application distribution engines—as a single designed surface, Apple solved the classic coordination problems of software compatibility and hardware advancement. This integration enabled Apple to execute multiple rapid, high-fidelity platform transitions (e.g., 68000 $\\rightarrow$ PowerPC $\\rightarrow$ Intel $\\rightarrow$ [Apple Silicon](../GLOSSARY.md); Classic Mac OS $\\rightarrow$ NeXTSTEP/OS X; desktop computing $\\rightarrow$ mobile $\\rightarrow$ on-device AI) while maintaining strict developer control, high ecosystem-scale persistence, and powerful user lock-in.",
+      "summary": "The Apple computational lineage is commonly analyzed through corporate biography, industrial design aesthetic, or consumer marketing narratives. From the perspective of digital archaeology, however, **Apple represents a highly specialized paradigm of hardware–software–runtime vertical integration**.\n\nApple's primary architectural achievement was not any single computer or operating system, but rather the **engineering of a cohesive, vertically [integrated platform surface](../GLOSSARY.md)**. By treating the entire stack—from custom silicon co-processors to system APIs, developer toolchains, dynamic runtimes, and centralized application distribution engines—as a single designed surface, Apple solved the classic coordination problems of software compatibility and hardware advancement. This integration enabled Apple to execute multiple rapid, high-fidelity platform transitions (e.g., 68000 $\\rightarrow$ PowerPC $\\rightarrow$ [Intel](../GLOSSARY.md) $\\rightarrow$ [Apple Silicon](../GLOSSARY.md); Classic Mac OS $\\rightarrow$ NeXTSTEP/OS X; desktop computing $\\rightarrow$ mobile $\\rightarrow$ on-device AI) while maintaining strict developer control, high ecosystem-scale persistence, and powerful user lock-in.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -1090,7 +1101,7 @@
           "rationale": "Requires specialized asynchronous HDL synthesis tools, custom layout cells, and hazard/glitch verification."
         }
       },
-      "modern_relevance": "While synchronous control remains dominant in standard CPU cores, the physical limits of sub-nanometer silicon have triggered a powerful revival of asynchronous techniques across specialized high-performance domains:\n\n* **[Wafer-Scale Integration](wafer-scale-integration.md) (WSI) & Cerebras Systems:** As chips grow to the size of an entire silicon wafer (e.g., Cerebras Wafer-Scale Engine), distributing a unified, synchronized gigahertz clock across centimeters of silicon is physically impossible due to massive wire propagation delay and clock skew. Cerebras utilizes a Globally Asynchronous, Locally Synchronous (GALS) spatial array, routing operands asynchronously via self-timed Network-on-Chip (NoC) switches.\n* **Neuromorphic Edge AI Processors:** Spiking neural network (SNN) chips, such as **Intel's Loihi** and IBM's TrueNorth, are fundamentally asynchronous. Spikes propagate between core clusters using asynchronous Address-Event Representation (AER) protocols. Because biological signals are highly sparse in time, event-driven, clockless logic is the only way to achieve the sub-milliwatt power budgets required for edge deployments.\n* **Hardware Security & Smart Cards:** Modern secure enclaves, hardware security modules (HSMs), and contactless smart cards (like those based on ARM's SecurCore or specialized chips from Infineon) employ asynchronous cores to prevent hackers from reconstructing cryptographic keys via electromagnetic or power-analysis side-channel attacks.\n* **Energy-Harvesting IoT Nodes:** Wearable medical sensors and environmental monitoring nodes run on extremely low and unpredictable harvested energy (solar, thermal, or vibration). Asynchronous processors can operate under widely fluctuating voltage levels, slowing down dynamically when voltage drops and speeding up when energy is abundant, without ever crashing due to timing violations.",
+      "modern_relevance": "While synchronous control remains dominant in standard CPU cores, the physical limits of sub-nanometer silicon have triggered a powerful revival of asynchronous techniques across specialized high-performance domains:\n\n* **[Wafer-Scale Integration](wafer-scale-integration.md) (WSI) & Cerebras Systems:** As chips grow to the size of an entire silicon wafer (e.g., Cerebras Wafer-Scale Engine), distributing a unified, synchronized gigahertz clock across centimeters of silicon is physically impossible due to massive wire propagation delay and clock skew. Cerebras utilizes a Globally Asynchronous, Locally Synchronous (GALS) spatial array, routing operands asynchronously via self-timed Network-on-Chip (NoC) switches.\n* **Neuromorphic Edge AI Processors:** Spiking neural network (SNN) chips, such as **[Intel](../GLOSSARY.md)'s Loihi** and IBM's TrueNorth, are fundamentally asynchronous. Spikes propagate between core clusters using asynchronous Address-Event Representation (AER) protocols. Because biological signals are highly sparse in time, event-driven, clockless logic is the only way to achieve the sub-milliwatt power budgets required for edge deployments.\n* **Hardware Security & Smart Cards:** Modern secure enclaves, hardware security modules (HSMs), and contactless smart cards (like those based on ARM's SecurCore or specialized chips from Infineon) employ asynchronous cores to prevent hackers from reconstructing cryptographic keys via electromagnetic or power-analysis side-channel attacks.\n* **Energy-Harvesting IoT Nodes:** Wearable medical sensors and environmental monitoring nodes run on extremely low and unpredictable harvested energy (solar, thermal, or vibration). Asynchronous processors can operate under widely fluctuating voltage levels, slowing down dynamically when voltage drops and speeding up when energy is abundant, without ever crashing due to timing violations.",
       "references": [
         "Sutherland, I. E. (1989). *[Micropipelines](../GLOSSARY.md)*. Communications of the ACM, 32(6), 720-738. (Sutherland's seminal Turing Award lecture introducing the micropipelining framework).",
         "Furber, S. B., Edwards, D. A., & Garside, J. D. (1994). *AMULET1: An asynchronous ARM microprocessor*. IEEE Transactions on Very Large Scale Integration (VLSI) Systems, 2(2), 205-215.",
@@ -1262,7 +1273,7 @@
           "rationale": "Requires extensive systems-level implementation and emulation efforts."
         }
       },
-      "modern_relevance": "### CHERI Hardware\n- **CHERI (Capability Hardware Enhanced RISC Instructions)**: Pioneered by SRI International and the University of Cambridge (Woodruff et al., 2014; Watson et al., 2015), CHERI extends conventional RISC architectures (such as ARM and RISC-V) with native capability registers and instructions.\n- **Tag-Bit Integrity**: CHERI protects capabilities in physical RAM via a hardware-managed tag bit. If a capability word in memory is overwritten by any normal integer or data-manipulation instruction, the tag bit is automatically cleared, making the capability invalid for use.\n- **128-bit Compressed Capabilities**: To minimize memory bandwidth overhead, CHERI uses floating-point-style compression to compress 256-bit architectural bounds (base, limit, permissions) into a 128-bit format that fits within existing 64-bit memory spaces.\n- **Performance Overhead & Memory Pressure (The Pointer Expansion Penalty)**: Extensive benchmarking on real-world workloads (e.g., PostgreSQL, nginx, WebKit) demonstrates that CHERI's hardware-enforced spatial and temporal memory safety typically incurs a low CPU cycle overhead of **1% to 5%** on the 7nm ARM Morello prototype. However, expanding pointers to 128-bit capability descriptors doubles their size in memory. In pointer-heavy workloads (such as compilers, browser engines, or interpreter runtimes), this causes a **$10\\%\\text{--}25\\%$ memory footprint expansion**, resulting in increased L1/L2 data cache misses and higher off-chip DRAM bandwidth utilization.\n- **Developer Training & Adoption Friction**: While CHERI Clang can compile standard, well-behaved C/C++ with minimal changes, adapting legacy codebases that rely on non-standard pointer arithmetic (such as XOR-linked lists, packing data bits into unused pointer bits, or custom arena allocators) requires manual refactoring. This introduces a steep developer training and engineering cost.\n- **Industry Adoption & Deployment Calendar (2028--2030)**: ARM has successfully fabricated experimental CHERI silicon (the 7nm \"Morello\" prototype chip), demonstrating physical viability in mass-market general-purpose processors. With the active standardization of the RISC-V CHERI ISA extension, commercial deployments in secure microcontrollers, automotive platforms, and mobile application processors are anticipated within the **2028--2030 calendar horizon**. Furthermore, modern operating systems like Google's Fuchsia utilize capability-like semantics (Zircon handles), and WebAssembly employs sandboxing principles inspired directly by object-capabilities.",
+      "modern_relevance": "### CHERI Hardware\n- **CHERI (Capability Hardware Enhanced RISC Instructions)**: Pioneered by SRI International and the University of Cambridge (Woodruff et al., 2014; Watson et al., 2015), CHERI extends conventional RISC architectures (such as ARM and RISC-V) with native capability registers and instructions.\n- **Tag-Bit Integrity**: CHERI protects capabilities in physical RAM via a hardware-managed tag bit. If a capability word in memory is overwritten by any normal integer or data-manipulation instruction, the tag bit is automatically cleared, making the capability invalid for use.\n- **128-bit Compressed Capabilities**: To minimize memory bandwidth overhead, CHERI uses floating-point-style compression to compress 256-bit architectural bounds (base, limit, permissions) into a 128-bit format that fits within existing 64-bit memory spaces.\n- **Performance Overhead & Memory Pressure (The Pointer Expansion Penalty)**: Extensive benchmarking on real-world workloads (e.g., PostgreSQL, nginx, [WebKit](../GLOSSARY.md)) demonstrates that CHERI's hardware-enforced spatial and temporal memory safety typically incurs a low CPU cycle overhead of **1% to 5%** on the 7nm ARM Morello prototype. However, expanding pointers to 128-bit capability descriptors doubles their size in memory. In pointer-heavy workloads (such as compilers, browser engines, or interpreter runtimes), this causes a **$10\\%\\text{--}25\\%$ memory footprint expansion**, resulting in increased L1/L2 data cache misses and higher off-chip DRAM bandwidth utilization.\n- **Developer Training & Adoption Friction**: While CHERI Clang can compile standard, well-behaved C/C++ with minimal changes, adapting legacy codebases that rely on non-standard pointer arithmetic (such as XOR-linked lists, packing data bits into unused pointer bits, or custom arena allocators) requires manual refactoring. This introduces a steep developer training and engineering cost.\n- **Industry Adoption & Deployment Calendar (2028--2030)**: ARM has successfully fabricated experimental CHERI silicon (the 7nm \"Morello\" prototype chip), demonstrating physical viability in mass-market general-purpose processors. With the active standardization of the RISC-V CHERI ISA extension, commercial deployments in secure microcontrollers, automotive platforms, and mobile application processors are anticipated within the **2028--2030 calendar horizon**. Furthermore, modern operating systems like [Google](../GLOSSARY.md)'s Fuchsia utilize capability-like semantics (Zircon handles), and WebAssembly employs sandboxing principles inspired directly by object-capabilities.",
       "references": []
     },
     {
@@ -1302,7 +1313,7 @@
           "rationale": "High physical fabrication or high-fidelity simulation complexity."
         }
       },
-      "modern_relevance": "While stand-alone \"Cellular Automata Machines\" vanished as commercial products, their fine-grained spatial compute model is the foundation of modern high-performance spatial hardware:\n\n* **Field-Programmable Gate Arrays (FPGAs):** Modern FPGAs are directly descended from CA architecture principles—consisting of a 2D spatial grid of Lookup Tables (LUTs), flip-flops, and configurable neighbor routing channels.\n* **Wafer-Scale AI Processors (Cerebras WSE):** The Cerebras Wafer-Scale Engine utilizes a 2D mesh of hundreds of thousands of independent processing cores connected via a high-speed spatial fabric, executing tensor computations as localized spatial stencil operations.\n* **[Systolic Arrays](systolic-arrays.md) and Stencil Accelerators:** Google’s Tensor Processing Unit (TPU) and domain-specific physics accelerators use spatial 2D grid meshes to push data through neighboring processing elements without central register file access.\n* **Lattice-Boltzmann Physics Solvers:** Modern fluid dynamics and aerodynamic solvers (e.g., in aerospace and automotive design) run parallelized Lattice-Boltzmann Method (LBM) algorithms on massive GPU grids, directly inheriting the physics model of 1980s lattice-gas cellular automata.",
+      "modern_relevance": "While stand-alone \"Cellular Automata Machines\" vanished as commercial products, their fine-grained spatial compute model is the foundation of modern high-performance spatial hardware:\n\n* **Field-Programmable Gate Arrays (FPGAs):** Modern FPGAs are directly descended from CA architecture principles—consisting of a 2D spatial grid of Lookup Tables (LUTs), flip-flops, and configurable neighbor routing channels.\n* **Wafer-Scale AI Processors (Cerebras WSE):** The Cerebras Wafer-Scale Engine utilizes a 2D mesh of hundreds of thousands of independent processing cores connected via a high-speed spatial fabric, executing tensor computations as localized spatial stencil operations.\n* **[Systolic Arrays](systolic-arrays.md) and Stencil Accelerators:** [Google](../GLOSSARY.md)’s Tensor Processing Unit (TPU) and domain-specific physics accelerators use spatial 2D grid meshes to push data through neighboring processing elements without central register file access.\n* **Lattice-Boltzmann Physics Solvers:** Modern fluid dynamics and aerodynamic solvers (e.g., in aerospace and automotive design) run parallelized Lattice-Boltzmann Method (LBM) algorithms on massive GPU grids, directly inheriting the physics model of 1980s lattice-gas cellular automata.",
       "references": [
         "von Neumann, J. (1966). *Theory of Self-Reproducing Automata* (Edited and completed by A. W. Burks). University of Illinois Press.",
         "Toffoli, T., & Margolus, N. (1987). *Cellular Automata Machines: A New Environment for Modeling*. MIT Press.",
@@ -1354,7 +1365,7 @@
       "id": "cpp",
       "title": "C++: [Zero-Overhead Abstraction](../GLOSSARY.md) & Deterministic Resource Control",
       "path": "excavations/cpp.md",
-      "summary": "In systems programming history, the **C++** lineage represents a fundamental architectural synthesis: uniting low-level C-style machine control with high-level user-defined abstractions without imposing an automatic runtime performance penalty. Created by Bjarne Stroustrup at AT&T Bell Laboratories in 1979 as \"C with Classes\" and evolving into C++ by 1983, the language responded to a profound systems crisis: procedural C lacked structured mechanisms to organize complex, multi-million-line software architectures, while object-oriented alternatives (such as [Smalltalk](smalltalk.md) and Simula) required dynamic runtimes, garbage collection, or indirect dispatch overheads unacceptable for operating system kernels, device drivers, and real-time execution.\n\nC++ solved this tension by establishing the **Zero-Overhead Principle**: *what you don't use, you don't pay for; and what you do use, you couldn't write better by hand*. This philosophy was operationalized through three key structural mechanisms:\n1. **Deterministic Lifetime Management (RAII)**: Coupling resource acquisition and release directly to stack and block scope boundaries, replacing both manual error-prone `free()` calls and non-deterministic garbage collection.\n2. **Value-Oriented Object Model**: Storing objects directly in contiguous memory (stack or array layouts) by default, making dynamic heap allocation and vtable indirect dispatch explicit, opt-in mechanisms.\n3. **Compile-Time Generic Programming**: Utilizing templates as a language-integrated code-generation and specialization engine, allowing generic algorithms to compile into inline, zero-cost machine instructions matching or exceeding hand-tuned C loops.\n\nBy standardizing these abstractions through ISO/IEC 14882 (starting with C++98 and modernizing through C++11, C++14, C++17, C++20, and C++23), C++ became the ubiquitous infrastructure substrate for operating system kernels (Windows NT, macOS XNU, Symbian), Web browser engines (Blink, Gecko, WebKit), high-performance databases, game engines (Unreal Engine), finance/low-latency trading platforms, and AI acceleration backends ([CUDA](../GLOSSARY.md), PyTorch C++ core, [llama.cpp](../GLOSSARY.md), TensorRT). In doing so, it created a massive, self-reinforcing lock-in loop anchored by binary ABIs, compiler toolchains, C-interoperability, and millions of software engineering lifetimes.",
+      "summary": "In systems programming history, the **C++** lineage represents a fundamental architectural synthesis: uniting low-level C-style machine control with high-level user-defined abstractions without imposing an automatic runtime performance penalty. Created by Bjarne Stroustrup at AT&T Bell Laboratories in 1979 as \"C with Classes\" and evolving into C++ by 1983, the language responded to a profound systems crisis: procedural C lacked structured mechanisms to organize complex, multi-million-line software architectures, while object-oriented alternatives (such as [Smalltalk](smalltalk.md) and Simula) required dynamic runtimes, garbage collection, or indirect dispatch overheads unacceptable for operating system kernels, device drivers, and real-time execution.\n\nC++ solved this tension by establishing the **Zero-Overhead Principle**: *what you don't use, you don't pay for; and what you do use, you couldn't write better by hand*. This philosophy was operationalized through three key structural mechanisms:\n1. **Deterministic Lifetime Management (RAII)**: Coupling resource acquisition and release directly to stack and block scope boundaries, replacing both manual error-prone `free()` calls and non-deterministic garbage collection.\n2. **Value-Oriented Object Model**: Storing objects directly in contiguous memory (stack or array layouts) by default, making dynamic heap allocation and vtable indirect dispatch explicit, opt-in mechanisms.\n3. **Compile-Time Generic Programming**: Utilizing templates as a language-integrated code-generation and specialization engine, allowing generic algorithms to compile into inline, zero-cost machine instructions matching or exceeding hand-tuned C loops.\n\nBy standardizing these abstractions through ISO/IEC 14882 (starting with C++98 and modernizing through C++11, C++14, C++17, C++20, and C++23), C++ became the ubiquitous infrastructure substrate for operating system kernels (Windows NT, macOS XNU, Symbian), Web browser engines (Blink, Gecko, [WebKit](../GLOSSARY.md)), high-performance databases, game engines (Unreal Engine), finance/low-latency trading platforms, and AI acceleration backends ([CUDA](../GLOSSARY.md), PyTorch C++ core, [llama.cpp](../GLOSSARY.md), TensorRT). In doing so, it created a massive, self-reinforcing lock-in loop anchored by binary ABIs, compiler toolchains, C-interoperability, and millions of software engineering lifetimes.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -1392,9 +1403,9 @@
     },
     {
       "id": "cursor-ide",
-      "title": "Cursor IDE: The AI-Native Editor Substrate & Agentic Workspace",
+      "title": "[Cursor IDE](../GLOSSARY.md): The AI-Native Editor Substrate & Agentic Workspace",
       "path": "excavations/cursor-ide.md",
-      "summary": "The **Cursor IDE** lineage represents a pivotal transition in software engineering tooling: the conversion of the integrated development environment (IDE) from a deterministic text-editing and Language Server Protocol (LSP) host into an **AI-native software production substrate**. While popular discourse often frames Cursor in terms of developer productivity hype or LLM benchmark competition, digital archaeology evaluates Cursor as a structural transformation in the developer workspace.\n\nCursor's core technical achievement was not the creation of proprietary foundation models, but rather the **architectural synthesis of four distinct developer-tooling abstractions**:\n1. **An Editor Substrate Compatibility Bridge**: Forking VS Code (Code - OSS) to inherit its extension ecosystem, keybindings, and UI contracts while replacing the core buffer-mutation and rendering paths with deep model hooks.\n2. **Budgeted Context Packet Assembly**: Transitioning from single-file or current-selection prompt windows to repo-scale hybrid retrieval (combining AST parsing, vector embeddings, lexical BM25/ripgrep searching, and linter diagnostic feeds).\n3. **Diff-Mediated Mutation & Trust Boundaries**: Replacing opaque text replacement with speculative patch generation, spec-diff inline previews, line-level acceptance/rejection, and multi-file transactional checkpoints.\n4. **Supervised Workspace Agent Loops**: Elevating model interactions from passive autocomplete and conversational sidebars to stateful, tool-executing loops (reading workspace files, searching symbols, executing terminal commands, evaluating test/linter failures, and self-correcting edits).\n\nThis excavation analyzes how Cursor's abstractions emerged, how they leveraged the gravity of the VS Code ecosystem, where their structural failure modes lie, and which architectural residues are likely to persist as permanent primitives of future software development environments.",
+      "summary": "The **[Cursor IDE](../GLOSSARY.md)** lineage represents a pivotal transition in software engineering tooling: the conversion of the integrated development environment (IDE) from a deterministic text-editing and Language Server Protocol (LSP) host into an **AI-native software production substrate**. While popular discourse often frames Cursor in terms of developer productivity hype or LLM benchmark competition, digital archaeology evaluates Cursor as a structural transformation in the developer workspace.\n\nCursor's core technical achievement was not the creation of proprietary foundation models, but rather the **architectural synthesis of four distinct developer-tooling abstractions**:\n1. **An Editor Substrate Compatibility Bridge**: Forking VS Code (Code - OSS) to inherit its extension ecosystem, keybindings, and UI contracts while replacing the core buffer-mutation and rendering paths with deep model hooks.\n2. **Budgeted Context Packet Assembly**: Transitioning from single-file or current-selection prompt windows to repo-scale hybrid retrieval (combining AST parsing, vector embeddings, lexical BM25/ripgrep searching, and linter diagnostic feeds).\n3. **Diff-Mediated Mutation & Trust Boundaries**: Replacing opaque text replacement with speculative patch generation, spec-diff inline previews, line-level acceptance/rejection, and multi-file transactional checkpoints.\n4. **Supervised Workspace Agent Loops**: Elevating model interactions from passive autocomplete and conversational sidebars to stateful, tool-executing loops (reading workspace files, searching symbols, executing terminal commands, evaluating test/linter failures, and self-correcting edits).\n\nThis excavation analyzes how Cursor's abstractions emerged, how they leveraged the gravity of the VS Code ecosystem, where their structural failure modes lie, and which architectural residues are likely to persist as permanent primitives of future software development environments.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1467,7 +1478,7 @@
           "rationale": "Medium complexity to simulate or rebuild on modern software/hardware platforms."
         }
       },
-      "modern_relevance": "### AI Accelerator Lineage\n* **SambaNova Systems Reconfigurable Dataflow Unit (RDU)**: SambaNova utilizes an array of Pattern Compute Units (PCUs) and Pattern Memory Units (PMUs) linked by an on-chip routing network. Instead of fetching instructions every cycle, the deep learning compiler maps the tensor execution graph directly onto the physical substrate, streaming data tokens continuously through the physical array.\n* **Cerebras Systems Wafer-Scale Engine (WSE)**: Cerebras manufactures a single, massive silicon wafer containing **850,000 AI-optimized compute cores**, 40GB of on-wafer SRAM, and a custom inter-core fabric. It functions as a massive, dynamic dataflow machine where tensors stream between physical processing nodes with sub-microsecond latency, bypassing the off-chip DRAM memory wall entirely.\n* **Google Tensor Processing Units (TPUs)**: The TPU's matrix multiply unit is structured as a **256x256 [systolic array](../GLOSSARY.md)** performing 65,536 Multiply-Accumulate (MAC) operations per clock cycle. Data flows statically through an array of processing cells, where inputs from the left and weights from the top meet inside multipliers, demonstrating a highly efficient, deterministic static dataflow model.\n* **Graphcore IPU (Intelligence Processing Unit)**: Utilizes an explicitly parallel spatial layout with over 1,472 tile processors, executing structured neural dataflow graphs utilizing a highly-scalable, deterministic Bulk Synchronous Parallel (BSP) exchange fabric.",
+      "modern_relevance": "### AI Accelerator Lineage\n* **SambaNova Systems Reconfigurable Dataflow Unit (RDU)**: SambaNova utilizes an array of Pattern Compute Units (PCUs) and Pattern Memory Units (PMUs) linked by an on-chip routing network. Instead of fetching instructions every cycle, the deep learning compiler maps the tensor execution graph directly onto the physical substrate, streaming data tokens continuously through the physical array.\n* **Cerebras Systems Wafer-Scale Engine (WSE)**: Cerebras manufactures a single, massive silicon wafer containing **850,000 AI-optimized compute cores**, 40GB of on-wafer SRAM, and a custom inter-core fabric. It functions as a massive, dynamic dataflow machine where tensors stream between physical processing nodes with sub-microsecond latency, bypassing the off-chip DRAM memory wall entirely.\n* **[Google](../GLOSSARY.md) Tensor Processing Units (TPUs)**: The TPU's matrix multiply unit is structured as a **256x256 [systolic array](../GLOSSARY.md)** performing 65,536 Multiply-Accumulate (MAC) operations per clock cycle. Data flows statically through an array of processing cells, where inputs from the left and weights from the top meet inside multipliers, demonstrating a highly efficient, deterministic static dataflow model.\n* **Graphcore IPU (Intelligence Processing Unit)**: Utilizes an explicitly parallel spatial layout with over 1,472 tile processors, executing structured neural dataflow graphs utilizing a highly-scalable, deterministic Bulk Synchronous Parallel (BSP) exchange fabric.",
       "references": []
     },
     {
@@ -1514,7 +1525,7 @@
       "id": "edge-architecture",
       "title": "Explicit Data Graph Execution (EDGE) & The TRIPS Architecture",
       "path": "excavations/edge-architecture.md",
-      "summary": "**Explicit Data Graph Execution (EDGE)** is an alternative class of microprocessor architectures designed to replace standard Instruction Set Architectures (ISAs) like x86, ARM, and RISC. Developed in the early 2000s, EDGE was created to resolve the physical scalability walls of conventional Out-of-Order (OoO) superscalar processors—namely, the high power consumption and wire-delay bottlenecks associated with instruction decode, rename registers, and centralized reservation stations.\n\nThe primary hardware realization of the EDGE paradigm was the **TRIPS (Tera-op Reliable Intellectually Protorecursive System)** processor, developed by the University of Texas at Austin in collaboration with DARPA, IBM, and Intel between 2001 and 2007.\n\nRather than processing a continuous stream of sequential instructions, an EDGE compiler partitions programs into coarse-grained, logically atomic **blocks** of instructions. Within each block, instruction execution is fully **dataflow-driven**: instructions do not read or write a centralized register file to pass intermediate operands. Instead, instructions explicitly declare their consumers, routing data tokens directly from one execution node's output to another's input over a physical spatial grid of execution units. By combining block-structured control flow with instruction-level spatial routing, EDGE architectures achieve massive instruction-level parallelism (ILP) with minimal microarchitectural overhead.",
+      "summary": "**Explicit Data Graph Execution (EDGE)** is an alternative class of microprocessor architectures designed to replace standard Instruction Set Architectures (ISAs) like x86, ARM, and RISC. Developed in the early 2000s, EDGE was created to resolve the physical scalability walls of conventional Out-of-Order (OoO) superscalar processors—namely, the high power consumption and wire-delay bottlenecks associated with instruction decode, rename registers, and centralized reservation stations.\n\nThe primary hardware realization of the EDGE paradigm was the **TRIPS (Tera-op Reliable Intellectually Protorecursive System)** processor, developed by the University of Texas at Austin in collaboration with DARPA, IBM, and [Intel](../GLOSSARY.md) between 2001 and 2007.\n\nRather than processing a continuous stream of sequential instructions, an EDGE compiler partitions programs into coarse-grained, logically atomic **blocks** of instructions. Within each block, instruction execution is fully **dataflow-driven**: instructions do not read or write a centralized register file to pass intermediate operands. Instead, instructions explicitly declare their consumers, routing data tokens directly from one execution node's output to another's input over a physical spatial grid of execution units. By combining block-structured control flow with instruction-level spatial routing, EDGE architectures achieve massive instruction-level parallelism (ILP) with minimal microarchitectural overhead.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1597,19 +1608,19 @@
     },
     {
       "id": "gentoo",
-      "title": "Gentoo: Source-Based Distribution Architecture & Compile-Time Configuration",
+      "title": "[Gentoo](../GLOSSARY.md): Source-Based Distribution Architecture & Compile-Time Configuration",
       "path": "excavations/gentoo.md",
-      "summary": "In Linux history, Gentoo is frequently discussed through the lens of enthusiast desktop customization, \"ricing\" culture, compilation benchmarks, or distro-war tribalism. In digital archaeology, however, **Gentoo represents a landmark computational ecosystem**: a pioneering and highly influential model of a **source-centric, build-configured operating system distribution architecture**.\n\nGentoo's primary architectural achievement was not merely running compiler optimizations on local hardware, but **elevating compile-time software selection into a first-class operating-system management paradigm**. By constructing Portage around executable bash package recipes (`ebuilds`), fine-grained feature flags (`USE` flags), version slotting (`SLOT`), cascading system policies (`profiles`), and additive repository namespaces (`overlays`), Gentoo transformed package management from static prebuilt binary payloads into a programmable, constraint-driven build engine.\n\nThis excavation dissects the architectural layers of Gentoo, traces its technical evolution from early FreeBSD Ports-inspired scripts to modern Portage dependency solvers, analyzes the ecosystem feedback loops and lock-in mechanisms that sustained its high-control niche, and examines how its core abstractions migrated into modern container build fabrics, embedded Linux meta-distributions (such as Yocto and ChromeOS), and declarative package systems.",
+      "summary": "In Linux history, [Gentoo](../GLOSSARY.md) is frequently discussed through the lens of enthusiast desktop customization, \"ricing\" culture, compilation benchmarks, or distro-war tribalism. In digital archaeology, however, **[Gentoo](../GLOSSARY.md) represents a landmark computational ecosystem**: a pioneering and highly influential model of a **source-centric, build-configured operating system distribution architecture**.\n\n[Gentoo](../GLOSSARY.md)'s primary architectural achievement was not merely running compiler optimizations on local hardware, but **elevating compile-time software selection into a first-class operating-system management paradigm**. By constructing [Portage](../GLOSSARY.md) around executable bash package recipes (`ebuilds`), fine-grained feature flags (`USE` flags), version slotting (`SLOT`), cascading system policies (`profiles`), and additive repository namespaces (`overlays`), [Gentoo](../GLOSSARY.md) transformed package management from static prebuilt binary payloads into a programmable, constraint-driven build engine.\n\nThis excavation dissects the architectural layers of [Gentoo](../GLOSSARY.md), traces its technical evolution from early FreeBSD Ports-inspired scripts to modern [Portage](../GLOSSARY.md) dependency solvers, analyzes the ecosystem feedback loops and lock-in mechanisms that sustained its high-control niche, and examines how its core abstractions migrated into modern container build fabrics, embedded Linux meta-distributions (such as Yocto and ChromeOS), and declarative package systems.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Transformed Linux distribution architecture by pioneering source-based package management, ebuild recipes, and USE flag abstractions."
+          "rationale": "Transformed Linux distribution architecture by pioneering source-based package management, [ebuild](../GLOSSARY.md) recipes, and USE flag abstractions."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Engineered programmable ebuild recipes, USE flag dependency mutation, cascading profiles, slotting, and LD_PRELOAD build sandboxing."
+          "rationale": "Engineered programmable [ebuild](../GLOSSARY.md) recipes, USE flag dependency mutation, cascading profiles, slotting, and LD_PRELOAD build sandboxing."
         },
         "Commercial Success": {
           "stars": "★★★☆☆",
@@ -1629,17 +1640,17 @@
         "Difficulty to Recreate": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Rebuilding the Portage dependency engine, eclass hierarchy, and the vast official ebuild package universe requires immense engineering effort."
+          "rationale": "Rebuilding the [Portage](../GLOSSARY.md) dependency engine, eclass hierarchy, and the vast official [ebuild](../GLOSSARY.md) package universe requires immense engineering effort."
         }
       },
-      "modern_relevance": "Gentoo's lasting contribution to computer engineering is not the romantic ideal of compiling everything from source on a desktop, but **the standardization of explicit build-time feature configuration and programmable package recipes into an operating-system construction methodology**.",
+      "modern_relevance": "[Gentoo](../GLOSSARY.md)'s lasting contribution to computer engineering is not the romantic ideal of compiling everything from source on a desktop, but **the standardization of explicit build-time feature configuration and programmable package recipes into an operating-system construction methodology**.",
       "references": []
     },
     {
       "id": "google",
-      "title": "Google: The Platform Machine of Scale",
+      "title": "[Google](../GLOSSARY.md): The Platform Machine of Scale",
       "path": "excavations/google.md",
-      "summary": "The Google computational lineage is frequently evaluated through popular narratives of search engine dominance, corporate brand competition, or antitrust debate. In digital archaeology, however, **Google represents a historical computational ecosystem** that transformed the relationship between software and hardware by treating the **data center itself as the primary computer**.\n\nGoogle's primary architectural achievement was the engineering of a platform machine of scale: a self-reinforcing loop that converted raw, low-cost commodity hardware into highly reliable, globally-distributed virtualized abstractions ([GFS](../GLOSSARY.md), MapReduce, Bigtable, Spanner, Borg), bound developers to these abstractions via narrow APIs, and exported selected models to the broader industry (either as influential research papers, open-source projects like Kubernetes and TensorFlow, or managed cloud services). This excavation dissects the mechanisms of this machine, traces its evolution from PageRank link analysis to multi-accelerator AI infrastructure, and analyzes how its abstractions survive even as the underlying constraints of physical silicon and network bandwidth shift.",
+      "summary": "The [Google](../GLOSSARY.md) computational lineage is frequently evaluated through popular narratives of search engine dominance, corporate brand competition, or antitrust debate. In digital archaeology, however, **[Google](../GLOSSARY.md) represents a historical computational ecosystem** that transformed the relationship between software and hardware by treating the **data center itself as the primary computer**.\n\n[Google](../GLOSSARY.md)'s primary architectural achievement was the engineering of a platform machine of scale: a self-reinforcing loop that converted raw, low-cost commodity hardware into highly reliable, globally-distributed virtualized abstractions ([GFS](../GLOSSARY.md), MapReduce, Bigtable, Spanner, Borg), bound developers to these abstractions via narrow APIs, and exported selected models to the broader industry (either as influential research papers, open-source projects like Kubernetes and TensorFlow, or managed cloud services). This excavation dissects the mechanisms of this machine, traces its evolution from PageRank link analysis to multi-accelerator AI infrastructure, and analyzes how its abstractions survive even as the underlying constraints of physical silicon and network bandwidth shift.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -1669,7 +1680,7 @@
         "Difficulty to Recreate": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Replicating Google's global multi-datacenter physical server footprints, fiber networks, and rubidium-clock Spanner deployments is economically prohibitive."
+          "rationale": "Replicating [Google](../GLOSSARY.md)'s global multi-datacenter physical server footprints, fiber networks, and rubidium-clock Spanner deployments is economically prohibitive."
         }
       },
       "modern_relevance": "",
@@ -1764,9 +1775,9 @@
     },
     {
       "id": "intel-iapx-432",
-      "title": "Intel iAPX 432",
+      "title": "[Intel](../GLOSSARY.md) iAPX 432",
       "path": "excavations/intel-iapx-432.md",
-      "summary": "The Intel iAPX 432 (introduced in 1981) was Intel's radical attempt to build a next-generation architecture that directly supported object-oriented programming, [capability-based security](../GLOSSARY.md), automatic memory management, and high-level language execution (especially Ada) in silicon. It featured a sophisticated capability system, hardware-enforced typing, and a multi-chip design with separate instruction decoding and execution units.\n\nDespite innovative ideas and strong backing from Intel and the U.S. Department of Defense (via Ada), the iAPX 432 suffered from severe performance issues, architectural complexity, and poor compiler support. It was discontinued in the mid-1980s after limited commercial adoption. The project remains a cautionary tale of over-ambitious hardware-software co-design and a valuable source of lessons for modern capability-based systems.",
+      "summary": "The [Intel](../GLOSSARY.md) iAPX 432 (introduced in 1981) was [Intel](../GLOSSARY.md)'s radical attempt to build a next-generation architecture that directly supported object-oriented programming, [capability-based security](../GLOSSARY.md), automatic memory management, and high-level language execution (especially Ada) in silicon. It featured a sophisticated capability system, hardware-enforced typing, and a multi-chip design with separate instruction decoding and execution units.\n\nDespite innovative ideas and strong backing from [Intel](../GLOSSARY.md) and the U.S. Department of Defense (via Ada), the iAPX 432 suffered from severe performance issues, architectural complexity, and poor compiler support. It was discontinued in the mid-1980s after limited commercial adoption. The project remains a cautionary tale of over-ambitious hardware-software co-design and a valuable source of lessons for modern capability-based systems.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1799,10 +1810,10 @@
           "rationale": "Extremely high; requires recreating complex bit-aligned decoders, custom microcode execution pipelines, and two-level table lookups."
         }
       },
-      "modern_relevance": "The iAPX 432 was decades ahead of its time, and its core concepts are being actively revived under modern security pressure:\n\n- **CHERI (Capability Hardware Enhanced RISC Instructions)**: This modern, high-profile hardware security model (developed by Cambridge and SRI) implements spatial memory safety and compartmentalization. CHERI utilizes **128-bit capability descriptors** in registers and memory. It is the direct spiritual descendant of the 432's Access Descriptors, proving that capability-based hardware is the most robust mechanism to prevent buffer overflows, use-after-free exploits, and heartbleed-style attacks.\n- **Arm Morello & MTE (Memory Tagging Extension)**: Silicon implementations by major vendors are integrating capability-like tagging and checking directly into general-purpose architectures to enforce software compartmentalization at low performance overhead.\n- **Microkernels and Object Security**: Operating systems like **seL4** (formally verified capability-based kernel) and **Google Fuchsia** utilize user-space capability references to implement zero-trust security boundaries.",
+      "modern_relevance": "The iAPX 432 was decades ahead of its time, and its core concepts are being actively revived under modern security pressure:\n\n- **CHERI (Capability Hardware Enhanced RISC Instructions)**: This modern, high-profile hardware security model (developed by Cambridge and SRI) implements spatial memory safety and compartmentalization. CHERI utilizes **128-bit capability descriptors** in registers and memory. It is the direct spiritual descendant of the 432's Access Descriptors, proving that capability-based hardware is the most robust mechanism to prevent buffer overflows, use-after-free exploits, and heartbleed-style attacks.\n- **Arm Morello & MTE (Memory Tagging Extension)**: Silicon implementations by major vendors are integrating capability-like tagging and checking directly into general-purpose architectures to enforce software compartmentalization at low performance overhead.\n- **Microkernels and Object Security**: Operating systems like **seL4** (formally verified capability-based kernel) and **[Google](../GLOSSARY.md) Fuchsia** utilize user-space capability references to implement zero-trust security boundaries.",
       "references": [
-        "**Intel Corporation** (1981). *\"iAPX 432 General Information Manual.\"* Order Number 171821.",
-        "**Organick, Elliott I.** (1983). *\"A Programmer's View of the Intel 432.\"* McGraw-Hill.",
+        "**[Intel](../GLOSSARY.md) Corporation** (1981). *\"iAPX 432 General Information Manual.\"* Order Number 171821.",
+        "**Organick, Elliott I.** (1983). *\"A Programmer's View of the [Intel](../GLOSSARY.md) 432.\"* McGraw-Hill.",
         "**Colwell, Robert P., et al.** (1985). *\"Performance of the iAPX 432.\"* Proceedings of the 12th Annual International Symposium on Computer Architecture, pp. 263–271.",
         "**Colwell, Robert P.** (1985). *\"The Performance of the iAPX 432.\"* PhD Thesis, Carnegie Mellon University.",
         "**Myers, Glenford J.** (1982). *\"Advances in Computer Architecture.\"* John Wiley & Sons.",
@@ -1853,7 +1864,7 @@
       "id": "j-machine",
       "title": "The MIT J-Machine",
       "path": "excavations/j-machine.md",
-      "summary": "The J-Machine (Jellybean Machine) was a landmark, fine-grained, massively parallel computer architecture developed in the late 1980s and early 1990s by the Concurrent VLSI Architecture Group at MIT, led by parallel-computing pioneer **William Dally**, in collaboration with Intel.\n\nThe machine was called a \"jellybean\" machine because its design philosophy argued that high-performance computing should not be built from expensive, specialized processors, but from massive arrays of cheap, single-chip commodity nodes—like jellybeans—that integrated a processor, memory, and a fast routing network on a single die.\n\nThe J-Machine's fundamental innovation was its **Message-Driven Processor (MDP)**. Rather than treating communication as a high-latency software OS intervention, the MDP implemented communication mechanisms directly in the silicon. Through **[Active Messages](../GLOSSARY.md)**, a message arrival instantly triggered the creation of a hardware-scheduled task and executed the message's target code in a few clock cycles. Coupled with a 3D **wormhole-routing** network, the J-Machine operated as a hardware-enforced, single-level global object namespace, eliminating the distinction between local and remote object references.\n\nUltimately eclipsed by the rapid performance scaling of standard commodity workstation clusters (Beowulf clusters) and the complexity of partitioning software compilers, the J-Machine's architectural concepts live on as the primary infrastructure of modern **Networks-on-Chip (NoCs)**, GPU interconnects, and exascale AI accelerators like the Cerebras Wafer-Scale Engine.",
+      "summary": "The J-Machine (Jellybean Machine) was a landmark, fine-grained, massively parallel computer architecture developed in the late 1980s and early 1990s by the Concurrent VLSI Architecture Group at MIT, led by parallel-computing pioneer **William Dally**, in collaboration with [Intel](../GLOSSARY.md).\n\nThe machine was called a \"jellybean\" machine because its design philosophy argued that high-performance computing should not be built from expensive, specialized processors, but from massive arrays of cheap, single-chip commodity nodes—like jellybeans—that integrated a processor, memory, and a fast routing network on a single die.\n\nThe J-Machine's fundamental innovation was its **Message-Driven Processor (MDP)**. Rather than treating communication as a high-latency software OS intervention, the MDP implemented communication mechanisms directly in the silicon. Through **[Active Messages](../GLOSSARY.md)**, a message arrival instantly triggered the creation of a hardware-scheduled task and executed the message's target code in a few clock cycles. Coupled with a 3D **wormhole-routing** network, the J-Machine operated as a hardware-enforced, single-level global object namespace, eliminating the distinction between local and remote object references.\n\nUltimately eclipsed by the rapid performance scaling of standard commodity workstation clusters (Beowulf clusters) and the complexity of partitioning software compilers, the J-Machine's architectural concepts live on as the primary infrastructure of modern **Networks-on-Chip (NoCs)**, GPU interconnects, and exascale AI accelerators like the Cerebras Wafer-Scale Engine.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -1886,7 +1897,7 @@
           "rationale": "Simulating a multi-node message-driven 3D routing fabric requires custom asynchronous parallel simulators."
         }
       },
-      "modern_relevance": "As silicon scaling reaches its physical limits and the **Von Neumann memory wall** chokes general-purpose performance, the core principles of the J-Machine are undergoing a major renaissance:\n\n* **Networks-on-Chip (NoCs) in Many-Core Chips:** Modern GPUs, Google TPUs, and multi-core CPUs are no longer structured as a single monolithic processor. Instead, they are composed of a grid of independent execution cores connected via a highly optimized, on-silicon 2D/3D packet-routing network—structurally identical to the J-Machine’s MDP integration.\n* **Cerebras Wafer-Scale Engine (WSE):** The WSE is the ultimate physical realization of the \"jellybean\" philosophy. By building hundreds of thousands of AI-optimized cores on a single, uncut silicon wafer, Cerebras avoids chip packaging and PCB traces entirely. Cores communicate asynchronously via a fine-grained, localized spatial routing fabric that echoes the J-Machine's wormhole-routing network.\n* **Distributed Actor Frameworks (Ray & Akka):** Modern distributed computing workloads (such as scaling large language models across thousands of GPUs) utilize software-implemented [Active Messages](../GLOSSARY.md). In **Ray**, tasks and objects are routed dynamically across a cluster using global object identifiers and executed asynchronously, mirroring the J-Machine's execution model.\n* **Neuromorphic Spike Routing:** Spiking neuromorphic architectures (like Intel Loihi) route events (spikes) across distributed, asynchronous neural cores using on-chip routers, inheriting the J-Machine's fine-grained, event-driven message dispatch mechanisms.",
+      "modern_relevance": "As silicon scaling reaches its physical limits and the **Von Neumann memory wall** chokes general-purpose performance, the core principles of the J-Machine are undergoing a major renaissance:\n\n* **Networks-on-Chip (NoCs) in Many-Core Chips:** Modern GPUs, [Google](../GLOSSARY.md) TPUs, and multi-core CPUs are no longer structured as a single monolithic processor. Instead, they are composed of a grid of independent execution cores connected via a highly optimized, on-silicon 2D/3D packet-routing network—structurally identical to the J-Machine’s MDP integration.\n* **Cerebras Wafer-Scale Engine (WSE):** The WSE is the ultimate physical realization of the \"jellybean\" philosophy. By building hundreds of thousands of AI-optimized cores on a single, uncut silicon wafer, Cerebras avoids chip packaging and PCB traces entirely. Cores communicate asynchronously via a fine-grained, localized spatial routing fabric that echoes the J-Machine's wormhole-routing network.\n* **Distributed Actor Frameworks (Ray & Akka):** Modern distributed computing workloads (such as scaling large language models across thousands of GPUs) utilize software-implemented [Active Messages](../GLOSSARY.md). In **Ray**, tasks and objects are routed dynamically across a cluster using global object identifiers and executed asynchronously, mirroring the J-Machine's execution model.\n* **Neuromorphic Spike Routing:** Spiking neuromorphic architectures (like [Intel](../GLOSSARY.md) Loihi) route events (spikes) across distributed, asynchronous neural cores using on-chip routers, inheriting the J-Machine's fine-grained, event-driven message dispatch mechanisms.",
       "references": [
         "Dally, W. J., et al. (1989). *The J-Machine: A fine-grain concurrent computer*. In Proceedings of the IFIP 11th World Computer Congress, 1147-1153.",
         "Dally, W. J., & Wills, D. S. (1989). *Universal mechanisms for concurrency*. In Proceedings of the 16th Annual International Symposium on Computer Architecture (ISCA), 19-26.",
@@ -2120,9 +2131,9 @@
     },
     {
       "id": "llama-cpp",
-      "title": "llama.cpp: Quantization-First local Inference and the Portable LLM Runtime Ecosystem",
+      "title": "[llama.cpp](../GLOSSARY.md): Quantization-First local Inference and the Portable LLM Runtime Ecosystem",
       "path": "excavations/llama-cpp.md",
-      "summary": "In deep learning history, the **llama.cpp** lineage represents a decisive paradigm shift that decoupled Large Language Model (LLM) execution from cloud-native, Python-dependent, and massive GPU acceleration infrastructures. Originally authored by Georgi Gerganov in March 2023 following the leak and open release of Meta's LLaMA weights, llama.cpp was engineered as a plain C/C++ implementation of the transformer architecture, initially targeted for Apple Silicon (macOS CPU/GPU) via Apple Metal and ARM NEON.\n\nThe lineage's core architectural achievement was **establishing quantization-first, low-dependency execution as a primary design driver rather than a post-hoc compression step**. While traditional ML systems (e.g., PyTorch, Hugging Face transformers) treated float16 and float32 precision as the native computational formats and quantized models primarily to save disk space or memory at the cost of high runtime translation overhead, llama.cpp structured its entire memory layout and computational kernels around low-bit (e.g., 2, 3, 4, 5, 6, 8-bit) integer block quantization.\n\nBy pairing **GGML** (its core tensor and evaluation engine) and **GGUF** (its unified, single-file model and metadata packaging format) with aggressive hardware-specific SIMD compilation targets (AVX, NEON, Metal, CUDA), llama.cpp converted local LLM inference from an inaccessible high-performance computing challenge into an efficient, memory-bandwidth-aware commodity utility. In doing so, it established a massive local application ecosystem (Ollama, LM Studio, local Web UIs, and language bindings) that hard-wired the GGUF container as the de facto standardized distribution artifact of the open-weights AI community.",
+      "summary": "In deep learning history, the **[llama.cpp](../GLOSSARY.md)** lineage represents a decisive paradigm shift that decoupled Large Language Model (LLM) execution from cloud-native, Python-dependent, and massive GPU acceleration infrastructures. Originally authored by Georgi Gerganov in March 2023 following the leak and open release of Meta's LLaMA weights, [llama.cpp](../GLOSSARY.md) was engineered as a plain C/C++ implementation of the transformer architecture, initially targeted for [Apple Silicon](../GLOSSARY.md) (macOS CPU/GPU) via Apple [Metal](../GLOSSARY.md) and ARM NEON.\n\nThe lineage's core architectural achievement was **establishing quantization-first, low-dependency execution as a primary design driver rather than a post-hoc compression step**. While traditional ML systems (e.g., PyTorch, Hugging Face transformers) treated float16 and float32 precision as the native computational formats and quantized models primarily to save disk space or memory at the cost of high runtime translation overhead, [llama.cpp](../GLOSSARY.md) structured its entire memory layout and computational kernels around low-bit (e.g., 2, 3, 4, 5, 6, 8-bit) integer block quantization.\n\nBy pairing **[GGML](../GLOSSARY.md)** (its core tensor and evaluation engine) and **[GGUF](../GLOSSARY.md)** (its unified, single-file model and metadata packaging format) with aggressive hardware-specific SIMD compilation targets (AVX, NEON, [Metal](../GLOSSARY.md), [CUDA](../GLOSSARY.md)), [llama.cpp](../GLOSSARY.md) converted local LLM inference from an inaccessible high-performance computing challenge into an efficient, memory-bandwidth-aware commodity utility. In doing so, it established a massive local application ecosystem (Ollama, LM Studio, local Web UIs, and language bindings) that hard-wired the [GGUF](../GLOSSARY.md) container as the de facto standardized distribution artifact of the open-weights AI community.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -2132,7 +2143,7 @@
         "Technical Innovation": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Popularized block-wise quantization formats, memory-mapped self-describing GGUF files, and dynamic CPU-GPU evaluation graph offloading."
+          "rationale": "Popularized block-wise quantization formats, memory-mapped self-describing [GGUF](../GLOSSARY.md) files, and dynamic CPU-GPU evaluation graph offloading."
         },
         "Commercial Success": {
           "stars": "★★★★★",
@@ -2320,9 +2331,9 @@
     },
     {
       "id": "netscape",
-      "title": "Netscape: The Programmable Web Runtime & Network Client Substrate",
+      "title": "[Netscape](../GLOSSARY.md): The Programmable Web Runtime & Network Client Substrate",
       "path": "excavations/netscape.md",
-      "summary": "In mainstream technology history, Netscape is often reduced to a corporate biography, a sports narrative of the late-1990s \"browser wars,\" or a business case study on AOL's acquisition and subsequent decline. In digital archaeology, however, **Netscape represents a foundational computational ecosystem**: the architectural lineage that transformed the World Wide Web from a passive, static hypertext viewer into a **programmable, securable, distributed application platform**.\n\nNetscape Navigator did not merely render HTML tags; it engineered the core runtime abstractions that made client-side web computing possible. By introducing **JavaScript** (making document nodes dynamic and event-driven), the **Netscape Plugin Application Programming Interface (NPAPI)** (enabling loadable native media runtimes), **Secure Sockets Layer (SSL)** (mainstreaming public-key cryptography and HTTPS e-commerce), and **HTTP Cookies** (layering persistent session state onto a stateless transport protocol), Netscape defined the operational surface of the modern web client.\n\nWhen competitive pressure and operating system integration displaced Netscape Navigator's distribution dominance, Netscape executed a historically unprecedented move: open-sourcing its client codebase as the **Mozilla Project**. Through Mozilla, Netscape's rendering ideas, script engines, security protocols, and platform abstractions survived product brand collapse, evolving directly into Gecko, Firefox, modern web standards, and the contemporary \"browser-as-operating-system\" paradigm.",
+      "summary": "In mainstream technology history, [Netscape](../GLOSSARY.md) is often reduced to a corporate biography, a sports narrative of the late-1990s \"browser wars,\" or a business case study on AOL's acquisition and subsequent decline. In digital archaeology, however, **[Netscape](../GLOSSARY.md) represents a foundational computational ecosystem**: the architectural lineage that transformed the World Wide Web from a passive, static hypertext viewer into a **programmable, securable, distributed application platform**.\n\n[Netscape](../GLOSSARY.md) Navigator did not merely render HTML tags; it engineered the core runtime abstractions that made client-side web computing possible. By introducing **JavaScript** (making document nodes dynamic and event-driven), the **[Netscape](../GLOSSARY.md) Plugin Application Programming Interface (NPAPI)** (enabling loadable native media runtimes), **Secure Sockets Layer (SSL)** (mainstreaming public-key cryptography and HTTPS e-commerce), and **HTTP Cookies** (layering persistent session state onto a stateless transport protocol), [Netscape](../GLOSSARY.md) defined the operational surface of the modern web client.\n\nWhen competitive pressure and operating system integration displaced [Netscape](../GLOSSARY.md) Navigator's distribution dominance, [Netscape](../GLOSSARY.md) executed a historically unprecedented move: open-sourcing its client codebase as the **Mozilla Project**. Through Mozilla, [Netscape](../GLOSSARY.md)'s rendering ideas, script engines, security protocols, and platform abstractions survived product brand collapse, evolving directly into Gecko, Firefox, modern web standards, and the contemporary \"browser-as-operating-system\" paradigm.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -2342,12 +2353,12 @@
         "Modern Potential": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Netscape's abstractions (JavaScript, HTTPS, cookies, browser runtime host) form the operational foundation of modern global computing."
+          "rationale": "[Netscape](../GLOSSARY.md)'s abstractions (JavaScript, HTTPS, cookies, browser runtime host) form the operational foundation of modern global computing."
         },
         "AI Synergy": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Modern web browsers execute AI workloads client-side via JavaScript, WebAssembly, and WebGPU, inheriting Netscape's client execution model."
+          "rationale": "Modern web browsers execute AI workloads client-side via JavaScript, WebAssembly, and WebGPU, inheriting [Netscape](../GLOSSARY.md)'s client execution model."
         },
         "Difficulty to Recreate": {
           "stars": "★★★★☆",
@@ -2355,14 +2366,14 @@
           "rationale": "Implementing a complete web browser engine requires millions of lines of C++; replicating core runtime/scripting mechanics is achievable."
         }
       },
-      "modern_relevance": "Netscape's legacy is embedded in the operational architecture of contemporary computing:",
+      "modern_relevance": "[Netscape](../GLOSSARY.md)'s legacy is embedded in the operational architecture of contemporary computing:",
       "references": []
     },
     {
       "id": "neuromorphic-hardware",
       "title": "Neuromorphic Hardware",
       "path": "excavations/neuromorphic-hardware.md",
-      "summary": "Neuromorphic hardware refers to integrated circuits designed to mimic the neuro-biological structures and computational principles of the human brain. Unlike traditional von Neumann systems, which separate the central processing unit (CPU) from memory via a shared system bus, neuromorphic chips collocate memory and processing inside distributed artificial \"neurons\" and \"synapses.\"\n\nInstead of executing clock-synchronized, sequential instructions on continuous floating-point tensors, neuromorphic hardware processes discrete, asynchronous temporal signals called **spikes**. Computation is strictly event-driven: individual core clusters consume negligible static power and wake up only when incoming electrical spikes trigger a state change.\n\nInitially pioneered by Carver Mead in the late 1980s using subthreshold analog CMOS circuits, neuromorphic architecture has evolved across analog, digital, and memristive mediums (e.g., IBM TrueNorth, Intel Loihi, BrainScaleS, and SpiNNaker). While long overshadowed by mainstream synchronous GPUs and TPUs, neuromorphic hardware is experiencing a renaissance as modern AI hits the power and bandwidth limits of von Neumann architectures—particularly in sparse, low-latency edge processing.",
+      "summary": "Neuromorphic hardware refers to integrated circuits designed to mimic the neuro-biological structures and computational principles of the human brain. Unlike traditional von Neumann systems, which separate the central processing unit (CPU) from memory via a shared system bus, neuromorphic chips collocate memory and processing inside distributed artificial \"neurons\" and \"synapses.\"\n\nInstead of executing clock-synchronized, sequential instructions on continuous floating-point tensors, neuromorphic hardware processes discrete, asynchronous temporal signals called **spikes**. Computation is strictly event-driven: individual core clusters consume negligible static power and wake up only when incoming electrical spikes trigger a state change.\n\nInitially pioneered by Carver Mead in the late 1980s using subthreshold analog CMOS circuits, neuromorphic architecture has evolved across analog, digital, and memristive mediums (e.g., IBM TrueNorth, [Intel](../GLOSSARY.md) Loihi, BrainScaleS, and SpiNNaker). While long overshadowed by mainstream synchronous GPUs and TPUs, neuromorphic hardware is experiencing a renaissance as modern AI hits the power and bandwidth limits of von Neumann architectures—particularly in sparse, low-latency edge processing.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -2377,7 +2388,7 @@
         "Commercial Success": {
           "stars": "★★☆☆☆",
           "numeric": 2,
-          "rationale": "Consistently limited to academic labs and research prototypes due to the sheer dominance of GPU scaling and CUDA ecosystems."
+          "rationale": "Consistently limited to academic labs and research prototypes due to the sheer dominance of GPU scaling and [CUDA](../GLOSSARY.md) ecosystems."
         },
         "Modern Potential": {
           "stars": "★★★★★",
@@ -2400,19 +2411,19 @@
     },
     {
       "id": "nvidia",
-      "title": "NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform",
+      "title": "[NVIDIA](../GLOSSARY.md) Architecture: The Programmable Parallel Substrate & [CUDA](../GLOSSARY.md) Platform",
       "path": "excavations/nvidia.md",
-      "summary": "In computer architecture history, **NVIDIA's parallel computing substrate** represents the definitive structural demonstration of transforming a domain-specific throughput accelerator—the 3D Graphics Processing Unit (GPU)—into a universal platform for high-performance scientific computing and machine learning. Originally engineered to accelerate fixed-function rasterization and fragment shading for 3D graphics markets, NVIDIA systematically evolved the GPU through programmable vertex and pixel shaders, unified shader execution units, the **Single Instruction, Multiple Threads (SIMT)** execution abstraction, and the **CUDA (Compute Unified Device Architecture)** programming and runtime model.\n\nNVIDIA's central architectural achievement was not merely building raw floating-point throughput, but establishing an integrated **software-hardware platform machine**. By providing a C/C++ programming language extension model (grids, blocks, warps, threads), explicit and managed memory hierarchies (global, shared, register, unified memory), domain-optimized performance libraries (cuBLAS, cuDNN, NCCL, TensorRT), and high-bandwidth multi-GPU system interconnects (NVLink, NVSwitch), NVIDIA converted discrete silicon chips into a long-lived computational contract.\n\nAs machine learning workloads shifted toward dense matrix operations and Transformer models, NVIDIA specialized the hardware layer with **Tensor Cores** (mixed-precision Warp Matrix Multiply-Accumulate units) while preserving CUDA as the unifying platform surface. This excavation analyzes the computational abstractions NVIDIA created, preserved, transformed, and standardized, evaluating the technical and systemic mechanisms by which those abstractions achieved ecosystem-scale persistence across high-performance computing (HPC) and artificial intelligence infrastructure.",
+      "summary": "In computer architecture history, **[NVIDIA](../GLOSSARY.md)'s parallel computing substrate** represents the definitive structural demonstration of transforming a domain-specific throughput accelerator—the 3D Graphics Processing Unit (GPU)—into a universal platform for high-performance scientific computing and machine learning. Originally engineered to accelerate fixed-function rasterization and fragment shading for 3D graphics markets, [NVIDIA](../GLOSSARY.md) systematically evolved the GPU through programmable vertex and pixel shaders, unified shader execution units, the **Single Instruction, Multiple Threads (SIMT)** execution abstraction, and the **[CUDA](../GLOSSARY.md) (Compute Unified Device Architecture)** programming and runtime model.\n\n[NVIDIA](../GLOSSARY.md)'s central architectural achievement was not merely building raw floating-point throughput, but establishing an integrated **software-hardware platform machine**. By providing a C/C++ programming language extension model (grids, blocks, warps, threads), explicit and managed memory hierarchies (global, shared, register, unified memory), domain-optimized performance libraries (cuBLAS, [cuDNN](../GLOSSARY.md), NCCL, TensorRT), and high-bandwidth multi-GPU system interconnects ([NVLink](../GLOSSARY.md), NVSwitch), [NVIDIA](../GLOSSARY.md) converted discrete silicon chips into a long-lived computational contract.\n\nAs machine learning workloads shifted toward dense matrix operations and Transformer models, [NVIDIA](../GLOSSARY.md) specialized the hardware layer with **Tensor Cores** (mixed-precision [Warp](../GLOSSARY.md) Matrix Multiply-Accumulate units) while preserving [CUDA](../GLOSSARY.md) as the unifying platform surface. This excavation analyzes the computational abstractions [NVIDIA](../GLOSSARY.md) created, preserved, transformed, and standardized, evaluating the technical and systemic mechanisms by which those abstractions achieved ecosystem-scale persistence across high-performance computing (HPC) and artificial intelligence infrastructure.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Transformed fixed-function graphics chips into a universal parallel computing substrate, pioneering GPGPU and CUDA."
+          "rationale": "Transformed fixed-function graphics chips into a universal parallel computing substrate, pioneering GPGPU and [CUDA](../GLOSSARY.md)."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Mastered SIMT warp execution, active mask divergence handling, Shared Memory, Tensor Cores, and NVLink interconnect fabrics."
+          "rationale": "Mastered SIMT [warp](../GLOSSARY.md) execution, active mask divergence handling, Shared Memory, Tensor Cores, and [NVLink](../GLOSSARY.md) interconnect fabrics."
         },
         "Commercial Success": {
           "stars": "★★★★★",
@@ -2432,7 +2443,7 @@
         "Difficulty to Recreate": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Replicating two decades of hand-optimized CUDA libraries, driver stacks, compiler toolchains, and NVLink fabrics requires multi-billion-dollar investments."
+          "rationale": "Replicating two decades of hand-optimized [CUDA](../GLOSSARY.md) libraries, driver stacks, compiler toolchains, and [NVLink](../GLOSSARY.md) fabrics requires multi-billion-dollar investments."
         }
       },
       "modern_relevance": "",
@@ -2482,7 +2493,7 @@
       "id": "onnx",
       "title": "ONNX: The Portable Computational Graph and Runtime Substrate",
       "path": "excavations/onnx.md",
-      "summary": "In deep learning history, the **Open Neural Network Exchange (ONNX)** represents the primary structural attempt to establish a standard intermediate representation (IR) and runtime execution layer for trained neural network graphs.\n\nONNX's core architectural achievement is the **formal decoupling of framework-specific computational graphs from target hardware compilers**. By standardizing a graph IR based on Protocol Buffers (protobuf) and a strictly versioned, mathematical operator vocabulary (Opsets), ONNX created a clean \"compile-target\" boundary. This decoupled structure allowed research frameworks (such as PyTorch, TensorFlow, MXNet, and Caffe2) and hardware deployment backends (such as Intel OpenVINO, NVIDIA TensorRT, Qualcomm SNPE, and Apple CoreML) to evolve independently.\n\nHowever, the lineage demonstrates that interoperability is not a passive file-format problem, but an **active runtime and translation event**. The real-world survival and dominance of ONNX was not secured by the format itself, but by **ONNX Runtime (ORT)** and its **Execution Provider (EP)** abstraction layer. ORT transformed ONNX from an exchange format into high-performance execution infrastructure. Pluggable EPs insulated software developers from vendor-specific driver APIs (CUDA, ROCm, DirectML, CoreML) by performing graph optimizations, node fusions, and memory-allocation planning on the portable IR before compiling to target backends. Through these mechanisms, ONNX absorbed the \"conversion tax\" at the ecosystem boundaries, persisting as the default deployment handoff substrate of cloud-native and edge AI infrastructure.",
+      "summary": "In deep learning history, the **Open Neural Network Exchange (ONNX)** represents the primary structural attempt to establish a standard intermediate representation (IR) and runtime execution layer for trained neural network graphs.\n\nONNX's core architectural achievement is the **formal decoupling of framework-specific computational graphs from target hardware compilers**. By standardizing a graph IR based on Protocol Buffers (protobuf) and a strictly versioned, mathematical operator vocabulary (Opsets), ONNX created a clean \"compile-target\" boundary. This decoupled structure allowed research frameworks (such as PyTorch, TensorFlow, MXNet, and Caffe2) and hardware deployment backends (such as [Intel](../GLOSSARY.md) OpenVINO, [NVIDIA](../GLOSSARY.md) TensorRT, Qualcomm SNPE, and Apple CoreML) to evolve independently.\n\nHowever, the lineage demonstrates that interoperability is not a passive file-format problem, but an **active runtime and translation event**. The real-world survival and dominance of ONNX was not secured by the format itself, but by **ONNX Runtime (ORT)** and its **Execution Provider (EP)** abstraction layer. ORT transformed ONNX from an exchange format into high-performance execution infrastructure. Pluggable EPs insulated software developers from vendor-specific driver APIs ([CUDA](../GLOSSARY.md), ROCm, DirectML, CoreML) by performing graph optimizations, node fusions, and memory-allocation planning on the portable IR before compiling to target backends. Through these mechanisms, ONNX absorbed the \"conversion tax\" at the ecosystem boundaries, persisting as the default deployment handoff substrate of cloud-native and edge AI infrastructure.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -2522,7 +2533,7 @@
       "id": "openai",
       "title": "OpenAI: The Model-as-Platform Substrate",
       "path": "excavations/openai.md",
-      "summary": "The OpenAI computational lineage is frequently evaluated through popular narratives of corporate drama, venture scale investment, or science-fiction timelines of artificial general intelligence (AGI). From the perspective of digital archaeology, however, **OpenAI represents a highly successful paradigm of interface stabilization, scaling empirical laws, and the platformization of learned weights**.\n\nOpenAI's primary architectural achievement was not the design of clean-slate core model architectures (relying primarily on Google's pre-existing [Transformer](../GLOSSARY.md) block), but rather **the translation of large-scale autoregressive sequence predictors into a stable, programmable, remote runtime platform**. By demonstrating that empirical scaling laws govern transformer model convergence, stabilizing the remote API-as-model abstraction, and productizing human-aligned post-training (RLHF/Instruct), OpenAI decoupled software logic from classical deterministic compilation. This created a new stratum of computing: a model-as-platform substrate where natural language, multi-step reasoning, and tool invoking function as standard execution primitives above traditional operating systems and clouds. This excavation dissects the technical layers of this substrate, traces its transitions from reinforcement learning environments to agentic runtimes, and analyzes the feedback loops and lock-in patterns that sustain its platform dominance.",
+      "summary": "The OpenAI computational lineage is frequently evaluated through popular narratives of corporate drama, venture scale investment, or science-fiction timelines of artificial general intelligence (AGI). From the perspective of digital archaeology, however, **OpenAI represents a highly successful paradigm of interface stabilization, scaling empirical laws, and the platformization of learned weights**.\n\nOpenAI's primary architectural achievement was not the design of clean-slate core model architectures (relying primarily on [Google](../GLOSSARY.md)'s pre-existing [Transformer](../GLOSSARY.md) block), but rather **the translation of large-scale autoregressive sequence predictors into a stable, programmable, remote runtime platform**. By demonstrating that empirical scaling laws govern transformer model convergence, stabilizing the remote API-as-model abstraction, and productizing human-aligned post-training (RLHF/Instruct), OpenAI decoupled software logic from classical deterministic compilation. This created a new stratum of computing: a model-as-platform substrate where natural language, multi-step reasoning, and tool invoking function as standard execution primitives above traditional operating systems and clouds. This excavation dissects the technical layers of this substrate, traces its transitions from reinforcement learning environments to agentic runtimes, and analyzes the feedback loops and lock-in patterns that sustain its platform dominance.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
@@ -2679,6 +2690,46 @@
       "references": []
     },
     {
+      "id": "posit-arithmetic",
+      "title": "[Posit Arithmetic](../GLOSSARY.md) & Type-3 Unum Systems",
+      "path": "excavations/posit-arithmetic.md",
+      "summary": "**[Posit Arithmetic](../GLOSSARY.md)** (also known as Type-3 Universal Numbers or Unums) is an alternative numerical representation for real numbers invented by John L. Gustafson in 2017 as a direct replacement for IEEE 754 floating-point standards.\n\nUnlike IEEE 754 floats, which allocate a fixed number of bits to the exponent and fraction fields regardless of the magnitude of the number, posits introduce a dynamic **regime field** that acts as a scale factor. This tapered precision allocation provides higher precision (more fraction bits) near 1.0 where numerical calculations concentrate, while dynamically expanding dynamic range (more exponent bits) for extremely large or small numbers.\n\nFurthermore, [posit arithmetic](../GLOSSARY.md) mandates the **Quire**—a wide fused accumulator register that enables exact dot-product accumulation without intermediate rounding errors or catastrophic cancellation.\n\nToday, [posit arithmetic](../GLOSSARY.md) is emerging as a critical mathematical substrate for low-precision Deep Learning inference (P8/P4 posit formats), climate modeling, spatial tensor acceleration, and post-CMOS AI chips.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Major mathematical advance in real-number arithmetic challenging 40 years of IEEE 754 dominance."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Brilliant tapered regime encoding and exact quire accumulation eliminating NaN waste and rounding drift."
+        },
+        "Commercial Success": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Rapidly growing adoption in edge AI silicon and RISC-V coprocessors, though IEEE 754 retains legacy lock-in."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "High potential for low-bitwidth LLM quantization (P8/P4), climate modeling, and spatial neural accelerators."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Native alignment with deep learning activation distributions near 1.0, outperforming FP8 in inference precision."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Variable-length regime decoding and wide quire accumulator trees require custom Verilog/VHDL hardware blocks."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
+    },
+    {
       "id": "project-xanadu",
       "title": "Project Xanadu",
       "path": "excavations/project-xanadu.md",
@@ -2795,14 +2846,14 @@
           "rationale": "The core meta-object system and signals/slots are straightforward to simulate, but replicating the vast platform backend support and QML scene graph engine is complex."
         }
       },
-      "modern_relevance": "Qt's durable contribution to computer science is not merely a collection of GUI widgets, but a **long-lived application runtime model**—meta-objects, signals and slots, hierarchical parent-child ownership, event loop integration, and platform abstraction layers—that enabled portable [C++](cpp.md) applications to remain viable across three decades of changing operating system architectures.\n\nIn modern systems engineering:\n* **Qt Quick / QML** remains a dominant declarative UI stack for industrial HMI, medical devices, and automotive digital cockpits (e.g., Mercedes-Benz, Tesla, LG webOS).\n* **Qt 6's Render Hardware Interface (RHI)** provides a blueprint for abstracting modern low-level graphics APIs (Vulkan, [Metal](../GLOSSARY.md), Direct3D 12) underneath declarative UI scene graphs.\n* **C++ Integration**: Qt demonstrates how legacy C++ infrastructure can seamlessly co-exist with modern declarative UI paradigms without requiring complete application rewrites.",
+      "modern_relevance": "Qt's durable contribution to computer science is not merely a collection of GUI widgets, but a **long-lived application runtime model**—meta-objects, [signals and slots](../GLOSSARY.md), hierarchical parent-child ownership, event loop integration, and platform abstraction layers—that enabled portable [C++](cpp.md) applications to remain viable across three decades of changing operating system architectures.\n\nIn modern systems engineering:\n* **Qt Quick / QML** remains a dominant declarative UI stack for industrial HMI, medical devices, and automotive digital cockpits (e.g., Mercedes-Benz, Tesla, LG webOS).\n* **Qt 6's Render Hardware Interface (RHI)** provides a blueprint for abstracting modern low-level graphics APIs (Vulkan, [Metal](../GLOSSARY.md), Direct3D 12) underneath declarative UI scene graphs.\n* **C++ Integration**: Qt demonstrates how legacy C++ infrastructure can seamlessly co-exist with modern declarative UI paradigms without requiring complete application rewrites.",
       "references": []
     },
     {
       "id": "residue-number-system",
       "title": "Residue Number System (RNS)",
       "path": "excavations/residue-number-system.md",
-      "summary": "The **Residue Number System (RNS)** is a non-positional, parallel numeral system that represents integers using their remainders (residues) modulo a set of pairwise coprime integers, known as the *moduli set*.\n\nUnlike traditional positional systems (such as binary or decimal), where arithmetic operations must propagate carry signals from the least-significant to the most-significant digits, RNS executes addition, subtraction, and multiplication componentwise without any carry propagation between modular channels. An RNS arithmetic unit can decompose a wide, high-latency calculation (e.g., a 1024-bit cryptographic addition) into multiple narrow, low-latency, and completely independent parallel channels running on simple, small arithmetic blocks.\n\nHistorically, RNS was explored in the late 1950s and early 1960s as a candidate for general-purpose digital computer processors, most notably in Czechoslovakia under Jan Svoboda and Miroslav Valach, and in the United States by researchers such as Harvey Garner, Richard Szabo, and Nicholas Tanaka. While the fundamental non-local nature of division, magnitude comparison, sign detection, and overflow handling eventually locked RNS out of general-purpose microprocessors, the system established deep persistence inside specialized domains.\n\nToday, RNS functions as a critical mathematical backbone for high-speed Digital Signal Processing (DSP), multi-precision public-key cryptography (RSA, Elliptic Curve Cryptography), Fully Homomorphic Encryption (FHE), and emerging high-throughput energy-efficient AI/ML accelerators.",
+      "summary": "The **Residue Number System (RNS)** is a non-positional, parallel numeral system that represents integers using their remainders (residues) modulo a set of pairwise coprime integers, known as the *moduli set*.\n\nUnlike traditional positional systems (such as binary or decimal), where arithmetic operations must propagate carry signals from the least-significant to the most-significant digits, RNS executes addition, subtraction, and multiplication componentwise without any carry propagation between modular channels. An RNS arithmetic unit can decompose a wide, high-latency calculation (e.g., a 1024-bit cryptographic addition) into multiple narrow, low-latency, and completely independent parallel channels running on simple, small arithmetic blocks.\n\nHistorically, RNS was explored in the late 1950s and early 1960s as a candidate for general-purpose digital computer processors, most notably in Czechoslovakia under Jan Svoboda and Miroslav Valach, and in the United States by researchers such as Harvey Garner, Richard Szabo, and Nicholas Tanaka. While the fundamental non-local nature of division, magnitude comparison, sign detection, and overflow handling eventually locked RNS out of general-purpose microprocessors, the system established deep persistence inside specialized domains.\n\nToday, RNS functions as a critical mathematical backbone for high-speed Digital Signal Processing (DSP), multi-precision public-key cryptography (RSA, Elliptic Curve Cryptography), Fully Homomorphic Encryption (FHE), and emerging high-throughput energy-efficient AI/ML accelerators, alongside complementary non-positional or specialized arithmetic lineages such as the [Logarithmic Number System](logarithmic-number-system.md) and [Balanced Ternary](balanced-ternary.md).",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -2880,14 +2931,14 @@
     },
     {
       "id": "safari",
-      "title": "Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate",
+      "title": "[Safari](../GLOSSARY.md): The [WebKit](../GLOSSARY.md) Engine Lineage & Platform Web Runtime Substrate",
       "path": "excavations/safari.md",
       "summary": "",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Created WebKit, defined mobile web runtime constraints on iPhone, pioneered multi-process web engines, and transformed privacy into client runtime architecture."
+          "rationale": "Created [WebKit](../GLOSSARY.md), defined mobile web runtime constraints on iPhone, pioneered multi-process web engines, and transformed privacy into client runtime architecture."
         },
         "Technical Innovation": {
           "stars": "★★★★★",
@@ -2897,7 +2948,7 @@
         "Commercial Success": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Deployed across two billion active Apple devices as default web runtime, powering Safari and millions of native application WebViews."
+          "rationale": "Deployed across two billion active Apple devices as default web runtime, powering [Safari](../GLOSSARY.md) and millions of native application WebViews."
         },
         "Modern Potential": {
           "stars": "★★★★★",
@@ -2907,7 +2958,7 @@
         "AI Synergy": {
           "stars": "★★★★☆",
           "numeric": 4,
-          "rationale": "Enables local client-side neural network and LLM inference inside WebKit viewports via WebGPU, WebAssembly, and [Apple Silicon](../GLOSSARY.md) Unified Memory."
+          "rationale": "Enables local client-side neural network and LLM inference inside [WebKit](../GLOSSARY.md) viewports via WebGPU, WebAssembly, and [Apple Silicon](../GLOSSARY.md) Unified Memory."
         },
         "Difficulty to Recreate": {
           "stars": "★★★★★",
@@ -2915,7 +2966,7 @@
           "rationale": "Rebuilding a standards-compliant, multi-process web engine with advanced JIT compilers and platform graphics pipelines requires hundreds of engineering person-years."
         }
       },
-      "modern_relevance": "Safari and WebKit remain central to modern computing architecture in several key respects:",
+      "modern_relevance": "[Safari](../GLOSSARY.md) and [WebKit](../GLOSSARY.md) remain central to modern computing architecture in several key respects:",
       "references": []
     },
     {
@@ -3050,7 +3101,7 @@
       "id": "superconducting-cryogenic",
       "title": "Superconducting & Cryogenic Microarchitectures (SFQ / RSFQ Logic)",
       "path": "excavations/superconducting-cryogenic.md",
-      "summary": "Superconducting electronics replace traditional resistive silicon-doped CMOS transistors with superconducting Josephson junctions (JJs) that switch at picosecond speeds using macroscopic quantum phase differences. Rather than charging and discharging high-capacitance metal wires with continuous voltage rails (which induces $C V^2 f$ power dissipation), Single Flux Quantum (SFQ) logic encodes, processes, and transmits binary information as discrete, ultra-fast magnetic flux quantum pulses:\n\n$$\\Phi_0 = \\frac{h}{2e} \\approx 2.0678 \\times 10^{-15} \\text{ Weber (or Volt-seconds)}$$\n\nOperating at liquid helium temperatures ($\\sim 4.2$ Kelvin), superconducting transmission lines possess zero electrical DC resistance and near-zero dispersion, enabling clock rates in the hundreds of gigahertz ($\\ge 100 \\text{ GHz}$) with switching energies on the order of a fraction of an attojoule ($E_s \\approx 10^{-19} \\text{ Joules}$).\n\nDespite these revolutionary physical parameters, the paradigm was historically sidelined due to the commercial dominance of room-temperature CMOS scaling, a lack of dense cryogenic random-access memory, and the immense energy overhead of active refrigeration systems (the cryogenic penalty). Today, the end of silicon scaling and the rise of cryogenic quantum processors have revived superconducting logic as a critical candidate for energy-efficient data centers and quantum coprocessors.",
+      "summary": "Superconducting electronics replace traditional resistive silicon-doped CMOS transistors with superconducting Josephson junctions (JJs) that switch at picosecond speeds using macroscopic quantum phase differences. Rather than charging and discharging high-capacitance [metal](../GLOSSARY.md) wires with continuous voltage rails (which induces $C V^2 f$ power dissipation), Single Flux Quantum (SFQ) logic encodes, processes, and transmits binary information as discrete, ultra-fast magnetic flux quantum pulses:\n\n$$\\Phi_0 = \\frac{h}{2e} \\approx 2.0678 \\times 10^{-15} \\text{ Weber (or Volt-seconds)}$$\n\nOperating at liquid helium temperatures ($\\sim 4.2$ Kelvin), superconducting transmission lines possess zero electrical DC resistance and near-zero dispersion, enabling clock rates in the hundreds of gigahertz ($\\ge 100 \\text{ GHz}$) with switching energies on the order of a fraction of an attojoule ($E_s \\approx 10^{-19} \\text{ Joules}$).\n\nDespite these revolutionary physical parameters, the paradigm was historically sidelined due to the commercial dominance of room-temperature CMOS scaling, a lack of dense cryogenic random-access memory, and the immense energy overhead of active refrigeration systems (the cryogenic penalty). Today, the end of silicon scaling and the rise of cryogenic quantum processors have revived superconducting logic as a critical candidate for energy-efficient data centers and quantum coprocessors.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★☆☆",
@@ -3123,7 +3174,7 @@
           "rationale": "Medium complexity to simulate or rebuild on modern software/hardware platforms."
         }
       },
-      "modern_relevance": "While pure GOFAI is no longer used for perception tasks, symbolic logic is seeing an active revival in modern computing architectures and AI design:\n\n* **Neuro-Symbolic AI:** Pairing Large Language Models (LLMs) or neural network perception heads with symbolic backends. Neural nets handle fuzzy sensory perception, while symbolic reasoners handle exact math, rule-checking, and spatial logic.\n* **Automated Theorem Proving & Code Verification:** Tools like Lean, Coq, and Z3 (SMT solvers) use advanced symbolic logic to formally prove software correctness, verify smart contracts, and ensure safety in autonomous vehicle controllers.\n* **Knowledge Graphs & Ontologies:** Modern search engines (Google Knowledge Graph) and enterprise data platforms rely on semantic networks and OWL/RDF triples to organize structured relationships at scale.\n* **Deterministic Guardrails for AI:** Symbolic reasoners act as execution guardrails around stochastic LLMs, preventing hallucinations and guaranteeing compliance with strict safety or legal rules.",
+      "modern_relevance": "While pure GOFAI is no longer used for perception tasks, symbolic logic is seeing an active revival in modern computing architectures and AI design:\n\n* **Neuro-Symbolic AI:** Pairing Large Language Models (LLMs) or neural network perception heads with symbolic backends. Neural nets handle fuzzy sensory perception, while symbolic reasoners handle exact math, rule-checking, and spatial logic.\n* **Automated Theorem Proving & Code Verification:** Tools like Lean, Coq, and Z3 (SMT solvers) use advanced symbolic logic to formally prove software correctness, verify smart contracts, and ensure safety in autonomous vehicle controllers.\n* **Knowledge Graphs & Ontologies:** Modern search engines ([Google](../GLOSSARY.md) Knowledge Graph) and enterprise data platforms rely on semantic networks and OWL/RDF triples to organize structured relationships at scale.\n* **Deterministic Guardrails for AI:** Symbolic reasoners act as execution guardrails around stochastic LLMs, preventing hallucinations and guaranteeing compliance with strict safety or legal rules.",
       "references": [
         "Newell, A., & Simon, H. A. (1976). *Computer Science as Empirical Inquiry: Symbols and Search*. Communications of the ACM, 19(3), 113–126.",
         "McCarthy, J. (1960). *Recursive Functions of Symbolic Expressions and Their Computation by Machine, Part I*. Communications of the ACM, 3(4), 184–195.",
@@ -3136,7 +3187,7 @@
       "id": "systolic-arrays",
       "title": "Systolic Arrays",
       "path": "excavations/systolic-arrays.md",
-      "summary": "Systolic arrays are a class of parallel computing architectures consisting of a grid (usually 1D or 2D) of modestly capable processing elements (PEs) connected locally. Data and partial results flow synchronously through the array in a rhythmic, pipelined fashion, with each PE performing a small operation (e.g., multiply-accumulate) on passing values and forwarding results to neighbors. \n\nProposed by H.T. Kung and Charles E. Leiserson in the late 1970s, systolic arrays were designed to exploit VLSI fabrication for high-throughput, low-overhead computation on regular dataflows. They excel at algorithms with high data locality and repetitive operations, such as matrix multiplication, convolution, filtering, and linear algebra. While dedicated systolic hardware saw limited commercial success outside specialized domains (signal processing, radar, early image processing), the underlying principles heavily influence modern tensor cores in GPUs, AI accelerators (e.g., Google TPU variants), and coarse-grained reconfigurable arrays.",
+      "summary": "Systolic arrays are a class of parallel computing architectures consisting of a grid (usually 1D or 2D) of modestly capable processing elements (PEs) connected locally. Data and partial results flow synchronously through the array in a rhythmic, pipelined fashion, with each PE performing a small operation (e.g., multiply-accumulate) on passing values and forwarding results to neighbors. \n\nProposed by H.T. Kung and Charles E. Leiserson in the late 1970s, systolic arrays were designed to exploit VLSI fabrication for high-throughput, low-overhead computation on regular dataflows. They excel at algorithms with high data locality and repetitive operations, such as matrix multiplication, convolution, filtering, and linear algebra. While dedicated systolic hardware saw limited commercial success outside specialized domains (signal processing, radar, early image processing), the underlying principles heavily influence modern tensor cores in GPUs, AI accelerators (e.g., [Google](../GLOSSARY.md) TPU variants), and coarse-grained reconfigurable arrays.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -3256,7 +3307,7 @@
       "id": "vliw-epic",
       "title": "VLIW / EPIC Architectures (Very Long Instruction Word / Explicitly Parallel Instruction Computing)",
       "path": "excavations/vliw-epic.md",
-      "summary": "VLIW (Very Long Instruction Word) and its descendant EPIC (Explicitly Parallel Instruction Computing) architectures shift the burden of scheduling parallel operations from hardware to the compiler. Instead of complex out-of-order execution engines, the compiler statically schedules instructions into long \"bundles\" or \"packets\" that the hardware executes in parallel. \n\nThe most prominent commercial example is Intel’s Itanium (IA-64) architecture, developed in partnership with HP. While Itanium ultimately underperformed commercially, VLIW/EPIC concepts have influenced modern GPU designs, DSPs, and some AI accelerators.",
+      "summary": "VLIW (Very Long Instruction Word) and its descendant EPIC (Explicitly Parallel Instruction Computing) architectures shift the burden of scheduling parallel operations from hardware to the compiler. Instead of complex out-of-order execution engines, the compiler statically schedules instructions into long \"bundles\" or \"packets\" that the hardware executes in parallel. \n\nThe most prominent commercial example is [Intel](../GLOSSARY.md)’s Itanium (IA-64) architecture, developed in partnership with HP. While Itanium ultimately underperformed commercially, VLIW/EPIC concepts have influenced modern GPU designs, DSPs, and some AI accelerators.",
       "scorecard": {
         "Historical Importance": {
           "stars": "★★★★☆",
@@ -3329,7 +3380,7 @@
           "rationale": "High physical fabrication or high-fidelity simulation complexity."
         }
       },
-      "modern_relevance": "WSI principles have transitioned from an architectural pipe dream into a cornerstone of modern high-performance AI hardware:\n\n* **Cerebras Wafer-Scale Engine (WSE-3):** Fabricated on TSMC's 5nm process, the WSE-3 integrates **4 trillion transistors**, **900,000 AI-optimized compute cores**, and **44 Gigabytes of on-wafer SRAM** onto a single $46,225\\text{ mm}^2$ wafer.\n* **2.5D / 3D Chiplets & Advanced Packaging (TSMC CoWoS, Intel EMIB):** While not full-wafer WSI, modern chiplet architectures (such as AMD EPYC, Apple Ultra, and NVIDIA Blackwell) use silicon interposers to stitch multiple reticle-sized dies together—directly inheriting WSI’s low-capacitance, high-density interconnect physics.\n* **Wafer-Level System-in-Package (WL-SiP):** Tesla's Dojo AI training system uses custom wafer-scale integrated modules (Dojo System-on-Wafer) combining 25 individual D1 chips bonded onto an integrated liquid-cooled substrate.",
+      "modern_relevance": "WSI principles have transitioned from an architectural pipe dream into a cornerstone of modern high-performance AI hardware:\n\n* **Cerebras Wafer-Scale Engine (WSE-3):** Fabricated on TSMC's 5nm process, the WSE-3 integrates **4 trillion transistors**, **900,000 AI-optimized compute cores**, and **44 Gigabytes of on-wafer SRAM** onto a single $46,225\\text{ mm}^2$ wafer.\n* **2.5D / 3D Chiplets & Advanced Packaging (TSMC CoWoS, [Intel](../GLOSSARY.md) EMIB):** While not full-wafer WSI, modern chiplet architectures (such as AMD EPYC, Apple Ultra, and [NVIDIA](../GLOSSARY.md) Blackwell) use silicon interposers to stitch multiple reticle-sized dies together—directly inheriting WSI’s low-capacitance, high-density interconnect physics.\n* **Wafer-Level System-in-Package (WL-SiP):** Tesla's Dojo AI training system uses custom wafer-scale integrated modules (Dojo System-on-Wafer) combining 25 individual D1 chips bonded onto an integrated liquid-cooled substrate.",
       "references": [
         "Amdahl, G. M. (1984). *Scoring the Trilogy Strategy*. IEEE Spectrum, 21(11), 34–39.",
         "McDonald, J. F., et al. (1985). *The Prospects for Wafer Scale Integration*. IEEE IEEE Spectrum, 22(4), 42–49.",
@@ -3420,6 +3471,12 @@
       "title": "The Evolution of Coordination Abstractions: From Shared Memory to Decoupled Concurrency",
       "path": "synthesis/evolution-of-coordination-abstractions.md",
       "summary": "How historical models of process communication—ranging from synchronous hardware channels to anonymous [generative tuple spaces](../GLOSSARY.md)—are returning to solve modern cloud, multi-agent AI, and edge computing bottlenecks."
+    },
+    {
+      "id": "excavation-completeness-formatting-audit",
+      "title": "Digital Archaeology: Full Excavation Completeness & Formatting Review",
+      "path": "synthesis/excavation-completeness-formatting-audit.md",
+      "summary": "**Systemic Audit & Work Queue Artifact**"
     },
     {
       "id": "heterogeneous-revival-synergies",
@@ -3822,7 +3879,7 @@
       "category": "HARDWARE",
       "time": "1971",
       "sort_year": 1971,
-      "description": "Intel releases the **4004** microprocessor, consolidating CPU logic onto a single silicon die and starting the microprocessor era."
+      "description": "[Intel](GLOSSARY.md) releases the **4004** microprocessor, consolidating CPU logic onto a single silicon die and starting the microprocessor era."
     },
     {
       "category": "AI",
@@ -3894,7 +3951,7 @@
       "category": "COMPUTING",
       "time": "1981",
       "sort_year": 1981,
-      "description": "Intel ships the **iAPX 432**, a microcoded 32-bit CPU implementing object-oriented capabilities directly in hardware. **Key excavation link**: [Intel iAPX 432](excavations/intel-iapx-432.md)"
+      "description": "[Intel](GLOSSARY.md) ships the **iAPX 432**, a microcoded 32-bit CPU implementing object-oriented capabilities directly in hardware. **Key excavation link**: [Intel iAPX 432](excavations/intel-iapx-432.md)"
     },
     {
       "category": "COMPUTING",
@@ -3906,7 +3963,7 @@
       "category": "HARDWARE",
       "time": "1981",
       "sort_year": 1981,
-      "description": "Intel ships the **iAPX 432**, a microcoded 32-bit CPU implementing object-oriented capabilities directly in hardware. **Key excavation link**: [Intel iAPX 432](excavations/intel-iapx-432.md)"
+      "description": "[Intel](GLOSSARY.md) ships the **iAPX 432**, a microcoded 32-bit CPU implementing object-oriented capabilities directly in hardware. **Key excavation link**: [Intel iAPX 432](excavations/intel-iapx-432.md)"
     },
     {
       "category": "HARDWARE",
@@ -4104,13 +4161,13 @@
       "category": "COMPUTING",
       "time": "2001",
       "sort_year": 2001,
-      "description": "Intel releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](excavations/vliw-epic.md)"
+      "description": "[Intel](GLOSSARY.md) releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](excavations/vliw-epic.md)"
     },
     {
       "category": "HARDWARE",
       "time": "2001",
       "sort_year": 2001,
-      "description": "Intel releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](excavations/vliw-epic.md)"
+      "description": "[Intel](GLOSSARY.md) releases the **Itanium** (EPIC architecture), shifting dependency resolution to compilers, but struggling with legacy x86 performance. **Key excavation link**: [VLIW / EPIC Architectures](excavations/vliw-epic.md)"
     },
     {
       "category": "COMPUTING",
@@ -4200,7 +4257,7 @@
       "category": "AI",
       "time": "2016",
       "sort_year": 2016,
-      "description": "Google deploys the first **Tensor Processing Unit (TPU)**, resurrecting synchronous 2D [systolic array](GLOSSARY.md) meshes to perform matrix multiplications. **Key excavation link**: [Systolic Arrays](excavations/systolic-arrays.md)"
+      "description": "[Google](GLOSSARY.md) deploys the first **Tensor Processing Unit (TPU)**, resurrecting synchronous 2D [systolic array](GLOSSARY.md) meshes to perform matrix multiplications. **Key excavation link**: [Systolic Arrays](excavations/systolic-arrays.md)"
     },
     {
       "category": "AI",
@@ -4374,7 +4431,7 @@
       "category": "COMPUTING",
       "time": "2020s",
       "sort_year": 9999,
-      "description": "AI hardware developers resurrect **[Systolic Arrays](excavations/systolic-arrays.md)** (Google TPUs), **[Stochastic Computing](excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors)."
+      "description": "AI hardware developers resurrect **[Systolic Arrays](excavations/systolic-arrays.md)** ([Google](GLOSSARY.md) TPUs), **[Stochastic Computing](excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors)."
     },
     {
       "category": "COMPUTING",
@@ -4446,7 +4503,7 @@
       "category": "HARDWARE",
       "time": "2020s",
       "sort_year": 9999,
-      "description": "AI hardware developers resurrect **[Systolic Arrays](excavations/systolic-arrays.md)** (Google TPUs), **[Stochastic Computing](excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors)."
+      "description": "AI hardware developers resurrect **[Systolic Arrays](excavations/systolic-arrays.md)** ([Google](GLOSSARY.md) TPUs), **[Stochastic Computing](excavations/stochastic-computing.md)** for approximate low-power activations, and **Analog In-Memory Computing** (non-volatile memristors)."
     },
     {
       "category": "HARDWARE",

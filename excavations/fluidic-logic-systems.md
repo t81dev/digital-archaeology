@@ -182,7 +182,7 @@ Unlike electricity, which can be stored statically in batteries or capacitors wi
 The manufacturing of classical fluidic circuits was highly interdisciplinary, combining photographic etching, metallurgical lamination, and precision glass molding:
 
 1. **Photolithography and Etching (Dycril/Glass-Ceramics):** Standard 1960s fabrication mapped fluidic circuit schematic drawings onto photosensitive plastics (such as DuPont's *Dycril*) or specialized glass-ceramics (such as Corning's *Fotoform*). Unexposed regions were etched away with acid, leaving sub-millimeter fluidic channels.
-2. **Diffusion Bonding:** To form sealed 3D circuits, dozens of etched plates were aligned, clamped, and heated in a furnace until the atomic boundaries of adjacent metal or glass layers fused together. This produced a monolithic block—a **fluidic integrated circuit**—capable of operating at temperatures up to $1000^\circ\text{C}$.
+2. **Diffusion Bonding:** To form sealed 3D circuits, dozens of etched plates were aligned, clamped, and heated in a furnace until the atomic boundaries of adjacent [metal](../GLOSSARY.md) or glass layers fused together. This produced a monolithic block—a **fluidic integrated circuit**—capable of operating at temperatures up to $1000^\circ\text{C}$.
 3. **The Interconnect Barrier:** Despite efforts to create "fluidic printed circuits," designers encountered severe impedance matching and signal reflection challenges. Connecting gates required tuning channel lengths to prevent fluidic acoustic shockwaves from reflecting back into the interaction region and causing spontaneous, unwanted logic state switching.
 
 ---

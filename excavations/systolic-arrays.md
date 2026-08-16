@@ -8,7 +8,7 @@
 
 Systolic arrays are a class of parallel computing architectures consisting of a grid (usually 1D or 2D) of modestly capable processing elements (PEs) connected locally. Data and partial results flow synchronously through the array in a rhythmic, pipelined fashion, with each PE performing a small operation (e.g., multiply-accumulate) on passing values and forwarding results to neighbors. 
 
-Proposed by H.T. Kung and Charles E. Leiserson in the late 1970s, systolic arrays were designed to exploit VLSI fabrication for high-throughput, low-overhead computation on regular dataflows. They excel at algorithms with high data locality and repetitive operations, such as matrix multiplication, convolution, filtering, and linear algebra. While dedicated systolic hardware saw limited commercial success outside specialized domains (signal processing, radar, early image processing), the underlying principles heavily influence modern tensor cores in GPUs, AI accelerators (e.g., Google TPU variants), and coarse-grained reconfigurable arrays.
+Proposed by H.T. Kung and Charles E. Leiserson in the late 1970s, systolic arrays were designed to exploit VLSI fabrication for high-throughput, low-overhead computation on regular dataflows. They excel at algorithms with high data locality and repetitive operations, such as matrix multiplication, convolution, filtering, and linear algebra. While dedicated systolic hardware saw limited commercial success outside specialized domains (signal processing, radar, early image processing), the underlying principles heavily influence modern tensor cores in GPUs, AI accelerators (e.g., [Google](../GLOSSARY.md) TPU variants), and coarse-grained reconfigurable arrays.
 
 ---
 
@@ -18,14 +18,14 @@ The late 1970s marked a peak of research into parallel architectures as research
 
 ### Key Historical Milestones & Metrics
 
-1. **CMU Warp (1984–1986)**:
+1. **CMU [Warp](../GLOSSARY.md) (1984–1986)**:
    - **Form Factor**: A 10-node linear [systolic array](../GLOSSARY.md) developed by Carnegie Mellon University and built by GE and Honeywell.
    - **Throughput**: Achieved 100 MFLOPS (10 MFLOPS per PE).
    - **Technology**: Built using off-the-shelf components, including Weitek floating-point chips.
-   - **Power & Size**: A full Warp machine, including host and interface units, consumed several kilowatts and filled a standard 19-inch rack.
+   - **Power & Size**: A full [Warp](../GLOSSARY.md) machine, including host and interface units, consumed several kilowatts and filled a standard 19-inch rack.
    - **Application**: Real-time road tracking for the CMU Terregator autonomous vehicle.
 
-2. **Intel-CMU iWarp (1988–1990)**:
+2. **[Intel](../GLOSSARY.md)-CMU iWarp (1988–1990)**:
    - **Fabrication Node**: 1.2-micron CMOS technology.
    - **Transistor Count**: ~600,000 transistors per single-chip PE.
    - **PE Performance**: 20 MFLOPS (single/double precision) and 20 MIPS integer per node.
@@ -123,8 +123,8 @@ In the 1980s and 1990s, the standalone [systolic array](../GLOSSARY.md) failed c
 In the post-Moore's Law era, the "Memory Wall" and "Power Wall" have made data movement the dominant consumer of energy and time. Simultaneously, deep learning consolidated 90%+ of AI workloads into a single operation: General Matrix Multiplication (GEMM).
 
 These two factors completely inverted the historical economic constraints:
-- **Google TPU v1 (2016)**: Adopted a 256x256 8-bit [systolic array](../GLOSSARY.md) running at 700 MHz, delivering 92 TeraOPS peak while drawing only 75W.
-- **NVIDIA Tensor Cores (Volta onwards)**: Internally utilize spatial micro-systolic-like pipelines to perform dense FP16/INT8 matrix-multiply-accumulate operations within GPU streaming multiprocessors.
+- **[Google](../GLOSSARY.md) TPU v1 (2016)**: Adopted a 256x256 8-bit [systolic array](../GLOSSARY.md) running at 700 MHz, delivering 92 TeraOPS peak while drawing only 75W.
+- **[NVIDIA](../GLOSSARY.md) Tensor Cores (Volta onwards)**: Internally utilize spatial micro-systolic-like pipelines to perform dense FP16/INT8 matrix-multiply-accumulate operations within GPU streaming multiprocessors.
 - **Cerebras Wafer-Scale Engine**: Implements a wafer-scale spatial mesh of 850,000+ cores utilizing dataflow-driven, systolic-style routing.
 
 The modern consensus is that **systolic arrays did not lose the architectural war—they were simply waiting for a workload of sufficient scale to justify their specialization.**
@@ -167,9 +167,9 @@ The modern consensus is that **systolic arrays did not lose the architectural wa
   - *Relevance*: The seminal paper proposing systolic grids, describing how data can be "pumped" rhythmically through Processing Elements to exploit VLSI layout.
 * **Kung, H. T.** (1982). *Why systolic architectures?*. *Computer*, 15(1), 37–46.
   - *Relevance*: Outlines the physical principles of data reuse, localized routing, and area-efficiency that differentiate systolic meshes from general Von Neumann CPUs.
-* **Annaratone, M., et al.** (1987). *The Warp computer: Architecture, implementation, and performance*. *IEEE Transactions on Computers*, C-36(12), 1523–1538.
-  - *Relevance*: Documents the design and performance metrics of the 10-node CMU Warp systolic supercomputer, showcasing real-time image processing.
+* **Annaratone, M., et al.** (1987). *The [Warp](../GLOSSARY.md) computer: Architecture, implementation, and performance*. *IEEE Transactions on Computers*, C-36(12), 1523–1538.
+  - *Relevance*: Documents the design and performance metrics of the 10-node CMU [Warp](../GLOSSARY.md) systolic supercomputer, showcasing real-time image processing.
 * **Jouppi, N. P., et al.** (2017). *In-datacenter performance analysis of a tensor processing unit*. *Proceedings of the 44th Annual International Symposium on Computer Architecture (ISCA)*, 1–12.
-  - *Relevance*: Presents the definitive architectural study of Google's TPU v1, detailing its 256x256 weight-stationary 8-bit [systolic array](../GLOSSARY.md) running at 700MHz.
+  - *Relevance*: Presents the definitive architectural study of [Google](../GLOSSARY.md)'s TPU v1, detailing its 256x256 weight-stationary 8-bit [systolic array](../GLOSSARY.md) running at 700MHz.
 * **Horowitz, M.** (2014). *Computing's energy problem (and what we can do about it)*. *IEEE International Solid-State Circuits Conference (ISSCC) Digest of Technical Papers*, 10–14.
   - *Relevance*: Provides the primary physical data proving that off-chip memory fetches (DRAM) consume $100\times\text{--}1000\times$ more energy than logic MAC operations, establishing the physical justification for spatial systolic structures.

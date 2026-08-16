@@ -30,7 +30,7 @@ Breaking the cycle usually requires either massive disruption (a killer applicat
 
 - **Instruction Set Architectures** — x86 dominance despite cleaner alternatives.
 - **Programming Languages & Runtimes** — C/Unix → C++ → modern dominant frameworks.
-- **Software Platforms** — Windows, Linux distributions, CUDA, PyTorch/TensorFlow.
+- **Software Platforms** — Windows, Linux distributions, [CUDA](../GLOSSARY.md), PyTorch/TensorFlow.
 - **Data Formats & Protocols** — ASCII/UTF-8, Ethernet, USB, PDF.
 - **Hardware Interfaces & ABIs** — Binary compatibility expectations and memory models.
 
@@ -64,7 +64,7 @@ Ecosystem lock-in remains one of the strongest forces in computing, but meaningf
 * **AI-assisted development** may dramatically reduce the human cost of porting, maintaining, or supporting multiple architectures.
 * **Heterogeneous computing** is becoming normalized — future systems may combine a dominant general-purpose core with many specialized accelerators.
 
-Nevertheless, lock-in around x86/ARM, CUDA, and major ML frameworks continues to be formidable.
+Nevertheless, lock-in around x86/ARM, [CUDA](../GLOSSARY.md), and major ML frameworks continues to be formidable.
 
 ---
 

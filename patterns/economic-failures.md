@@ -32,7 +32,7 @@ The dominant technology becomes dramatically cheaper through volume production. 
 ### 2. [Ecosystem Lock-In](ecosystem-lockin.md)
 Software, tools, peripherals, developer skills, standards, and libraries converge around the winner. Switching costs become prohibitive.
 
-**Examples**: x86 dominance, Unix/C ecosystem, CUDA in modern AI.
+**Examples**: x86 dominance, Unix/C ecosystem, [CUDA](../GLOSSARY.md) in modern AI.
 
 ### 3. Timing and Path Dependence
 A technology may be excellent but arrives at the wrong moment — too early (before supporting infrastructure) or too late (after a competing standard has momentum).
@@ -82,7 +82,7 @@ Perhaps no single venture better illustrates the extreme risks of **High Capital
 Economic conditions are shifting in favor of previously uneconomical ideas:
 - **Lower barriers to experimentation** — FPGAs, open-source toolchains, cloud, and AI-assisted design reduce prototyping costs dramatically.
 - **Domain-specific acceleration** — Extremely high value in AI, scientific computing, and edge devices can justify specialization.
-- **Large-player funding** — Companies (Google, xAI, Meta, etc.) and governments can absorb high-risk bets at scale.
+- **Large-player funding** — Companies ([Google](../GLOSSARY.md), xAI, Meta, etc.) and governments can absorb high-risk bets at scale.
 - **Energy & Security Constraints** — New bottlenecks (power walls, memory walls, zero-trust needs) change the economic equation in favor of specialized or safer designs.
 
 ---

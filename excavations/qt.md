@@ -204,9 +204,9 @@ const QMetaObject *MyNode::metaObject() const {
 }
 ```
 
-This generated `staticMetaObject` provides zero-overhead runtime type reflection. Applications can query class names, iterate over signals and slots, inspect properties, or invoke methods by name at runtime using `QMetaObject::invokeMethod()`.
+This generated `staticMetaObject` provides zero-overhead runtime type reflection. Applications can query class names, iterate over [signals and slots](../GLOSSARY.md), inspect properties, or invoke methods by name at runtime using `QMetaObject::invokeMethod()`.
 
-### 2. Signals and Slots Connection Tables
+### 2. [Signals and Slots](../GLOSSARY.md) Connection Tables
 Qt's `QObject::connect()` mechanism establishes type-safe publish/subscribe bindings between emitters and receivers without coupling their header declarations.
 
 ```
@@ -493,7 +493,7 @@ While web-based desktop application shells (such as Electron and Chromium Embedd
 Qt's architectural trajectory illustrates several recurring patterns in computer science:
 
 1. **Language Extension via Pre-Processing**: Using a specialized code-generation pre-processor (`moc`) to inject runtime reflection and metadata into a non-reflective language ([C++](cpp.md)). Prefigures modern macro systems, Rust procedural macros, and TypeScript compilation.
-2. **Type-Safe Decoupled Event Routing**: Signals and slots prefigure modern reactive event streams, C# delegates/events, and Rx publish/subscribe event buses.
+2. **Type-Safe Decoupled Event Routing**: [Signals and slots](../GLOSSARY.md) prefigure modern reactive event streams, C# delegates/events, and Rx publish/subscribe event buses.
 3. **Declarative UI over Imperative Backends**: QML's reactive property bindings over C++ objects prefigure modern declarative UI frameworks such as React, SwiftUI, Jetpack Compose, and Flutter.
 
 ---
@@ -513,7 +513,7 @@ Qt's architectural trajectory illustrates several recurring patterns in computer
 
 ## Modern Relevance
 
-Qt's durable contribution to computer science is not merely a collection of GUI widgets, but a **long-lived application runtime model**—meta-objects, signals and slots, hierarchical parent-child ownership, event loop integration, and platform abstraction layers—that enabled portable [C++](cpp.md) applications to remain viable across three decades of changing operating system architectures.
+Qt's durable contribution to computer science is not merely a collection of GUI widgets, but a **long-lived application runtime model**—meta-objects, [signals and slots](../GLOSSARY.md), hierarchical parent-child ownership, event loop integration, and platform abstraction layers—that enabled portable [C++](cpp.md) applications to remain viable across three decades of changing operating system architectures.
 
 In modern systems engineering:
 * **Qt Quick / QML** remains a dominant declarative UI stack for industrial HMI, medical devices, and automotive digital cockpits (e.g., Mercedes-Benz, Tesla, LG webOS).
@@ -524,7 +524,7 @@ In modern systems engineering:
 
 ## Reconstruction Proposal: The Qt Meta-Object & Signals Simulator
 
-To expose the core architectural principles of Qt's **meta-object reflection, signals and slots dispatch, event loop processing, and declarative property bindings**, we implement a zero-dependency Python reconstruction in `reconstructions/qt_meta_object_signals/`.
+To expose the core architectural principles of Qt's **meta-object reflection, [signals and slots](../GLOSSARY.md) dispatch, event loop processing, and declarative property bindings**, we implement a zero-dependency Python reconstruction in `reconstructions/qt_meta_object_signals/`.
 
 ### Reconstructed Mechanics
 1. **`QObject` Tree & Ownership (`QObject`)**: Models parent-child object registration, recursive tree destruction, and dynamic property tables.

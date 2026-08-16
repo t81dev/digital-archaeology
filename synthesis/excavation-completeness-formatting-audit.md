@@ -164,7 +164,7 @@ Below is the complete scorecard and status for every file in `excavations/`.
 
 1. **Heading Hierarchy Integrity**:
    - All 60 excavations strictly follow a single `# Title` at line 1.
-   - Minor edge case: In `gentoo.md` and `portage.md`, inline ebuild script excerpts used `# Excerpt from ...` or `# /etc/portage/...` outside code fences, creating spurious top-level Markdown headers. Wrapping or indenting those comments normalizes TOC navigation.
+   - Minor edge case: In `gentoo.md` and `portage.md`, inline [ebuild](../GLOSSARY.md) script excerpts used `# Excerpt from ...` or `# /etc/portage/...` outside code fences, creating spurious top-level Markdown headers. Wrapping or indenting those comments normalizes TOC navigation.
 2. **Code Fence Hygiene**:
    - All code snippets, ASCII microarchitectural diagrams, and memory layout schemes use correctly fenced code blocks (` ``` ` or ` ```bash / ```c / ```sv `).
 3. **Table Formatting**:

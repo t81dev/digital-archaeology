@@ -277,7 +277,7 @@ endmodule
 ### 2. Transitioning to Superconducting Niobium Foundries
 To manufacture physical superconducting ASICs using niobium Josephson junction processes (such as those run by **MIT Lincoln Laboratory** or **AIST (Japan)**), standard CMOS logic gates must be compiled using specialized RSFQ cell libraries:
 * **Clocked Logic Cells**: In RSFQ, almost all logic gates (including AND, OR, XOR) are inherently stateful and clocked. Designers cannot use standard combinational synthesis; instead, they synthesize designs using specialized cell libraries where each gate includes internal SQUID storage loops.
-* **Josephson Transmission Lines (JTL)**: Since standard metal wires exhibit resistance and delay at high speeds, superconducting chips connect gates using active Josephson Transmission Lines (cascaded arrays of JJs that propagate pulses without loss) or superconducting passive microstrip lines (micro-coax).
+* **Josephson Transmission Lines (JTL)**: Since standard [metal](../../GLOSSARY.md) wires exhibit resistance and delay at high speeds, superconducting chips connect gates using active Josephson Transmission Lines (cascaded arrays of JJs that propagate pulses without loss) or superconducting passive microstrip lines (micro-coax).
 * **Clock Distribution Networks**: At hundreds of GHz, standard clock trees suffer from clock skew. RSFQ designs utilize concurrent clocking topologies where clock and data pulses propagate in parallel through matching JTL structures, ensuring perfect local phase alignment.
 
 ---

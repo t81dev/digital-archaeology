@@ -32,8 +32,10 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Graph Reduction Architectures & Functional Hardware](excavations/graph-reduction-machines.md) — *Non-von Neumann expression-rewriting architectures executing pure functional programs natively.*
 - [Molecular & Biocomputing](excavations/molecular-biocomputing.md) — *Computation using molecules, DNA strands, chemical reactions, and synthetic biology.*
 - [Neuromorphic Hardware](excavations/neuromorphic-hardware.md) — *Asynchronous, event-driven spiking neural networks and in-memory compute.*
+- [ONNX Open Neural Network Exchange Substrate](excavations/onnx.md) — *Standardized open computational graph representation, versioned operator sets (Opsets), and pluggable Execution Provider (EP) hardware backends.*
 - [Optical Computing](excavations/optical-computing.md) — *Photonic interference, spatial WDM, and sub-nanosecond matrix processing.*
 - [Logarithmic Number System (LNS)](excavations/logarithmic-number-system.md) — *Real-number logarithmic representation simplifying multiplication, division, and exponentiation into addition and subtraction.*
+- [Posit Arithmetic & Type-3 Unum Systems](excavations/posit-arithmetic.md) — *Tapered regime bit encoding, exact quire accumulation, and low-bitwidth LLM quantization.*
 - [Residue Number System (RNS)](excavations/residue-number-system.md) — *Carry-free parallel arithmetic representing integers modulo coprime sets for DSP, cryptography, and FHE.*
 - [Reversible Computing](excavations/reversible-computing.md) — *Information-preserving logic gates bypassing Landauer's thermodynamic limit.*
 - [Stack Machines](excavations/stack-machines.md) — *Hardware zero-operand evaluation stack evaluation architectures.*
@@ -51,9 +53,9 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 ## Operating Systems & Environments
 
 - [Apple: The Integrated Platform Surface](excavations/apple.md) — *How hardware, system software, runtimes, sandboxes, and distribution were co-designed into a resilient, vertically [integrated platform surface](GLOSSARY.md).*
-- [Apple Metal Architecture: The Vertically Integrated GPU Substrate](excavations/apple-metal.md) — *How a low-overhead, explicit GPU command model co-evolved with Apple Silicon, TBDR rasterization, unified memory, and OS framework pipelines to create an ecosystem-scale platform substrate.*
+- [Apple Metal Architecture: The Vertically Integrated GPU Substrate](excavations/apple-metal.md) — *How a low-overhead, explicit GPU command model co-evolved with [Apple Silicon](GLOSSARY.md), TBDR rasterization, unified memory, and OS framework pipelines to create an ecosystem-scale platform substrate.*
 - [BeOS / Haiku](excavations/beos-haiku.md) — *Media-optimized, responsive OS with modern design (revived as open-source Haiku).*
-- [Gentoo: Source-Based Distribution Architecture & Compile-Time Configuration](excavations/gentoo.md) — *Portage package manager, ebuild executable recipes, USE flag compile-time feature selection, cascading profile policy hierarchy, and binhost hybridization.*
+- [Gentoo: Source-Based Distribution Architecture & Compile-Time Configuration](excavations/gentoo.md) — *[Portage](GLOSSARY.md) package manager, [ebuild](GLOSSARY.md) executable recipes, USE flag compile-time feature selection, cascading profile policy hierarchy, and binhost hybridization.*
 - [Burroughs Large Systems](excavations/burroughs-large-systems.md) — *High-level language hardware integration with descriptors and stack architecture.*
 - [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models ([KeyKOS](GLOSSARY.md), EROS, CHERI).*
 - [Google: The Platform Machine of Scale](excavations/google.md) — *How the repeated conversion of warehouse-scale operational problems into narrow, exportable software abstractions established the datacenter as the computer.*
@@ -64,7 +66,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Linux: The Ubiquitous Substrate](excavations/linux.md) — *How the decoupling of a stable SCI from dynamic kernel internals coupled with open, collaborative production turned a monolithic Unix-like kernel into ubiquitous platform infrastructure.*
 - [Lisp Machines](excavations/lisp-machines.md) — *Single-user, hardware-integrated dynamic environment.*
 - [Microsoft: The Platform Machine](excavations/microsoft.md) — *How architectural compatibility, APIs (Win32, COM, .NET), and developer-facing abstractions converted software into a self-reinforcing platform machine.*
-- [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md) — *How fixed-function graphics hardware evolved into a general-purpose SIMT compute substrate, and how the CUDA platform and Tensor Cores established platform persistence for HPC and AI.*
+- [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md) — *How fixed-function graphics hardware evolved into a general-purpose SIMT compute substrate, and how the [CUDA](GLOSSARY.md) platform and Tensor Cores established platform persistence for HPC and AI.*
 - [Multics](excavations/multics.md) — *Influential secure, multi-user timesharing system with segmentation and rings.*
 - [Netscape: The Programmable Web Runtime & Network Client Substrate](excavations/netscape.md) — *Browser as an application platform, embedded JavaScript runtime, NPAPI plugin architecture, SSL/TLS security stack, HTTP cookies, and Mozilla open-source transition.*
 - [llama.cpp: Quantization-First local Inference](excavations/llama-cpp.md) — *How low-bit block quantization, unified memory-bandwidth-aware containers, and decoupled execution runtimes shifted large language models to consumer devices.*
@@ -75,7 +77,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Portage: Package Management as Policy-Constrained Recipe Execution](excavations/portage.md) — *Executable package recipes (`ebuilds`), feature-predicate dependency resolution (`USE` flags), cascading system policy surfaces (`profiles`), plain-text state tracking (`VDB`), LD_PRELOAD build sandboxing, and resolution planning.*
 - [Project Xanadu](excavations/project-xanadu.md) — *[Bi-directional hypermedia](GLOSSARY.md) network and deep versioning system.*
 - [Qt: The Cross-Platform Application Substrate & Meta-Object Runtime Lineage](excavations/qt.md) — *Meta-Object Compiler (`moc`), signals/slots communication, hierarchical QObject ownership, platform backends (QPA), and Qt Quick / QML declarative scene graph.*
-- [Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate](excavations/safari.md) — *KHTML engine fork, WebKit2 multi-process architecture, JavaScriptCore JIT VMs, app-embedded WKWebView substrate, and Intelligent Tracking Prevention privacy runtime.*
+- [Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate](excavations/safari.md) — *KHTML engine fork, WebKit2 multi-process architecture, JavaScriptCore JIT VMs, app-embedded [WKWebView](GLOSSARY.md) substrate, and Intelligent Tracking Prevention privacy runtime.*
 - [Winamp: The Modular Media Substrate & Extensible Application Platform](excavations/winamp.md) — *C-ABI plugin host architecture, decoupled audio pipelines, declarative skinning layers, and local collection metadata substrate.*
 
 ---
@@ -139,7 +141,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Capability-Based Memory Protection Emulator](reconstructions/capability-security/) — *Register-level CPU and Tagged RAM simulating hardware capabilities and domain transitions.*
 - [Neuro-Symbolic Logic Solver](reconstructions/neuro-symbolic/) — *Hybrid AI decision system combining neural network outputs with forward-chaining rules.*
 - [CSP Synchronous Messaging Simulator](reconstructions/csp-messaging/) — *Synchronous channel rendezvous messaging, ALT-based multiplexing, and deadlock reporting.*
-- [Continuous Analog & Optical Wave Accelerator Simulator](reconstructions/analog-optical/) — *Photonic tensor core wave interference and op-amp mass-spring solvers.*
+- [Continuous Analog & Optical Wave Accelerator Simulator](reconstructions/analog-optical/) — *Photonic [tensor core](GLOSSARY.md) wave interference and op-amp mass-spring solvers.*
 - [Synthesizable Hardware IP Core Blueprints](reconstructions/synthesizable-hardware/) — *Synthesizable SystemVerilog models of [Balanced Ternary](excavations/balanced-ternary.md) ALUs and tagged RAM bounds checkers.*
 - [Multi-Architecture Co-Simulation Orchestrator](reconstructions/co-simulation/) — *A cross-paradigm execution fabric linking hybrid AI, concurrent CSP, and spatial dataflow.*
 - [Linda Tuple Space Simulator](reconstructions/tuple-space/) — *An interactive [generative communication](GLOSSARY.md) engine implementing associative pattern-matching and coordinate-free parallel processing.*
@@ -152,15 +154,15 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [RNS Arithmetic Simulator](reconstructions/rns-arithmetic/) — *Parallel, carry-free componentwise modular addition/multiplication and Chinese Remainder Theorem decoding.*
 - [LNS Arithmetic Simulator](reconstructions/lns-arithmetic/) — *Logarithmic encoding/decoding, multiplication/division, and Jacobian log adder.*
 - [KeyKOS-style Capability Simulator](reconstructions/keykos-capabilities/) — *Unforgeable keys, attenuation, message-invocation routing, and continuous orthogonal persistence.*
-- [llama.cpp Local Quantization and GGUF Simulator](reconstructions/llama_cpp/) — *A high-fidelity simulator demonstrating aligned GGUF container packing/unpacking, block-wise Q4_0 integer quantization, dequantization-on-the-fly matrix multiplications, and autoregressive KV-cache tracking.*
+- [llama.cpp Local Quantization and GGUF Simulator](reconstructions/llama_cpp/) — *A high-fidelity simulator demonstrating aligned [GGUF](GLOSSARY.md) container packing/unpacking, block-wise Q4_0 integer quantization, dequantization-on-the-fly matrix multiplications, and autoregressive KV-cache tracking.*
 - [MapReduce Distributed Compute Simulator](reconstructions/mapreduce/) — *Fault-tolerant MapReduce coordinator executing functional partitioning, intermediate shuffling, key hashing, and map-task recovery on node failure.*
-- [x86 Microcode µop & Platform Architecture Simulator](reconstructions/x86_uop_translation/) — *CISC macro-instruction microcode decoding into RISC µops, CPUID feature negotiation, and multi-mode memory address translation.*
+- [x86 Microcode µop & Platform Architecture Simulator](reconstructions/x86_uop_translation/) — *CISC macro-instruction microcode decoding into RISC µops, [CPUID](GLOSSARY.md) feature negotiation, and multi-mode memory address translation.*
 - [Apple Metal Command & UMA Simulator](reconstructions/apple_metal/) — *Low-overhead explicit command encoding, immutable pipeline state objects, TBDR load/store actions, and explicit UMA memory storage modes.*
 - [C++ RAII & Zero-Overhead Dispatch Simulator](reconstructions/cpp_raii/) — *Interactive simulator modeling scope-bound RAII resource cleanup, exception stack unwinding, static template monomorphization vs. vtable dynamic dispatch metrics, and iterator contracts.*
-- [NVIDIA SIMT Microarchitecture Simulator](reconstructions/nvidia_simt/) — *Warp-level SIMT execution, branch divergence mask stacks, warp scheduler latency hiding, shared memory bank conflicts, Tensor Core WMMA matrix operations, and Unified Memory page migration.*
+- [NVIDIA SIMT Microarchitecture Simulator](reconstructions/nvidia_simt/) — *[Warp](GLOSSARY.md)-level SIMT execution, branch divergence mask stacks, [warp](GLOSSARY.md) scheduler latency hiding, shared memory bank conflicts, [Tensor Core](GLOSSARY.md) WMMA matrix operations, and Unified Memory page migration.*
 - [Winamp Plugin Host & Pipeline Simulator](reconstructions/winamp_plugin_host/) — *C-ABI plugin jump-tables, decoupled audio pipelines (Input/DSP/Output), classic skin sprite mapping, and M3U/PLS media library indexing.*
 - [Netscape Browser Runtime & Network Client Simulator](reconstructions/netscape_browser_runtime/) — *DOM event-driven JS host, Same-Origin Policy (SOP), NPAPI plugin dispatcher, HTTP cookie session state, and SSL/TLS certificate trust evaluation.*
-- [Safari & WebKit Runtime Simulator](reconstructions/safari_webkit_runtime/) — *WebKit2 multi-process IPC message passing, WKWebView host app process insulation, and Intelligent Tracking Prevention (ITP) double-keyed storage partitioning.*
+- [Safari & WebKit Runtime Simulator](reconstructions/safari_webkit_runtime/) — *WebKit2 multi-process IPC message passing, [WKWebView](GLOSSARY.md) host app process insulation, and Intelligent Tracking Prevention (ITP) double-keyed storage partitioning.*
 - [Qt Meta-Object & Signals Simulator](reconstructions/qt_meta_object_signals/) — *`QObject` parent-child ownership trees, Meta-Object Compiler introspection metadata, type-safe signals/slots dispatch, central event loop, and QML reactive property bindings.*
 - [Portage Engine & USE-Flag Simulator](reconstructions/gentoo_portage/) — *Cascading profile policy inheritance, USE flag dependency graph mutation, slotting, LD_PRELOAD build sandboxing, and Var Database (VDB) tracking.*
 

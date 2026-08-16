@@ -89,7 +89,7 @@ Dataflow faced major physical and economic barriers:
 ### AI Accelerator Lineage
 * **SambaNova Systems Reconfigurable Dataflow Unit (RDU)**: SambaNova utilizes an array of Pattern Compute Units (PCUs) and Pattern Memory Units (PMUs) linked by an on-chip routing network. Instead of fetching instructions every cycle, the deep learning compiler maps the tensor execution graph directly onto the physical substrate, streaming data tokens continuously through the physical array.
 * **Cerebras Systems Wafer-Scale Engine (WSE)**: Cerebras manufactures a single, massive silicon wafer containing **850,000 AI-optimized compute cores**, 40GB of on-wafer SRAM, and a custom inter-core fabric. It functions as a massive, dynamic dataflow machine where tensors stream between physical processing nodes with sub-microsecond latency, bypassing the off-chip DRAM memory wall entirely.
-* **Google Tensor Processing Units (TPUs)**: The TPU's matrix multiply unit is structured as a **256x256 [systolic array](../GLOSSARY.md)** performing 65,536 Multiply-Accumulate (MAC) operations per clock cycle. Data flows statically through an array of processing cells, where inputs from the left and weights from the top meet inside multipliers, demonstrating a highly efficient, deterministic static dataflow model.
+* **[Google](../GLOSSARY.md) Tensor Processing Units (TPUs)**: The TPU's matrix multiply unit is structured as a **256x256 [systolic array](../GLOSSARY.md)** performing 65,536 Multiply-Accumulate (MAC) operations per clock cycle. Data flows statically through an array of processing cells, where inputs from the left and weights from the top meet inside multipliers, demonstrating a highly efficient, deterministic static dataflow model.
 * **Graphcore IPU (Intelligence Processing Unit)**: Utilizes an explicitly parallel spatial layout with over 1,472 tile processors, executing structured neural dataflow graphs utilizing a highly-scalable, deterministic Bulk Synchronous Parallel (BSP) exchange fabric.
 
 ---
@@ -136,4 +136,4 @@ Dataflow faced major physical and economic barriers:
 4. **USPTO Patent 3,962,706** (1976). *Data Driven Processing System*. United States Patent and Trademark Office. (Foundational patent for hardware data-driven execution matching stores).
 5. **Arvind, & Nikhil, R. S.** (1990). "Executing a Program on the MIT Tagged-Token [Dataflow Architecture](../GLOSSARY.md)." *IEEE Transactions on Computers*, 39(3), 300-318.
 6. **Nikhil, R. S.** (1991). *Id (Version 90.1) Reference Manual*. MIT Computation Structures Group.
-7. **Jouppi, N. P., et al.** (2017). "In-Datacenter Performance Analysis of a Tensor Processing Unit." *Proceedings of ISCA*, 1-12. (Modern revival of static dataflow systolic arrays).
+7. **Jouppi, N. P., et al.** (2017). "In-Datacenter Performance Analysis of a Tensor Processing Unit." *Proceedings of ISCA*, 1-12. (Modern revival of static dataflow [systolic arrays](systolic-arrays.md)).
