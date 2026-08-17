@@ -3509,6 +3509,12 @@
       "summary": "**An evidence-based structural, conceptual, and relational consistency audit of the Digital Archaeology repository following the integration of recent excavations and pattern revisions.**"
     },
     {
+      "id": "repo-wide-gap-analysis",
+      "title": "Repo-Wide Gap Analysis & Resolution Report",
+      "path": "synthesis/repo-wide-gap-analysis.md",
+      "summary": "*A comprehensive audit, discovery matrix, and implementation record for restoring repo-wide structural coherence, navigation alignment, index synchronization, and cross-reference density across Digital Archaeology.*"
+    },
+    {
       "id": "return-of-spatial-computing",
       "title": "The Return of Spatial Computing",
       "path": "synthesis/return-of-spatial-computing.md",

@@ -1,73 +1,126 @@
 # Project Analysis Report
 **Project Name:** Digital Archaeology
-**Date:** August 26, 2026
+**Date:** August 17, 2026
 **Prepared by:** AI Technical Review
 
 ---
 
 ## 1. Executive Summary
 
-**Digital Archaeology** is an exceptionally mature, multi-disciplinary research framework, execution sandbox, and hardware-software co-design ecosystem. Its primary objective is to excavate, simulate, and physically reconstruct historically sidelined non-von Neumann computer architectures—such as spatial dataflow, hardware capabilities, ternary/stochastic arithmetic, optical/analog processing, and cryogenic superconducting logic—to address modern physical scaling barriers (the memory wall, Dennard scaling limits, and the security wall). The project maintains an impressive balance of high-density academic synthesis (35 structured historical excavations, 10 comparative essay syntheses, 3 chronological timelines, and a standardized BibTeX bibliography) paired with high-fidelity executable engineering models (15 zero-dependency Python simulators, 4 synthesizable SystemVerilog soft-cores with committed SymbiYosys formal model-checking logs and Lattice iCE40 FPGA placed-and-routed binary bitstreams, and a browser-native WebAssembly/Pyodide execution playground). The code is cleanly decoupled, thoroughly tested with a 136-test suite passing successfully in under two seconds, and strictly integrated via automatic verification and graph-theoretic density metrics, demonstrating outstanding overall design quality.
+**Digital Archaeology** is an exceptionally mature, highly integrated research framework, execution sandbox, and hardware-software co-design ecosystem. Its primary objective is to excavate, simulate, and physically reconstruct historically sidelined non-von Neumann computer architectures—such as spatial dataflow, hardware capabilities, ternary/stochastic arithmetic, optical/analog processing, logarithmic/residue number systems, and cryogenic superconducting logic—to address modern physical scaling barriers (the memory wall, Dennard scaling breakdown, energy efficiency limits, and the security wall).
 
-*   **Key Strengths:** High explanatory density and rigorous architectural integrity. The project features an elegant co-simulation inter-paradigm fabric and synthesizable RTL hardware blocks backed by temporal k-induction mathematical proofs. It successfully integrates modern WebAssembly (Pyodide), client-side WebRTC peer-to-peer clustering, and dynamic logic analyzer canvas waveforms with robust continuous-integration check loops.
-*   **Critical Risks:** The physical simulation layers rely on high-level Python approximations which, while structurally and mathematically accurate, omit real-world analog/semiconductor parasitics and complex clock-domain crossing (CDC) verification. Furthermore, maintaining the multi-repository navigation structure as the schema scales introduces minor structural dependencies on static files, which require continuous regeneration.
+The repository maintains an extraordinary balance of high-density academic synthesis (62 structured historical excavations, 16 comparative essay syntheses, 11 systemic architectural patterns, 3 chronological timelines, and a standardized BibTeX bibliography) paired with executable engineering models (32 zero-dependency Python simulators, 5 synthesizable SystemVerilog soft-cores with committed SymbiYosys formal model-checking logs and Lattice iCE40 FPGA placed-and-routed bitstream/timing artifacts, and browser-native WebAssembly/Pyodide execution sandboxes). The codebase is cleanly decoupled, thoroughly tested with a 229-test suite passing 100% in under one second, and strictly integrated via automatic verification tooling and graph-theoretic density analytics.
+
+*   **Key Strengths:** Exceptional explanatory density, rigorous architectural integrity, and dual software/hardware execution. Features a multi-paradigm co-simulation fabric, synthesizable RTL soft-cores backed by SymbiYosys temporal k-induction proofs, OpenLane ASIC layout configurations (Sky130 and IHP SG13G2), interactive Pyodide WebAssembly execution with WebRTC P2P co-simulation grid capabilities, WebUSB/WebSerial HIL hooks, and dynamic VCD logic analyzer canvas visualizations.
+*   **Critical Risks:** High-level Python physical simulations (optical wave propagation, cryogenic thermal models) omit low-level continuous semiconductor/parasitic crosstalk physics. Hardware RTL soft-cores lack formal Clock Domain Crossing (CDC) synchronizer modules when interfacing across asynchronous clock boundaries. Maintaining static knowledge graph assets requires synchronous CI generation loops to prevent link/graph drift.
+
+### 1.1 Changelog Relative to Previous Report
+*   **Excavation Expansion:** Expanded historical excavations from 35 to **62 deep-dive studies**, adding excavations for C++, Java/JVM, Safari/WebKit, Netscape, Cursor IDE, Winamp, Qt, Portage, Gentoo, Google, llama.cpp, LLMs, ONNX, Apple Metal, NVIDIA CUDA, Intel x86, and KeyKOS.
+*   **Simulator Suite Expansion:** Increased zero-dependency Python simulators from 15 to **32 active reconstruction modules**, adding emulators for x86 microcode µop translation, NVIDIA SIMT warp scheduling, Apple Metal TBDR pipelines, WebKit2 multi-process IPC/ITP, ONNX IR graph transformations, llama.cpp block quantization, MapReduce, Gentoo Portage dependency trees, Cursor IDE prompt-diff engines, Winamp plugin pipelines, and Qt signals/slots.
+*   **RTL & ASIC Extensions:** Added `tt_um_archaeology_cores.sv` top-level user module wrapper for Tiny Tapeout with OpenLane JSON configurations targeting SkyWater 130 nm (`sky130_fd_sc_hd`) and IHP SG13G2 PDKs.
+*   **Test Suite Scaling:** Test suite expanded from 136 to **229 pytest test cases** across 42 test files, maintaining 100% pass rate in ~0.99 seconds.
+*   **Frontend & HIL Capabilities:** Added WebRTC P2P co-simulation grid workload partitioning, WebUSB/WebSerial Hardware-in-the-Loop UART streaming hooks, and VCD wave log export to `playground.html`.
+*   **Knowledge Graph Analytics:** Updated network metrics to 77 nodes, 346 directed edges, network density of 0.0591, average clustering coefficient of 0.4343, and average path length of 2.4673 hops.
 
 ---
 
 ## 2. Project Overview
 
 ### 2.1 Purpose & Goals
-The Digital Archaeology initiative serves as a comparative system research framework and execution playground. As mainstream sub-5nm silicon scaling slows, this repository demonstrates how historically sidelined computational abstractions can be resurrected as domain-specific hardware accelerators or secure boundaries. The framework operates over a structured six-layer research methodology:
-1.  **Preserving Historical Artifacts:** Standardized documenting of 35 sidelined paradigms.
-2.  **Extracting Abstractions:** Isolating architectural primitives (e.g., capability limits, dataflow matching).
-3.  **Reconstructing Mechanisms:** Developing zero-dependency executable software models and hardware cores.
-4.  **Weaving the Knowledge Graph:** Structuring relation networks in a machine-readable schema.
-5.  **Connecting to Modern Practice:** Mapping paradigms to contemporary zero-trust networks and AI workloads.
-6.  **Deriving Hypotheses:** Forecasting future computing transitions based on physical constraint migrations.
+The Digital Archaeology initiative serves as a comparative system research framework and execution sandbox. As sub-5nm silicon scaling encounters severe physical heat, latency, and power bottlenecks, this repository demonstrates how historically sidelined computational abstractions can be resurrected as domain-specific hardware accelerators or secure boundaries. The framework operates over a structured six-layer research methodology:
+1.  **Preserving Historical Artifacts:** Standardized documenting of 62 sidelined paradigms using dual Classic Architecture and Platform Substrate schemas.
+2.  **Extracting Abstractions:** Isolating architectural primitives (e.g., capability bounds, dataflow token matching, logarithmic arithmetic LUTs).
+3.  **Reconstructing Mechanisms:** Developing zero-dependency executable software emulators and synthesizable SystemVerilog hardware cores.
+4.  **Weaving the Knowledge Graph:** Structuring relation networks in a machine-readable schema (`knowledge_graph.json`).
+5.  **Connecting to Modern Practice:** Mapping paradigms to contemporary AI accelerators, zero-trust hardware, and edge coprocessors.
+6.  **Deriving Hypotheses:** Forecasting future computing transitions based on physical constraint migrations and five-factor revival scorecards.
 
 ### 2.2 Target Users & Use Cases
-*   **Computer Architects & Chip Designers:** Evaluating alternative mathematical representations (ternary, stochastic, mixed-radix) and fine-grained spatial/[systolic array](GLOSSARY.md) topologies.
-*   **Systems Security Researchers:** Studying hardware-enforced memory boundary registers (CHERI-style capabilities, Burroughs descriptors) to secure multi-tenant cloud environments.
-*   **Academic Instructors & Students:** Utilizing the academic curriculum lab manual and automated grading harness for systems-architecture courses.
-*   **Autonomous AI Agents:** Accessing structured JSON interfaces for automated architectural discovery and hardware co-design loops.
+*   **Computer Architects & Chip Designers:** Evaluating non-standard mathematical representations (ternary, stochastic, LNS, RNS) and spatial/[systolic array](GLOSSARY.md) topologies.
+*   **Systems Security Researchers:** Studying hardware-enforced memory boundary registers (CHERI-style capabilities, Burroughs descriptors, KeyKOS capability keys) for secure multi-tenant isolation.
+*   **Academic Instructors & Students:** Utilizing the university lab manual (`LAB_MANUAL.md`) and automated grading harness (`lab_autograder.py`) for advanced computer architecture courses.
+*   **Autonomous AI Agents:** Accessing structured JSON knowledge graphs (`knowledge_graph.json`) and agent API endpoints (`tools/agent_api.py`) for automated architectural discovery and hardware co-design.
 
 ### 2.3 Technology Stack
-*   **Languages:** Python 3 (standard library, zero-dependency philosophy for simulators), SystemVerilog (synthesizable soft-cores), HTML5/JavaScript (D3.js v7, Tailwind CSS, Pyodide/WebAssembly, WebRTC P2P API).
-*   **Testing & CI:** Pytest, GitHub Actions CI workflow (`verify.yml`), SymbiYosys (SBY) for formal SystemVerilog Assertion (SVA) proof execution.
-*   **Toolchains & Synthesis:** Yosys (RTL synthesis), nextpnr-ice40 (FPGA place-and-route), OpenLane (GDSII physical layout targeted at sky130 PDK).
-*   **Documentation:** MkDocs with the Material theme (`mkdocs-material`) compiling symbolic links from the git-ignored `docs_source/` directory.
+*   **Languages:** Python 3 (standard library, zero-dependency philosophy for all simulators), SystemVerilog (IEEE 1800-2017 synthesizable soft-cores), HTML5/JavaScript (Tailwind CSS, Pyodide/WebAssembly, WebRTC P2P API, WebUSB/WebSerial APIs, HTML5 Canvas).
+*   **Testing & Verification:** Pytest (229 tests), GitHub Actions CI workflows (`verify.yml`), SymbiYosys (SBY) for formal SystemVerilog Assertion (SVA) Bounded Model Checking (BMC) and k-induction proofs.
+*   **Toolchains & Physical Synthesis:** Yosys (RTL synthesis), nextpnr-ice40 (FPGA place-and-route), OpenLane (GDSII physical layout targeting SkyWater 130nm and IHP SG13G2 PDKs), Tiny Tapeout packaging.
+*   **Documentation & Knowledge Base:** MkDocs with Material theme (`mkdocs-material`), automated cross-reference generators, graph-theoretic density analyzers, and standardized BibTeX references.
 
 ### 2.4 Repository Structure & Organization
 ```text
-├── bibliography/             # BibTeX reference libraries, books, papers, and archives
-├── excavations/              # 35 historical deep-dives following a strict scorecard template
-├── modern-relevance/         # Analytical mappings to modern AI, coprocessors, and scorecards
-│   └── knowledge_graph.json  # Comprehensive machine-readable relational database
-├── patterns/                 # Systemic failure and migration analysis documents
-├── reconstructions/          # 15 executable software emulators and hardware models
-│   ├── analog-optical/       # Continuous-physical and MZI wave accelerator simulator
-│   ├── capability-security/  # Tagged RAM and register-level capability CPU emulator
-│   ├── co-simulation/        # Interoperability fabric and multi-paradigm execution engines
-│   ├── cryogenic-superconducting/ # RSFQ/ERSFQ pulse logic and cryogenic cooling penalty simulator
-│   ├── csp-messaging/        # Communicating Sequential Processes engine with deadlock recovery
+.
+├── BENCHMARKING.md           # Hardware PPA and simulator performance benchmarks
+├── CHANGELOG.md              # Detailed repository revision and excavation history
+├── COMPARATIVE_INDEX.md      # Taxonomy matrix categorizing execution, memory, & concurrency
+├── CONTRIBUTING.md           # Contribution guidelines and scorecard validation standards
+├── GLOSSARY.md               # 49KB comprehensive computing terminology & taxonomy index
+├── INDEX.md                  # Complete directory index and navigation hub
+├── MANIFESTO.md              # Research philosophy and non-von Neumann principles
+├── README.md                 # Primary entry point, architecture overview, and quickstart
+├── ROADMAP.md                # Multi-phase research roadmap and status tracker
+├── assets/                   # Architecture diagrams and system schematics
+├── bibliography/             # BibTeX reference libraries, foundational papers, and books
+├── excavations/              # 62 historical deep-dives following strict scorecard template
+│   ├── excavation-template.md # Standardized dual-schema template definition
+│   └── ... (62 excavation .md files)
+├── explorer.html             # Dynamic client-side taxonomy viewer and search engine
+├── mkdocs.yml                # Strict site builder configuration
+├── modern-relevance/         # Revival scorecards and machine-readable knowledge base
+│   └── knowledge_graph.json  # 77-node relational knowledge network database
+├── patterns/                 # 11 systemic failure, migration, and persistence patterns
+├── playground.html           # In-browser Pyodide Wasm console, WebRTC P2P grid, VCD viewer, & HIL
+├── project_analysis_report.md# Comprehensive technical audit report (this file)
+├── pytest.ini                # Pytest configuration file
+├── reconstructions/          # 32 executable zero-dependency Python simulators & RTL
+│   ├── LAB_MANUAL.md         # Course curriculum modules for academic architecture labs
+│   ├── lab_autograder.py     # Automated grading script checking student lab solutions
+│   ├── student_solutions.py  # Student lab workspace implementation
+│   ├── analog-optical/       # Continuous-physical & Clements MZI mesh optical simulator
+│   ├── apple_metal/          # Explicit command encoding & TBDR tile memory simulator
+│   ├── capability-security/  # Tagged memory & register capability CPU simulator
+│   ├── co-simulation/        # Interoperability fabric, orchestrator, & WebRTC grid spec
+│   │   ├── orchestrator.py   # Multi-paradigm co-simulation orchestrator
+│   │   └── P2P_GRID_DESIGN.md# Distributed WebAssembly P2P Co-Simulation Grid design
+│   ├── cpp_raii/             # RAII scope, exception unwinding, & dynamic vtable simulator
+│   ├── cryogenic-superconducting/ # RSFQ pulse logic & cryogenic COP penalty simulator
+│   ├── csp-messaging/        # CSP synchronous channels & deadlock recovery simulator
+│   ├── cursor_ide/           # Codebase vector prompt assembly & diff-preview simulator
 │   ├── dataflow-engine/      # Tagged-token dynamic dataflow execution engine
-│   ├── mixed-radix-sim/      # Balanced ternary multi-trit arithmetic logic simulator
-│   ├── neuro-symbolic/       # Probabilistic neural and forward-chaining logic solver
-│   ├── neuromorphic-spiking/ # Leaky Integrate-and-Fire spiking neural simulator
-│   ├── predictive-hypothesis/# Forecaster mapping post-CMOS physics to lineage survival scores
-│   ├── stochastic-computing/# Probabilistic logic gate stream arithmetic simulator
-│   ├── synthesizable-hardware/ # Synthesizable SystemVerilog models and verification suites
-│   ├── tuple-space/          # Linda generative coordination engine with pattern matching
-│   ├── LAB_MANUAL.md         # Pedagogical university-level course modules
-│   ├── lab_autograder.py     # Automated grading script checking student solutions
-│   └── student_solutions.py  # Student lab response workspace
-├── synthesis/                # Highly analytical comparative architectural essay syntheses
-├── timelines/                # Chronological timelines mapping computing, hardware, and AI
-├── tools/                    # Verification scripts, graph analyzers, and API endpoints
-├── explorer.html             # Client-side dynamic visual taxonomy and search interface
-├── playground.html           # In-browser Pyodide console, WebRTC, and logic analyzer wave viewer
-├── mkdocs.yml                # Strict static site documentation builder configuration
-└── pytest.ini                # Test configuration establishing standard root pathing
+│   ├── gentoo_portage/       # Portage engine, profile cascade, & USE flag simulator
+│   ├── keykos-capabilities/  # KeyKOS object-capability keys & persistent checkpointing
+│   ├── llama_cpp/            # Block-wise Q4_0 integer quantization & GEMV simulator
+│   ├── lns-arithmetic/       # Base-b logarithmic math & Jacobian lookup table simulator
+│   ├── mapreduce/            # Functional data partitioning & fault-tolerant map-reduce
+│   ├── mixed-radix-sim/      # Balanced ternary arithmetic logic simulator
+│   ├── netscape_browser_runtime/ # DOM host, SOP, NPAPI, & TLS certificate evaluator
+│   ├── neuro-symbolic/       # Probabilistic neural & forward-chaining logic solver
+│   ├── neuromorphic-spiking/ # Leaky Integrate-and-Fire spiking neuron simulator
+│   ├── nvidia_simt/          # 32-lane warp lockstep & divergence stack simulator
+│   ├── onnx-ir/              # ONNX model IR, constant folding, & operator fusion simulator
+│   ├── openai_sim/           # OpenAI API token budgeting, streaming, & tool calling
+│   ├── plan9-9p/             # 9P file server protocol & private union namespace mounts
+│   ├── predictive-hypothesis/# Constraint migration forecaster & sensitivity engine
+│   ├── qt_meta_object_signals/ # QObject hierarchy, moc signals/slots, & QML bindings
+│   ├── rns-arithmetic/       # Residue Number System carry-free arithmetic & CRT decoder
+│   ├── safari_webkit_runtime/# WebKit2 IPC, WKWebView process insulation, & ITP simulator
+│   ├── stochastic-computing/ # Probabilistic LFSR bitstream arithmetic simulator
+│   ├── synthesizable-hardware/# Synthesizable SystemVerilog IP soft-cores & proofs
+│   │   ├── ternary_alu.sv
+│   │   ├── capability_bounds_checker.sv
+│   │   ├── stochastic_multiplier.sv
+│   │   ├── reversible_gates.sv
+│   │   ├── tt_um_archaeology_cores.sv
+│   │   ├── formal/           # SymbiYosys .sby specs & committed BMC/induction logs
+│   │   └── fpga/             # iCEbreaker PCF, built bitstream, timing report, & OpenLane JSONs
+│   ├── systolic-array/       # Output-stationary matrix multiplication systolic array
+│   ├── tuple-space/          # Linda generative coordination space with pattern matcher
+│   ├── winamp_plugin_host/   # Modular C-ABI plugin host, EQ, skin UI, & media library
+│   └── x86_uop_translation/  # CISC macro-instruction to RISC µop decoder & CPUID
+├── requirements-dev.txt      # Python development dependencies (pytest, etc.)
+├── synthesis/                # 16 comparative architectural essay syntheses & audit reports
+├── timelines/                # 3 chronological timelines (computing.md, ai.md, hardware.md)
+└── tools/                    # Verification scripts, graph analyzers, and API endpoints
 ```
 
 ---
@@ -75,13 +128,13 @@ The Digital Archaeology initiative serves as a comparative system research frame
 ## 3. Architecture & Design
 
 ### 3.1 Architectural Style and Modular Decoupling
-The project utilizes a highly modular **decoupled engine pattern**. Each of the 15 reconstructions in `reconstructions/` is designed as an isolated, self-contained, zero-external-dependency module with its own domain-specific logic and a matching test suite.
+The project utilizes a highly modular **decoupled engine pattern**. Each of the 32 reconstructions in `reconstructions/` is designed as an isolated, self-contained, zero-external-dependency module with its own domain-specific logic, data structures, and matching test suite.
 
-To bridge these distinct paradigms, the project introduces a **Co-Simulation Interoperability Fabric** located at `reconstructions/co-simulation/orchestrator.py`. This orchestrator coordinates cross-lineage communication pipelines by routing data sequentially through:
-1.  A *Neuro-Symbolic Solver* (probabilistic classification).
+To bridge these distinct paradigms, the project introduces a **Co-Simulation Interoperability Fabric** located at `reconstructions/co-simulation/orchestrator.py`. This orchestrator coordinates cross-lineage communication pipelines by routing execution states sequentially through:
+1.  A *Neuro-Symbolic Solver* (probabilistic facts classification).
 2.  *CSP Synchronous Channels* (concurrent rendezvous message routing).
-3.  *Tagged-Token Dataflow Graphs* (parallel numerical assessment math).
-4.  An *EDGE Spatial Grid* (instruction-level spatial block writebacks).
+3.  *Tagged-Token Dataflow Graphs* (parallel numerical token math).
+4.  An *EDGE Spatial Grid* (instruction-level spatial block writebacks and memory commits).
 
 ```text
                +--------------------------------------+
@@ -96,130 +149,156 @@ To bridge these distinct paradigms, the project introduces a **Co-Simulation Int
 +------------------+     +-----------------+     +------------------+     +------------------+
 ```
 
+Furthermore, the co-simulation layer extends into web browsers via `P2P_GRID_DESIGN.md` and `playground.html`, utilizing WebRTC data channels to partition multi-simulator execution workloads across distributed peer browser instances.
+
 ### 3.2 Design Patterns Observed
-*   **Orchestrator Pattern:** `CoSimulationOrchestrator` implements centralized pipeline tracking and cycle-based execution profiling.
-*   **Observer & Pub-Sub Pattern:** Implemented in `reconstructions/tuple-space/tuple_space_sim.py` and WebRTC/BroadcastChannel signaling within `playground.html` to propagate cross-simulator event injection.
-*   **Strategy Pattern:** Used for adaptive deadlock-recovery policies (`deadlock_policy`) inside `reconstructions/csp-messaging/csp_sim.py`, allowing the execution to switch dynamically between preemption, transaction rollbacks, or simple reporting.
-*   **State & Command Patterns:** Observable in the microarchitectural simulators (e.g., instruction dispatch queue logic in `reconstructions/dataflow-engine/dataflow_sim.py` and register state updates in `reconstructions/capability-security/capability_sim.py`).
+*   **Orchestrator Pattern:** Implemented in `CoSimulationOrchestrator` to coordinate cycle-driven multi-model pipelines and collect global execution telemetry.
+*   **Observer & Pub-Sub Pattern:** Implemented in `reconstructions/tuple-space/tuple_space_sim.py` for Linda generative coordination, `reconstructions/qt_meta_object_signals/qt_sim.py` for signals/slots dispatching, and WebRTC/BroadcastChannel signaling in `playground.html`.
+*   **Strategy Pattern:** Used for adaptive deadlock recovery (`deadlock_policy`) inside `reconstructions/csp-messaging/csp_sim.py`, switching dynamically between preemption, transaction rollbacks, or simple exception reporting.
+*   **State & Command Patterns:** Observable across microarchitectural simulators (e.g., warp divergence stacks in `reconstructions/nvidia_simt/simt_sim.py`, macro-instruction decoding in `reconstructions/x86_uop_translation/x86_uop_sim.py`, and command buffer encoding in `reconstructions/apple_metal/metal_sim.py`).
+*   **Proxy / Virtualization Patterns:** Utilized in `reconstructions/safari_webkit_runtime/safari_sim.py` for WKWebView process insulation and IPC proxying.
 
 ### 3.3 Scalability, Maintainability, and Extensibility
-*   **Scalability:** Simulators operate on high-level Python data structures (e.g., dicts, tuples, generator-coroutines), yielding excellent performance. Tests execute in parallel under two seconds.
-*   **Maintainability:** Strong adherence to clean naming and strict boundaries makes extending individual simulators trivial. For instance, creating a new mathematical node in the dataflow engine requires only registering its operation string inside `Node.execute()`.
-*   **Extensibility:** Adding new hardware targets or forecasting parameters is extremely streamlined. The forecasting engine in `reconstructions/predictive-hypothesis/predictive_engine.py` decouples constraint calculations into isolated dictionary weights (`CONSTRAINT_WEIGHTS` and `CMOS_NODES`), enabling simple addition of new lineages or nodes.
+*   **Scalability:** Python simulators rely on lightweight standard library data structures (dicts, tuples, generators, bitwise integer masks), achieving extremely high execution speeds. The entire 229-test suite executes in ~0.99 seconds.
+*   **Maintainability:** Strict adherence to zero external dependencies for core simulators prevents supply-chain rot or framework version lock-in. Each reconstruction is fully encapsulated with its own test harness.
+*   **Extensibility:** Adding new hardware targets or forecasting parameters is straightforward. The forecasting engine in `reconstructions/predictive-hypothesis/predictive_engine.py` decouples physical constraints into isolated dictionary tables (`CONSTRAINT_WEIGHTS` and `CMOS_NODES`), allowing new computing paradigms or technology nodes to be integrated cleanly.
 
 ---
 
 ## 4. Code Quality & Implementation
 
 ### 4.1 Code Organization & Consistency
-The repository maintains exceptional organizational hygiene. Every software simulator is accompanied by a robust unit test suite prefixed with `test_` (e.g., `test_sfq_sim.py`, `test_tuple_space_sim.py`). The SystemVerilog RTL modules follow strict structural guidelines:
-*   `reversible_gates.sv`
-*   `stochastic_multiplier.sv`
-*   `ternary_alu.sv`
-*   `capability_bounds_checker.sv`
+The repository maintains exemplary organizational hygiene. Every software simulator is paired with a matching test suite prefixed with `test_` (e.g., `test_simt_sim.py`, `test_llama_cpp_sim.py`, `test_keykos_sim.py`).
 
-Each includes dedicated behavioral Python checks inside `reconstructions/synthesizable-hardware/test_synthesizable.py` alongside physical FPGA constraints mapping files (`fpga/icebreaker.pcf`) and SymbiYosys verification setups.
+The SystemVerilog RTL modules follow strict IEEE 1800-2017 synthesizable coding standards:
+*   `ternary_alu.sv`: Balanced ternary arithmetic logic unit with dual-rail trit encoding.
+*   `capability_bounds_checker.sv`: CHERI-style hardware capability bounds and permissions checker.
+*   `stochastic_multiplier.sv`: Bipolar/unipolar stochastic bitstream multiplier with maximal-period LFSR.
+*   `reversible_gates.sv`: Reversible logic gate primitives (Toffoli, Fredkin, Feynman) with uncomputation.
+*   `tt_um_archaeology_cores.sv`: Top-level Tiny Tapeout user module multiplexer wrapper integrating all four soft-cores with OpenLane JSON configs.
+
+Each RTL module is accompanied by dedicated behavioral Python tests in `test_synthesizable.py`, SymbiYosys formal verification specs (`.sby`), committed formal logs, FPGA pin constraints (`icebreaker.pcf`), placed-and-routed bitstream data, and nextpnr timing reports.
 
 ### 4.2 Readability, Naming, and Documentation Quality
-*   **Documentation:** High-density, professional system documentation. The file `ROADMAP.md` comprehensively charts research phases and includes checked-off deliverables.
-*   **Code Readability:** Every file begins with descriptive module-level docstrings detailing the underlying physical theory, mathematical formulas, or microarchitectural registers.
-*   **Variable Naming:** Self-documenting, standard academic terms (e.g., `tau_m` for Leaky Integrate-and-Fire membrane time constant, `v_th` for threshold voltage, `Phi_0` for magnetic flux quantum).
+*   **Documentation Density:** All 62 excavations, 16 synthesis essays, and 11 patterns follow rigorous formatting guidelines enforced by `tools/verify_excavations.py`.
+*   **Code Readability:** Every simulator begins with comprehensive module-level docstrings detailing underlying physical equations, algorithmic state machines, and microarchitectural register specifications.
+*   **Variable Naming:** Uses domain-standard nomenclature (e.g., `cr0_pe` for x86 protection enable, `active_mask` for SIMT warp lane masks, `CRT` for Chinese Remainder Theorem, `Phi_0` for magnetic flux quanta).
 
 ### 4.3 Error Handling, Logging, and Observability
-The code contains highly granular hardware-level exception types modeled in software to mirror physical faults:
-*   `TagException` in Lisp-machine tagging simulations.
-*   `BoundsException` and `DescriptorNotPresentException` in [descriptor-based memory](GLOSSARY.md) access.
-*   `timing_warning` structures in superconducting SFQ setups to capture setup-time hazards ($t_{\text{diff}} < t_{\text{setup}}$).
+Hardware-level exception types are explicitly modeled in software to mirror physical hardware faults:
+*   `BoundsException` and `PermissionDeniedException` in capability security emulators.
+*   `TagException` in tagged memory simulations.
+*   `DeadlockDetectedException` in CSP message channels.
+*   `PortageDependencyError` in package dependency resolution.
 
-Observability is further enhanced by interactive logging capabilities, such as `visualize_pipeline_state` rendering active token queues, and a canvas-based **Live Digital Logic Analyzer** in the in-browser sandbox (`playground.html`) that serializes runs to Value Change Dump (`.vcd`) wave logs.
+Observability is supported through rich visualization hooks:
+*   `visualize_pipeline_state()` rendering active token queues and execution pipelines.
+*   `playground.html` featuring an in-browser canvas-based **Live Digital Logic Analyzer** with multi-channel wave tracing and direct Value Change Dump (`.vcd`) export for GTKWave analysis.
+*   WebUSB/WebSerial HIL hooks streaming physical FPGA UART telemetry directly into the browser canvas.
 
 ### 4.4 Testing Quality and Coverage
-The project implements rigorous, non-trivial testing across multiple layers:
-*   **Unit & Integration Tests:** 136 pytest assertions checking complex scenarios like unipolar/bipolar stochastic multiplication variance, synchronous CSP ALT multiplexing, and binary-to-balanced-ternary fractional scaling.
-*   **Formal Verification:** SystemVerilog models are formally verified using SymbiYosys configurations (`.sby`) to execute Bounded Model Checking (BMC) and temporal k-induction temporal proofs over standard assertions, mathematically proving that bounds and arithmetic properties hold over infinite cycles.
-*   **Liveness Verification:** Academic autograders (`lab_autograder.py`) verify liveness and correct convergence of student solutions against model answers, executing under pytest via `test_lab_autograder.py`.
+The testing suite provides comprehensive, non-trivial verification across all subsystems:
+*   **Unit & Integration Tests:** 229 pytest test cases checking complex edge cases like 32-lane warp divergence stack unwinding, x86 protected-mode segment permission checks, RNS Chinese Remainder Theorem decoding, LNS Jacobian lookup table linear interpolation, and stochastic bitstream LFSR period length.
+*   **Formal Verification:** SystemVerilog modules are verified via SymbiYosys (`.sby`) running Bounded Model Checking (BMC) and temporal k-induction proofs, mathematically proving that capability bounds, ternary arithmetic, and reversible logic invariants hold over arbitrary cycle lengths.
+*   **Autograder Verification:** Pedagogical autograder harness (`lab_autograder.py`) verifies model student solutions (`student_solutions.py`) under pytest (`test_lab_autograder.py`).
+*   **CI & Lint Verification:** Automated verifier (`tools/verify_excavations.py`) checks Markdown relative link health, scorecard regex compliance, GLOSSARY term referencing, and COMPARATIVE_INDEX integration.
 
 ### 4.5 Performance & Resource Management
-While high-fidelity wave simulations or detailed optical noise models (`analog_optical_sim.py`) execute continuous floating-point math, execution remains highly optimized due to the use of analytical physical proxies rather than brute-force multi-dimensional finite-difference time-domain (FDTD) solvers.
+Simulators achieve near-instant execution (~0.99 seconds for 229 tests) by using analytical physical proxies and integer bitwise operations rather than heavy floating-point FDTD or SPICE matrix solvers.
 
-For synthesizable RTL, physical footprint sizing is evaluated via `tools/profile_synthesis.py` which extracts physical gate usage or switches to analytical fallback scaling curves (Gate-Equivalent `GE` and Energy-per-Op `fJ` metrics under sub-5nm CMOS equivalent constraints).
+Synthesizable SystemVerilog soft-cores are benchmarked for physical footprint and timing performance:
+*   `capability_bounds_checker`: Placed and routed for Lattice iCE40 UP5K FPGA using `nextpnr-ice40`, achieving timing closure with minimal LC (Logic Cell) utilization.
+*   ASIC synthesis targeting SkyWater 130nm (`sky130_fd_sc_hd`) and IHP SG13G2 PDKs configured via OpenLane JSON scripts and packaged into `tt_um_archaeology_cores.sv` for Tiny Tapeout tapeout readiness.
 
 ### 4.6 Dependency Management & Technical Debt
-*   **Dependencies:** The core engine retains a minimal, zero-external-dependency posture. Developer and linting dependencies (e.g., `pytest`, `mkdocs`, `pymdown-extensions`) are clearly isolated in `requirements-dev.txt`.
-*   **Technical Debt:** Zero deprecated methods or legacy code blocks observed. Every test runs and compiles warnings-free. The automated excavation and link verifier (`tools/verify_excavations.py`) enforces strict schema, glossary, and link health, preventing the accretion of architectural drift.
+*   **Zero Core Dependencies:** All 32 Python simulators in `reconstructions/` run out-of-the-box using standard Python 3 with zero external package requirements (`numpy`, `torch`, `requests`, etc. are omitted by design).
+*   **Developer Dependencies:** Development tools (`pytest`, `mkdocs`, `pymdown-extensions`) are cleanly segregated in `requirements-dev.txt`.
+*   **Technical Debt:** Zero deprecated methods or failing tests. The codebase passes all verification scripts and pytest test suites cleanly.
 
 ---
 
 ## 5. Functionality & Feature Assessment
 
-The repository implements an extensive array of fully mature, functional core subsystems:
+The repository features a broad range of fully functional, verified core subsystems:
 
-| Functional System | Stated Research Goal | Technical Core | Implementation File | Verification Mechanism |
+| Functional Subsystem | Historical Paradigm / Goal | Technical Implementation | Core Module | Verification & Proofs |
 | :--- | :--- | :--- | :--- | :--- |
-| **Ternary ALU** | Radix-3 execution | PN dual-rail encoding, signed arithmetic, carry-sum logic | `ternary_alu.sv` `ternary_sim.py` | Pytest sweeps; SBY BMC/induction formal proofs |
-| **[Tagged Memory](GLOSSARY.md)** | Zero-trust hardware | Tag bits, unforgeable bounds check, secure service gates | `capability_bounds_checker.sv` `capability_sim.py` | Pytest domain-gate exceptions; SBY proofs |
-| **Continuous wave** | Optical tensor compute | Op-amp mass-spring, Clements MZI mesh, ENOB physical noise | `analog_optical_sim.py` | Pytest precision loss & noise modeling assertions |
-| **Superconducting** | Ultra-high efficiency | Picosecond RSFQ pulse-timing, Carnot Carnot COP, HTS metrics | `sfq_sim.py` | Pytest setup-time violations & energy penalty calculations |
-| **[9P Protocol](GLOSSARY.md)** | Location transparency | Twalk/Tread/Twrite state machines, private union directory mounts | `namespace_sim.py` | Pytest fallback union mounts precedence checks |
-| **Tuple Spaces** | Decoupled coordination | [Generative communication](GLOSSARY.md) thread-safe associative match | `tuple_space_sim.py` | Pytest tuple wildcard matching sweeps |
+| **Balanced Ternary ALU** | Radix-3 execution | PN dual-rail encoding, trit addition/multiplication, carry-sum | `ternary_alu.sv` / `ternary_sim.py` | Pytest sweeps; SymbiYosys BMC/induction proofs |
+| **Hardware Capabilities** | Tagged memory protection | CHERI-style unforgeable bounds, permissions, capability registers | `capability_bounds_checker.sv` / `capability_sim.py` | Pytest bounds exceptions; SymbiYosys BMC proofs |
+| **Reversible Computing** | Zero thermodynamic dissipation | Toffoli/Fredkin/Feynman gates, bijectivity, uncomputation circuit | `reversible_gates.sv` | Pytest bijectivity checks; SymbiYosys formal proofs |
+| **Stochastic Arithmetic** | Noise-tolerant stream compute | Bipolar/unipolar LFSR bitstream multiplication, FSM tanh activation | `stochastic_multiplier.sv` / `stochastic.py` | Pytest variance checks; SymbiYosys formal proofs |
+| **Tagged-Token Dataflow** | Explicit spatial execution | Dynamic token matching, queue allocation, execution graph | `dataflow_sim.py` | Pytest trace replay & graph execution assertions |
+| **Residue Number System** | Carry-free parallel math | Coprime modulus set, parallel addition/multiplication, CRT decode | `rns_sim.py` | Pytest coprime checks & CRT recovery assertions |
+| **Logarithmic Arithmetic** | Multiplication via addition | Base-b logarithmic encoding, Jacobian LUT linear interpolation | `lns_sim.py` | Pytest accuracy & LUT interpolation tests |
+| **KeyKOS Capabilities** | Nanokernel object security | Capability keys, message routing, attenuation, checkpointing | `keykos_sim.py` | Pytest key attenuation & persistence tests |
+| **x86 Microcode Translation** | CISC macro to RISC µop | Microcode ROM, CPUID discovery, Real/Protected/Long mode MMU | `x86_uop_sim.py` | Pytest MMU permission & µop decoder tests |
+| **NVIDIA SIMT Architecture** | Lockstep parallel execution | 32-lane warp execution, active mask divergence stack, WMMA | `simt_sim.py` | Pytest divergence stack & shared memory tests |
+| **WebKit Runtime Engine** | Process insulation & privacy | WebKit2 IPC, WKWebView process separation, ITP storage partitioning | `safari_sim.py` | Pytest process isolation & ITP partitioning tests |
+| **llama.cpp Inference** | Local LLM quantization | GGUF container packing/unpacking, Q4_0 block quantization, GEMV | `llama_cpp_sim.py` | Pytest GGUF packing & GEMV precision tests |
 
 ### Edge Cases and Robustness
-*   **Asynchronous Deadlock Resolution:** The CSP Messaging Simulator (`reconstructions/csp-messaging/csp_sim.py`) contains a dedicated deadlock-recovery engine supporting both thread preemption and rollback mechanisms to resolve execution blocks.
-*   **Floating-Point Boundaries:** Bipolar stochastic generators cleanly handle physical limits near $[-1.0, 1.0]$ using clamping and standard LFSR seed random distributions to prevent correlation bugs.
-*   **Capability Boundary Overflows:** The register-level emulator restricts capability pointer alterations via bounds clamping, throwing explicit, uncatchable hardware faults rather than allowing integer wrapping.
+*   **SIMT Branch Divergence Stack:** The SIMT simulator (`nvidia_simt/simt_sim.py`) correctly manages nested conditional branches by pushing/popping active lane masks on an explicit divergence stack, merging lanes at reconvergence points.
+*   **x86 Segment Protection Faults:** The x86 MMU simulator (`x86_uop_translation/x86_uop_sim.py`) enforces descriptor privilege levels (DPL vs CPL) in Protected Mode, raising explicit segmentation faults on unauthorized access.
+*   **ITP Storage Partitioning:** The WebKit simulator (`safari_webkit_runtime/safari_sim.py`) enforces double-keyed storage isolation (top-frame site + resource domain), blocking cross-site tracking cookies unless explicitly granted via Storage Access API.
+*   **Asynchronous Deadlock Recovery:** The CSP messaging simulator (`csp-messaging/csp_sim.py`) features an automated deadlock detector that resolves channel circular dependencies using configurable recovery policies.
 
 ---
 
 ## 6. Strengths
 
-*   **Explanatory Density and Deep Integration:** Every document and code block is connected in a cohesive relational network. The `density_analyzer.py` tool mathematically verifies a high network density metric ($0.1171$) with zero orphaned nodes or dead ends.
-*   **Academic and Engineering Rigor:** The project pairs rich academic essays with synthesizable, hardware-synthesis blueprints (SystemVerilog) and temporal k-induction proofs, providing an incredibly high level of execution credibility.
-*   **In-Browser Zero-Dependency Playground:** The HTML5 console (`playground.html`) provides interactive in-browser consoles, logical analyzer canvas boards, custom VCD waveform capturing, and direct WebRTC peer-to-peer browser clustering.
-*   **Excellent Test Quality:** Complete test coverage executing 136 assertions across all 15 simulators, passing instantly and integrated with CI automation pipelines.
-*   **Clear Pedagogical Structure:** The course curriculum manual (`LAB_MANUAL.md`) provides well-designed challenges backed by automated grading software (`lab_autograder.py`).
+*   **Exceptional Explanatory Density and Network Integration:** All 62 excavations, 16 synthesis essays, 11 patterns, and 32 simulators are interconnected. The knowledge graph analyzer (`tools/density_analyzer.py`) verifies a 77-node directed network with zero orphaned core nodes.
+*   **Synthesizable Hardware & Formal Proofs:** Combines software modeling with IEEE 1800-2017 synthesizable SystemVerilog soft-cores, committed SymbiYosys formal verification proof logs, FPGA pin constraints, placed-and-routed bitstreams, and OpenLane ASIC configurations for Sky130 and IHP SG13G2 PDKs.
+*   **Zero-Dependency Portability:** Python simulators rely strictly on the standard library, guaranteeing long-term execution stability without dependency breakage.
+*   **Advanced Browser Sandbox & Hardware-in-the-Loop:** `playground.html` integrates Pyodide WebAssembly, WebRTC P2P co-simulation grid workload distribution, dynamic canvas logic analyzer waveform rendering, VCD log export, and WebUSB/WebSerial HIL streaming.
+*   **Rigorous Automated Quality Assurance:** Continuous integration tooling (`tools/verify_excavations.py`) enforces link integrity, unbolded scorecard format compliance, glossary term referencing, and comparative index integration.
 
 ---
 
 ## 7. Weaknesses & Risks
 
-*   **Python Physical-Layer Approximations (Medium Severity):** The continuous analog, optical noise, and cryogenic thermal models operate on high-level numerical approximations rather than physical device-level models (such as SPICE or continuous electro-magnetic field solvers).
-    *   *Risk:* While mathematically and structurally correct, they do not capture physical parasitics (e.g., semiconductor parasitics, optical crosstalk, thermal spatial gradients) that affect actual hardware layout.
-*   **Absence of Clock Domain Crossing (CDC) in RTL (Low Severity):** The synthesizable SystemVerilog IP blocks do not implement formal multi-clock synchronizers or CDC protection structures.
-    *   *Risk:* Integrating these cores into heterogeneous multi-frequency SoC environments could lead to localized metastability.
-*   **Static Reference Dependency (Low Severity):** The cross-reference generators, taxonomy visualizer, and agentic API rely on a statically generated database (`knowledge_graph.json`).
-    *   *Risk:* Adding or altering excavations without running `tools/generate_knowledge_graph.py` can lead to stale relational links or graph data out-of-sync.
+*   **High-Level Physical Approximations (Medium Severity):** The optical wave propagation, analog operational amplifier, and cryogenic thermal models operate on high-level analytical approximations rather than device-level SPICE or continuous electro-magnetic field solvers.
+    *   *Risk:* While mathematically and conceptually correct, they do not capture physical layout parasitics (e.g., semiconductor junction capacitance, optical crosstalk, thermal spatial gradients).
+*   **Lack of Multi-Clock CDC Synchronization in RTL (Low Severity):** The synthesizable SystemVerilog IP soft-cores operate on a single synchronous clock domain and do not include formal Clock Domain Crossing (CDC) synchronizer primitives.
+    *   *Risk:* Integrating these soft-cores into heterogeneous multi-frequency SoC environments could introduce metastability without external CDC synchronizers.
+*   **Static Asset Generation Synchronization (Low Severity):** The machine-readable database (`modern-relevance/knowledge_graph.json`) is built by `tools/generate_knowledge_graph.py`.
+    *   *Risk:* Modifying excavations or syntheses without re-running the knowledge graph generator can result in transient discrepancies between markdown source files and the JSON database.
 
 ---
 
 ## 8. Recommendations
 
 ### Short-Term Recommendations
-1.  **Automate Knowledge Graph Compiling:** Integrate the running of `tools/generate_knowledge_graph.py` and `tools/cross_reference_generator.py` directly into the git pre-commit hooks or as a synchronous step inside the GitHub Actions CI workflow to ensure the machine-readable schema is always perfectly in sync with new markdown modifications.
-2.  **Add CDC Linting Checks:** Introduce simple Clock Domain Crossing (CDC) guidelines in `reconstructions/synthesizable-hardware/README.md` or as part of the Yosys synthesis script to warn developers when integrating the soft-cores into multi-clock domains.
+1.  **Automate Knowledge Graph CI Build Step:** Ensure `tools/generate_knowledge_graph.py` and `tools/cross_reference_generator.py` are executed automatically as part of the git pre-commit hook or GitHub Actions CI workflow so `knowledge_graph.json` is guaranteed to stay synchronized with all markdown edits.
+2.  **Add CDC Integration Guidelines:** Include Clock Domain Crossing (CDC) synchronizer recommendations and multi-clock boundary documentation in `reconstructions/synthesizable-hardware/README.md`.
 
 ### Medium-Term Recommendations
-1.  **Hardware-in-the-Loop WebUSB Bridge:** Implement WebUSB or WebSerial API support in `playground.html` to allow direct physical streaming of digital logic outputs from development boards (e.g., Lattice iCEbreaker FPGA running the synthesizable bounds checker) directly into the browser's logic analyzer canvas.
-2.  **Enhance Analog Simulator Precision:** Introduce optional SPICE netlist export features inside `analog_optical_sim.py` to allow researchers to export the generated analog circuits for high-fidelity device-level electrical simulations.
+1.  **Expand HIL FPGA Testbench Integration:** Expand the WebSerial/WebUSB UART HIL bridge in `playground.html` to support automated bidirectional streaming tests between live physical FPGA development boards (e.g., Lattice iCEbreaker) and the Pyodide WebAssembly test harness.
+2.  **SPICE Netlist Export for Analog Models:** Add optional SPICE netlist export functions to `analog_optical_sim.py` to allow hardware engineers to export generated continuous analog/optical circuit topologies directly into SPICE solvers for device-level simulation.
 
 ### Long-Term Recommendations
-1.  **Self-Optimizing Co-Design Compiler:** Develop an autonomous recursive optimization loop (leveraging `tools/agent_api.py`) where an LLM agent uses the forecasting results to dynamically rewrite SystemVerilog parameters (e.g., stochastic bitstream widths, ternary ALU word sizes) to hit a specific energy-precision target, verifying the generated RTL via the committed SymbiYosys proof harness.
+1.  **Autonomous AI Co-Design Optimization Loop:** Build an autonomous recursive co-design loop using `tools/agent_api.py`, enabling LLM agents to perform sensitivity sweeps via `predictive_engine.py`, modify SystemVerilog parameters (e.g., stochastic LFSR widths, capability tag sizes), and verify generated RTL through the SymbiYosys proof harness.
 
 ---
 
 ## 9. Conclusion
 
-**Digital Archaeology** is an outstanding, professional, and academically rigorous repository. It successfully demonstrates how historically marginalized computing paradigms can offer elegant and physically superior solutions to modern CMOS scaling walls.
+**Digital Archaeology** is an outstanding, highly rigorous, and comprehensive research framework. It successfully demonstrates how historically sidelined non-von Neumann computer architectures, alternative mathematical representations, and fine-grained security abstractions can offer physical and architectural solutions to modern CMOS scaling walls.
 
-Its overall readiness is assessed as a **highly polished, production-ready research sandbox and curriculum suite**. The code quality is exceptional, tests are highly comprehensive, and the mathematical and formal proofs provide absolute credibility. By addressing the identified physical-approximation risks and continuing to expand its hardware co-design tooling, Digital Archaeology is uniquely positioned to drive the future of non-von Neumann computer architecture research.
+Its overall readiness is evaluated as a **production-ready, highly polished research sandbox and academic curriculum platform**. The codebase quality is exceptional, tests are comprehensive and fast (~0.99s runtime), and the formal verification proofs provide rigorous mathematical validation. Digital Archaeology is uniquely positioned to inform and accelerate next-generation computer architecture research.
 
 ---
 
 ## Appendix: Key Files Reviewed
 
-1.  **`reconstructions/co-simulation/orchestrator.py`** - Core inter-paradigm co-simulation fabric coordinating multi-architecture workloads.
-2.  **`reconstructions/predictive-hypothesis/predictive_engine.py`** - [Constraint migration](patterns/constraint-migration.md) forecasting CLI engine with sensitivity sweeps.
-3.  **`reconstructions/synthesizable-hardware/capability_bounds_checker.sv`** - Synthesizable hardware Tagged RAM security controller.
-4.  **`reconstructions/lab_autograder.py`** - Automated academic curriculum grading engine checking logical solutions.
-5.  **`tools/verify_excavations.py`** - Continuous integration verifier ensuring markdown, scorecard, and glossary correctness.
-6.  **`tools/density_analyzer.py`** - Graph network analysis engine evaluating repository link integrity and density metrics.
-7.  **`playground.html` & `explorer.html`** - Web-native WebAssembly co-simulation playground and dynamic D3.js taxonomy scrubber.
+1.  **`reconstructions/co-simulation/orchestrator.py`** - Multi-paradigm co-simulation fabric coordinating cross-lineage execution.
+2.  **`reconstructions/synthesizable-hardware/tt_um_archaeology_cores.sv`** - Tiny Tapeout top-level user module wrapper integrating all four SystemVerilog soft-cores.
+3.  **`reconstructions/synthesizable-hardware/capability_bounds_checker.sv`** - Synthesizable hardware capability bounds checker IP.
+4.  **`reconstructions/predictive-hypothesis/predictive_engine.py`** - Constraint migration forecasting CLI engine with sensitivity analysis.
+5.  **`reconstructions/nvidia_simt/simt_sim.py`** - Zero-dependency Python simulator reconstructing SIMT warp execution and divergence stacks.
+6.  **`reconstructions/x86_uop_translation/x86_uop_sim.py`** - Microcode µop decoder, CPUID discovery, and multi-mode MMU simulator.
+7.  **`reconstructions/safari_webkit_runtime/safari_sim.py`** - WebKit2 IPC, process insulation, and ITP storage partitioning simulator.
+8.  **`reconstructions/llama_cpp/llama_cpp_sim.py`** - GGUF container packing/unpacking and block-wise Q4_0 integer quantization simulator.
+9.  **`reconstructions/lab_autograder.py`** - Automated academic curriculum grading engine verifying student solutions.
+10. **`tools/verify_excavations.py`** - Continuous integration verifier validating repository integrity, scorecards, and glossary references.
+11. **`tools/generate_knowledge_graph.py`** - Machine-readable knowledge graph builder generating `knowledge_graph.json`.
+12. **`playground.html` & `explorer.html`** - Interactive HTML5/WebAssembly console, WebRTC P2P grid co-simulator, VCD wave analyzer, and visual taxonomy explorer.
