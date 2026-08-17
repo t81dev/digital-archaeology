@@ -307,6 +307,10 @@
       "definition": "A plugin-based windowing and rendering abstraction layer in Qt that isolates GUI application code from platform-specific OS windowing handles (Win32, Cocoa, X11, Wayland, or direct framebuffers)."
     },
     {
+      "term": "Qwen Lineage",
+      "definition": "An industrial open-weight foundation model family developed by Alibaba Cloud's Tongyi Lab, characterized by multi-tier parameter scaling (featuring mid-size 8B–27B/32B deployable variants), 151k-token multilingual BPE vocabulary compression, ChatML boundary framing, native JSON tool-calling schemas, and permissive Apache 2.0 licensing."
+    },
+    {
       "term": "Pervasive Multithreading",
       "definition": "An operating system design featuring granular, per-thread scheduling, heavy optimization for symmetric multiprocessing (SMP), and pervasive multi-threading across both the kernel and media-rich user-space applications."
     },
@@ -397,6 +401,10 @@
     {
       "term": "Tensor Core",
       "definition": "A specialized microarchitectural execution unit inside NVIDIA GPUs designed to perform 2D Warp Matrix Multiply-Accumulate (WMMA) operations in a single micro-op using mixed-precision numerical formats."
+    },
+    {
+      "term": "Tongyi Qianwen",
+      "definition": "An industrial open-weight model family and computational substrate developed by Alibaba Cloud."
     },
     {
       "term": "Tagged Memory",
@@ -585,6 +593,7 @@
           "openai",
           "plan-9",
           "portage",
+          "qwen",
           "qt",
           "safari",
           "smalltalk",
@@ -759,6 +768,7 @@
           "openai",
           "portage",
           "GLOSSARY",
+          "qwen",
           "qt",
           "safari",
           "smalltalk",
@@ -814,6 +824,7 @@
           "inferno",
           "GLOSSARY",
           "qt",
+          "qwen",
           "safari",
           "j-machine",
           "GLOSSARY",
@@ -2847,6 +2858,46 @@
         }
       },
       "modern_relevance": "Qt's durable contribution to computer science is not merely a collection of GUI widgets, but a **long-lived application runtime model**—meta-objects, [signals and slots](../GLOSSARY.md), hierarchical parent-child ownership, event loop integration, and platform abstraction layers—that enabled portable [C++](cpp.md) applications to remain viable across three decades of changing operating system architectures.\n\nIn modern systems engineering:\n* **Qt Quick / QML** remains a dominant declarative UI stack for industrial HMI, medical devices, and automotive digital cockpits (e.g., Mercedes-Benz, Tesla, LG webOS).\n* **Qt 6's Render Hardware Interface (RHI)** provides a blueprint for abstracting modern low-level graphics APIs (Vulkan, [Metal](../GLOSSARY.md), Direct3D 12) underneath declarative UI scene graphs.\n* **C++ Integration**: Qt demonstrates how legacy C++ infrastructure can seamlessly co-exist with modern declarative UI paradigms without requiring complete application rewrites.",
+      "references": []
+    },
+    {
+      "id": "qwen",
+      "title": "Qwen Lineage: Mid-Size Open-Weight Substrate & Industrial Model Family",
+      "path": "excavations/qwen.md",
+      "summary": "The **Qwen** model lineage (developed by Alibaba Cloud's Tongyi Lab) represents a pivotal structural transition in the open-weight language model ecosystem: **the transformation of industrial-scale foundation model development into a repeatedly released, size-tiered, multilingual deployment substrate**. While early open-weight releases (such as Meta's initial Llama 1) established that high-capacity base models could be run outside closed API gateways, Qwen systematically expanded the open-weight paradigm into non-Western language ecosystems, long-context handling, native tool-calling integration, and specialized domain variants (such as Qwen2.5-Coder and Qwen2.5-Math).\n\nFrom the perspective of digital archaeology, Qwen's primary significance lies in its **mid-size deployable parameter variants (roughly the 8B–27B/32B class)**. Situated between lightweight edge models (1B–3B) and datacenter-scale flagship checkpoints (70B+), Qwen's mid-size models established the practical VRAM-and-latency sweet spot for consumer GPUs (16GB–24GB VRAM), workstation serving nodes, and enterprise local finetuning. By coupling decoder-only causal Transformer architectures (Grouped-Query Attention, SwiGLU, RoPE/YaRN) with a 151,643-token multilingual tokenizer, ChatML boundary token formatting, and permissive open licenses (such as Apache 2.0 on key mid-size releases), the Qwen family demonstrated how an industrial research program could capture global developer mindshare, achieve seamless compatibility with local runtime engines like [llama.cpp](llama-cpp.md) and vLLM, and break Western lab monocultures in open foundation model deployment.\n\n```text\n                     THE QWEN COMPUTATIONAL SUBSTRATE STACK\n\n ┌──────────────────────────────────────────────────────────────────┐\n │           Downstream Finetunes, Agents & Local Applications       │\n │   (Coding Assistants, RAG Pipelines, Regional LLMs, Open-WebUI)  │\n └────────────────────────────────┬─────────────────────────────────┘\n                                  ▼\n ┌──────────────────────────────────────────────────────────────────┐\n │            Local Runtime Execution & Quantization Layer          │\n │      (llama.cpp GGUF, vLLM PagedAttention, AWQ/GPTQ 4-Bit)       │\n └────────────────────────────────┬─────────────────────────────────┘\n                                  ▼\n ┌──────────────────────────────────────────────────────────────────┐\n │            Interface & Packaging Artifact Surface               │\n │ (ChatML <|im_start|>/<|im_end|>, Tool JSON Schema, Apache 2.0)   │\n └────────────────────────────────┬─────────────────────────────────┘\n                                  ▼\n ┌──────────────────────────────────────────────────────────────────┐\n │             Post-Training & Behavior Sculpting Engine            │\n │     (Multilingual SFT, DPO/GRPO Alignment, Tool Function Tuning) │\n └────────────────────────────────┬─────────────────────────────────┘\n                                  ▼\n ┌──────────────────────────────────────────────────────────────────┐\n │               Base Architecture & Tokenizer Layer                │\n │ (151k Vocab BPE, GQA, SwiGLU, RMSNorm, 128k RoPE / YaRN Context) │\n └────────────────────────────────┬─────────────────────────────────┘\n                                  ▼\n ┌──────────────────────────────────────────────────────────────────┐\n │          Multi-Trillion Token Multilingual Pretraining           │\n │       (18T Token Mixture: Code, Math, Non-Western Text, Web)     │\n └──────────────────────────────────────────────────────────────────┘\n```",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Established non-Western industrial leadership in open-weight foundation models, proving open-weight families can rival closed APIs globally."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Pioneered 151k multilingual BPE tokenization, native JSON tool-calling weight alignment, 128k RoPE scaling, and mid-size 27B/32B parameter optimizations."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Driven global adoption across enterprise RAG pipelines, local AI IDEs, consumer workstation deployments, and Alibaba Cloud API services."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "The dominant open-weight substrate for local code generation (Qwen2.5-Coder-32B), edge serving, and non-Western multilingual applications."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Central engine for agentic tool loops, local IDE integrations, reasoning models, and quantized [GGUF](../GLOSSARY.md)/vLLM serving infrastructures."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Pretraining Qwen2.5 requires 18 trillion tokens of curated multilingual text, tens of thousands of GPU clusters, and millions of dollars in compute capital."
+        }
+      },
+      "modern_relevance": "",
       "references": []
     },
     {

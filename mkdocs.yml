@@ -120,6 +120,7 @@ nav:
     - Project Xanadu: excavations/project-xanadu.md
     - Prolog & FGCS WAM Hardware: excavations/prolog-wam-fgcs-hardware.md
     - Qt Meta-Object Runtime: excavations/qt.md
+    - Qwen Mid-Size Substrate: excavations/qwen.md
     - Residue Number System: excavations/residue-number-system.md
     - Reversible Computing: excavations/reversible-computing.md
     - Safari & WebKit Runtime: excavations/safari.md
