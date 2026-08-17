@@ -212,6 +212,12 @@ Each subdirectory here contains an interactive, fully-functional simulator, synt
 * **What it does**: Simulates DTrace DIF bytecode verifier and probe firing, SMF topological dependency boot and auto-restarter, ZFS Copy-on-Write Merkle tree checksum verification and snapshots, and Zone process isolation with Fair Share Scheduler (FSS) CPU capping.
 * **Entry point**: `reconstructions/solaris_subsystems/solaris_sim.py`
 
+### 34. [FFmpeg Transcode Pipeline & CLI Translator Simulator](ffmpeg_pipeline/)
+* **Focus**: 5-stage transcode dataflow, `AVPacket`/`AVFrame` reference counting, filter graph execution, and CLI command translation.
+* **Paradigm**: [FFmpeg Substrate](../excavations/ffmpeg.md).
+* **What it does**: Simulates packet/frame flow across demuxer, decoder, filter graph, encoder, and muxer, codec capability table lookup, DAG filter processing, and CLI command parsing.
+* **Entry point**: `reconstructions/ffmpeg_pipeline/ffmpeg_sim.py`
+
 ---
 
 ## Running the Simulators & Tests

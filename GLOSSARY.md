@@ -13,12 +13,14 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Plan 9](excavations/plan-9.md)
 
 ### A
+* **AVFrame**: A reference-counted data structure in [FFmpeg](excavations/ffmpeg.md) representing raw, uncompressed video pixel planes or PCM audio sample buffers passed between decoders, filter graphs, and encoders.
+  * *See excavation*: [FFmpeg](excavations/ffmpeg.md)
+* **AVPacket**: A reference-counted data structure in [FFmpeg](excavations/ffmpeg.md) representing a compressed audiovisual bitstream frame or packet passed between demuxers, decoders, encoders, and muxers.
+  * *See excavation*: [FFmpeg](excavations/ffmpeg.md)
 * **Apple Silicon**: A lineage of custom-designed, ARM-based System-on-Chip (SoC) architectures integrating high-bandwidth Unified Memory, Secure Enclave processors, and dynamic matrix-multiplication co-processors tightly integrated with the system compilers.
   * *See excavation*: [Apple: The Integrated Platform Surface](excavations/apple.md)
 * **ABI (Application Binary Interface)**: The low-level interface between compiled binary user-space software and the operating system kernel, encompassing registers, calling conventions, and system calls.
   * *See excavation*: [Linux: The Ubiquitous Substrate](excavations/linux.md)
-
-### A
 * **Active Messages**: A communication paradigm for high-performance parallel systems where each message packet contains in its header the address of an execution handler. Upon arrival, the handler executes immediately using the packet's payload as arguments, bypassing operating system scheduling and context-switching overhead.
   * *See excavation*: [The MIT J-Machine](excavations/j-machine.md)
 * **Actor Model**: A mathematical model of concurrent computation where the universal primitive is the *actor*. Actors can make local decisions, create more actors, send messages, and designate how to respond to the next message. Unlike the Von Neumann model, communication is asynchronous and there is no shared state.
@@ -99,6 +101,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [VLIW / EPIC Architectures](excavations/vliw-epic.md)
 
 ### F
+* **FFmpeg**: A universal open-source media processing substrate and computational lineage that established a standardized 5-stage dataflow pipeline (`Demux` $\rightarrow$ `Decode` $\rightarrow$ `Filter` $\rightarrow$ `Encode` $\rightarrow$ `Mux`), modular C library family (`libav*`), format capability negotiation, and scriptable operator CLI.
+  * *See excavation*: [FFmpeg](excavations/ffmpeg.md)
 * **Fluidic Logic**: A computational and control paradigm that processes continuous or discrete information using the dynamics of fluid media directly within non-moving channels, relying on the Coanda effect, jet interaction, and laminar-to-turbulent transitions.
   * *See excavation*: [Fluidic Logic Systems](excavations/fluidic-logic-systems.md)
 
@@ -141,6 +145,12 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Large Language Models](excavations/large-language-models.md)
 * **Landauer's Limit**: A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \ln 2$).
   * *See excavation*: [Reversible Computing](excavations/reversible-computing.md)
+* **libavcodec**: The core codec engine library inside [FFmpeg](excavations/ffmpeg.md) housing decoders, encoders, and bitstream parsers that transform compressed `AVPacket` payloads into uncompressed `AVFrame` buffers and vice versa.
+  * *See excavation*: [FFmpeg](excavations/ffmpeg.md)
+* **libavfilter**: The directed graph processing library inside [FFmpeg](excavations/ffmpeg.md) that compiles declarative filter expressions into executable DAG node chains for video scaling, color space conversion, and audio mixing.
+  * *See excavation*: [FFmpeg](excavations/ffmpeg.md)
+* **libavformat**: The container demuxing, muxing, and network protocol library inside [FFmpeg](excavations/ffmpeg.md) that abstracts file formats (MP4, MKV, AVI) and transport protocols (HTTP, HLS, RTMP) into unified stream contexts.
+  * *See excavation*: [FFmpeg](excavations/ffmpeg.md)
 * **llama.cpp**: A highly optimized, dependency-free C/C++ inference runtime engine that popularized quantization-first execution, unified memory-bandwidth-aware model loading, and dynamic CPU-GPU offloading.
   * *See excavation*: [llama.cpp](excavations/llama-cpp.md)
 * **Linear Feedback Shift Register (LFSR)**: A hardware-efficient shift register whose input bit is a linear function (typically XOR) of its previous states. In alternative architectures like [Stochastic Computing](excavations/stochastic-computing.md), LFSRs serve as compact, high-speed pseudo-random number generators.
