@@ -200,6 +200,12 @@ Each subdirectory here contains an interactive, fully-functional simulator, synt
 * **What it does**: Simulates turn-based ChatML frames, thread message execution runs, and dynamic tool schema invocation.
 * **Entry point**: `reconstructions/openai_sim/openai_sim.py`
 
+### 32. [IBM AS/400 TIMI & Single-Level Store Simulator](ibm_as400_timi/)
+* **Focus**: Technology Independent Machine Interface (TIMI), AOT CISC/RISC retranslation, Single-Level Store, and DB2 files.
+* **Paradigm**: [IBM AS/400](../excavations/ibm-as400.md).
+* **What it does**: Simulates TIMI compilation, dynamic SLIC retranslation across CISC/RISC, SLS paging, capability pointers, and DB2 physical/logical files.
+* **Entry point**: `reconstructions/ibm_as400_timi/as400_sim.py`
+
 ---
 
 ## Running the Simulators & Tests

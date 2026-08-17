@@ -60,6 +60,7 @@ The table below maps the six core lineages across historical computing eras, ill
 - **1986**: The **ALICE** graph-reduction machine executes declarative, functional languages natively via packet-switched transputer networks. **Key excavation link**: [Graph Reduction Machines](../excavations/graph-reduction-machines.md)
 - **1986**: MIT's **CAM-6** cellular automata machine implements physical field simulations on a custom spatial board. **Key excavation link**: [Cellular Automata Hardware](../excavations/cellular-automata-hardware.md)
 - **1986**: Bell Labs demonstrates early photonic logic gates. **Key excavation link**: [Optical Computing](../excavations/optical-computing.md)
+- **1988**: IBM launches the **AS/400**, introducing a layered architecture with Technology Independent Machine Interface (TIMI) intermediate code and a 64-bit single-level store. **Key excavation link**: [IBM AS/400](../excavations/ibm-as400.md)
 - **1988**: The MIT **J-Machine** implements fine-grained 3D routing for [active messages](../GLOSSARY.md) and concurrent objects. **Key excavation link**: [The MIT J-Machine](../excavations/j-machine.md)
 - **1989**: Carver Mead publishes *Analog VLSI and Neural Systems*, establishing the physical foundation for silicon brain-inspired computing. **Key excavation link**: [Neuromorphic Hardware](../excavations/neuromorphic-hardware.md)
 
@@ -70,6 +71,7 @@ The table below maps the six core lineages across historical computing eras, ill
 - **1991**: Linus Torvalds releases Linux v0.01, establishing a monolithic hardware-decoupled kernel with a highly stable SCI. **Key excavation link**: [Linux](../excavations/linux.md)
 - **1992**: Bell Labs begins distribution of **[Plan 9](../excavations/plan-9.md)**, a distributed successor to Unix implementing private dynamic namespaces via the Styx/[9P protocol](../GLOSSARY.md). **Key excavation link**: [Plan 9](../excavations/plan-9.md)
 - **1994**: Leonard Adleman performs the first DNA-based molecular calculation. **Key excavation link**: [Molecular & Biocomputing](../excavations/molecular-biocomputing.md)
+- **1995**: IBM executes the **AS/400 CISC-to-RISC migration**, retranslating compiled TIMI program binaries to 64-bit PowerPC RISC automatically without source code rewrites. **Key excavation link**: [IBM AS/400](../excavations/ibm-as400.md)
 - **1995**: Be Inc. releases **BeOS**, a multi-threaded media-centric operating system optimized for responsive symmetrical multiprocessing. **Key excavation link**: [BeOS / Haiku](../excavations/beos-haiku.md)
 - **1995**: Bell Labs introduces **[Inferno](../excavations/inferno.md)**, a distributed VM-based OS featuring the Limbo language and Dis virtual machine. **Key excavation link**: [Inferno](../excavations/inferno.md)
 - **1990s**: The ARM-based **AMULET** asynchronous microprocessor series demonstrates high-performance, clockless self-timed logic. **Key excavation link**: [Asynchronous Microprocessors](../excavations/asynchronous-processors.md)
