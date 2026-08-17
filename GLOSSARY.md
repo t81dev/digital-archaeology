@@ -193,6 +193,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Qt](excavations/qt.md)
 * **Qt Platform Abstraction (QPA)**: A plugin-based windowing and rendering abstraction layer in Qt that isolates GUI application code from platform-specific OS windowing handles (Win32, Cocoa, X11, Wayland, or direct framebuffers).
   * *See excavation*: [Qt](excavations/qt.md)
+* **Qwen Lineage**: An industrial open-weight foundation model family developed by Alibaba Cloud's Tongyi Lab, characterized by multi-tier parameter scaling (featuring mid-size 8B–27B/32B deployable variants), 151k-token multilingual BPE vocabulary compression, ChatML boundary framing, native JSON tool-calling schemas, and permissive Apache 2.0 licensing.
+  * *See excavation*: [Qwen Lineage](excavations/qwen.md)
 
 ### P
 * **Pervasive Multithreading**: An operating system design featuring granular, per-thread scheduling, heavy optimization for symmetric multiprocessing (SMP), and pervasive multi-threading across both the kernel and media-rich user-space applications.
@@ -248,6 +250,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### T
 * **Tensor Core**: A specialized microarchitectural execution unit inside NVIDIA GPUs designed to perform 2D Warp Matrix Multiply-Accumulate (WMMA) operations in a single micro-op using mixed-precision numerical formats.
   * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
+* **Tongyi Qianwen**: An industrial open-weight model family and computational substrate developed by Alibaba Cloud.
+  * *See excavation*: [Qwen Lineage](excavations/qwen.md)
 * **Tagged Memory**: A hardware mechanism where every word in memory is accompanied by a few extra non-addressable bits (tags) indicating its data type (e.g., integer, float, code pointer, capability), allowing hardware to prevent type safety violations and unauthorized execution.
   * *See excavation*: [Lisp Machines](excavations/lisp-machines.md)
 * **TrueTime API**: A hardware-backed clock synchronization abstraction that provides bounded time uncertainty intervals, enabling global transactional external consistency without central lock bottlenecks.
