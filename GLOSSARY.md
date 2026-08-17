@@ -71,6 +71,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)
 
 ### D
+* **DTrace**: A production-safe, zero-overhead dynamic tracing framework embedded in kernel and userland execution paths that enables real-time system introspection via dynamically enabled probes and in-kernel verified DScript bytecode execution.
+  * *See excavation*: [Solaris Operating System](excavations/solaris.md)
 * **Dataflow Architecture**: A non-von Neumann computer architecture where the execution order of instructions is not controlled by a program counter, but is determined dynamically by the availability of data (tokens) at instruction inputs.
   * *See excavation*: [Dataflow Computing](excavations/dataflow-computing.md)
 * **Demand-Driven Evaluation**: An execution paradigm (also known as lazy evaluation or call-by-need) where an expression is evaluated only when its result is strictly required by another operation or output device, contrasting with data-driven (dataflow) or control-driven (von Neumann) execution.
@@ -224,6 +226,10 @@ This document provides a conceptual glossary of terms from across the excavation
 ### S
 * **Safari**: An excavation of Apple's browser application architecture, WebKit rendering engine lineage, JavaScriptCore JIT virtual machine, multi-process content isolation, WKWebView app-embedding substrate, and Intelligent Tracking Prevention.
   * *See excavation*: [Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate](excavations/safari.md)
+* **SMF (Service Management Facility)**: A dependency-aware, state-machine-driven service supervisor in Solaris that replaces legacy imperative SysV init scripts with declarative XML manifests, topological startup, and auto-healing restarter daemons.
+  * *See excavation*: [Solaris Operating System](excavations/solaris.md)
+* **Solaris**: A commercial System V Release 4 (SVR4) Unix operating system platform lineage developed by Sun Microsystems (and later Oracle) that introduced DTrace dynamic tracing, SMF service management, ZFS pooled storage, and Zones OS-level virtualization.
+  * *See excavation*: [Solaris Operating System](excavations/solaris.md)
 * **Signals and Slots**: A type-safe, compile-time verified publish/subscribe event communication paradigm introduced by Qt that decouples event emitters from receiver slots without requiring callback function pointers or explicit header dependencies.
   * *See excavation*: [Qt](excavations/qt.md)
 * **Same-Origin Policy (SOP)**: A foundational web security boundary introduced in Netscape Navigator 2.02 restricting scripts running on origin $A$ ($\langle\text{scheme, host, port}\rangle$) from accessing or mutating document properties and session data belonging to origin $B$.
@@ -286,8 +292,12 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See modern relevance*: [AI & Hardware Bottlenecks](modern-relevance/ai.md)
 
 ### Z
+* **ZFS**: An integrated pooled storage allocator and transactional copy-on-write (COW) filesystem engineered for Solaris that unifies volume management, Merkle tree checksum data integrity, and instantaneous snapshots.
+  * *See excavation*: [Solaris Operating System](excavations/solaris.md)
 * **Zero-Overhead Abstraction**: The core design principle formulated by Bjarne Stroustrup stating that what you don't use, you don't pay for, and what you do use, you couldn't write any better by hand. Higher-level language constructs must compile down to direct machine code matching or exceeding manual C assembly.
   * *See excavation*: [C++: Zero-Overhead Abstraction & Deterministic Resource Control](excavations/cpp.md)
+* **Zones (Solaris Containers)**: A lightweight operating-system-level virtualization abstraction providing isolated execution environments, private process spaces, virtualized networking, and Fair Share Scheduler (FSS) resource controls over a shared kernel.
+  * *See excavation*: [Solaris Operating System](excavations/solaris.md)
 
 ### W
 * **Warp**: A group of 32 parallel threads in NVIDIA GPU architectures that execute instructions in lockstep over SIMT execution lanes.
