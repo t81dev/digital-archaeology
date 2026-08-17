@@ -121,6 +121,7 @@ nav:
     - Posit Arithmetic & Unums: excavations/posit-arithmetic.md
     - Project Xanadu: excavations/project-xanadu.md
     - Prolog & FGCS WAM Hardware: excavations/prolog-wam-fgcs-hardware.md
+    - Python Dynamic Substrate: excavations/python.md
     - Qt Meta-Object Runtime: excavations/qt.md
     - Qwen Mid-Size Substrate: excavations/qwen.md
     - Residue Number System: excavations/residue-number-system.md

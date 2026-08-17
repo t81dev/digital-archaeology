@@ -91,6 +91,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 
 - [C++: Zero-Overhead Abstraction & Deterministic Resource Control](excavations/cpp.md) — *Combining low-level machine control with user-defined abstractions via zero-overhead mechanisms, RAII resource control, value semantics, and template generic programming.*
 - [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) — *Coordinate-free parallel coordination, [generative communication](GLOSSARY.md), and associative pattern-matching.*
+- [Python: Dynamic Language Substrate & Native Extension Engine](excavations/python.md) — *Dynamic object model, dunder protocols, C-extension C-API boundary, "batteries included" standard library, PyPI packaging, and scientific/ML orchestration gravity.*
 - [Occam](excavations/occam.md) — *Concurrent language based on Communicating Sequential Processes (CSP).*
 - [Smalltalk](excavations/smalltalk.md) — *Pure image-based object-oriented environment and dynamic messaging.*
 - [Symbolic AI](excavations/symbolic-ai.md) — *Logic programming, inference engines, and formal knowledge representation.*
