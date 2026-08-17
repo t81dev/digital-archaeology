@@ -41,6 +41,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### C
 * **[C++](excavations/cpp.md)**: A foundational systems programming language and computational lineage combining low-level machine control with user-defined abstractions via zero-overhead mechanisms, deterministic scope lifetimes (RAII), value semantics, compile-time template monomorphization, and ISO standardization governance.
   * *See excavation*: [C++: Zero-Overhead Abstraction & Deterministic Resource Control](excavations/cpp.md)
+* **CPython**: The reference implementation of the Python programming language written in C, featuring bytecode virtual machine interpretation (`ceval.c`), reference-counted memory management with generational cyclic garbage collection, a Global Interpreter Lock (GIL) for thread synchronization, and an explicit C-API.
+  * *See excavation*: [Python: Dynamic Language Substrate & Native Extension Engine](excavations/python.md)
 * **CUDA**: A parallel computing platform and programming model introduced by NVIDIA in 2006 that exposes GPUs for general-purpose computing using C/C++ language extensions, a grid/block/thread hierarchy, and driver/runtime APIs.
   * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
 * **cuDNN**: A software library of hand-optimized primitives for deep neural networks (convolutions, activations, normalizations, attention) that acts as the primary execution surface for AI frameworks on NVIDIA GPUs.
@@ -211,6 +213,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Qwen Lineage](excavations/qwen.md)
 
 ### P
+* **Python**: A high-level dynamic programming language and computational lineage defined by everything-is-an-object semantics, dunder protocol lookup, C-extension C-API boundaries, a "batteries included" standard library, PyPI packaging infrastructure, and scientific/ML orchestration dominance.
+  * *See excavation*: [Python: Dynamic Language Substrate & Native Extension Engine](excavations/python.md)
+* **PyPI (Python Package Index)**: The central package repository and distribution network for the Python language ecosystem, serving pre-compiled binary Wheels (`.whl`) and source archives (`.tar.gz`).
+  * *See excavation*: [Python: Dynamic Language Substrate & Native Extension Engine](excavations/python.md)
 * **Pervasive Multithreading**: An operating system design featuring granular, per-thread scheduling, heavy optimization for symmetric multiprocessing (SMP), and pervasive multi-threading across both the kernel and media-rich user-space applications.
   * *See excavation*: [BeOS / Haiku](excavations/beos-haiku.md)
 * **Portage**: The Python and Bash-based package management and dependency resolution engine created for Gentoo, incorporating constraint graph solvers, version slotting, cascading profiles, LD_PRELOAD build sandboxing, and an on-disk plain-text Var Database (`/var/db/pkg/`).

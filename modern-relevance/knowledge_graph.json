@@ -59,6 +59,10 @@
       "definition": "A foundational systems programming language and computational lineage combining low-level machine control with user-defined abstractions via zero-overhead mechanisms, deterministic scope lifetimes (RAII), value semantics, compile-time template monomorphization, and ISO standardization governance."
     },
     {
+      "term": "CPython",
+      "definition": "The reference implementation of the Python programming language written in C, featuring bytecode virtual machine interpretation (`ceval.c`), reference-counted memory management with generational cyclic garbage collection, a Global Interpreter Lock (GIL) for thread synchronization, and an explicit C-API."
+    },
+    {
       "term": "CUDA",
       "definition": "A parallel computing platform and programming model introduced by NVIDIA in 2006 that exposes GPUs for general-purpose computing using C/C++ language extensions, a grid/block/thread hierarchy, and driver/runtime APIs."
     },
@@ -341,6 +345,14 @@
     {
       "term": "Qwen Lineage",
       "definition": "An industrial open-weight foundation model family developed by Alibaba Cloud's Tongyi Lab, characterized by multi-tier parameter scaling (featuring mid-size 8B–27B/32B deployable variants), 151k-token multilingual BPE vocabulary compression, ChatML boundary framing, native JSON tool-calling schemas, and permissive Apache 2.0 licensing."
+    },
+    {
+      "term": "Python",
+      "definition": "A high-level dynamic programming language and computational lineage defined by everything-is-an-object semantics, dunder protocol lookup, C-extension C-API boundaries, a \"batteries included\" standard library, PyPI packaging infrastructure, and scientific/ML orchestration dominance."
+    },
+    {
+      "term": "PyPI (Python Package Index)",
+      "definition": "The central package repository and distribution network for the Python language ecosystem, serving pre-compiled binary Wheels (`.whl`) and source archives (`.tar.gz`)."
     },
     {
       "term": "Pervasive Multithreading",
@@ -659,6 +671,7 @@
           "openai",
           "plan-9",
           "portage",
+          "python",
           "qwen",
           "qt",
           "safari",
@@ -841,6 +854,7 @@
           "openai",
           "portage",
           "GLOSSARY",
+          "python",
           "qwen",
           "qt",
           "safari",
@@ -2976,6 +2990,46 @@
         }
       },
       "modern_relevance": "In contemporary computer science, the WAM and FGCS lineages offer vital lessons for addressing modern hardware and software limits:\n\n* **Deterministic Guardrails for Probabilistic AI:** Large Language Models (LLMs) are highly capable at natural language processing but lack deterministic reasoning, mathematical accuracy, and explainability. Modern **Neuro-[Symbolic AI](symbolic-ai.md)** architectures wrap stochastic neural networks in declarative logic guardrails. By parsing unstructured natural language into structured Prolog-style facts, systems can use an underlying inference engine to execute verified reasoning, evaluate legal contracts, or perform exact calculations without the risk of hallucination.\n* **Datalog for Graph and Network Orchestration:** As cloud networks and distributed container meshes scale in complexity, managing routing policies and access control lists becomes a major challenge. Datalog's declarative syntax allows engineers to specify global security constraints (e.g., \"no public subnet can access private databases directly\"), which the engine compile-time validates and pushes to distributed network nodes, guaranteeing zero-trust enforcement at scale.\n* **The Software-to-Hardware Boundary Lesson:** The historical collapse of the FGCS specialized hardware warns modern computer architects against building physical silicon around high-level software abstractions that are still actively evolving. It demonstrates that the most cost-effective path is often to design highly optimized software engines running on commodity hardware, reserving custom silicon acceleration solely for stable, low-level mathematical primitives (such as matrix-multiplication blocks or cryptography units).",
+      "references": []
+    },
+    {
+      "id": "python",
+      "title": "Python: The Dynamic Language Substrate & Native Extension Engine",
+      "path": "excavations/python.md",
+      "summary": "",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Transformed high-level dynamic scripting into the primary application, scientific, and AI control substrate across four decades."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Pioneer in protocol-based dynamic object models, seamless C-extension C-API boundaries, zero-copy buffer sharing, and gradual typing layers."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Massive global adoption powering major web platforms, scientific computing, enterprise automation, and AI infrastructure."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Essential control surface for deep learning pipelines, data engineering engines, and AI agent frameworks."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "The undisputed primary front-end and orchestration language for modern machine learning, GPU computing, and LLM tooling."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "The language syntax and basic interpreter are straightforward to implement, but replicating CPython's full C-API, standard library, and package index ecosystem is immensely complex."
+        }
+      },
+      "modern_relevance": "Python's contemporary relevance is defined by its role as the **universal control surface for Artificial Intelligence and Data Engineering**:\n\n* **Machine Learning & AI Platform**: Deep learning frameworks ([PyTorch](large-language-models.md), TensorFlow, JAX), model deployment runtimes ([ONNX](onnx.md), [llama.cpp](llama-cpp.md)), and AI agent tooling (LangChain, LlamaIndex) interface primarily through Python.\n* **Data Infrastructure Engine**: Apache Spark (PySpark), DuckDB, Polars, and pandas position Python as the standard query and transformation syntax for big data processing pipelines.\n* **CPython Performance Revival (Faster CPython / PEP 703)**: Microsoft-sponsored initiatives (Faster CPython) introduced adaptive JIT compilation, specialized bytecodes, and zero-cost exception handling in Python 3.11–3.13, while PEP 703 provides an experimental free-threaded build removing the GIL for multi-core scaling.",
       "references": []
     },
     {
