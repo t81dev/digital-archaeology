@@ -89,6 +89,7 @@ nav:
     - Dataflow Computing: excavations/dataflow-computing.md
     - EBCDIC: excavations/ebcdic.md
     - Explicit Data Graph Execution (EDGE): excavations/edge-architecture.md
+    - FFmpeg Substrate: excavations/ffmpeg.md
     - Fluidic Logic Systems: excavations/fluidic-logic-systems.md
     - Gentoo Linux: excavations/gentoo.md
     - Google Platform Machine: excavations/google.md

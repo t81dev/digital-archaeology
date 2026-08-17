@@ -11,6 +11,14 @@
       "definition": "A distributed resource sharing protocol designed for Plan 9 where every system resource (including files, devices, memory, and processes) is represented as a file and accessed via a standardized, network-transparent set of message transactions."
     },
     {
+      "term": "AVFrame",
+      "definition": "A reference-counted data structure in FFmpeg representing raw, uncompressed video pixel planes or PCM audio sample buffers passed between decoders, filter graphs, and encoders."
+    },
+    {
+      "term": "AVPacket",
+      "definition": "A reference-counted data structure in FFmpeg representing a compressed audiovisual bitstream frame or packet passed between demuxers, decoders, encoders, and muxers."
+    },
+    {
       "term": "Apple Silicon",
       "definition": "A lineage of custom-designed, ARM-based System-on-Chip (SoC) architectures integrating high-bandwidth Unified Memory, Secure Enclave processors, and dynamic matrix-multiplication co-processors tightly integrated with the system compilers."
     },
@@ -159,6 +167,10 @@
       "definition": "An instruction set philosophy (co-developed by HP and Intel for Itanium) where the compiler explicitly bundles instructions that can be executed in parallel, moving the complex scheduling logic from hardware to the compiler."
     },
     {
+      "term": "FFmpeg",
+      "definition": "A universal open-source media processing substrate and computational lineage that established a standardized 5-stage dataflow pipeline (`Demux` $\\rightarrow$ `Decode` $\\rightarrow$ `Filter` $\\rightarrow$ `Encode` $\\rightarrow$ `Mux`), modular C library family (`libav*`), format capability negotiation, and scriptable operator CLI."
+    },
+    {
       "term": "Fluidic Logic",
       "definition": "A computational and control paradigm that processes continuous or discrete information using the dynamics of fluid media directly within non-moving channels, relying on the Coanda effect, jet interaction, and laminar-to-turbulent transitions."
     },
@@ -221,6 +233,18 @@
     {
       "term": "Landauer's Limit",
       "definition": "A physical limit stating that any logically irreversible manipulation of information, such as erasing a bit, must dissipate a minimum amount of heat ($k_B T \\ln 2$)."
+    },
+    {
+      "term": "libavcodec",
+      "definition": "The core codec engine library inside FFmpeg housing decoders, encoders, and bitstream parsers that transform compressed `AVPacket` payloads into uncompressed `AVFrame` buffers and vice versa."
+    },
+    {
+      "term": "libavfilter",
+      "definition": "The directed graph processing library inside FFmpeg that compiles declarative filter expressions into executable DAG node chains for video scaling, color space conversion, and audio mixing."
+    },
+    {
+      "term": "libavformat",
+      "definition": "The container demuxing, muxing, and network protocol library inside FFmpeg that abstracts file formats (MP4, MKV, AVI) and transport protocols (HTTP, HLS, RTMP) into unified stream contexts."
     },
     {
       "term": "llama.cpp",
@@ -617,6 +641,7 @@
           "capability-systems",
           "cursor-ide",
           "ebcdic",
+          "ffmpeg",
           "gentoo",
           "google",
           "ibm-as400",
@@ -798,6 +823,7 @@
           "apple-metal",
           "apple",
           "cpp",
+          "ffmpeg",
           "gentoo",
           "GLOSSARY",
           "GLOSSARY",
@@ -861,6 +887,7 @@
         "mapped_excavations": [
           "apple",
           "beos-haiku",
+          "ffmpeg",
           "google",
           "keykos-nanokernel-capabilities",
           "large-language-models",
@@ -1627,6 +1654,46 @@
         "Nagarajan, R., Sankaralingam, K., Burger, D., & Keckler, S. W. (2001). *A class of single-instruction-multiple-dataholder processor architectures*. In Proceedings of the 28th Annual International Symposium on Computer Architecture (ISCA), 282-293.",
         "Keckler, S. W., Burger, D., Moore, C. R., Sankaralingam, K., Nagarajan, R., Liu, H., ... & McDonald, R. (2009). *The TRIPS processor: A polymorphous EDGE architecture*. IEEE Micro, 29(1), 18-32."
       ]
+    },
+    {
+      "id": "ffmpeg",
+      "title": "FFmpeg: Multimedia Pipeline Architecture & Universal Processing Substrate",
+      "path": "excavations/ffmpeg.md",
+      "summary": "",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Established the universal multimedia demux-decode-filter-encode-mux pipeline powering web, desktop, and cloud video infrastructure."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Engineered reference-counted zero-copy frame buffers, probe-and-adapt format detection, declarative DAG filter graphs, and decoupled async codec APIs."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Ubiquitously embedded across Google Chrome, Firefox, VLC, HandBrake, YouTube, Netflix, Twitch, and cloud transcoding fleets worldwide."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Essential substrate for AI video dataset preprocessing, WebRTC streaming, serverless transcode fleets, and next-generation codecs (AV1, VVC)."
+        },
+        "AI Synergy": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Serves as the primary zero-copy video frame extraction and audio ingestion backend for computer vision and multimodal AI pipelines."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "The 5-stage pipeline and CLI translator are straightforward to simulate, but replicating native assembly decoders for hundreds of formats is monumental."
+        }
+      },
+      "modern_relevance": "While modern operating systems and web browsers provide native hardware-accelerated video playback APIs, FFmpeg’s architectural relevance continues to expand:",
+      "references": []
     },
     {
       "id": "fluidic-logic-systems",
@@ -3811,6 +3878,13 @@
       "path": "reconstructions/dataflow-engine/",
       "entry_point": "reconstructions/dataflow-engine/dataflow_sim.py",
       "description": "Executable simulator for the Dataflow Engine paradigm."
+    },
+    {
+      "id": "ffmpeg_pipeline",
+      "title": "Ffmpeg_Pipeline",
+      "path": "reconstructions/ffmpeg_pipeline/",
+      "entry_point": "reconstructions/ffmpeg_pipeline/ffmpeg_sim.py",
+      "description": "Executable simulator for the Ffmpeg_Pipeline paradigm."
     },
     {
       "id": "gentoo_portage",
