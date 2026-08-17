@@ -117,8 +117,10 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [llama.cpp](excavations/llama-cpp.md)
 
 ### I
-* **Intel**: A historical computational lineage whose artifacts include instruction-set architectures (x86, x86-64), microcode µop decoders, CPUID dynamic feature discovery, System Management Mode (SMM), platform chipsets, and long-lived binary compatibility contracts.
-  * *See excavation*: [Intel: The Architectural & Compatibility Substrate](excavations/intel.md)
+* **IBM AS/400**: A layered, object-based midrange computing platform introduced in 1988 that pioneered technology-independent machine interfaces (TIMI), kernel-integrated relational databases, and single-level store addressability to achieve multi-decade application binary compatibility across hardware generations.
+  * *See excavation*: [IBM AS/400](excavations/ibm-as400.md)
+* **IBM i**: The modern continuation of the OS/400 operating system lineage running on IBM POWER microprocessors, preserving TIMI-based object compatibility while integrating open-source AIX/POSIX execution environments (PASE).
+  * *See excavation*: [IBM AS/400](excavations/ibm-as400.md)
 * **Integrated Platform Surface**: An architectural paradigm of hardware-software-distribution vertical integration where custom silicon, core operating system managers, dynamic runtimes, developer toolchains, and centralized monetization gates are co-designed as a single surface.
   * *See excavation*: [Apple: The Integrated Platform Surface](excavations/apple.md)
 * **Intelligent Tracking Prevention (ITP)**: A client-side privacy architecture introduced in WebKit that integrates machine learning classification, double-keyed storage partitioning, and cookie expiration caps directly into network and storage execution paths.
@@ -231,7 +233,9 @@ This document provides a conceptual glossary of terms from across the excavation
 * **SIMT (Single Instruction, Multiple Threads)**: An execution model where multiple scalar threads execute the same instruction in lockstep groups (warps), managing control-flow divergence automatically via execution mask stacks.
   * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
 * **Single-Level Store (SLS)**: A memory management architecture where all secondary storage (such as disk drives) is integrated into a single, flat, virtually-addressed main memory space, completely eliminating the user-level distinction between file systems and RAM.
-  * *See excavation*: [Multics](excavations/multics.md), [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md)
+  * *See excavation*: [IBM AS/400](excavations/ibm-as400.md), [Multics](excavations/multics.md), [KeyKOS and the Nanokernel Capability Lineage](excavations/keykos-nanokernel-capabilities.md)
+* **System Licensed Internal Code (SLIC)**: The trusted microcode and device driver layer in the IBM AS/400 architecture executing below TIMI that manages physical hardware, page faulting for the Single-Level Store, and AOT/JIT compilation of TIMI intermediate representations into native CPU microcode/ISA streams.
+  * *See excavation*: [IBM AS/400](excavations/ibm-as400.md)
 * **Spatial Computing (Hardware)**: Architectures where software logic is mapped directly onto a physical grid of processing elements with localized communication channels (e.g., FPGAs, [Systolic Arrays](excavations/systolic-arrays.md), Cellular Automata), removing global bus bottlenecks.
   * *See excavation*: [Systolic Arrays](excavations/systolic-arrays.md)
 * **Stack Machine**: A processor architecture that uses a hardware evaluation stack rather than general-purpose registers to execute zero-operand instructions.
@@ -250,6 +254,8 @@ This document provides a conceptual glossary of terms from across the excavation
 ### T
 * **Tensor Core**: A specialized microarchitectural execution unit inside NVIDIA GPUs designed to perform 2D Warp Matrix Multiply-Accumulate (WMMA) operations in a single micro-op using mixed-precision numerical formats.
   * *See excavation*: [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md)
+* **TIMI (Technology Independent Machine Interface)**: An abstract, machine-independent instruction set and execution contract designed for the IBM AS/400 (and IBM i) that decouples application software and operating system abstractions from physical CPU architectures (CISC, PowerPC RISC, POWER) via dynamic SLIC retranslation.
+  * *See excavation*: [IBM AS/400](excavations/ibm-as400.md)
 * **Tongyi Qianwen**: An industrial open-weight model family and computational substrate developed by Alibaba Cloud.
   * *See excavation*: [Qwen Lineage](excavations/qwen.md)
 * **Tagged Memory**: A hardware mechanism where every word in memory is accompanied by a few extra non-addressable bits (tags) indicating its data type (e.g., integer, float, code pointer, capability), allowing hardware to prevent type safety violations and unauthorized execution.

@@ -59,6 +59,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Burroughs Large Systems](excavations/burroughs-large-systems.md) — *High-level language hardware integration with descriptors and stack architecture.*
 - [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models ([KeyKOS](GLOSSARY.md), EROS, CHERI).*
 - [Google: The Platform Machine of Scale](excavations/google.md) — *How the repeated conversion of warehouse-scale operational problems into narrow, exportable software abstractions established the datacenter as the computer.*
+- [IBM AS/400: Layered Technology-Independent Substrate & Single-Level Store](excavations/ibm-as400.md) — *Layered, object-based machine architecture decoupling application semantics from physical hardware via TIMI and single-level store addressability.*
 - [Inferno](excavations/inferno.md) — *Distributed VM OS utilizing Limbo and the Styx/[9P protocol](GLOSSARY.md).*
 - [Intel: The Architectural & Compatibility Substrate](excavations/intel.md) — *How binary instruction compatibility, microcode µop translation, platform chipsets, and process co-design created an enduring ecosystem substrate.*
 - [Intel iAPX 432](excavations/intel-iapx-432.md) — *Capability-based object-oriented architecture.*
@@ -166,6 +167,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Safari & WebKit Runtime Simulator](reconstructions/safari_webkit_runtime/) — *WebKit2 multi-process IPC message passing, [WKWebView](GLOSSARY.md) host app process insulation, and Intelligent Tracking Prevention (ITP) double-keyed storage partitioning.*
 - [Qt Meta-Object & Signals Simulator](reconstructions/qt_meta_object_signals/) — *`QObject` parent-child ownership trees, Meta-Object Compiler introspection metadata, type-safe signals/slots dispatch, central event loop, and QML reactive property bindings.*
 - [Portage Engine & USE-Flag Simulator](reconstructions/gentoo_portage/) — *Cascading profile policy inheritance, USE flag dependency graph mutation, slotting, LD_PRELOAD build sandboxing, and Var Database (VDB) tracking.*
+- [IBM AS/400 TIMI & Single-Level Store Simulator](reconstructions/ibm_as400_timi/) — *TIMI instruction representation, AOT CISC/RISC retranslation engine, Single-Level Store paging, and DB2 physical/logical file access.*
 
 ---
 

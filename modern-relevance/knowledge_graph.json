@@ -187,8 +187,12 @@
       "definition": "A unified, self-describing, and single-file model packaging format designed for memory-mapped (`mmap`) zero-copy loading of large neural weights and structured key-value metadata."
     },
     {
-      "term": "Intel",
-      "definition": "A historical computational lineage whose artifacts include instruction-set architectures (x86, x86-64), microcode µop decoders, CPUID dynamic feature discovery, System Management Mode (SMM), platform chipsets, and long-lived binary compatibility contracts."
+      "term": "IBM AS/400",
+      "definition": "A layered, object-based midrange computing platform introduced in 1988 that pioneered technology-independent machine interfaces (TIMI), kernel-integrated relational databases, and single-level store addressability to achieve multi-decade application binary compatibility across hardware generations."
+    },
+    {
+      "term": "IBM i",
+      "definition": "The modern continuation of the OS/400 operating system lineage running on IBM POWER microprocessors, preserving TIMI-based object compatibility while integrating open-source AIX/POSIX execution environments (PASE)."
     },
     {
       "term": "Integrated Platform Surface",
@@ -371,6 +375,10 @@
       "definition": "A memory management architecture where all secondary storage (such as disk drives) is integrated into a single, flat, virtually-addressed main memory space, completely eliminating the user-level distinction between file systems and RAM."
     },
     {
+      "term": "System Licensed Internal Code (SLIC)",
+      "definition": "The trusted microcode and device driver layer in the IBM AS/400 architecture executing below TIMI that manages physical hardware, page faulting for the Single-Level Store, and AOT/JIT compilation of TIMI intermediate representations into native CPU microcode/ISA streams."
+    },
+    {
       "term": "Spatial Computing (Hardware)",
       "definition": "Architectures where software logic is mapped directly onto a physical grid of processing elements with localized communication channels (e.g., FPGAs, Systolic Arrays, Cellular Automata), removing global bus bottlenecks."
     },
@@ -401,6 +409,10 @@
     {
       "term": "Tensor Core",
       "definition": "A specialized microarchitectural execution unit inside NVIDIA GPUs designed to perform 2D Warp Matrix Multiply-Accumulate (WMMA) operations in a single micro-op using mixed-precision numerical formats."
+    },
+    {
+      "term": "TIMI (Technology Independent Machine Interface)",
+      "definition": "An abstract, machine-independent instruction set and execution contract designed for the IBM AS/400 (and IBM i) that decouples application software and operating system abstractions from physical CPU architectures (CISC, PowerPC RISC, POWER) via dynamic SLIC retranslation."
     },
     {
       "term": "Tongyi Qianwen",
@@ -579,6 +591,7 @@
           "ebcdic",
           "gentoo",
           "google",
+          "ibm-as400",
           "inferno",
           "intel-iapx-432",
           "intel",
@@ -710,6 +723,7 @@
         "mapped_excavations": [
           "burroughs-large-systems",
           "capability-systems",
+          "ibm-as400",
           "intel-iapx-432",
           "keykos-nanokernel-capabilities"
         ]
@@ -719,6 +733,7 @@
         "mapped_excavations": [
           "burroughs-large-systems",
           "graph-reduction-machines",
+          "ibm-as400",
           "lisp-machines",
           "intel-iapx-432",
           "j-machine",
@@ -742,6 +757,7 @@
       "Single-Level Store (SLS)": {
         "description": "The operating system abstracts memory and secondary storage into a single, flat, persistent virtual address space.",
         "mapped_excavations": [
+          "ibm-as400",
           "keykos-nanokernel-capabilities",
           "multics"
         ]
@@ -756,6 +772,7 @@
           "GLOSSARY",
           "GLOSSARY",
           "google",
+          "ibm-as400",
           "inferno",
           "large-language-models",
           "linux",
@@ -1743,6 +1760,46 @@
         "Keller, R. M., Lin, F. C., & Tanaka, J. (1984). *Rediflow multicomputer*. Compcon84, 410-417.",
         "Johnsson, T. (1984). *Efficient compilation of lazy functional languages*. Proceedings of the 1984 ACM SIGPLAN symposium on Compiler construction, 268-287. (The foundational paper introducing the G-Machine)."
       ]
+    },
+    {
+      "id": "ibm-as400",
+      "title": "IBM AS/400: Layered Technology-Independent Substrate & Single-Level Store",
+      "path": "excavations/ibm-as400.md",
+      "summary": "",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Pioneered technology-independent software execution, single-level store, and integrated OS database systems at enterprise scale."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Elegant layered machine design decoupling application code from hardware via TIMI and tagged capability memory pointers."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Generated hundreds of billions in enterprise revenue and served as the computing backbone for global business for over 35 years."
+        },
+        "Modern Potential": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Single-Level Store and capability-based memory addressing are directly relevant to CXL persistent memory and CHERI security."
+        },
+        "AI Synergy": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "DB2 record access and structured object management provide reliable transaction baselines for enterprise AI agent integration."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Recreating the full stack requires modeling TIMI compilation, Single-Level Store memory paging, object namespaces, and database access paths."
+        }
+      },
+      "modern_relevance": "Today, the AS/400 lineage lives on as **IBM i** executing on IBM POWER10 hardware inside global enterprises.\n\n* **Core Enterprise Infrastructure**: Thousands of global banks, logistics corporations, retail giants, and manufacturing firms continue to run core transaction backbones on IBM i.\n* **Hybrid Runtime Architecture**: Modern IBM i partitions support dual execution environments:\n  1. **Native Object Domain**: Running traditional RPG IV, CL, DB2, and TIMI-translated application objects.\n  2. **PASE (Portable Application Solutions Environment)**: An AIX runtime environment within IBM i executing native IBM POWER ELF binaries, enabling Python, Node.js, C++, and open-source tooling to run directly alongside traditional DB2 business objects.",
+      "references": []
     },
     {
       "id": "inferno",
@@ -3649,6 +3706,13 @@
       "description": "Executable simulator for the Gentoo_Portage paradigm."
     },
     {
+      "id": "ibm_as400_timi",
+      "title": "Ibm_As400_Timi",
+      "path": "reconstructions/ibm_as400_timi/",
+      "entry_point": "reconstructions/ibm_as400_timi/as400_sim.py",
+      "description": "Executable simulator for the Ibm_As400_Timi paradigm."
+    },
+    {
       "id": "keykos-capabilities",
       "title": "Keykos Capabilities",
       "path": "reconstructions/keykos-capabilities/",
@@ -4140,6 +4204,12 @@
       "category": "COMPUTING",
       "time": "1988",
       "sort_year": 1988,
+      "description": "IBM launches the **AS/400**, introducing a layered architecture with Technology Independent Machine Interface (TIMI) intermediate code and a 64-bit single-level store. **Key excavation link**: [IBM AS/400](excavations/ibm-as400.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1988",
+      "sort_year": 1988,
       "description": "The MIT **J-Machine** implements fine-grained 3D routing for [active messages](GLOSSARY.md) and concurrent objects. **Key excavation link**: [The MIT J-Machine](excavations/j-machine.md)"
     },
     {
@@ -4195,6 +4265,12 @@
       "time": "1994",
       "sort_year": 1994,
       "description": "Leonard Adleman performs the first DNA-based molecular calculation. **Key excavation link**: [Molecular & Biocomputing](excavations/molecular-biocomputing.md)"
+    },
+    {
+      "category": "COMPUTING",
+      "time": "1995",
+      "sort_year": 1995,
+      "description": "IBM executes the **AS/400 CISC-to-RISC migration**, retranslating compiled TIMI program binaries to 64-bit PowerPC RISC automatically without source code rewrites. **Key excavation link**: [IBM AS/400](excavations/ibm-as400.md)"
     },
     {
       "category": "COMPUTING",
