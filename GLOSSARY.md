@@ -282,8 +282,12 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Portage: Package Management as Policy-Constrained Recipe Execution](excavations/portage.md), [Gentoo](excavations/gentoo.md)
 
 ### V
+* **VDI (Virtual Disk Image)**: The native virtual disk container format introduced by VirtualBox, featuring dynamic block allocation tables (BAT), copy-on-write differencing chains for snapshot trees, and UUID parent-child linkage.
+  * *See excavation*: [VirtualBox: Hosted x86 Hypervisor, Paravirtual Guest Services & Desktop Appliance Packaging](excavations/virtualbox.md)
 * **Vector Processing**: A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads.
   * *See excavation*: [Vector Supercomputing](excavations/vector-supercomputing.md)
+* **VirtualBox**: An excavation of VirtualBox (Innotek / Sun / Oracle VM VirtualBox), analyzing hosted (Type-2) x86 hypervisor architecture, software binary translation vs VT-x/AMD-V hardware virtualization extensions, Pluggable Device Manager (PDM) virtual hardware, Guest Additions Host-Guest Communication Manager (HGCM) backdoor protocols, Virtual Disk Image (VDI) differencing snapshot trees, Innotek Portable Runtime (IPRT) cross-host portability, and open-core GPLv2 distribution.
+  * *See excavation*: [VirtualBox: Hosted x86 Hypervisor, Paravirtual Guest Services & Desktop Appliance Packaging](excavations/virtualbox.md)
 * **VFS (Virtual File System)**: An in-kernel polymorphic file dispatcher and object-oriented abstraction mapping uniform system-calls (`read`, `write`, `open`) to diverse physical filesystem drivers.
   * *See excavation*: [Linux: The Ubiquitous Substrate](excavations/linux.md)
 * **Very Long Instruction Word (VLIW)**: A processor design where the compiler groups independent, parallel operations into a single, very wide instruction word, relying on compile-time analysis rather than dynamic out-of-order execution hardware.
