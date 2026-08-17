@@ -459,8 +459,16 @@
       "definition": "Bi-level compile-time configuration toggles (global in `make.conf`, per-package in `package.use`) in Gentoo's Portage system that dynamically mutate the package dependency graph (`DEPEND`/`RDEPEND`) and configure build parameters prior to compilation."
     },
     {
+      "term": "VDI (Virtual Disk Image)",
+      "definition": "The native virtual disk container format introduced by VirtualBox, featuring dynamic block allocation tables (BAT), copy-on-write differencing chains for snapshot trees, and UUID parent-child linkage."
+    },
+    {
       "term": "Vector Processing",
       "definition": "A processor design that executes a single instruction on a collection of one-dimensional arrays of data (vectors) using pipelined functional units, optimizing high-throughput scientific workloads."
+    },
+    {
+      "term": "VirtualBox",
+      "definition": "An excavation of VirtualBox (Innotek / Sun / Oracle VM VirtualBox), analyzing hosted (Type-2) x86 hypervisor architecture, software binary translation vs VT-x/AMD-V hardware virtualization extensions, Pluggable Device Manager (PDM) virtual hardware, Guest Additions Host-Guest Communication Manager (HGCM) backdoor protocols, Virtual Disk Image (VDI) differencing snapshot trees, Innotek Portable Runtime (IPRT) cross-host portability, and open-core GPLv2 distribution."
     },
     {
       "term": "VFS (Virtual File System)",
@@ -634,6 +642,7 @@
           "stack-machines",
           "j-machine",
           "transputers",
+          "virtualbox",
           "winamp"
         ]
       },
@@ -813,6 +822,7 @@
           "smalltalk",
           "solaris",
           "lisp-machines",
+          "virtualbox",
           "winamp"
         ]
       },
@@ -868,6 +878,7 @@
           "solaris",
           "j-machine",
           "GLOSSARY",
+          "virtualbox",
           "winamp"
         ]
       },
@@ -3472,6 +3483,46 @@
         }
       },
       "modern_relevance": "Vector ideas are experiencing a major renaissance:\n- **GPU Architectures**: Modern tensor cores and SIMT execution are direct descendants of [vector processing](../GLOSSARY.md).\n- **CPU Vector Extensions**: AVX-512, ARM SVE, and RISC-V Vector extensions bring Cray-style operations into mainstream processors.\n- **AI Accelerators**: Matrix and vector operations dominate deep learning training and inference.\n- **Scientific Computing**: Vector-friendly designs remain highly relevant for HPC centers running climate, physics, and engineering codes.\n- **Memory Wall Solutions**: Emphasis on bandwidth and data movement is even more critical today.\n\nIn the age of specialized hardware and AI, the Cray philosophy — build balanced systems optimized for data movement and regular computation — is highly influential.",
+      "references": []
+    },
+    {
+      "id": "virtualbox",
+      "title": "VirtualBox: Hosted x86 Hypervisor, Paravirtual Guest Services & Desktop Appliance Packaging",
+      "path": "excavations/virtualbox.md",
+      "summary": "",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Democratized desktop virtualization worldwide, popularized open-core hypervisor distribution, and established personal VMs as standard computing artifacts."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Pioneered IPRT host portability, HGCM backdoor paravirtual cooperation, and VDI differencing snapshot trees across multi-OS hosts."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Achieved hundreds of millions of deployments across academic, developer, and enterprise workstation environments as the dominant open desktop hypervisor."
+        },
+        "Modern Potential": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Remains indispensable for cross-platform OS development, malware analysis sandboxes, air-gapped cybersecurity labs, and legacy software preservation."
+        },
+        "AI Synergy": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Provides isolated, snapshotable virtual execution environments for testing autonomous software agents, kernel patches, and unsafe code execution."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Rebuilding a full-featured, cross-platform hosted hypervisor with hardware VMX/SVM handlers, virtual device buses, and guest additions requires hundreds of engineering person-years."
+        }
+      },
+      "modern_relevance": "VirtualBox remains a highly relevant computational artifact across modern computer science and engineering:",
       "references": []
     },
     {
