@@ -206,6 +206,12 @@ Each subdirectory here contains an interactive, fully-functional simulator, synt
 * **What it does**: Simulates TIMI compilation, dynamic SLIC retranslation across CISC/RISC, SLS paging, capability pointers, and DB2 physical/logical files.
 * **Entry point**: `reconstructions/ibm_as400_timi/as400_sim.py`
 
+### 33. [Solaris Core Subsystems Simulator](solaris_subsystems/)
+* **Focus**: Dynamic tracing (DTrace), dependency-aware service supervision (SMF), copy-on-write pooled storage (ZFS), and OS container virtualization (Zones).
+* **Paradigm**: [Solaris Operating System](../excavations/solaris.md).
+* **What it does**: Simulates DTrace DIF bytecode verifier and probe firing, SMF topological dependency boot and auto-restarter, ZFS Copy-on-Write Merkle tree checksum verification and snapshots, and Zone process isolation with Fair Share Scheduler (FSS) CPU capping.
+* **Entry point**: `reconstructions/solaris_subsystems/solaris_sim.py`
+
 ---
 
 ## Running the Simulators & Tests

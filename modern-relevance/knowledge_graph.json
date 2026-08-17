@@ -111,6 +111,10 @@
       "definition": "A concurrent programming paradigm where nondeterminism is restricted (don't-care nondeterminism) so that execution permanently commits to the first clause whose guard conditions are satisfied, eliminating backtracking search in parallel environments."
     },
     {
+      "term": "DTrace",
+      "definition": "A production-safe, zero-overhead dynamic tracing framework embedded in kernel and userland execution paths that enables real-time system introspection via dynamically enabled probes and in-kernel verified DScript bytecode execution."
+    },
+    {
       "term": "Dataflow Architecture",
       "definition": "A non-von Neumann computer architecture where the execution order of instructions is not controlled by a program counter, but is determined dynamically by the availability of data (tokens) at instruction inputs."
     },
@@ -355,6 +359,14 @@
       "definition": "An excavation of Apple's browser application architecture, WebKit rendering engine lineage, JavaScriptCore JIT virtual machine, multi-process content isolation, WKWebView app-embedding substrate, and Intelligent Tracking Prevention."
     },
     {
+      "term": "SMF (Service Management Facility)",
+      "definition": "A dependency-aware, state-machine-driven service supervisor in Solaris that replaces legacy imperative SysV init scripts with declarative XML manifests, topological startup, and auto-healing restarter daemons."
+    },
+    {
+      "term": "Solaris",
+      "definition": "A commercial System V Release 4 (SVR4) Unix operating system platform lineage developed by Sun Microsystems (and later Oracle) that introduced DTrace dynamic tracing, SMF service management, ZFS pooled storage, and Zones OS-level virtualization."
+    },
+    {
       "term": "Signals and Slots",
       "definition": "A type-safe, compile-time verified publish/subscribe event communication paradigm introduced by Qt that decouples event emitters from receiver slots without requiring callback function pointers or explicit header dependencies."
     },
@@ -463,8 +475,16 @@
       "definition": "The throughput limitation on computer systems caused by the physical separation of the central processing unit and memory, requiring all instruction and data transfers to share a single bus."
     },
     {
+      "term": "ZFS",
+      "definition": "An integrated pooled storage allocator and transactional copy-on-write (COW) filesystem engineered for Solaris that unifies volume management, Merkle tree checksum data integrity, and instantaneous snapshots."
+    },
+    {
       "term": "Zero-Overhead Abstraction",
       "definition": "The core design principle formulated by Bjarne Stroustrup stating that what you don't use, you don't pay for, and what you do use, you couldn't write any better by hand. Higher-level language constructs must compile down to direct machine code matching or exceeding manual C assembly."
+    },
+    {
+      "term": "Zones (Solaris Containers)",
+      "definition": "A lightweight operating-system-level virtualization abstraction providing isolated execution environments, private process spaces, virtualized networking, and Fair Share Scheduler (FSS) resource controls over a shared kernel."
     },
     {
       "term": "Warp",
@@ -610,6 +630,7 @@
           "qt",
           "safari",
           "smalltalk",
+          "solaris",
           "stack-machines",
           "j-machine",
           "transputers",
@@ -790,6 +811,7 @@
           "safari",
           "smalltalk",
           "smalltalk",
+          "solaris",
           "lisp-machines",
           "winamp"
         ]
@@ -843,6 +865,7 @@
           "qt",
           "qwen",
           "safari",
+          "solaris",
           "j-machine",
           "GLOSSARY",
           "winamp"
@@ -3118,6 +3141,46 @@
       "references": []
     },
     {
+      "id": "solaris",
+      "title": "Solaris: Commercial Unix Lineage & Advanced Systems Substrate",
+      "path": "excavations/solaris.md",
+      "summary": "The **Solaris** computational lineage represents one of the most technologically consequential operating system platforms in computer history. Originating as SunOS—a BSD-derived Unix for Sun Microsystems' Motorola 68000 and SPARC workstations—the platform underwent a pivotal structural transformation in 1992 with the release of Solaris 2, converting the codebase into a System V Release 4 (SVR4) commercial Unix platform designed for enterprise-scale Symmetric Multiprocessing (SMP).\n\nSolaris's lasting contribution to computer systems architecture was not merely its role as the software host for Sun's dominant server market in the 1990s, but its creation and productization of four foundational systems abstractions:\n\n1. **DTrace**: Production-safe, zero-overhead dynamic tracing and instrumentation embedded directly in kernel and userland execution paths.\n2. **SMF (Service Management Facility)**: A dependency-aware, state-machine-driven service supervisor replacing legacy imperative SysV init scripts.\n3. **ZFS**: A radical unification of volume management and filesystems around copy-on-write (COW) pooled storage, end-to-end Merkle tree data integrity, and transactional dataset snapshots.\n4. **Zones (Solaris Containers)**: Low-overhead OS-level virtualization providing isolated execution environments with fine-grained resource controls operating over a single shared kernel.\n\nWhile Sun Microsystems succumbed to commodity x86 economics, cloud computing shifts, and corporate acquisition by Oracle Corporation, the core architectural abstractions engineered within Solaris migrated outward. Through OpenSolaris, the illumos kernel continuation, OpenZFS, eBPF conceptual designs, systemd, and modern container runtimes, Solaris's architectural artifacts outlived both Sun's hardware business and Solaris's own market dominance.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Standardized commercial SVR4 Unix, pioneered production observability, pooled storage, and lightweight OS virtualization."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Created four fundamental systems abstractions: DTrace, ZFS, SMF, and Zones, setting the benchmark for modern operating systems."
+        },
+        "Commercial Success": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Captured dominant market share in enterprise servers and database infrastructure during the 1990s and early 2000s dot-com expansion."
+        },
+        "Modern Potential": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Core abstractions thrive across OpenZFS, eBPF tracing, systemd service management, and container runtimes."
+        },
+        "AI Synergy": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "ZFS high-throughput Merkle-checksummed storage pools and DTrace kernel tracing serve modern large-scale GPU dataset streaming and diagnostic monitoring."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Rebuilding the multi-million line Solaris kernel, ZFS POSIX storage stack, and DTrace dynamic instrumentation engine is technically formidable."
+        }
+      },
+      "modern_relevance": "While Oracle Solaris exists today primarily as a long-tail maintenance OS for legacy enterprise installations, the computational abstractions engineered within the Solaris lineage remain active in modern computing:",
+      "references": []
+    },
+    {
       "id": "stack-machines",
       "title": "Stack Machines",
       "path": "excavations/stack-machines.md",
@@ -3823,6 +3886,13 @@
       "path": "reconstructions/safari_webkit_runtime/",
       "entry_point": "reconstructions/safari_webkit_runtime/safari_sim.py",
       "description": "Executable simulator for the Safari_Webkit_Runtime paradigm."
+    },
+    {
+      "id": "solaris_subsystems",
+      "title": "Solaris_Subsystems",
+      "path": "reconstructions/solaris_subsystems/",
+      "entry_point": "reconstructions/solaris_subsystems/solaris_sim.py",
+      "description": "Executable simulator for the Solaris_Subsystems paradigm."
     },
     {
       "id": "stochastic-computing",

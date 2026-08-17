@@ -80,6 +80,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Project Xanadu](excavations/project-xanadu.md) — *[Bi-directional hypermedia](GLOSSARY.md) network and deep versioning system.*
 - [Qt: The Cross-Platform Application Substrate & Meta-Object Runtime Lineage](excavations/qt.md) — *Meta-Object Compiler (`moc`), signals/slots communication, hierarchical QObject ownership, platform backends (QPA), and Qt Quick / QML declarative scene graph.*
 - [Safari: The WebKit Engine Lineage & Platform Web Runtime Substrate](excavations/safari.md) — *KHTML engine fork, WebKit2 multi-process architecture, JavaScriptCore JIT VMs, app-embedded [WKWebView](GLOSSARY.md) substrate, and Intelligent Tracking Prevention privacy runtime.*
+- [Solaris Operating System](excavations/solaris.md) — *SVR4 commercial Unix platform, production-safe dynamic observability (DTrace), dependency-aware service management (SMF), integrity-centered pooled storage (ZFS), and lightweight OS virtualization (Zones).*
 - [Winamp: The Modular Media Substrate & Extensible Application Platform](excavations/winamp.md) — *C-ABI plugin host architecture, decoupled audio pipelines, declarative skinning layers, and local collection metadata substrate.*
 
 ---
@@ -168,6 +169,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Qt Meta-Object & Signals Simulator](reconstructions/qt_meta_object_signals/) — *`QObject` parent-child ownership trees, Meta-Object Compiler introspection metadata, type-safe signals/slots dispatch, central event loop, and QML reactive property bindings.*
 - [Portage Engine & USE-Flag Simulator](reconstructions/gentoo_portage/) — *Cascading profile policy inheritance, USE flag dependency graph mutation, slotting, LD_PRELOAD build sandboxing, and Var Database (VDB) tracking.*
 - [IBM AS/400 TIMI & Single-Level Store Simulator](reconstructions/ibm_as400_timi/) — *TIMI instruction representation, AOT CISC/RISC retranslation engine, Single-Level Store paging, and DB2 physical/logical file access.*
+- [Solaris Core Subsystems Simulator](reconstructions/solaris_subsystems/) — *DTrace DIF safety verification & probe firing, SMF dependency resolution & restarter state machine, ZFS Copy-on-Write Merkle tree integrity & snapshots, and Zone process isolation & FSS resource controls.*
 
 ---
 
