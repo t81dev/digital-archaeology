@@ -88,6 +88,7 @@ nav:
     - Cursor IDE & Agentic Workspace: excavations/cursor-ide.md
     - Dataflow Computing: excavations/dataflow-computing.md
     - EBCDIC: excavations/ebcdic.md
+    - eBPF Substrate: excavations/ebpf.md
     - Explicit Data Graph Execution (EDGE): excavations/edge-architecture.md
     - FFmpeg Substrate: excavations/ffmpeg.md
     - Fluidic Logic Systems: excavations/fluidic-logic-systems.md

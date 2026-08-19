@@ -653,6 +653,7 @@
           "capability-systems",
           "cursor-ide",
           "ebcdic",
+          "ebpf",
           "ffmpeg",
           "gentoo",
           "google",
@@ -836,6 +837,7 @@
           "apple-metal",
           "apple",
           "cpp",
+          "ebpf",
           "ffmpeg",
           "gentoo",
           "GLOSSARY",
@@ -1622,6 +1624,46 @@
         }
       },
       "modern_relevance": "",
+      "references": []
+    },
+    {
+      "id": "ebpf",
+      "title": "eBPF: In-Kernel Virtualization and Programmable Infrastructure Substrate",
+      "path": "excavations/ebpf.md",
+      "summary": "The extended Berkeley Packet Filter (**eBPF**) represents one of the most significant architectural transformations in modern operating system design: **the conversion of a monolithic kernel supervisor into a dynamically programmable virtual machine execution plane**.\n\nOriginating in 1992 as Classic BPF (cBPF)—a simple, register-based packet filtering mechanism designed by Steven McCanne and Van Jacobson—eBPF was completely redesigned in 2014 by Alexei Starovoitov and Daniel Borkmann. They expanded BPF from a 32-bit packet predicate interpreter into a full 64-bit RISC-like instruction set architecture (ISA), accompanied by a static verifier, kernel-resident state maps, a capability-gated helper interface, and a dynamic Just-In-Time (JIT) compiler.\n\nThrough eBPF, user-space applications can inject custom, compiled bytecode directly into supervisor address space. Rather than relying on fragile Loadable Kernel Modules (LKMs) that risk kernel panics, or context-switching overheads to user space, eBPF enforces safety *ahead of execution* through static verification. Combined with BPF Type Format (BTF) and Compile Once – Run Everywhere (CO-RE) portability mechanisms, eBPF has decoupled Linux kernel capability extension from kernel compilation cycles, redefining production observability (bpftrace, Pixie), high-performance programmable networking (XDP, Cilium), and real-time security enforcement (Falco, Tetragon).",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Transformed the Linux kernel into a dynamically programmable substrate, revolutionizing cloud-native networking, tracing, and security."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Replaced runtime memory sandboxing with ahead-of-time static verification, 64-bit JIT compilation, and BTF/CO-RE dynamic relocations."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Adopted as the core networking and telemetry substrate by major cloud providers (Meta, Google, AWS) and observability platforms."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Essential infrastructure layer powering sidecarless cloud-native service meshes (Cilium), zero-trust security (Tetragon), and AI cluster observability."
+        },
+        "AI Synergy": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Powers real-time network queue diagnostics and storage bypass telemetry across multi-node GPU training clusters."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Rebuilding the full verifier state-tracking engine, JIT compiler backends, BTF relocations, and driver attach-point hooks requires extensive engineering."
+        }
+      },
+      "modern_relevance": "eBPF has become foundational cloud infrastructure:",
       "references": []
     },
     {
