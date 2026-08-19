@@ -149,6 +149,7 @@ Identifying the underlying economic, technical, and ecological forces that selec
 
 ### 3. [Synthesis](synthesis/) (Comparative Architectural Distillation)
 Advanced thematic essays analyzing how failed physical systems leave behind enduring conceptual abstractions that re-shape modern architectures.
+* **[AI Capability Runtime Synthesis](synthesis/ai-capability-runtime-gguf-ebpf.md)** — An architectural synthesis of GGUF model artifacts, llama.cpp local inference, and verifier-constrained eBPF in-kernel execution.
 * **[Architectural Distillation](synthesis/architectural-distillation.md)** — The process of preserving the logical core of failed hardware paradigms.
 * **[Capability-Based Security](synthesis/capability-based-security.md)** — The modern revival of hardware-level capabilities in micro-segmentation and zero-trust computing.
 * **[Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md)** — Why modern performance gains rely on treating compilers and custom ASICs as a single system.

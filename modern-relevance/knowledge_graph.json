@@ -1645,7 +1645,7 @@
         "Commercial Success": {
           "stars": "★★★★★",
           "numeric": 5,
-          "rationale": "Adopted as the core networking and telemetry substrate by major cloud providers (Meta, Google, AWS) and observability platforms."
+          "rationale": "Adopted as the core networking and telemetry substrate by major cloud providers (Meta, [Google](../GLOSSARY.md), AWS) and observability platforms."
         },
         "Modern Potential": {
           "stars": "★★★★★",
@@ -3815,6 +3815,12 @@
     }
   ],
   "synthesis_essays": [
+    {
+      "id": "ai-capability-runtime-gguf-ebpf",
+      "title": "[GGUF](../excavations/llama-cpp.md) + [llama.cpp](../excavations/llama-cpp.md) + [eBPF](../excavations/ebpf.md) Capability Runtime Synthesis",
+      "path": "synthesis/ai-capability-runtime-gguf-ebpf.md",
+      "summary": "**An Architectural Synthesis of Probabilistic Local Model Artifacts, Memory-Bandwidth-Aware Inference Runtimes, and Verifier-Constrained In-Kernel Execution Mediated by a Capability Broker**"
+    },
     {
       "id": "alternative-mathematical-execution-paradigms",
       "title": "Alternative Mathematical Execution Paradigms: Beyond the Binary Von Neumann Architecture",
