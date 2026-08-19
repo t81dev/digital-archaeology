@@ -610,7 +610,7 @@ The following entity relationships define Linux's position in the Digital Archae
 
 ---
 
-*Cross-links: [Ecosystem Lock-In](../patterns/ecosystem-lockin.md), [Plan 9](../excavations/plan-9.md), [Inferno](../excavations/inferno.md), [Capability Systems](../excavations/capability-systems.md), [Multics](../excavations/multics.md), [Microsoft](../excavations/microsoft.md).*
+*Cross-links: [eBPF](ebpf.md), [Ecosystem Lock-In](../patterns/ecosystem-lockin.md), [Plan 9](../excavations/plan-9.md), [Inferno](../excavations/inferno.md), [Capability Systems](../excavations/capability-systems.md), [Multics](../excavations/multics.md), [Microsoft](../excavations/microsoft.md).*
 
 ---
 

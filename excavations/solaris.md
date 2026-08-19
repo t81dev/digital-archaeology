@@ -868,7 +868,7 @@ The following entity relationships define Solaris's position in the Digital Arch
 
 ---
 
-*Cross-links: [Linux](../excavations/linux.md), [Plan 9](../excavations/plan-9.md), [Multics](../excavations/multics.md), [Capability Systems](../excavations/capability-systems.md), [Ecosystem Lock-In](../patterns/ecosystem-lockin.md), [Constraint Migration](../patterns/constraint-migration.md).*
+*Cross-links: [Linux](../excavations/linux.md), [eBPF](ebpf.md), [Plan 9](../excavations/plan-9.md), [Multics](../excavations/multics.md), [Capability Systems](../excavations/capability-systems.md), [Ecosystem Lock-In](../patterns/ecosystem-lockin.md), [Constraint Migration](../patterns/constraint-migration.md).*
 
 ---
 

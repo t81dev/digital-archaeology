@@ -94,7 +94,7 @@ This document provides a conceptual glossary of terms from across the excavation
 * **Ebuild**: An executable package definition script written in Bash for [Gentoo](excavations/gentoo.md)'s Portage system, defining software lifecycle phases (`src_unpack`, `src_configure`, `src_compile`, `src_install`) and conditional dependencies.
   * *See excavation*: [Portage: Package Management as Policy-Constrained Recipe Execution](excavations/portage.md), [Gentoo](excavations/gentoo.md)
 * **eBPF (Extended Berkeley Packet Filter)**: An in-kernel, register-based virtual machine and safe bytecode runtime executing verified programs dynamically inside the supervisor-mode event path of the Linux kernel.
-  * *See excavation*: [Linux: The Ubiquitous Substrate](excavations/linux.md)
+  * *See excavation*: [eBPF: In-Kernel Virtualization and Programmable Infrastructure Substrate](excavations/ebpf.md), [Linux: The Ubiquitous Substrate](excavations/linux.md)
 * **Execution Provider (EP)**: A pluggable compiler and driver adapter inside ONNX Runtime that intercepts, optimizes, and compiles subgraphs for specialized hardware backends (such as CUDA, TensorRT, and OpenVINO).
   * *See excavation*: [ONNX (Open Neural Network Exchange) & The Interoperability Lineage](excavations/onnx.md)
 * **Explicit Data Graph Execution (EDGE)**: An alternative class of microprocessors that partition instructions into logically atomic blocks. Within each block, execution is dataflow-driven, with instructions routing operand tokens directly to their consumers over a physical spatial grid, completely bypassing centralized registers and rename tables.
