@@ -102,12 +102,16 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 
 ## Patterns
 
+- [Abstract Machine Persistence](patterns/abstract-machine-persistence.md) — *Decoupling language runtimes from physical hardware ISAs.*
+- [Constraint Migration](patterns/constraint-migration.md) — *How shifting physical, technological, and economic limits resurrect discarded abstractions.*
 - [Economic Failures](patterns/economic-failures.md) — *Why technically superior ideas fail due to manufacturing economics and cost dynamics.*
 - [Ecosystem Lock-In](patterns/ecosystem-lockin.md) — *How developer tooling, compilers, and legacy momentum favor established norms.*
+- [Explicit Authority Substrate](patterns/explicit-authority-substrate.md) — *Hardware- and capability-enforced principal isolation models.*
 - [Forgotten Abstractions](patterns/forgotten-abstractions.md) — *Elegant concepts and mental models that faded from mainstream use but retain significant potential.*
-- [Recurring Ideas](patterns/recurring-ideas.md) — *How abandoned computing paradigms re-emerge under new physical constraints.*
-- [Constraint Migration](patterns/constraint-migration.md) — *How shifting physical, technological, and economic limits resurrect discarded abstractions.*
 - [Heterogeneous Revival](patterns/heterogeneous-revival.md) — *How historical architectures return as specialized hardware engines inside general systems.*
+- [Interface / Conversion Tax](patterns/interface-conversion-tax.md) — *Performance overheads when bridging disparate representations.*
+- [Operator-Cost Inversion](patterns/operator-cost-inversion.md) — *When historical hardware bottlenecks become modern performance bargains.*
+- [Recurring Ideas](patterns/recurring-ideas.md) — *How abandoned computing paradigms re-emerge under new physical constraints.*
 
 ---
 
@@ -122,7 +126,12 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md) — *Why the modern performance frontier relies on treating compilers and custom silicon as a single unified system.*
 - [The Evolution of Coordination Abstractions](synthesis/evolution-of-coordination-abstractions.md) — *The evolution of process communication and concurrency models from shared-memory to decoupled coordination.*
 - [Cross-Excavation Recent Inclusions Synthesis](synthesis/recent-inclusions-crosscut.md) — *High-density architectural and mechanistic synthesis of RNS, LNS, fluidics, [KeyKOS](GLOSSARY.md) capabilities, and Prolog/WAM/FGCS logic-programming hardware.*
+- [Excavation Completeness Audit](synthesis/excavation-completeness-formatting-audit.md) — *Systematic completeness and formatting audit covering all excavation deep dives.*
 - [Heterogeneous Revival Synergies](synthesis/heterogeneous-revival-synergies.md) — *Pairwise and triple co-design integrations combining spatial, neuromorphic, capability, optical, and cryogenic computing.*
+- [Pattern Catalog Revision Report](synthesis/pattern-catalog-revision-report.md) — *Report on pattern promotion, structural revisions, and cross-paradigm insights.*
+- [Pattern Impact Audit](synthesis/pattern-impact-audit-recent-inclusions.md) — *Impact analysis of newly introduced patterns on historical excavations.*
+- [Repository Consistency Audit](synthesis/repo-consistency-audit.md) — *Full-repository structural, conceptual, and relational consistency audit.*
+- [Repo-Wide Gap Analysis](synthesis/repo-wide-gap-analysis.md) — *Comprehensive audit and resolution report for repository structural coherence.*
 - [The Return of Spatial Computing](synthesis/return-of-spatial-computing.md) — *How sidelined parallel, grid, and dataflow execution models are reclaiming dominance in AI hardware.*
 - [State of Revival: Architectural Synthesis](synthesis/state-of-revival.md) — *High-density evaluation of all six lineages under modern physical, energy, and security constraints.*
 

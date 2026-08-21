@@ -1,8 +1,8 @@
 # Digital Archaeology
 
 [![Research Phase: Active](https://img.shields.io/badge/Research--Phase-Active-success.svg)](ROADMAP.md)
-[![Reconstructions: 34 Simulators & Models](https://img.shields.io/badge/Reconstructions-34%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
-[![Completed Excavations: 63](https://img.shields.io/badge/Completed--Excavations-63-orange.svg)](#project-pillars)
+[![Reconstructions: 35 Simulators & Models](https://img.shields.io/badge/Reconstructions-35%20Simulators-blue.svg)](#interactive-reconstructions-simulators)
+[![Completed Excavations: 69](https://img.shields.io/badge/Completed--Excavations-69-orange.svg)](#project-pillars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > *Excavating forgotten ideas. Recovering lost innovations. Reconstructing alternate futures.*
@@ -36,7 +36,7 @@ Digital Archaeology bridges systems history with modern hardware/software co-des
 4. **Distributed Systems & Single-Level-Store OS**: Decoupled, location-transparent namespaces. Features **Plan 9 Dynamic Namespaces**, **9P Protocol message servers**, **Multics SLS**, and **Inferno VM**.
 
 * **Where is the Revival Scorecard?** Explore the [Modern Revival Readiness Scorecard](modern-relevance/revival-readiness.md) for a quantitative, analytical comparative scorecard and high-density constraint-migration synthesis evaluating these lineages under modern sub-5nm silicon constraints.
-* **Where are the Simulators?** We maintain **18 zero-dependency simulators** and synthesizable SystemVerilog soft-cores. Run them instantly (e.g., `python3 reconstructions/systolic-array/systolic_sim.py` or `python3 reconstructions/plan9-9p/namespace_sim.py`).
+* **Where are the Simulators?** We maintain **35 zero-dependency simulators** and synthesizable SystemVerilog soft-cores. Run them instantly (e.g., `python3 reconstructions/systolic-array/systolic_sim.py` or `python3 reconstructions/plan9-9p/namespace_sim.py`).
 
 ---
 
@@ -72,7 +72,7 @@ Select your specialization to discover immediate entry points into the repositor
         ┌───────────────────────────────┼───────────────────────────────┐
         ▼                               ▼                               ▼
   [EXCAVATIONS]                    [SYNTHESIS]                   [RECONSTRUCTIONS]
- 40 deep dives into              Comparative and                18 executable models
+ 69 deep dives into              Comparative and                35 executable models
  historical paradigms.          architectural essays.           and simulators.
         │                               │                               │
         └───────────────────────────────┼───────────────────────────────┘
@@ -135,25 +135,37 @@ The project structure is organized to bridge historical research with modern exe
 ### 1. [Excavations](excavations/) (Historical Deep Dives)
 Comprehensive, primary-source-backed investigations of 38 landmark computing paradigms, evaluated using a standardized evaluation format and rating system.
 * **Architectures**: [Analog Computing](excavations/analog-computing.md) • [Associative Processors](excavations/associative-processors.md) • [Asynchronous Processors](excavations/asynchronous-processors.md) • [Balanced Ternary](excavations/balanced-ternary.md) • [Cellular Automata Hardware](excavations/cellular-automata-hardware.md) • [Connection Machine](excavations/connection-machine.md) • [Dataflow Computing](excavations/dataflow-computing.md) • [EBCDIC](excavations/ebcdic.md) • [Explicit Data Graph Execution (EDGE)](excavations/edge-architecture.md) • [Fluidic Logic Systems](excavations/fluidic-logic-systems.md) • [Graph Reduction Machines](excavations/graph-reduction-machines.md) • [MIT J-Machine](excavations/j-machine.md) • [Logarithmic Number System (LNS)](excavations/logarithmic-number-system.md) • [Molecular/Biocomputing](excavations/molecular-biocomputing.md) • [Neuromorphic](excavations/neuromorphic-hardware.md) • [ONNX Substrate](excavations/onnx.md) • [Optical Computing](excavations/optical-computing.md) • [Posit Arithmetic](excavations/posit-arithmetic.md) • [Residue Number System (RNS)](excavations/residue-number-system.md) • [Reversible Computing](excavations/reversible-computing.md) • [Stack Machines](excavations/stack-machines.md) • [Stochastic Computing](excavations/stochastic-computing.md) • [Superconducting/Cryogenic](excavations/superconducting-cryogenic.md) • [Systolic Arrays](excavations/systolic-arrays.md) • [Transputers](excavations/transputers.md) • [Vector Supercomputing](excavations/vector-supercomputing.md) • [VLIW/EPIC](excavations/vliw-epic.md) • [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
-* **Operating Systems & Substrates**: [Apple](excavations/apple.md) • [Apple Metal Architecture](excavations/apple-metal.md) • [BeOS / Haiku](excavations/beos-haiku.md) • [Burroughs Large Systems](excavations/burroughs-large-systems.md) • [Capability Systems](excavations/capability-systems.md) • [Cursor IDE](excavations/cursor-ide.md) • [eBPF](excavations/ebpf.md) • [FFmpeg](excavations/ffmpeg.md) • [Gentoo](excavations/gentoo.md) • [Google](excavations/google.md) • [IBM AS/400](excavations/ibm-as400.md) • [Inferno](excavations/inferno.md) • [Intel](excavations/intel.md) • [Intel iAPX 432](excavations/intel-iapx-432.md) • [KeyKOS & Nanokernel Capabilities](excavations/keykos-nanokernel-capabilities.md) • [Large Language Models](excavations/large-language-models.md) • [Linux](excavations/linux.md) • [Lisp Machines](excavations/lisp-machines.md) • [llama.cpp](excavations/llama-cpp.md) • [Microsoft](excavations/microsoft.md) • [Multics](excavations/multics.md) • [Netscape](excavations/netscape.md) • [NVIDIA](excavations/nvidia.md) • [OpenAI](excavations/openai.md) • [Plan 9](excavations/plan-9.md) • [Portage](excavations/portage.md) • [Project Xanadu](excavations/project-xanadu.md) • [Qt](excavations/qt.md) • [Qwen Lineage](excavations/qwen.md) • [Safari](excavations/safari.md) • [Solaris](excavations/solaris.md) • [VirtualBox](excavations/virtualbox.md) • [Winamp](excavations/winamp.md)
+* **Operating Systems & Substrates**: [Apple](excavations/apple.md) • [Apple Metal Architecture](excavations/apple-metal.md) • [BeOS / Haiku](excavations/beos-haiku.md) • [Burroughs Large Systems](excavations/burroughs-large-systems.md) • [Capability Systems](excavations/capability-systems.md) • [Cursor IDE](excavations/cursor-ide.md) • [eBPF](excavations/ebpf.md) • [FFmpeg](excavations/ffmpeg.md) • [Gentoo](excavations/gentoo.md) • [Google](excavations/google.md) • [IBM AS/400](excavations/ibm-as400.md) • [Inferno](excavations/inferno.md) • [Intel](excavations/intel.md) • [Intel iAPX 432](excavations/intel-iapx-432.md) • [KeyKOS & Nanokernel Capabilities](excavations/keykos-nanokernel-capabilities.md) • [Large Language Models](excavations/large-language-models.md) • [Linux](excavations/linux.md) • [Lisp Machines](excavations/lisp-machines.md) • [llama.cpp](excavations/llama-cpp.md) • [Microsoft](excavations/microsoft.md) • [Multics](excavations/multics.md) • [Netscape](excavations/netscape.md) • [NVIDIA](excavations/nvidia.md) • [OpenAI](excavations/openai.md) • [Plan 9](excavations/plan-9.md) • [Portage](excavations/portage.md) • [Project Xanadu](excavations/project-xanadu.md) • [Python Substrate](excavations/python.md) • [Qt](excavations/qt.md) • [Qwen Lineage](excavations/qwen.md) • [Safari](excavations/safari.md) • [Solaris](excavations/solaris.md) • [VirtualBox](excavations/virtualbox.md) • [Winamp](excavations/winamp.md)
 * **Languages, Concurrency & AI**: [C++](excavations/cpp.md) • [Linda Tuple Spaces](excavations/linda-tuple-spaces.md) • [Occam](excavations/occam.md) • [Smalltalk](excavations/smalltalk.md) • [Symbolic AI](excavations/symbolic-ai.md) • [Prolog, WAM & FGCS Hardware](excavations/prolog-wam-fgcs-hardware.md)
 
 ### 2. [Patterns](patterns/) (Architectural Dynamics)
 Identifying the underlying economic, technical, and ecological forces that select for or against computing paradigms.
+* **[Abstract Machine Persistence](patterns/abstract-machine-persistence.md)** — Decoupling language runtimes from physical hardware ISAs.
+* **[Constraint Migration](patterns/constraint-migration.md)** — How shifting physical, technological, and economic bounds resurrect old ideas.
 * **[Economic Failures](patterns/economic-failures.md)** — Cost-per-bit, yield dynamics, and manufacturing scale.
 * **[Ecosystem Lock-In](patterns/ecosystem-lockin.md)** — Tooling momentum, legacy APIs, and why sub-optimal software wins.
+* **[Explicit Authority Substrate](patterns/explicit-authority-substrate.md)** — Hardware- and capability-enforced principal isolation models.
 * **[Forgotten Abstractions](patterns/forgotten-abstractions.md)** — Elegant conceptual models that faded but retain significant utility.
-* **[Constraint Migration](patterns/constraint-migration.md)** — How shifting physical, technological, and economic bounds resurrect old ideas.
 * **[Heterogeneous Revival](patterns/heterogeneous-revival.md)** — How dead host architectures return as hardware accelerators.
+* **[Interface / Conversion Tax](patterns/interface-conversion-tax.md)** — Performance overheads when bridging disparate representations.
+* **[Operator-Cost Inversion](patterns/operator-cost-inversion.md)** — When historical hardware bottlenecks become modern performance bargains.
 * **[Recurring Ideas](patterns/recurring-ideas.md)** — The cyclicity of ideas under shifting engineering limits.
 
 ### 3. [Synthesis](synthesis/) (Comparative Architectural Distillation)
 Advanced thematic essays analyzing how failed physical systems leave behind enduring conceptual abstractions that re-shape modern architectures.
 * **[AI Capability Runtime Synthesis](synthesis/ai-capability-runtime-gguf-ebpf.md)** — An architectural synthesis of GGUF model artifacts, llama.cpp local inference, and verifier-constrained eBPF in-kernel execution.
+* **[Alternative Mathematical Execution Paradigms](synthesis/alternative-mathematical-execution-paradigms.md)** — Non-standard numeric systems (RNS, LNS, Posits, Ternary) for AI acceleration.
 * **[Architectural Distillation](synthesis/architectural-distillation.md)** — The process of preserving the logical core of failed hardware paradigms.
+* **[Architectural Roadmap Re-Evaluation](synthesis/architectural-roadmap-re-evaluation.md)** — Comprehensive review and strategic alignment of the project roadmap.
 * **[Capability-Based Security](synthesis/capability-based-security.md)** — The modern revival of hardware-level capabilities in micro-segmentation and zero-trust computing.
 * **[Compiler-Hardware Co-Design](synthesis/compiler-hardware-co-design.md)** — Why modern performance gains rely on treating compilers and custom ASICs as a single system.
 * **[Cross-Excavation Recent Inclusions Synthesis](synthesis/recent-inclusions-crosscut.md)** — High-density architectural and mechanistic synthesis of RNS, LNS, fluidic logic, KeyKOS capabilities, and Prolog/WAM/FGCS hardware.
+* **[Excavation Completeness Audit](synthesis/excavation-completeness-formatting-audit.md)** — Systematic scoring and formatting audit across all excavation deep dives.
+* **[Heterogeneous Revival Synergies](synthesis/heterogeneous-revival-synergies.md)** — Cross-lineage accelerator integrations for specialized domain coprocessing.
+* **[Pattern Catalog Revision Report](synthesis/pattern-catalog-revision-report.md)** — Promotion and revision documentation for architectural pattern categories.
+* **[Pattern Impact Audit](synthesis/pattern-impact-audit-recent-inclusions.md)** — Impact analysis of newly introduced patterns on historical excavations.
+* **[Repository Consistency Audit](synthesis/repo-consistency-audit.md)** — Full-repository structural, conceptual, and relational consistency verification.
+* **[Repo-Wide Gap Analysis](synthesis/repo-wide-gap-analysis.md)** — Comprehensive audit and resolution report for repository structural coherence.
 * **[The Return of Spatial Computing](synthesis/return-of-spatial-computing.md)** — How dataflow, parallel grid, and neuromorphic models are taking over AI acceleration.
 
 ### 4. [Modern Relevance](modern-relevance/) (Practical Application)
@@ -169,7 +181,7 @@ Direct mapping of historical concepts to contemporary engineering challenges:
 
 ## 💻 Interactive Reconstructions & Simulators
 
-Moving from historical theory to active software and hardware prototyping, we maintain a suite of **15 zero-dependency executable models and simulators** that let you execute and study these paradigms directly.
+Moving from historical theory to active software and hardware prototyping, we maintain a suite of **35 zero-dependency executable models and simulators** that let you execute and study these paradigms directly.
 
 | Simulator / Emulator | Target Historical Paradigm | Key Architectural Highlight | Entry Point |
 | :--- | :--- | :--- | :--- |
@@ -205,6 +217,9 @@ Moving from historical theory to active software and hardware prototyping, we ma
 | 🧮 **[IBM AS/400 TIMI & Single-Level Store Simulator](reconstructions/ibm_as400_timi/)** | [IBM AS/400](excavations/ibm-as400.md) | TIMI instruction representation, AOT CISC/RISC retranslation engine, Single-Level Store paging, and DB2 physical/logical file access. | `reconstructions/ibm_as400_timi/as400_sim.py` |
 | 🖥️ **[Solaris Core Subsystems Simulator](reconstructions/solaris_subsystems/)** | [Solaris](excavations/solaris.md) | DTrace DIF safety verification & probes, SMF dependency resolution & restarter state machine, ZFS Copy-on-Write Merkle tree integrity & snapshots, and Zone process isolation & FSS resource controls. | `reconstructions/solaris_subsystems/solaris_sim.py` |
 | 🎬 **[FFmpeg Transcode Pipeline Simulator](reconstructions/ffmpeg_pipeline/)** | [FFmpeg](excavations/ffmpeg.md) | 5-stage transcode pipeline (demux/decode/filter/encode/mux), `AVPacket`/`AVFrame` reference counting, filter graph execution, and CLI command translator. | `reconstructions/ffmpeg_pipeline/ffmpeg_sim.py` |
+| 🧮 **[ONNX IR & Graph Runtime Simulator](reconstructions/onnx-ir/)** | [ONNX Substrate](excavations/onnx.md) | Model IR, versioned Opset broadcasting, constant folding, Gemm-Relu operator fusion, and CPU/TensorRT Execution Provider partitioning. | `reconstructions/onnx-ir/onnx_sim.py` |
+| ⚡ **[x86 Microcode µop Translation Simulator](reconstructions/x86_uop_translation/)** | [Intel Architecture](excavations/intel.md) | CISC macro-instruction microcode decoding into RISC µops, CPUID feature negotiation, and multi-mode memory address translation. | `reconstructions/x86_uop_translation/x86_uop_sim.py` |
+| 🤖 **[OpenAI Agentic Platform Simulator](reconstructions/openai_sim/)** | [OpenAI Platform Substrate](excavations/openai.md) | ChatML tokenization, stateful server-managed threads, and schema-validated tool output run steps. | `reconstructions/openai_sim/openai_sim.py` |
 
 ### Quick Start: Running the Simulators
 You can run all simulators locally out-of-the-box. They are written in standard Python 3 and require no third-party libraries:
@@ -288,6 +303,15 @@ python3 reconstructions/ibm_as400_timi/as400_sim.py
 
 # Run the FFmpeg Pipeline & CLI Translator Simulator
 python3 reconstructions/ffmpeg_pipeline/ffmpeg_sim.py
+
+# Run the ONNX IR & Graph Runtime Simulator
+python3 reconstructions/onnx-ir/onnx_sim.py
+
+# Run the x86 Microcode µop Translation Simulator
+python3 reconstructions/x86_uop_translation/x86_uop_sim.py
+
+# Run the OpenAI Agentic Platform Simulator
+python3 reconstructions/openai_sim/openai_sim.py
 ```
 
 ---

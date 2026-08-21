@@ -218,6 +218,12 @@ Each subdirectory here contains an interactive, fully-functional simulator, synt
 * **What it does**: Simulates packet/frame flow across demuxer, decoder, filter graph, encoder, and muxer, codec capability table lookup, DAG filter processing, and CLI command parsing.
 * **Entry point**: `reconstructions/ffmpeg_pipeline/ffmpeg_sim.py`
 
+### 35. [ONNX IR & Graph Runtime Simulator](onnx-ir/)
+* **Focus**: Intermediate representation, versioned Opset broadcasting, operator fusion, and execution provider partitioning.
+* **Paradigm**: [ONNX Substrate](../excavations/onnx.md).
+* **What it does**: Simulates ONNX model IR loading, Opset 6 vs 15 broadcasting, constant folding, Gemm-Relu fusion, and CPU/TensorRT Execution Provider partitioning.
+* **Entry point**: `reconstructions/onnx-ir/onnx_sim.py`
+
 ---
 
 ## Running the Simulators & Tests
