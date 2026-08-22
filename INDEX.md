@@ -120,6 +120,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 
 - [Academic Overview & Research Entry Point](synthesis/digital-archaeology-overview.md) — *A short, dense, and citable reference introducing our six core lineages, methodology, and BibTeX records.*
 - [AI Capability Runtime Synthesis](synthesis/ai-capability-runtime-gguf-ebpf.md) — *An architectural synthesis of GGUF model artifacts, llama.cpp local inference, and verifier-constrained eBPF in-kernel execution mediated by a capability broker.*
+- [MCP & File-Sharing Descriptors Synthesis](synthesis/mcp-and-file-sharing-descriptors.md) — *An architectural synthesis of Model Context Protocol (MCP) host-server capability buses and file-sharing descriptor lineages (.torrent, .nzb, Napster, .par2).*
 - [Architectural Distillation](synthesis/architectural-distillation.md) — *How failed computing systems leave behind enduring abstractions that shape modern architectures.*
 - [Architectural Roadmap Re-Evaluation](synthesis/architectural-roadmap-re-evaluation.md) — *A comprehensive, academically rigorous phase-by-phase re-evaluation of the Digital Archaeology Roadmap (Phases I through XIII) under modern post-Dennard, sub-5nm scaling, and zero-trust security constraints.*
 - [Alternative Mathematical Execution Paradigms](synthesis/alternative-mathematical-execution-paradigms.md) — *How symmetric [balanced ternary](excavations/balanced-ternary.md), probabilistic stochastic bitstreams, and symbolic logic resolution trees bypass the memory wall and density constraints of modern AI.*

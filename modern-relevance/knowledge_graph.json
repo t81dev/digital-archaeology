@@ -3923,6 +3923,12 @@
       "summary": "**A systematic analysis of pairwise and triple computing lineage integrations, demonstrating how hybrid co-design overcomes the physical, security, and data conversion boundaries of isolated non-von Neumann architectures.**"
     },
     {
+      "id": "mcp-and-file-sharing-descriptors",
+      "title": "Synthesis of Model Context Protocol (MCP) and File-Sharing Descriptor Architectures (.torrent, .nzb, Napster, .par2)",
+      "path": "synthesis/mcp-and-file-sharing-descriptors.md",
+      "summary": "**An Architectural Synthesis of Compact Manifests, Index/Store Separation, Swarm Retrieval, Parity Verification, and Host Capability Orchestration Across Distribution Protocols and AI Context Buses**"
+    },
+    {
       "id": "pattern-catalog-revision-report",
       "title": "Pattern Catalog Revision Report: Recent Inclusions",
       "path": "synthesis/pattern-catalog-revision-report.md",

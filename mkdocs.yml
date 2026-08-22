@@ -157,6 +157,7 @@ nav:
   - Comparative Synthesis:
     - Research & Academic Overview: synthesis/digital-archaeology-overview.md
     - AI Capability Runtime Synthesis: synthesis/ai-capability-runtime-gguf-ebpf.md
+    - MCP & File-Sharing Descriptors Synthesis: synthesis/mcp-and-file-sharing-descriptors.md
     - Architectural Distillation: synthesis/architectural-distillation.md
     - Architectural Roadmap Re-Evaluation: synthesis/architectural-roadmap-re-evaluation.md
     - Alternative Mathematical Execution Paradigms: synthesis/alternative-mathematical-execution-paradigms.md
