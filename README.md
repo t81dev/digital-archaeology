@@ -154,6 +154,7 @@ Identifying the underlying economic, technical, and ecological forces that selec
 ### 3. [Synthesis](synthesis/) (Comparative Architectural Distillation)
 Advanced thematic essays analyzing how failed physical systems leave behind enduring conceptual abstractions that re-shape modern architectures.
 * **[AI Capability Runtime Synthesis](synthesis/ai-capability-runtime-gguf-ebpf.md)** — An architectural synthesis of GGUF model artifacts, llama.cpp local inference, and verifier-constrained eBPF in-kernel execution.
+* **[MCP & File-Sharing Descriptors Synthesis](synthesis/mcp-and-file-sharing-descriptors.md)** — An architectural synthesis of Model Context Protocol (MCP) host-server capability buses and file-sharing descriptor lineages (.torrent, .nzb, Napster, .par2).
 * **[Alternative Mathematical Execution Paradigms](synthesis/alternative-mathematical-execution-paradigms.md)** — Non-standard numeric systems (RNS, LNS, Posits, Ternary) for AI acceleration.
 * **[Architectural Distillation](synthesis/architectural-distillation.md)** — The process of preserving the logical core of failed hardware paradigms.
 * **[Architectural Roadmap Re-Evaluation](synthesis/architectural-roadmap-re-evaluation.md)** — Comprehensive review and strategic alignment of the project roadmap.
