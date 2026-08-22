@@ -263,6 +263,10 @@
       "definition": "An alternative real-number arithmetic representation that encodes values by their sign and the logarithm of their absolute value to a selected base. LNS simplifies multiplication, division, and exponentiation into simple fixed-point additions and subtractions while shifting the complexity bottleneck to non-linear addition/subtraction approximations and format conversions."
     },
     {
+      "term": "Model Context Protocol (MCP)",
+      "definition": "An open client–server specification that standardizes the capability interface between model hosts and external software execution environments via JSON-RPC 2.0 message contracts, dynamic capability negotiation, and the Tools / Resources / Prompts primitive triad."
+    },
+    {
       "term": "Metal",
       "definition": "A low-overhead, explicit GPU command and resource architecture engineered by Apple to replace legacy OpenGL/OpenCL stacks with immutable Pipeline State Objects, thread-safe command encoding, explicit UMA memory storage modes, and TBDR rasterization integration across Apple platforms."
     },
@@ -667,6 +671,7 @@
           "lisp-machines",
           "llama-cpp",
           "microsoft",
+          "model-context-protocol",
           "multics",
           "netscape",
           "openai",
@@ -849,6 +854,7 @@
           "linux",
           "llama-cpp",
           "microsoft",
+          "model-context-protocol",
           "netscape",
           "nvidia",
           "GLOSSARY",
@@ -909,6 +915,7 @@
           "large-language-models",
           "linux",
           "microsoft",
+          "model-context-protocol",
           "netscape",
           "openai",
           "plan-9",
@@ -2469,6 +2476,46 @@
           "stars": "★★★★★",
           "numeric": 5,
           "rationale": "Recreating the massive surface area of Win32, COM, and legacy compatibility layers is economically and technically prohibitive."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
+    },
+    {
+      "id": "model-context-protocol",
+      "title": "Model Context Protocol (MCP): Host–Server Capability Bus & Open Primitive Substrate",
+      "path": "excavations/model-context-protocol.md",
+      "summary": "The **Model Context Protocol (MCP)**—introduced by Anthropic in late 2024 as an open specification—represents an architectural inflection point in AI systems design: the transition of large language model (LLM) tool and context integration from ad hoc, vendor-proprietary function calling APIs and application-specific plugin runtimes into a **standardized, decoupled host–server capability bus**.\n\nWhile popular discourse frequently frames MCP through short-term developer productivity tropes or vendor market strategy (\"the LSP for AI\"), digital archaeology evaluates MCP as a fundamental structural reorganization of the boundary between probabilistic model reasoning hosts and deterministic software execution environments. MCP's primary technical achievement is the architectural factorization of four distinct concerns:\n\n1. **Host–Server Process & Authority Separation**: Isolating the model orchestration host (e.g., Claude Desktop, Cursor IDE, CLI agents) from external capability execution environments (MCP servers), establishing clear process, trust, and authorization boundaries.\n2. **The Tools / Resources / Prompts Primitive Triad**: Formalizing three distinct operational modalities—**Tools** (invocable operations with JSON Schema input gates), **Resources** (readable, URI-addressed context surfaces), and **Prompts** (server-exposed, reusable interaction templates)—replacing monolithic \"function calling\" with explicit context vs. action boundaries.\n3. **Dynamic Session Lifecycle & Capability Negotiation**: Establishing a bi-directional JSON-RPC 2.0 handshake (`initialize`) where hosts and servers advertise supported feature flags (e.g., roots, sampling, notifications) enabling progressive enhancement rather than hard-coded assumptions.\n4. **Transport-Independent Protocol Core**: Decoupling higher-level semantic message contracts from underlying communication channels (local `stdio` process pipes vs. remote Server-Sent Events / HTTP or WebSockets), permitting identical server logic to run locally on a developer workstation or remotely across enterprise networks.\n\nThis excavation analyzes how MCP emerged from the failure modes of vendor-locked plugin architectures and framework-specific tool registries, evaluates its structural mechanics and schema constraints, engages its analogies to the Language Server Protocol (LSP), and investigates the mechanisms that will determine whether MCP achieves durable, ecosystem-scale persistence or is absorbed into platform-native model runtimes.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Catalyzed the industry-wide shift from proprietary LLM tool APIs to an open host-server protocol."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Elegant adaptation of LSP architecture and JSON-RPC to unify tools, resources, and prompts under capability negotiation."
+        },
+        "Commercial Success": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Rapid early adoption across major AI desktop hosts, IDEs, and developer tooling ecosystems."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Foundational candidate for the universal capability bus connecting probabilistic AI hosts to deterministic systems."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Purpose-built as the operational interface between foundation language models and external software capability."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Clean protocol abstractions and JSON-RPC framing make core reference implementations straightforward to build."
         }
       },
       "modern_relevance": "",
@@ -4036,6 +4083,13 @@
       "path": "reconstructions/mixed-radix-sim/",
       "entry_point": "reconstructions/mixed-radix-sim/ternary_sim.py",
       "description": "Executable simulator for the Mixed Radix Sim paradigm."
+    },
+    {
+      "id": "model_context_protocol",
+      "title": "Model_Context_Protocol",
+      "path": "reconstructions/model_context_protocol/",
+      "entry_point": "reconstructions/model_context_protocol/mcp_sim.py",
+      "description": "Executable simulator for the Model_Context_Protocol paradigm."
     },
     {
       "id": "netscape_browser_runtime",

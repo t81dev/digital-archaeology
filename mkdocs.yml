@@ -108,6 +108,7 @@ nav:
     - llama.cpp Local Inference: excavations/llama-cpp.md
     - Logarithmic Number System: excavations/logarithmic-number-system.md
     - Microsoft Platform: excavations/microsoft.md
+    - Model Context Protocol: excavations/model-context-protocol.md
     - Molecular Biocomputing: excavations/molecular-biocomputing.md
     - Multics: excavations/multics.md
     - Netscape Runtime Substrate: excavations/netscape.md

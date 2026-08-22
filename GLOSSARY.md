@@ -161,6 +161,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Logarithmic Number System (LNS)](excavations/logarithmic-number-system.md)
 
 ### M
+* **Model Context Protocol (MCP)**: An open client–server specification that standardizes the capability interface between model hosts and external software execution environments via JSON-RPC 2.0 message contracts, dynamic capability negotiation, and the Tools / Resources / Prompts primitive triad.
+  * *See excavation*: [Model Context Protocol](excavations/model-context-protocol.md)
 * **Metal**: A low-overhead, explicit GPU command and resource architecture engineered by Apple to replace legacy OpenGL/OpenCL stacks with immutable Pipeline State Objects, thread-safe command encoding, explicit UMA memory storage modes, and TBDR rasterization integration across Apple platforms.
   * *See excavation*: [Apple Metal Architecture](excavations/apple-metal.md)
 * **Metal Shading Language (MSL)**: A C++14-based graphics and compute shading language compiled ahead-of-time into LLVM bitcode (`.air`/`.metallib`) and specialized at runtime for Apple Silicon GPUs.
