@@ -69,6 +69,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Linux: The Ubiquitous Substrate](excavations/linux.md) — *How the decoupling of a stable SCI from dynamic kernel internals coupled with open, collaborative production turned a monolithic Unix-like kernel into ubiquitous platform infrastructure.*
 - [Lisp Machines](excavations/lisp-machines.md) — *Single-user, hardware-integrated dynamic environment.*
 - [Microsoft: The Platform Machine](excavations/microsoft.md) — *How architectural compatibility, APIs (Win32, COM, .NET), and developer-facing abstractions converted software into a self-reinforcing platform machine.*
+- [Model Context Protocol: Host-Server Capability Bus & Open Primitive Substrate](excavations/model-context-protocol.md) — *An open client-server RPC contract, dynamic capability negotiation, JSON Schema tool gates, resource URI context surfaces, and transport-decoupled session lifecycles establishing a standardized host-server capability bus for model-driven systems.*
 - [NVIDIA Architecture: The Programmable Parallel Substrate & CUDA Platform](excavations/nvidia.md) — *How fixed-function graphics hardware evolved into a general-purpose SIMT compute substrate, and how the [CUDA](GLOSSARY.md) platform and Tensor Cores established platform persistence for HPC and AI.*
 - [Multics](excavations/multics.md) — *Influential secure, multi-user timesharing system with segmentation and rings.*
 - [Netscape: The Programmable Web Runtime & Network Client Substrate](excavations/netscape.md) — *Browser as an application platform, embedded JavaScript runtime, NPAPI plugin architecture, SSL/TLS security stack, HTTP cookies, and Mozilla open-source transition.*
@@ -185,6 +186,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Portage Engine & USE-Flag Simulator](reconstructions/gentoo_portage/) — *Cascading profile policy inheritance, USE flag dependency graph mutation, slotting, LD_PRELOAD build sandboxing, and Var Database (VDB) tracking.*
 - [IBM AS/400 TIMI & Single-Level Store Simulator](reconstructions/ibm_as400_timi/) — *TIMI instruction representation, AOT CISC/RISC retranslation engine, Single-Level Store paging, and DB2 physical/logical file access.*
 - [Solaris Core Subsystems Simulator](reconstructions/solaris_subsystems/) — *DTrace DIF safety verification & probe firing, SMF dependency resolution & restarter state machine, ZFS Copy-on-Write Merkle tree integrity & snapshots, and Zone process isolation & FSS resource controls.*
+- [Model Context Protocol Simulator](reconstructions/model_context_protocol/) — *JSON-RPC 2.0 host-server session handshakes, capability negotiation, JSON Schema tool validation gates, URI resource reading, prompt templates, and multi-server tool multiplexing.*
 
 ---
 
