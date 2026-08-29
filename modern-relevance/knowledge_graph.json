@@ -579,6 +579,18 @@
       "definition": "An abstract instruction set and memory architecture developed by David H. D. Warren to execute compiled Prolog efficiently using specialized stacks, heap, trail, and register allocations."
     },
     {
+      "term": "Wayland",
+      "definition": "An asynchronous, object-oriented display protocol and compositor architecture that replaces the server-side drawing and open ambient authority of X11 with client-allocated buffer presentation (`DMA-BUF`), compositor-centric display/input authority, double-buffered surface transactions (`wl_surface`), seat isolation, and capability portals (`xdg-desktop-portal`)."
+    },
+    {
+      "term": "wl_surface",
+      "definition": "The fundamental visual surface abstraction in Wayland representing a rectangular screen region that receives pixel buffers (`attach`), accepts region updates (`damage`), and executes atomic state updates (`commit`)."
+    },
+    {
+      "term": "XWayland",
+      "definition": "A lightweight, rootless X.Org Server binary running as an unprivileged Wayland client that translates legacy X11 protocol calls into Wayland surface commits and buffer submissions."
+    },
+    {
       "term": "Associative / Content-Addressable Execution",
       "definition": "Computing directly on matched data fields in parallel without address decoding, driven by associative matching of data content."
     },
@@ -700,6 +712,7 @@
           "j-machine",
           "transputers",
           "virtualbox",
+          "wayland",
           "winamp"
         ]
       },
@@ -885,6 +898,7 @@
           "steamos",
           "lisp-machines",
           "virtualbox",
+          "wayland",
           "winamp"
         ]
       },
@@ -944,6 +958,7 @@
           "j-machine",
           "GLOSSARY",
           "virtualbox",
+          "wayland",
           "winamp"
         ]
       },
@@ -3874,6 +3889,46 @@
         "Lie, S. (2023). *Wafer-Scale Compute: The Cerebras Architecture*. IEEE Micro, 43(3), 28–36.",
         "Tegze, M., & Janac, J. (1991). *Wafer Scale Integration: Architectures and Algorithms*. Academic Press."
       ]
+    },
+    {
+      "id": "wayland",
+      "title": "Wayland: Compositor-Centered Display Protocol & Surface Architecture",
+      "path": "excavations/wayland.md",
+      "summary": "The Wayland computational lineage is frequently analyzed through simplified desktop-user narratives of \"X11 replacement,\" multi-year distribution migration delays, or driver-path controversies. In digital archaeology, however, **Wayland represents a fundamental structural redefinition of display server architecture**: the collapse of the decoupled display server and compositing window manager into a single authoritative entity—the compositor—and the replacement of server-rendered graphics primitives with client-allocated, surface-committed shared memory and GPU buffers (`DMA-BUF`).\n\nBy discarding X11’s legacy core drawing protocol, central font rendering, global input grabs, and ambient cross-client window peeking, Wayland established an asynchronous, object-oriented wire protocol over Unix sockets. Wayland’s core architecture operates on a minimal set of primitives: interface registries, surfaces (`wl_surface`), buffers (`wl_buffer`), outputs (`wl_output`), and seats (`wl_seat`). Desktop-specific window management semantics (such as title bars, window positioning, and surface stacking) were explicitly excluded from the core protocol and delegated to extension families (`xdg-shell`, `wlr-protocols`). Supported by the **XWayland** compatibility bridge for legacy applications and adopted across major desktop compositors (Mutter, KWin, wlroots, Gamescope), Wayland shifted the Linux desktop from an open, ambiently authoritative drawing canvas to a compositor-mediated capability boundary.",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Re-architected Linux graphical session display architecture, replacing 30 years of legacy X11 display server conventions."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Engineered asynchronous wire IPC, double-buffered surface commits, DMA-BUF zero-copy presentation, and seat input isolation."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Standard default display engine across major Linux distributions, Steam Deck handheld devices, and automotive infotainment systems."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Foundational display substrate for modern Linux desktop environments, low-latency gaming compositors, and HDR display pipelines."
+        },
+        "AI Synergy": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Indirect synergy via GPU buffer sharing and display compositing for multi-modal AI UI interfaces."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Implementing a complete Wayland compositor requires orchestrating DRM/KMS, EGL/GLES, libinput, and complex protocol extension state machines."
+        }
+      },
+      "modern_relevance": "Wayland’s architectural footprint extends across the modern computing spectrum:",
+      "references": []
     },
     {
       "id": "winamp",

@@ -132,6 +132,7 @@ nav:
     - Smalltalk: excavations/smalltalk.md
     - Solaris Operating System: excavations/solaris.md
     - VirtualBox Hosted Hypervisor: excavations/virtualbox.md
+    - Wayland Protocol: excavations/wayland.md
     - Stack Machines: excavations/stack-machines.md
     - Stochastic Computing: excavations/stochastic-computing.md
     - Superconducting & Cryogenic: excavations/superconducting-cryogenic.md
