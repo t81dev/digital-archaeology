@@ -224,6 +224,12 @@ Each subdirectory here contains an interactive, fully-functional simulator, synt
 * **What it does**: Simulates ONNX model IR loading, Opset 6 vs 15 broadcasting, constant folding, Gemm-Relu fusion, and CPU/TensorRT Execution Provider partitioning.
 * **Entry point**: `reconstructions/onnx-ir/onnx_sim.py`
 
+### 36. [SteamOS Dual-Session & Translation Simulator](steamos_dual_session/)
+* **Focus**: Dual-session manager, Gamescope compositor, Proton translation, and A/B immutable updates.
+* **Paradigm**: [SteamOS](../excavations/steamos.md).
+* **What it does**: Simulates session switching between Gaming Mode and Desktop Mode, Gamescope frame pacing/scaling, Proton Win32/D3D to Vulkan translation, and A/B immutable system root updates with auto-rollback.
+* **Entry point**: `reconstructions/steamos_dual_session/steamos_sim.py`
+
 ---
 
 ## Running the Simulators & Tests

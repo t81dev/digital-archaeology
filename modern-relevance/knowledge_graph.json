@@ -179,6 +179,10 @@
       "definition": "A computational and control paradigm that processes continuous or discrete information using the dynamics of fluid media directly within non-moving channels, relying on the Coanda effect, jet interaction, and laminar-to-turbulent transitions."
     },
     {
+      "term": "Gamescope",
+      "definition": "A Wayland-based micro-compositor engineered by Valve for SteamOS that isolates game framebuffers into nested Wayland surfaces, enforcing frame pacing, spatial/temporal resolution upscaling (FSR), color management, and latency-free overlay rendering."
+    },
+    {
       "term": "Generative Communication",
       "definition": "A parallel coordination model pioneered by Linda where processes communicate asynchronously and anonymously by depositing un-addressed, typed data tuples into a globally shared, associative space, which other processes can query by structural pattern matching."
     },
@@ -351,6 +355,10 @@
       "definition": "An industrial open-weight foundation model family developed by Alibaba Cloud's Tongyi Lab, characterized by multi-tier parameter scaling (featuring mid-size 8B–27B/32B deployable variants), 151k-token multilingual BPE vocabulary compression, ChatML boundary framing, native JSON tool-calling schemas, and permissive Apache 2.0 licensing."
     },
     {
+      "term": "Proton",
+      "definition": "An integrated userspace runtime and translation stack for SteamOS (combining Wine, DXVK, VKD3D-Proton, and futex synchronization primitives) that translates Windows PE binaries, Win32 system calls, and Direct3D 9–12 graphics commands directly into POSIX calls and Vulkan SPIR-V shader dispatches at near-native performance."
+    },
+    {
       "term": "Python",
       "definition": "A high-level dynamic programming language and computational lineage defined by everything-is-an-object semantics, dunder protocol lookup, C-extension C-API boundaries, a \"batteries included\" standard library, PyPI packaging infrastructure, and scientific/ML orchestration dominance."
     },
@@ -437,6 +445,10 @@
     {
       "term": "Stack Machine",
       "definition": "A processor architecture that uses a hardware evaluation stack rather than general-purpose registers to execute zero-operand instructions."
+    },
+    {
+      "term": "SteamOS Dual-Session Architecture",
+      "definition": "An operating system design pattern in SteamOS featuring a primary, controller-first Gaming Mode session running the Steam client launcher directly as display manager PID 1 over a Gamescope Wayland compositor, coupled with an unconstrained Desktop Mode (KDE Plasma) escape hatch for general-purpose PC computing."
     },
     {
       "term": "[Stochastic Computing](excavations/stochastic-computing.md)",
@@ -684,6 +696,7 @@
           "smalltalk",
           "solaris",
           "stack-machines",
+          "steamos",
           "j-machine",
           "transputers",
           "virtualbox",
@@ -869,6 +882,7 @@
           "smalltalk",
           "smalltalk",
           "solaris",
+          "steamos",
           "lisp-machines",
           "virtualbox",
           "winamp"
@@ -926,6 +940,7 @@
           "qwen",
           "safari",
           "solaris",
+          "steamos",
           "j-machine",
           "GLOSSARY",
           "virtualbox",
@@ -3442,6 +3457,46 @@
       "references": []
     },
     {
+      "id": "steamos",
+      "title": "SteamOS: Gaming-Session Operating System & Vendor Linux Substrate",
+      "path": "excavations/steamos.md",
+      "summary": "",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Transformed Linux into a viable PC gaming substrate and demonstrated ecosystem-scale API translation."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Engineered Gamescope compositor, Proton DXVK/VKD3D translation stack, and dual-session launcher shell architecture."
+        },
+        "Commercial Success": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Powered millions of Steam Deck handheld devices and established a new hardware product category."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Default OS for handheld PC gaming and foundational infrastructure for open desktop gaming alternatives."
+        },
+        "AI Synergy": {
+          "stars": "★★☆☆☆",
+          "numeric": 2,
+          "rationale": "Limited direct AI architectural integration beyond spatial FSR/upscaling and performance tuning heuristics."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Rebuilding the complete stack requires orchestrating kernel drivers, Wayland compositors, and massive Win32/Direct3D API translation matrices."
+        }
+      },
+      "modern_relevance": "SteamOS's lasting contribution extends far beyond the Steam Deck hardware itself:",
+      "references": []
+    },
+    {
       "id": "stochastic-computing",
       "title": "Stochastic Computing",
       "path": "excavations/stochastic-computing.md",
@@ -4180,6 +4235,13 @@
       "path": "reconstructions/solaris_subsystems/",
       "entry_point": "reconstructions/solaris_subsystems/solaris_sim.py",
       "description": "Executable simulator for the Solaris_Subsystems paradigm."
+    },
+    {
+      "id": "steamos_dual_session",
+      "title": "Steamos_Dual_Session",
+      "path": "reconstructions/steamos_dual_session/",
+      "entry_point": "reconstructions/steamos_dual_session/steamos_sim.py",
+      "description": "SteamOS dual-session manager, Gamescope compositor frame-scaling/pacing, Proton Win32/D3D to Vulkan translation, and A/B immutable system root updates with auto-rollback."
     },
     {
       "id": "stochastic-computing",

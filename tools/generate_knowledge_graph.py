@@ -238,6 +238,8 @@ class KnowledgeGraphGenerator:
                     desc = "Event-driven Spiking Neural Network (SNN) simulator modeling Leaky Integrate-and-Fire (LIF) dynamics, Address-Event Representation (AER), and Spike-Timing-Dependent Plasticity (STDP) learning rules."
                 elif folder == "cryogenic-superconducting":
                     desc = "Picosecond-accurate Rapid Single Flux Quantum (RSFQ) pulse logic timing and thermodynamic cooling penalty simulator."
+                elif folder == "steamos_dual_session":
+                    desc = "SteamOS dual-session manager, Gamescope compositor frame-scaling/pacing, Proton Win32/D3D to Vulkan translation, and A/B immutable system root updates with auto-rollback."
 
                 recons.append({
                     "id": folder,
