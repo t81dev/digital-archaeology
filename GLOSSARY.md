@@ -344,6 +344,14 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Wafer-Scale Integration](excavations/wafer-scale-integration.md)
 * **Warren Abstract Machine (WAM)**: An abstract instruction set and memory architecture developed by David H. D. Warren to execute compiled Prolog efficiently using specialized stacks, heap, trail, and register allocations.
   * *See excavation*: [Prolog, the Warren Abstract Machine, and Fifth Generation Computer Systems (FGCS) Hardware Lineages](excavations/prolog-wam-fgcs-hardware.md)
+* **Wayland**: An asynchronous, object-oriented display protocol and compositor architecture that replaces the server-side drawing and open ambient authority of X11 with client-allocated buffer presentation (`DMA-BUF`), compositor-centric display/input authority, double-buffered surface transactions (`wl_surface`), seat isolation, and capability portals (`xdg-desktop-portal`).
+  * *See excavation*: [Wayland](excavations/wayland.md)
+* **wl_surface**: The fundamental visual surface abstraction in [Wayland](excavations/wayland.md) representing a rectangular screen region that receives pixel buffers (`attach`), accepts region updates (`damage`), and executes atomic state updates (`commit`).
+  * *See excavation*: [Wayland](excavations/wayland.md)
+
+### X
+* **XWayland**: A lightweight, rootless X.Org Server binary running as an unprivileged Wayland client that translates legacy X11 protocol calls into Wayland surface commits and buffer submissions.
+  * *See excavation*: [Wayland](excavations/wayland.md)
 
 ---
 
