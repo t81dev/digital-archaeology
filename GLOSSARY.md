@@ -109,6 +109,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Fluidic Logic Systems](excavations/fluidic-logic-systems.md)
 
 ### G
+* **Gamescope**: A Wayland-based micro-compositor engineered by Valve for [SteamOS](excavations/steamos.md) that isolates game framebuffers into nested Wayland surfaces, enforcing frame pacing, spatial/temporal resolution upscaling (FSR), color management, and latency-free overlay rendering.
+  * *See excavation*: [SteamOS](excavations/steamos.md)
 * **Generative Communication**: A parallel coordination model pioneered by Linda where processes communicate asynchronously and anonymously by depositing un-addressed, typed data tuples into a globally shared, associative space, which other processes can query by structural pattern matching.
   * *See excavation*: [Linda Tuple Spaces](excavations/linda-tuple-spaces.md)
 * **Gentoo**: A source-centric Linux distribution architecture and platform construction lineage that elevates compile-time feature selection (`USE` flags), executable package recipes (`ebuilds`), cascading profiles, version slotting (`SLOT`), and additive overlays into a first-class operating-system management paradigm.
@@ -215,6 +217,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Qwen Lineage](excavations/qwen.md)
 
 ### P
+* **Proton**: An integrated userspace runtime and translation stack for [SteamOS](excavations/steamos.md) (combining Wine, DXVK, VKD3D-Proton, and futex synchronization primitives) that translates Windows PE binaries, Win32 system calls, and Direct3D 9–12 graphics commands directly into POSIX calls and Vulkan SPIR-V shader dispatches at near-native performance.
+  * *See excavation*: [SteamOS](excavations/steamos.md)
 * **Python**: A high-level dynamic programming language and computational lineage defined by everything-is-an-object semantics, dunder protocol lookup, C-extension C-API boundaries, a "batteries included" standard library, PyPI packaging infrastructure, and scientific/ML orchestration dominance.
   * *See excavation*: [Python: Dynamic Language Substrate & Native Extension Engine](excavations/python.md)
 * **PyPI (Python Package Index)**: The central package repository and distribution network for the Python language ecosystem, serving pre-compiled binary Wheels (`.whl`) and source archives (`.tar.gz`).
@@ -264,6 +268,8 @@ This document provides a conceptual glossary of terms from across the excavation
   * *See excavation*: [Systolic Arrays](excavations/systolic-arrays.md)
 * **Stack Machine**: A processor architecture that uses a hardware evaluation stack rather than general-purpose registers to execute zero-operand instructions.
   * *See excavation*: [Stack Machines](excavations/stack-machines.md)
+* **SteamOS Dual-Session Architecture**: An operating system design pattern in [SteamOS](excavations/steamos.md) featuring a primary, controller-first Gaming Mode session running the Steam client launcher directly as display manager PID 1 over a Gamescope Wayland compositor, coupled with an unconstrained Desktop Mode (KDE Plasma) escape hatch for general-purpose PC computing.
+  * *See excavation*: [SteamOS](excavations/steamos.md)
 * **[Stochastic Computing](excavations/stochastic-computing.md)**: A computing paradigm where continuous values are encoded as randomized binary bitstreams, mapping complex arithmetic operations (like multiplication) onto simple logic gates (like AND/XNOR) at the cost of execution time.
   * *See excavation*: [Stochastic Computing](excavations/stochastic-computing.md)
 * **Styx Protocol**: A network protocol derived from 9P, serving as the universal communication interface in the [Inferno](excavations/inferno.md) operating system to expose system services, devices, and files transparently over public networks.
