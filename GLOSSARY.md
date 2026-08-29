@@ -126,6 +126,12 @@ This document provides a conceptual glossary of terms from across the excavation
 * **GGUF**: A unified, self-describing, and single-file model packaging format designed for memory-mapped (`mmap`) zero-copy loading of large neural weights and structured key-value metadata.
   * *See excavation*: [llama.cpp](excavations/llama-cpp.md)
 
+### H
+* **Hugging Face Model Hub**: A central, git-like model/dataset package registry and distribution network standardizing ML computational artifact exchange via versioned repositories, `config.json` architecture manifests, memory-mapped `safetensors` weight blobs, and uniform programmatic loaders.
+  * *See excavation*: [Hugging Face](excavations/huggingface.md)
+* **from_pretrained**: A standardized load contract and resolution protocol introduced by Hugging Face that resolves string repository identifiers or local paths into cached, instantiated, and VRAM-allocated model/tokenizer objects.
+  * *See excavation*: [Hugging Face](excavations/huggingface.md)
+
 ### I
 * **IBM AS/400**: A layered, object-based midrange computing platform introduced in 1988 that pioneered technology-independent machine interfaces (TIMI), kernel-integrated relational databases, and single-level store addressability to achieve multi-decade application binary compatibility across hardware generations.
   * *See excavation*: [IBM AS/400](excavations/ibm-as400.md)
