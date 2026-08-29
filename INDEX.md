@@ -61,6 +61,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Burroughs Large Systems](excavations/burroughs-large-systems.md) — *High-level language hardware integration with descriptors and stack architecture.*
 - [Capability Systems](excavations/capability-systems.md) — *Object-capability OS models ([KeyKOS](GLOSSARY.md), EROS, CHERI).*
 - [Google: The Platform Machine of Scale](excavations/google.md) — *How the repeated conversion of warehouse-scale operational problems into narrow, exportable software abstractions established the datacenter as the computer.*
+- [Hugging Face: The Model Repository Contract & Hub-Mediated Artifact Ecosystem](excavations/huggingface.md) — *How the integration of git-like model repositories, standard `from_pretrained` load contracts, AutoClass facades, structured model cards, and tokenizer/dataset primitives converted machine-learning artifacts into portable, versioned software objects.*
 - [IBM AS/400: Layered Technology-Independent Substrate & Single-Level Store](excavations/ibm-as400.md) — *Layered, object-based machine architecture decoupling application semantics from physical hardware via TIMI and single-level store addressability.*
 - [Inferno](excavations/inferno.md) — *Distributed VM OS utilizing Limbo and the Styx/[9P protocol](GLOSSARY.md).*
 - [Intel: The Architectural & Compatibility Substrate](excavations/intel.md) — *How binary instruction compatibility, microcode µop translation, platform chipsets, and process co-design created an enduring ecosystem substrate.*
@@ -191,6 +192,7 @@ Stack  Ternary Data  Plan [Inferno](excavations/inferno.md) Small Lisp [Occam](e
 - [Solaris Core Subsystems Simulator](reconstructions/solaris_subsystems/) — *DTrace DIF safety verification & probe firing, SMF dependency resolution & restarter state machine, ZFS Copy-on-Write Merkle tree integrity & snapshots, and Zone process isolation & FSS resource controls.*
 - [SteamOS Dual-Session & Translation Simulator](reconstructions/steamos_dual_session/) — *Dual-session manager (Gaming Mode vs Desktop Mode), Gamescope frame scaling & pacing, Proton Win32/D3D to Vulkan translation, and A/B immutable updates with auto-rollback.*
 - [Model Context Protocol Simulator](reconstructions/model_context_protocol/) — *JSON-RPC 2.0 host-server session handshakes, capability negotiation, JSON Schema tool validation gates, URI resource reading, prompt templates, and multi-server tool multiplexing.*
+- [Hugging Face Model Repository & Load Contract Simulator](reconstructions/huggingface_hub_contract/) — *Model-as-repo package contract (`config.json`, `safetensors`, model card), `from_pretrained` multi-tier cache resolution, `AutoModel` dynamic factory dispatch, tokenization, and task pipelines.*
 
 ---
 

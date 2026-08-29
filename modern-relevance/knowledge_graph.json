@@ -211,6 +211,14 @@
       "definition": "A unified, self-describing, and single-file model packaging format designed for memory-mapped (`mmap`) zero-copy loading of large neural weights and structured key-value metadata."
     },
     {
+      "term": "Hugging Face Model Hub",
+      "definition": "A central, git-like model/dataset package registry and distribution network standardizing ML computational artifact exchange via versioned repositories, `config.json` architecture manifests, memory-mapped `safetensors` weight blobs, and uniform programmatic loaders."
+    },
+    {
+      "term": "from_pretrained",
+      "definition": "A standardized load contract and resolution protocol introduced by Hugging Face that resolves string repository identifiers or local paths into cached, instantiated, and VRAM-allocated model/tokenizer objects."
+    },
+    {
       "term": "IBM AS/400",
       "definition": "A layered, object-based midrange computing platform introduced in 1988 that pioneered technology-independent machine interfaces (TIMI), kernel-integrated relational databases, and single-level store addressability to achieve multi-decade application binary compatibility across hardware generations."
     },
@@ -685,6 +693,7 @@
           "ffmpeg",
           "gentoo",
           "google",
+          "huggingface",
           "ibm-as400",
           "inferno",
           "intel-iapx-432",
@@ -874,6 +883,7 @@
           "GLOSSARY",
           "GLOSSARY",
           "google",
+          "huggingface",
           "ibm-as400",
           "inferno",
           "large-language-models",
@@ -939,6 +949,7 @@
           "beos-haiku",
           "ffmpeg",
           "google",
+          "huggingface",
           "keykos-nanokernel-capabilities",
           "large-language-models",
           "linux",
@@ -1954,6 +1965,46 @@
         "Keller, R. M., Lin, F. C., & Tanaka, J. (1984). *Rediflow multicomputer*. Compcon84, 410-417.",
         "Johnsson, T. (1984). *Efficient compilation of lazy functional languages*. Proceedings of the 1984 ACM SIGPLAN symposium on Compiler construction, 268-287. (The foundational paper introducing the G-Machine)."
       ]
+    },
+    {
+      "id": "huggingface",
+      "title": "Hugging Face: The Model Repository Contract & Hub-Mediated Artifact Ecosystem",
+      "path": "excavations/huggingface.md",
+      "summary": "",
+      "scorecard": {
+        "Historical Importance": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Transformed ML model sharing from fragmented checkpoint dumps into a standardized, versioned hub ecosystem."
+        },
+        "Technical Innovation": {
+          "stars": "★★★★☆",
+          "numeric": 4,
+          "rationale": "Pioneered `AutoClass` dynamic load facades, memory-mapped `safetensors`, fast Rust tokenization, and structured model cards."
+        },
+        "Commercial Success": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Ubiquitous global adoption across academic research, AI startups, and enterprise technology companies."
+        },
+        "Modern Potential": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Serving as the central open distribution substrate for foundation models, fine-tunes, datasets, and AI applications."
+        },
+        "AI Synergy": {
+          "stars": "★★★★★",
+          "numeric": 5,
+          "rationale": "Purpose-built entirely around machine learning model distribution, evaluation, fine-tuning, and inference interfaces."
+        },
+        "Difficulty to Recreate": {
+          "stars": "★★★☆☆",
+          "numeric": 3,
+          "rationale": "Core load contracts and formats (`config.json`, `safetensors`, model cards) are straightforward to simulate, but replicating global hub infrastructure and network effects requires massive engineering scale."
+        }
+      },
+      "modern_relevance": "",
+      "references": []
     },
     {
       "id": "ibm-as400",
@@ -4157,6 +4208,13 @@
       "path": "reconstructions/gentoo_portage/",
       "entry_point": "reconstructions/gentoo_portage/portage_sim.py",
       "description": "Executable simulator for the Gentoo_Portage paradigm."
+    },
+    {
+      "id": "huggingface_hub_contract",
+      "title": "Huggingface_Hub_Contract",
+      "path": "reconstructions/huggingface_hub_contract/",
+      "entry_point": "reconstructions/huggingface_hub_contract/hf_hub_sim.py",
+      "description": "Executable simulator for the Huggingface_Hub_Contract paradigm."
     },
     {
       "id": "ibm_as400_timi",
